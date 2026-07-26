@@ -53,9 +53,10 @@ PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
 JST = timezone(timedelta(hours=9))
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 GDELT_DOC_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
+OPENALEX_WORKS_ENDPOINT = "https://api.openalex.org/works"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
 TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v5"
-ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v1"
+ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v2"
 BACKFILL_VERSION = 2
 DEFAULT_POLICY_HISTORY_DAYS = 365
 DEFAULT_TECHNOLOGY_HISTORY_DAYS = 183
@@ -536,6 +537,16 @@ def plain_text(value: str | None, limit: int = 700) -> str:
     if len(text) <= limit:
         return text
     return text[: limit - 1].rstrip() + "…"
+
+
+def decoded_response_text(response: requests.Response) -> str:
+    """Decode HTML using a detected charset when the server omits one."""
+    encoding = normalize_space(response.encoding or "").casefold()
+    if not encoding or encoding in {"iso-8859-1", "latin-1"}:
+        detected = normalize_space(response.apparent_encoding or "")
+        if detected:
+            response.encoding = detected
+    return response.text
 
 
 def entry_summary(entry: Any) -> str:
@@ -1138,6 +1149,62 @@ def fetch_openalex_source(
     return unique_items, result
 
 
+def refresh_academic_review_summaries(
+    session: requests.Session,
+    items: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Rehydrate OpenAlex abstracts for scholarly records awaiting review."""
+    targets = [
+        item
+        for item in items
+        if (
+            item.get("academic_kind", ACADEMIC_KIND_NEWS)
+            != ACADEMIC_KIND_NEWS
+            and item.get("academic_review_version")
+            != ACADEMIC_SCOPE_REVIEW_VERSION
+            and not item.get("_review_summary")
+        )
+    ]
+    attempted = 0
+    restored = 0
+    errors = 0
+    for item in targets:
+        doi = normalize_space(str(item.get("doi", "")))
+        if doi.casefold() in {"", "none", "null"}:
+            continue
+        if not doi.casefold().startswith("https://doi.org/"):
+            doi = "https://doi.org/" + doi.removeprefix("doi:")
+        attempted += 1
+        try:
+            response = session.get(
+                OPENALEX_WORKS_ENDPOINT,
+                params={
+                    "filter": f"doi:{doi}",
+                    "per-page": 1,
+                    "select": "doi,display_name,abstract_inverted_index",
+                },
+                timeout=(8, 30),
+            )
+            response.raise_for_status()
+            payload = response.json()
+            works = payload.get("results", []) if isinstance(payload, dict) else []
+            work = works[0] if isinstance(works, list) and works else {}
+            abstract = openalex_abstract(work) if isinstance(work, dict) else ""
+            if abstract:
+                item["_review_summary"] = abstract
+                restored += 1
+        except Exception:
+            errors += 1
+        if attempted % 20 == 0:
+            time.sleep(0.5)
+    return {
+        "targets": len(targets),
+        "attempted": attempted,
+        "restored": restored,
+        "errors": errors,
+    }
+
+
 def source_domain(source: dict[str, Any]) -> str:
     for key in ("homepage", "feed_url"):
         raw = normalize_space(str(source.get(key, "")))
@@ -1182,7 +1249,7 @@ def page_metadata(
             headers={"Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.2"},
         )
         response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+        soup = BeautifulSoup(decoded_response_text(response), "html.parser")
         title = fallback_title
         for selector, attribute in (
             ('meta[property="og:title"]', "content"),
@@ -1666,6 +1733,124 @@ def fetch_gdelt_archive(
         )
 
 
+def fetch_static_source(
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Load a small, reviewed set of primary-source policy benchmarks."""
+    started = time.monotonic()
+    specs = source.get("items", [])
+    if not isinstance(specs, list):
+        specs = []
+    items: list[dict[str, Any]] = []
+    for spec in specs:
+        if not isinstance(spec, dict):
+            continue
+        published = parse_listing_date(
+            str(spec.get("published_at", "")),
+            collected_at,
+        )
+        if published < cutoff or published > collected_at + timedelta(days=2):
+            continue
+        topics = [
+            normalize_space(str(topic))
+            for topic in spec.get("topics", [])
+            if normalize_space(str(topic)) in TOPIC_KEYWORDS
+        ]
+        policy_areas = [
+            normalize_space(str(area))
+            for area in spec.get("policy_areas", [])
+            if normalize_space(str(area)) in POLICY_AREA_KEYWORDS
+        ]
+        topics = list(dict.fromkeys(topics))
+        policy_areas = list(dict.fromkeys(policy_areas))
+        if not topics and not policy_areas:
+            continue
+        title = normalize_space(str(spec.get("title", "")))
+        summary = plain_text(str(spec.get("summary", "")), limit=1200)
+        item = build_item(
+            source=source,
+            title=title,
+            link=normalize_space(str(spec.get("url", ""))),
+            summary=summary,
+            published=published,
+            collected_at=collected_at,
+            extra_text=" ".join([*topics, *policy_areas]),
+        )
+        if not item:
+            continue
+        content_type = normalize_space(
+            str(
+                spec.get(
+                    "scope_content_type",
+                    "technology_policy" if policy_areas else "technology_implementation",
+                )
+            )
+        )
+        article_frames: list[str] = []
+        if content_type != "technology_policy" and topics:
+            article_frames.append("Technology Innovation")
+        if policy_areas:
+            article_frames.append("Innovation Policy")
+        item.update(
+            {
+                "topics": topics,
+                "topic": " | ".join(topics),
+                "policy_areas": policy_areas,
+                "policy_area": " | ".join(policy_areas),
+                "innovation_policy": bool(policy_areas),
+                "article_frames": article_frames,
+                "article_frame": " | ".join(article_frames),
+                "policy_relevance": max(
+                    0, min(5, int(spec.get("policy_relevance", 5)))
+                ),
+                "title_ja": plain_text(
+                    str(spec.get("title_ja", title)),
+                    limit=180,
+                ),
+                "summary_ja": plain_text(
+                    str(spec.get("summary_ja", summary)),
+                    limit=420,
+                ),
+                "scope_review_version": TECH_SCOPE_REVIEW_VERSION,
+                "scope_reason": plain_text(
+                    str(
+                        spec.get(
+                            "scope_reason",
+                            "政府・国際機関の正式な科学技術・イノベーション政策。",
+                        )
+                    ),
+                    limit=240,
+                ),
+                "scope_content_type": content_type,
+                "scope_focus": plain_text(
+                    str(spec.get("scope_focus", title)),
+                    limit=180,
+                ),
+                "scope_evidence": plain_text(
+                    str(spec.get("scope_evidence", summary)),
+                    limit=280,
+                ),
+                "academic_kind": ACADEMIC_KIND_NEWS,
+                "academic_review_version": "",
+                "discovery_method": "Curated primary-source policy benchmark",
+                "notes": "Pinned official policy benchmark.",
+                "pinned_policy_benchmark": True,
+            }
+        )
+        items.append(item)
+    items.sort(key=lambda item: item.get("published_at", ""), reverse=True)
+    return items, FeedResult(
+        source=source,
+        entries_seen=len(specs),
+        entries_kept=len(items),
+        status="ok",
+        detail="",
+        elapsed_seconds=round(time.monotonic() - started, 2),
+    )
+
+
 def fetch_source(
     session: requests.Session,
     source: dict[str, Any],
@@ -1686,6 +1871,8 @@ def fetch_source(
                 collected_at,
                 backfill,
             )
+        if fetch_mode == "static":
+            return fetch_static_source(source, cutoff, collected_at)
         scan_limit = (
             500
             if fetch_mode == "link_list"
@@ -1710,7 +1897,9 @@ def fetch_source(
                 for pattern in source.get("include_link_patterns", [])
                 if str(pattern).strip()
             ]
-            nodes = BeautifulSoup(response.text, "html.parser").select("a[href]")
+            nodes = BeautifulSoup(
+                decoded_response_text(response), "html.parser"
+            ).select("a[href]")
             entries_seen = len(nodes)
             for node in nodes[:scan_limit]:
                 title = normalize_space(node.get_text(" ", strip=True))
@@ -1745,7 +1934,7 @@ def fetch_source(
                     items.append(item)
         elif fetch_mode == "html":
             settings = source.get("html", {})
-            soup = BeautifulSoup(response.text, "html.parser")
+            soup = BeautifulSoup(decoded_response_text(response), "html.parser")
             nodes = soup.select(settings["item_selector"])
             entries_seen = len(nodes)
             for node in nodes[:scan_limit]:
@@ -1868,6 +2057,43 @@ def deduplicate(
         if duplicate is not None:
             if item.get("_review_summary"):
                 duplicate["_review_summary"] = item["_review_summary"]
+            if item.get("pinned_policy_benchmark"):
+                curated_fields = (
+                    "region",
+                    "country",
+                    "topic",
+                    "topics",
+                    "article_frame",
+                    "article_frames",
+                    "innovation_policy",
+                    "policy_area",
+                    "policy_areas",
+                    "policy_relevance",
+                    "source_type",
+                    "source",
+                    "organization",
+                    "title",
+                    "title_ja",
+                    "summary",
+                    "summary_ja",
+                    "url",
+                    "canonical_url",
+                    "status",
+                    "notes",
+                    "scope_review_version",
+                    "scope_reason",
+                    "scope_content_type",
+                    "scope_focus",
+                    "scope_evidence",
+                    "academic_kind",
+                    "academic_review_version",
+                    "discovery_method",
+                    "collection_mode",
+                    "source_priority",
+                )
+                for field in curated_fields:
+                    duplicate[field] = item.get(field)
+                duplicate["pinned_policy_benchmark"] = True
             current_url = normalize_space(str(duplicate.get("url", "")))
             current_doi = normalize_space(str(duplicate.get("doi", "")))
             if current_url.casefold() in {"", "none", "null"} and item.get("url"):
@@ -2411,7 +2637,25 @@ def enrich_japanese_summaries(
     for start in range(0, len(selected), batch_size):
         batch = selected[start : start + batch_size]
         try:
-            summaries = japanese_summary_request(batch, token, model)
+            summaries: dict[str, dict[str, Any]] = {}
+            unresolved = list(batch)
+            for response_attempt in range(3):
+                partial = japanese_summary_request(unresolved, token, model)
+                summaries.update(partial)
+                unresolved = [
+                    item
+                    for item in unresolved
+                    if (item.get("canonical_id") or item.get("id", ""))
+                    not in summaries
+                ]
+                if not unresolved:
+                    break
+                time.sleep(float(response_attempt + 1))
+            if unresolved:
+                errors.append(
+                    f"batch {start // batch_size + 1}: "
+                    f"{len(unresolved)} item(s) omitted after retries"
+                )
             for item in batch:
                 item_id = item.get("canonical_id") or item.get("id", "")
                 translated = summaries.get(item_id)
@@ -2988,6 +3232,15 @@ def run(
     new_items, duplicates = deduplicate(candidates, existing)
     merged = new_items + existing
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
+    academic_refresh = refresh_academic_review_summaries(session, merged)
+    if academic_refresh["targets"]:
+        print(
+            "[ACADEMIC] "
+            f"targets={academic_refresh['targets']} "
+            f"attempted={academic_refresh['attempted']} "
+            f"abstracts={academic_refresh['restored']} "
+            f"errors={academic_refresh['errors']}"
+        )
     summary_result = enrich_japanese_summaries(merged, new_items)
     normalize_reviewed_topics(merged)
     normalize_reviewed_policy_axis(merged)

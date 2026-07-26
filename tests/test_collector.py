@@ -1,9 +1,11 @@
 import importlib.util
 import json
+import os
 import sys
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest import mock
 
 
 MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "collect.py"
@@ -414,6 +416,199 @@ class CollectorTests(unittest.TestCase):
             "We demonstrate a new quantum control method.",
         )
         self.assertEqual(existing[0]["url"], "https://openalex.org/W123")
+
+    def test_deduplication_prefers_curated_policy_benchmark(self):
+        existing = [
+            {
+                "canonical_id": "old-id",
+                "url": "https://example.gov/policy",
+                "title": "National science strategy",
+                "status": "Excluded",
+                "scope_review_version": "older-review",
+            }
+        ]
+        candidate = {
+            "canonical_id": "new-id",
+            "canonical_url": "https://example.gov/policy",
+            "url": "https://example.gov/policy",
+            "title": "National science strategy",
+            "title_fingerprint": collector.title_fingerprint(
+                "National science strategy"
+            ),
+            "title_ja": "国家科学戦略",
+            "summary_ja": "政府が国家科学戦略を決定した。",
+            "topics": [],
+            "topic": "",
+            "article_frames": ["Innovation Policy"],
+            "article_frame": "Innovation Policy",
+            "innovation_policy": True,
+            "policy_areas": ["National Programs & Strategy"],
+            "policy_area": "National Programs & Strategy",
+            "policy_relevance": 5,
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "scope_content_type": "technology_policy",
+            "scope_reason": "正式な国家戦略。",
+            "scope_focus": "国家科学戦略",
+            "scope_evidence": "政府が決定した。",
+            "pinned_policy_benchmark": True,
+        }
+        added, skipped = collector.deduplicate([candidate], existing)
+        self.assertEqual(added, [])
+        self.assertEqual(skipped, 1)
+        self.assertEqual(existing[0]["status"], "New")
+        self.assertEqual(
+            existing[0]["scope_review_version"],
+            collector.TECH_SCOPE_REVIEW_VERSION,
+        )
+        self.assertEqual(existing[0]["title_ja"], "国家科学戦略")
+
+    def test_response_decoder_detects_utf8_for_japanese_pages(self):
+        response = collector.requests.Response()
+        response.status_code = 200
+        response._content = "統合イノベーション戦略2026".encode("utf-8")
+        response.encoding = "ISO-8859-1"
+        self.assertEqual(
+            collector.decoded_response_text(response),
+            "統合イノベーション戦略2026",
+        )
+
+    def test_static_policy_benchmarks_are_reviewed_and_publishable(self):
+        source = next(
+            source
+            for source in collector.load_config()["sources"]
+            if source["name"] == "NSF Policy Benchmarks"
+        )
+        items, result = collector.fetch_static_source(
+            source,
+            datetime(2025, 7, 26, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 2)
+        self.assertTrue(all(collector.is_publishable(item) for item in items))
+        self.assertTrue(
+            any("NSF X-Labs" in item["title"] for item in items)
+        )
+
+    def test_academic_abstract_is_rehydrated_before_review(self):
+        class FakeResponse:
+            def raise_for_status(self):
+                return None
+
+            def json(self):
+                return {
+                    "results": [
+                        {
+                            "abstract_inverted_index": {
+                                "We": [0],
+                                "demonstrate": [1],
+                                "a": [2],
+                                "new": [3],
+                                "quantum": [4],
+                                "control": [5],
+                                "method.": [6],
+                            }
+                        }
+                    ]
+                }
+
+        class FakeSession:
+            def get(self, *args, **kwargs):
+                return FakeResponse()
+
+        item = {
+            "academic_kind": collector.ACADEMIC_KIND_JOURNAL,
+            "academic_review_version": "older-review",
+            "doi": "https://doi.org/10.1234/example",
+        }
+        result = collector.refresh_academic_review_summaries(
+            FakeSession(),
+            [item],
+        )
+        self.assertEqual(result["restored"], 1)
+        self.assertEqual(
+            item["_review_summary"],
+            "We demonstrate a new quantum control method.",
+        )
+
+    def test_summary_review_retries_items_omitted_by_model(self):
+        items = [
+            {
+                "canonical_id": "article-1",
+                "title": "New AI method one",
+                "summary": "Researchers demonstrate a new AI method.",
+                "source": "Example",
+                "source_type": "Journal Article",
+                "academic_kind": collector.ACADEMIC_KIND_NEWS,
+                "region": "Global",
+                "topics": ["Artificial Intelligence"],
+                "policy_areas": [],
+                "policy_relevance": 0,
+                "status": "New",
+            },
+            {
+                "canonical_id": "article-2",
+                "title": "New AI method two",
+                "summary": "Researchers demonstrate another AI method.",
+                "source": "Example",
+                "source_type": "Journal Article",
+                "academic_kind": collector.ACADEMIC_KIND_NEWS,
+                "region": "Global",
+                "topics": ["Artificial Intelligence"],
+                "policy_areas": [],
+                "policy_relevance": 0,
+                "status": "New",
+            },
+        ]
+
+        def translated(item_id):
+            return {
+                "in_scope": True,
+                "topics": ["Artificial Intelligence"],
+                "is_innovation_policy": False,
+                "policy_areas": [],
+                "policy_relevance": 0,
+                "reason": "AIの具体的な新手法。",
+                "content_type": "research_breakthrough",
+                "technical_focus": "AIの新手法",
+                "scope_evidence": "新手法を実証した。",
+                "title_ja": f"AI新手法 {item_id}",
+                "summary_ja": "研究チームがAIの新手法を実証した。",
+            }
+
+        calls = []
+
+        def fake_request(batch, token, model):
+            calls.append([item["canonical_id"] for item in batch])
+            if len(calls) == 1:
+                return {"article-1": translated("article-1")}
+            return {
+                item["canonical_id"]: translated(item["canonical_id"])
+                for item in batch
+            }
+
+        with (
+            mock.patch.dict(
+                os.environ,
+                {
+                    "GITHUB_TOKEN": "test-token",
+                    "JAPANESE_SUMMARY_BACKFILL_LIMIT": "10",
+                    "JAPANESE_SUMMARY_BATCH_SIZE": "10",
+                },
+            ),
+            mock.patch.object(
+                collector,
+                "japanese_summary_request",
+                side_effect=fake_request,
+            ),
+            mock.patch.object(collector.time, "sleep"),
+        ):
+            result = collector.enrich_japanese_summaries(items, items)
+
+        self.assertEqual(calls, [["article-1", "article-2"], ["article-2"]])
+        self.assertEqual(result["reviewed"], 2)
+        self.assertEqual(result["pending"], 0)
 
     def test_public_item_includes_academic_metadata(self):
         public = collector.public_item(
