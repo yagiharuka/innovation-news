@@ -1684,7 +1684,11 @@ def fetch_source(
                 collected_at,
                 backfill,
             )
-        scan_limit = 120 if backfill else 40
+        scan_limit = (
+            500
+            if fetch_mode == "link_list"
+            else (120 if backfill else 40)
+        )
         item_limit = 24 if backfill else 8
         fetch_url = (
             source.get("listing_url")
