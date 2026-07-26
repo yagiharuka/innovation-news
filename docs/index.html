@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="世界の技術・政策ニュースを、信頼できる情報源だけから収集する日次ブリーフ">
+    <title>World Innovation Brief</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#articles">記事一覧へ移動</a>
+    <header class="masthead">
+      <div class="masthead__inner">
+        <div>
+          <p class="eyebrow">DAILY INTELLIGENCE LEDGER</p>
+          <h1>World Innovation Brief</h1>
+          <p class="subtitle">世界イノベーション朝刊</p>
+        </div>
+        <a class="download" href="./innovation_news_ledger.xlsx" download>
+          <span>Excel台帳</span>
+          <strong>ダウンロード</strong>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary" aria-labelledby="summary-title">
+        <div>
+          <p class="section-label" id="summary-title">TODAY'S COVERAGE</p>
+          <p class="summary__date" id="updated-at">更新準備中</p>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>掲載記事</dt>
+            <dd id="article-count">—</dd>
+          </div>
+          <div>
+            <dt>登録情報源</dt>
+            <dd id="source-count">—</dd>
+          </div>
+          <div>
+            <dt>表示件数</dt>
+            <dd id="visible-count">—</dd>
+          </div>
+        </dl>
+        <p class="source-policy">
+          政府・国際機関、企業公式、主要メディア、著名政策研究機関、主要学術誌の許可リストのみ。
+          匿名ブログや転載サイトは収集しません。
+        </p>
+      </section>
+
+      <section class="controls" aria-labelledby="filter-title">
+        <div class="controls__heading">
+          <div>
+            <p class="section-label">FILTERS</p>
+            <h2 id="filter-title">記事を絞り込む</h2>
+          </div>
+          <button id="reset-filters" class="text-button" type="button">条件をリセット</button>
+        </div>
+        <div class="filter-grid">
+          <label class="search-field">
+            <span>キーワード</span>
+            <input id="search" type="search" placeholder="例：量子、半導体、規制" autocomplete="off">
+          </label>
+          <label>
+            <span>地域</span>
+            <select id="region">
+              <option value="">すべて</option>
+            </select>
+          </label>
+          <label>
+            <span>分野</span>
+            <select id="topic">
+              <option value="">すべて</option>
+            </select>
+          </label>
+          <label>
+            <span>情報源の種類</span>
+            <select id="source-type">
+              <option value="">すべて</option>
+            </select>
+          </label>
+          <label>
+            <span>政策関連度</span>
+            <select id="policy-score">
+              <option value="0">すべて</option>
+              <option value="3">3以上</option>
+              <option value="4">4以上</option>
+              <option value="5">5のみ</option>
+            </select>
+          </label>
+          <label>
+            <span>並び順</span>
+            <select id="sort-order">
+              <option value="newest">新しい順</option>
+              <option value="policy">政策関連度順</option>
+              <option value="source">情報源順</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="feed" aria-labelledby="feed-title">
+        <div class="feed__heading">
+          <div>
+            <p class="section-label">LATEST BRIEF</p>
+            <h2 id="feed-title">収集記事</h2>
+          </div>
+          <p id="feed-note" class="feed__note" aria-live="polite">データを読み込んでいます</p>
+        </div>
+        <div id="articles" class="articles" aria-live="polite" aria-busy="true"></div>
+        <nav class="pagination" aria-label="記事一覧のページ送り">
+          <button id="previous-page" type="button">前へ</button>
+          <span id="page-status">1 / 1</span>
+          <button id="next-page" type="button">次へ</button>
+        </nav>
+      </section>
+    </main>
+
+    <footer>
+      <p>原文を必ず確認してください。記事の要約・分類・政策関連度は自動処理です。</p>
+      <a href="./data/source_status.json">情報源の取得状況</a>
+    </footer>
+  </body>
+</html>

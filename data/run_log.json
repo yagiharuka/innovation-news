@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "runs": [
+    {
+      "run_at": "2026-07-26T09:56:03Z",
+      "run_at_jst": "2026-07-26T18:56:03+09:00",
+      "feeds_checked": 33,
+      "feeds_succeeded": 20,
+      "new_items": 94,
+      "duplicates_skipped": 0,
+      "feed_errors": 13,
+      "duration_seconds": 129.43,
+      "note": "Initial lookback"
+    },
+    {
+      "run_at": "2026-07-26T10:05:06Z",
+      "run_at_jst": "2026-07-26T19:05:06+09:00",
+      "feeds_checked": 33,
+      "feeds_succeeded": 24,
+      "new_items": 5,
+      "duplicates_skipped": 39,
+      "feed_errors": 9,
+      "duration_seconds": 165.89,
+      "note": "Daily update"
+    },
+    {
+      "run_at": "2026-07-26T10:10:55Z",
+      "run_at_jst": "2026-07-26T19:10:55+09:00",
+      "feeds_checked": 34,
+      "feeds_succeeded": 25,
+      "new_items": 3,
+      "duplicates_skipped": 45,
+      "feed_errors": 9,
+      "duration_seconds": 194.65,
+      "note": "Daily update"
+    }
+  ]
+}

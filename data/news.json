@@ -1,0 +1,1977 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-26T10:10:55Z",
+  "updated_at_jst": "2026-07-26T19:10:55+09:00",
+  "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
+  "article_count": 102,
+  "source_count": 34,
+  "items": [
+    {
+      "id": "fbf0c9b2010e9cdb4ff4a650",
+      "published_at": "2026-07-25T20:00:53Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "Mega datacentre planned for outer Melbourne will be six times bigger than a large shopping centre",
+      "summary": "More than 3,600 people sign petition for careful assessment of proposed AI hub, now a flashpoint for national debate on datacentre boom Follow our Australia news live blog for latest updates Get our breaking news email , free app or daily news podcast For some residents it started with a letter in the mailbox. It was a “friendly introduction from the team behind the Victorian AI hub”. “I am knocking on doors to explain what we have in mind and, most importantly, to listen,” the letter from Syncline Energy stated. Continue reading...",
+      "url": "https://www.theguardian.com/australia-news/2026/jul/26/mega-datacentre-planned-for-outer-melbourne-will-be-almost-six-times-the-size-of-chadstone-shopping-centre",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bd739fbc33fb8bb2bb1f6e52",
+      "published_at": "2026-07-25T14:32:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "Samsung Electronics and Broadcom Expand Strategic Collaboration Across Memory and Foundry Technologies",
+      "summary": "Samsung Electronics and Broadcom today announced the signing of a memorandum of understanding (MOU) to expand their strategic collaboration across memory and foundry technologies, supporting the next generation of AI infrastructure. The MOU was announced during the AI Summit, held at The Midway in San Francisco. Attendees included Jinman Han, President and Head of Samsung […]",
+      "url": "https://news.samsung.com/global/samsung-electronics-and-broadcom-expand-strategic-collaboration-across-memory-and-foundry-technologies",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "144f9038d6abd12e69ae1122",
+      "published_at": "2026-07-25T13:00:43Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "The AI jobs apocalypse probably isn’t coming anytime soon",
+      "summary": "Artificial intelligence may not deliver on its promise of vast economic opportunity at a price that humanity is willing to pay In March, Anthropic, the cutting-edge artificial intelligence business that gave us the chatbot Claude, published an analysis on the impact of AI on employment, to help us assess the claim that intelligent robots were about to redefine human existence, ending demand for human labor. Last year in May, Anthropic’s co-founder, Dario Amodei, claimed AI could wipe out half of all entry-level jobs in one to five years. Last January, he told us AI would probably become a “general labor substitute for humans”. In June he said we risk “a world where the economic trade-off di…",
+      "url": "https://www.theguardian.com/technology/2026/jul/25/ai-jobs-apocalypse-human-labor",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ae772fcc12d71afd038c86c2",
+      "published_at": "2026-07-25T11:12:11Z",
+      "collected_at_jst": "2026-07-26T19:10:55+09:00",
+      "region": "Middle East",
+      "country": "United Arab Emirates",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The National Technology",
+      "organization": "The National",
+      "title": "Risky bet: The winners and losers from the OpenAI-Hugging Face hacking mess",
+      "summary": "When OpenAI revealed this week that one of its AI models went rogue during a security test and autonomously hacked the start-up Hugging Face, it came as a shock. Questions were raised quickly, but there was no immediate clarity. Hugging Face co-founder and chief executive Clem Delangue said the incident was \"possibly the first of its kind\". As with any serious tech incident, there are those who stand to gain and other who stand to lose. And the circumstances can be as complex as the hacking is. Losers: OpenAI and Hugging Face Let's start with the obvious matter. It was a PR nightmare for ChatGPT maker OpenAI, as well as Hugging Face, as they bore the brunt of the mess, albeit for different…",
+      "url": "https://www.thenationalnews.com/future/technology/2026/07/25/risky-bet-the-winners-and-losers-from-the-openai-hugging-face-hacking-mess/",
+      "first_seen": "2026-07-26T19:10:55+09:00",
+      "status": "New"
+    },
+    {
+      "id": "818d7fcb63b548448b301aec",
+      "published_at": "2026-07-25T05:00:35Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "‘I thought, I’ve tried everything else, why not give AI a shot?’: the long-lost family reunited by ChatGPT",
+      "summary": "Avtar spent decades wondering what happened to the mother he never got to know. Thousands of miles away, Nicci was haunted by the story of a half-brother given away before she was born. How did a chatbot bring them together? As a small boy growing up in Amritsar, India, in the 1960s, Avtar Singh used to hear whispers. Your mum isn’t really your mum , the rumours would say. Your mum lives abroad. Avtar didn’t really pay any attention to it. “I thought, the neighbours are just making up stories.” But the stories were true: the woman raising Avtar was actually his grandmother. When he was too young to remember it, his father had emigrated to Canada to work as a teacher, leaving Avtar in the ca…",
+      "url": "https://www.theguardian.com/lifeandstyle/ng-interactive/2026/jul/25/long-lost-family-reunited-chatgpt-artificial-intelligence-ai",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "87b839503197ad74fc686cf1",
+      "published_at": "2026-07-24T18:00:01Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "IEEE Spectrum",
+      "organization": "IEEE Spectrum",
+      "title": "2022 IEEE President K.J. Ray Liu Honored for His Leadership",
+      "summary": "Unlike many budding engineers, K.J. Ray Liu wasn’t inspired to enter the field by tinkering with electronics or following in the footsteps of a family member. Growing up in Taichung, Taiwan, he answered his government’s call for students to become electrical engineers to help manufacture semiconductors in the 1970s, when the country’s economy was struggling. “Students who were good in math, science, and physics all wanted to be an electrical engineer because that was the top priority of the government,” Liu says. “That’s how I got into engineering. Now Taiwan is a world leader in semiconductors.” K.J. Ray Liu Occupation Retired professor of information technology and a digital signal proces…",
+      "url": "https://spectrum.ieee.org/ieee-president-ray-liu-award",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "258e9b19598256f555ff9019",
+      "published_at": "2026-07-24T17:32:29Z",
+      "collected_at_jst": "2026-07-26T19:10:55+09:00",
+      "region": "United States",
+      "country": "United Arab Emirates",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The National Technology",
+      "organization": "The National",
+      "title": "Nvidia, Microsoft and IBM among companies endorsing open-weight AI models",
+      "summary": "Nvidia chief executive Jensen Huang joined X on Friday and used his first post to champion AI models that can be downloaded and adapted, arguing they are vital to preserving America’s lead in artificial intelligence. Mr Huang attached a letter signed by 25 major companies, including Microsoft, Palantir , Perplexity, CrowdStrike and IBM that endorsed open-source software development and “open-weight” AI models. Some US officials have raised concerns that AI models could pose national security risks, while companies such as OpenAI and Anthropic still largely oppose open architecture for proprietary reasons. “Open source did more than lower the cost of software; it created a shared foundation…",
+      "url": "https://www.thenationalnews.com/future/technology/2026/07/24/open-weight-models-ai-nvidia/",
+      "first_seen": "2026-07-26T19:10:55+09:00",
+      "status": "New"
+    },
+    {
+      "id": "039c84226e8803400ce67975",
+      "published_at": "2026-07-24T17:03:55Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "The quest to keep organs alive outside the body",
+      "summary": "This week, I covered a fascinating effort to preserve organs outside the body. There’s a huge shortage of donor organs, and one of the main reasons is time—they survive only a matter of hours outside the body, even when they’re kept on ice. Doctors dream of organ banks—stores of human organs that can be preserved…",
+      "url": "https://www.technologyreview.com/2026/07/24/1140790/the-quest-to-keep-organs-alive-outside-the-body/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "10eedf14d7d6b636e24e447d",
+      "published_at": "2026-07-24T16:46:59Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "title": "Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era",
+      "summary": "SANTA CLARA, Calif. & CHANGSHA, China — Intel Corporation and Lens Technology today announced a strategic collaboration focused on enabling new technologies for advanced semiconductor packaging. Through this work, the companies intend to explore opportunities to accelerate the development of glass substrate-based packaging solutions that can help enable higher performance, increased interconnect density, and improved … The post Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era appeared first on Newsroom .",
+      "url": "https://newsroom.intel.com/new-technologies/intel-and-lens-technology-collaborate-to-enable-advanced-semiconductor-packaging-for-the-ai-era",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "556f1cad5674dfe48a261c54",
+      "published_at": "2026-07-24T15:25:30Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "Guidance: Cyber Resilience Pledge - list of signatories",
+      "summary": "Organisations that have signed the Cyber Resilience Pledge.",
+      "url": "https://www.gov.uk/government/publications/cyber-resilience-pledge-list-of-signatories",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d7259db0d54f48b0f5039bb8",
+      "published_at": "2026-07-24T12:00:14Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "Should you use AI for a task? Here’s a simple way to decide | Bruce Schneier",
+      "summary": "Sometimes, what matters isn’t your output but what you put into the process. Think of it like work v the gym I teach public policy at the Harvard Kennedy School and the Munk School at the University of Toronto. And it will come as no surprise to you that my students regularly use AI to complete their writing assignments. Doing so is a waste of their tuition money. But if their entire career is going to include AI writing assistants, why shouldn’t they embrace their future? The best way I’ve found to explain the dilemma comes from the AI researcher Daniel Meissler: it’s the difference between work and the gym. Continue reading...",
+      "url": "https://www.theguardian.com/commentisfree/2026/jul/24/should-you-use-ai",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9df818f0442aeef1a46447c7",
+      "published_at": "2026-07-24T11:39:05Z",
+      "collected_at_jst": "2026-07-26T19:10:55+09:00",
+      "region": "Asia",
+      "country": "United Arab Emirates",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The National Technology",
+      "organization": "The National",
+      "title": "Zoom launches live voice translation, with Arabic coming in late 2026",
+      "summary": "Zoom Technologies has launched a new live voice translation service, with Arabic support coming in the fourth quarter of this year. Five languages – English, Chinese, French, Japanese and Spanish – will initially be available, the California-based company said. A Zoom representative confirmed to The National that Arabic will be available in the fourth quarter, alongside German, Italian and Portuguese. Zoom launched a version of the service in April, after promoting it at its Zoomtopia conference last September. Using the live voice translation feature requires a Pro, Business, or Enterprise account, the artificial intelligence plug-in ZoomMate, or a stand-alone add-on. Zoom has posted instr…",
+      "url": "https://www.thenationalnews.com/future/technology/2026/07/24/zoom-launches-live-voice-translation-with-arabic-coming-in-late-2026/",
+      "first_seen": "2026-07-26T19:10:55+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3124530844eb0ac80a5a17e4",
+      "published_at": "2026-07-24T04:34:27Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
+      "summary": "At this week’s AI Summit in San Francisco, South Korean President Jae Myung Lee and some of the country’s top business leaders and researchers are meeting with NVIDIA and ecosystem partners to chart Korea’s AI progress. Building on NVIDIA founder and CEO Jensen Huang’s visit to Korea last month, this week’s discussions and announcements advance […]",
+      "url": "https://blogs.nvidia.com/blog/ai-summit-korea-partners-and-nvidia/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d9ad7c48684afc35a7223f91",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "Briefing Chat: Baby <i>T. rex</i> were killers from birth, suggest new fossils",
+      "summary": "Nature, Published online: 24 July 2026; doi:10.1038/d41586-026-02338-2 Nature staff discuss the young but deadly dinosaur kings, the prowess of ancient Egyptian princesses, and how London is becoming the world’s AI safety capital.",
+      "url": "https://www.nature.com/articles/d41586-026-02338-2",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "006500c385193d3a42b6ae61",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "Bizarre CRISPR enzyme kills cancer cells by shredding their DNA",
+      "summary": "Nature, Published online: 24 July 2026; doi:10.1038/d41586-026-02268-z Early tests suggest the protein can be aimed at targets with tumour-causing mutations.",
+      "url": "https://www.nature.com/articles/d41586-026-02268-z",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bd78c44bc1aa5dc9d72bde44",
+      "published_at": "2026-07-23T20:01:35Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "title": "Intel Reports Second-Quarter 2026 Financial Results",
+      "summary": "Intel Corporation’s second-quarter 2026 earnings news release and presentation are available on the company’s Investor Relations website. The earnings conference call for investors begins at 2 p.m. PDT today; a public webcast will be available at www.intc.com.More: Earnings News Release | Earnings Call Comments from CEO Lip-Bu Tan and CFO Dave Zinsner The post Intel Reports Second-Quarter 2026 Financial Results appeared first on Newsroom .",
+      "url": "https://newsroom.intel.com/corporate/intel-reports-second-quarter-2026-financial-results",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1ede7beb496d94bde434264e",
+      "published_at": "2026-07-23T19:56:50Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "Trump says nearly 200 firms have signed pledge to protect Americans from costs arising from datacenters",
+      "summary": "‘Ratepayer Protection Pledge’ president has touted is non-binding as people continue to struggle with rising bills Donald Trump has announced that about 200 entities have signed on to his non-binding “Ratepayer Protection Pledge”, expanding a voluntary commitment which claims to ensure US consumers will not bear the cost of the AI datacenter build-out. Trump delivered remarks on Thursday at the Environmental Protection Agency (EPA) headquarters, alongside Lee Zeldin, the agency’s administrator, and Chris Wright, the energy secretary. Other attenders included governors who signed on to the pledge, including Brian Kemp of Georgia, Mike DeWine of Ohio, Spencer Cox of Utah and Jeff Landry of Lo…",
+      "url": "https://www.theguardian.com/us-news/2026/jul/23/trump-datacenter-costs-big-tech",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ee2b658cb0dfffbcc854ebab",
+      "published_at": "2026-07-23T18:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "[Infographic] [Galaxy Unpacked July 2026] Highlights From Galaxy Unpacked",
+      "summary": "On July 22, Samsung Electronics hosted Galaxy Unpacked July 2026 at Old Billingsgate in London — unveiling its next-generation foldables with agentic AI. Alongside Galaxy Z Fold8 Ultra, Galaxy Z Fold8 and Galaxy Z Flip8, Samsung introduced Galaxy Watch Ultra2 and Galaxy Watch9 with more advanced health features, as well as intelligent eyewear. Through a […]",
+      "url": "https://news.samsung.com/global/infographic-galaxy-unpacked-july-2026-highlights-from-galaxy-unpacked",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "590a8cbd726d99d379ccecb1",
+      "published_at": "2026-07-23T16:58:28Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "Supercooled kidneys have been transplanted into pigs in a “landmark achievement”",
+      "summary": "When it comes to organ donation, time is everything. As soon as an organ has been carefully removed from a donor’s body, it starts to deteriorate. Surgeons have a matter of hours to get it into a recipient. Leave it too long and the organ will become unusable. In most cases, organs will be kept…",
+      "url": "https://www.technologyreview.com/2026/07/23/1140765/supercooled-kidneys-have-been-transplanted-into-pigs-in-a-landmark-achievement/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2ef05538ad59fc3911318d3f",
+      "published_at": "2026-07-23T16:45:56Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "Customers prefer AI chatbots, says British Gas owner as 1,300 call centre and back office jobs axed",
+      "summary": "CEO Chris O’Shea defends Centrica’s plans as it reports rise in retail profits following focus on bigger margins The owner of British Gas has claimed that most households would rather speak with an AI chatbot than deal with the company’s staff as it prepares to cut 1,300 jobs from its call centres and back office. Centrica, the supplier’s FTSE 100 owner, plans to cut 800 jobs as the company carries out a “targeted deployment of AI tools”, on top of the 500 cuts it confirmed last month. Continue reading...",
+      "url": "https://www.theguardian.com/business/2026/jul/23/customers-prefer-ai-chatbots-says-chris-oshea-british-gas-centrica-boss",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "032ebcb3943c83074eb9bcf5",
+      "published_at": "2026-07-23T16:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "[Galaxy Unpacked July 2026] Samsung and Partners Envision a Connected Care Future — From First Signal to Lasting Change",
+      "summary": "At Galaxy Unpacked July 2026 in London, Samsung Electronics set out its vision for the next chapter of digital health — a future where care moves from reactive treatment toward preventive, personalized and connected experiences, supported by trusted health innovation and partnerships across the healthcare ecosystem. To explore that vision, Samsung hosted a Health Forum […]",
+      "url": "https://news.samsung.com/global/galaxy-unpacked-july-2026-samsung-and-partners-envision-a-connected-care-future-from-first-signal-to-lasting-change",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5ab5ea23fbff158109e679af",
+      "published_at": "2026-07-23T15:27:52Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "Elon Musk says he got ‘carried away’ with Trump – but still holds on to contentious political views",
+      "summary": "In interview, billionaire says instead of running ‘Doge’ he should’ve ‘worked on my companies’ and shares extreme predictions Elon Musk has admitted he became too consumed by politics during his volatile alliance with Donald Trump and his brief appointment as the president’s financial axman, running the so-called “department of government efficiency” (Doge). The world’s richest person, and briefly its first trillionaire after his SpaceX company floated on the New York stock exchange in June, made the confession in a wide-ranging interview with the Economist published on Thursday. He shared his positions on subjects from foreign wars to AI, and made a number of eye-opening predictions for th…",
+      "url": "https://www.theguardian.com/technology/2026/jul/23/elon-musk-regret-trump-doge-ai",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f8939f05439f07fdefca04fc",
+      "published_at": "2026-07-23T15:00:48Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "title": "The roaring 20s: how the current decade revolutionised cinema",
+      "summary": "Pre-Covid, the movie landscape was dramatically different: YouTubers weren’t dominating the box office, video game spin-offs rarely made an impact and Winnie-the-Pooh wasn’t yet the star of a slasher movie. Why such a flurry of innovation – and what will be next? Cinema has always been a medium of research and development. At any given point, the industry is searching for yet another breakthrough that can drive it into the future. Synchronised sound in the 1920s. Technicolor in the 1930s. The invention of the modern blockbuster in the 1970s. Conversely, the consensus is that, if the 2020s has a defining trend, then it is one of decline. The theatrical experience is under attack from all ang…",
+      "url": "https://www.theguardian.com/film/2026/jul/23/how-2020s-decade-revolutionised-cinema",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d6df6c9a47b33117f5bcb1be",
+      "published_at": "2026-07-23T13:00:16Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "GeForce NOW Sets Sail With ‘Path of Exile: Curse of the Allflame’ Joining the Cloud",
+      "summary": "Lock in and load up the cloud. GFN Thursday brings fresh updates and new adventures, all ready to play without waiting for downloads. Set sail in Path of Exile: Curse of the Allflame and charge in Battlefield 6 Season 4 both launching major content for members this week. Then revisit Capcom legends like Breath of […]",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-path-of-exile-allflame/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f283b79f845eeb45783eb41c",
+      "published_at": "2026-07-23T12:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "How AI helps scientists design the next generation of medicines",
+      "summary": "Designing and developing a new medicine is an expensive, failure-prone scientific challenge. A new drug can take many years to develop, at the cost of a significant investment. And even then, most possible candidates never reach the patient. For biologic medicines, therapies made from engineered proteins rather than synthetic chemistry (which are often used to…",
+      "url": "https://www.technologyreview.com/2026/07/23/1140346/how-ai-helps-scientists-design-the-next-generation-of-medicines/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "90ef16bcfe1bd00925658dc5",
+      "published_at": "2026-07-23T09:23:23Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "Belgium",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Policy Institute",
+      "source": "Bruegel",
+      "organization": "Bruegel",
+      "title": "Session 2b: Can the EU's better regulation agenda deliver competitiveness?",
+      "summary": "Session 2b: Can the EU's better regulation agenda deliver competitiveness? Chiara Montanaro Thu, 07/23/2026 - 11:23 Chiara Montanaro Thu, 07/23/2026 - 11:23",
+      "url": "https://www.bruegel.org/node/12451",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "57adeb9edafee5c65dff443d",
+      "published_at": "2026-07-23T08:00:24Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "WHO launches seven strategies to prevent drowning",
+      "summary": "Ahead of World Drowning Prevention Day on 25 July, the World Health Organization (WHO) is launching a new technical package to help governments and communities implement seven proven measures to reduce drowning deaths.",
+      "url": "https://www.who.int/news/item/23-07-2026-who-launches-seven-strategies-to-prevent-drowning",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c174fc131c4d55cb839833e9",
+      "published_at": "2026-07-23T02:00:46Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
+      "summary": "NVIDIA founder and CEO Jensen Huang today visited the Naval Postgraduate School in Monterey, California, to commission an NVIDIA DGX GB300 system — bringing one of the world’s most powerful AI platforms fully online for the students, researchers and faculty at the U.S. military’s flagship graduate university. “Our nation depends on our men and women […]",
+      "url": "https://blogs.nvidia.com/blog/naval-postgraduate-school-dgx-ai-supercomputer/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0d48c18a0657c35e8abe7133",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-07-26T19:05:06+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "Brookings TechTank",
+      "organization": "Brookings TechTank",
+      "title": "How tech firms should address job concerns and skill development",
+      "summary": "",
+      "url": "https://www.brookings.edu/articles/how-tech-firms-should-address-job-concerns-and-skill-development/",
+      "first_seen": "2026-07-26T19:05:06+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bf70d809f9542eeef4af8727",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "Launching Health in ChatGPT",
+      "summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
+      "url": "https://openai.com/index/health-in-chatgpt",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "29dc020f76be264fafefbdc5",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "How does Make America Healthy Again hold up against scientific scrutiny?",
+      "summary": "Nature, Published online: 23 July 2026; doi:10.1038/d41586-026-02024-3 Researchers share their views on the US health policy spanning topics from vaccines to nutrition.",
+      "url": "https://www.nature.com/articles/d41586-026-02024-3",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "38109aea610319dbc3f32aef",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "Daily briefing: Orcas smash sunfish to smithereens",
+      "summary": "Nature, Published online: 23 July 2026; doi:10.1038/d41586-026-02307-9 The dolphins might be helping their young eat, or just having fun. Plus, the beauty and skill of scientific illustration and a crash course in quantum computing.",
+      "url": "https://www.nature.com/articles/d41586-026-02307-9",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6871adffe89103810dfccf11",
+      "published_at": "2026-07-22T22:04:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "[Galaxy Unpacked July 2026] A First Look at Galaxy Z Fold8 Ultra, Galaxy Z Fold8 and Galaxy Z Flip8",
+      "summary": "At Galaxy Unpacked July 2026 in London, Samsung Electronics unveiled the eighth-generation Galaxy Z series. Combining agentic AI that understands users with hardware tailored to different lifestyles, the lineup offers three distinct foldable experiences. Samsung Newsroom got an early look at the new devices during Galaxy Unpacked July 2026 — from Galaxy Z Fold8 Ultra, […]",
+      "url": "https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-z-fold8-ultra-galaxy-z-fold8-and-galaxy-z-flip8",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "8956b8f95f8049ae547c684e",
+      "published_at": "2026-07-22T22:03:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "[Galaxy Unpacked July 2026] A First Look at Galaxy Watch Ultra2 and Galaxy Watch9",
+      "summary": "At Galaxy Unpacked July 2026 in London, Samsung Electronics unveiled Galaxy Watch Ultra2 and Galaxy Watch9, expanding the digital health experience on the wrist. From the moment users wake up to the time they finish a workout and begin recovery, a smartwatch stays in contact with the body throughout the day. Samsung Newsroom got an […]",
+      "url": "https://news.samsung.com/global/galaxy-unpacked-july-2026-a-first-look-at-galaxy-watch-ultra2-and-galaxy-watch9",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3c09b6e86ff09a214f548cb1",
+      "published_at": "2026-07-22T22:02:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "Samsung Galaxy Z Fold8 Ultra, Fold8 and Flip8: Foldables, Perfected for Every Way of Living",
+      "summary": "Samsung Electronics today unveiled the new Galaxy Z series, its most complete lineup yet, designed to expand foldables to a wider audience. The lineup introduces Galaxy Z Fold8, a fresh and exciting form factor that provides a new kind of foldable experience built around the way people explore, discover and immerse themselves in their favorite […]",
+      "url": "https://news.samsung.com/global/samsung-galaxy-z-fold8-ultra-fold8-and-flip8foldables-perfected-for-every-way-of-living",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d2071e7bcb1db74477836d6a",
+      "published_at": "2026-07-22T22:01:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "Samsung Galaxy Watch Ultra2 and Watch9: Your Health Companion on the Wrist",
+      "summary": "Samsung Electronics today announced the all-new Galaxy Watch Ultra2 and Galaxy Watch9, delivering a new era of effortless health, where users can unlock in-depth, meaningful health insights simply by wearing these devices. To support 24/7 wearability, Samsung delivers powerful innovations that maximize comfort while advancing performance with Galaxy Watch’s largest battery and brightest display ever, […]",
+      "url": "https://news.samsung.com/global/samsung-galaxy-watch-ultra2-and-watch9-your-health-companion-on-the-wrist",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c3c9b17859519c8241a98bfb",
+      "published_at": "2026-07-22T22:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "title": "Samsung Brings Galaxy Ecosystem Into Everyday Eyewear",
+      "summary": "Samsung Electronics today introduced its intelligent eyewear at Galaxy Unpacked in London. Building on the concepts announced at the latest Google I/O, the new designs were developed with global eyewear brands, Gentle Monster and Warby Parker. The intelligent eyewear shows how the Galaxy ecosystem can move beyond the mobile phone and into eyewear that supports […]",
+      "url": "https://news.samsung.com/global/samsung-brings-galaxy-ecosystem-into-everyday-eyewear",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1e9fd9033d38bacea37c0f42",
+      "published_at": "2026-07-22T14:21:46Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "Guidance: Women in Research Charter",
+      "summary": "A voluntary commitment to improve outcomes for women across the UK research system, with actions for research funders and research performing organisations.",
+      "url": "https://www.gov.uk/government/publications/women-in-research-charter",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "23fa1d6907c14d73ce3a41cd",
+      "published_at": "2026-07-22T14:12:14Z",
+      "collected_at_jst": "2026-07-26T19:05:06+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Quantum"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "DOE Office of Science News",
+      "organization": "DOE Office of Science News",
+      "title": "Secretary of Energy Chris Wright Announces First Genesis Mission Projects Selected to Accelerate AI-Driven Scientific Discovery",
+      "summary": "Nearly 300 projects selected from historic RFA response spanning all 50 states to accelerate breakthroughs in energy, discovery science, and national security.",
+      "url": "https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate",
+      "first_seen": "2026-07-26T19:05:06+09:00",
+      "status": "New"
+    },
+    {
+      "id": "863086979e9f7f63c082cb57",
+      "published_at": "2026-07-22T14:12:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "title": "Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican",
+      "summary": "CSET Senior Fellow Emelia Probasco shares her experience and the remarks she gave at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War, which took place at Borgo Laudato Si’, Vatican. The post Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican appeared first on Center for Security and Emerging Technology .",
+      "url": "https://cset.georgetown.edu/article/remarks-at-the-global-nobel-laureates-assembly-on-artificial-intelligence-and-nuclear-war/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a651f42eb5805e39f03fbebe",
+      "published_at": "2026-07-22T13:58:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "Guidance: Consult: register your interest",
+      "summary": "Register your interest in using Consult, the AI tool that helps government teams analyse public consultation responses. Join the waitlist for access.",
+      "url": "https://www.gov.uk/government/publications/consult-register-your-interest",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "123e2207578ca69c8f9c00a2",
+      "published_at": "2026-07-22T13:53:19Z",
+      "collected_at_jst": "2026-07-26T19:05:06+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 5,
+      "source_type": "Government",
+      "source": "National Science Foundation News",
+      "organization": "National Science Foundation News",
+      "title": "Statement from NSF Chief of Staff Brian Stone, performing the duties of the NSF director, on advancing the Administration's AI priorities through the Genesis Mission",
+      "summary": "The U.S. National Science Foundation is proud to join the White House Office of Science and Technology Policy, the U.S. Department of Energy and other federal partners in advancing the administration's artificial intelligence priorities through the…",
+      "url": "https://www.nsf.gov/news/statement-nsf-chief-staff-brian-stone-performing-duties-nsf-1",
+      "first_seen": "2026-07-26T19:05:06+09:00",
+      "status": "New"
+    },
+    {
+      "id": "dcd819527d9b80141b26bcb8",
+      "published_at": "2026-07-22T13:53:12Z",
+      "collected_at_jst": "2026-07-26T19:05:06+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "National Science Foundation News",
+      "organization": "National Science Foundation News",
+      "title": "New NSF initiative aims to unlock dataset value for AI-enabled scientific discovery",
+      "summary": "The U.S. National Science Foundation announced the NSF Unlocking Dataset Value for AI-Enabled Scientific Discovery program, a new investment to advance scientific community datasets and enable discovery and innovation using artificial intelligence…",
+      "url": "https://www.nsf.gov/news/new-nsf-initiative-aims-unlock-dataset-value-ai-enabled",
+      "first_seen": "2026-07-26T19:05:06+09:00",
+      "status": "New"
+    },
+    {
+      "id": "018d40b7e6eb7aa4b8cfb5fa",
+      "published_at": "2026-07-22T13:53:06Z",
+      "collected_at_jst": "2026-07-26T19:05:06+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "National Science Foundation News",
+      "organization": "National Science Foundation News",
+      "title": "NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure",
+      "summary": "The U.S. National Science Foundation today announced $83 million in awards through the Integrated Data Systems and Services (IDSS) program. The awards will expand access to data infrastructure resources that researchers can use alongside computing…",
+      "url": "https://www.nsf.gov/news/nsf-announces-83m-investment-integrated-data-systems",
+      "first_seen": "2026-07-26T19:05:06+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3c1ee99eb36c61c92c0f7bb6",
+      "published_at": "2026-07-22T13:00:11Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Robotics",
+        "Healthcare",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "NVIDIA Open Sources First GPU-Accelerated Medical Physics Simulation Framework",
+      "summary": "Before a healthcare robot can be useful in the real world, it has to learn how the physical world pushes back. Anatomy varies. Instruments bend, press, slip and interact with tissue. Imaging can be noisy or incomplete. And the rare, edge scenarios developers most need to understand don’t appear on schedule. That creates one of […]",
+      "url": "https://blogs.nvidia.com/blog/medical-physics-simulation-open-source/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "082c4173c70b04519142ea2a",
+      "published_at": "2026-07-22T13:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "Building AI infrastructure with the Effingham County community",
+      "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "932591afba7f1cf55372f3f4",
+      "published_at": "2026-07-22T13:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "How news organizations are using AI to advance their vital missions",
+      "summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishers worldwide.",
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7c49a9cf52e16d8bc5c300b8",
+      "published_at": "2026-07-22T13:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Google AI",
+      "organization": "Google AI",
+      "title": "3 Google updates from Galaxy Unpacked 2026",
+      "summary": "Gentle Monster glasses, Warby Parker glasses, a prompt asking for the history behind a pictured building, and a prompt asking to book a table at a pictured restaurant",
+      "url": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "62c5c294dc0cb2f834763aa6",
+      "published_at": "2026-07-22T12:10:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "The Download: NASA’s new space telescope and OpenAI’s autonomous hacker",
+      "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Shape-shifting mirrors on NASA’s new space telescope could unveil Jupiters like our own When NASA’s Nancy Grace Roman Space Telescope launches, as early as the end of next month, it will…",
+      "url": "https://www.technologyreview.com/2026/07/22/1140717/the-download-nasa-space-telescope-openai-hugging-face-hack/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5aa9c93bc7040291c9f08bfa",
+      "published_at": "2026-07-22T12:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 5,
+      "source_type": "Government",
+      "source": "NIST News",
+      "organization": "NIST News",
+      "title": "NIST Announces Funding Opportunity for 14 MEP Centers to Advance Small and Medium-Sized U.S. Manufacturers",
+      "summary": "NIST MEP will host an informational webinar on Tuesday, July 28, 2026, at 1 p.m. ET to provide general information about this opportunity and guidance on preparing applications.",
+      "url": "https://www.nist.gov/news-events/news/2026/07/nist-announces-funding-opportunity-14-mep-centers-advance-small-and-medium",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "577ddf6b90e6d70b43383fc6",
+      "published_at": "2026-07-22T12:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "Advancing the next era of national science",
+      "summary": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate discovery.",
+      "url": "https://openai.com/index/advancing-the-next-era-of-national-science",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "04231693b363104315116185",
+      "published_at": "2026-07-22T09:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "Shape-shifting mirrors on NASA’s new space telescope could unveil Jupiters like our own",
+      "summary": "When NASA’s Nancy Grace Roman Space Telescope launches, as early as the end of next month, it will attempt one of astronomy’s most precise disappearing acts to date. The telescope will carry the first space-bound “active” coronagraph, an instrument that effectively erases most of the light from a star during photography. It will allow astronomers…",
+      "url": "https://www.technologyreview.com/2026/07/22/1140701/shape-shifting-mirrors-roman-space-telescope/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "839f7a51d7b587ae6fb6fad7",
+      "published_at": "2026-07-22T05:30:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "Introducing OpenAI Presence",
+      "summary": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal workflows.",
+      "url": "https://openai.com/index/introducing-openai-presence",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "389ebd02d2834f48054db326",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "NTT DATA Group cuts incident analysis to 30 minutes with Codex",
+      "summary": "NTT DATA Group uses ChatGPT Enterprise and Codex to help 9,000 employees automate work, cut incident analysis to 30 minutes, and scale secure AI adoption.",
+      "url": "https://openai.com/index/ntt-data",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f9bccca3cabb5ce19441f09d",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Innovation Policy",
+        "Biotechnology"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "Subnuclear genome compartmentalization controls bivalent chromatin activity",
+      "summary": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10832-w Knowledge of the spatial location of a gene is necessary to understand its epigenomic regulation.",
+      "url": "https://www.nature.com/articles/s41586-026-10832-w",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a3eb7f1e33aee131ed0b4bf7",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "What counts as a moon? Huge ‘exosatellite’ sparks debate",
+      "summary": "Nature, Published online: 22 July 2026; doi:10.1038/d41586-026-02299-6 Discovery of a distant Jupiter-mass object could pave the way for detection of exomoons — plus, a rare transmissible cancer found in catfish.",
+      "url": "https://www.nature.com/articles/d41586-026-02299-6",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "626697d1d64f5d985431135f",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "How do quantum computers work?",
+      "summary": "Nature, Published online: 22 July 2026; doi:10.1038/d41586-026-02219-8 Recent breakthroughs suggest usable devices could be here in a decade.",
+      "url": "https://www.nature.com/articles/d41586-026-02219-8",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a49dbeef4f425713e07751f7",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "title": "CRISPR–Cas regulates expression of embedded anti-phage defence systems",
+      "summary": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10833-9 CRISPR–Cas systems transcriptionally tune diverse innate defences using CRISPR RNA-like guides to balance antiviral protection with fitness, and hyperactivate these defences when compromised, establishing a layered bacterial ‘immunity guard’ network.",
+      "url": "https://www.nature.com/articles/s41586-026-10833-9",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "21f1e1f3e19b1a5bf0af3cb7",
+      "published_at": "2026-07-21T22:35:45Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems",
+      "summary": "The AI era runs on AI infrastructure. Many of these advanced systems are built and tested in Texas. Wistron opened its first U.S. manufacturing facility today in Fort Worth — a 324,000-square-foot greenfield plant producing superchips at the heart of some of the world’s most capable AI systems. In front of an audience of Wistron […]",
+      "url": "https://blogs.nvidia.com/blog/wistron-manufacturing-texas/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2366dc909672b56b77a196bd",
+      "published_at": "2026-07-21T19:44:19Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Innovation Policy",
+        "Fusion Energy"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "FIA and Clean Air Task Force Publish Principles on Codes and Standards",
+      "summary": "In partnership with the Clean Air Task Force, the Fusion Industry Association published a one-pager outlining its principles for fusion codes and standards. As fusion moves towards deployment, it is critical that codes and standards ensure safe deployment while enabling innovation. The post FIA and Clean Air Task Force Publish Principles on Codes and Standards appeared first on Fusion Industry Association .",
+      "url": "https://www.fusionindustryassociation.org/fia-and-clean-air-task-force-publish-principles-on-codes-and-standards/?utm_source=rss&utm_medium=rss&utm_campaign=fia-and-clean-air-task-force-publish-principles-on-codes-and-standards",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3064e426d18ccd85acab9b00",
+      "published_at": "2026-07-21T17:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "Introducing the ChatGPT for small business program",
+      "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
+      "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ffef75ffd9647e2c722b429e",
+      "published_at": "2026-07-21T15:36:43Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "NVIDIA Vera Rubin Driving Performance Per Watt, Lowest Token Cost for Partners Worldwide",
+      "summary": "NVIDIA Vera Rubin is here, and it’s going gigascale. Vera Rubin NVL72 production is ramping up with racks running at partners CoreWeave, Google Cloud, Microsoft Azure and Oracle Cloud Infrastructure. Spanning 350+ factory sites in 30 countries, Vera Rubin has the largest, most mature rack-scale supply chain ever assembled to meet customer compute demand. The […]",
+      "url": "https://blogs.nvidia.com/blog/vera-rubin/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "68c02c5c6a2ee3c9c91fc7f1",
+      "published_at": "2026-07-21T15:06:49Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "Transparency data: DSIT: workforce management information, June 2026",
+      "summary": "Reports on departmental staff numbers and costs.",
+      "url": "https://www.gov.uk/government/publications/dsit-workforce-management-information-june-2026",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "88893e13a25a6efc42ed57ea",
+      "published_at": "2026-07-21T15:06:31Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 5,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "Guidance: TechFirst Local",
+      "summary": "Details of the TechFirst local grant funding programme to boost digital skills and support people into tech jobs.",
+      "url": "https://www.gov.uk/government/publications/techlocal",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "406416679082f87595cbd50b",
+      "published_at": "2026-07-21T15:05:29Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "TechFirst PhD Support",
+      "summary": "Part of TechFirst, the government’s flagship skills programme opening pathways into the UK’s fast-growing tech sector.",
+      "url": "https://www.gov.uk/guidance/techexpert",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4ae9e496e9b66c66de074041",
+      "published_at": "2026-07-21T15:05:21Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "TechFirst",
+      "summary": "TechFirst is the government’s flagship tech skills programme opening pathways into the UK’s fast-growing tech sector, providing opportunities across all parts of the UK.",
+      "url": "https://www.gov.uk/guidance/techfirst",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d5e4431b57fcb4b6271f6c72",
+      "published_at": "2026-07-21T15:05:11Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Innovation Policy",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "title": "Policy paper: Fixed Telecoms Modernisation Charter",
+      "summary": "This document sets out the steps that telecoms providers should follow when carrying out any current and future fixed telecoms modernisations.",
+      "url": "https://www.gov.uk/government/publications/fixed-telecoms-modernisation-charter",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6f3401cebeb5dc5a8f12a872",
+      "published_at": "2026-07-21T15:00:20Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "Built for Vera Rubin, NVIDIA Spectrum-6 Arrives in Gigascale AI Factories",
+      "summary": "AI has entered the gigascale era. The world’s most advanced AI factories are bringing together hundreds of thousands of GPUs and CPUs to train frontier models, power agentic AI and generate intelligence at unprecedented scale. At this level, networking becomes a critical computing power multiplier in driving token generation. Marking a networking milestone, NVIDIA Spectrum-6 […]",
+      "url": "https://blogs.nvidia.com/blog/nvidia-spectrum-six-arrives-in-gigascale-ai-factories/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "88af233d904d670250fa5a31",
+      "published_at": "2026-07-21T14:48:28Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "FIA Outlines EU Financing Pathway for Fusion",
+      "summary": "On 21 July, the Fusion Industry Association published a paper outlining a practical EU financing roadmap for commercial fusion energy. As fusion projects move from research to demonstration, first-of-a-kind plants and commercial deployment, they require different funding and financing tools at each stage of development. Europe's financing framework must evolve from a collection of individual programmes into a coherent funding architecture that supports the entire fusion commercialisation journey. The post FIA Outlines EU Financing Pathway for Fusion appeared first on Fusion Industry Association .",
+      "url": "https://www.fusionindustryassociation.org/fia-outlines-eu-financing-pathway-for-fusion/?utm_source=rss&utm_medium=rss&utm_campaign=fia-outlines-eu-financing-pathway-for-fusion",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3e1aa390ad965782cc86c386",
+      "published_at": "2026-07-21T13:30:36Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "title": "Why Do AI Systems Misbehave?",
+      "summary": "AI systems are increasingly impressive, which makes their failures all the more baffling. This blog dives into the causes of AI misbehavior. The post Why Do AI Systems Misbehave? appeared first on Center for Security and Emerging Technology .",
+      "url": "https://cset.georgetown.edu/article/why-do-ai-systems-misbehave/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c815807553a0a9fc82116a87",
+      "published_at": "2026-07-21T13:00:47Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA Blog",
+      "title": "NVIDIA and Partners Build in America, for America",
+      "summary": "NVIDIA and its partners are investing in American manufacturing, supply chains, energy grids and skilled workforces so the U.S. can produce the infrastructure needed for better healthcare, breakthrough scientific discovery, stronger industrial productivity and global technology leadership.",
+      "url": "https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "28388342f57d2cae1a96b7b7",
+      "published_at": "2026-07-21T13:00:14Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "title": "Intel and Fortinet Collaborate to Advance Cybersecurity Innovation and Strengthen Global Supply Chain Resilience",
+      "summary": "SANTA CLARA AND SUNNYVALE, Calif. – July 21, 2026 – Intel Corporation (NASDAQ: INTC) and Fortinet (NASDAQ: FTNT), today announced a strategic collaboration to develop Fortinet Security Processor 6 (SP6). Expanding a long-standing relationship between the two companies, this collaboration combines Fortinet’s proprietary, purpose-built security processor expertise with Intel’s advanced design, packaging, and manufacturing capabilities … The post Intel and Fortinet Collaborate to Advance Cybersecurity Innovation and Strengthen Global Supply Chain Resilience appeared first on Newsroom .",
+      "url": "https://newsroom.intel.com/manufacturing/intel-and-fortinet-collaborate-to-advance-cybersecurity-innovation-and-strengthen-global-supply-chain-resilience",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f9addf0904b9de5b7bcc326b",
+      "published_at": "2026-07-21T12:10:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "The Download: Chinese AI divides the White House, and a record copyright payout",
+      "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. China’s AI models have Trump’s AI world at war with itself Last weekend, several current and former advisers to President Donald Trump on AI publicly lobbed insults at the country’s leading…",
+      "url": "https://www.technologyreview.com/2026/07/21/1140685/the-download-chinese-ai-divides-white-house-anthropic-copyright-settlement/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6b7e59d6f503e3d45c9ea292",
+      "published_at": "2026-07-21T10:37:34Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "Advancing next-gen AI with materials science innovation",
+      "summary": "The conversation about AI often centers on algorithms, computing power, or huge investments in new semiconductor fabrication plants and hyperscale data centers. But beneath each of these advances is another layer of innovation that makes them possible: advanced materials. Every new generation of AI technology demands more processing power, more memory, greater energy efficiency, and…",
+      "url": "https://www.technologyreview.com/2026/07/21/1140602/advancing-next-gen-ai-with-materials-science-innovation/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "223e20b3abaf53bd3b29f3e1",
+      "published_at": "2026-07-21T08:26:17Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "UN report: Global hunger levels ease for third consecutive year as regional disparities persist",
+      "summary": "Global hunger declined for a third consecutive year in 2025, demonstrating that progress is possible. However, the improvements remain fragile, unevenly distributed and insufficient to achieve the Sustainable Development Goals by 2030, according to The State of Food Security and Nutrition in the World 2026 (SOFI 2026) report, released on Tuesday by five United Nations specialized agencies.",
+      "url": "https://www.who.int/news/item/21-07-2026-un-report--global-hunger-levels-ease-for-third-consecutive-year-as-regional-disparities-persist",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d925d8c91f460a44f07089c2",
+      "published_at": "2026-07-21T07:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "OpenAI News",
+      "organization": "OpenAI News",
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defenders.",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "73d0028e337a76c2cd00f1bc",
+      "published_at": "2026-07-20T15:55:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "IEEE Spectrum",
+      "organization": "IEEE Spectrum",
+      "title": "SEM-Guided Low-kV FIB Finishing for Leading-Edge Semiconductor Failure Analysis",
+      "summary": "Discover how the ZEISS Crossbeam 750 FIBSEM sets a new benchmark for precise TEM lamella prep, tomography, and advanced nanofabrication. This delivers better resolution, better SNR, larger usable FOV, and shorter acquisition times. Learn how uninterrupted FIB milling will reduce damage and rework, accelerate time to TEM, and increase first pass success—so your FA, yield, and materials teams make faster, confident data driven decisions. Register now for this free webinar! Join us to discover how the new ZEISS Crossbeam 750 with its see while you mill capability delivers precision and clarity—every time—for demanding FIB-SEM workflows. Designed for extremely challenging TEM lamella preparatio…",
+      "url": "https://event.on24.com/wcc/r/5418459/287E3D5B99470D34C830D69A24B3B207",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "09e6494006eb3af009c1a30f",
+      "published_at": "2026-07-20T15:34:49Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "WHO marks 25 years of Research4Life, advancing access to scientific knowledge in more than 120 countries",
+      "summary": "The World Health Organization (WHO) today marks the 25th anniversary of Research4Life, a public-private partnership that provides researchers, educators, health professionals and policy-makers in low- and middle-income countries with affordable or free access to scientific knowledge. The partnership has helped dramatically expand access to scientific knowledge for researchers, educators, health professionals and policy-makers in more than 120 countries.",
+      "url": "https://www.who.int/news/item/21-07-2026-who-marks-25-years-of-research4life--advancing-access-to-scientific-knowledge-in-more-than-120-countries",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "05edb573a8ead16ae99b6291",
+      "published_at": "2026-07-20T07:09:01Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "Road deaths fall by 21% globally but stronger action is needed to save lives",
+      "summary": "Despite the addition of more than one billion motor-vehicles to the world’s roads, the global rate of road traffic deaths declined by 21% between 2011 and 2025, according to new data released by the World Health Organization (WHO). The world has experienced profound changes in road traffic during this time with the emergence of new modes of transport and a sharp rise in motorcycle use. Despite this progress, however, road traffic crashes still claimed 1.16 million people's lives in 2025. Road traffic injuries remain the leading cause of death among children and youth aged 5–29 years. The new WHO data comes as global leaders today adopt a new United Nations (UN) General Assembly progress dec…",
+      "url": "https://www.who.int/news/item/20-07-2026-road-deaths-fall-by-21--globally-but-stronger-action-is-needed-to-save-lives",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "14dd15caca066d18dfcf2e34",
+      "published_at": "2026-07-18T07:27:54Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "WHO Member States continue negotiations on the Pathogen Access and Benefit Sharing Annex",
+      "summary": "WHO Member States have advanced negotiations on the Pathogen Access and Benefit Sharing (PABS) annex, a central component of the WHO Pandemic Agreement, while agreeing that continued discussions are needed to finalize a framework that supports a faster, more effective and equitable response to future pandemics.",
+      "url": "https://www.who.int/news/item/20-07-2026-who-member-states-continue-negotiations-on-the-pathogen-access-and-benefit-sharing-annex",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "186c1d4e76c09a864706432c",
+      "published_at": "2026-07-17T20:26:18Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "In the News: FIA Launches the 2026 Global Fusion Industry Report in New York City, Washington, D.C., and London",
+      "summary": "On July 13, the Fusion Industry Association launched the 2026 Global Fusion Industry Report at an event in New York City - making headlines worldwide and bringing together industry leaders, investors, and media. A Washington, D.C. launch and Congressional briefing followed on July 15, to discuss the report’s findings in the context of US policy with policymakers, think tanks, national labs, and industry leaders. A London dinner event held on July 29 will discuss the report's findings with government leaders, aligned with the recently released UK 2026 Fusion Strategy. The post In the News: FIA Launches the 2026 Global Fusion Industry Report in New York City, Washington, D.C., and London appe…",
+      "url": "https://www.fusionindustryassociation.org/fia-launches-the-2026-global-fusion-industry-report-in-new-york-city-washington-d-c-and-london/?utm_source=rss&utm_medium=rss&utm_campaign=fia-launches-the-2026-global-fusion-industry-report-in-new-york-city-washington-d-c-and-london",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7ef6110ab078602757409abf",
+      "published_at": "2026-07-17T18:42:47Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [
+        "Innovation Policy",
+        "Fusion Energy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "International Legal Expert Group Publish Paper on the Need for the EU to Secure Its Competitive Fusion Advantage",
+      "summary": "A discussion paper from the International Group of Legal Experts on Fusion Energy (FELEX) argues that Europe holds a competitive advantage in commercial fusion that no other region can replicate, but must act now to preserve it. The paper highlights the Euratom Treaty as the world’s only harmonized legal framework for nuclear governance across 27... The post International Legal Expert Group Publish Paper on the Need for the EU to Secure Its Competitive Fusion Advantage appeared first on Fusion Industry Association .",
+      "url": "https://www.fusionindustryassociation.org/international-legal-expert-group-publish-paper-on-the-need-for-the-eu-to-secure-its-competitive-fusion-advantage/?utm_source=rss&utm_medium=rss&utm_campaign=international-legal-expert-group-publish-paper-on-the-need-for-the-eu-to-secure-its-competitive-fusion-advantage",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c21b23b6ab59c7960b95be1f",
+      "published_at": "2026-07-17T18:00:01Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Robotics"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "IEEE Spectrum",
+      "organization": "IEEE Spectrum",
+      "title": "This Graduate Student Equips NASA’s Robots With Assembly Skills",
+      "summary": "Like many engineers, Sarah Downs says she knew she wanted to pursue a STEM career from a young age. As a teenager, she discovered robotics through her Tulsa, Okla., middle school’s First Lego League team, and she fell in love with the field, she says. Downs participated in the international robotics program from 2014 to 2016. Watching PBS specials on NASA Mars rovers Spirit and Opportunity , and seeing the live broadcast of the Curiosity rover launch in 2011, inspired the teen to dream of a career working with NASA. Sarah Downs MEMBER GRADE Graduate student member UNIVERSITY Texas A&M University in College Station MAJOR Electric engineering This year the IEEE graduate student member achieve…",
+      "url": "https://spectrum.ieee.org/graduate-student-nasas-robots-assembly",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3dd1b06b356e118627f94f8b",
+      "published_at": "2026-07-17T13:00:05Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "title": "Intel-Powered Medical Exoskeleton Helps Patients Get Back on Their Feet",
+      "summary": "People with lower-limb injuries who cannot stand or walk often need intensive clinical rehabilitation and expert-guided physiotherapy.This medical care retrains the limbs and supports the brain’s ability to relearn movement, with the goal of restoring greater mobility and ultimately, helping the patient to walk again.But traditional rehabilitation methods today have its limits – it’s fatigue-inducing, imprecise and requires expert, … The post Intel-Powered Medical Exoskeleton Helps Patients Get Back on Their Feet appeared first on Newsroom .",
+      "url": "https://newsroom.intel.com/client-computing/intel-powered-medical-exoskeleton-helps-patients-get-back-on-their-feet",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0361033c6203d3cbfc2c57cf",
+      "published_at": "2026-07-16T16:00:53Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "title": "Intel and Google Cloud Announce Collaboration to Accelerate Intel’s AI-Enabled Enterprise Transformation",
+      "summary": "SANTA CLARA, Calif., and SUNNYVALE, Calif. – July 16, 2026 – Intel and Google Cloud today announced an expansion of their previously announced multi-year strategic collaboration, which would accelerate Intel’s enterprise-wide digital evolution through the deployment of Gemini Enterprise and Google Cloud.Intel will integrate advanced, Gemini-powered generative AI across its global workforce, helping to scale capabilities and … The post Intel and Google Cloud Announce Collaboration to Accelerate Intel’s AI-Enabled Enterprise Transformation appeared first on Newsroom .",
+      "url": "https://newsroom.intel.com/artificial-intelligence/intel-google-cloud-announce-collaboration-to-accelerate-intel-ai-enabled-enterprise-transformation",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "23c6974aa4b45f04208cef57",
+      "published_at": "2026-07-16T16:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Google AI",
+      "organization": "Google AI",
+      "title": "Connect more of your apps to Search",
+      "summary": "Connected apps rendering",
+      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0560403cacf5a7a127ad3346",
+      "published_at": "2026-07-16T16:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Google AI",
+      "organization": "Google AI",
+      "title": "Create, edit and star in videos with two Google Vids updates",
+      "summary": "Text \"Gemini Omni and Personal Avatars in Google Vids\" surrounded by various images",
+      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f64391d3daf689e78e7ac442",
+      "published_at": "2026-07-15T21:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "title": "Meet GPT-Red: an LLM super-hacker OpenAI built to make its models safer",
+      "summary": "CSET’s Jessica Ji shared her expert insight in an article published by MIT Technology Review. The article examines how OpenAI developed GPT-Red, an AI \"super-hacker\" designed to automatically identify vulnerabilities in large language models and strengthen their defenses against cyberattacks through AI-powered red-teaming. The post Meet GPT-Red: an LLM super-hacker OpenAI built to make its models safer appeared first on Center for Security and Emerging Technology .",
+      "url": "https://cset.georgetown.edu/article/meet-gpt-red-an-llm-super-hacker-openai-built-to-make-its-models-safer/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2f29b005896c3737ab846738",
+      "published_at": "2026-07-15T17:47:57Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "Starlight Engine Raises JPY 6.06 Billion",
+      "summary": "Starlight Engine has raised JPY 6.06 billion in its first external funding round to accelerate development of FAST. The company is developing a tokamak-based fusion machine that builds on decades of research, including Japan's JT-60SA program and international efforts. The post Starlight Engine Raises JPY 6.06 Billion appeared first on Fusion Industry Association .",
+      "url": "https://www.nikkei.com/article/DGXZQOUC152ET0V10C26A7000000/#new_tab?utm_source=rss&utm_medium=rss&utm_campaign=starlight-engine-raises-jpy-6-06-billion",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "aed2fa8a807fb17c3e6861e7",
+      "published_at": "2026-07-15T17:43:32Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "Fusion research center coming to Madison’s former Oscar Mayer plant",
+      "summary": "Realta Fusion selected Madison, Wisconsin's former Oscar Mayer site as the location for its new headquarters and facility. They plan to build the prototype magnetic mirror fusion machine here, with the project expected to create 600+ jobs and establish a major hub for fusion innovation. The post Fusion research center coming to Madison’s former Oscar Mayer plant appeared first on Fusion Industry Association .",
+      "url": "https://www.jsonline.com/story/money/business/energy/2026/07/15/nuclear-fusion-facility-coming-to-madisons-oscar-mayer-factory-site/90900554007/?gnt-cfr=1&gca-cat=p&gca-uir=true&gca-epti=z116463p117850l004150c117850e1157xxv116463d--54--b--54--&gca-ft=178&gca-ds=sophi#new_tab&utm_source=rss&utm_medium=rss&utm_campaign=fusion-research-center-coming-to-madisons-former-oscar-mayer-plant",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "30a0d7838c2c12642479a64f",
+      "published_at": "2026-07-15T12:15:58Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "New WHO guidelines: up to 45% of dementia risk could be prevented or delayed",
+      "summary": "The World Health Organization (WHO) today released updated guidelines on reducing the risk of cognitive decline and dementia , providing countries with evidence-based recommendations to help prevent or delay the onset of dementia across the life course. Dementia is a condition caused by brain diseases and affects memory, thinking and the ability to function. More than 57 million people live with dementia worldwide and nearly 10 million people get newly diagnosed every year. Alzheimer disease is the most common form of dementia and is estimated to account for 60–70% of cases. While there is no cure for dementia, up to 45% of the risks can be attributed to modifiable risk factors such as toba…",
+      "url": "https://www.who.int/news/item/15-07-2026-new-who-guidelines--up-to-45--of-dementia-risk-could-be-prevented-or-delayed",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "03ea8728394fda1e18a57d66",
+      "published_at": "2026-07-15T00:01:54Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "Global childhood immunization coverage inches forward despite conflict and hesitancy – UNICEF, WHO",
+      "summary": "In 2025, 90% of infants globally – or nearly 116 million – received at least one dose of a diphtheria, tetanus and pertussis (DTP) vaccine, and 85% – or 110 million – completed the full three-dose series, according to the annual WHO-UNICEF Estimates of National Immunization Coverage (WUENIC) released today. While both indicators rose by one percentage point from the previous year, global coverage remains one point below 2019 levels – hovering within the same narrow range since 2009. According to the data, an estimated 13.5 million “zero-dose” children did not receive a single vaccine in their first year during 2025. While these represent nearly 750 000 fewer children than the previous year,…",
+      "url": "https://www.who.int/news/item/15-07-2026-global-childhood-immunization-coverage-inches-forward-despite-conflict-and-hesitancy---unicef--who",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "37f8fa9d53d7f670777b07a5",
+      "published_at": "2026-07-14T17:40:43Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "Global Investment in Fusion Companies Surges 69% to $4.5 Billion",
+      "summary": "The Fusion Industry Association released its 2026 Global Fusion Industry Report, showing that fusion companies have raised a $14.24 billion. The report highlights record investment, growing commercial partnerships, and increasing confidence that fusion machines will deliver electricity in the 2030s. The post Global Investment in Fusion Companies Surges 69% to $4.5 Billion appeared first on Fusion Industry Association .",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-13/global-investment-in-fusion-companies-surges-69-to-4-5-billion#new_tab?utm_source=rss&utm_medium=rss&utm_campaign=global-investment-in-fusion-companies-surges-69-to-4-5-billion",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4f333224cb84eee2f3fbf904",
+      "published_at": "2026-07-14T17:39:28Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "General Fusion Shares Soar 25%",
+      "summary": "Canada-based General Fusion has become the first publicly listed fusion company after completing a merger with a special purpose acquisition company (SPAC). The listing provides the company with broader access to capital as it advances its technology toward deployment. The post General Fusion Shares Soar 25% appeared first on Fusion Industry Association .",
+      "url": "https://www.wsj.com/livecoverage/stock-market-today-bank-earnings-07-14-2026/card/general-fusion-shares-soar-25--lfmTDvoKe8UYxvdcs8Hq#new_tab?utm_source=rss&utm_medium=rss&utm_campaign=general-fusion-shares-soar-25",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bbfc4b37a73bf4793d60e253",
+      "published_at": "2026-07-14T16:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Google AI",
+      "organization": "Google AI",
+      "title": "Celebrating 25 years of visual search innovation",
+      "summary": "Google Images logo surrounded by illustrations of people searching for different images",
+      "url": "https://blog.google/products-and-platforms/products/search/google-images-25th-anniversary/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "72b002f5a04f35d9ca1e9949",
+      "published_at": "2026-07-14T12:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "NIST News",
+      "organization": "NIST News",
+      "title": "NIST Receives New Patent for Microbe-Killing Water Heater",
+      "summary": "Warm water in household pipes can be a breeding ground for harmful bacteria.",
+      "url": "https://www.nist.gov/news-events/news/2026/07/nist-receives-new-patent-microbe-killing-water-heater",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e96177000536ef3f58f8fb3c",
+      "published_at": "2026-07-13T21:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "title": "Washington Is Looking to Keep China From Training Its AI on US Models",
+      "summary": "CSET’s Colin Shea-Blymyer shared his expert insight in an article published by Bloomberg. The article examines growing concerns in Washington over the use of \"distillation\" by Chinese AI companies to train models using outputs from leading US systems, and the resulting debate over intellectual property, competition, and national security in the global AI race. The post Washington Is Looking to Keep China From Training Its AI on US Models appeared first on Center for Security and Emerging Technology .",
+      "url": "https://cset.georgetown.edu/article/washington-is-looking-to-keep-china-from-training-its-ai-on-us-models/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a7866758cf94a3c5e9d26534",
+      "published_at": "2026-07-13T16:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Innovation Policy",
+        "Quantum"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "Microsoft Research",
+      "organization": "Microsoft Research",
+      "title": "Verifying Rust cryptography in SymCrypt, from standards to code",
+      "summary": "Cryptographic code supports vital protections in modern computing systems. Learn how a new method helps verify code as developers write it while preserving speed and adaptability as it gets implemented and evolves. The post Verifying Rust cryptography in SymCrypt, from standards to code appeared first on Microsoft Research .",
+      "url": "https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "297a8b5b279e5916cf45fddb",
+      "published_at": "2026-07-13T12:00:41Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "title": "Intel Invests €5 Billion to Expand Manufacturing in Europe",
+      "summary": "LEIXLIP, Ireland, July 13, 2026 —Intel today announced a €5 billion ($5.7 billion) capital investment at its Leixlip campus in Ireland, marking the next phase in the site’s capacity expansion. Global demand for AI and high-performance computing is driving the need for advanced silicon to power AI Factories, and Intel is scaling capacity in Ireland … The post Intel Invests €5 Billion to Expand Manufacturing in Europe appeared first on Newsroom .",
+      "url": "https://newsroom.intel.com/intel-foundry/intel-invests-5-billion-euro-to-expand-manufacturing-in-europe",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d56ace988ec4655cef540679",
+      "published_at": "2026-07-13T10:19:51Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "IEEE Spectrum",
+      "organization": "IEEE Spectrum",
+      "title": "Building a Foundation Stack for General-Purpose Robots",
+      "summary": "This article is brought to you by X Square Robot . Large language models gave artificial intelligence a working recipe. Pretrain a large model on broad data, and general capability follows. Robotics has no such recipe. Robotics systems have long been assembled from separate perception, planning, and control parts that rarely add up to intelligence a robot can carry from one task to another, or one machine to another. The central problem in embodied AI is to find the equivalent recipe, and the field does not yet agree on what it is. X Square Robot , a Chinese embodied-AI company, has made an unusually explicit bet. It argues that the recipe is an integrated stack, spanning the data a robot l…",
+      "url": "https://spectrum.ieee.org/x-square-robot-embodied-ai-stack",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "213c7954ea56dfd0fccb556a",
+      "published_at": "2026-07-13T09:57:57Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Intergovernmental",
+      "source": "WHO News",
+      "organization": "WHO News",
+      "title": "El Salvador validated by WHO as having eliminated trachoma as a public health problem",
+      "summary": "The World Health Organization (WHO) has validated El Salvador as having eliminated trachoma as a public health problem. Trachoma is the world's leading infectious cause of blindness.",
+      "url": "https://www.who.int/news/item/13-07-2026-el-salvador-validated-by-who-as-having-eliminated-trachoma-as-a-public-health-problem",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9e1bc06c29b61bed048d4f44",
+      "published_at": "2026-07-12T21:00:00Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Innovation Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "title": "Companies turn to Chinese AI models to cut costs",
+      "summary": "CSET’s Sam Bresnick shared his expert insight in an article published by The Financial Times. The article examines why companies around the world are increasingly adopting Chinese AI models, drawn by their lower costs, improving capabilities, and the flexibility offered by open-weight systems. The post Companies turn to Chinese AI models to cut costs appeared first on Center for Security and Emerging Technology .",
+      "url": "https://cset.georgetown.edu/article/companies-turn-to-chinese-ai-models-to-cut-costs/",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    }
+  ]
+}
