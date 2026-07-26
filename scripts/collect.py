@@ -51,7 +51,7 @@ PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
 JST = timezone(timedelta(hours=9))
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
-TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v3"
+TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v4"
 TECH_SCOPE_CONTENT_TYPES = {
     "research_breakthrough",
     "engineering_development",
@@ -939,6 +939,25 @@ def contains_japanese(value: str) -> bool:
     return bool(re.search(r"[\u3040-\u30ff\u3400-\u9fff]", value or ""))
 
 
+def needs_scope_review(item: dict[str, Any]) -> bool:
+    return (
+        item.get("scope_review_version") != TECH_SCOPE_REVIEW_VERSION
+        or (
+            item.get("status") != "Excluded"
+            and (not item.get("title_ja") or not item.get("summary_ja"))
+        )
+    )
+
+
+def is_publishable(item: dict[str, Any]) -> bool:
+    return (
+        item.get("status") != "Excluded"
+        and item.get("scope_review_version") == TECH_SCOPE_REVIEW_VERSION
+        and bool(item.get("title_ja"))
+        and bool(item.get("summary_ja"))
+    )
+
+
 def parse_japanese_summary_response(
     raw: str,
     allowed_ids: set[str],
@@ -1099,6 +1118,11 @@ def japanese_summary_request(
         "Fusion Energyは核融合技術に限り、一般語のfusionや部分一致は無視します。"
         "企業発表、導入事例、製品発表、イベント報告は、新しい技術能力・設計・"
         "実装方法・研究成果がRSS概要から具体的に確認できる場合だけ掲載します。"
+        "企業の海外進出、市場拡大、売上、輸出、競争、資金調達だけを扱う記事は、"
+        "具体的な新技術や実装内容を説明していなければ除外します。"
+        "署名者一覧、参加者一覧、会議・式典の開催報告、講演・remarks、"
+        "登壇者の感想、単なる方針表明は、実質的な技術内容または政策措置が"
+        "確認できなければ除外します。"
         "映画・芸術・娯楽における一般的な『革命』『革新』は除外します。"
         "複数ニュースのまとめ記事は、単一の明確な対象技術を十分に説明しない限り"
         "除外します。RSS概要が短すぎて具体的な技術や直接的な科学技術政策を"
@@ -1145,7 +1169,7 @@ def japanese_summary_request(
             {"role": "user", "content": user_prompt},
         ],
         "temperature": 0.1,
-        "max_tokens": 4000,
+        "max_tokens": 5000,
         "response_format": {"type": "json_object"},
     }
     headers = {
@@ -1195,15 +1219,7 @@ def enrich_japanese_summaries(
         if not item.get("summary_ja") and contains_japanese(item.get("summary", "")):
             item["summary_ja"] = item.get("summary", "")
 
-    pending = [
-        item
-        for item in items
-        if (
-            not item.get("title_ja")
-            or not item.get("summary_ja")
-            or item.get("scope_review_version") != TECH_SCOPE_REVIEW_VERSION
-        )
-    ]
+    pending = [item for item in items if needs_scope_review(item)]
     new_ids = {
         item.get("canonical_id") or item.get("id", "")
         for item in new_items
@@ -1259,8 +1275,10 @@ def enrich_japanese_summaries(
                 item["scope_focus"] = translated.get("technical_focus", "")
                 item["scope_evidence"] = translated.get("scope_evidence", "")
                 if not translated.get("in_scope"):
+                    item["status"] = "Excluded"
                     excluded_ids.append(item_id)
                     continue
+                item["status"] = "New"
                 item["topics"] = translated["topics"]
                 item["topic"] = " | ".join(translated["topics"])
                 item["innovation_policy"] = translated["is_innovation_policy"]
@@ -1288,11 +1306,7 @@ def enrich_japanese_summaries(
         for item in items
         if (
             (item.get("canonical_id") or item.get("id", "")) not in excluded_id_set
-            and (
-                not item.get("title_ja")
-                or not item.get("summary_ja")
-                or item.get("scope_review_version") != TECH_SCOPE_REVIEW_VERSION
-            )
+            and needs_scope_review(item)
         )
     )
     return {
@@ -1649,17 +1663,8 @@ def run(max_age_hours: int, initial_days: int) -> int:
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     summary_result = enrich_japanese_summaries(merged, new_items)
     excluded_ids = set(summary_result["excluded_ids"])
-    if excluded_ids:
-        merged = [
-            item
-            for item in merged
-            if (item.get("canonical_id") or item.get("id", "")) not in excluded_ids
-        ]
-        new_items = [
-            item
-            for item in new_items
-            if (item.get("canonical_id") or item.get("id", "")) not in excluded_ids
-        ]
+    publishable_items = [item for item in merged if is_publishable(item)]
+    publishable_new_items = [item for item in new_items if is_publishable(item)]
     print(
         "[SUMMARY] "
         f"generated={summary_result['generated']} "
@@ -1672,7 +1677,7 @@ def run(max_age_hours: int, initial_days: int) -> int:
         print(f"[SUMMARY] {summary_result['detail']}")
 
     save_master(merged)
-    save_json_outputs(merged, sources, collected_at)
+    save_json_outputs(publishable_items, sources, collected_at)
     save_source_status(results, collected_at)
 
     succeeded = sum(1 for result in results if result.status == "ok")
@@ -1682,7 +1687,7 @@ def run(max_age_hours: int, initial_days: int) -> int:
         "run_at_jst": iso_jst(collected_at),
         "feeds_checked": len(results),
         "feeds_succeeded": succeeded,
-        "new_items": len(new_items),
+        "new_items": len(publishable_new_items),
         "duplicates_skipped": duplicates,
         "feed_errors": errors,
         "summaries_generated": summary_result["generated"],
@@ -1694,13 +1699,13 @@ def run(max_age_hours: int, initial_days: int) -> int:
         "note": "Initial lookback" if not existing else "Daily update",
     }
     runs = append_run_log(run_record)
-    update_workbook(merged, sources, runs)
+    update_workbook(publishable_items, sources, runs)
 
     print(
         json.dumps(
             {
                 "status": "ok",
-                "new_items": len(new_items),
+                "new_items": len(publishable_new_items),
                 "duplicates_skipped": duplicates,
                 "feeds_checked": len(results),
                 "feeds_succeeded": succeeded,
@@ -1710,7 +1715,7 @@ def run(max_age_hours: int, initial_days: int) -> int:
                 "items_excluded": len(excluded_ids),
                 "summaries_pending": summary_result["pending"],
                 "summary_errors": summary_result["errors"],
-                "ledger_items": len(merged),
+                "ledger_items": len(publishable_items),
                 "public_json": str(PUBLIC_JSON.relative_to(ROOT)),
                 "public_xlsx": str(PUBLIC_XLSX.relative_to(ROOT)),
             },
