@@ -1230,7 +1230,9 @@ def infer_date_from_url(url: str) -> datetime | None:
 
 
 def archive_url_score(url: str, frame: str) -> int:
-    normalized_url = normalized_text(url.replace("-", " ").replace("_", " "))
+    parts = urlsplit(url)
+    searchable = f"{parts.path} {parts.query}".replace("-", " ").replace("_", " ")
+    normalized_url = normalized_text(searchable)
     return sum(
         1
         for keyword in ARCHIVE_URL_KEYWORDS[frame]
