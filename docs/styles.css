@@ -345,6 +345,17 @@ a:focus-visible {
   color: #17375e;
 }
 
+.tag--academic {
+  background: #e7ddf2;
+  color: #543270;
+}
+
+.tag--academic-status {
+  border: 1px solid #b9a5ca;
+  background: transparent;
+  color: #543270;
+}
+
 .empty {
   padding: 70px 20px;
   border-bottom: 1px solid var(--rule);

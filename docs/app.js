@@ -20,6 +20,13 @@ const LABELS = {
   "Standards & Safety": "標準・安全",
   "Public Procurement & Industrial Policy": "政府調達・産業政策",
   "Research System & Talent": "研究システム・人材",
+  "News & Official Release": "ニュース・公式発表",
+  "Journal Article": "学術誌論文",
+  "Conference Paper": "学会・会議論文",
+  Preprint: "プレプリント",
+  "Journal record — confirm peer review on publisher page": "掲載誌で査読状況を要確認",
+  "Conference proceedings — review status varies": "会議により査読状況が異なります",
+  "Not peer reviewed": "未査読",
 };
 
 const state = {
@@ -41,6 +48,7 @@ const elements = {
   topic: document.querySelector("#topic"),
   policyArea: document.querySelector("#policy-area"),
   sourceType: document.querySelector("#source-type"),
+  academicKind: document.querySelector("#academic-kind"),
   policyScore: document.querySelector("#policy-score"),
   sortOrder: document.querySelector("#sort-order"),
   reset: document.querySelector("#reset-filters"),
@@ -59,6 +67,10 @@ function normalized(value) {
 
 function displayLabel(value) {
   return LABELS[value] || value;
+}
+
+function academicKind(item) {
+  return item.academic_kind || "News & Official Release";
 }
 
 function formatDate(value, withTime = false) {
@@ -149,6 +161,12 @@ function articleCard(item) {
   for (const area of item.policy_areas || []) {
     tags.append(tag(`政策：${displayLabel(area)}`, "tag--policy"));
   }
+  if (academicKind(item) !== "News & Official Release") {
+    tags.append(tag(displayLabel(academicKind(item)), "tag--academic"));
+    if (item.review_status) {
+      tags.append(tag(displayLabel(item.review_status), "tag--academic-status"));
+    }
+  }
   tags.append(tag(`政策関連度 ${Number(item.policy_relevance || 0)}/5`, "tag--policy"));
 
   body.append(title, summary, tags);
@@ -202,6 +220,7 @@ function applyFilters(resetPage = true) {
   const topic = elements.topic.value;
   const policyArea = elements.policyArea.value;
   const sourceType = elements.sourceType.value;
+  const selectedAcademicKind = elements.academicKind.value;
   const minimumPolicy = Number(elements.policyScore.value);
   const sortOrder = elements.sortOrder.value;
 
@@ -216,6 +235,10 @@ function applyFilters(resetPage = true) {
         item.organization,
         item.country,
         item.region,
+        academicKind(item),
+        displayLabel(academicKind(item)),
+        item.review_status,
+        item.venue,
         ...(item.article_frames || []).flatMap((value) => [value, displayLabel(value)]),
         ...(item.topics || []).flatMap((value) => [value, displayLabel(value)]),
         ...(item.policy_areas || []).flatMap((value) => [value, displayLabel(value)]),
@@ -228,6 +251,7 @@ function applyFilters(resetPage = true) {
       (!topic || (item.topics || []).includes(topic)) &&
       (!policyArea || (item.policy_areas || []).includes(policyArea)) &&
       (!sourceType || item.source_type === sourceType) &&
+      (!selectedAcademicKind || academicKind(item) === selectedAcademicKind) &&
       Number(item.policy_relevance || 0) >= minimumPolicy
     );
   });
@@ -257,6 +281,7 @@ function bindControls() {
     elements.topic,
     elements.policyArea,
     elements.sourceType,
+    elements.academicKind,
     elements.policyScore,
     elements.sortOrder,
   ]) {
@@ -272,6 +297,7 @@ function bindControls() {
     elements.topic.value = "";
     elements.policyArea.value = "";
     elements.sourceType.value = "";
+    elements.academicKind.value = "";
     elements.policyScore.value = "0";
     elements.sortOrder.value = "newest";
     applyFilters(true);
@@ -307,6 +333,7 @@ async function loadData() {
     populateSelect(elements.topic, optionValues(state.items, (item) => item.topics || []));
     populateSelect(elements.policyArea, optionValues(state.items, (item) => item.policy_areas || []));
     populateSelect(elements.sourceType, optionValues(state.items, (item) => [item.source_type]));
+    populateSelect(elements.academicKind, optionValues(state.items, (item) => [academicKind(item)]));
     applyFilters(true);
   } catch (error) {
     console.error(error);
