@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  models: read
 
 concurrency:
   group: innovation-news-daily
@@ -40,6 +41,11 @@ jobs:
 
       - name: Collect and build outputs
         run: python scripts/collect.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: "120"
+          JAPANESE_SUMMARY_BATCH_SIZE: "10"
 
       - name: Commit refreshed data
         run: |
