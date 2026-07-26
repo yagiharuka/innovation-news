@@ -26,6 +26,8 @@ class CollectorTests(unittest.TestCase):
             "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
             "title_ja": "量子技術の新成果",
             "summary_ja": "新しい量子制御手法を実証した。",
+            "article_frames": ["Technology Innovation"],
+            "topics": ["Quantum"],
         }
         self.assertTrue(collector.is_publishable(item))
         item["status"] = "Excluded"
@@ -33,6 +35,19 @@ class CollectorTests(unittest.TestCase):
         self.assertFalse(collector.needs_scope_review(item))
         item["scope_review_version"] = "older-review"
         self.assertTrue(collector.needs_scope_review(item))
+
+    def test_reviewed_topics_require_article_evidence_not_source_category(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title": "National project accelerates AI-driven scientific discovery",
+            "summary": "The programme funds artificial intelligence research infrastructure.",
+            "topics": ["Quantum"],
+            "topic": "Quantum",
+        }
+        collector.normalize_reviewed_topics([item])
+        self.assertEqual(item["topics"], ["Artificial Intelligence"])
+        self.assertEqual(item["topic"], "Artificial Intelligence")
 
     def test_canonicalize_url_removes_tracking(self):
         actual = collector.canonicalize_url(
