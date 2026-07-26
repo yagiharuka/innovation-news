@@ -576,6 +576,7 @@
       "category": "National science, technology and innovation strategy",
       "feed_url": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
       "fetch_mode": "link_list",
+      "history_window": "policy",
       "listing_url": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
       "include_title_patterns": [
         "統合イノベーション戦略20",
@@ -596,6 +597,7 @@
       "category": "Patents, intellectual property and technology transfer policy",
       "feed_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
       "fetch_mode": "link_list",
+      "history_window": "policy",
       "listing_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
       "include_title_patterns": [
         "知的財産推進計画20"
@@ -615,6 +617,7 @@
       "category": "Science, technology and innovation policy research",
       "feed_url": "https://www.jst.go.jp/crds/report/by-category/05/index.html",
       "fetch_mode": "link_list",
+      "history_window": "policy",
       "listing_url": "https://www.jst.go.jp/crds/report/by-category/05/index.html",
       "include_link_patterns": [
         "/crds/report/"
@@ -634,6 +637,7 @@
       "category": "Science, technology and research policy",
       "feed_url": "https://www.whitehouse.gov/ostp/news/",
       "fetch_mode": "link_list",
+      "history_window": "policy",
       "listing_url": "https://www.whitehouse.gov/ostp/news/",
       "include_link_patterns": [
         "/releases/",
@@ -655,6 +659,7 @@
       "category": "Patents, intellectual property and innovation policy",
       "feed_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
       "fetch_mode": "link_list",
+      "history_window": "policy",
       "listing_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
       "include_link_patterns": [
         "/pressroom/en/articles/"
@@ -673,6 +678,7 @@
       "country": "European Patent Organisation",
       "category": "Patent policy, examination and technology transfer",
       "feed_url": "https://www.epo.org/en/news-events/news/feed",
+      "history_window": "policy",
       "homepage": "https://www.epo.org/en/news-events/news",
       "priority": 5,
       "native_feed": true,
