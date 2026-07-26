@@ -54,7 +54,7 @@ JST = timezone(timedelta(hours=9))
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 GDELT_DOC_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
-TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v4"
+TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v5"
 ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v1"
 BACKFILL_VERSION = 2
 DEFAULT_POLICY_HISTORY_DAYS = 365
@@ -266,6 +266,8 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "ナショプロ",
         "国家プロジェクト",
         "国家戦略",
+        "統合イノベーション戦略",
+        "科学技術・イノベーション基本計画",
         "ロードマップ",
         "研究開発",
     ),
@@ -1713,16 +1715,21 @@ def fetch_source(
             for node in nodes[:scan_limit]:
                 title = normalize_space(node.get_text(" ", strip=True))
                 link = urljoin(response.url, node.get("href", ""))
+                context_node = node.parent or node
+                context = normalize_space(context_node.get_text(" ", strip=True))
                 if title_patterns and not any(
-                    pattern in title.casefold() for pattern in title_patterns
+                    pattern in f"{title} {context}".casefold()
+                    for pattern in title_patterns
                 ):
                     continue
                 if link_patterns and not any(
                     pattern in link.casefold() for pattern in link_patterns
                 ):
                     continue
-                context_node = node.parent or node
-                context = normalize_space(context_node.get_text(" ", strip=True))
+                if title_patterns and not any(
+                    pattern in title.casefold() for pattern in title_patterns
+                ):
+                    title = context
                 published = parse_listing_date(context, collected_at)
                 if published < cutoff:
                     continue
@@ -2854,11 +2861,12 @@ def run(
     candidates: list[dict[str, Any]] = []
     results: list[FeedResult] = []
     for source in sources:
-        source_cutoff = (
-            technology_cutoff
-            if backfill and source.get("fetch_mode") == "openalex"
-            else collection_cutoff
-        )
+        if source.get("history_window") == "policy":
+            source_cutoff = policy_cutoff
+        elif backfill and source.get("fetch_mode") == "openalex":
+            source_cutoff = technology_cutoff
+        else:
+            source_cutoff = collection_cutoff
         items, result = fetch_source(
             session,
             source,
@@ -2866,6 +2874,12 @@ def run(
             collected_at,
             backfill=backfill,
         )
+        if not backfill and source.get("history_window") == "policy":
+            for item in items:
+                published = parse_iso(item.get("published_at", ""), collected_at)
+                if published < daily_cutoff:
+                    item["collection_mode"] = "Historical Backfill"
+                    item["first_seen"] = iso_jst(published)
         if backfill:
             items = [
                 item

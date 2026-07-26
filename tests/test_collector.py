@@ -95,6 +95,12 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("National Programs & Strategy", policy_areas)
         self.assertIn("Patents & Intellectual Property", policy_areas)
 
+    def test_japanese_integrated_innovation_strategy_is_policy(self):
+        self.assertIn(
+            "National Programs & Strategy",
+            collector.classify_policy_areas("統合イノベーション戦略2026"),
+        )
+
     def test_region_classification_overrides_global_default(self):
         region = collector.classify_region(
             "The European Commission announced a new AI investment initiative.",
@@ -469,7 +475,8 @@ class CollectorTests(unittest.TestCase):
         )
 
     def test_config_includes_primary_policy_benchmark_sources(self):
-        names = {source["name"] for source in collector.load_config()["sources"]}
+        sources = collector.load_config()["sources"]
+        names = {source["name"] for source in sources}
         self.assertTrue(
             {
                 "Japan Cabinet Office STI Strategy",
@@ -479,6 +486,23 @@ class CollectorTests(unittest.TestCase):
                 "WIPO News",
                 "European Patent Office News",
             }.issubset(names)
+        )
+        benchmark_sources = [
+            source for source in sources if source["name"] in names
+            and source["name"] in {
+                "Japan Cabinet Office STI Strategy",
+                "Japan IP Strategy Headquarters",
+                "JST CRDS STI Policy Reports",
+                "White House OSTP News",
+                "WIPO News",
+                "European Patent Office News",
+            }
+        ]
+        self.assertTrue(
+            all(
+                source.get("history_window") == "policy"
+                for source in benchmark_sources
+            )
         )
 
 
