@@ -20,6 +20,7 @@ import sys
 import time
 import unicodedata
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import copy
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -61,6 +62,7 @@ BACKFILL_VERSION = 2
 DEFAULT_POLICY_HISTORY_DAYS = 365
 DEFAULT_TECHNOLOGY_HISTORY_DAYS = 183
 DEFAULT_PUBLIC_ITEM_LIMIT = 2500
+DEFAULT_SOURCE_FETCH_WORKERS = 4
 TECH_SCOPE_CONTENT_TYPES = {
     "research_breakthrough",
     "engineering_development",
@@ -547,6 +549,21 @@ def decoded_response_text(response: requests.Response) -> str:
         if detected:
             response.encoding = detected
     return response.text
+
+
+def make_http_session() -> requests.Session:
+    session = requests.Session()
+    session.headers.update(
+        {
+            "User-Agent": USER_AGENT,
+            "Accept": (
+                "application/rss+xml, application/atom+xml, "
+                "application/xml, text/xml;q=0.9, */*;q=0.1"
+            ),
+            "Accept-Language": "en-US,en;q=0.8,ja;q=0.5",
+        }
+    )
+    return session
 
 
 def entry_summary(entry: Any) -> str:
@@ -3845,31 +3862,61 @@ def run(
         )
     )
 
-    session = requests.Session()
-    session.headers.update(
-        {
-            "User-Agent": USER_AGENT,
-            "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.1",
-            "Accept-Language": "en-US,en;q=0.8,ja;q=0.5",
-        }
-    )
+    session = make_http_session()
 
     candidates: list[dict[str, Any]] = []
     results: list[FeedResult] = []
-    for source in sources:
+
+    def collect_source(
+        index: int,
+        source: dict[str, Any],
+    ) -> tuple[int, dict[str, Any], list[dict[str, Any]], FeedResult]:
         if source.get("history_window") == "policy":
             source_cutoff = policy_cutoff
         elif backfill and source.get("fetch_mode") == "openalex":
             source_cutoff = technology_cutoff
         else:
             source_cutoff = collection_cutoff
-        items, result = fetch_source(
-            session,
-            source,
-            source_cutoff,
-            collected_at,
-            backfill=backfill,
+        source_session = make_http_session()
+        try:
+            items, result = fetch_source(
+                source_session,
+                source,
+                source_cutoff,
+                collected_at,
+                backfill=backfill,
+            )
+            return index, source, items, result
+        finally:
+            source_session.close()
+
+    try:
+        source_fetch_workers = int(
+            os.getenv(
+                "SOURCE_FETCH_WORKERS",
+                str(DEFAULT_SOURCE_FETCH_WORKERS),
+            )
         )
+    except ValueError:
+        source_fetch_workers = DEFAULT_SOURCE_FETCH_WORKERS
+    source_fetch_workers = max(1, min(8, source_fetch_workers))
+    print(f"[FETCH] source_workers={source_fetch_workers}")
+    collected_sources: list[
+        tuple[dict[str, Any], list[dict[str, Any]], FeedResult] | None
+    ] = [None] * len(sources)
+    with ThreadPoolExecutor(max_workers=source_fetch_workers) as executor:
+        future_sources = {
+            executor.submit(collect_source, index, source): source
+            for index, source in enumerate(sources)
+        }
+        for future in as_completed(future_sources):
+            index, source, items, result = future.result()
+            collected_sources[index] = (source, items, result)
+
+    for collected_source in collected_sources:
+        if collected_source is None:
+            continue
+        source, items, result = collected_source
         if not backfill and source.get("history_window") == "policy":
             for item in items:
                 published = parse_iso(item.get("published_at", ""), collected_at)

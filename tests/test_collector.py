@@ -2,6 +2,8 @@ import importlib.util
 import json
 import os
 import sys
+import threading
+import time
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +19,113 @@ SPEC.loader.exec_module(collector)
 
 
 class CollectorTests(unittest.TestCase):
+    def test_run_fetches_sources_concurrently_and_preserves_source_order(self):
+        sources = [
+            {
+                "active": True,
+                "name": f"Source {index}",
+                "organization": f"Organization {index}",
+                "source_type": "Official Company",
+                "region": "Global",
+                "country": "Global",
+                "category": "Artificial intelligence research",
+                "feed_url": f"https://source{index}.example.com/feed",
+                "homepage": f"https://source{index}.example.com/",
+                "priority": 4,
+            }
+            for index in range(4)
+        ]
+        active = 0
+        maximum_active = 0
+        lock = threading.Lock()
+
+        def fake_fetch(
+            session,
+            source,
+            cutoff,
+            collected_at,
+            backfill=False,
+        ):
+            nonlocal active, maximum_active
+            with lock:
+                active += 1
+                maximum_active = max(maximum_active, active)
+            time.sleep(0.03)
+            with lock:
+                active -= 1
+            return [], collector.FeedResult(
+                source=source,
+                entries_seen=0,
+                entries_kept=0,
+                status="ok",
+                detail="",
+                elapsed_seconds=0.03,
+            )
+
+        academic_result = {
+            "targets": 0,
+            "attempted": 0,
+            "restored": 0,
+            "errors": 0,
+        }
+        summary_result = {
+            "generated": 0,
+            "reviewed": 0,
+            "excluded_ids": [],
+            "pending": 0,
+            "errors": 0,
+            "detail": "",
+        }
+        with (
+            mock.patch.dict(os.environ, {"SOURCE_FETCH_WORKERS": "4"}),
+            mock.patch.object(collector, "ensure_seed_files"),
+            mock.patch.object(
+                collector,
+                "load_config",
+                return_value={"sources": sources},
+            ),
+            mock.patch.object(collector, "load_master", return_value=[]),
+            mock.patch.object(
+                collector,
+                "load_backfill_state",
+                return_value={"backfill_version": collector.BACKFILL_VERSION},
+            ),
+            mock.patch.object(
+                collector,
+                "now_utc",
+                return_value=datetime(2026, 7, 26, tzinfo=timezone.utc),
+            ),
+            mock.patch.object(
+                collector,
+                "fetch_source",
+                side_effect=fake_fetch,
+            ),
+            mock.patch.object(
+                collector,
+                "refresh_academic_review_summaries",
+                return_value=academic_result,
+            ),
+            mock.patch.object(
+                collector,
+                "enrich_japanese_summaries",
+                return_value=summary_result,
+            ),
+            mock.patch.object(collector, "save_master"),
+            mock.patch.object(collector, "save_json_outputs"),
+            mock.patch.object(collector, "save_source_status") as save_status,
+            mock.patch.object(collector, "append_run_log", return_value=[]),
+            mock.patch.object(collector, "update_workbook"),
+        ):
+            result = collector.run(96, 365, 183)
+
+        self.assertEqual(result, 0)
+        self.assertGreaterEqual(maximum_active, 2)
+        saved_results = save_status.call_args.args[0]
+        self.assertEqual(
+            [result.source["name"] for result in saved_results],
+            [source["name"] for source in sources],
+        )
+
     def test_taxonomy_has_eight_technology_topics_and_separate_policy_axis(self):
         self.assertEqual(len(collector.TOPIC_KEYWORDS), 8)
         self.assertIn("Space", collector.TOPIC_KEYWORDS)
