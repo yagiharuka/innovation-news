@@ -128,9 +128,7 @@ function articleCard(item) {
   source.className = "article__source";
   source.textContent = item.source || item.organization || "情報源不明";
 
-  const sourceType = document.createElement("p");
-  sourceType.textContent = item.source_type || "";
-  meta.append(region, date, source, sourceType);
+  meta.append(region, date, source);
 
   const body = document.createElement("div");
   const title = document.createElement("h3");

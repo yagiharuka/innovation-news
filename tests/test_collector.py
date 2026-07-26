@@ -657,6 +657,77 @@ class CollectorTests(unittest.TestCase):
             0,
         )
 
+    def test_site_scan_stays_on_allowlisted_domain_and_reads_article_page(self):
+        listing_url = "https://research.example.com/news"
+        article_url = "https://research.example.com/news/quantum-processor"
+        listing_html = f"""
+        <main>
+          <a href="{article_url}">
+            Quantum processor reaches a new control milestone
+          </a>
+          <a href="https://untrusted.example.net/news/copied-story">
+            Copied quantum processor story
+          </a>
+        </main>
+        """
+        article_html = """
+        <html>
+          <head>
+            <meta property="og:title"
+                  content="Quantum processor reaches a new control milestone">
+            <meta name="description"
+                  content="Researchers demonstrated a new quantum processor control method with lower error rates.">
+            <meta property="article:published_time"
+                  content="2026-07-25T00:00:00Z">
+          </head>
+        </html>
+        """
+
+        def response(url, body):
+            value = collector.requests.Response()
+            value.status_code = 200
+            value.url = url
+            value._content = body.encode("utf-8")
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(listing_url, listing_html)
+                if url == article_url:
+                    return response(article_url, article_html)
+                raise AssertionError(f"Unexpected URL: {url}")
+
+        source = {
+            "active": True,
+            "name": "Example Research",
+            "organization": "Example",
+            "source_type": "Official Company",
+            "region": "Global",
+            "country": "United States",
+            "category": "Quantum research",
+            "feed_url": listing_url,
+            "fetch_mode": "site_scan",
+            "listing_url": listing_url,
+            "include_link_patterns": ["/news/"],
+            "homepage": listing_url,
+            "priority": 5,
+            "native_feed": False,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            False,
+        )
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["source"], "Example Research")
+        self.assertEqual(items[0]["topics"], ["Quantum"])
+        self.assertIn("lower error rates", items[0]["summary"])
+
     def test_config_has_separate_scholarly_kinds(self):
         config = collector.load_config()
         academic_kinds = {
@@ -667,6 +738,32 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(
             academic_kinds,
             {"Journal Article", "Conference Paper", "Preprint"},
+        )
+
+    def test_config_uses_live_sources_and_diverse_company_coverage(self):
+        sources = collector.load_config()["sources"]
+        active_sources = [
+            source for source in sources if source.get("active", True)
+        ]
+        self.assertFalse(
+            any(source.get("fetch_mode") == "static" for source in active_sources)
+        )
+        companies = [
+            source
+            for source in active_sources
+            if source.get("source_type") == "Official Company"
+        ]
+        self.assertGreaterEqual(len(companies), 41)
+        company_names = {source["name"] for source in companies}
+        self.assertTrue(
+            {
+                "Toyota Research Institute News",
+                "TSMC News",
+                "Quantinuum News",
+                "Kyoto Fusioneering News",
+                "Roche Media Releases",
+                "Astroscale News",
+            }.issubset(company_names)
         )
 
     def test_config_includes_primary_policy_benchmark_sources(self):
