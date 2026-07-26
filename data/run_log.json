@@ -154,6 +154,22 @@
       "summary_errors": 0,
       "duration_seconds": 93.7,
       "note": "Daily update"
+    },
+    {
+      "run_at": "2026-07-26T12:02:36Z",
+      "run_at_jst": "2026-07-26T21:02:36+09:00",
+      "feeds_checked": 108,
+      "feeds_succeeded": 59,
+      "new_items": 16,
+      "duplicates_skipped": 92,
+      "feed_errors": 49,
+      "summaries_generated": 16,
+      "items_reviewed": 110,
+      "items_excluded": 94,
+      "summaries_pending": 393,
+      "summary_errors": 0,
+      "duration_seconds": 1376.15,
+      "note": "Historical backfill: policy 365d / technology 183d"
     }
   ]
 }
