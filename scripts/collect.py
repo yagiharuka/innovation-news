@@ -54,7 +54,7 @@ JST = timezone(timedelta(hours=9))
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 GDELT_DOC_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
-TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v4"
+TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v5"
 ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v1"
 BACKFILL_VERSION = 2
 DEFAULT_POLICY_HISTORY_DAYS = 365
