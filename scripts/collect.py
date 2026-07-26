@@ -950,12 +950,69 @@ def needs_scope_review(item: dict[str, Any]) -> bool:
 
 
 def is_publishable(item: dict[str, Any]) -> bool:
+    article_frames = item.get("article_frames") or [
+        part.strip()
+        for part in item.get("article_frame", "").split("|")
+        if part.strip()
+    ]
+    topics = item.get("topics") or [
+        part.strip()
+        for part in item.get("topic", "").split("|")
+        if part.strip()
+    ]
+    policy_areas = item.get("policy_areas") or [
+        part.strip()
+        for part in item.get("policy_area", "").split("|")
+        if part.strip()
+    ]
     return (
         item.get("status") != "Excluded"
         and item.get("scope_review_version") == TECH_SCOPE_REVIEW_VERSION
         and bool(item.get("title_ja"))
         and bool(item.get("summary_ja"))
+        and bool(article_frames)
+        and ("Technology Innovation" not in article_frames or bool(topics))
+        and ("Innovation Policy" not in article_frames or bool(policy_areas))
     )
+
+
+def normalize_reviewed_topics(items: list[dict[str, Any]]) -> None:
+    allowed_topics = set(TOPIC_KEYWORDS)
+    for item in items:
+        if (
+            item.get("status") == "Excluded"
+            or item.get("scope_review_version") != TECH_SCOPE_REVIEW_VERSION
+        ):
+            continue
+        evidence_text = " ".join(
+            [
+                str(item.get("title", "")),
+                str(item.get("summary", "")),
+            ]
+        )
+        evidence_topics = classify_topics(evidence_text)
+        current_topics = item.get("topics") or [
+            part.strip()
+            for part in item.get("topic", "").split("|")
+            if part.strip()
+        ]
+        verified_topics = [
+            topic
+            for topic in current_topics
+            if topic in allowed_topics and topic in evidence_topics
+        ]
+        article_frames = item.get("article_frames") or [
+            part.strip()
+            for part in item.get("article_frame", "").split("|")
+            if part.strip()
+        ]
+        if not verified_topics:
+            if "Technology Innovation" in article_frames:
+                verified_topics = evidence_topics
+            elif len(evidence_topics) == 1:
+                verified_topics = evidence_topics
+        item["topics"] = list(dict.fromkeys(verified_topics))
+        item["topic"] = " | ".join(item["topics"])
 
 
 def parse_japanese_summary_response(
@@ -1132,6 +1189,8 @@ def japanese_summary_request(
         "CRISPR酵素の新作用、ガラス基板による先進半導体パッケージング、"
         "AI科学研究用データ基盤への具体的助成はtrueです。"
         "候補分野や候補政策関連度は参考情報にすぎず、必ず本文から再判定してください。"
+        "情報源名、情報源カテゴリ、候補分野だけを根拠に8技術topicを付けてはいけません。"
+        "各topicは記事の見出しまたは概要にその技術を裏付ける記述がある場合だけ付けます。"
         "固有名詞、機関名、数値、日付は正確に保ちます。"
         "要約は1〜2文、原則80〜180字とし、政策・研究開発・産業上の意味を優先します。"
         "情報が乏しい場合は、見出しから確認できる範囲だけを書いてください。"
@@ -1662,6 +1721,7 @@ def run(max_age_hours: int, initial_days: int) -> int:
     merged = new_items + existing
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     summary_result = enrich_japanese_summaries(merged, new_items)
+    normalize_reviewed_topics(merged)
     excluded_ids = set(summary_result["excluded_ids"])
     publishable_items = [item for item in merged if is_publishable(item)]
     publishable_new_items = [item for item in new_items if is_publishable(item)]
