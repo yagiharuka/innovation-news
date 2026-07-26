@@ -568,6 +568,113 @@
     },
     {
       "active": true,
+      "name": "Japan Cabinet Office STI Strategy",
+      "organization": "Cabinet Office, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "Japan",
+      "category": "National science, technology and innovation strategy",
+      "feed_url": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
+      "fetch_mode": "link_list",
+      "listing_url": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
+      "include_title_patterns": [
+        "統合イノベーション戦略20",
+        "科学技術・イノベーション基本計画"
+      ],
+      "homepage": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Official annual Japanese science, technology and innovation strategy."
+    },
+    {
+      "active": true,
+      "name": "Japan IP Strategy Headquarters",
+      "organization": "Intellectual Property Strategy Headquarters, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "Japan",
+      "category": "Patents, intellectual property and technology transfer policy",
+      "feed_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "fetch_mode": "link_list",
+      "listing_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "include_title_patterns": [
+        "知的財産推進計画20"
+      ],
+      "homepage": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Official Japanese intellectual-property strategy and policy updates."
+    },
+    {
+      "active": true,
+      "name": "JST CRDS STI Policy Reports",
+      "organization": "JST Center for Research and Development Strategy",
+      "source_type": "Policy Institute",
+      "region": "Asia",
+      "country": "Japan",
+      "category": "Science, technology and innovation policy research",
+      "feed_url": "https://www.jst.go.jp/crds/report/by-category/05/index.html",
+      "fetch_mode": "link_list",
+      "listing_url": "https://www.jst.go.jp/crds/report/by-category/05/index.html",
+      "include_link_patterns": [
+        "/crds/report/"
+      ],
+      "homepage": "https://www.jst.go.jp/crds/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Official Japanese public-policy research reports from JST CRDS."
+    },
+    {
+      "active": true,
+      "name": "White House OSTP News",
+      "organization": "White House Office of Science and Technology Policy",
+      "source_type": "Government",
+      "region": "United States",
+      "country": "United States",
+      "category": "Science, technology and research policy",
+      "feed_url": "https://www.whitehouse.gov/ostp/news/",
+      "fetch_mode": "link_list",
+      "listing_url": "https://www.whitehouse.gov/ostp/news/",
+      "include_link_patterns": [
+        "/releases/",
+        "/fact-sheets/",
+        "/presidential-actions/"
+      ],
+      "homepage": "https://www.whitehouse.gov/ostp/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Official U.S. science and technology policy releases."
+    },
+    {
+      "active": true,
+      "name": "WIPO News",
+      "organization": "World Intellectual Property Organization",
+      "source_type": "Intergovernmental",
+      "region": "Global",
+      "country": "Global",
+      "category": "Patents, intellectual property and innovation policy",
+      "feed_url": "https://www.wipo.int/en/web/news/rss",
+      "homepage": "https://www.wipo.int/pressroom/en/",
+      "priority": 5,
+      "native_feed": true,
+      "notes": "Official WIPO news on patents, intellectual property and innovation policy."
+    },
+    {
+      "active": true,
+      "name": "European Patent Office News",
+      "organization": "European Patent Office",
+      "source_type": "Intergovernmental",
+      "region": "EU & Europe",
+      "country": "European Patent Organisation",
+      "category": "Patent policy, examination and technology transfer",
+      "feed_url": "https://www.epo.org/en/news-events/news/feed",
+      "homepage": "https://www.epo.org/en/news-events/news",
+      "priority": 5,
+      "native_feed": true,
+      "notes": "Official EPO news and patent-system policy updates."
+    },
+    {
+      "active": true,
       "name": "OpenAlex Journal Articles",
       "organization": "OpenAlex",
       "source_type": "Journal Article",
