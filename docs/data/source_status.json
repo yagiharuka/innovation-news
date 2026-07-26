@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T12:02:36Z",
+  "updated_at": "2026-07-26T12:29:09Z",
   "summary": {
-    "checked": 108,
-    "succeeded": 59,
-    "failed": 49,
-    "entries_seen": 4945,
-    "entries_kept": 595
+    "checked": 41,
+    "succeeded": 31,
+    "failed": 10,
+    "entries_seen": 1756,
+    "entries_kept": 97
   },
   "sources": [
     {
@@ -20,7 +20,7 @@
       "detail": "",
       "entries_seen": 2,
       "entries_kept": 1,
-      "elapsed_seconds": 0.33
+      "elapsed_seconds": 0.12
     },
     {
       "name": "BBC Science & Environment",
@@ -33,7 +33,7 @@
       "detail": "",
       "entries_seen": 42,
       "entries_kept": 0,
-      "elapsed_seconds": 0.41
+      "elapsed_seconds": 0.07
     },
     {
       "name": "BBC Technology",
@@ -45,8 +45,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 21,
-      "entries_kept": 8,
-      "elapsed_seconds": 0.03
+      "entries_kept": 4,
+      "elapsed_seconds": 0.02
     },
     {
       "name": "The New York Times Technology",
@@ -58,8 +58,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 24,
-      "entries_kept": 14,
-      "elapsed_seconds": 0.12
+      "entries_kept": 8,
+      "elapsed_seconds": 0.13
     },
     {
       "name": "The New York Times Science",
@@ -71,8 +71,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 29,
-      "entries_kept": 7,
-      "elapsed_seconds": 0.26
+      "entries_kept": 6,
+      "elapsed_seconds": 0.04
     },
     {
       "name": "NISTEP Updates",
@@ -84,8 +84,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 15,
-      "entries_kept": 15,
-      "elapsed_seconds": 2.91
+      "entries_kept": 0,
+      "elapsed_seconds": 2.02
     },
     {
       "name": "The Guardian Technology",
@@ -97,8 +97,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 36,
-      "entries_kept": 24,
-      "elapsed_seconds": 0.32
+      "entries_kept": 8,
+      "elapsed_seconds": 0.21
     },
     {
       "name": "MIT Technology Review",
@@ -110,8 +110,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 8,
-      "elapsed_seconds": 0.23
+      "entries_kept": 4,
+      "elapsed_seconds": 0.1
     },
     {
       "name": "IEEE Spectrum",
@@ -123,8 +123,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 30,
-      "entries_kept": 12,
-      "elapsed_seconds": 0.91
+      "entries_kept": 2,
+      "elapsed_seconds": 1.38
     },
     {
       "name": "Nature",
@@ -136,8 +136,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 75,
-      "entries_kept": 24,
-      "elapsed_seconds": 0.32
+      "entries_kept": 5,
+      "elapsed_seconds": 0.3
     },
     {
       "name": "Science",
@@ -150,7 +150,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.33
+      "elapsed_seconds": 0.19
     },
     {
       "name": "South China Morning Post Technology",
@@ -162,8 +162,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 50,
-      "entries_kept": 24,
-      "elapsed_seconds": 0.48
+      "entries_kept": 8,
+      "elapsed_seconds": 0.59
     },
     {
       "name": "Arab News Technology",
@@ -176,7 +176,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/taxonomy/term/2936/feed",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.07
+      "elapsed_seconds": 0.1
     },
     {
       "name": "The National Technology",
@@ -187,9 +187,9 @@
       "feed_url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/category/future/technology/?outputType=xml",
       "status": "ok",
       "detail": "",
-      "entries_seen": 3,
-      "entries_kept": 3,
-      "elapsed_seconds": 1.26
+      "entries_seen": 2,
+      "entries_kept": 2,
+      "elapsed_seconds": 0.72
     },
     {
       "name": "Brookings TechTank",
@@ -201,8 +201,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 4,
-      "entries_kept": 4,
-      "elapsed_seconds": 0.17
+      "entries_kept": 1,
+      "elapsed_seconds": 0.2
     },
     {
       "name": "CSIS Analysis",
@@ -215,7 +215,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.12
+      "elapsed_seconds": 0.11
     },
     {
       "name": "CSET",
@@ -227,8 +227,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 10,
-      "elapsed_seconds": 0.16
+      "entries_kept": 1,
+      "elapsed_seconds": 0.06
     },
     {
       "name": "Bruegel",
@@ -241,7 +241,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.16
+      "elapsed_seconds": 0.18
     },
     {
       "name": "MERICS",
@@ -254,7 +254,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://merics.org/en/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.99
+      "elapsed_seconds": 0.53
     },
     {
       "name": "National Science Foundation News",
@@ -266,8 +266,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 15,
-      "entries_kept": 15,
-      "elapsed_seconds": 0.18
+      "entries_kept": 3,
+      "elapsed_seconds": 0.12
     },
     {
       "name": "NIST News",
@@ -279,8 +279,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 40,
-      "entries_kept": 24,
-      "elapsed_seconds": 0.1
+      "entries_kept": 0,
+      "elapsed_seconds": 0.09
     },
     {
       "name": "NIH News Releases",
@@ -293,7 +293,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.nih.gov/news-events/news-releases/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.4
+      "elapsed_seconds": 0.04
     },
     {
       "name": "DOE Office of Science News",
@@ -305,8 +305,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 10,
-      "elapsed_seconds": 0.12
+      "entries_kept": 1,
+      "elapsed_seconds": 0.17
     },
     {
       "name": "European Commission Press Corner",
@@ -319,7 +319,7 @@
       "detail": "HTTPError: 400 Client Error: Bad Request for url: https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.59
+      "elapsed_seconds": 0.3
     },
     {
       "name": "UK DSIT",
@@ -331,8 +331,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 20,
-      "elapsed_seconds": 0.76
+      "entries_kept": 3,
+      "elapsed_seconds": 1.04
     },
     {
       "name": "METI Press Releases",
@@ -345,7 +345,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/english/press/index.rdf",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.6
+      "elapsed_seconds": 0.12
     },
     {
       "name": "WHO News",
@@ -357,8 +357,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 25,
-      "entries_kept": 24,
-      "elapsed_seconds": 0.35
+      "entries_kept": 1,
+      "elapsed_seconds": 0.2
     },
     {
       "name": "IEA News",
@@ -371,7 +371,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/rss/news.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.17
+      "elapsed_seconds": 0.2
     },
     {
       "name": "OECD Newsroom",
@@ -384,7 +384,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.15
+      "elapsed_seconds": 0.21
     },
     {
       "name": "OpenAI News",
@@ -396,8 +396,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 1050,
-      "entries_kept": 24,
-      "elapsed_seconds": 0.53
+      "entries_kept": 3,
+      "elapsed_seconds": 0.42
     },
     {
       "name": "Google AI",
@@ -409,8 +409,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 20,
-      "elapsed_seconds": 0.28
+      "entries_kept": 1,
+      "elapsed_seconds": 0.27
     },
     {
       "name": "NVIDIA Blog",
@@ -422,8 +422,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 18,
-      "entries_kept": 18,
-      "elapsed_seconds": 0.27
+      "entries_kept": 4,
+      "elapsed_seconds": 0.32
     },
     {
       "name": "Intel Newsroom",
@@ -435,8 +435,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 10,
-      "elapsed_seconds": 0.25
+      "entries_kept": 2,
+      "elapsed_seconds": 0.21
     },
     {
       "name": "IBM Research",
@@ -449,7 +449,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://research.ibm.com/blog/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.59
+      "elapsed_seconds": 0.2
     },
     {
       "name": "Microsoft Research",
@@ -461,8 +461,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 10,
-      "elapsed_seconds": 0.76
+      "entries_kept": 0,
+      "elapsed_seconds": 0.49
     },
     {
       "name": "Samsung Global Newsroom",
@@ -474,7 +474,7 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 50,
-      "entries_kept": 24,
+      "entries_kept": 8,
       "elapsed_seconds": 0.49
     },
     {
@@ -487,8 +487,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 20,
-      "elapsed_seconds": 1.16
+      "entries_kept": 0,
+      "elapsed_seconds": 0.86
     },
     {
       "name": "Fusion Industry Association",
@@ -500,8 +500,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 10,
-      "elapsed_seconds": 1.25
+      "entries_kept": 0,
+      "elapsed_seconds": 0.88
     },
     {
       "name": "OpenAlex Journal Articles",
@@ -512,9 +512,9 @@
       "feed_url": "https://api.openalex.org/works",
       "status": "ok",
       "detail": "",
-      "entries_seen": 256,
-      "entries_kept": 64,
-      "elapsed_seconds": 4.9
+      "entries_seen": 54,
+      "entries_kept": 14,
+      "elapsed_seconds": 1.33
     },
     {
       "name": "OpenAlex Conference Papers",
@@ -525,9 +525,9 @@
       "feed_url": "https://api.openalex.org/works",
       "status": "ok",
       "detail": "",
-      "entries_seen": 106,
-      "entries_kept": 30,
-      "elapsed_seconds": 2.43
+      "entries_seen": 11,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.87
     },
     {
       "name": "OpenAlex Preprints",
@@ -538,880 +538,9 @@
       "feed_url": "https://api.openalex.org/works",
       "status": "ok",
       "detail": "",
-      "entries_seen": 96,
-      "entries_kept": 19,
-      "elapsed_seconds": 2.75
-    },
-    {
-      "name": "Bloomberg Technology (site archive)",
-      "organization": "Bloomberg",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.bloomberg.com/technology",
-      "feed_url": "https://www.bloomberg.com/feeds/technology/news.rss",
-      "status": "ok",
-      "detail": "sitemaps=9; https://www.bloomberg.com/sitemaps/securites/index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.bloomberg.com/sitemaps/securites/index.xml; https://www.bloomberg.com/billionaires/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.bloomberg.com/billionaires/sitemap.xml",
-      "entries_seen": 240,
+      "entries_seen": 33,
       "entries_kept": 6,
-      "elapsed_seconds": 21.69
-    },
-    {
-      "name": "Bloomberg Technology (historical archive)",
-      "organization": "Bloomberg",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.bloomberg.com/technology",
-      "feed_url": "https://www.bloomberg.com/feeds/technology/news.rss",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.18
-    },
-    {
-      "name": "BBC Science & Environment (site archive)",
-      "organization": "BBC",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.bbc.com/news/science_and_environment",
-      "feed_url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.25
-    },
-    {
-      "name": "BBC Science & Environment (historical archive)",
-      "organization": "BBC",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.bbc.com/news/science_and_environment",
-      "feed_url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
-      "status": "error",
-      "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Abbc.com+%28%22innovation+policy%22+OR+%22science+policy%22+OR+%22research+funding%22+OR+%22R%26D+tax%22+OR+%22national+strategy%22+OR+patent+OR+%22industrial+policy%22+OR+%22public+proc",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.95
-    },
-    {
-      "name": "BBC Science & Environment (historical archive)",
-      "organization": "BBC",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.bbc.com/news/science_and_environment",
-      "feed_url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 75,
-      "entries_kept": 3,
-      "elapsed_seconds": 6.55
-    },
-    {
-      "name": "The New York Times Technology (site archive)",
-      "organization": "The New York Times",
-      "source_type": "Major Media",
-      "region": "United States",
-      "homepage": "https://www.nytimes.com/section/technology",
-      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 12,
-      "entries_kept": 2,
-      "elapsed_seconds": 4.41
-    },
-    {
-      "name": "The New York Times Technology (historical archive)",
-      "organization": "The New York Times",
-      "source_type": "Major Media",
-      "region": "United States",
-      "homepage": "https://www.nytimes.com/section/technology",
-      "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.18
-    },
-    {
-      "name": "NISTEP Updates (site archive)",
-      "organization": "National Institute of Science and Technology Policy",
-      "source_type": "Government",
-      "region": "Asia",
-      "homepage": "https://www.nistep.go.jp/",
-      "feed_url": "https://www.nistep.go.jp/feed",
-      "status": "ok",
-      "detail": "sitemaps=6; https://www.nistep.go.jp/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nistep.go.jp/sitemap_index.xml",
-      "entries_seen": 18,
-      "entries_kept": 0,
-      "elapsed_seconds": 9.31
-    },
-    {
-      "name": "NISTEP Updates (historical archive)",
-      "organization": "National Institute of Science and Technology Policy",
-      "source_type": "Government",
-      "region": "Asia",
-      "homepage": "https://www.nistep.go.jp/",
-      "feed_url": "https://www.nistep.go.jp/feed",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.06
-    },
-    {
-      "name": "NISTEP Updates (historical archive)",
-      "organization": "National Institute of Science and Technology Policy",
-      "source_type": "Government",
-      "region": "Asia",
-      "homepage": "https://www.nistep.go.jp/",
-      "feed_url": "https://www.nistep.go.jp/feed",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.08
-    },
-    {
-      "name": "MIT Technology Review (site archive)",
-      "organization": "MIT Technology Review",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.technologyreview.com/",
-      "feed_url": "https://www.technologyreview.com/feed/",
-      "status": "ok",
-      "detail": "sitemaps=12; https://www.technologyreview.com/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.technologyreview.com/sitemap_index.xml",
-      "entries_seen": 139,
-      "entries_kept": 6,
-      "elapsed_seconds": 56.81
-    },
-    {
-      "name": "MIT Technology Review (historical archive)",
-      "organization": "MIT Technology Review",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://www.technologyreview.com/",
-      "feed_url": "https://www.technologyreview.com/feed/",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.18
-    },
-    {
-      "name": "IEEE Spectrum (site archive)",
-      "organization": "IEEE",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://spectrum.ieee.org/",
-      "feed_url": "https://spectrum.ieee.org/feeds/feed.rss",
-      "status": "ok",
-      "detail": "sitemaps=12; https://spectrum.ieee.org/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://spectrum.ieee.org/sitemap_index.xml; https://spectrum.ieee.org/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://spectrum.ieee.org/wp-sitemap.xml",
-      "entries_seen": 4,
-      "entries_kept": 1,
-      "elapsed_seconds": 4.28
-    },
-    {
-      "name": "IEEE Spectrum (historical archive)",
-      "organization": "IEEE",
-      "source_type": "Major Media",
-      "region": "Global",
-      "homepage": "https://spectrum.ieee.org/",
-      "feed_url": "https://spectrum.ieee.org/feeds/feed.rss",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.08
-    },
-    {
-      "name": "Nature (site archive)",
-      "organization": "Springer Nature",
-      "source_type": "Scientific Publication",
-      "region": "Global",
-      "homepage": "https://www.nature.com/",
-      "feed_url": "https://www.nature.com/nature.rss",
-      "status": "ok",
-      "detail": "sitemaps=12; https://www.nature.com/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nature.com/sitemap_index.xml; https://www.nature.com/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nature.com/wp-sitemap.xml",
-      "entries_seen": 145,
-      "entries_kept": 6,
-      "elapsed_seconds": 29.63
-    },
-    {
-      "name": "Science (site archive)",
-      "organization": "AAAS",
-      "source_type": "Scientific Publication",
-      "region": "Global",
-      "homepage": "https://www.science.org/",
-      "feed_url": "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
-      "status": "error",
-      "detail": "sitemaps=0; https://www.science.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/sitemap_index.xml; https://www.science.org/sitemap-index-1.txt: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/sitemap-index-1.txt",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.47
-    },
-    {
-      "name": "Science (historical archive)",
-      "organization": "AAAS",
-      "source_type": "Scientific Publication",
-      "region": "Global",
-      "homepage": "https://www.science.org/",
-      "feed_url": "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.23
-    },
-    {
-      "name": "South China Morning Post Technology (site archive)",
-      "organization": "South China Morning Post",
-      "source_type": "Major Media",
-      "region": "Asia",
-      "homepage": "https://www.scmp.com/tech",
-      "feed_url": "https://www.scmp.com/rss/36/feed",
-      "status": "ok",
-      "detail": "sitemaps=11; https://www.scmp.com/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.scmp.com/sitemap.xml; https://www.scmp.com/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.scmp.com/sitemap_index.xml",
-      "entries_seen": 240,
-      "entries_kept": 2,
-      "elapsed_seconds": 29.8
-    },
-    {
-      "name": "South China Morning Post Technology (historical archive)",
-      "organization": "South China Morning Post",
-      "source_type": "Major Media",
-      "region": "Asia",
-      "homepage": "https://www.scmp.com/tech",
-      "feed_url": "https://www.scmp.com/rss/36/feed",
-      "status": "error",
-      "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Ascmp.com+%28%22innovation+policy%22+OR+%22science+policy%22+OR+%22research+funding%22+OR+%22R%26D+tax%22+OR+%22national+strategy%22+OR+patent+OR+%22industrial+policy%22+OR+%22public+pro",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 9.06
-    },
-    {
-      "name": "The National Technology (site archive)",
-      "organization": "The National",
-      "source_type": "Major Media",
-      "region": "Middle East",
-      "homepage": "https://www.thenationalnews.com/future/technology/",
-      "feed_url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/category/future/technology/?outputType=xml",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 9,
-      "entries_kept": 0,
-      "elapsed_seconds": 39.16
-    },
-    {
-      "name": "The National Technology (historical archive)",
-      "organization": "The National",
-      "source_type": "Major Media",
-      "region": "Middle East",
-      "homepage": "https://www.thenationalnews.com/future/technology/",
-      "feed_url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/category/future/technology/?outputType=xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.08
-    },
-    {
-      "name": "The National Technology (historical archive)",
-      "organization": "The National",
-      "source_type": "Major Media",
-      "region": "Middle East",
-      "homepage": "https://www.thenationalnews.com/future/technology/",
-      "feed_url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/category/future/technology/?outputType=xml",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 75,
-      "entries_kept": 5,
-      "elapsed_seconds": 18.86
-    },
-    {
-      "name": "Brookings TechTank (site archive)",
-      "organization": "Brookings Institution",
-      "source_type": "Policy Institute",
-      "region": "United States",
-      "homepage": "https://www.brookings.edu/tags/techtank/",
-      "feed_url": "https://www.brookings.edu/tags/techtank/",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 109,
-      "entries_kept": 2,
-      "elapsed_seconds": 73.61
-    },
-    {
-      "name": "CSIS Analysis (site archive)",
-      "organization": "Center for Strategic and International Studies",
-      "source_type": "Policy Institute",
-      "region": "United States",
-      "homepage": "https://www.csis.org/analysis",
-      "feed_url": "https://www.csis.org/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=2; https://www.csis.org/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.csis.org/sitemap_index.xml; https://www.csis.org/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.csis.org/wp-sitemap.xml",
-      "entries_seen": 240,
-      "entries_kept": 7,
-      "elapsed_seconds": 41.15
-    },
-    {
-      "name": "CSET (site archive)",
-      "organization": "Center for Security and Emerging Technology",
-      "source_type": "Policy Institute",
-      "region": "United States",
-      "homepage": "https://cset.georgetown.edu/",
-      "feed_url": "https://cset.georgetown.edu/feed/",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 108,
-      "entries_kept": 11,
-      "elapsed_seconds": 28.27
-    },
-    {
-      "name": "Bruegel (site archive)",
-      "organization": "Bruegel",
-      "source_type": "Policy Institute",
-      "region": "EU & Europe",
-      "homepage": "https://www.bruegel.org/",
-      "feed_url": "https://www.bruegel.org/rss.xml",
-      "status": "error",
-      "detail": "sitemaps=0; https://www.bruegel.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/sitemap.xml; https://www.bruegel.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/sitemap_index.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.24
-    },
-    {
-      "name": "Bruegel (historical archive)",
-      "organization": "Bruegel",
-      "source_type": "Policy Institute",
-      "region": "EU & Europe",
-      "homepage": "https://www.bruegel.org/",
-      "feed_url": "https://www.bruegel.org/rss.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.18
-    },
-    {
-      "name": "Bruegel (historical archive)",
-      "organization": "Bruegel",
-      "source_type": "Policy Institute",
-      "region": "EU & Europe",
-      "homepage": "https://www.bruegel.org/",
-      "feed_url": "https://www.bruegel.org/rss.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.07
-    },
-    {
-      "name": "MERICS (site archive)",
-      "organization": "Mercator Institute for China Studies",
-      "source_type": "Policy Institute",
-      "region": "Asia",
-      "homepage": "https://merics.org/en",
-      "feed_url": "https://merics.org/en/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=2; https://merics.org/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://merics.org/sitemap_index.xml; https://merics.org/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://merics.org/wp-sitemap.xml",
-      "entries_seen": 52,
-      "entries_kept": 8,
-      "elapsed_seconds": 23.58
-    },
-    {
-      "name": "National Science Foundation News (site archive)",
-      "organization": "U.S. National Science Foundation",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nsf.gov/news",
-      "feed_url": "https://www.nsf.gov/rss/rss_www_news.xml",
-      "status": "ok",
-      "detail": "sitemaps=3; https://www.nsf.gov/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nsf.gov/sitemap_index.xml; https://www.nsf.gov/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nsf.gov/wp-sitemap.xml",
-      "entries_seen": 240,
-      "entries_kept": 0,
-      "elapsed_seconds": 127.73
-    },
-    {
-      "name": "National Science Foundation News (historical archive)",
-      "organization": "U.S. National Science Foundation",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nsf.gov/news",
-      "feed_url": "https://www.nsf.gov/rss/rss_www_news.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.06
-    },
-    {
-      "name": "National Science Foundation News (historical archive)",
-      "organization": "U.S. National Science Foundation",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nsf.gov/news",
-      "feed_url": "https://www.nsf.gov/rss/rss_www_news.xml",
-      "status": "error",
-      "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Ansf.gov+%28%22artificial+intelligence%22+OR+robotics+OR+semiconductor+OR+quantum+OR+%22nuclear+fusion%22+OR+biotechnology+OR+%22medical+technology%22+OR+spaceflight%29&mode=artlist&maxr",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.88
-    },
-    {
-      "name": "NIST News (site archive)",
-      "organization": "National Institute of Standards and Technology",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nist.gov/news-events/news",
-      "feed_url": "https://www.nist.gov/news-events/news/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=2; https://www.nist.gov/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nist.gov/sitemap_index.xml; https://www.nist.gov/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nist.gov/wp-sitemap.xml",
-      "entries_seen": 240,
-      "entries_kept": 0,
-      "elapsed_seconds": 26.95
-    },
-    {
-      "name": "NIST News (historical archive)",
-      "organization": "National Institute of Standards and Technology",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nist.gov/news-events/news",
-      "feed_url": "https://www.nist.gov/news-events/news/rss.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.75
-    },
-    {
-      "name": "NIST News (historical archive)",
-      "organization": "National Institute of Standards and Technology",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nist.gov/news-events/news",
-      "feed_url": "https://www.nist.gov/news-events/news/rss.xml",
-      "status": "error",
-      "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Anist.gov+%28%22artificial+intelligence%22+OR+robotics+OR+semiconductor+OR+quantum+OR+%22nuclear+fusion%22+OR+biotechnology+OR+%22medical+technology%22+OR+spaceflight%29&mode=artlist&max",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.56
-    },
-    {
-      "name": "NIH News Releases (site archive)",
-      "organization": "U.S. National Institutes of Health",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.nih.gov/news-events/news-releases",
-      "feed_url": "https://www.nih.gov/news-events/news-releases/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=1; https://www.nih.gov/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nih.gov/sitemap_index.xml; https://www.nih.gov/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nih.gov/wp-sitemap.xml",
-      "entries_seen": 196,
-      "entries_kept": 7,
-      "elapsed_seconds": 16.85
-    },
-    {
-      "name": "DOE Office of Science News (site archive)",
-      "organization": "U.S. Department of Energy",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.energy.gov/science/listings/office-science-news",
-      "feed_url": "https://www.energy.gov/rss/science/3662436",
-      "status": "ok",
-      "detail": "sitemaps=12; https://www.energy.gov/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.energy.gov/sitemap_index.xml; https://www.energy.gov/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.energy.gov/wp-sitemap.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 4.24
-    },
-    {
-      "name": "DOE Office of Science News (historical archive)",
-      "organization": "U.S. Department of Energy",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.energy.gov/science/listings/office-science-news",
-      "feed_url": "https://www.energy.gov/rss/science/3662436",
-      "status": "error",
-      "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Aenergy.gov+%28%22innovation+policy%22+OR+%22science+policy%22+OR+%22research+funding%22+OR+%22R%26D+tax%22+OR+%22national+strategy%22+OR+patent+OR+%22industrial+policy%22+OR+%22public+p",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.85
-    },
-    {
-      "name": "DOE Office of Science News (historical archive)",
-      "organization": "U.S. Department of Energy",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.energy.gov/science/listings/office-science-news",
-      "feed_url": "https://www.energy.gov/rss/science/3662436",
-      "status": "error",
-      "detail": "ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.05
-    },
-    {
-      "name": "European Commission Press Corner (site archive)",
-      "organization": "European Commission",
-      "source_type": "Government",
-      "region": "EU & Europe",
-      "homepage": "https://ec.europa.eu/commission/presscorner/home/en",
-      "feed_url": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
-      "status": "ok",
-      "detail": "sitemaps=10; https://ec.europa.eu/sitemap_index.xml: HTTPError: 404 Client Error: (Not Found) for url: https://ec.europa.eu/sitemap_index.xml; https://ec.europa.eu/wp-sitemap.xml: HTTPError: 404 Client Error: (Not Found) for url: https://ec.europa.eu/wp-sitemap.xml",
-      "entries_seen": 1,
-      "entries_kept": 0,
-      "elapsed_seconds": 11.44
-    },
-    {
-      "name": "European Commission Press Corner (historical archive)",
-      "organization": "European Commission",
-      "source_type": "Government",
-      "region": "EU & Europe",
-      "homepage": "https://ec.europa.eu/commission/presscorner/home/en",
-      "feed_url": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.24
-    },
-    {
-      "name": "European Commission Press Corner (historical archive)",
-      "organization": "European Commission",
-      "source_type": "Government",
-      "region": "EU & Europe",
-      "homepage": "https://ec.europa.eu/commission/presscorner/home/en",
-      "feed_url": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.07
-    },
-    {
-      "name": "UK DSIT (site archive)",
-      "organization": "Department for Science, Innovation and Technology",
-      "source_type": "Government",
-      "region": "EU & Europe",
-      "homepage": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
-      "feed_url": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
-      "status": "ok",
-      "detail": "sitemaps=2; https://www.gov.uk/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.gov.uk/sitemap_index.xml; https://www.gov.uk/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.gov.uk/wp-sitemap.xml",
-      "entries_seen": 240,
-      "entries_kept": 6,
-      "elapsed_seconds": 35.09
-    },
-    {
-      "name": "METI Press Releases (site archive)",
-      "organization": "Ministry of Economy, Trade and Industry",
-      "source_type": "Government",
-      "region": "Asia",
-      "homepage": "https://www.meti.go.jp/english/press/index.html",
-      "feed_url": "https://www.meti.go.jp/english/press/index.rdf",
-      "status": "error",
-      "detail": "sitemaps=0; https://www.meti.go.jp/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/sitemap.xml; https://www.meti.go.jp/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/sitemap_index.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.3
-    },
-    {
-      "name": "METI Press Releases (historical archive)",
-      "organization": "Ministry of Economy, Trade and Industry",
-      "source_type": "Government",
-      "region": "Asia",
-      "homepage": "https://www.meti.go.jp/english/press/index.html",
-      "feed_url": "https://www.meti.go.jp/english/press/index.rdf",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.75
-    },
-    {
-      "name": "METI Press Releases (historical archive)",
-      "organization": "Ministry of Economy, Trade and Industry",
-      "source_type": "Government",
-      "region": "Asia",
-      "homepage": "https://www.meti.go.jp/english/press/index.html",
-      "feed_url": "https://www.meti.go.jp/english/press/index.rdf",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.07
-    },
-    {
-      "name": "WHO News (site archive)",
-      "organization": "World Health Organization",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.who.int/news",
-      "feed_url": "https://www.who.int/rss-feeds/news-english.xml",
-      "status": "error",
-      "detail": "sitemaps=0; http://www.who.int/sitemaps/sitemapindex.xml: HTTPError: 406 Client Error: Not Acceptable for url: https://www.who.int/sitemaps/sitemapindex.xml; https://www.who.int/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.who.int/sitemap.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.24
-    },
-    {
-      "name": "WHO News (historical archive)",
-      "organization": "World Health Organization",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.who.int/news",
-      "feed_url": "https://www.who.int/rss-feeds/news-english.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.07
-    },
-    {
-      "name": "WHO News (historical archive)",
-      "organization": "World Health Organization",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.who.int/news",
-      "feed_url": "https://www.who.int/rss-feeds/news-english.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.06
-    },
-    {
-      "name": "IEA News (site archive)",
-      "organization": "International Energy Agency",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.iea.org/news",
-      "feed_url": "https://www.iea.org/rss/news.xml",
-      "status": "error",
-      "detail": "sitemaps=0; https://www.iea.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/sitemap.xml; https://www.iea.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/sitemap_index.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.24
-    },
-    {
-      "name": "IEA News (historical archive)",
-      "organization": "International Energy Agency",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.iea.org/news",
-      "feed_url": "https://www.iea.org/rss/news.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.19
-    },
-    {
-      "name": "IEA News (historical archive)",
-      "organization": "International Energy Agency",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.iea.org/news",
-      "feed_url": "https://www.iea.org/rss/news.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.19
-    },
-    {
-      "name": "OECD Newsroom (site archive)",
-      "organization": "OECD",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.oecd.org/newsroom/",
-      "feed_url": "https://www.oecd.org/newsroom/rss.xml",
-      "status": "error",
-      "detail": "sitemaps=0; https://www.oecd.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/sitemap.xml; https://www.oecd.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/sitemap_index.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.21
-    },
-    {
-      "name": "OECD Newsroom (historical archive)",
-      "organization": "OECD",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.oecd.org/newsroom/",
-      "feed_url": "https://www.oecd.org/newsroom/rss.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.18
-    },
-    {
-      "name": "OECD Newsroom (historical archive)",
-      "organization": "OECD",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.oecd.org/newsroom/",
-      "feed_url": "https://www.oecd.org/newsroom/rss.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.07
-    },
-    {
-      "name": "OpenAI News (site archive)",
-      "organization": "OpenAI",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://openai.com/news/",
-      "feed_url": "https://openai.com/news/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=12; https://openai.com/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://openai.com/sitemap_index.xml; https://openai.com/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://openai.com/wp-sitemap.xml",
-      "entries_seen": 92,
-      "entries_kept": 12,
-      "elapsed_seconds": 27.96
-    },
-    {
-      "name": "Google AI (site archive)",
-      "organization": "Google",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://blog.google/technology/ai/",
-      "feed_url": "https://blog.google/technology/ai/rss/",
-      "status": "ok",
-      "detail": "sitemaps=12; https://blog.google/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://blog.google/sitemap_index.xml; https://blog.google/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://blog.google/wp-sitemap.xml",
-      "entries_seen": 151,
-      "entries_kept": 3,
-      "elapsed_seconds": 14.1
-    },
-    {
-      "name": "NVIDIA Blog (site archive)",
-      "organization": "NVIDIA",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://blogs.nvidia.com/",
-      "feed_url": "https://blogs.nvidia.com/feed/",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.3
-    },
-    {
-      "name": "NVIDIA Blog (historical archive)",
-      "organization": "NVIDIA",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://blogs.nvidia.com/",
-      "feed_url": "https://blogs.nvidia.com/feed/",
-      "status": "error",
-      "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://api.gdeltproject.org/api/v2/doc/doc?query=domain%3Ablogs.nvidia.com+%28%22artificial+intelligence%22+OR+robotics+OR+semiconductor+OR+quantum+OR+%22nuclear+fusion%22+OR+biotechnology+OR+%22medical+technology%22+OR+spaceflight%29&mode=art",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 10.34
-    },
-    {
-      "name": "Intel Newsroom (site archive)",
-      "organization": "Intel",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://newsroom.intel.com/",
-      "feed_url": "https://newsroom.intel.com/feed",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 46,
-      "entries_kept": 6,
-      "elapsed_seconds": 12.81
-    },
-    {
-      "name": "IBM Research (site archive)",
-      "organization": "IBM",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://research.ibm.com/blog",
-      "feed_url": "https://research.ibm.com/blog/rss.xml",
-      "status": "ok",
-      "detail": "sitemaps=12; https://research.ibm.com/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://research.ibm.com/404; https://research.ibm.com/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://research.ibm.com/wp-sitemap.xml",
-      "entries_seen": 2,
-      "entries_kept": 0,
-      "elapsed_seconds": 10.15
-    },
-    {
-      "name": "IBM Research (historical archive)",
-      "organization": "IBM",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://research.ibm.com/blog",
-      "feed_url": "https://research.ibm.com/blog/rss.xml",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.57
-    },
-    {
-      "name": "Microsoft Research (site archive)",
-      "organization": "Microsoft",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://www.microsoft.com/en-us/research/blog/",
-      "feed_url": "https://www.microsoft.com/en-us/research/feed/",
-      "status": "ok",
-      "detail": "sitemaps=12",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.95
-    },
-    {
-      "name": "Microsoft Research (historical archive)",
-      "organization": "Microsoft",
-      "source_type": "Official Company",
-      "region": "Global",
-      "homepage": "https://www.microsoft.com/en-us/research/blog/",
-      "feed_url": "https://www.microsoft.com/en-us/research/feed/",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.18
-    },
-    {
-      "name": "Samsung Global Newsroom (site archive)",
-      "organization": "Samsung Electronics",
-      "source_type": "Official Company",
-      "region": "Asia",
-      "homepage": "https://news.samsung.com/global/",
-      "feed_url": "https://news.samsung.com/global/feed",
-      "status": "error",
-      "detail": "sitemaps=0; https://news.samsung.com/sitemap.xml: ReadTimeout: HTTPSConnectionPool(host='news.samsung.com', port=443): Read timed out. (read timeout=35); https://news.samsung.com/sitemap_index.xml: ReadTimeout: HTTPSConnectionPool(host='news.samsung.com', port=443): Read timed out. (read timeout=35)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 105.39
-    },
-    {
-      "name": "Samsung Global Newsroom (historical archive)",
-      "organization": "Samsung Electronics",
-      "source_type": "Official Company",
-      "region": "Asia",
-      "homepage": "https://news.samsung.com/global/",
-      "feed_url": "https://news.samsung.com/global/feed",
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='api.gdeltproject.org', port=443): Read timed out. (read timeout=8)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 8.22
-    },
-    {
-      "name": "ITER News (site archive)",
-      "organization": "ITER Organization",
-      "source_type": "Intergovernmental",
-      "region": "EU & Europe",
-      "homepage": "https://www.iter.org/news",
-      "feed_url": "https://www.iter.org/news",
-      "status": "ok",
-      "detail": "sitemaps=4; https://www.iter.org/sitemap_index.xml: HTTPError: 404 Client Error: Not Found for url: https://www.iter.org/sitemap_index.xml; https://www.iter.org/wp-sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.iter.org/wp-sitemap.xml",
-      "entries_seen": 154,
-      "entries_kept": 6,
-      "elapsed_seconds": 46.61
+      "elapsed_seconds": 0.7
     }
   ]
 }
