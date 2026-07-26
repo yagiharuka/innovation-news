@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-26T11:34:08Z",
-  "updated_at_jst": "2026-07-26T20:34:08+09:00",
+  "updated_at": "2026-07-26T11:36:29Z",
+  "updated_at_jst": "2026-07-26T20:36:29+09:00",
   "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
-  "article_count": 13,
+  "article_count": 14,
   "source_count": 38,
   "items": [
     {
@@ -89,6 +89,35 @@
       "status": "New"
     },
     {
+      "id": "856206151844f412d95b7a9b",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-26T20:36:29+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Springer Nature",
+      "title": "ホワイトハウスがAI資金を発表 — 米国科学の新時代を示唆",
+      "title_original": "White House rolls out AI funding — and signals a new era for US science",
+      "summary": "米国の科学顧問がAI研究を加速するための資金の見直しを呼びかけ、助成金を配布した。",
+      "summary_original": "Nature, Published online: 24 July 2026; doi:10.1038/d41586-026-02332-8 Chief US science adviser calls for a shakeup in funding while handing out grants to accelerate research with AI.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/d41586-026-02332-8",
+      "first_seen": "2026-07-26T20:36:29+09:00",
+      "status": "New"
+    },
+    {
       "id": "30744ac6eef4bc37b48358ce",
       "published_at": "2026-07-23T20:58:35Z",
       "collected_at_jst": "2026-07-26T20:29:40+09:00",
@@ -151,7 +180,9 @@
       "collected_at_jst": "2026-07-26T20:29:40+09:00",
       "region": "United States",
       "country": "United States",
-      "topics": [],
+      "topics": [
+        "Artificial Intelligence"
+      ],
       "article_frames": [
         "Innovation Policy"
       ],
@@ -236,7 +267,9 @@
       "collected_at_jst": "2026-07-26T20:29:40+09:00",
       "region": "United States",
       "country": "United States",
-      "topics": [],
+      "topics": [
+        "Artificial Intelligence"
+      ],
       "article_frames": [
         "Innovation Policy"
       ],
@@ -354,12 +387,10 @@
         "Fusion Energy"
       ],
       "article_frames": [
-        "Innovation Policy"
+        "Technology Innovation"
       ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "R&D Funding & Tax Incentives"
-      ],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 3,
       "source_type": "Industry Association",
       "source": "Fusion Industry Association",
