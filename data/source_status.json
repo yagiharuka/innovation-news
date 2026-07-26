@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T13:13:31Z",
+  "updated_at": "2026-07-26T13:54:37Z",
   "summary": {
-    "checked": 47,
-    "succeeded": 37,
+    "checked": 55,
+    "succeeded": 45,
     "failed": 10,
-    "entries_seen": 3958,
-    "entries_kept": 125
+    "entries_seen": 3969,
+    "entries_kept": 141
   },
   "sources": [
     {
@@ -20,7 +20,7 @@
       "detail": "",
       "entries_seen": 2,
       "entries_kept": 1,
-      "elapsed_seconds": 0.25
+      "elapsed_seconds": 1.9
     },
     {
       "name": "BBC Science & Environment",
@@ -33,7 +33,7 @@
       "detail": "",
       "entries_seen": 42,
       "entries_kept": 0,
-      "elapsed_seconds": 0.22
+      "elapsed_seconds": 0.29
     },
     {
       "name": "BBC Technology",
@@ -46,7 +46,7 @@
       "detail": "",
       "entries_seen": 21,
       "entries_kept": 4,
-      "elapsed_seconds": 0.02
+      "elapsed_seconds": 0.13
     },
     {
       "name": "The New York Times Technology",
@@ -59,7 +59,7 @@
       "detail": "",
       "entries_seen": 24,
       "entries_kept": 8,
-      "elapsed_seconds": 0.06
+      "elapsed_seconds": 0.23
     },
     {
       "name": "The New York Times Science",
@@ -85,7 +85,7 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 0,
-      "elapsed_seconds": 1.82
+      "elapsed_seconds": 1.95
     },
     {
       "name": "The Guardian Technology",
@@ -98,7 +98,7 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.26
+      "elapsed_seconds": 0.24
     },
     {
       "name": "MIT Technology Review",
@@ -111,7 +111,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 4,
-      "elapsed_seconds": 0.1
+      "elapsed_seconds": 0.15
     },
     {
       "name": "IEEE Spectrum",
@@ -124,7 +124,7 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 2,
-      "elapsed_seconds": 0.31
+      "elapsed_seconds": 1.13
     },
     {
       "name": "Nature",
@@ -137,7 +137,7 @@
       "detail": "",
       "entries_seen": 75,
       "entries_kept": 5,
-      "elapsed_seconds": 0.37
+      "elapsed_seconds": 0.2
     },
     {
       "name": "Science",
@@ -150,7 +150,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.35
+      "elapsed_seconds": 0.44
     },
     {
       "name": "South China Morning Post Technology",
@@ -163,7 +163,7 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 0.53
+      "elapsed_seconds": 0.7
     },
     {
       "name": "Arab News Technology",
@@ -176,7 +176,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/taxonomy/term/2936/feed",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.05
+      "elapsed_seconds": 0.08
     },
     {
       "name": "The National Technology",
@@ -189,7 +189,7 @@
       "detail": "",
       "entries_seen": 2,
       "entries_kept": 2,
-      "elapsed_seconds": 0.77
+      "elapsed_seconds": 0.88
     },
     {
       "name": "Brookings TechTank",
@@ -202,7 +202,7 @@
       "detail": "",
       "entries_seen": 4,
       "entries_kept": 1,
-      "elapsed_seconds": 0.15
+      "elapsed_seconds": 1.5
     },
     {
       "name": "CSIS Analysis",
@@ -215,7 +215,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.27
+      "elapsed_seconds": 0.31
     },
     {
       "name": "CSET",
@@ -228,7 +228,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 1,
-      "elapsed_seconds": 0.27
+      "elapsed_seconds": 0.41
     },
     {
       "name": "Bruegel",
@@ -241,7 +241,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.19
+      "elapsed_seconds": 0.22
     },
     {
       "name": "MERICS",
@@ -254,7 +254,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://merics.org/en/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.51
+      "elapsed_seconds": 0.92
     },
     {
       "name": "National Science Foundation News",
@@ -266,8 +266,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 15,
-      "entries_kept": 3,
-      "elapsed_seconds": 0.04
+      "entries_kept": 0,
+      "elapsed_seconds": 0.19
     },
     {
       "name": "NIST News",
@@ -280,7 +280,7 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 0,
-      "elapsed_seconds": 0.06
+      "elapsed_seconds": 0.12
     },
     {
       "name": "NIH News Releases",
@@ -293,7 +293,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.nih.gov/news-events/news-releases/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.05
+      "elapsed_seconds": 0.18
     },
     {
       "name": "DOE Office of Science News",
@@ -306,7 +306,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 1,
-      "elapsed_seconds": 0.12
+      "elapsed_seconds": 0.14
     },
     {
       "name": "European Commission Press Corner",
@@ -319,7 +319,7 @@
       "detail": "HTTPError: 400 Client Error: Bad Request for url: https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.37
+      "elapsed_seconds": 0.43
     },
     {
       "name": "UK DSIT",
@@ -332,7 +332,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 3,
-      "elapsed_seconds": 0.03
+      "elapsed_seconds": 0.76
     },
     {
       "name": "METI Press Releases",
@@ -345,7 +345,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/english/press/index.rdf",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.09
+      "elapsed_seconds": 0.15
     },
     {
       "name": "WHO News",
@@ -358,7 +358,7 @@
       "detail": "",
       "entries_seen": 25,
       "entries_kept": 1,
-      "elapsed_seconds": 0.1
+      "elapsed_seconds": 0.8
     },
     {
       "name": "IEA News",
@@ -371,7 +371,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/rss/news.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.04
+      "elapsed_seconds": 0.25
     },
     {
       "name": "OECD Newsroom",
@@ -384,7 +384,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.03
+      "elapsed_seconds": 0.21
     },
     {
       "name": "OpenAI News",
@@ -397,7 +397,7 @@
       "detail": "",
       "entries_seen": 1050,
       "entries_kept": 1,
-      "elapsed_seconds": 0.44
+      "elapsed_seconds": 0.38
     },
     {
       "name": "Google AI",
@@ -410,7 +410,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 0.2
+      "elapsed_seconds": 0.23
     },
     {
       "name": "NVIDIA Blog",
@@ -423,7 +423,7 @@
       "detail": "",
       "entries_seen": 18,
       "entries_kept": 3,
-      "elapsed_seconds": 0.53
+      "elapsed_seconds": 1.13
     },
     {
       "name": "Intel Newsroom",
@@ -436,7 +436,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 2,
-      "elapsed_seconds": 0.42
+      "elapsed_seconds": 0.35
     },
     {
       "name": "IBM Research",
@@ -449,7 +449,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://research.ibm.com/blog/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.16
+      "elapsed_seconds": 0.4
     },
     {
       "name": "Microsoft Research",
@@ -462,7 +462,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.54
+      "elapsed_seconds": 0.78
     },
     {
       "name": "Samsung Global Newsroom",
@@ -475,7 +475,7 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 0.29
+      "elapsed_seconds": 0.62
     },
     {
       "name": "ITER News",
@@ -488,7 +488,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 0.86
+      "elapsed_seconds": 1.03
     },
     {
       "name": "Fusion Industry Association",
@@ -501,7 +501,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.92
+      "elapsed_seconds": 1.07
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -513,8 +513,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 18,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.9
+      "entries_kept": 1,
+      "elapsed_seconds": 1.88
     },
     {
       "name": "Japan IP Strategy Headquarters",
@@ -526,8 +526,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 381,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.21
+      "entries_kept": 7,
+      "elapsed_seconds": 1.39
     },
     {
       "name": "JST CRDS STI Policy Reports",
@@ -540,7 +540,7 @@
       "detail": "",
       "entries_seen": 505,
       "entries_kept": 8,
-      "elapsed_seconds": 1.99
+      "elapsed_seconds": 1.83
     },
     {
       "name": "White House OSTP News",
@@ -553,7 +553,7 @@
       "detail": "",
       "entries_seen": 182,
       "entries_kept": 8,
-      "elapsed_seconds": 0.09
+      "elapsed_seconds": 0.16
     },
     {
       "name": "WIPO News",
@@ -566,7 +566,7 @@
       "detail": "",
       "entries_seen": 157,
       "entries_kept": 8,
-      "elapsed_seconds": 0.4
+      "elapsed_seconds": 1.36
     },
     {
       "name": "European Patent Office News",
@@ -579,7 +579,111 @@
       "detail": "",
       "entries_seen": 959,
       "entries_kept": 8,
-      "elapsed_seconds": 1.02
+      "elapsed_seconds": 1.24
+    },
+    {
+      "name": "NSF Policy Benchmarks",
+      "organization": "U.S. National Science Foundation",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.nsf.gov/news",
+      "feed_url": "https://www.nsf.gov/news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 2,
+      "entries_kept": 2,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "White House Science Policy Benchmarks",
+      "organization": "The White House",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.whitehouse.gov/ostp/",
+      "feed_url": "https://www.whitehouse.gov/ostp/news/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "United States R&D Tax Policy Benchmarks",
+      "organization": "Internal Revenue Service",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.irs.gov/",
+      "feed_url": "https://www.irs.gov/irb/2025-38_IRB",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "United Kingdom Innovation Policy Benchmarks",
+      "organization": "UK Department for Science, Innovation and Technology",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
+      "feed_url": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 2,
+      "entries_kept": 2,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "China Innovation Policy Benchmarks",
+      "organization": "State Council of the People's Republic of China",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://english.www.gov.cn/",
+      "feed_url": "https://english.www.gov.cn/policies/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 2,
+      "entries_kept": 2,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "Korea Innovation Policy Benchmarks",
+      "organization": "Ministry of Science and ICT, Republic of Korea",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.msit.go.kr/eng/",
+      "feed_url": "https://www.msit.go.kr/eng/bbs/list.do?bbsSeqNo=42&mId=4",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "European Innovation Council Policy Benchmarks",
+      "organization": "European Innovation Council",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://eic.ec.europa.eu/",
+      "feed_url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-2026-work-programme_en",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "WIPO Policy Benchmarks",
+      "organization": "World Intellectual Property Organization",
+      "source_type": "Intergovernmental",
+      "region": "Global",
+      "homepage": "https://www.wipo.int/en/web/world-ip-report",
+      "feed_url": "https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/index.html",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.0
     },
     {
       "name": "OpenAlex Journal Articles",
@@ -592,7 +696,7 @@
       "detail": "",
       "entries_seen": 54,
       "entries_kept": 14,
-      "elapsed_seconds": 1.56
+      "elapsed_seconds": 2.62
     },
     {
       "name": "OpenAlex Conference Papers",
@@ -605,7 +709,7 @@
       "detail": "",
       "entries_seen": 11,
       "entries_kept": 1,
-      "elapsed_seconds": 0.56
+      "elapsed_seconds": 1.35
     },
     {
       "name": "OpenAlex Preprints",
@@ -618,7 +722,7 @@
       "detail": "",
       "entries_seen": 33,
       "entries_kept": 6,
-      "elapsed_seconds": 0.63
+      "elapsed_seconds": 1.79
     }
   ]
 }
