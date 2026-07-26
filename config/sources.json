@@ -565,6 +565,105 @@
       "priority": 3,
       "native_feed": true,
       "notes": "Established industry association; company claims are clearly labeled by source."
+    },
+    {
+      "active": true,
+      "name": "OpenAlex Journal Articles",
+      "organization": "OpenAlex",
+      "source_type": "Journal Article",
+      "region": "Global",
+      "country": "Global",
+      "category": "Scholarly research",
+      "feed_url": "https://api.openalex.org/works",
+      "api_url": "https://api.openalex.org/works",
+      "homepage": "https://openalex.org/",
+      "fetch_mode": "openalex",
+      "work_types": [
+        "article"
+      ],
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "daily_items_per_topic": 2,
+      "backfill_items_per_topic": 8,
+      "topic_queries": {
+        "Artificial Intelligence": "artificial intelligence machine learning foundation model",
+        "Robotics": "robotics autonomous systems humanoid robot",
+        "Semiconductors & Telecom": "semiconductor telecommunications photonics advanced packaging",
+        "Quantum": "quantum computing quantum sensing quantum communication",
+        "Fusion Energy": "nuclear fusion plasma tokamak stellarator",
+        "Biotechnology": "biotechnology genomics gene editing synthetic biology",
+        "Healthcare": "medical technology drug discovery clinical trial diagnostics",
+        "Space": "space technology spacecraft satellite launch"
+      },
+      "priority": 4,
+      "native_feed": false,
+      "notes": "Scholarly metadata discovery. The card links to the DOI or OpenAlex record; peer-review status must be confirmed on the publisher page."
+    },
+    {
+      "active": true,
+      "name": "OpenAlex Conference Papers",
+      "organization": "OpenAlex",
+      "source_type": "Conference Paper",
+      "region": "Global",
+      "country": "Global",
+      "category": "Conference proceedings",
+      "feed_url": "https://api.openalex.org/works",
+      "api_url": "https://api.openalex.org/works",
+      "homepage": "https://openalex.org/",
+      "fetch_mode": "openalex",
+      "work_types": [
+        "conference-paper"
+      ],
+      "academic_kind": "Conference Paper",
+      "review_status": "Conference proceedings — review status varies",
+      "daily_items_per_topic": 1,
+      "backfill_items_per_topic": 5,
+      "topic_queries": {
+        "Artificial Intelligence": "artificial intelligence machine learning foundation model",
+        "Robotics": "robotics autonomous systems humanoid robot",
+        "Semiconductors & Telecom": "semiconductor telecommunications photonics advanced packaging",
+        "Quantum": "quantum computing quantum sensing quantum communication",
+        "Fusion Energy": "nuclear fusion plasma tokamak stellarator",
+        "Biotechnology": "biotechnology genomics gene editing synthetic biology",
+        "Healthcare": "medical technology drug discovery clinical trial diagnostics",
+        "Space": "space technology spacecraft satellite launch"
+      },
+      "priority": 4,
+      "native_feed": false,
+      "notes": "Official proceedings and conference-paper records discovered through OpenAlex. Review status varies by venue."
+    },
+    {
+      "active": true,
+      "name": "OpenAlex Preprints",
+      "organization": "OpenAlex",
+      "source_type": "Preprint",
+      "region": "Global",
+      "country": "Global",
+      "category": "Preprints",
+      "feed_url": "https://api.openalex.org/works",
+      "api_url": "https://api.openalex.org/works",
+      "homepage": "https://openalex.org/",
+      "fetch_mode": "openalex",
+      "work_types": [
+        "preprint"
+      ],
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "daily_items_per_topic": 1,
+      "backfill_items_per_topic": 3,
+      "topic_queries": {
+        "Artificial Intelligence": "artificial intelligence machine learning foundation model",
+        "Robotics": "robotics autonomous systems humanoid robot",
+        "Semiconductors & Telecom": "semiconductor telecommunications photonics advanced packaging",
+        "Quantum": "quantum computing quantum sensing quantum communication",
+        "Fusion Energy": "nuclear fusion plasma tokamak stellarator",
+        "Biotechnology": "biotechnology genomics gene editing synthetic biology",
+        "Healthcare": "medical technology drug discovery clinical trial diagnostics",
+        "Space": "space technology spacecraft satellite launch"
+      },
+      "priority": 3,
+      "native_feed": false,
+      "notes": "Preprints are displayed separately and must never be described as peer reviewed."
     }
   ]
 }
