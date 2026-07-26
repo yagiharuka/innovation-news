@@ -25,7 +25,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
-from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlsplit, urlunsplit
 
 import feedparser
 import requests
@@ -923,13 +923,32 @@ def parse_listing_date(raw: str, fallback: datetime) -> datetime:
             int(reiwa_date.group("day")),
             tzinfo=JST,
         ).astimezone(timezone.utc)
-    try:
-        value = date_parser.parse(raw, fuzzy=True)
-        if value.tzinfo is None:
-            value = value.replace(tzinfo=timezone.utc)
-        return value.astimezone(timezone.utc)
-    except (ValueError, TypeError, OverflowError):
-        return fallback
+    month_name = (
+        r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|"
+        r"Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|"
+        r"Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?"
+    )
+    for pattern in (
+        r"\b20\d{2}[-/.]\d{1,2}[-/.]\d{1,2}\b",
+        r"\b\d{1,2}[-/.]\d{1,2}[-/.]20\d{2}\b",
+        rf"\b\d{{1,2}}\s+{month_name}\s+20\d{{2}}\b",
+        rf"\b{month_name}\s+\d{{1,2}}(?:st|nd|rd|th)?,?\s+20\d{{2}}\b",
+    ):
+        match = re.search(pattern, raw, flags=re.IGNORECASE)
+        if not match:
+            continue
+        candidate = normalize_space(match.group(0))
+        numeric_day_first = bool(
+            re.fullmatch(r"\d{1,2}[-/.]\d{1,2}[-/.]20\d{2}", candidate)
+        )
+        try:
+            value = date_parser.parse(candidate, dayfirst=numeric_day_first)
+            if value.tzinfo is None:
+                value = value.replace(tzinfo=timezone.utc)
+            return value.astimezone(timezone.utc)
+        except (ValueError, TypeError, OverflowError):
+            continue
+    return fallback
 
 
 def parse_html_date(node: Any, selector: str, attribute: str, fallback: datetime) -> datetime:
@@ -1236,6 +1255,45 @@ def parse_gdelt_datetime(raw: str, fallback: datetime) -> datetime:
         return fallback
 
 
+def visible_publication_date(soup: BeautifulSoup) -> datetime | None:
+    """Extract a clearly labelled publication date when metadata is absent."""
+    page_text = normalize_space(soup.get_text(" ", strip=True))[:30000]
+    month_name = (
+        r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|"
+        r"Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|"
+        r"Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)"
+    )
+    date_value = (
+        rf"(?:20\d{{2}}[-/.]\d{{1,2}}[-/.]\d{{1,2}}|"
+        rf"\d{{1,2}}[-/.]\d{{1,2}}[-/.]20\d{{2}}|"
+        rf"\d{{1,2}}\s+{month_name}\s+20\d{{2}}|"
+        rf"{month_name}\s+\d{{1,2}}(?:st|nd|rd|th)?,?\s+20\d{{2}})"
+    )
+    patterns = (
+        rf"(?:publication\s+date|published(?:\s+on)?|release\s+date)"
+        rf"\s*:?\s*({date_value})",
+        rf"\bdate\s*:?\s*({date_value})",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, page_text, flags=re.IGNORECASE)
+        if not match:
+            continue
+        raw = normalize_space(match.group(1))
+        numeric_day_first = bool(
+            re.fullmatch(r"\d{1,2}[-/.]\d{1,2}[-/.]20\d{2}", raw)
+        )
+        try:
+            value = date_parser.parse(raw, dayfirst=numeric_day_first)
+            if value.tzinfo is None:
+                value = value.replace(tzinfo=timezone.utc)
+            value = value.astimezone(timezone.utc)
+            if 2000 <= value.year <= datetime.now(timezone.utc).year + 1:
+                return value
+        except (ValueError, TypeError, OverflowError):
+            continue
+    return None
+
+
 def page_metadata(
     session: requests.Session,
     url: str,
@@ -1255,6 +1313,9 @@ def page_metadata(
         for selector, attribute in (
             ('meta[property="og:title"]', "content"),
             ('meta[name="twitter:title"]', "content"),
+            (".view_head h2", ""),
+            ("article h1", ""),
+            ("main h1", ""),
             ("title", ""),
         ):
             node = soup.select_one(selector)
@@ -1297,6 +1358,7 @@ def page_metadata(
             if len(article_lead) > len(description):
                 description = article_lead
         published = fallback_date
+        date_found = False
         for selector, attribute in (
             ('meta[property="article:published_time"]', "content"),
             ('meta[name="date"]', "content"),
@@ -1314,9 +1376,14 @@ def page_metadata(
                 if candidate_date.tzinfo is None:
                     candidate_date = candidate_date.replace(tzinfo=timezone.utc)
                 published = candidate_date.astimezone(timezone.utc)
+                date_found = True
                 break
             except (ValueError, TypeError, OverflowError):
                 continue
+        if not date_found:
+            visible_date = visible_publication_date(soup)
+            if visible_date is not None:
+                published = visible_date
         return title, description, published
     except Exception:
         return fallback_title, plain_text(fallback_summary, limit=900), fallback_date
@@ -1445,7 +1512,8 @@ def infer_date_from_url(url: str) -> datetime | None:
     path = urlsplit(url).path
     for pattern in (
         r"/(20\d{2})/(\d{1,2})/(\d{1,2})(?:/|$)",
-        r"/(20\d{2})-(\d{1,2})-(\d{1,2})(?:[-/]|$)",
+        r"/(20\d{2})(\d{2})/(\d{1,2})(?:/|$)",
+        r"(?:/|-)(20\d{2})-(\d{1,2})-(\d{1,2})(?:[-/]|$)",
         r"/(20\d{2})(\d{2})(\d{2})(?:[-_/]|$)",
     ):
         match = re.search(pattern, path)
@@ -1536,7 +1604,8 @@ def sitemap_candidates(
         try:
             response = session.get(sitemap_url, timeout=(8, 35))
             response.raise_for_status()
-            root = ET.fromstring(response.content)
+            xml_content = response.content.replace(b"&nbsp;", b"&#160;")
+            root = ET.fromstring(xml_content)
             sitemaps_checked += 1
             root_name = root.tag.rsplit("}", 1)[-1].casefold()
             if root_name == "sitemapindex":
@@ -1943,6 +2012,524 @@ def fetch_static_source(
     )
 
 
+def site_scan_article_score(url: str) -> int:
+    path = urlsplit(url).path.casefold()
+    score = sum(
+        token in path
+        for token in (
+            "/news/",
+            "/blog/",
+            "/press",
+            "/release",
+            "/updates/",
+            "/article",
+            "/stories/",
+            "/insights/",
+            "/research/",
+        )
+    )
+    if re.search(r"/20\d{2}(?:[-/]\d{1,2})", path):
+        score += 1
+    return score
+
+
+def site_scan_link_title(node: Any) -> str:
+    """Prefer an article title over generic link text such as “Read more”."""
+    visible = normalize_space(node.get_text(" ", strip=True))
+    generic = re.fullmatch(
+        r"(?:read|learn|view|find\s+out|discover)?\s*more(?:\s*[→›»])?",
+        visible,
+        flags=re.IGNORECASE,
+    )
+    if len(visible) >= 8 and generic is None:
+        return visible
+    for candidate in (
+        node.get("title", ""),
+        node.get("aria-label", ""),
+        (node.select_one("img") or {}).get("alt", "")
+        if hasattr(node, "select_one")
+        else "",
+    ):
+        title = normalize_space(str(candidate))
+        if len(title) >= 8:
+            return title
+    return visible
+
+
+def site_scan_link_context(node: Any) -> str:
+    """Read the surrounding article card without swallowing the whole page."""
+    contexts: list[str] = []
+    ancestor = node
+    for _ in range(5):
+        ancestor = getattr(ancestor, "parent", None)
+        if ancestor is None or getattr(ancestor, "name", "") in {"body", "html"}:
+            break
+        context = plain_text(ancestor.get_text(" ", strip=True), limit=1800)
+        if len(context) > 1500:
+            break
+        if len(context) >= 12:
+            contexts.append(context)
+    return max(contexts, key=len, default="")
+
+
+def site_scan_sitemap_candidates(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    max_sitemaps: int = 8,
+    max_urls: int = 160,
+) -> tuple[
+    list[tuple[int, int, str, str, str, datetime, bool, str]],
+    int,
+    int,
+    list[str],
+]:
+    """Find recent article URLs from an allowlisted site's own sitemaps."""
+    queue = discover_sitemaps(session, source)
+    visited: set[str] = set()
+    candidates: list[
+        tuple[int, int, str, str, str, datetime, bool, str]
+    ] = []
+    candidate_ids: set[str] = set()
+    errors: list[str] = []
+    sitemaps_checked = 0
+    urls_seen = 0
+    unknown_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+    while (
+        queue
+        and sitemaps_checked < max_sitemaps
+        and len(candidates) < max_urls
+    ):
+        sitemap_url = queue.pop(0)
+        if sitemap_url in visited:
+            continue
+        visited.add(sitemap_url)
+        try:
+            response = session.get(sitemap_url, timeout=(6, 20))
+            response.raise_for_status()
+            root = ET.fromstring(response.content)
+            sitemaps_checked += 1
+            root_name = root.tag.rsplit("}", 1)[-1].casefold()
+            if root_name == "sitemapindex":
+                child_sitemaps: list[tuple[int, datetime, str]] = []
+                for node in root.findall(".//{*}sitemap"):
+                    loc_node = node.find("{*}loc")
+                    if loc_node is None or not normalize_space(loc_node.text):
+                        continue
+                    loc = normalize_space(loc_node.text)
+                    lastmod_node = node.find("{*}lastmod")
+                    lastmod = parse_archive_date(
+                        lastmod_node.text if lastmod_node is not None else ""
+                    )
+                    if lastmod is not None and lastmod < cutoff - timedelta(days=31):
+                        continue
+                    path = urlsplit(loc).path.casefold()
+                    priority = sum(
+                        token in path
+                        for token in (
+                            "news",
+                            "press",
+                            "release",
+                            "post",
+                            "article",
+                            "blog",
+                            "media",
+                        )
+                    )
+                    child_sitemaps.append(
+                        (
+                            priority,
+                            lastmod or unknown_date,
+                            loc,
+                        )
+                    )
+                child_sitemaps.sort(reverse=True)
+                queue.extend(
+                    loc for _, _, loc in child_sitemaps[:max_sitemaps]
+                )
+                continue
+
+            for node in root.findall(".//{*}url"):
+                loc_node = node.find("{*}loc")
+                if loc_node is None or not normalize_space(loc_node.text):
+                    continue
+                urls_seen += 1
+                link = normalize_space(loc_node.text)
+                if not site_scan_link_allowed(source, link):
+                    continue
+                canonical = canonicalize_url(link)
+                if not canonical or canonical in candidate_ids:
+                    continue
+                lastmod_node = node.find("{*}lastmod")
+                published = parse_archive_date(
+                    lastmod_node.text if lastmod_node is not None else ""
+                ) or infer_date_from_url(link)
+                date_known = published is not None
+                if date_known and not (
+                    cutoff <= published <= collected_at + timedelta(days=2)
+                ):
+                    continue
+                score = site_scan_article_score(link)
+                if source.get("include_link_patterns"):
+                    score += 1
+                if score == 0:
+                    continue
+                slug = (
+                    urlsplit(link).path.rstrip("/").rsplit("/", 1)[-1]
+                    .replace("-", " ")
+                    .replace("_", " ")
+                )
+                candidate_ids.add(canonical)
+                candidates.append(
+                    (
+                        score,
+                        -len(candidates),
+                        normalize_space(slug),
+                        link,
+                        "",
+                        published or unknown_date,
+                        date_known,
+                        "Official-site sitemap and page metadata",
+                    )
+                )
+                if len(candidates) >= max_urls:
+                    break
+        except Exception as exc:
+            errors.append(
+                f"{sitemap_url}: {type(exc).__name__}: "
+                f"{normalize_space(str(exc))}"
+            )
+
+    candidates.sort(
+        key=lambda candidate: (
+            candidate[0],
+            candidate[5] if candidate[6] else unknown_date,
+            candidate[1],
+        ),
+        reverse=True,
+    )
+    return candidates, urls_seen, sitemaps_checked, errors
+
+
+def fetch_site_scan_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Read an official listing, with official sitemap fallback when needed."""
+    started = time.monotonic()
+    scan_limit = 500
+    listing_url = source.get("listing_url") or source.get("feed_url", "")
+    unknown_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    candidates: list[
+        tuple[int, int, str, str, str, datetime, bool, str]
+    ] = []
+    candidate_ids: set[str] = set()
+    entries_seen = 0
+    allowed_links_seen = 0
+    detail_parts: list[str] = []
+
+    try:
+        response = session.get(listing_url, timeout=(6, 15))
+        response.raise_for_status()
+        body = decoded_response_text(response)
+        if (
+            len(body) < 3000
+            and any(
+                marker in normalized_text(body)
+                for marker in (
+                    "site unavailable",
+                    "access denied",
+                    "request unsuccessful",
+                )
+            )
+        ):
+            raise ValueError("Listing returned an unavailable or blocked page")
+        nodes = BeautifulSoup(body, "html.parser").select(
+            source.get("link_selector", "a[href]")
+        )
+        entries_seen += len(nodes)
+        for node in nodes[:scan_limit]:
+            title = site_scan_link_title(node)
+            if len(title) < 8:
+                continue
+            link = urljoin(response.url, node.get("href", ""))
+            if not site_scan_link_allowed(source, link):
+                continue
+            allowed_links_seen += 1
+            canonical = canonicalize_url(link)
+            if not canonical or canonical in candidate_ids:
+                continue
+            context = site_scan_link_context(node)
+            published = parse_listing_date(context, unknown_date)
+            if published == unknown_date:
+                published = infer_date_from_url(link) or unknown_date
+            date_known = published != unknown_date
+            if date_known and published < cutoff:
+                continue
+            article_score = site_scan_article_score(link)
+            if re.search(r"\b20\d{2}\b", context):
+                article_score += 1
+            if not source.get("include_link_patterns") and article_score == 0:
+                continue
+            candidate_ids.add(canonical)
+            candidates.append(
+                (
+                    article_score,
+                    -len(candidates),
+                    title,
+                    link,
+                    context,
+                    published,
+                    date_known,
+                    "Official-site listing and page metadata",
+                )
+            )
+    except Exception as exc:
+        detail_parts.append(
+            "listing: "
+            + normalize_space(f"{type(exc).__name__}: {exc}")[:220]
+        )
+
+    sitemap_checked = 0
+    if not candidates:
+        (
+            sitemap_candidates_found,
+            sitemap_urls_seen,
+            sitemap_checked,
+            sitemap_errors,
+        ) = site_scan_sitemap_candidates(
+            session,
+            source,
+            cutoff,
+            collected_at,
+        )
+        candidates.extend(sitemap_candidates_found)
+        entries_seen += sitemap_urls_seen
+        if sitemap_checked:
+            detail_parts.append(f"official sitemap fallback: {sitemap_checked}")
+        if sitemap_errors and not sitemap_checked:
+            detail_parts.append(
+                "sitemap: " + normalize_space(sitemap_errors[0])[:220]
+            )
+
+    candidates.sort(
+        key=lambda candidate: (
+            candidate[0],
+            candidate[5] if candidate[6] else unknown_date,
+            candidate[1],
+        ),
+        reverse=True,
+    )
+    page_limit = max(
+        1,
+        min(
+            30,
+            int(
+                source.get(
+                    "site_scan_backfill_limit"
+                    if backfill
+                    else "site_scan_daily_limit",
+                    18 if backfill else 8,
+                )
+            ),
+        ),
+    )
+    items: list[dict[str, Any]] = []
+    for (
+        _,
+        _,
+        fallback_title,
+        link,
+        context,
+        listing_date,
+        date_known,
+        discovery_method,
+    ) in candidates[:page_limit]:
+        title, summary, published = page_metadata(
+            session,
+            link,
+            fallback_title,
+            listing_date,
+            context,
+        )
+        if not date_known and published == unknown_date:
+            continue
+        if not (cutoff <= published <= collected_at + timedelta(days=2)):
+            continue
+        item = build_item(
+            source=source,
+            title=title,
+            link=link,
+            summary=summary,
+            published=published,
+            collected_at=collected_at,
+        )
+        if item:
+            item["discovery_method"] = discovery_method
+            items.append(item)
+
+    items.sort(
+        key=lambda item: (
+            item["published_at"],
+            item["policy_relevance"],
+            item["source_priority"],
+        ),
+        reverse=True,
+    )
+    items = items[: (24 if backfill else 8)]
+    source_reached = bool(allowed_links_seen or sitemap_checked)
+    if not source_reached and not detail_parts:
+        detail_parts.append("No official article links found on listing or sitemap")
+    return items, FeedResult(
+        source=source,
+        entries_seen=entries_seen,
+        entries_kept=len(items),
+        status="ok" if source_reached else "error",
+        detail="; ".join(detail_parts)[:500],
+        elapsed_seconds=round(time.monotonic() - started, 2),
+    )
+
+
+def fetch_msit_script_list_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Read MSIT's official list whose visible fields are hydrated by inline JS."""
+    started = time.monotonic()
+    listing_url = source.get("listing_url") or source.get("feed_url", "")
+    try:
+        response = session.get(listing_url, timeout=(6, 20))
+        response.raise_for_status()
+        body = decoded_response_text(response)
+        soup = BeautifulSoup(body, "html.parser")
+
+        record_ids: list[str] = []
+        for node in soup.select('a[onclick*="fn_detail("]'):
+            match = re.search(
+                r"\bfn_detail\(\s*(\d+)\s*\)",
+                normalize_space(str(node.get("onclick", ""))),
+            )
+            if match and match.group(1) not in record_ids:
+                record_ids.append(match.group(1))
+
+        title_matches = re.findall(
+            r"sHtml\s*\+=\s*unescape\(\s*(['\"])((?:\\.|(?!\1).)*)\1\s*\)",
+            body,
+            flags=re.DOTALL,
+        )
+        titles: list[str] = []
+        for _, raw_title in title_matches:
+            title = normalize_space(
+                unquote(
+                    html.unescape(
+                        raw_title.replace(r"\'", "'").replace(r"\"", '"')
+                    )
+                )
+            )
+            if title and title not in titles:
+                titles.append(title)
+            if len(titles) >= len(record_ids):
+                break
+
+        date_matches = re.findall(
+            r"PSTG_YMD[\s\S]{0,260}?\.html\('(20\d{2}-\d{2}-\d{2})'\)",
+            body,
+        )
+        dates: list[str] = []
+        for raw_date in date_matches:
+            if len(dates) >= len(record_ids):
+                break
+            dates.append(raw_date)
+
+        listing_parts = urlsplit(response.url)
+        detail_path = urljoin(response.url, "./view.do")
+        base_query = dict(parse_qsl(listing_parts.query))
+        base_query["bbsSeqNo"] = str(source.get("bbs_seq_no", "42"))
+        page_limit = max(
+            1,
+            min(
+                30,
+                int(
+                    source.get(
+                        "site_scan_backfill_limit"
+                        if backfill
+                        else "site_scan_daily_limit",
+                        18 if backfill else 8,
+                    )
+                ),
+            ),
+        )
+
+        items: list[dict[str, Any]] = []
+        for index, record_id in enumerate(record_ids[:page_limit]):
+            if index >= len(titles) or index >= len(dates):
+                continue
+            published = parse_archive_date(dates[index])
+            if published is None or not (
+                cutoff <= published <= collected_at + timedelta(days=2)
+            ):
+                continue
+            query = dict(base_query)
+            query["nttSeqNo"] = record_id
+            detail_parts = urlsplit(detail_path)
+            link = urlunsplit(
+                (
+                    detail_parts.scheme,
+                    detail_parts.netloc,
+                    detail_parts.path,
+                    urlencode(query),
+                    "",
+                )
+            )
+            title, summary, page_date = page_metadata(
+                session,
+                link,
+                titles[index],
+                published,
+            )
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary=summary,
+                published=page_date,
+                collected_at=collected_at,
+            )
+            if item:
+                item["discovery_method"] = (
+                    "Official MSIT scripted listing and article page"
+                )
+                items.append(item)
+
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[: (24 if backfill else 8)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=len(record_ids),
+            entries_kept=len(items),
+            status="ok" if record_ids else "error",
+            detail="official scripted listing" if record_ids else "No records found",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
 def fetch_source(
     session: requests.Session,
     source: dict[str, Any],
@@ -1965,118 +2552,36 @@ def fetch_source(
             )
         if fetch_mode == "static":
             return fetch_static_source(source, cutoff, collected_at)
+        if fetch_mode == "msit_script_list":
+            return fetch_msit_script_list_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "site_scan":
+            return fetch_site_scan_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
         scan_limit = (
             500
-            if fetch_mode in {"link_list", "site_scan"}
+            if fetch_mode == "link_list"
             else (120 if backfill else 40)
         )
         item_limit = 24 if backfill else 8
         fetch_url = (
             source.get("listing_url")
-            if fetch_mode in {"html", "link_list", "site_scan"}
+            if fetch_mode in {"html", "link_list"}
             else source["feed_url"]
         )
         response = session.get(fetch_url or source["feed_url"], timeout=(8, 30))
         response.raise_for_status()
-        if fetch_mode == "site_scan":
-            nodes = BeautifulSoup(
-                decoded_response_text(response), "html.parser"
-            ).select(source.get("link_selector", "a[href]"))
-            entries_seen = len(nodes)
-            candidates: list[tuple[int, int, str, str, str, datetime]] = []
-            candidate_ids: set[str] = set()
-            for node in nodes[:scan_limit]:
-                title = normalize_space(node.get_text(" ", strip=True))
-                if len(title) < 8:
-                    continue
-                link = urljoin(response.url, node.get("href", ""))
-                if not site_scan_link_allowed(source, link):
-                    continue
-                canonical = canonicalize_url(link)
-                if canonical in candidate_ids:
-                    continue
-                context_node = node.parent or node
-                context = plain_text(
-                    context_node.get_text(" ", strip=True),
-                    limit=600,
-                )
-                published = parse_listing_date(context, collected_at)
-                if published < cutoff:
-                    continue
-                path = urlsplit(link).path.casefold()
-                article_score = sum(
-                    token in path
-                    for token in (
-                        "/news/",
-                        "/blog/",
-                        "/press",
-                        "/release",
-                        "/updates/",
-                        "/article",
-                        "/stories/",
-                        "/insights/",
-                        "/research/",
-                    )
-                )
-                if re.search(r"\b20\d{2}\b", context):
-                    article_score += 1
-                if not source.get("include_link_patterns") and article_score == 0:
-                    continue
-                candidate_ids.add(canonical)
-                candidates.append(
-                    (
-                        article_score,
-                        -len(candidates),
-                        title,
-                        link,
-                        context,
-                        published,
-                    )
-                )
-
-            candidates.sort(key=lambda candidate: (candidate[0], candidate[1]), reverse=True)
-
-            page_limit = max(
-                1,
-                min(
-                    30,
-                    int(
-                        source.get(
-                            "site_scan_backfill_limit" if backfill else "site_scan_daily_limit",
-                            18 if backfill else 8,
-                        )
-                    ),
-                ),
-            )
-            for (
-                _,
-                _,
-                fallback_title,
-                link,
-                context,
-                listing_date,
-            ) in candidates[:page_limit]:
-                title, summary, published = page_metadata(
-                    session,
-                    link,
-                    fallback_title,
-                    listing_date,
-                    context,
-                )
-                if published < cutoff:
-                    continue
-                item = build_item(
-                    source=source,
-                    title=title,
-                    link=link,
-                    summary=summary,
-                    published=published,
-                    collected_at=collected_at,
-                )
-                if item:
-                    item["discovery_method"] = "Official-site listing and page metadata"
-                    items.append(item)
-        elif fetch_mode == "link_list":
+        if fetch_mode == "link_list":
             title_patterns = [
                 str(pattern).casefold()
                 for pattern in source.get("include_title_patterns", [])
