@@ -55,9 +55,9 @@ GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 GDELT_DOC_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 OPENALEX_WORKS_ENDPOINT = "https://api.openalex.org/works"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
-TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v6"
+TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v5"
 ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v2"
-BACKFILL_VERSION = 3
+BACKFILL_VERSION = 2
 DEFAULT_POLICY_HISTORY_DAYS = 365
 DEFAULT_TECHNOLOGY_HISTORY_DAYS = 183
 DEFAULT_PUBLIC_ITEM_LIMIT = 2500
@@ -1160,6 +1160,7 @@ def refresh_academic_review_summaries(
         if (
             item.get("academic_kind", ACADEMIC_KIND_NEWS)
             != ACADEMIC_KIND_NEWS
+            and item.get("status") != "Excluded"
             and item.get("academic_review_version")
             != ACADEMIC_SCOPE_REVIEW_VERSION
             and not item.get("_review_summary")
@@ -1206,7 +1207,7 @@ def refresh_academic_review_summaries(
 
 
 def source_domain(source: dict[str, Any]) -> str:
-    for key in ("listing_url", "homepage", "feed_url"):
+    for key in ("homepage", "feed_url"):
         raw = normalize_space(str(source.get(key, "")))
         if not raw:
             continue
@@ -1241,7 +1242,6 @@ def page_metadata(
     url: str,
     fallback_title: str,
     fallback_date: datetime,
-    fallback_summary: str = "",
 ) -> tuple[str, str, datetime]:
     try:
         response = session.get(
@@ -1263,7 +1263,7 @@ def page_metadata(
                 if normalize_space(str(candidate)):
                     title = normalize_space(str(candidate))
                     break
-        description = plain_text(fallback_summary, limit=900)
+        description = ""
         for selector in (
             'meta[name="description"]',
             'meta[property="og:description"]',
@@ -1271,31 +1271,8 @@ def page_metadata(
         ):
             node = soup.select_one(selector)
             if node is not None and normalize_space(str(node.get("content", ""))):
-                candidate_description = plain_text(
-                    str(node.get("content", "")),
-                    limit=900,
-                )
-                if len(candidate_description) > len(description):
-                    description = candidate_description
+                description = plain_text(str(node.get("content", "")), limit=1200)
                 break
-        if len(description) < 220:
-            paragraphs: list[str] = []
-            for node in soup.select("article p, main p"):
-                paragraph = plain_text(node.get_text(" ", strip=True), limit=360)
-                if (
-                    len(paragraph) < 45
-                    or paragraph in paragraphs
-                    or paragraph.casefold().startswith(
-                        ("cookie", "subscribe", "sign up", "all rights reserved")
-                    )
-                ):
-                    continue
-                paragraphs.append(paragraph)
-                if sum(len(value) for value in paragraphs) >= 700:
-                    break
-            article_lead = plain_text(" ".join(paragraphs), limit=900)
-            if len(article_lead) > len(description):
-                description = article_lead
         published = fallback_date
         for selector, attribute in (
             ('meta[property="article:published_time"]', "content"),
@@ -1319,75 +1296,7 @@ def page_metadata(
                 continue
         return title, description, published
     except Exception:
-        return fallback_title, plain_text(fallback_summary, limit=900), fallback_date
-
-
-def source_host_matches(source: dict[str, Any], url: str) -> bool:
-    """Keep generic listing scans on the allowlisted official site."""
-    candidate_host = (urlsplit(url).hostname or "").casefold()
-    source_host = source_domain(source)
-    if candidate_host.startswith("www."):
-        candidate_host = candidate_host[4:]
-    if not candidate_host or not source_host:
-        return False
-    return (
-        candidate_host == source_host
-        or candidate_host.endswith(f".{source_host}")
-        or source_host.endswith(f".{candidate_host}")
-    )
-
-
-def site_scan_link_allowed(source: dict[str, Any], url: str) -> bool:
-    if not source_host_matches(source, url):
-        return False
-    parts = urlsplit(url)
-    if parts.scheme not in {"http", "https"}:
-        return False
-    path = parts.path.casefold().rstrip("/")
-    if not path or path in {"", "/"}:
-        return False
-    if any(
-        path.endswith(suffix)
-        for suffix in (
-            ".jpg",
-            ".jpeg",
-            ".png",
-            ".gif",
-            ".svg",
-            ".webp",
-            ".mp4",
-            ".mp3",
-            ".zip",
-        )
-    ):
-        return False
-    excluded_fragments = [
-        "/about",
-        "/careers",
-        "/contact",
-        "/privacy",
-        "/terms",
-        "/legal",
-        "/search",
-        "/tag/",
-        "/tags/",
-        "/author/",
-        "/category/",
-        "/events",
-    ]
-    excluded_fragments.extend(
-        str(pattern).casefold()
-        for pattern in source.get("exclude_link_patterns", [])
-        if normalize_space(str(pattern))
-    )
-    if any(fragment in path for fragment in excluded_fragments):
-        return False
-    include_patterns = [
-        str(pattern).casefold()
-        for pattern in source.get("include_link_patterns", [])
-        if normalize_space(str(pattern))
-    ]
-    return not include_patterns or any(pattern in url.casefold() for pattern in include_patterns)
+        return fallback_title, "", fallback_date
 
 
 ARCHIVE_URL_KEYWORDS = {
@@ -1967,116 +1876,18 @@ def fetch_source(
             return fetch_static_source(source, cutoff, collected_at)
         scan_limit = (
             500
-            if fetch_mode in {"link_list", "site_scan"}
+            if fetch_mode == "link_list"
             else (120 if backfill else 40)
         )
         item_limit = 24 if backfill else 8
         fetch_url = (
             source.get("listing_url")
-            if fetch_mode in {"html", "link_list", "site_scan"}
+            if fetch_mode in {"html", "link_list"}
             else source["feed_url"]
         )
         response = session.get(fetch_url or source["feed_url"], timeout=(8, 30))
         response.raise_for_status()
-        if fetch_mode == "site_scan":
-            nodes = BeautifulSoup(
-                decoded_response_text(response), "html.parser"
-            ).select(source.get("link_selector", "a[href]"))
-            entries_seen = len(nodes)
-            candidates: list[tuple[int, int, str, str, str, datetime]] = []
-            candidate_ids: set[str] = set()
-            for node in nodes[:scan_limit]:
-                title = normalize_space(node.get_text(" ", strip=True))
-                if len(title) < 8:
-                    continue
-                link = urljoin(response.url, node.get("href", ""))
-                if not site_scan_link_allowed(source, link):
-                    continue
-                canonical = canonicalize_url(link)
-                if canonical in candidate_ids:
-                    continue
-                context_node = node.parent or node
-                context = plain_text(
-                    context_node.get_text(" ", strip=True),
-                    limit=600,
-                )
-                published = parse_listing_date(context, collected_at)
-                if published < cutoff:
-                    continue
-                path = urlsplit(link).path.casefold()
-                article_score = sum(
-                    token in path
-                    for token in (
-                        "/news/",
-                        "/blog/",
-                        "/press",
-                        "/release",
-                        "/updates/",
-                        "/article",
-                        "/stories/",
-                        "/insights/",
-                        "/research/",
-                    )
-                )
-                if re.search(r"\b20\d{2}\b", context):
-                    article_score += 1
-                if not source.get("include_link_patterns") and article_score == 0:
-                    continue
-                candidate_ids.add(canonical)
-                candidates.append(
-                    (
-                        article_score,
-                        -len(candidates),
-                        title,
-                        link,
-                        context,
-                        published,
-                    )
-                )
-
-            candidates.sort(key=lambda candidate: (candidate[0], candidate[1]), reverse=True)
-
-            page_limit = max(
-                1,
-                min(
-                    30,
-                    int(
-                        source.get(
-                            "site_scan_backfill_limit" if backfill else "site_scan_daily_limit",
-                            18 if backfill else 8,
-                        )
-                    ),
-                ),
-            )
-            for (
-                _,
-                _,
-                fallback_title,
-                link,
-                context,
-                listing_date,
-            ) in candidates[:page_limit]:
-                title, summary, published = page_metadata(
-                    session,
-                    link,
-                    fallback_title,
-                    listing_date,
-                    context,
-                )
-                if published < cutoff:
-                    continue
-                item = build_item(
-                    source=source,
-                    title=title,
-                    link=link,
-                    summary=summary,
-                    published=published,
-                    collected_at=collected_at,
-                )
-                if item:
-                    item["discovery_method"] = "Official-site listing and page metadata"
-                    items.append(item)
-        elif fetch_mode == "link_list":
+        if fetch_mode == "link_list":
             title_patterns = [
                 str(pattern).casefold()
                 for pattern in source.get("include_title_patterns", [])
@@ -2166,28 +1977,6 @@ def fetch_source(
             if parsed.bozo and not parsed.entries:
                 raise ValueError(str(parsed.bozo_exception))
 
-            enrichment_count = 0
-            enrichment_limit = max(
-                0,
-                min(
-                    20,
-                    int(
-                        source.get(
-                            "page_enrichment_backfill_limit"
-                            if backfill
-                            else "page_enrichment_daily_limit",
-                            10 if backfill else 4,
-                        )
-                    ),
-                ),
-            )
-            enrich_source_types = {
-                "Major Media",
-                "Policy Institute",
-                "Official Company",
-                "Government",
-                "Intergovernmental",
-            }
             for entry in parsed.entries[:scan_limit]:
                 published = entry_datetime(entry, collected_at)
                 if published < cutoff:
@@ -2196,39 +1985,11 @@ def fetch_source(
                     normalize_space(getattr(tag, "term", ""))
                     for tag in getattr(entry, "tags", [])
                 )
-                title = normalize_space(getattr(entry, "title", ""))
-                link = normalize_space(getattr(entry, "link", ""))
-                summary = entry_summary(entry)
-                if (
-                    enrichment_count < enrichment_limit
-                    and link
-                    and (
-                        source.get("enrich_from_page") is True
-                        or (
-                            source.get("enrich_from_page") is not False
-                            and source.get("source_type", "") in enrich_source_types
-                            and len(summary) < 500
-                        )
-                    )
-                ):
-                    enriched_title, enriched_summary, enriched_published = page_metadata(
-                        session,
-                        link,
-                        title,
-                        published,
-                        summary,
-                    )
-                    title = enriched_title or title
-                    if len(enriched_summary) > len(summary):
-                        summary = enriched_summary
-                    if cutoff <= enriched_published <= collected_at + timedelta(days=2):
-                        published = enriched_published
-                    enrichment_count += 1
                 item = build_item(
                     source=source,
-                    title=title,
-                    link=link,
-                    summary=summary,
+                    title=getattr(entry, "title", ""),
+                    link=getattr(entry, "link", ""),
+                    summary=entry_summary(entry),
                     published=published,
                     collected_at=collected_at,
                     extra_text=extra_text,
@@ -2356,6 +2117,11 @@ def contains_japanese(value: str) -> bool:
 
 def needs_scope_review(item: dict[str, Any]) -> bool:
     academic_kind = item.get("academic_kind", ACADEMIC_KIND_NEWS)
+    if (
+        item.get("status") == "Excluded"
+        and item.get("scope_review_version") == TECH_SCOPE_REVIEW_VERSION
+    ):
+        return False
     return (
         item.get("scope_review_version") != TECH_SCOPE_REVIEW_VERSION
         or (
@@ -2694,10 +2460,7 @@ def japanese_summary_request(
         "掲載可とするには、記事の中心に次のいずれかが必要です："
         "新しい研究成果や科学的発見、具体的な設計・材料・製造・性能・手法、"
         "技術の実装内容と確認できる能力、または特定技術・研究開発に直接作用する"
-        "資金、規制、標準、調達、国家計画。企業の研究開発動向については、"
-        "研究所・ファブ・実証設備へのR&D投資、新しい研究計画、試作品、実証試験、"
-        "臨床試験、具体的な性能向上、量産化、技術標準化、大学・企業との共同研究も"
-        "技術または研究開発の対象が明確なら掲載対象です。単に会社名やAIなどの技術名が出るだけ、"
+        "資金、規制、標準、調達、国家計画。単に会社名やAIなどの技術名が出るだけ、"
         "『革新』『競争力』『デジタル』という一般語だけでは掲載しません。"
         "犯罪・裁判、戦争の戦況、観光、一般経済、金融センター、人物談、"
         "珍しい病気の症例、一般的な公衆衛生、企業業績、生活情報、"
@@ -2714,10 +2477,7 @@ def japanese_summary_request(
         "ドローン攻撃の戦況記事は除外します。"
         "Fusion Energyは核融合技術に限り、一般語のfusionや部分一致は無視します。"
         "企業発表、導入事例、製品発表、イベント報告は、新しい技術能力・設計・"
-        "実装方法・研究成果・研究開発計画・実証や量産への移行が、見出しまたは"
-        "概要から具体的に確認できる場合に掲載します。R&D研究所、半導体ファブ、"
-        "試験設備、計算基盤への投資は、対象技術と研究開発目的が明示されていれば"
-        "企業R&D動向として掲載できます。"
+        "実装方法・研究成果がRSS概要から具体的に確認できる場合だけ掲載します。"
         "企業の海外進出、市場拡大、売上、輸出、競争、資金調達だけを扱う記事は、"
         "具体的な新技術や実装内容を説明していなければ除外します。"
         "学術誌論文、学会・会議論文、プレプリントは、入力された要旨から8技術分野の"
@@ -2736,9 +2496,8 @@ def japanese_summary_request(
         "確認できなければ除外します。"
         "映画・芸術・娯楽における一般的な『革命』『革新』は除外します。"
         "複数ニュースのまとめ記事は、単一の明確な対象技術を十分に説明しない限り"
-        "除外します。概要が短いことだけを理由に除外してはいけません。見出しから"
-        "正式な政策措置、研究成果、試作品、実証、臨床試験、R&D施設、量産化などが"
-        "明確な場合は、入力から確認できる範囲に限定して掲載してください。"
+        "除外します。RSS概要が短すぎて具体的な技術や直接的な科学技術政策を"
+        "確認できない場合は、安全側に倒して除外してください。"
         "判定例：自動車の価格競争、金融センター構想、映画の変化、Trip.comへの"
         "一般的な独占禁止罰金、省庁の人員統計、一般的なワクチン接種率はfalse。"
         "CRISPR酵素の新作用、ガラス基板による先進半導体パッケージング、"
