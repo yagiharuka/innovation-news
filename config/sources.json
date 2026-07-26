@@ -653,10 +653,15 @@
       "region": "Global",
       "country": "Global",
       "category": "Patents, intellectual property and innovation policy",
-      "feed_url": "https://www.wipo.int/en/web/news/rss",
+      "feed_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
+      "fetch_mode": "link_list",
+      "listing_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
+      "include_link_patterns": [
+        "/pressroom/en/articles/"
+      ],
       "homepage": "https://www.wipo.int/pressroom/en/",
       "priority": 5,
-      "native_feed": true,
+      "native_feed": false,
       "notes": "Official WIPO news on patents, intellectual property and innovation policy."
     },
     {
