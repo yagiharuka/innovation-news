@@ -369,6 +369,22 @@ class CollectorTests(unittest.TestCase):
         parsed = collector.parse_gdelt_datetime("20260102T030405Z", fallback)
         self.assertEqual(parsed.isoformat(), "2026-01-02T03:04:05+00:00")
 
+    def test_archive_url_scoring_ignores_domain_name(self):
+        self.assertEqual(
+            collector.archive_url_score(
+                "https://technologyreview.com/general/elections",
+                "policy",
+            ),
+            0,
+        )
+        self.assertGreater(
+            collector.archive_url_score(
+                "https://example.com/policy/quantum-research-strategy",
+                "policy",
+            ),
+            0,
+        )
+
     def test_config_has_separate_scholarly_kinds(self):
         config = collector.load_config()
         academic_kinds = {
