@@ -685,6 +685,493 @@
       "notes": "Official EPO news and patent-system policy updates."
     },
     {
+      "active": false,
+      "name": "Japan Cabinet Office Policy Benchmarks",
+      "organization": "Cabinet Office, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "Japan",
+      "category": "National science, technology and innovation strategy, research funding and public procurement",
+      "feed_url": "https://www8.cao.go.jp/cstp/",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www8.cao.go.jp/cstp/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmarks that must remain visible in the one-year policy window.",
+      "items": [
+        {
+          "published_at": "2026-07-14",
+          "url": "https://www8.cao.go.jp/cstp/tougosenryaku/2026.html",
+          "title": "統合イノベーション戦略2026",
+          "title_ja": "統合イノベーション戦略2026を閣議決定",
+          "summary": "第7期科学技術・イノベーション基本計画の初年度戦略として、2026年度から2027年度に重点化する施策を整理し、17の重要技術領域について具体策を示した。",
+          "summary_ja": "政府は第7期科学技術・イノベーション基本計画の初年度戦略を閣議決定した。2026～2027年度の重点施策を整理し、17の重要技術領域、研究力強化、安全保障との連携、社会実装を一体で進める。",
+          "topics": [],
+          "policy_areas": [
+            "National Programs & Strategy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "第7期基本計画に基づく日本の年次科学技術・イノベーション戦略",
+          "scope_evidence": "2026年7月14日閣議決定で、17の重要技術領域と今後1年間の重点施策を具体化した。"
+        },
+        {
+          "published_at": "2026-07-14",
+          "url": "https://www8.cao.go.jp/cstp/openinnovation/sbirseido/sbirhousin.html",
+          "title": "令和8年度特定新技術補助金等の支出目標と指定補助金の交付指針",
+          "title_ja": "令和8年度の日本版SBIR支出目標・交付指針を閣議決定",
+          "summary": "政府は日本版SBIRについて、令和8年度の特定新技術補助金等の支出目標と、指定補助金等の交付指針を閣議決定した。",
+          "summary_ja": "政府は日本版SBIRの令和8年度支出目標と交付指針を閣議決定した。省庁横断で研究開発初期から政府調達・民生利用までをつなぎ、スタートアップ等の技術事業化を支援する。",
+          "topics": [],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "Public Procurement & Industrial Policy",
+            "National Programs & Strategy"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "日本版SBIRの研究開発補助金と政府調達への接続",
+          "scope_evidence": "2026年7月14日閣議決定で、令和8年度の支出目標と指定補助金の交付指針を定めた。"
+        },
+        {
+          "published_at": "2026-03-27",
+          "url": "https://www8.cao.go.jp/cstp/kihonkeikaku/7honbun.pdf",
+          "title": "第7期科学技術・イノベーション基本計画",
+          "title_ja": "第7期科学技術・イノベーション基本計画を策定",
+          "summary": "2026年度から2030年度までの日本の科学技術・イノベーション政策の基本方針を定め、重要技術、研究力、人材、社会実装、経済安全保障の取組を示した。",
+          "summary_ja": "政府は2026～2030年度を対象とする第7期基本計画を策定した。重要技術の育成、研究力と人材の強化、社会実装、経済安全保障を政策の柱として進める。",
+          "topics": [],
+          "policy_areas": [
+            "National Programs & Strategy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "2026～2030年度の日本の科学技術・イノベーション基本政策",
+          "scope_evidence": "第7期計画は2026～2030年度を対象とし、重要技術、研究力、人材、社会実装の方向性を定めた。"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "name": "Japan IP Strategy Policy Benchmarks",
+      "organization": "Intellectual Property Strategy Headquarters, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "Japan",
+      "category": "Patents, intellectual property and technology transfer policy",
+      "feed_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source intellectual-property policy benchmark.",
+      "items": [
+        {
+          "published_at": "2026-06-12",
+          "url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/260612/keikaku_all.pdf",
+          "title": "知的財産推進計画2026",
+          "title_ja": "知的財産推進計画2026を決定",
+          "summary": "知的財産戦略本部は、知財・無形資産への投資、AIと知的財産権、創造人材、コンテンツ産業などを柱とする知的財産推進計画2026を決定した。",
+          "summary_ja": "知的財産戦略本部は「知的財産推進計画2026」を決定した。知財・無形資産への投資、AIと知的財産権、創造人材の強化などを通じて、研究成果とコンテンツの創造・保護・活用を進める。",
+          "topics": [],
+          "policy_areas": [
+            "Patents & Intellectual Property",
+            "National Programs & Strategy"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "日本の知的財産・無形資産・技術移転政策",
+          "scope_evidence": "2026年6月12日決定で、知財投資、AIと知財権、創造人材を主要項目に掲げた。"
+        }
+      ]
+    },
+    {
+      "active": false,
+      "name": "Japan R&D Tax Policy Benchmarks",
+      "organization": "Ministry of Economy, Trade and Industry",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "Japan",
+      "category": "Research and development tax incentives",
+      "feed_url": "https://www.meti.go.jp/main/yosan/yosan_fy2026/pdf/03.pdf",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.meti.go.jp/policy/tech_promotion/tax/about_tax.html",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmark for Japan's R&D tax incentive.",
+      "items": [
+        {
+          "published_at": "2025-12-19",
+          "url": "https://www.meti.go.jp/main/yosan/yosan_fy2026/pdf/03.pdf",
+          "title": "令和8年度 経済産業関係 税制改正について",
+          "title_ja": "令和8年度税制改正で研究開発税制を拡充・延長",
+          "summary": "経済産業省は令和8年度税制改正で、研究開発投資を促すため研究開発税制を見直し、時限措置の適用期限を3年間延長するとした。",
+          "summary_ja": "令和8年度税制改正は、企業の研究開発投資を促すため研究開発税制の控除率・上限等を見直し、時限措置を3年間延長する。国内の研究人材・拠点の維持強化も重視する。",
+          "topics": [],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "企業の研究開発投資を促す法人税額控除制度",
+          "scope_evidence": "令和8年度改正で研究開発税制を見直し、時限措置を3年間延長すると明記した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "NSF Policy Benchmarks",
+      "organization": "U.S. National Science Foundation",
+      "source_type": "Government",
+      "region": "United States",
+      "country": "United States",
+      "category": "National research programs and funding",
+      "feed_url": "https://www.nsf.gov/news",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.nsf.gov/news",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmarks for major NSF research programs.",
+      "items": [
+        {
+          "published_at": "2026-05-14",
+          "url": "https://www.nsf.gov/news/nsf-announces-15b-nsf-x-labs-initiative-pursue-generational",
+          "title": "NSF announces $1.5B NSF X-Labs initiative to pursue generational breakthrough science efforts",
+          "title_ja": "NSF、15億ドルのX-Labs構想を発表",
+          "summary": "NSF X-Labs will invest $1.5 billion to launch and scale independent research organizations pursuing generational breakthrough science outside traditional institutions.",
+          "summary_ja": "米国NSFは15億ドル規模の「NSF X-Labs」を発表した。従来型機関の外で独立研究組織を立ち上げ・拡大し、世代を画する科学的ブレークスルーを長期・大規模に追求する。",
+          "topics": [],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "National Programs & Strategy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "独立研究組織を通じた大型・長期の基礎研究支援",
+          "scope_evidence": "NSFが15億ドルを投じ、X-Labsとして独立研究組織を立ち上げ・拡大すると発表した。"
+        },
+        {
+          "published_at": "2025-08-05",
+          "url": "https://www.nsf.gov/news/nsf-invest-new-national-network-ai-programmable-cloud",
+          "title": "NSF to invest in new national network of AI-programmable cloud laboratories",
+          "title_ja": "NSF、AIプログラマブル・クラウド研究所の全米ネットワークへ投資",
+          "summary": "NSF will invest in remotely accessible, AI-programmable laboratories, initially focused on biotechnology and materials science, to accelerate experiments and technology translation.",
+          "summary_ja": "米国NSFは、遠隔利用できるAIプログラマブル・クラウド研究所の全米ネットワークに投資する。初期対象はバイオテクノロジーと材料科学で、実験自動化と技術移転の加速を狙う。",
+          "topics": [
+            "Artificial Intelligence",
+            "Biotechnology"
+          ],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "National Programs & Strategy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "AIで遠隔操作する研究施設ネットワーク",
+          "scope_evidence": "NSFがバイオ・材料科学を初期対象とするAIプログラマブル研究所ネットワークへの投資を発表した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "White House Science Policy Benchmarks",
+      "organization": "The White House",
+      "source_type": "Government",
+      "region": "United States",
+      "country": "United States",
+      "category": "National science, technology and research policy",
+      "feed_url": "https://www.whitehouse.gov/ostp/news/",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.whitehouse.gov/ostp/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmark for a major U.S. national science mission.",
+      "items": [
+        {
+          "published_at": "2025-11-24",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/11/launching-the-genesis-mission/",
+          "title": "Launching the Genesis Mission",
+          "title_ja": "米国、AIで科学発見を加速する「Genesis Mission」を開始",
+          "summary": "The executive order launches a coordinated national effort that integrates federal scientific datasets, supercomputers, AI systems and research facilities to train scientific foundation models and automate research workflows.",
+          "summary_ja": "米国は大統領令で「Genesis Mission」を開始した。連邦の科学データ、スーパーコンピューター、AI、研究施設を統合し、科学基盤モデルとAIエージェントで仮説検証や研究工程を自動化する国家計画である。",
+          "topics": [
+            "Artificial Intelligence"
+          ],
+          "policy_areas": [
+            "National Programs & Strategy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "AI、連邦科学データ、国立研究所を統合する国家研究基盤",
+          "scope_evidence": "2025年11月24日の大統領令が、科学基盤モデルとAIエージェントを用いる国家計画を正式に開始した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "United States R&D Tax Policy Benchmarks",
+      "organization": "Internal Revenue Service",
+      "source_type": "Government",
+      "region": "United States",
+      "country": "United States",
+      "category": "Research and development tax policy",
+      "feed_url": "https://www.irs.gov/irb/2025-38_IRB",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.irs.gov/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmark for a material change in U.S. R&D tax treatment.",
+      "items": [
+        {
+          "published_at": "2025-09-15",
+          "url": "https://www.irs.gov/irb/2025-38_IRB",
+          "title": "Internal Revenue Bulletin 2025-38: treatment of research or experimental expenditures under Sections 174 and 174A",
+          "title_ja": "米国、国内R&D費の即時控除を認める新Section 174Aの実施手続きを公表",
+          "summary": "IRS guidance implements new Section 174A, allowing immediate deduction of domestic research or experimental expenditures paid in tax years beginning after December 31, 2024, while foreign R&D remains subject to 15-year amortization. It also sets transition options for previously capitalized domestic R&D expenditures.",
+          "summary_ja": "米国IRSは新設された内国歳入法Section 174Aの実施手続きを示した。2024年12月31日後に始まる課税年度の国内研究・実験費は原則即時控除できる一方、国外R&D費は15年償却を継続し、過年度の国内R&D費には移行措置を設ける。",
+          "topics": [],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "企業の国内研究開発費に対する即時控除と国外R&D費の償却",
+          "scope_evidence": "IRS Revenue Procedure 2025-28がSection 174Aの即時控除、任意の60か月以上の償却、過年度支出の移行方法を具体化した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "United Kingdom Innovation Policy Benchmarks",
+      "organization": "UK Department for Science, Innovation and Technology",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "category": "National research strategy, funding and research infrastructure",
+      "feed_url": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmarks for UK research strategy and funding allocation.",
+      "items": [
+        {
+          "published_at": "2025-11-20",
+          "url": "https://www.gov.uk/government/publications/ai-for-science-strategy/ai-for-science-strategy",
+          "title": "AI for Science Strategy",
+          "title_ja": "英国、「AI for Science Strategy」で計算資源・データ・自律実験を一体支援",
+          "summary": "The UK strategy sets 15 actions for AI-enabled science, including public compute allocations, secure access to research datasets, autonomous laboratories and AI scientist systems. AIRR calls offer large research projects 200,000 to 1,000,000 GPU hours over six months.",
+          "summary_ja": "英国はAIによる科学発見を加速する15施策を公表した。公共計算資源AIRR、研究データへの安全なアクセス、自律実験室、AIサイエンティストを一体で整備し、大型研究には6か月で20万～100万GPU時間を配分する。",
+          "topics": [
+            "Artificial Intelligence"
+          ],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "National Programs & Strategy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "AI計算資源、研究データ、自律実験室を統合した科学研究基盤",
+          "scope_evidence": "英国政府が15施策とAIRRの具体的なGPU時間配分、自律実験室・AIサイエンティスト支援を示した。"
+        },
+        {
+          "published_at": "2025-11-24",
+          "url": "https://www.gov.uk/government/news/more-targeted-rd-investment-towards-driving-uk-growth-and-jobs-unveiled-by-technology-secretary",
+          "title": "More targeted R&D investment towards driving UK growth and jobs",
+          "title_ja": "英国、UKRIの386億ポンドを戦略分野と企業成長へ重点配分",
+          "summary": "The UK government announced a more targeted allocation of UKRI's GBP 38.6 billion settlement, including GBP 8 billion for government priorities and GBP 7 billion for innovative company growth, with an emphasis on strategic technologies, commercialization and research talent.",
+          "summary_ja": "英国政府はUKRIの総額386億ポンドの研究資金を重点化する。政府優先課題に80億ポンド、革新的企業の成長に70億ポンドを振り向け、量子などの戦略技術、研究成果の事業化、国際研究人材を支援する。",
+          "topics": [
+            "Quantum"
+          ],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "National Programs & Strategy",
+            "Public Procurement & Industrial Policy",
+            "Research System & Talent"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "公的R&D資金の戦略分野・企業成長・研究人材への重点配分",
+          "scope_evidence": "UKRIの386億ポンドのうち80億ポンドを政府優先課題、70億ポンドを革新的企業の成長へ配分すると公表した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "China Innovation Policy Benchmarks",
+      "organization": "State Council of the People's Republic of China",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "China",
+      "category": "National technology strategy and patent commercialization policy",
+      "feed_url": "https://english.www.gov.cn/policies/",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://english.www.gov.cn/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed official benchmarks for China's technology deployment and patent-commercialization policy.",
+      "items": [
+        {
+          "published_at": "2025-08-27",
+          "url": "https://english.www.gov.cn/policies/latestreleases/202508/27/content_WS68ae7976c6d0868f4e8f51a0.html",
+          "title": "China issues guideline to accelerate AI Plus integration",
+          "title_ja": "中国国務院、「AI Plus」指針で6分野へのAI統合目標を設定",
+          "summary": "China's State Council guideline accelerates AI integration across science and technology, industry, consumption, public welfare, governance and international cooperation. It targets over 70 percent penetration of next-generation smart terminals and AI agents by 2027 and over 90 percent by 2030.",
+          "summary_ja": "中国国務院は「AI Plus」指針を公表し、科学技術、産業、消費、民生、ガバナンス、国際協力の6分野にAIを統合する。次世代スマート端末・AIエージェントの普及率を2027年に70％超、2030年に90％超へ引き上げる目標を置いた。",
+          "topics": [
+            "Artificial Intelligence"
+          ],
+          "policy_areas": [
+            "National Programs & Strategy",
+            "Public Procurement & Industrial Policy"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "AIの研究・産業・公共部門への国家的な普及と実装",
+          "scope_evidence": "国務院指針が6分野の統合と2027年70％超、2030年90％超の普及率目標を設定した。"
+        },
+        {
+          "published_at": "2026-03-24",
+          "url": "https://english.www.gov.cn/news/202603/24/content_WS69c1edb6c6d00ca5f9a0a13c.html",
+          "title": "China completes patent screening at universities and research institutions to enhance commercialization",
+          "title_ja": "中国、大学・研究機関の特許130万件を審査し事業化候補68万件を企業へ接続",
+          "summary": "China completed a nationwide screening of more than 1.3 million patents held by universities and research institutions, identified 680,000 invention patents with commercialization potential and connected them with 460,000 companies under the State Council's patent transformation action plan.",
+          "summary_ja": "中国は大学・研究機関が保有する130万件超の特許を全国審査し、事業化可能性の高い発明特許68万件を特定して46万社へ接続した。国務院の特許転化・活用行動計画に基づき、評価、マッチング、研究者報酬、技術移転人材を整備する。",
+          "topics": [],
+          "policy_areas": [
+            "Patents & Intellectual Property",
+            "Public Procurement & Industrial Policy"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "大学・研究機関の特許評価、企業マッチング、技術移転",
+          "scope_evidence": "130万件超を審査し、事業化候補68万件を46万社へ接続した実績と具体的な技術移転策を公表した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "Korea Innovation Policy Benchmarks",
+      "organization": "Ministry of Science and ICT, Republic of Korea",
+      "source_type": "Government",
+      "region": "Asia",
+      "country": "South Korea",
+      "category": "National R&D investment and project governance",
+      "feed_url": "https://www.msit.go.kr/eng/bbs/list.do?bbsSeqNo=42&mId=4",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.msit.go.kr/eng/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmark for Korea's large-scale national R&D investment system.",
+      "items": [
+        {
+          "published_at": "2026-02-12",
+          "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&nttSeqNo=1227&sCode=eng",
+          "title": "Comprehensive Reform Plan for the Pre-evaluation System for Large-scale R&D Projects",
+          "title_ja": "韓国、大型国家R&Dの事前評価を18年ぶりに全面改革",
+          "summary": "Korea will replace its uniform preliminary feasibility approach with R&D-specific investment governance. The threshold rises from KRW 50 billion to KRW 100 billion, while research projects receive planning reviews and infrastructure projects receive full lifecycle reviews.",
+          "summary_ja": "韓国は大型国家R&Dの投資審査制度を18年ぶりに全面改革する。事前評価の対象基準を500億ウォンから1,000億ウォンへ引き上げ、研究型には計画審査、研究インフラ型には企画から完成までの全ライフサイクル審査を導入する。",
+          "topics": [],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "National Programs & Strategy",
+            "Regulation & Governance"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "大型国家R&Dプロジェクトの投資審査と全ライフサイクル管理",
+          "scope_evidence": "対象基準を1,000億ウォンへ引き上げ、研究型・インフラ型に分けた審査制度を正式決定した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "European Innovation Council Policy Benchmarks",
+      "organization": "European Innovation Council",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "category": "European research and innovation funding policy",
+      "feed_url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-2026-work-programme_en",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://eic.ec.europa.eu/",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed primary-source benchmark for the EIC's 2026 funding programme.",
+      "items": [
+        {
+          "published_at": "2026-06-17",
+          "url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-2026-work-programme_en",
+          "title": "EIC 2026 work programme",
+          "title_ja": "EIC、14億ユーロ超の2026年ワークプログラムを改定",
+          "summary": "The EIC 2026 work programme provides more than EUR 1.4 billion through Pathfinder, Transition, Advanced Innovation Challenges, Accelerator and STEP Scale Up schemes; the June amendment opens support to defence and dual-use technologies.",
+          "summary_ja": "欧州イノベーション会議は、総額14億ユーロ超の2026年ワークプログラムを改定した。Pathfinder、Transition、Accelerator、STEP Scale Upなどで研究から事業拡大までを支援し、防衛・デュアルユース技術も対象に加えた。",
+          "topics": [],
+          "policy_areas": [
+            "R&D Funding & Tax Incentives",
+            "National Programs & Strategy",
+            "Public Procurement & Industrial Policy"
+          ],
+          "policy_relevance": 5,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "EUの研究・ディープテック事業化・スケールアップ支援",
+          "scope_evidence": "2026年ワークプログラムは14億ユーロ超を6制度に配分し、2026年6月改定で防衛・デュアルユースを対象化した。"
+        }
+      ]
+    },
+    {
+      "active": true,
+      "name": "WIPO Policy Benchmarks",
+      "organization": "World Intellectual Property Organization",
+      "source_type": "Intergovernmental",
+      "region": "Global",
+      "country": "Global",
+      "category": "Intellectual property and innovation policy evidence",
+      "feed_url": "https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/index.html",
+      "fetch_mode": "static",
+      "history_window": "policy",
+      "homepage": "https://www.wipo.int/en/web/world-ip-report",
+      "priority": 5,
+      "native_feed": false,
+      "notes": "Reviewed WIPO evidence benchmark for patent and technology-diffusion policy.",
+      "items": [
+        {
+          "published_at": "2026-02-17",
+          "url": "https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/index.html",
+          "title": "World Intellectual Property Report 2026: Technology on the Move",
+          "title_ja": "WIPO「世界知的財産報告書2026」、技術普及を左右する4要因を分析",
+          "summary": "WIPO identifies technology traits, information flows, absorptive capacity, and supportive policy and IP frameworks as four factors determining how quickly and widely technologies diffuse.",
+          "summary_ja": "WIPOは「世界知的財産報告書2026」で、技術の性質、情報流通、受容能力、政策・知財制度の4要因が技術普及の速度と範囲を左右すると分析した。特許と科学論文のデータから各国の普及格差を示す。",
+          "topics": [],
+          "policy_areas": [
+            "Patents & Intellectual Property",
+            "National Programs & Strategy"
+          ],
+          "policy_relevance": 4,
+          "scope_content_type": "technology_policy",
+          "scope_focus": "知的財産制度と技術普及の関係",
+          "scope_evidence": "WIPOの2026年報告書が、政策・知財枠組みを技術普及の4要因の一つとして特定した。"
+        }
+      ]
+    },
+    {
       "active": true,
       "name": "OpenAlex Journal Articles",
       "organization": "OpenAlex",
