@@ -55,8 +55,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: "120"
-          JAPANESE_SUMMARY_BATCH_SIZE: "6"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: "450"
+          JAPANESE_SUMMARY_BATCH_SIZE: "10"
           FORCE_BACKFILL: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill || false }}
 
       - name: Commit refreshed data
