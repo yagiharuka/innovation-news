@@ -19,6 +19,7 @@ import re
 import sys
 import time
 import unicodedata
+import xml.etree.ElementTree as ET
 from copy import copy
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -43,6 +44,7 @@ MASTER_CSV = DATA_DIR / "news.csv"
 MASTER_JSON = DATA_DIR / "news.json"
 RUN_LOG_JSON = DATA_DIR / "run_log.json"
 SOURCE_STATUS_JSON = DATA_DIR / "source_status.json"
+BACKFILL_STATE_JSON = DATA_DIR / "backfill_state.json"
 PUBLIC_JSON = DOCS_DATA_DIR / "news.json"
 PUBLIC_SOURCE_STATUS = DOCS_DATA_DIR / "source_status.json"
 TEMPLATE_XLSX = ROOT / "assets" / "innovation_news_ledger_template.xlsx"
@@ -50,14 +52,26 @@ PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
 
 JST = timezone(timedelta(hours=9))
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
+GDELT_DOC_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
 TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v4"
+BACKFILL_VERSION = 1
+DEFAULT_POLICY_HISTORY_DAYS = 365
+DEFAULT_TECHNOLOGY_HISTORY_DAYS = 183
+DEFAULT_PUBLIC_ITEM_LIMIT = 2500
 TECH_SCOPE_CONTENT_TYPES = {
     "research_breakthrough",
     "engineering_development",
     "technology_implementation",
     "technology_policy",
+    "journal_article",
+    "conference_paper",
+    "preprint",
 }
+ACADEMIC_KIND_NEWS = "News & Official Release"
+ACADEMIC_KIND_JOURNAL = "Journal Article"
+ACADEMIC_KIND_CONFERENCE = "Conference Paper"
+ACADEMIC_KIND_PREPRINT = "Preprint"
 USER_AGENT = (
     "WorldInnovationBrief/1.0 "
     "(RSS reader; contact: repository owner at github.com/yagiharuka/innovation-news)"
@@ -460,6 +474,13 @@ CSV_COLUMNS = [
     "scope_content_type",
     "scope_focus",
     "scope_evidence",
+    "academic_kind",
+    "review_status",
+    "venue",
+    "doi",
+    "citation_count",
+    "discovery_method",
+    "collection_mode",
 ]
 
 SOURCE_REGISTRY_COLUMNS = [
@@ -690,6 +711,18 @@ def load_master() -> list[dict[str, Any]]:
             row["scope_content_type"] = row.get("scope_content_type", "")
             row["scope_focus"] = row.get("scope_focus", "")
             row["scope_evidence"] = row.get("scope_evidence", "")
+            row["academic_kind"] = (
+                row.get("academic_kind", "") or ACADEMIC_KIND_NEWS
+            )
+            row["review_status"] = row.get("review_status", "")
+            row["venue"] = row.get("venue", "")
+            row["doi"] = row.get("doi", "")
+            try:
+                row["citation_count"] = int(row.get("citation_count") or 0)
+            except (TypeError, ValueError):
+                row["citation_count"] = 0
+            row["discovery_method"] = row.get("discovery_method", "")
+            row["collection_mode"] = row.get("collection_mode", "Daily")
             items.append(row)
     return items
 
@@ -703,6 +736,43 @@ def load_run_log() -> list[dict[str, Any]]:
         return list(payload.get("runs", []))
     except (OSError, json.JSONDecodeError, TypeError):
         return []
+
+
+def load_backfill_state() -> dict[str, Any]:
+    if not BACKFILL_STATE_JSON.exists():
+        return {}
+    try:
+        with BACKFILL_STATE_JSON.open(encoding="utf-8") as handle:
+            payload = json.load(handle)
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, json.JSONDecodeError, TypeError):
+        return {}
+
+
+def save_backfill_state(
+    collected_at: datetime,
+    policy_history_days: int,
+    technology_history_days: int,
+    archive_results: list[FeedResult],
+    archive_items: int,
+) -> None:
+    successful = sum(1 for result in archive_results if result.status == "ok")
+    payload = {
+        "schema_version": 1,
+        "backfill_version": BACKFILL_VERSION,
+        "completed_at": iso_z(collected_at),
+        "completed_at_jst": iso_jst(collected_at),
+        "policy_history_days": policy_history_days,
+        "technology_history_days": technology_history_days,
+        "archive_sources_checked": len(archive_results),
+        "archive_sources_succeeded": successful,
+        "archive_items_found": archive_items,
+        "status": "completed" if successful else "completed_with_errors",
+    }
+    BACKFILL_STATE_JSON.parent.mkdir(parents=True, exist_ok=True)
+    with BACKFILL_STATE_JSON.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
 
 
 def build_item(
@@ -739,9 +809,11 @@ def build_item(
     if not topics and not policy_areas:
         return None
     innovation_policy = bool(policy_areas)
-    article_frames = (
-        ["Innovation Policy"] if innovation_policy else ["Technology Innovation"]
-    )
+    article_frames: list[str] = []
+    if topics:
+        article_frames.append("Technology Innovation")
+    if innovation_policy:
+        article_frames.append("Innovation Policy")
     region = classify_region(classification_text, source.get("region", "Global"))
     item_id = canonical_id(link, source["name"], title)
     return {
@@ -780,6 +852,13 @@ def build_item(
         "scope_content_type": "",
         "scope_focus": "",
         "scope_evidence": "",
+        "academic_kind": source.get("academic_kind", ACADEMIC_KIND_NEWS),
+        "review_status": source.get("review_status", ""),
+        "venue": source.get("venue", ""),
+        "doi": "",
+        "citation_count": 0,
+        "discovery_method": source.get("fetch_mode", "feed"),
+        "collection_mode": "Daily",
         "source_priority": int(source.get("priority", 3)),
         "title_fingerprint": title_fingerprint(title),
     }
@@ -803,17 +882,735 @@ def parse_html_date(node: Any, selector: str, attribute: str, fallback: datetime
         return fallback
 
 
+def openalex_metadata_summary(work: dict[str, Any]) -> str:
+    terms: list[str] = []
+    for field in ("topics", "keywords"):
+        values = work.get(field, [])
+        if not isinstance(values, list):
+            continue
+        for value in values:
+            if not isinstance(value, dict):
+                continue
+            label = normalize_space(str(value.get("display_name", "")))
+            if label and label not in terms:
+                terms.append(label)
+    if not terms:
+        return ""
+    return "OpenAlex research topics: " + "; ".join(terms[:12])
+
+
+def openalex_venue(work: dict[str, Any]) -> tuple[str, str]:
+    primary_location = work.get("primary_location")
+    if not isinstance(primary_location, dict):
+        return "", ""
+    source = primary_location.get("source")
+    if not isinstance(source, dict):
+        return "", ""
+    return (
+        normalize_space(str(source.get("display_name", ""))),
+        normalize_space(str(source.get("host_organization_name", ""))),
+    )
+
+
+def fetch_openalex_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    started = time.monotonic()
+    entries_seen = 0
+    items: list[dict[str, Any]] = []
+    errors: list[str] = []
+    topic_queries = source.get("topic_queries", {})
+    if not isinstance(topic_queries, dict):
+        topic_queries = {}
+    limit_key = "backfill_items_per_topic" if backfill else "daily_items_per_topic"
+    per_topic = max(1, min(20, int(source.get(limit_key, 3))))
+    work_types = [
+        normalize_space(str(value))
+        for value in source.get("work_types", [])
+        if normalize_space(str(value))
+    ]
+
+    for topic, query in topic_queries.items():
+        if topic not in TOPIC_KEYWORDS or not normalize_space(str(query)):
+            continue
+        filters = [
+            f"from_publication_date:{cutoff.date().isoformat()}",
+            f"to_publication_date:{collected_at.date().isoformat()}",
+            "is_retracted:false",
+        ]
+        if work_types:
+            filters.append(f"type:{'|'.join(work_types)}")
+        params = {
+            "search": str(query),
+            "filter": ",".join(filters),
+            "sort": "cited_by_count:desc" if backfill else "publication_date:desc",
+            "per-page": min(50, max(10, per_topic * 4)),
+            "select": (
+                "id,doi,display_name,publication_date,type,cited_by_count,"
+                "primary_location,authorships,topics,keywords,language"
+            ),
+        }
+        try:
+            response = session.get(
+                source.get("api_url") or source["feed_url"],
+                params=params,
+                timeout=(8, 40),
+            )
+            response.raise_for_status()
+            payload = response.json()
+            works = payload.get("results", []) if isinstance(payload, dict) else []
+            if not isinstance(works, list):
+                works = []
+            entries_seen += len(works)
+            topic_items: list[dict[str, Any]] = []
+            for work in works:
+                if not isinstance(work, dict):
+                    continue
+                title = normalize_space(str(work.get("display_name", "")))
+                raw_date = normalize_space(str(work.get("publication_date", "")))
+                try:
+                    published = date_parser.parse(raw_date).replace(
+                        tzinfo=timezone.utc
+                    )
+                except (ValueError, TypeError, OverflowError):
+                    published = collected_at
+                if published < cutoff or published > collected_at + timedelta(days=2):
+                    continue
+                metadata_summary = openalex_metadata_summary(work)
+                venue, host_organization = openalex_venue(work)
+                doi = normalize_space(str(work.get("doi", "")))
+                link = doi or normalize_space(str(work.get("id", "")))
+                if not link:
+                    continue
+                build_source = dict(source)
+                build_source["category"] = ""
+                item = build_item(
+                    source=build_source,
+                    title=title,
+                    link=link,
+                    summary=metadata_summary,
+                    published=published,
+                    collected_at=collected_at,
+                    extra_text=str(topic),
+                )
+                if not item:
+                    continue
+                detected_topics = classify_topics(f"{title} {metadata_summary}")
+                item["topics"] = list(dict.fromkeys([topic, *detected_topics]))
+                item["topic"] = " | ".join(item["topics"])
+                item["innovation_policy"] = False
+                item["policy_areas"] = []
+                item["policy_area"] = ""
+                item["article_frames"] = ["Technology Innovation"]
+                item["article_frame"] = "Technology Innovation"
+                item["academic_kind"] = source.get(
+                    "academic_kind", ACADEMIC_KIND_JOURNAL
+                )
+                item["review_status"] = source.get("review_status", "")
+                item["venue"] = venue
+                item["doi"] = doi
+                item["citation_count"] = int(work.get("cited_by_count") or 0)
+                item["source"] = venue or source["name"]
+                item["organization"] = (
+                    host_organization
+                    or source.get("organization", source["name"])
+                )
+                item["discovery_method"] = "OpenAlex"
+                item["notes"] = (
+                    f"OpenAlex record; work type={work.get('type', '')}; "
+                    f"citations={item['citation_count']}"
+                )
+                topic_items.append(item)
+            topic_items.sort(
+                key=lambda item: (
+                    item.get("citation_count", 0),
+                    item.get("published_at", ""),
+                ),
+                reverse=True,
+            )
+            items.extend(topic_items[:per_topic])
+        except Exception as exc:
+            errors.append(f"{topic}: {type(exc).__name__}: {exc}")
+
+    unique_items: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in sorted(
+        items,
+        key=lambda value: (
+            value.get("citation_count", 0),
+            value.get("published_at", ""),
+        ),
+        reverse=True,
+    ):
+        key = item.get("canonical_id") or item.get("title_fingerprint", "")
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        unique_items.append(item)
+
+    result = FeedResult(
+        source=source,
+        entries_seen=entries_seen,
+        entries_kept=len(unique_items),
+        status="ok" if not errors or unique_items else "error",
+        detail="; ".join(errors[:3]),
+        elapsed_seconds=round(time.monotonic() - started, 2),
+    )
+    return unique_items, result
+
+
+def source_domain(source: dict[str, Any]) -> str:
+    for key in ("homepage", "feed_url"):
+        raw = normalize_space(str(source.get(key, "")))
+        if not raw:
+            continue
+        hostname = (urlsplit(raw).hostname or "").casefold()
+        if hostname.startswith("www."):
+            hostname = hostname[4:]
+        if hostname:
+            return hostname
+    return ""
+
+
+def parse_gdelt_datetime(raw: str, fallback: datetime) -> datetime:
+    cleaned = normalize_space(raw)
+    if not cleaned:
+        return fallback
+    for fmt in ("%Y%m%dT%H%M%SZ", "%Y%m%d%H%M%S"):
+        try:
+            return datetime.strptime(cleaned, fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+    try:
+        value = date_parser.parse(cleaned)
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=timezone.utc)
+        return value.astimezone(timezone.utc)
+    except (ValueError, TypeError, OverflowError):
+        return fallback
+
+
+def page_metadata(
+    session: requests.Session,
+    url: str,
+    fallback_title: str,
+    fallback_date: datetime,
+) -> tuple[str, str, datetime]:
+    try:
+        response = session.get(
+            url,
+            timeout=(8, 25),
+            headers={"Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.2"},
+        )
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "html.parser")
+        title = fallback_title
+        for selector, attribute in (
+            ('meta[property="og:title"]', "content"),
+            ('meta[name="twitter:title"]', "content"),
+            ("title", ""),
+        ):
+            node = soup.select_one(selector)
+            if node is not None:
+                candidate = node.get(attribute, "") if attribute else node.get_text(" ", strip=True)
+                if normalize_space(str(candidate)):
+                    title = normalize_space(str(candidate))
+                    break
+        description = ""
+        for selector in (
+            'meta[name="description"]',
+            'meta[property="og:description"]',
+            'meta[name="twitter:description"]',
+        ):
+            node = soup.select_one(selector)
+            if node is not None and normalize_space(str(node.get("content", ""))):
+                description = plain_text(str(node.get("content", "")), limit=1200)
+                break
+        published = fallback_date
+        for selector, attribute in (
+            ('meta[property="article:published_time"]', "content"),
+            ('meta[name="date"]', "content"),
+            ('meta[itemprop="datePublished"]', "content"),
+            ("time[datetime]", "datetime"),
+        ):
+            node = soup.select_one(selector)
+            if node is None:
+                continue
+            raw = normalize_space(str(node.get(attribute, "")))
+            if not raw:
+                continue
+            try:
+                candidate_date = date_parser.parse(raw)
+                if candidate_date.tzinfo is None:
+                    candidate_date = candidate_date.replace(tzinfo=timezone.utc)
+                published = candidate_date.astimezone(timezone.utc)
+                break
+            except (ValueError, TypeError, OverflowError):
+                continue
+        return title, description, published
+    except Exception:
+        return fallback_title, "", fallback_date
+
+
+ARCHIVE_URL_KEYWORDS = {
+    "policy": (
+        "innovation",
+        "research",
+        "science",
+        "technology",
+        "patent",
+        "intellectual-property",
+        "funding",
+        "grant",
+        "strategy",
+        "programme",
+        "program",
+        "policy",
+        "regulation",
+        "standard",
+        "procurement",
+        "industrial",
+    ),
+    "technology": (
+        "artificial-intelligence",
+        "machine-learning",
+        "robot",
+        "semiconductor",
+        "telecom",
+        "quantum",
+        "fusion",
+        "biotech",
+        "genom",
+        "health",
+        "medical",
+        "space",
+        "satellite",
+        "launch",
+    ),
+}
+
+
+def parse_archive_date(raw: str) -> datetime | None:
+    cleaned = normalize_space(raw)
+    if not cleaned:
+        return None
+    try:
+        value = date_parser.parse(cleaned)
+        if value.tzinfo is None:
+            value = value.replace(tzinfo=timezone.utc)
+        return value.astimezone(timezone.utc)
+    except (ValueError, TypeError, OverflowError):
+        return None
+
+
+def infer_date_from_url(url: str) -> datetime | None:
+    path = urlsplit(url).path
+    for pattern in (
+        r"/(20\d{2})/(\d{1,2})/(\d{1,2})(?:/|$)",
+        r"/(20\d{2})-(\d{1,2})-(\d{1,2})(?:[-/]|$)",
+        r"/(20\d{2})(\d{2})(\d{2})(?:[-_/]|$)",
+    ):
+        match = re.search(pattern, path)
+        if not match:
+            continue
+        try:
+            return datetime(
+                int(match.group(1)),
+                int(match.group(2)),
+                int(match.group(3)),
+                tzinfo=timezone.utc,
+            )
+        except ValueError:
+            continue
+    return None
+
+
+def archive_url_score(url: str, frame: str) -> int:
+    normalized_url = normalized_text(url.replace("-", " ").replace("_", " "))
+    return sum(
+        1
+        for keyword in ARCHIVE_URL_KEYWORDS[frame]
+        if normalized_text(keyword) in normalized_url
+    )
+
+
+def discover_sitemaps(
+    session: requests.Session,
+    source: dict[str, Any],
+) -> list[str]:
+    configured = [
+        normalize_space(str(value))
+        for value in source.get("sitemap_urls", [])
+        if normalize_space(str(value))
+    ]
+    if configured:
+        return list(dict.fromkeys(configured))
+    homepage = normalize_space(str(source.get("homepage", "")))
+    parts = urlsplit(homepage)
+    if not parts.scheme or not parts.netloc:
+        return []
+    origin = f"{parts.scheme}://{parts.netloc}"
+    discovered: list[str] = []
+    try:
+        robots = session.get(
+            urljoin(origin, "/robots.txt"),
+            timeout=(6, 20),
+            headers={"Accept": "text/plain,*/*;q=0.1"},
+        )
+        if robots.ok:
+            for line in robots.text.splitlines():
+                if line.casefold().startswith("sitemap:"):
+                    value = normalize_space(line.split(":", 1)[1])
+                    if value:
+                        discovered.append(value)
+    except Exception:
+        pass
+    discovered.extend(
+        [
+            urljoin(origin, "/sitemap.xml"),
+            urljoin(origin, "/sitemap_index.xml"),
+            urljoin(origin, "/wp-sitemap.xml"),
+        ]
+    )
+    return list(dict.fromkeys(discovered))
+
+
+def sitemap_candidates(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    max_sitemaps: int = 12,
+    max_urls: int = 240,
+) -> tuple[list[tuple[str, datetime]], int, list[str]]:
+    queue = discover_sitemaps(session, source)
+    visited: set[str] = set()
+    candidates: dict[str, datetime] = {}
+    errors: list[str] = []
+    sitemaps_checked = 0
+    while queue and sitemaps_checked < max_sitemaps and len(candidates) < max_urls:
+        sitemap_url = queue.pop(0)
+        if sitemap_url in visited:
+            continue
+        visited.add(sitemap_url)
+        try:
+            response = session.get(sitemap_url, timeout=(8, 35))
+            response.raise_for_status()
+            root = ET.fromstring(response.content)
+            sitemaps_checked += 1
+            root_name = root.tag.rsplit("}", 1)[-1].casefold()
+            if root_name == "sitemapindex":
+                children: list[tuple[int, datetime, str]] = []
+                for node in root.findall(".//{*}sitemap"):
+                    loc_node = node.find("{*}loc")
+                    if loc_node is None or not normalize_space(loc_node.text):
+                        continue
+                    loc = normalize_space(loc_node.text)
+                    lastmod_node = node.find("{*}lastmod")
+                    lastmod = parse_archive_date(
+                        lastmod_node.text if lastmod_node is not None else ""
+                    )
+                    if lastmod is not None and lastmod < cutoff - timedelta(days=31):
+                        continue
+                    path_text = normalized_text(loc)
+                    priority = sum(
+                        term in path_text
+                        for term in (
+                            "news",
+                            "post",
+                            "article",
+                            str(cutoff.year),
+                            str(collected_at.year),
+                        )
+                    )
+                    children.append(
+                        (priority, lastmod or datetime.min.replace(tzinfo=timezone.utc), loc)
+                    )
+                children.sort(reverse=True)
+                queue.extend(loc for _, _, loc in children[:max_sitemaps])
+                continue
+            for node in root.findall(".//{*}url"):
+                loc_node = node.find("{*}loc")
+                if loc_node is None or not normalize_space(loc_node.text):
+                    continue
+                loc = normalize_space(loc_node.text)
+                if not loc.casefold().startswith(("http://", "https://")):
+                    continue
+                lastmod_node = node.find("{*}lastmod")
+                lastmod = parse_archive_date(
+                    lastmod_node.text if lastmod_node is not None else ""
+                ) or infer_date_from_url(loc)
+                if lastmod is None or not (
+                    cutoff <= lastmod <= collected_at + timedelta(days=2)
+                ):
+                    continue
+                if not (
+                    archive_url_score(loc, "policy")
+                    or archive_url_score(loc, "technology")
+                ):
+                    continue
+                candidates[canonicalize_url(loc)] = lastmod
+                if len(candidates) >= max_urls:
+                    break
+        except Exception as exc:
+            errors.append(
+                f"{sitemap_url}: {type(exc).__name__}: {normalize_space(str(exc))}"
+            )
+    ordered = sorted(
+        candidates.items(),
+        key=lambda pair: (
+            max(
+                archive_url_score(pair[0], "policy"),
+                archive_url_score(pair[0], "technology"),
+            ),
+            pair[1],
+        ),
+        reverse=True,
+    )
+    return ordered, sitemaps_checked, errors
+
+
+def fetch_sitemap_archive(
+    session: requests.Session,
+    source: dict[str, Any],
+    policy_cutoff: datetime,
+    technology_cutoff: datetime,
+    collected_at: datetime,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    started = time.monotonic()
+    archive_source = dict(source)
+    archive_source["name"] = f"{source['name']} (site archive)"
+    candidates, sitemaps_checked, errors = sitemap_candidates(
+        session,
+        source,
+        min(policy_cutoff, technology_cutoff),
+        collected_at,
+    )
+    monthly_buckets: dict[str, list[tuple[str, datetime]]] = {}
+    for candidate in candidates:
+        month_key = candidate[1].strftime("%Y-%m")
+        monthly_buckets.setdefault(month_key, []).append(candidate)
+    distributed_candidates: list[tuple[str, datetime]] = []
+    month_keys = sorted(monthly_buckets, reverse=True)
+    for index in range(max((len(values) for values in monthly_buckets.values()), default=0)):
+        for month_key in month_keys:
+            values = monthly_buckets[month_key]
+            if index < len(values):
+                distributed_candidates.append(values[index])
+
+    max_policy_items = max(
+        1, min(18, int(source.get("backfill_policy_items", 12)))
+    )
+    max_technology_items = max(
+        1, min(12, int(source.get("backfill_technology_items", 6)))
+    )
+    policy_items = 0
+    technology_items = 0
+    items: list[dict[str, Any]] = []
+    for link, sitemap_date in distributed_candidates[:60]:
+        policy_score = archive_url_score(link, "policy")
+        technology_score = archive_url_score(link, "technology")
+        if (
+            policy_items >= max_policy_items
+            and technology_items >= max_technology_items
+        ):
+            break
+        title, summary, published = page_metadata(
+            session,
+            link,
+            link.rsplit("/", 1)[-1].replace("-", " "),
+            sitemap_date,
+        )
+        build_source = dict(source)
+        build_source["category"] = ""
+        item = build_item(
+            source=build_source,
+            title=title,
+            link=link,
+            summary=summary,
+            published=published,
+            collected_at=collected_at,
+        )
+        if not item:
+            continue
+        is_policy = (
+            policy_score > 0
+            and bool(item.get("policy_areas"))
+            and policy_cutoff <= published <= collected_at + timedelta(days=2)
+            and policy_items < max_policy_items
+        )
+        is_technology = (
+            technology_score > 0
+            and bool(item.get("topics"))
+            and technology_cutoff <= published <= collected_at + timedelta(days=2)
+            and technology_items < max_technology_items
+        )
+        if not is_policy and not is_technology:
+            continue
+        if is_policy:
+            policy_items += 1
+        if is_technology:
+            technology_items += 1
+        item["discovery_method"] = "Original-site sitemap and page metadata"
+        item["notes"] = "Historical backfill from an allowlisted source."
+        items.append(item)
+    detail_parts = [f"sitemaps={sitemaps_checked}"]
+    if errors:
+        detail_parts.append("; ".join(errors[:2]))
+    result = FeedResult(
+        source=archive_source,
+        entries_seen=len(candidates),
+        entries_kept=len(items),
+        status="ok" if sitemaps_checked else "error",
+        detail="; ".join(detail_parts),
+        elapsed_seconds=round(time.monotonic() - started, 2),
+    )
+    return items, result
+
+
+GDELT_BACKFILL_QUERIES = {
+    "policy": (
+        '"innovation policy" OR "science policy" OR "research funding" OR '
+        '"R&D tax" OR "national strategy" OR patent OR "industrial policy" OR '
+        '"public procurement" OR "research infrastructure"'
+    ),
+    "technology": (
+        '"artificial intelligence" OR robotics OR semiconductor OR quantum OR '
+        '"nuclear fusion" OR biotechnology OR "medical technology" OR spaceflight'
+    ),
+}
+
+
+def fetch_gdelt_archive(
+    session: requests.Session,
+    source: dict[str, Any],
+    frame: str,
+    cutoff: datetime,
+    collected_at: datetime,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    started = time.monotonic()
+    archive_source = dict(source)
+    archive_source["name"] = f"{source['name']} (historical archive)"
+    domain = source_domain(source)
+    if not domain:
+        return [], FeedResult(
+            source=archive_source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail="Could not resolve source domain",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    effective_cutoff = max(cutoff, collected_at - timedelta(days=90))
+    max_items = max(1, min(12, int(source.get("backfill_items_per_frame", 5))))
+    params = {
+        "query": f"domain:{domain} ({GDELT_BACKFILL_QUERIES[frame]})",
+        "mode": "artlist",
+        "maxrecords": 75,
+        "format": "json",
+        "sort": "HybridRel",
+        "startdatetime": effective_cutoff.strftime("%Y%m%d%H%M%S"),
+        "enddatetime": collected_at.strftime("%Y%m%d%H%M%S"),
+    }
+    try:
+        response = session.get(GDELT_DOC_ENDPOINT, params=params, timeout=(8, 45))
+        response.raise_for_status()
+        payload = response.json()
+        articles = payload.get("articles", []) if isinstance(payload, dict) else []
+        if not isinstance(articles, list):
+            articles = []
+        items: list[dict[str, Any]] = []
+        seen_urls: set[str] = set()
+        for article in articles[:50]:
+            if not isinstance(article, dict):
+                continue
+            link = normalize_space(str(article.get("url", "")))
+            title = normalize_space(str(article.get("title", "")))
+            canonical_url = canonicalize_url(link)
+            if not title or not canonical_url or canonical_url in seen_urls:
+                continue
+            seen_urls.add(canonical_url)
+            if frame == "policy":
+                relevant = bool(classify_policy_areas(title))
+            else:
+                relevant = bool(classify_topics(title))
+            if not relevant:
+                continue
+            published = parse_gdelt_datetime(
+                str(article.get("seendate", "")), collected_at
+            )
+            title, summary, page_date = page_metadata(
+                session, link, title, published
+            )
+            if effective_cutoff <= page_date <= collected_at + timedelta(days=2):
+                published = page_date
+            build_source = dict(source)
+            build_source["category"] = ""
+            item = build_item(
+                source=build_source,
+                title=title,
+                link=link,
+                summary=summary,
+                published=published,
+                collected_at=collected_at,
+            )
+            if not item:
+                continue
+            if frame == "policy" and not item.get("policy_areas"):
+                continue
+            if frame == "technology" and not item.get("topics"):
+                continue
+            item["discovery_method"] = "GDELT archive + original page metadata"
+            item["notes"] = "Historical backfill from an allowlisted source."
+            items.append(item)
+            if len(items) >= max_items:
+                break
+        result = FeedResult(
+            source=archive_source,
+            entries_seen=len(articles),
+            entries_kept=len(items),
+            status="ok",
+            detail="",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+        return items, result
+    except Exception as exc:
+        return [], FeedResult(
+            source=archive_source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:300],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
 def fetch_source(
     session: requests.Session,
     source: dict[str, Any],
     cutoff: datetime,
     collected_at: datetime,
+    backfill: bool = False,
 ) -> tuple[list[dict[str, Any]], FeedResult]:
     started = time.monotonic()
     entries_seen = 0
     items: list[dict[str, Any]] = []
     try:
         fetch_mode = source.get("fetch_mode", "feed")
+        if fetch_mode == "openalex":
+            return fetch_openalex_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        scan_limit = 120 if backfill else 40
+        item_limit = 24 if backfill else 8
         fetch_url = source.get("listing_url") if fetch_mode == "html" else source["feed_url"]
         response = session.get(fetch_url or source["feed_url"], timeout=(8, 30))
         response.raise_for_status()
@@ -822,7 +1619,7 @@ def fetch_source(
             soup = BeautifulSoup(response.text, "html.parser")
             nodes = soup.select(settings["item_selector"])
             entries_seen = len(nodes)
-            for node in nodes[:40]:
+            for node in nodes[:scan_limit]:
                 title_node = node.select_one(settings["title_selector"])
                 if settings.get("link_selector") == ":self":
                     link_node = node
@@ -861,7 +1658,7 @@ def fetch_source(
             if parsed.bozo and not parsed.entries:
                 raise ValueError(str(parsed.bozo_exception))
 
-            for entry in parsed.entries[:40]:
+            for entry in parsed.entries[:scan_limit]:
                 published = entry_datetime(entry, collected_at)
                 if published < cutoff:
                     continue
@@ -889,7 +1686,7 @@ def fetch_source(
             ),
             reverse=True,
         )
-        items = items[:8]
+        items = items[:item_limit]
         result = FeedResult(
             source=source,
             entries_seen=entries_seen,
@@ -1214,6 +2011,9 @@ def japanese_summary_request(
             "summary": plain_text(item.get("summary", ""), limit=900),
             "source": item.get("source", ""),
             "source_type": item.get("source_type", ""),
+            "academic_kind": item.get("academic_kind", ACADEMIC_KIND_NEWS),
+            "review_status": item.get("review_status", ""),
+            "venue": item.get("venue", ""),
             "region": item.get("region", ""),
             "candidate_topics": item.get("topics")
             or [part.strip() for part in item.get("topic", "").split("|") if part.strip()],
@@ -1269,6 +2069,10 @@ def japanese_summary_request(
         "実装方法・研究成果がRSS概要から具体的に確認できる場合だけ掲載します。"
         "企業の海外進出、市場拡大、売上、輸出、競争、資金調達だけを扱う記事は、"
         "具体的な新技術や実装内容を説明していなければ除外します。"
+        "学術誌論文、学会・会議論文、プレプリントは、入力された要旨から8技術分野の"
+        "具体的な新規性・手法・結果が確認できる場合に掲載します。プレプリントを"
+        "査読済みと表現してはいけません。学会・会議論文も入力に明記がない限り"
+        "査読済みと断定しないでください。"
         "署名者一覧、参加者一覧、会議・式典の開催報告、講演・remarks、"
         "登壇者の感想、単なる方針表明は、実質的な技術内容または政策措置が"
         "確認できなければ除外します。"
@@ -1288,7 +2092,9 @@ def japanese_summary_request(
         "情報が乏しい場合は、見出しから確認できる範囲だけを書いてください。"
         "policy_relevanceは0〜5の整数で、科学技術政策への直接性を評価してください。"
         "content_typeはresearch_breakthrough、engineering_development、"
-        "technology_implementation、technology_policy、noneのいずれかです。"
+        "technology_implementation、technology_policy、journal_article、"
+        "conference_paper、preprint、noneのいずれかです。学術区分に対応する"
+        "content_typeを優先してください。"
         "掲載対象ではtechnical_focusに具体的な技術・研究・政策対象を、"
         "scope_evidenceに掲載判断を裏付ける入力中の具体的事実を短く書いてください。"
         "掲載対象外でもin_scope=falseと除外理由を必ず返してください。"
@@ -1375,10 +2181,11 @@ def enrich_japanese_summaries(
         item.get("canonical_id") or item.get("id", "")
         for item in new_items
     }
+    pending.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     pending.sort(
         key=lambda item: (
             (item.get("canonical_id") or item.get("id", "")) not in new_ids,
-            item.get("published_at", ""),
+            item.get("collection_mode", "Daily") == "Historical Backfill",
         )
     )
 
@@ -1498,6 +2305,13 @@ def public_item(item: dict[str, Any]) -> dict[str, Any]:
         "source_type": item.get("source_type", ""),
         "source": item.get("source", ""),
         "organization": item.get("organization", item.get("source", "")),
+        "academic_kind": item.get("academic_kind", ACADEMIC_KIND_NEWS),
+        "review_status": item.get("review_status", ""),
+        "venue": item.get("venue", ""),
+        "doi": item.get("doi", ""),
+        "citation_count": int(item.get("citation_count") or 0),
+        "discovery_method": item.get("discovery_method", ""),
+        "collection_mode": item.get("collection_mode", "Daily"),
         "title": item.get("title_ja") or original_title,
         "title_original": original_title,
         "summary": item.get("summary_ja") or original_summary,
@@ -1528,24 +2342,59 @@ def save_master(items: list[dict[str, Any]]) -> None:
     temp_path.replace(MASTER_CSV)
 
 
+def item_within_public_window(
+    item: dict[str, Any],
+    collected_at: datetime,
+    policy_history_days: int = DEFAULT_POLICY_HISTORY_DAYS,
+    technology_history_days: int = DEFAULT_TECHNOLOGY_HISTORY_DAYS,
+) -> bool:
+    published = parse_iso(item.get("published_at", ""), collected_at)
+    frames = item.get("article_frames") or [
+        part.strip()
+        for part in item.get("article_frame", "").split("|")
+        if part.strip()
+    ]
+    if (
+        "Innovation Policy" in frames
+        and published >= collected_at - timedelta(days=policy_history_days)
+    ):
+        return True
+    if (
+        "Technology Innovation" in frames
+        and published >= collected_at - timedelta(days=technology_history_days)
+    ):
+        return True
+    return False
+
+
 def save_json_outputs(
     items: list[dict[str, Any]],
     sources: list[dict[str, Any]],
     collected_at: datetime,
+    policy_history_days: int = DEFAULT_POLICY_HISTORY_DAYS,
+    technology_history_days: int = DEFAULT_TECHNOLOGY_HISTORY_DAYS,
 ) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    recent_cutoff = collected_at - timedelta(days=45)
     public_items = [
         public_item(item)
         for item in sorted(items, key=lambda item: item.get("published_at", ""), reverse=True)
-        if parse_iso(item.get("published_at", ""), collected_at) >= recent_cutoff
-    ][:600]
+        if item_within_public_window(
+            item,
+            collected_at,
+            policy_history_days,
+            technology_history_days,
+        )
+    ][:DEFAULT_PUBLIC_ITEM_LIMIT]
     payload = {
-        "schema_version": 2,
+        "schema_version": 3,
         "updated_at": iso_z(collected_at),
         "updated_at_jst": iso_jst(collected_at),
-        "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
+        "source_policy": "Government, official company, established policy institute, major media, leading scientific publication, and clearly labeled scholarly records from OpenAlex.",
+        "history_windows": {
+            "innovation_policy_days": policy_history_days,
+            "technology_innovation_days": technology_history_days,
+        },
         "article_count": len(public_items),
         "source_count": sum(1 for source in sources if source.get("active")),
         "items": public_items,
@@ -1649,6 +2498,9 @@ def update_workbook(
                 item.get("policy_area", "")
                 or " | ".join(item.get("policy_areas", []))
             ),
+            "学術区分: " + item.get("academic_kind", ACADEMIC_KIND_NEWS),
+            "査読表示: " + item.get("review_status", ""),
+            "掲載誌・学会: " + item.get("venue", ""),
             "焦点: " + item.get("scope_focus", ""),
         ]
         classification_note = " / ".join(
@@ -1769,15 +2621,34 @@ def ensure_seed_files() -> None:
             csv.DictWriter(handle, fieldnames=CSV_COLUMNS).writeheader()
 
 
-def run(max_age_hours: int, initial_days: int) -> int:
+def run(
+    max_age_hours: int,
+    policy_history_days: int,
+    technology_history_days: int,
+    force_backfill: bool = False,
+) -> int:
     started = time.monotonic()
     ensure_seed_files()
     config = load_config()
     sources = [source for source in config["sources"] if source.get("active")]
     existing = load_master()
     collected_at = now_utc()
-    cutoff = collected_at - (
-        timedelta(days=initial_days) if not existing else timedelta(hours=max_age_hours)
+    backfill_state = load_backfill_state()
+    backfill = force_backfill or int(
+        backfill_state.get("backfill_version") or 0
+    ) < BACKFILL_VERSION
+    policy_cutoff = collected_at - timedelta(days=policy_history_days)
+    technology_cutoff = collected_at - timedelta(days=technology_history_days)
+    daily_cutoff = collected_at - timedelta(hours=max_age_hours)
+    collection_cutoff = min(policy_cutoff, technology_cutoff) if backfill else daily_cutoff
+    print(
+        "[MODE] "
+        + (
+            f"historical backfill: policy={policy_history_days}d, "
+            f"technology={technology_history_days}d"
+            if backfill
+            else f"daily update: {max_age_hours}h"
+        )
     )
 
     session = requests.Session()
@@ -1792,7 +2663,30 @@ def run(max_age_hours: int, initial_days: int) -> int:
     candidates: list[dict[str, Any]] = []
     results: list[FeedResult] = []
     for source in sources:
-        items, result = fetch_source(session, source, cutoff, collected_at)
+        source_cutoff = (
+            technology_cutoff
+            if backfill and source.get("fetch_mode") == "openalex"
+            else collection_cutoff
+        )
+        items, result = fetch_source(
+            session,
+            source,
+            source_cutoff,
+            collected_at,
+            backfill=backfill,
+        )
+        if backfill:
+            items = [
+                item
+                for item in items
+                if item_within_public_window(
+                    item,
+                    collected_at,
+                    policy_history_days,
+                    technology_history_days,
+                )
+            ]
+            result.entries_kept = len(items)
         candidates.extend(items)
         results.append(result)
         print(
@@ -1800,6 +2694,83 @@ def run(max_age_hours: int, initial_days: int) -> int:
             f"seen={result.entries_seen} kept={result.entries_kept} "
             f"{result.elapsed_seconds:.2f}s"
         )
+
+    archive_results: list[FeedResult] = []
+    archive_items: list[dict[str, Any]] = []
+    if backfill:
+        seen_archive_domains: set[str] = set()
+        for source in sources:
+            if (
+                source.get("fetch_mode") == "openalex"
+                or int(source.get("priority", 3)) < 4
+                or source.get("historical_backfill") is False
+            ):
+                continue
+            domain = source_domain(source)
+            if not domain or domain in seen_archive_domains:
+                continue
+            seen_archive_domains.add(domain)
+            source_type = source.get("source_type", "")
+            desired_frames = ["technology"]
+            if source_type in {
+                "Government",
+                "Intergovernmental",
+                "Policy Institute",
+                "Major Media",
+            }:
+                desired_frames.insert(0, "policy")
+
+            found, sitemap_result = fetch_sitemap_archive(
+                session,
+                source,
+                policy_cutoff,
+                technology_cutoff,
+                collected_at,
+            )
+            archive_items.extend(found)
+            archive_results.append(sitemap_result)
+            print(
+                f"[{sitemap_result.status.upper():5}] "
+                f"{sitemap_result.source['name']}: "
+                f"seen={sitemap_result.entries_seen} "
+                f"kept={sitemap_result.entries_kept} "
+                f"{sitemap_result.elapsed_seconds:.2f}s"
+            )
+            found_frames: set[str] = set()
+            for item in found:
+                if "Innovation Policy" in item.get("article_frames", []):
+                    found_frames.add("policy")
+                if "Technology Innovation" in item.get("article_frames", []):
+                    found_frames.add("technology")
+            for frame in desired_frames:
+                if frame in found_frames:
+                    continue
+                cutoff = policy_cutoff if frame == "policy" else technology_cutoff
+                gdelt_items, archive_result = fetch_gdelt_archive(
+                    session,
+                    source,
+                    frame,
+                    cutoff,
+                    collected_at,
+                )
+                archive_items.extend(gdelt_items)
+                archive_results.append(archive_result)
+                print(
+                    f"[{archive_result.status.upper():5}] "
+                    f"{archive_result.source['name']} / {frame}: "
+                    f"seen={archive_result.entries_seen} "
+                    f"kept={archive_result.entries_kept} "
+                    f"{archive_result.elapsed_seconds:.2f}s"
+                )
+        candidates.extend(archive_items)
+        results.extend(archive_results)
+
+    if backfill:
+        for item in candidates:
+            published = parse_iso(item.get("published_at", ""), collected_at)
+            if published < daily_cutoff:
+                item["collection_mode"] = "Historical Backfill"
+                item["first_seen"] = iso_jst(published)
 
     candidates.sort(
         key=lambda item: (
@@ -1830,8 +2801,22 @@ def run(max_age_hours: int, initial_days: int) -> int:
         print(f"[SUMMARY] {summary_result['detail']}")
 
     save_master(merged)
-    save_json_outputs(publishable_items, sources, collected_at)
+    save_json_outputs(
+        publishable_items,
+        sources,
+        collected_at,
+        policy_history_days,
+        technology_history_days,
+    )
     save_source_status(results, collected_at)
+    if backfill:
+        save_backfill_state(
+            collected_at,
+            policy_history_days,
+            technology_history_days,
+            archive_results,
+            len(archive_items),
+        )
 
     succeeded = sum(1 for result in results if result.status == "ok")
     errors = len(results) - succeeded
@@ -1849,7 +2834,12 @@ def run(max_age_hours: int, initial_days: int) -> int:
         "summaries_pending": summary_result["pending"],
         "summary_errors": summary_result["errors"],
         "duration_seconds": round(time.monotonic() - started, 2),
-        "note": "Initial lookback" if not existing else "Daily update",
+        "note": (
+            f"Historical backfill: policy {policy_history_days}d / "
+            f"technology {technology_history_days}d"
+            if backfill
+            else "Daily update"
+        ),
     }
     runs = append_run_log(run_record)
     update_workbook(publishable_items, sources, runs)
@@ -1869,6 +2859,8 @@ def run(max_age_hours: int, initial_days: int) -> int:
                 "summaries_pending": summary_result["pending"],
                 "summary_errors": summary_result["errors"],
                 "ledger_items": len(publishable_items),
+                "mode": "historical_backfill" if backfill else "daily",
+                "archive_items": len(archive_items),
                 "public_json": str(PUBLIC_JSON.relative_to(ROOT)),
                 "public_xlsx": str(PUBLIC_XLSX.relative_to(ROOT)),
             },
@@ -1887,10 +2879,21 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Lookback window after the initial run (default: 96 hours).",
     )
     parser.add_argument(
-        "--initial-days",
+        "--policy-history-days",
         type=int,
-        default=14,
-        help="Lookback window when the ledger is empty (default: 14 days).",
+        default=DEFAULT_POLICY_HISTORY_DAYS,
+        help="Public and initial backfill window for innovation policy.",
+    )
+    parser.add_argument(
+        "--technology-history-days",
+        type=int,
+        default=DEFAULT_TECHNOLOGY_HISTORY_DAYS,
+        help="Public and initial backfill window for the eight technologies.",
+    )
+    parser.add_argument(
+        "--backfill",
+        action="store_true",
+        help="Force a historical backfill even when the current version is complete.",
     )
     return parser.parse_args(argv)
 
@@ -1898,7 +2901,12 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     try:
-        return run(max_age_hours=args.max_age_hours, initial_days=args.initial_days)
+        return run(
+            max_age_hours=args.max_age_hours,
+            policy_history_days=args.policy_history_days,
+            technology_history_days=args.technology_history_days,
+            force_backfill=args.backfill,
+        )
     except Exception as exc:
         print(f"fatal: {type(exc).__name__}: {exc}", file=sys.stderr)
         return 1
