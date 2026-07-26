@@ -170,7 +170,9 @@ function applyFilters(resetPage = true) {
     const haystack = normalized(
       [
         item.title,
+        item.title_original,
         item.summary,
+        item.summary_original,
         item.source,
         item.organization,
         item.country,
