@@ -75,6 +75,7 @@ TRACKING_PARAMS = {
 
 TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
     "Artificial Intelligence": (
+        "ai",
         "artificial intelligence",
         "generative ai",
         "foundation model",
@@ -1015,6 +1016,97 @@ def normalize_reviewed_topics(items: list[dict[str, Any]]) -> None:
         item["topic"] = " | ".join(item["topics"])
 
 
+def normalize_reviewed_policy_axis(items: list[dict[str, Any]]) -> None:
+    private_financing_terms = (
+        "funding round",
+        "venture funding",
+        "raises $",
+        "raises us$",
+        "raises jpy",
+        "raised $",
+        "raised us$",
+        "raised jpy",
+        "series a",
+        "series b",
+        "series c",
+        "資金調達",
+        "億円を調達",
+    )
+    public_policy_markers = (
+        "government",
+        "ministry",
+        "commission",
+        "public funding",
+        "government funding",
+        "grant",
+        "subsid",
+        "tax credit",
+        "tax incentive",
+        "funding opportunity",
+        "national programme",
+        "national program",
+        "european union",
+        "eu funding",
+        "政府",
+        "省",
+        "庁",
+        "委員会",
+        "公的資金",
+        "補助金",
+        "助成金",
+        "税制",
+        "税額控除",
+        "国家プロジェクト",
+    )
+    for item in items:
+        if (
+            item.get("status") == "Excluded"
+            or item.get("scope_review_version") != TECH_SCOPE_REVIEW_VERSION
+        ):
+            continue
+        text = normalized_text(
+            " ".join(
+                [
+                    str(item.get("title", "")),
+                    str(item.get("summary", "")),
+                ]
+            )
+        )
+        policy_areas = item.get("policy_areas") or [
+            part.strip()
+            for part in item.get("policy_area", "").split("|")
+            if part.strip()
+        ]
+        is_private_financing = any(term in text for term in private_financing_terms)
+        has_public_policy_marker = any(
+            term in text for term in public_policy_markers
+        )
+        if is_private_financing and not has_public_policy_marker:
+            policy_areas = [
+                area
+                for area in policy_areas
+                if area != "R&D Funding & Tax Incentives"
+            ]
+
+        article_frames = item.get("article_frames") or [
+            part.strip()
+            for part in item.get("article_frame", "").split("|")
+            if part.strip()
+        ]
+        if "Innovation Policy" in article_frames and not policy_areas:
+            article_frames = [
+                frame for frame in article_frames if frame != "Innovation Policy"
+            ]
+            if item.get("topics") and "Technology Innovation" not in article_frames:
+                article_frames.append("Technology Innovation")
+
+        item["policy_areas"] = list(dict.fromkeys(policy_areas))
+        item["policy_area"] = " | ".join(item["policy_areas"])
+        item["innovation_policy"] = "Innovation Policy" in article_frames
+        item["article_frames"] = list(dict.fromkeys(article_frames))
+        item["article_frame"] = " | ".join(item["article_frames"])
+
+
 def parse_japanese_summary_response(
     raw: str,
     allowed_ids: set[str],
@@ -1722,6 +1814,7 @@ def run(max_age_hours: int, initial_days: int) -> int:
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     summary_result = enrich_japanese_summaries(merged, new_items)
     normalize_reviewed_topics(merged)
+    normalize_reviewed_policy_axis(merged)
     excluded_ids = set(summary_result["excluded_ids"])
     publishable_items = [item for item in merged if is_publishable(item)]
     publishable_new_items = [item for item in new_items if is_publishable(item)]
