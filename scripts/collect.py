@@ -51,7 +51,13 @@ PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
 JST = timezone(timedelta(hours=9))
 GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
-TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v1"
+TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v2"
+TECH_SCOPE_CONTENT_TYPES = {
+    "research_breakthrough",
+    "engineering_development",
+    "technology_implementation",
+    "technology_policy",
+}
 USER_AGENT = (
     "WorldInnovationBrief/1.0 "
     "(RSS reader; contact: repository owner at github.com/yagiharuka/innovation-news)"
@@ -331,6 +337,9 @@ CSV_COLUMNS = [
     "notes",
     "scope_review_version",
     "scope_reason",
+    "scope_content_type",
+    "scope_focus",
+    "scope_evidence",
 ]
 
 SOURCE_REGISTRY_COLUMNS = [
@@ -532,6 +541,9 @@ def load_master() -> list[dict[str, Any]]:
             row["summary_ja"] = row.get("summary_ja", "")
             row["scope_review_version"] = row.get("scope_review_version", "")
             row["scope_reason"] = row.get("scope_reason", "")
+            row["scope_content_type"] = row.get("scope_content_type", "")
+            row["scope_focus"] = row.get("scope_focus", "")
+            row["scope_evidence"] = row.get("scope_evidence", "")
             items.append(row)
     return items
 
@@ -606,6 +618,9 @@ def build_item(
         "notes": "",
         "scope_review_version": "",
         "scope_reason": "",
+        "scope_content_type": "",
+        "scope_focus": "",
+        "scope_evidence": "",
         "source_priority": int(source.get("priority", 3)),
         "title_fingerprint": title_fingerprint(title),
     }
@@ -804,9 +819,23 @@ def parse_japanese_summary_response(
         except (TypeError, ValueError):
             policy_relevance = 0
         reason = plain_text(str(row.get("reason", "")), limit=240)
+        content_type = normalize_space(str(row.get("content_type", "")))
+        technical_focus = plain_text(str(row.get("technical_focus", "")), limit=180)
+        scope_evidence = plain_text(str(row.get("scope_evidence", "")), limit=280)
         title_ja = plain_text(str(row.get("title_ja", "")), limit=180)
         summary_ja = plain_text(str(row.get("summary_ja", "")), limit=360)
-        if in_scope and (not title_ja or not summary_ja or not topics):
+        if not reason:
+            continue
+        if in_scope and (
+            not title_ja
+            or not summary_ja
+            or not topics
+            or content_type not in TECH_SCOPE_CONTENT_TYPES
+            or not technical_focus
+            or not scope_evidence
+        ):
+            continue
+        if in_scope and content_type == "technology_policy" and "Innovation Policy" not in topics:
             continue
         if not topics:
             in_scope = False
@@ -815,6 +844,9 @@ def parse_japanese_summary_response(
             "topics": topics,
             "policy_relevance": policy_relevance,
             "reason": reason,
+            "content_type": content_type,
+            "technical_focus": technical_focus,
+            "scope_evidence": scope_evidence,
             "title_ja": title_ja,
             "summary_ja": summary_ja,
         }
@@ -850,22 +882,44 @@ def japanese_summary_request(
         "バイオテクノロジー、ヘルスケアの研究・技術革新、または"
         "科学技術・研究開発・産業技術に直接関係するイノベーション政策を"
         "実質的に扱う記事だけです。"
+        "掲載可とするには、記事の中心に次のいずれかが必要です："
+        "新しい研究成果や科学的発見、具体的な設計・材料・製造・性能・手法、"
+        "技術の実装内容と確認できる能力、または特定技術・研究開発に直接作用する"
+        "資金、規制、標準、調達、国家計画。単に会社名やAIなどの技術名が出るだけ、"
+        "『革新』『競争力』『デジタル』という一般語だけでは掲載しません。"
         "犯罪・裁判、戦争の戦況、観光、一般経済、金融センター、人物談、"
         "珍しい病気の症例、一般的な公衆衛生、企業業績、生活情報、"
         "単なる製品販促は、対象技術の研究開発・技術内容・政策を"
         "具体的に扱わない限り除外してください。"
         "Innovation Policyは、科学技術、研究開発、対象8分野、"
-        "または技術産業政策に直接関係する場合だけです。"
+        "または技術産業政策に直接関係する場合だけです。一般的な独占禁止、"
+        "金融規制、競争力、雇用、人員統計、組織運営、平等施策、スキル論、"
+        "企業の海外展開は、それだけではInnovation Policyではありません。"
         "Healthcareは医療技術、創薬、臨床研究、医療システム革新、"
-        "または医療政策に限り、単なる患者・病気の記事は除外します。"
+        "または医療技術に直接関わる政策に限ります。接種率や感染者数などの"
+        "一般公衆衛生、単なる患者・病気の記事は除外します。"
         "Roboticsはロボット・自律システムの技術開発に限り、"
         "ドローン攻撃の戦況記事は除外します。"
         "Fusion Energyは核融合技術に限り、一般語のfusionや部分一致は無視します。"
+        "企業発表、導入事例、製品発表、イベント報告は、新しい技術能力・設計・"
+        "実装方法・研究成果がRSS概要から具体的に確認できる場合だけ掲載します。"
+        "映画・芸術・娯楽における一般的な『革命』『革新』は除外します。"
+        "複数ニュースのまとめ記事は、単一の明確な対象技術を十分に説明しない限り"
+        "除外します。RSS概要が短すぎて具体的な技術や直接的な科学技術政策を"
+        "確認できない場合は、安全側に倒して除外してください。"
+        "判定例：自動車の価格競争、金融センター構想、映画の変化、Trip.comへの"
+        "一般的な独占禁止罰金、省庁の人員統計、一般的なワクチン接種率はfalse。"
+        "CRISPR酵素の新作用、ガラス基板による先進半導体パッケージング、"
+        "AI科学研究用データ基盤への具体的助成はtrueです。"
         "候補分野や候補政策関連度は参考情報にすぎず、必ず本文から再判定してください。"
         "固有名詞、機関名、数値、日付は正確に保ちます。"
         "要約は1〜2文、原則80〜180字とし、政策・研究開発・産業上の意味を優先します。"
         "情報が乏しい場合は、見出しから確認できる範囲だけを書いてください。"
         "policy_relevanceは0〜5の整数で、科学技術政策への直接性を評価してください。"
+        "content_typeはresearch_breakthrough、engineering_development、"
+        "technology_implementation、technology_policy、noneのいずれかです。"
+        "掲載対象ではtechnical_focusに具体的な技術・研究・政策対象を、"
+        "scope_evidenceに掲載判断を裏付ける入力中の具体的事実を短く書いてください。"
         "掲載対象外でもin_scope=falseと除外理由を必ず返してください。"
         "JSON以外は出力しないでください。"
     )
@@ -876,6 +930,9 @@ def japanese_summary_request(
         '{"items":[{"id":"入力と同じID","in_scope":true,'
         '"topics":["完全一致の分野名"],"policy_relevance":0,'
         '"reason":"掲載または除外判断の短い理由",'
+        '"content_type":"research_breakthrough",'
+        '"technical_focus":"具体的な技術・研究・政策対象",'
+        '"scope_evidence":"入力から確認できる具体的な根拠",'
         '"title_ja":"自然な日本語見出し","summary_ja":"日本語要約"}]} '
         "の形式で返してください。\n"
         + json.dumps(inputs, ensure_ascii=False)
@@ -997,6 +1054,9 @@ def enrich_japanese_summaries(
                 reviewed += 1
                 item["scope_review_version"] = TECH_SCOPE_REVIEW_VERSION
                 item["scope_reason"] = translated.get("reason", "")
+                item["scope_content_type"] = translated.get("content_type", "")
+                item["scope_focus"] = translated.get("technical_focus", "")
+                item["scope_evidence"] = translated.get("scope_evidence", "")
                 if not translated.get("in_scope"):
                     excluded_ids.append(item_id)
                     continue
