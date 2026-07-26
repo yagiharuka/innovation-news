@@ -56,7 +56,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           SOURCE_FETCH_WORKERS: "8"
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: "750"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: "150"
           JAPANESE_SUMMARY_BATCH_SIZE: "10"
           FORCE_BACKFILL: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill || false }}
 
