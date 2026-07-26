@@ -2,6 +2,26 @@
 
 const PAGE_SIZE = 20;
 
+const LABELS = {
+  "Technology Innovation": "技術イノベーション",
+  "Innovation Policy": "イノベーション政策",
+  "Artificial Intelligence": "AI",
+  Robotics: "ロボット",
+  "Semiconductors & Telecom": "半導体・通信",
+  Quantum: "量子",
+  "Fusion Energy": "フュージョンエネルギー",
+  Biotechnology: "バイオ",
+  Healthcare: "ヘルスケア",
+  Space: "宇宙",
+  "R&D Funding & Tax Incentives": "研究開発資金・税制",
+  "National Programs & Strategy": "国家プロジェクト・戦略",
+  "Patents & Intellectual Property": "特許・知財",
+  "Regulation & Governance": "規制・ガバナンス",
+  "Standards & Safety": "標準・安全",
+  "Public Procurement & Industrial Policy": "政府調達・産業政策",
+  "Research System & Talent": "研究システム・人材",
+};
+
 const state = {
   items: [],
   filtered: [],
@@ -17,7 +37,9 @@ const elements = {
   feedNote: document.querySelector("#feed-note"),
   search: document.querySelector("#search"),
   region: document.querySelector("#region"),
+  frame: document.querySelector("#frame"),
   topic: document.querySelector("#topic"),
+  policyArea: document.querySelector("#policy-area"),
   sourceType: document.querySelector("#source-type"),
   policyScore: document.querySelector("#policy-score"),
   sortOrder: document.querySelector("#sort-order"),
@@ -33,6 +55,10 @@ function text(value) {
 
 function normalized(value) {
   return text(value).normalize("NFKC").toLocaleLowerCase("ja");
+}
+
+function displayLabel(value) {
+  return LABELS[value] || value;
 }
 
 function formatDate(value, withTime = false) {
@@ -59,7 +85,7 @@ function populateSelect(select, values) {
   for (const value of values) {
     const option = document.createElement("option");
     option.value = value;
-    option.textContent = value;
+    option.textContent = displayLabel(value);
     fragment.append(option);
   }
   select.append(fragment);
@@ -109,8 +135,19 @@ function articleCard(item) {
 
   const tags = document.createElement("div");
   tags.className = "tags";
+  for (const frame of item.article_frames || []) {
+    tags.append(
+      tag(
+        displayLabel(frame),
+        frame === "Innovation Policy" ? "tag--policy" : "tag--frame"
+      )
+    );
+  }
   for (const topic of item.topics || []) {
-    tags.append(tag(topic));
+    tags.append(tag(displayLabel(topic)));
+  }
+  for (const area of item.policy_areas || []) {
+    tags.append(tag(`政策：${displayLabel(area)}`, "tag--policy"));
   }
   tags.append(tag(`政策関連度 ${Number(item.policy_relevance || 0)}/5`, "tag--policy"));
 
@@ -161,7 +198,9 @@ function render() {
 function applyFilters(resetPage = true) {
   const query = normalized(elements.search.value).trim();
   const region = elements.region.value;
+  const frame = elements.frame.value;
   const topic = elements.topic.value;
+  const policyArea = elements.policyArea.value;
   const sourceType = elements.sourceType.value;
   const minimumPolicy = Number(elements.policyScore.value);
   const sortOrder = elements.sortOrder.value;
@@ -177,13 +216,17 @@ function applyFilters(resetPage = true) {
         item.organization,
         item.country,
         item.region,
-        ...(item.topics || []),
+        ...(item.article_frames || []).flatMap((value) => [value, displayLabel(value)]),
+        ...(item.topics || []).flatMap((value) => [value, displayLabel(value)]),
+        ...(item.policy_areas || []).flatMap((value) => [value, displayLabel(value)]),
       ].join(" ")
     );
     return (
       (!query || haystack.includes(query)) &&
       (!region || item.region === region) &&
+      (!frame || (item.article_frames || []).includes(frame)) &&
       (!topic || (item.topics || []).includes(topic)) &&
+      (!policyArea || (item.policy_areas || []).includes(policyArea)) &&
       (!sourceType || item.source_type === sourceType) &&
       Number(item.policy_relevance || 0) >= minimumPolicy
     );
@@ -210,7 +253,9 @@ function bindControls() {
   for (const control of [
     elements.search,
     elements.region,
+    elements.frame,
     elements.topic,
+    elements.policyArea,
     elements.sourceType,
     elements.policyScore,
     elements.sortOrder,
@@ -223,7 +268,9 @@ function bindControls() {
   elements.reset.addEventListener("click", () => {
     elements.search.value = "";
     elements.region.value = "";
+    elements.frame.value = "";
     elements.topic.value = "";
+    elements.policyArea.value = "";
     elements.sourceType.value = "";
     elements.policyScore.value = "0";
     elements.sortOrder.value = "newest";
@@ -256,7 +303,9 @@ async function loadData() {
       : "初回収集待ち";
 
     populateSelect(elements.region, optionValues(state.items, (item) => [item.region]));
+    populateSelect(elements.frame, optionValues(state.items, (item) => item.article_frames || []));
     populateSelect(elements.topic, optionValues(state.items, (item) => item.topics || []));
+    populateSelect(elements.policyArea, optionValues(state.items, (item) => item.policy_areas || []));
     populateSelect(elements.sourceType, optionValues(state.items, (item) => [item.source_type]));
     applyFilters(true);
   } catch (error) {
