@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-26T11:29:40Z",
-  "updated_at_jst": "2026-07-26T20:29:40+09:00",
+  "updated_at": "2026-07-26T11:34:08Z",
+  "updated_at_jst": "2026-07-26T20:34:08+09:00",
   "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
-  "article_count": 11,
+  "article_count": 13,
   "source_count": 38,
   "items": [
     {
@@ -31,33 +31,6 @@
       "summary_language": "ja",
       "url": "https://news.samsung.com/global/samsung-electronics-and-broadcom-expand-strategic-collaboration-across-memory-and-foundry-technologies",
       "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "a3a5c9efad44807da5223756",
-      "published_at": "2026-07-25T00:55:16Z",
-      "collected_at_jst": "2026-07-26T20:29:40+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Space"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times",
-      "title": "SpaceX、最新のStarship設計で着陸に成功",
-      "title_original": "On Second Test of Its Newest Starship Design, SpaceX Sticks the Landing",
-      "summary": "SpaceXはStarshipの13回目のテストで成功を収め、NASAの月計画に貢献することが期待されています。",
-      "summary_original": "It was the 13th test overall of Starship. The success is a boon to NASA’s moon plans and SpaceX’s hopes to deploy a million data centers in orbit.",
-      "summary_language": "ja",
-      "url": "https://www.nytimes.com/2026/07/24/science/spacex-starship-13th-test-flight.html",
-      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
@@ -105,7 +78,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "South China Morning Post Technology",
-      "organization": "South China Morning Post",
+      "organization": "South China Morning Post Technology",
       "title": "中国のロボット共働者が増加中。AIコボットに挨拶を",
       "title_original": "Chinese robot co-workers on the rise. Say hello to AI cobots",
       "summary": "中国のヒューマノイドロボットや自動化工場が注目される中、協働ロボット（コボット）が進化している。最新モデルはコーディング知識を必要とせず、自然言語での指示に応じる。",
@@ -134,7 +107,7 @@
       "policy_relevance": 1,
       "source_type": "Major Media",
       "source": "BBC Technology",
-      "organization": "BBC",
+      "organization": "BBC Technology",
       "title": "AIモデルのシャットダウンを許可する新法案が提案",
       "title_original": "Lawmakers push for AI 'kill switch' after OpenAI models go rogue",
       "summary": "新たに提案された法案は、公共の脅威をもたらすAIモデルのシャットダウンを政府に許可する内容である。",
@@ -162,7 +135,7 @@
       "policy_relevance": 4,
       "source_type": "Government",
       "source": "UK DSIT",
-      "organization": "Department for Science, Innovation and Technology",
+      "organization": "UK DSIT",
       "title": "ガイダンス：研究における女性のためのチャーター",
       "title_original": "Guidance: Women in Research Charter",
       "summary": "UKの研究システムにおける女性の成果を改善するための自主的な取り組みが発表された。",
@@ -178,9 +151,7 @@
       "collected_at_jst": "2026-07-26T20:29:40+09:00",
       "region": "United States",
       "country": "United States",
-      "topics": [
-        "Quantum"
-      ],
+      "topics": [],
       "article_frames": [
         "Innovation Policy"
       ],
@@ -191,7 +162,7 @@
       "policy_relevance": 3,
       "source_type": "Government",
       "source": "DOE Office of Science News",
-      "organization": "U.S. Department of Energy",
+      "organization": "DOE Office of Science News",
       "title": "エネルギー長官クリス・ライト、AI駆動の科学発見を加速するための初のジェネシスミッションプロジェクトを発表",
       "title_original": "Secretary of Energy Chris Wright Announces First Genesis Mission Projects Selected to Accelerate AI-Driven Scientific Discovery",
       "summary": "米国エネルギー省がAI駆動の科学発見を加速するために、全米から選ばれたプロジェクトを発表した。",
@@ -277,7 +248,7 @@
       "policy_relevance": 4,
       "source_type": "Government",
       "source": "National Science Foundation News",
-      "organization": "U.S. National Science Foundation",
+      "organization": "National Science Foundation News",
       "title": "NSF、AI駆動の科学を進展させるために8300万ドルの投資を発表",
       "title_original": "NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure",
       "summary": "米国科学財団が8300万ドルの資金を通じて、AI駆動の科学を進展させるためのデータシステムとサービスの整備を発表した。",
@@ -305,7 +276,7 @@
       "policy_relevance": 4,
       "source_type": "Government",
       "source": "NIST News",
-      "organization": "National Institute of Standards and Technology",
+      "organization": "NIST News",
       "title": "NISTが中小企業向けの資金提供機会を発表",
       "title_original": "NIST Announces Funding Opportunity for 14 MEP Centers to Advance Small and Medium-Sized U.S. Manufacturers",
       "summary": "NIST MEPは、米国の中小企業を支援するための資金提供機会を発表し、2026年7月28日にウェビナーを開催する予定です。",
@@ -313,6 +284,93 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/07/nist-announces-funding-opportunity-14-mep-centers-advance-small-and-medium",
       "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
+      "id": "88af233d904d670250fa5a31",
+      "published_at": "2026-07-21T14:48:28Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "FIAが核融合のためのEU資金調達の道筋を示す",
+      "title_original": "FIA Outlines EU Financing Pathway for Fusion",
+      "summary": "核融合産業協会は、商業核融合エネルギーのための実用的なEU資金調達の道筋を示す論文を発表しました。核融合プロジェクトが研究から実証へ移行する際に必要な資金調達手段について論じています。",
+      "summary_original": "On 21 July, the Fusion Industry Association published a paper outlining a practical EU financing roadmap for commercial fusion energy. As fusion projects move from research to demonstration, first-of-a-kind plants and commercial deployment, they require different funding and financing tools at each stage of development. Europe's financing framework must evolve from a collection of individual programmes into a coherent funding architecture that supports the entire fusion commercialisation journey. The post FIA Outlines EU Financing Pathway for Fusion appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.fusionindustryassociation.org/fia-outlines-eu-financing-pathway-for-fusion/?utm_source=rss&utm_medium=rss&utm_campaign=fia-outlines-eu-financing-pathway-for-fusion",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7ef6110ab078602757409abf",
+      "published_at": "2026-07-17T18:42:47Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "国際法専門家グループがEUの核融合競争力確保の必要性に関する論文を発表",
+      "title_original": "International Legal Expert Group Publish Paper on the Need for the EU to Secure Its Competitive Fusion Advantage",
+      "summary": "国際法専門家グループが発表した論文は、EUが商業核融合において競争優位を持っているが、それを維持するためには今すぐ行動が必要であると主張しています。",
+      "summary_original": "A discussion paper from the International Group of Legal Experts on Fusion Energy (FELEX) argues that Europe holds a competitive advantage in commercial fusion that no other region can replicate, but must act now to preserve it. The paper highlights the Euratom Treaty as the world’s only harmonized legal framework for nuclear governance across 27... The post International Legal Expert Group Publish Paper on the Need for the EU to Secure Its Competitive Fusion Advantage appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.fusionindustryassociation.org/international-legal-expert-group-publish-paper-on-the-need-for-the-eu-to-secure-its-competitive-fusion-advantage/?utm_source=rss&utm_medium=rss&utm_campaign=international-legal-expert-group-publish-paper-on-the-need-for-the-eu-to-secure-its-competitive-fusion-advantage",
+      "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2f29b005896c3737ab846738",
+      "published_at": "2026-07-15T17:47:57Z",
+      "collected_at_jst": "2026-07-26T18:56:03+09:00",
+      "region": "Asia",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "title": "スターロライトエンジンが60.6億円を調達",
+      "title_original": "Starlight Engine Raises JPY 6.06 Billion",
+      "summary": "スターロライトエンジンは、FASTの開発を加速するために60.6億円を調達しました。この会社は、日本のJT-60SAプログラムや国際的な取り組みを基にしたトカマク型核融合機を開発しています。",
+      "summary_original": "Starlight Engine has raised JPY 6.06 billion in its first external funding round to accelerate development of FAST. The company is developing a tokamak-based fusion machine that builds on decades of research, including Japan's JT-60SA program and international efforts. The post Starlight Engine Raises JPY 6.06 Billion appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.nikkei.com/article/DGXZQOUC152ET0V10C26A7000000/#new_tab?utm_source=rss&utm_medium=rss&utm_campaign=starlight-engine-raises-jpy-6-06-billion",
+      "first_seen": "2026-07-26T18:56:03+09:00",
       "status": "New"
     }
   ]
