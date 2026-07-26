@@ -2,6 +2,7 @@ import importlib.util
 import json
 import sys
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -305,6 +306,80 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(item["topics"], [])
         self.assertTrue(item["innovation_policy"])
         self.assertIn("R&D Funding & Tax Incentives", item["policy_areas"])
+
+    def test_public_history_windows_differ_by_frame(self):
+        collected_at = datetime(2026, 7, 26, tzinfo=timezone.utc)
+        policy_item = {
+            "published_at": "2025-08-01T00:00:00Z",
+            "article_frames": ["Innovation Policy"],
+        }
+        technology_item = {
+            "published_at": "2025-08-01T00:00:00Z",
+            "article_frames": ["Technology Innovation"],
+        }
+        recent_technology_item = {
+            "published_at": "2026-02-01T00:00:00Z",
+            "article_frames": ["Technology Innovation"],
+        }
+        self.assertTrue(
+            collector.item_within_public_window(policy_item, collected_at)
+        )
+        self.assertFalse(
+            collector.item_within_public_window(technology_item, collected_at)
+        )
+        self.assertTrue(
+            collector.item_within_public_window(
+                recent_technology_item, collected_at
+            )
+        )
+
+    def test_openalex_metadata_summary_uses_topics_and_keywords(self):
+        summary = collector.openalex_metadata_summary(
+            {
+                "topics": [{"display_name": "Quantum computing"}],
+                "keywords": [
+                    {"display_name": "Qubit"},
+                    {"display_name": "Quantum computing"},
+                ],
+            }
+        )
+        self.assertEqual(
+            summary,
+            "OpenAlex research topics: Quantum computing; Qubit",
+        )
+
+    def test_public_item_includes_academic_metadata(self):
+        public = collector.public_item(
+            {
+                "academic_kind": collector.ACADEMIC_KIND_PREPRINT,
+                "review_status": "Not peer reviewed",
+                "venue": "arXiv",
+                "doi": "https://doi.org/10.1234/example",
+                "citation_count": 7,
+                "discovery_method": "OpenAlex",
+            }
+        )
+        self.assertEqual(public["academic_kind"], "Preprint")
+        self.assertEqual(public["review_status"], "Not peer reviewed")
+        self.assertEqual(public["venue"], "arXiv")
+        self.assertEqual(public["citation_count"], 7)
+
+    def test_gdelt_datetime_parser(self):
+        fallback = datetime(2026, 7, 26, tzinfo=timezone.utc)
+        parsed = collector.parse_gdelt_datetime("20260102T030405Z", fallback)
+        self.assertEqual(parsed.isoformat(), "2026-01-02T03:04:05+00:00")
+
+    def test_config_has_separate_scholarly_kinds(self):
+        config = collector.load_config()
+        academic_kinds = {
+            source.get("academic_kind")
+            for source in config["sources"]
+            if source.get("fetch_mode") == "openalex"
+        }
+        self.assertEqual(
+            academic_kinds,
+            {"Journal Article", "Conference Paper", "Preprint"},
+        )
 
 
 if __name__ == "__main__":
