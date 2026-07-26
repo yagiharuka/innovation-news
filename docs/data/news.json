@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-26T11:24:57Z",
-  "updated_at_jst": "2026-07-26T20:24:57+09:00",
+  "updated_at": "2026-07-26T11:29:40Z",
+  "updated_at_jst": "2026-07-26T20:29:40+09:00",
   "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
-  "article_count": 14,
+  "article_count": 11,
   "source_count": 38,
   "items": [
     {
@@ -15,20 +15,49 @@
       "topics": [
         "Semiconductors & Telecom"
       ],
-      "article_frames": [],
+      "article_frames": [
+        "Technology Innovation"
+      ],
       "innovation_policy": false,
       "policy_areas": [],
-      "policy_relevance": 3,
+      "policy_relevance": 0,
       "source_type": "Official Company",
       "source": "Samsung Global Newsroom",
       "organization": "Samsung Global Newsroom",
-      "title": "サムスン電子とブロードコム、メモリおよびファウンドリ技術での戦略的協力を拡大",
+      "title": "サムスン電子とブロードコムがメモリおよびファウンドリ技術での戦略的協力を拡大",
       "title_original": "Samsung Electronics and Broadcom Expand Strategic Collaboration Across Memory and Foundry Technologies",
-      "summary": "サムスン電子とブロードコムは、次世代AIインフラを支えるためのメモリおよびファウンドリ技術に関する戦略的協力を拡大するMOUを締結しました。",
+      "summary": "サムスン電子とブロードコムが、次世代のAIインフラを支えるためのメモリおよびファウンドリ技術に関する戦略的協力を拡大することを発表した。",
       "summary_original": "Samsung Electronics and Broadcom today announced the signing of a memorandum of understanding (MOU) to expand their strategic collaboration across memory and foundry technologies, supporting the next generation of AI infrastructure. The MOU was announced during the AI Summit, held at The Midway in San Francisco. Attendees included Jinman Han, President and Head of Samsung […]",
       "summary_language": "ja",
       "url": "https://news.samsung.com/global/samsung-electronics-and-broadcom-expand-strategic-collaboration-across-memory-and-foundry-technologies",
       "first_seen": "2026-07-26T18:56:03+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a3a5c9efad44807da5223756",
+      "published_at": "2026-07-25T00:55:16Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The New York Times Science",
+      "organization": "The New York Times",
+      "title": "SpaceX、最新のStarship設計で着陸に成功",
+      "title_original": "On Second Test of Its Newest Starship Design, SpaceX Sticks the Landing",
+      "summary": "SpaceXはStarshipの13回目のテストで成功を収め、NASAの月計画に貢献することが期待されています。",
+      "summary_original": "It was the 13th test overall of Starship. The success is a boon to NASA’s moon plans and SpaceX’s hopes to deploy a million data centers in orbit.",
+      "summary_language": "ja",
+      "url": "https://www.nytimes.com/2026/07/24/science/spacex-starship-13th-test-flight.html",
+      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
@@ -45,13 +74,13 @@
       ],
       "innovation_policy": false,
       "policy_areas": [],
-      "policy_relevance": 3,
+      "policy_relevance": 0,
       "source_type": "Official Company",
       "source": "Intel Newsroom",
       "organization": "Intel Newsroom",
-      "title": "インテルとレンズテクノロジー、AI時代の先進半導体パッケージングを実現するために協力",
+      "title": "インテルとレンズテクノロジーがAI時代の先進半導体パッケージングを実現するために協力",
       "title_original": "Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era",
-      "summary": "インテルとレンズテクノロジーが、AI時代に向けた先進的な半導体パッケージング技術の開発を目指す戦略的コラボレーションを発表した。",
+      "summary": "インテルとレンズテクノロジーが、AI時代に向けた先進的な半導体パッケージング技術の開発に向けて戦略的な協力を発表した。",
       "summary_original": "SANTA CLARA, Calif. & CHANGSHA, China — Intel Corporation and Lens Technology today announced a strategic collaboration focused on enabling new technologies for advanced semiconductor packaging. Through this work, the companies intend to explore opportunities to accelerate the development of glass substrate-based packaging solutions that can help enable higher performance, increased interconnect density, and improved … The post Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era appeared first on Newsroom .",
       "summary_language": "ja",
       "url": "https://newsroom.intel.com/new-technologies/intel-and-lens-technology-collaborate-to-enable-advanced-semiconductor-packaging-for-the-ai-era",
@@ -59,12 +88,99 @@
       "status": "New"
     },
     {
-      "id": "556f1cad5674dfe48a261c54",
-      "published_at": "2026-07-24T15:25:30Z",
-      "collected_at_jst": "2026-07-26T20:24:57+09:00",
+      "id": "00cfbfef6982b98ed0351899",
+      "published_at": "2026-07-24T02:35:52Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "中国のロボット共働者が増加中。AIコボットに挨拶を",
+      "title_original": "Chinese robot co-workers on the rise. Say hello to AI cobots",
+      "summary": "中国のヒューマノイドロボットや自動化工場が注目される中、協働ロボット（コボット）が進化している。最新モデルはコーディング知識を必要とせず、自然言語での指示に応じる。",
+      "summary_original": "While China’s humanoid robots and automated “dark factories” have made headlines, another form of automation has been advancing: the collaborative robot, or cobot. Designed to operate alongside human employees, cobots have been transformed by machine learning and artificial intelligence (AI). The latest models feature programming which requires no coding knowledge; instead they respond to natural-language voice commands, gesture controls and drag-to-teach demonstrations of tasks. They are also...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/plus/tech/tech-trends/article/3361664/chinese-robot-co-workers-rise-say-hello-ai-cobots?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
+      "id": "30744ac6eef4bc37b48358ce",
+      "published_at": "2026-07-23T20:58:35Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "BBC Technology",
+      "organization": "BBC",
+      "title": "AIモデルのシャットダウンを許可する新法案が提案",
+      "title_original": "Lawmakers push for AI 'kill switch' after OpenAI models go rogue",
+      "summary": "新たに提案された法案は、公共の脅威をもたらすAIモデルのシャットダウンを政府に許可する内容である。",
+      "summary_original": "A new bill would let the US government order the shutdown of AI models that pose a public threat.",
+      "summary_language": "ja",
+      "url": "https://www.bbc.co.uk/news/articles/cx2vqj2e9x8o?at_medium=RSS&at_campaign=rss",
+      "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1e9fd9033d38bacea37c0f42",
+      "published_at": "2026-07-22T14:21:46Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
       "region": "EU & Europe",
       "country": "United Kingdom",
       "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "Research System & Talent"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "Department for Science, Innovation and Technology",
+      "title": "ガイダンス：研究における女性のためのチャーター",
+      "title_original": "Guidance: Women in Research Charter",
+      "summary": "UKの研究システムにおける女性の成果を改善するための自主的な取り組みが発表された。",
+      "summary_original": "A voluntary commitment to improve outcomes for women across the UK research system, with actions for research funders and research performing organisations.",
+      "summary_language": "ja",
+      "url": "https://www.gov.uk/government/publications/women-in-research-charter",
+      "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
+      "id": "23fa1d6907c14d73ce3a41cd",
+      "published_at": "2026-07-22T14:12:14Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Quantum"
+      ],
       "article_frames": [
         "Innovation Policy"
       ],
@@ -74,180 +190,15 @@
       ],
       "policy_relevance": 3,
       "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "Department for Science, Innovation and Technology",
-      "title": "Guidance: Cyber Resilience Pledge - list of signatories",
-      "title_original": "Guidance: Cyber Resilience Pledge - list of signatories",
-      "summary": "Organisations that have signed the Cyber Resilience Pledge.",
-      "summary_original": "Organisations that have signed the Cyber Resilience Pledge.",
-      "summary_language": "",
-      "url": "https://www.gov.uk/government/publications/cyber-resilience-pledge-list-of-signatories",
-      "first_seen": "2026-07-26T20:24:57+09:00",
-      "status": "New"
-    },
-    {
-      "id": "590a8cbd726d99d379ccecb1",
-      "published_at": "2026-07-23T16:58:28Z",
-      "collected_at_jst": "2026-07-26T20:24:57+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "MIT Technology Review",
-      "organization": "MIT Technology Review",
-      "title": "超冷却された腎臓が豚に移植される",
-      "title_original": "Supercooled kidneys have been transplanted into pigs in a “landmark achievement”",
-      "summary": "臓器移植において、超冷却された腎臓が豚に移植されるという重要な成果が報告されている。",
-      "summary_original": "When it comes to organ donation, time is everything. As soon as an organ has been carefully removed from a donor’s body, it starts to deteriorate. Surgeons have a matter of hours to get it into a recipient. Leave it too long and the organ will become unusable. In most cases, organs will be kept…",
+      "source": "DOE Office of Science News",
+      "organization": "U.S. Department of Energy",
+      "title": "エネルギー長官クリス・ライト、AI駆動の科学発見を加速するための初のジェネシスミッションプロジェクトを発表",
+      "title_original": "Secretary of Energy Chris Wright Announces First Genesis Mission Projects Selected to Accelerate AI-Driven Scientific Discovery",
+      "summary": "米国エネルギー省がAI駆動の科学発見を加速するために、全米から選ばれたプロジェクトを発表した。",
+      "summary_original": "Nearly 300 projects selected from historic RFA response spanning all 50 states to accelerate breakthroughs in energy, discovery science, and national security.",
       "summary_language": "ja",
-      "url": "https://www.technologyreview.com/2026/07/23/1140765/supercooled-kidneys-have-been-transplanted-into-pigs-in-a-landmark-achievement/",
-      "first_seen": "2026-07-26T20:24:57+09:00",
-      "status": "New"
-    },
-    {
-      "id": "1ab937d4b6a64131b0a68bfc",
-      "published_at": "2026-07-23T12:30:11Z",
-      "collected_at_jst": "2026-07-26T20:24:57+09:00",
-      "region": "United States",
-      "country": "Hong Kong",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Patents & Intellectual Property"
-      ],
-      "policy_relevance": 1,
-      "source_type": "Major Media",
-      "source": "South China Morning Post Technology",
-      "organization": "South China Morning Post",
-      "title": "米国の主張に対抗するAI専門家たち",
-      "title_original": "Global AI experts push back on US ‘distillation’ claims against Moonshot’s Kimi K3 model",
-      "summary": "AIコミュニティが米国政府の知的財産権に関する主張に反論し、AIモデルの出力が著作権で保護されないことを指摘している。",
-      "summary_original": "The global AI community has pushed back against the Trump administration’s claims that Moonshot AI’s groundbreaking Kimi K3 distilled US models, citing a lack of justification and arguing that the practice does not constitute intellectual property theft. In separate posts on X on Thursday, a number of AI experts called the accusations “political” and “reckless”, pointing out that an AI model’s output was not copyrighted. A Moonshot employee on Thursday hit back at the US officials’ claims that...",
-      "summary_language": "ja",
-      "url": "https://www.scmp.com/tech/tech-war/article/3361625/global-ai-experts-push-back-us-distillation-claims-against-moonshots-kimi-k3-model?utm_source=rss_feed",
-      "first_seen": "2026-07-26T20:24:57+09:00",
-      "status": "New"
-    },
-    {
-      "id": "17c856708cfe91897e9a7d7c",
-      "published_at": "2026-07-23T11:30:07Z",
-      "collected_at_jst": "2026-07-26T20:13:43+09:00",
-      "region": "United States",
-      "country": "Hong Kong",
-      "topics": [
-        "Robotics",
-        "Innovation Policy"
-      ],
-      "article_frames": [],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 2,
-      "source_type": "Major Media",
-      "source": "South China Morning Post Technology",
-      "organization": "South China Morning Post Technology",
-      "title": "米国、中国製ヒューマノイドロボットの禁止を検討",
-      "title_original": "US eyes ban on Chinese humanoid robots as US-China tech rivalry intensifies",
-      "summary": "米国の議会は、中国製のヒューマノイドロボットの軍事利用を禁止する防衛法案を進めており、国家安全保障やデータプライバシーの懸念から外国の自律システムの使用を制限する内容が含まれている。",
-      "summary_original": "US scrutiny of Chinese technology has expanded to a new frontier, as lawmakers in Washington advance defence legislation prohibiting the military from deploying Chinese-made humanoid robots. The US House of Representatives has passed the National Defence Authorisation Act (NDAA), an annual military policy bill that incorporates provisions restricting the use of foreign autonomous systems over national security and data privacy concerns. Under Section 163 of the draft bill, the Pentagon would be...",
-      "summary_language": "ja",
-      "url": "https://www.scmp.com/tech/policy/article/3361622/us-eyes-ban-chinese-humanoid-robots-us-china-tech-rivalry-intensifies?utm_source=rss_feed",
-      "first_seen": "2026-07-26T20:13:43+09:00",
-      "status": "New"
-    },
-    {
-      "id": "2d5de96218ebc1a4b06e4e7c",
-      "published_at": "2026-07-23T10:00:17Z",
-      "collected_at_jst": "2026-07-26T20:24:57+09:00",
-      "region": "Asia",
-      "country": "Hong Kong",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "South China Morning Post Technology",
-      "organization": "South China Morning Post",
-      "title": "China’s tech firms turn the global AI boom into opportunity amid fierce rivalry at home",
-      "title_original": "China’s tech firms turn the global AI boom into opportunity amid fierce rivalry at home",
-      "summary": "Driven by a global surge in AI spending and fierce competition at home, Chinese tech companies are rapidly expanding their international footprint, not just via physical supply chains, but increasingly through cloud-based software and foundation models. The broader push aligns with recent customs data from the first half of 2026 showing a sharp rise in physical tech exports. Integrated-circuit exports nearly doubled in value to US$177.3 billion, a 96 per cent year-on-year surge heavily inflated...",
-      "summary_original": "Driven by a global surge in AI spending and fierce competition at home, Chinese tech companies are rapidly expanding their international footprint, not just via physical supply chains, but increasingly through cloud-based software and foundation models. The broader push aligns with recent customs data from the first half of 2026 showing a sharp rise in physical tech exports. Integrated-circuit exports nearly doubled in value to US$177.3 billion, a 96 per cent year-on-year surge heavily inflated...",
-      "summary_language": "",
-      "url": "https://www.scmp.com/tech/tech-trends/article/3361596/chinas-tech-firms-turn-global-ai-boom-opportunity-amid-fierce-rivalry-home?utm_source=rss_feed",
-      "first_seen": "2026-07-26T20:24:57+09:00",
-      "status": "New"
-    },
-    {
-      "id": "c174fc131c4d55cb839833e9",
-      "published_at": "2026-07-23T02:00:46Z",
-      "collected_at_jst": "2026-07-26T20:24:57+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 1,
-      "source_type": "Official Company",
-      "source": "NVIDIA Blog",
-      "organization": "NVIDIA",
-      "title": "NVIDIA AIスーパコンピュータが海軍大学院校で稼働開始",
-      "title_original": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
-      "summary": "NVIDIAが海軍大学院校にAIスーパコンピュータを導入し、学生や研究者に強力なAIプラットフォームを提供します。",
-      "summary_original": "NVIDIA founder and CEO Jensen Huang today visited the Naval Postgraduate School in Monterey, California, to commission an NVIDIA DGX GB300 system — bringing one of the world’s most powerful AI platforms fully online for the students, researchers and faculty at the U.S. military’s flagship graduate university. “Our nation depends on our men and women […]",
-      "summary_language": "ja",
-      "url": "https://blogs.nvidia.com/blog/naval-postgraduate-school-dgx-ai-supercomputer/",
-      "first_seen": "2026-07-26T20:24:57+09:00",
-      "status": "New"
-    },
-    {
-      "id": "863086979e9f7f63c082cb57",
-      "published_at": "2026-07-22T14:12:00Z",
-      "collected_at_jst": "2026-07-26T20:24:57+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "National Programs & Strategy"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Policy Institute",
-      "source": "CSET",
-      "organization": "Center for Security and Emerging Technology",
-      "title": "Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican",
-      "title_original": "Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican",
-      "summary": "CSET Senior Fellow Emelia Probasco shares her experience and the remarks she gave at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War, which took place at Borgo Laudato Si’, Vatican. The post Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican appeared first on Center for Security and Emerging Technology .",
-      "summary_original": "CSET Senior Fellow Emelia Probasco shares her experience and the remarks she gave at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War, which took place at Borgo Laudato Si’, Vatican. The post Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican appeared first on Center for Security and Emerging Technology .",
-      "summary_language": "",
-      "url": "https://cset.georgetown.edu/article/remarks-at-the-global-nobel-laureates-assembly-on-artificial-intelligence-and-nuclear-war/",
-      "first_seen": "2026-07-26T20:24:57+09:00",
+      "url": "https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate",
+      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
@@ -270,9 +221,9 @@
       "source_type": "Government",
       "source": "National Science Foundation News",
       "organization": "National Science Foundation News",
-      "title": "NSF長官補のブライアン・ストーンによる声明：ジェネシスミッションを通じてAIの優先事項を進める",
+      "title": "NSFがAIに関する国家戦略を推進する声明を発表",
       "title_original": "Statement from NSF Chief of Staff Brian Stone, performing the duties of the NSF director, on advancing the Administration's AI priorities through the Genesis Mission",
-      "summary": "米国国立科学財団がホワイトハウスと連携し、AIに関する優先事項を進める取り組みを発表。",
+      "summary": "米国科学財団（NSF）は、AIに関する国家戦略を推進するための声明を発表しました。",
       "summary_original": "The U.S. National Science Foundation is proud to join the White House Office of Science and Technology Policy, the U.S. Department of Energy and other federal partners in advancing the administration's artificial intelligence priorities through the…",
       "summary_language": "ja",
       "url": "https://www.nsf.gov/news/statement-nsf-chief-staff-brian-stone-performing-duties-nsf-1",
@@ -299,9 +250,9 @@
       "source_type": "Government",
       "source": "National Science Foundation News",
       "organization": "National Science Foundation News",
-      "title": "新しいNSFイニシアティブがAIを活用した科学的発見のためのデータセットの価値を引き出すことを目指す",
+      "title": "NSFの新しい取り組みがAIによる科学的発見のためのデータセットの価値を引き出す",
       "title_original": "New NSF initiative aims to unlock dataset value for AI-enabled scientific discovery",
-      "summary": "米国国立科学財団がAIを活用した科学的発見を促進するための新しいプログラムを発表し、データセットの価値を引き出すことを目指す。",
+      "summary": "米国科学財団（NSF）は、AIを活用した科学的発見のためのデータセットの価値を引き出す新しいプログラムを発表しました。",
       "summary_original": "The U.S. National Science Foundation announced the NSF Unlocking Dataset Value for AI-Enabled Scientific Discovery program, a new investment to advance scientific community datasets and enable discovery and innovation using artificial intelligence…",
       "summary_language": "ja",
       "url": "https://www.nsf.gov/news/new-nsf-initiative-aims-unlock-dataset-value-ai-enabled",
@@ -309,79 +260,59 @@
       "status": "New"
     },
     {
-      "id": "88af233d904d670250fa5a31",
-      "published_at": "2026-07-21T14:48:28Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "Global",
-      "topics": [
-        "Fusion Energy"
+      "id": "018d40b7e6eb7aa4b8cfb5fa",
+      "published_at": "2026-07-22T13:53:06Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
       ],
-      "article_frames": [],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 3,
-      "source_type": "Industry Association",
-      "source": "Fusion Industry Association",
-      "organization": "Fusion Industry Association",
-      "title": "EUの核融合資金調達計画を示すFIA",
-      "title_original": "FIA Outlines EU Financing Pathway for Fusion",
-      "summary": "核融合産業協会は、商業核融合エネルギーのためのEU資金調達の実用的なロードマップを発表しました。研究から実証、商業展開に至る各段階で必要な資金調達手段の進化が求められています。",
-      "summary_original": "On 21 July, the Fusion Industry Association published a paper outlining a practical EU financing roadmap for commercial fusion energy. As fusion projects move from research to demonstration, first-of-a-kind plants and commercial deployment, they require different funding and financing tools at each stage of development. Europe's financing framework must evolve from a collection of individual programmes into a coherent funding architecture that supports the entire fusion commercialisation journey. The post FIA Outlines EU Financing Pathway for Fusion appeared first on Fusion Industry Association .",
-      "summary_language": "ja",
-      "url": "https://www.fusionindustryassociation.org/fia-outlines-eu-financing-pathway-for-fusion/?utm_source=rss&utm_medium=rss&utm_campaign=fia-outlines-eu-financing-pathway-for-fusion",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "7ef6110ab078602757409abf",
-      "published_at": "2026-07-17T18:42:47Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "Global",
-      "topics": [
-        "Innovation Policy",
-        "Fusion Energy"
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "Research System & Talent"
       ],
-      "article_frames": [],
-      "innovation_policy": false,
-      "policy_areas": [],
       "policy_relevance": 4,
-      "source_type": "Industry Association",
-      "source": "Fusion Industry Association",
-      "organization": "Fusion Industry Association",
-      "title": "EUの核融合競争力を確保する必要性に関する論文発表",
-      "title_original": "International Legal Expert Group Publish Paper on the Need for the EU to Secure Its Competitive Fusion Advantage",
-      "summary": "国際法専門家グループが発表した論文は、ヨーロッパが商業核融合において競争優位を持っているが、それを維持するために今行動する必要があると主張しています。",
-      "summary_original": "A discussion paper from the International Group of Legal Experts on Fusion Energy (FELEX) argues that Europe holds a competitive advantage in commercial fusion that no other region can replicate, but must act now to preserve it. The paper highlights the Euratom Treaty as the world’s only harmonized legal framework for nuclear governance across 27... The post International Legal Expert Group Publish Paper on the Need for the EU to Secure Its Competitive Fusion Advantage appeared first on Fusion Industry Association .",
+      "source_type": "Government",
+      "source": "National Science Foundation News",
+      "organization": "U.S. National Science Foundation",
+      "title": "NSF、AI駆動の科学を進展させるために8300万ドルの投資を発表",
+      "title_original": "NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure",
+      "summary": "米国科学財団が8300万ドルの資金を通じて、AI駆動の科学を進展させるためのデータシステムとサービスの整備を発表した。",
+      "summary_original": "The U.S. National Science Foundation today announced $83 million in awards through the Integrated Data Systems and Services (IDSS) program. The awards will expand access to data infrastructure resources that researchers can use alongside computing…",
       "summary_language": "ja",
-      "url": "https://www.fusionindustryassociation.org/international-legal-expert-group-publish-paper-on-the-need-for-the-eu-to-secure-its-competitive-fusion-advantage/?utm_source=rss&utm_medium=rss&utm_campaign=international-legal-expert-group-publish-paper-on-the-need-for-the-eu-to-secure-its-competitive-fusion-advantage",
-      "first_seen": "2026-07-26T18:56:03+09:00",
+      "url": "https://www.nsf.gov/news/nsf-announces-83m-investment-integrated-data-systems",
+      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
-      "id": "2f29b005896c3737ab846738",
-      "published_at": "2026-07-15T17:47:57Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "Asia",
-      "country": "Global",
-      "topics": [
-        "Fusion Energy"
+      "id": "5aa9c93bc7040291c9f08bfa",
+      "published_at": "2026-07-22T12:00:00Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
       ],
-      "article_frames": [],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 3,
-      "source_type": "Industry Association",
-      "source": "Fusion Industry Association",
-      "organization": "Fusion Industry Association",
-      "title": "スターロライトエンジンが60.6億円を調達",
-      "title_original": "Starlight Engine Raises JPY 6.06 Billion",
-      "summary": "スターロライトエンジンは、FASTの開発を加速するために60.6億円の資金を調達しました。同社は、JT-60SAプログラムや国際的な取り組みを基にしたトカマク型核融合装置を開発しています。",
-      "summary_original": "Starlight Engine has raised JPY 6.06 billion in its first external funding round to accelerate development of FAST. The company is developing a tokamak-based fusion machine that builds on decades of research, including Japan's JT-60SA program and international efforts. The post Starlight Engine Raises JPY 6.06 Billion appeared first on Fusion Industry Association .",
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives",
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "NIST News",
+      "organization": "National Institute of Standards and Technology",
+      "title": "NISTが中小企業向けの資金提供機会を発表",
+      "title_original": "NIST Announces Funding Opportunity for 14 MEP Centers to Advance Small and Medium-Sized U.S. Manufacturers",
+      "summary": "NIST MEPは、米国の中小企業を支援するための資金提供機会を発表し、2026年7月28日にウェビナーを開催する予定です。",
+      "summary_original": "NIST MEP will host an informational webinar on Tuesday, July 28, 2026, at 1 p.m. ET to provide general information about this opportunity and guidance on preparing applications.",
       "summary_language": "ja",
-      "url": "https://www.nikkei.com/article/DGXZQOUC152ET0V10C26A7000000/#new_tab?utm_source=rss&utm_medium=rss&utm_campaign=starlight-engine-raises-jpy-6-06-billion",
-      "first_seen": "2026-07-26T18:56:03+09:00",
+      "url": "https://www.nist.gov/news-events/news/2026/07/nist-announces-funding-opportunity-14-mep-centers-advance-small-and-medium",
+      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     }
   ]
