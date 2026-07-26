@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -70,6 +71,44 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(skipped, 2)
         self.assertEqual([item["canonical_id"] for item in added], ["new-id-3"])
+
+    def test_public_item_prefers_japanese_summary(self):
+        item = {
+            "canonical_id": "article-1",
+            "title": "New quantum programme announced",
+            "title_ja": "量子技術の新プログラムを発表",
+            "summary": "The government announced a new programme.",
+            "summary_ja": "政府が量子技術を支援する新プログラムを発表した。",
+            "policy_relevance": 4,
+        }
+        public = collector.public_item(item)
+        self.assertEqual(public["title"], item["title_ja"])
+        self.assertEqual(public["title_original"], item["title"])
+        self.assertEqual(public["summary"], item["summary_ja"])
+        self.assertEqual(public["summary_original"], item["summary"])
+        self.assertEqual(public["summary_language"], "ja")
+
+    def test_parse_japanese_summary_response(self):
+        raw = json.dumps(
+            {
+                "items": [
+                    {
+                        "id": "article-1",
+                        "title_ja": "量子技術の新計画",
+                        "summary_ja": "政府が研究開発支援を拡充する。",
+                    },
+                    {
+                        "id": "unknown",
+                        "title_ja": "対象外",
+                        "summary_ja": "対象外の記事。",
+                    },
+                ]
+            },
+            ensure_ascii=False,
+        )
+        parsed = collector.parse_japanese_summary_response(raw, {"article-1"})
+        self.assertEqual(set(parsed), {"article-1"})
+        self.assertEqual(parsed["article-1"]["title_ja"], "量子技術の新計画")
 
 
 if __name__ == "__main__":
