@@ -641,6 +641,23 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(japanese.isoformat(), "2026-07-13T15:00:00+00:00")
         self.assertEqual(reiwa.isoformat(), "2026-06-11T15:00:00+00:00")
 
+    def test_listing_date_parser_requires_an_explicit_date(self):
+        fallback = datetime(1970, 1, 1, tzinfo=timezone.utc)
+        self.assertEqual(
+            collector.parse_listing_date(
+                "AI platform version 2 supports 30 research teams",
+                fallback,
+            ),
+            fallback,
+        )
+        self.assertEqual(
+            collector.parse_listing_date(
+                "Research update 20 May 2026",
+                fallback,
+            ),
+            datetime(2026, 5, 20, tzinfo=timezone.utc),
+        )
+
     def test_archive_url_scoring_ignores_domain_name(self):
         self.assertEqual(
             collector.archive_url_score(
@@ -727,6 +744,297 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["source"], "Example Research")
         self.assertEqual(items[0]["topics"], ["Quantum"])
         self.assertIn("lower error rates", items[0]["summary"])
+
+    def test_site_scan_reads_generic_more_link_title_and_card_date(self):
+        listing_url = "https://research.example.com/news"
+        article_url = "https://research.example.com/news/quantum-programme"
+        listing_html = f"""
+        <main>
+          <div class="news-card">
+            <div class="date"><span>20</span> <i>May</i> <i>2026</i></div>
+            <h4>National quantum research programme opens</h4>
+            <a href="{article_url}"
+               title="National quantum research programme opens">More</a>
+          </div>
+        </main>
+        """
+        article_html = """
+        <html>
+          <head>
+            <meta name="description"
+                  content="The programme funds quantum computing research and new laboratory infrastructure.">
+          </head>
+        </html>
+        """
+
+        def response(url, body):
+            value = collector.requests.Response()
+            value.status_code = 200
+            value.url = url
+            value._content = body.encode("utf-8")
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(listing_url, listing_html)
+                if url == article_url:
+                    return response(article_url, article_html)
+                raise AssertionError(f"Unexpected URL: {url}")
+
+        source = {
+            "active": True,
+            "name": "Example Government",
+            "organization": "Example",
+            "source_type": "Government",
+            "region": "Middle East",
+            "country": "Saudi Arabia",
+            "category": "National research and innovation programmes",
+            "feed_url": listing_url,
+            "fetch_mode": "site_scan",
+            "listing_url": listing_url,
+            "include_link_patterns": ["/news/"],
+            "homepage": listing_url,
+            "priority": 5,
+            "native_feed": False,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 5, 1, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            False,
+        )
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"][:10], "2026-05-20")
+        self.assertEqual(
+            items[0]["title"],
+            "National quantum research programme opens",
+        )
+
+    def test_msit_scripted_listing_reads_official_record(self):
+        listing_url = (
+            "https://www.msit.go.kr/eng/bbs/list.do"
+            "?mId=4&mPid=2&sCode=eng"
+        )
+        article_url_prefix = "https://www.msit.go.kr/eng/bbs/view.do?"
+        listing_html = """
+        <html>
+          <body>
+            <a href="javascript:;" onclick="fn_detail(1284);"></a>
+            <script>
+              var sHtml = '';
+              sHtml += unescape(
+                'Korea launches a national quantum research programme'
+              );
+              $('#td_'+'NTT_SJ'+'_0').html(sHtml);
+              if ('PSTG_YMD' == 'PSTG_YMD') {
+                $('#td_'+'PSTG_YMD'+'_0').html('2026-07-23');
+              }
+            </script>
+          </body>
+        </html>
+        """
+        article_html = """
+        <html>
+          <head>
+            <meta name="description"
+                  content="The programme funds quantum computing laboratories and research infrastructure.">
+          </head>
+          <body>
+            <div class="view_head">
+              <h2>Korea launches a national quantum research programme</h2>
+            </div>
+          </body>
+        </html>
+        """
+
+        def response(url, body):
+            value = collector.requests.Response()
+            value.status_code = 200
+            value.url = url
+            value._content = body.encode("utf-8")
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(listing_url, listing_html)
+                if url.startswith(article_url_prefix):
+                    return response(url, article_html)
+                raise AssertionError(f"Unexpected URL: {url}")
+
+        source = {
+            "active": True,
+            "name": "Korea MSIT Press Releases",
+            "organization": "Ministry of Science and ICT",
+            "source_type": "Government",
+            "region": "Asia",
+            "country": "South Korea",
+            "category": "Science, technology and national innovation policy",
+            "feed_url": listing_url,
+            "fetch_mode": "msit_script_list",
+            "listing_url": listing_url,
+            "bbs_seq_no": "42",
+            "homepage": "https://www.msit.go.kr/eng/",
+            "priority": 5,
+            "native_feed": False,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            False,
+        )
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"][:10], "2026-07-23")
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Official MSIT scripted listing and article page",
+        )
+
+    def test_site_scan_falls_back_to_the_official_sitemap(self):
+        listing_url = "https://research.example.com/news"
+        sitemap_url = "https://research.example.com/sitemap.xml"
+        article_url = "https://research.example.com/news/quantum-network"
+        sitemap_xml = f"""
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <url>
+            <loc>{article_url}</loc>
+            <lastmod>2026-07-25T00:00:00Z</lastmod>
+          </url>
+          <url>
+            <loc>https://untrusted.example.net/news/copied-story</loc>
+            <lastmod>2026-07-25T00:00:00Z</lastmod>
+          </url>
+        </urlset>
+        """
+        article_html = """
+        <html>
+          <head>
+            <meta property="og:title"
+                  content="Researchers demonstrate a new quantum network">
+            <meta name="description"
+                  content="The team demonstrated a quantum network with a new entanglement distribution method.">
+            <meta property="article:published_time"
+                  content="2026-07-25T00:00:00Z">
+          </head>
+        </html>
+        """
+
+        def response(url, body, status=200):
+            value = collector.requests.Response()
+            value.status_code = status
+            value.url = url
+            value._content = body.encode("utf-8")
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(listing_url, "<main></main>")
+                if url == sitemap_url:
+                    return response(sitemap_url, sitemap_xml)
+                if url == article_url:
+                    return response(article_url, article_html)
+                return response(url, "", status=404)
+
+        source = {
+            "active": True,
+            "name": "Example Research",
+            "organization": "Example",
+            "source_type": "Official Company",
+            "region": "Global",
+            "country": "United States",
+            "category": "Quantum research",
+            "feed_url": listing_url,
+            "fetch_mode": "site_scan",
+            "listing_url": listing_url,
+            "include_link_patterns": ["/news/"],
+            "homepage": listing_url,
+            "priority": 5,
+            "native_feed": False,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            False,
+        )
+        self.assertEqual(result.status, "ok")
+        self.assertIn("official sitemap fallback", result.detail)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Official-site sitemap and page metadata",
+        )
+        self.assertEqual(items[0]["url"], article_url)
+
+    def test_infer_date_from_hyphenated_release_slug(self):
+        actual = collector.infer_date_from_url(
+            "https://www.roche.com/media/releases/med-cor-2026-07-24"
+        )
+        self.assertEqual(
+            actual,
+            datetime(2026, 7, 24, tzinfo=timezone.utc),
+        )
+
+    def test_infer_date_from_year_month_directory(self):
+        actual = collector.infer_date_from_url(
+            "https://english.www.gov.cn/policies/latestreleases/"
+            "202607/24/content_example.html"
+        )
+        self.assertEqual(
+            actual,
+            datetime(2026, 7, 24, tzinfo=timezone.utc),
+        )
+
+    def test_page_metadata_reads_visible_labeled_date(self):
+        article_url = "https://www.rdia.gov.sa/en/media-center/news/example"
+        article_html = """
+        <html>
+          <head>
+            <title>Saudi Arabia launches a new research programme</title>
+          </head>
+          <body>
+            <main>
+              <p><strong>Date</strong> 11/02/2026</p>
+              <p>
+                The programme supports strategic research, development and
+                innovation projects in advanced technology.
+              </p>
+            </main>
+          </body>
+        </html>
+        """
+
+        response = collector.requests.Response()
+        response.status_code = 200
+        response.url = article_url
+        response._content = article_html.encode("utf-8")
+        response.encoding = "utf-8"
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                return response
+
+        _, _, published = collector.page_metadata(
+            FakeSession(),
+            article_url,
+            "Fallback title",
+            datetime(1970, 1, 1, tzinfo=timezone.utc),
+        )
+        self.assertEqual(
+            published,
+            datetime(2026, 2, 11, tzinfo=timezone.utc),
+        )
 
     def test_config_has_separate_scholarly_kinds(self):
         config = collector.load_config()
