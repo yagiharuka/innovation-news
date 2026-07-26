@@ -49,6 +49,25 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(item["topics"], ["Artificial Intelligence"])
         self.assertEqual(item["topic"], "Artificial Intelligence")
 
+    def test_private_fundraising_is_not_innovation_policy(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title": "Fusion startup raises JPY 6.06 billion",
+            "summary": "The company will accelerate development of its tokamak device.",
+            "topics": ["Fusion Energy"],
+            "topic": "Fusion Energy",
+            "article_frames": ["Innovation Policy"],
+            "article_frame": "Innovation Policy",
+            "innovation_policy": True,
+            "policy_areas": ["R&D Funding & Tax Incentives"],
+            "policy_area": "R&D Funding & Tax Incentives",
+        }
+        collector.normalize_reviewed_policy_axis([item])
+        self.assertFalse(item["innovation_policy"])
+        self.assertEqual(item["policy_areas"], [])
+        self.assertEqual(item["article_frames"], ["Technology Innovation"])
+
     def test_canonicalize_url_removes_tracking(self):
         actual = collector.canonicalize_url(
             "https://www.example.com/story/?utm_source=rss&b=2&a=1#section"
