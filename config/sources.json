@@ -117,11 +117,14 @@
       "region": "Asia",
       "country": "Hong Kong",
       "category": "Technology",
-      "feed_url": "https://www.scmp.com/rss/91/feed",
+      "feed_url": "https://www.scmp.com/rss/36/feed",
       "homepage": "https://www.scmp.com/tech",
+      "include_url_patterns": [
+        "/tech/"
+      ],
       "priority": 4,
       "native_feed": true,
-      "notes": "Major Asia-focused media."
+      "notes": "Major Asia-focused technology media; only /tech/ article URLs are accepted."
     },
     {
       "active": true,
