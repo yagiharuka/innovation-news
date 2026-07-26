@@ -348,6 +348,67 @@ class CollectorTests(unittest.TestCase):
             "OpenAlex research topics: Quantum computing; Qubit",
         )
 
+    def test_openalex_abstract_restores_word_order(self):
+        abstract = collector.openalex_abstract(
+            {
+                "abstract_inverted_index": {
+                    "quantum": [1],
+                    "We": [0],
+                    "control.": [3],
+                    "demonstrate": [2],
+                }
+            }
+        )
+        self.assertEqual(abstract, "We quantum demonstrate control.")
+
+    def test_academic_item_requires_abstract_based_review(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "academic_kind": collector.ACADEMIC_KIND_JOURNAL,
+            "academic_review_version": "",
+            "title_ja": "量子制御の新手法",
+            "summary_ja": "量子制御の新手法を実証した。",
+            "article_frames": ["Technology Innovation"],
+            "topics": ["Quantum"],
+        }
+        self.assertTrue(collector.needs_scope_review(item))
+        self.assertFalse(collector.is_publishable(item))
+        item[
+            "academic_review_version"
+        ] = collector.ACADEMIC_SCOPE_REVIEW_VERSION
+        self.assertFalse(collector.needs_scope_review(item))
+        self.assertTrue(collector.is_publishable(item))
+
+    def test_deduplication_passes_academic_abstract_to_existing_item(self):
+        existing = [
+            {
+                "canonical_id": "old-id",
+                "url": "None",
+                "doi": "None",
+                "title": "A quantum conference paper",
+            }
+        ]
+        candidate = {
+            "canonical_id": "new-id",
+            "canonical_url": "https://openalex.org/W123",
+            "url": "https://openalex.org/W123",
+            "doi": "",
+            "title": "A quantum conference paper",
+            "title_fingerprint": collector.title_fingerprint(
+                "A quantum conference paper"
+            ),
+            "_review_summary": "We demonstrate a new quantum control method.",
+        }
+        added, skipped = collector.deduplicate([candidate], existing)
+        self.assertEqual(added, [])
+        self.assertEqual(skipped, 1)
+        self.assertEqual(
+            existing[0]["_review_summary"],
+            "We demonstrate a new quantum control method.",
+        )
+        self.assertEqual(existing[0]["url"], "https://openalex.org/W123")
+
     def test_public_item_includes_academic_metadata(self):
         public = collector.public_item(
             {
@@ -368,6 +429,16 @@ class CollectorTests(unittest.TestCase):
         fallback = datetime(2026, 7, 26, tzinfo=timezone.utc)
         parsed = collector.parse_gdelt_datetime("20260102T030405Z", fallback)
         self.assertEqual(parsed.isoformat(), "2026-01-02T03:04:05+00:00")
+
+    def test_listing_date_parser_supports_japanese_and_reiwa_dates(self):
+        fallback = datetime(2026, 7, 26, tzinfo=timezone.utc)
+        japanese = collector.parse_listing_date(
+            "統合イノベーション戦略2026（2026年7月14日閣議決定）",
+            fallback,
+        )
+        reiwa = collector.parse_listing_date("R8． 6．12", fallback)
+        self.assertEqual(japanese.isoformat(), "2026-07-13T15:00:00+00:00")
+        self.assertEqual(reiwa.isoformat(), "2026-06-11T15:00:00+00:00")
 
     def test_archive_url_scoring_ignores_domain_name(self):
         self.assertEqual(
@@ -395,6 +466,19 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(
             academic_kinds,
             {"Journal Article", "Conference Paper", "Preprint"},
+        )
+
+    def test_config_includes_primary_policy_benchmark_sources(self):
+        names = {source["name"] for source in collector.load_config()["sources"]}
+        self.assertTrue(
+            {
+                "Japan Cabinet Office STI Strategy",
+                "Japan IP Strategy Headquarters",
+                "JST CRDS STI Policy Reports",
+                "White House OSTP News",
+                "WIPO News",
+                "European Patent Office News",
+            }.issubset(names)
         )
 
 
