@@ -222,8 +222,12 @@ h2 {
 
 .filter-grid {
   display: grid;
-  grid-template-columns: 1.6fr repeat(5, minmax(130px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.85rem;
+}
+
+.search-field {
+  grid-column: span 2;
 }
 
 label span {
@@ -334,6 +338,11 @@ a:focus-visible {
 .tag--policy {
   background: #f5e9cf;
   color: #76520f;
+}
+
+.tag--frame {
+  background: #dce6f3;
+  color: #17375e;
 }
 
 .empty {
