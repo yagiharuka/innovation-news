@@ -1,11 +1,144 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T10:10:55Z",
-  "updated_at_jst": "2026-07-26T19:10:55+09:00",
+  "updated_at": "2026-07-26T10:51:39Z",
+  "updated_at_jst": "2026-07-26T19:51:39+09:00",
   "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
-  "article_count": 102,
+  "article_count": 111,
   "source_count": 34,
   "items": [
+    {
+      "id": "4ca6c9bab41f11f1e490b924",
+      "published_at": "2026-07-26T10:00:16Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "Were the German courts too soft on Chinese members of drug rape network?",
+      "summary": "Minutes after a Berlin court sentenced a Chinese man to five years in prison for aiding and abetting aggravated rape and sexual coercion, two women who had sat through the trial hugged each other and cried. But the case left one of those women, named Kristina, balancing mixed emotions as she struggled to reconcile her desire to see the perpetrators punished and questions about what justice really meant in a case of this nature. The 32-year-old accused, who was studying medicine, was jailed for...",
+      "url": "https://www.scmp.com/news/china/politics/article/3361892/were-german-courts-too-soft-chinese-members-drug-rape-network?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "edcae2eaed3f6ecc6f59640c",
+      "published_at": "2026-07-26T08:00:09Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "Lower profit margins set to foil Chinese carmakers’ price war plans despite falling sales",
+      "summary": "Narrowing profit margins due to higher raw material costs have dealt yet another major blow to China’s carmakers as they face shrinking market demand amid a rollback of purchase subsidies and tax incentives. The dire scenario could also dash Chinese consumers’ hopes for steep discounts, despite carmakers’ efforts to reduce their inventories, according to dealers and analysts. “The crux point is that most carmakers are facing squeezed margins and are unable to offer further price cuts to attract...",
+      "url": "https://www.scmp.com/business/china-business/article/3361876/lower-profit-margins-set-foil-chinese-carmakers-price-war-plans-despite-falling-sales?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "16261ceceb1c08aa85c0ea99",
+      "published_at": "2026-07-26T04:54:09Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "EU & Europe",
+      "country": "Hong Kong",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "European heatwaves drive summer tourists to cooler north",
+      "summary": "European holidaymakers worn down by recurrent heatwaves are currently snubbing Mediterranean destinations for northern climes in hopes of cooler temperatures, but it remains to be seen whether it is just a fad or a durable shift in the tourism market. With temperatures in the European summer regularly climbing up towards 40 degrees Celsius (100 degrees Fahrenheit), cool has become cool. This year, visitors “have been telling me that they have escaped the heat in southern parts of Europe”, said...",
+      "url": "https://www.scmp.com/news/world/europe/article/3361871/european-heatwaves-drive-summer-tourists-cooler-north?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e6f3f1ebac50723e73d10bfe",
+      "published_at": "2026-07-26T03:21:31Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Healthcare"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "Rare medical condition causes Chinese man’s scalp to thicken and fold, resembling human brain",
+      "summary": "A man from central China had long been troubled by a thickening scalp that developed folds resembling the creases of a brain, but he eventually found a plastic surgeon who could address his condition. The 23-year-old man from Hunan province, surnamed Li, recently had his issue resolved at the Zhongnan Hospital of Wuhan University in Hubei. Li first noticed the hardening of his scalp several years ago. As the condition advanced, his scalp thickened and proliferated, creating large areas of uneven...",
+      "url": "https://www.scmp.com/news/people-culture/trending-china/article/3361865/rare-medical-condition-causes-chinese-mans-scalp-thicken-and-fold-resembling-human-brain?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f74daba2783d19d5f5ff6719",
+      "published_at": "2026-07-26T00:00:14Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Innovation Policy"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "Indonesia’s plan for a Singapore rival starts to take shape",
+      "summary": "Indonesia wants to build a financial centre to rival Singapore, Hong Kong or Dubai, but analysts say the real work of persuading global investors has barely begun. Parliament’s passage of the enabling legislation on Tuesday laid the legal foundation for the hub, marking a milestone in President Prabowo Subianto’s push to attract more foreign capital into Southeast Asia’s largest economy and lift growth towards 8 per cent by the end of his term in 2029. Yet observers caution that the centre,...",
+      "url": "https://www.scmp.com/week-asia/economics/article/3361783/indonesias-plan-singapore-rival-starts-take-shape?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9578a29fc000c630648a5b1c",
+      "published_at": "2026-07-25T21:57:06Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Middle East",
+      "country": "Hong Kong",
+      "topics": [
+        "Robotics"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "US pauses nightly Iran strikes, as Houthis clash with Saudis",
+      "summary": "Skirmishes between Houthi rebels and Saudi Arabia intensified, as a pause in the nearly two-week run of nightly US strikes on Iran raised fresh questions about President Donald Trump’s strategy in the war. The Houthis, Islamist militants based in Yemen and backed by Iran, said they fired missiles and drones at facilities linked to oil giant Saudi Aramco in the Red Sea port towns of Jizan and Yanbu. There was no immediate confirmation from the Saudi government or Aramco. Saudi authorities briefly...",
+      "url": "https://www.scmp.com/news/world/middle-east/article/3361857/us-pauses-nightly-iran-strikes-houthis-clash-saudis?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3e13a0000f2936b28208b36d",
+      "published_at": "2026-07-25T21:30:08Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "The West is debating AI’s future with half the world absent",
+      "summary": "On July 13, more than 200 leading economists and AI researchers, including 16 Nobel laureates, signed an open letter organised by the Stanford Digital Economy Lab. Its warning was stark: artificial intelligence may drive an economic transformation “larger than the Industrial Revolution” compressed into a fraction of the time, and that we “must act now” to build the institutions to steer it. We agree with every word. Then we scanned the signatory list. Four in five signatories come from the...",
+      "url": "https://www.scmp.com/opinion/world-opinion/article/3361362/west-debating-ais-future-half-world-absent?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
     {
       "id": "fbf0c9b2010e9cdb4ff4a650",
       "published_at": "2026-07-25T20:00:53Z",
@@ -65,6 +198,25 @@
       "status": "New"
     },
     {
+      "id": "4e5989e812e0089b587f2c6b",
+      "published_at": "2026-07-25T13:00:08Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "What is a supernode, and why does it matter for the China-US tech rivalry?",
+      "summary": "As the size of artificial intelligence models expands beyond 1 trillion parameters, a new concept is dominating the computing landscape: “supernode”. At this year’s World Artificial Intelligence Conference (WAIC), China’s top AI summit, domestic chipmakers from Huawei Technologies to Biren Technology showcased new hardware designed to knit hundreds or thousands of chips together to act as one giant supercomputer, which they called a supernode. The focus on supernodes at WAIC reflected a shift in...",
+      "url": "https://www.scmp.com/tech/article/3361562/what-supernode-and-why-does-it-matter-china-us-tech-rivalry?utm_source=rss_feed",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
       "id": "ae772fcc12d71afd038c86c2",
       "published_at": "2026-07-25T11:12:11Z",
       "collected_at_jst": "2026-07-26T19:10:55+09:00",
@@ -76,7 +228,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "The National Technology",
-      "organization": "The National",
+      "organization": "The National Technology",
       "title": "Risky bet: The winners and losers from the OpenAI-Hugging Face hacking mess",
       "summary": "When OpenAI revealed this week that one of its AI models went rogue during a security test and autonomously hacked the start-up Hugging Face, it came as a shock. Questions were raised quickly, but there was no immediate clarity. Hugging Face co-founder and chief executive Clem Delangue said the incident was \"possibly the first of its kind\". As with any serious tech incident, there are those who stand to gain and other who stand to lose. And the circumstances can be as complex as the hacking is. Losers: OpenAI and Hugging Face Let's start with the obvious matter. It was a PR nightmare for ChatGPT maker OpenAI, as well as Hugging Face, as they bore the brunt of the mess, albeit for different…",
       "url": "https://www.thenationalnews.com/future/technology/2026/07/25/risky-bet-the-winners-and-losers-from-the-openai-hugging-face-hacking-mess/",
@@ -133,7 +285,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "The National Technology",
-      "organization": "The National",
+      "organization": "The National Technology",
       "title": "Nvidia, Microsoft and IBM among companies endorsing open-weight AI models",
       "summary": "Nvidia chief executive Jensen Huang joined X on Friday and used his first post to champion AI models that can be downloaded and adapted, arguing they are vital to preserving America’s lead in artificial intelligence. Mr Huang attached a letter signed by 25 major companies, including Microsoft, Palantir , Perplexity, CrowdStrike and IBM that endorsed open-source software development and “open-weight” AI models. Some US officials have raised concerns that AI models could pose national security risks, while companies such as OpenAI and Anthropic still largely oppose open architecture for proprietary reasons. “Open source did more than lower the cost of software; it created a shared foundation…",
       "url": "https://www.thenationalnews.com/future/technology/2026/07/24/open-weight-models-ai-nvidia/",
@@ -198,6 +350,25 @@
       "status": "New"
     },
     {
+      "id": "ac01b28f85e133214755b7cc",
+      "published_at": "2026-07-24T13:00:14Z",
+      "collected_at_jst": "2026-07-26T19:51:39+09:00",
+      "region": "Global",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "Guardian News & Media",
+      "title": "Be skeptical of OpenAI’s rogue hacker agent story | John Thickstun",
+      "summary": "If OpenAI loudly proclaims how dangerous AI is, investors will hear how powerful it is. And who benefits from that? On 14 February 2019, OpenAI announced a language model called GPT-2, the precursor to the models that power modern AI chatbots and agents such as ChatGPT and Claude. But OpenAI declared GPT-2 was too risky to release, citing concerns about safety and abuse. I recall being annoyed at the time that OpenAI would make such a useless announcement: the risks seemed overblown, and without access to the model there wasn’t much for a researcher like me to learn about GPT-2. Continue reading...",
+      "url": "https://www.theguardian.com/technology/2026/jul/24/openai-rogue-hacker",
+      "first_seen": "2026-07-26T19:51:39+09:00",
+      "status": "New"
+    },
+    {
       "id": "d7259db0d54f48b0f5039bb8",
       "published_at": "2026-07-24T12:00:14Z",
       "collected_at_jst": "2026-07-26T18:56:03+09:00",
@@ -228,7 +399,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "The National Technology",
-      "organization": "The National",
+      "organization": "The National Technology",
       "title": "Zoom launches live voice translation, with Arabic coming in late 2026",
       "summary": "Zoom Technologies has launched a new live voice translation service, with Arabic support coming in the fourth quarter of this year. Five languages – English, Chinese, French, Japanese and Spanish – will initially be available, the California-based company said. A Zoom representative confirmed to The National that Arabic will be available in the fourth quarter, alongside German, Italian and Portuguese. Zoom launched a version of the service in April, after promoting it at its Zoomtopia conference last September. Using the live voice translation feature requires a Pro, Business, or Enterprise account, the artificial intelligence plug-in ZoomMate, or a stand-alone add-on. Zoom has posted instr…",
       "url": "https://www.thenationalnews.com/future/technology/2026/07/24/zoom-launches-live-voice-translation-with-arabic-coming-in-late-2026/",

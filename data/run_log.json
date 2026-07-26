@@ -33,6 +33,17 @@
       "feed_errors": 9,
       "duration_seconds": 194.65,
       "note": "Daily update"
+    },
+    {
+      "run_at": "2026-07-26T10:51:39Z",
+      "run_at_jst": "2026-07-26T19:51:39+09:00",
+      "feeds_checked": 34,
+      "feeds_succeeded": 24,
+      "new_items": 9,
+      "duplicates_skipped": 49,
+      "feed_errors": 10,
+      "duration_seconds": 11.55,
+      "note": "Daily update"
     }
   ]
 }
