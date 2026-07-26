@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T13:54:37Z",
+  "updated_at": "2026-07-26T21:32:05Z",
   "summary": {
-    "checked": 55,
-    "succeeded": 45,
-    "failed": 10,
-    "entries_seen": 3969,
-    "entries_kept": 141
+    "checked": 89,
+    "succeeded": 76,
+    "failed": 13,
+    "entries_seen": 34106,
+    "entries_kept": 192
   },
   "sources": [
     {
@@ -18,9 +18,9 @@
       "feed_url": "https://www.bloomberg.com/feeds/technology/news.rss",
       "status": "ok",
       "detail": "",
-      "entries_seen": 2,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.9
+      "entries_seen": 3,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.5
     },
     {
       "name": "BBC Science & Environment",
@@ -33,7 +33,7 @@
       "detail": "",
       "entries_seen": 42,
       "entries_kept": 0,
-      "elapsed_seconds": 0.29
+      "elapsed_seconds": 1.1
     },
     {
       "name": "BBC Technology",
@@ -46,7 +46,7 @@
       "detail": "",
       "entries_seen": 21,
       "entries_kept": 4,
-      "elapsed_seconds": 0.13
+      "elapsed_seconds": 1.16
     },
     {
       "name": "The New York Times Technology",
@@ -59,7 +59,7 @@
       "detail": "",
       "entries_seen": 24,
       "entries_kept": 8,
-      "elapsed_seconds": 0.23
+      "elapsed_seconds": 0.89
     },
     {
       "name": "The New York Times Science",
@@ -70,9 +70,9 @@
       "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml",
       "status": "ok",
       "detail": "",
-      "entries_seen": 29,
-      "entries_kept": 6,
-      "elapsed_seconds": 0.05
+      "entries_seen": 30,
+      "entries_kept": 5,
+      "elapsed_seconds": 0.89
     },
     {
       "name": "NISTEP Updates",
@@ -85,7 +85,7 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 0,
-      "elapsed_seconds": 1.95
+      "elapsed_seconds": 2.22
     },
     {
       "name": "The Guardian Technology",
@@ -98,7 +98,7 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.24
+      "elapsed_seconds": 0.54
     },
     {
       "name": "MIT Technology Review",
@@ -111,7 +111,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 4,
-      "elapsed_seconds": 0.15
+      "elapsed_seconds": 0.57
     },
     {
       "name": "IEEE Spectrum",
@@ -123,8 +123,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 30,
-      "entries_kept": 2,
-      "elapsed_seconds": 1.13
+      "entries_kept": 1,
+      "elapsed_seconds": 1.16
     },
     {
       "name": "Nature",
@@ -137,20 +137,20 @@
       "detail": "",
       "entries_seen": 75,
       "entries_kept": 5,
-      "elapsed_seconds": 0.2
+      "elapsed_seconds": 0.29
     },
     {
       "name": "Science",
       "organization": "AAAS",
       "source_type": "Scientific Publication",
       "region": "Global",
-      "homepage": "https://www.science.org/",
-      "feed_url": "https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
+      "homepage": "https://www.science.org/news/latest-news",
+      "feed_url": "https://www.science.org/news/latest-news",
       "status": "error",
-      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/news/latest-news; sitemap: https://www.science.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/sitemap_index.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.44
+      "elapsed_seconds": 1.55
     },
     {
       "name": "South China Morning Post Technology",
@@ -163,7 +163,7 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 0.7
+      "elapsed_seconds": 1.17
     },
     {
       "name": "Arab News Technology",
@@ -171,12 +171,12 @@
       "source_type": "Major Media",
       "region": "Middle East",
       "homepage": "https://www.arabnews.com/tags/technology",
-      "feed_url": "https://www.arabnews.com/taxonomy/term/2936/feed",
+      "feed_url": "https://www.arabnews.com/tags/technology",
       "status": "error",
-      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/taxonomy/term/2936/feed",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/tags/technology; sitemap: https://www.arabnews.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.08
+      "elapsed_seconds": 0.37
     },
     {
       "name": "The National Technology",
@@ -189,7 +189,7 @@
       "detail": "",
       "entries_seen": 2,
       "entries_kept": 2,
-      "elapsed_seconds": 0.88
+      "elapsed_seconds": 1.17
     },
     {
       "name": "Brookings TechTank",
@@ -202,7 +202,7 @@
       "detail": "",
       "entries_seen": 4,
       "entries_kept": 1,
-      "elapsed_seconds": 1.5
+      "elapsed_seconds": 0.37
     },
     {
       "name": "CSIS Analysis",
@@ -215,7 +215,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.31
+      "elapsed_seconds": 0.2
     },
     {
       "name": "CSET",
@@ -227,34 +227,34 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.41
+      "entries_kept": 0,
+      "elapsed_seconds": 0.62
     },
     {
       "name": "Bruegel",
       "organization": "Bruegel",
       "source_type": "Policy Institute",
       "region": "EU & Europe",
-      "homepage": "https://www.bruegel.org/",
-      "feed_url": "https://www.bruegel.org/rss.xml",
+      "homepage": "https://www.bruegel.org/analysis",
+      "feed_url": "https://www.bruegel.org/analysis",
       "status": "error",
-      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/rss.xml",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/analysis; sitemap: https://www.bruegel.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.22
+      "elapsed_seconds": 0.54
     },
     {
       "name": "MERICS",
       "organization": "Mercator Institute for China Studies",
       "source_type": "Policy Institute",
       "region": "Asia",
-      "homepage": "https://merics.org/en",
-      "feed_url": "https://merics.org/en/rss.xml",
-      "status": "error",
-      "detail": "HTTPError: 404 Client Error: Not Found for url: https://merics.org/en/rss.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.92
+      "homepage": "https://merics.org/en/research",
+      "feed_url": "https://merics.org/en/research",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 98,
+      "entries_kept": 3,
+      "elapsed_seconds": 2.04
     },
     {
       "name": "National Science Foundation News",
@@ -267,7 +267,7 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 0,
-      "elapsed_seconds": 0.19
+      "elapsed_seconds": 0.17
     },
     {
       "name": "NIST News",
@@ -280,7 +280,7 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 0,
-      "elapsed_seconds": 0.12
+      "elapsed_seconds": 0.14
     },
     {
       "name": "NIH News Releases",
@@ -288,12 +288,12 @@
       "source_type": "Government",
       "region": "United States",
       "homepage": "https://www.nih.gov/news-events/news-releases",
-      "feed_url": "https://www.nih.gov/news-events/news-releases/rss.xml",
-      "status": "error",
-      "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.nih.gov/news-events/news-releases/rss.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.18
+      "feed_url": "https://www.nih.gov/news-events/news-releases",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 114,
+      "entries_kept": 3,
+      "elapsed_seconds": 0.62
     },
     {
       "name": "DOE Office of Science News",
@@ -305,21 +305,21 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.14
+      "entries_kept": 0,
+      "elapsed_seconds": 0.19
     },
     {
-      "name": "European Commission Press Corner",
-      "organization": "European Commission",
+      "name": "European Commission Research & Innovation",
+      "organization": "European Commission Directorate-General for Research and Innovation",
       "source_type": "Government",
       "region": "EU & Europe",
-      "homepage": "https://ec.europa.eu/commission/presscorner/home/en",
-      "feed_url": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
-      "status": "error",
-      "detail": "HTTPError: 400 Client Error: Bad Request for url: https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
-      "entries_seen": 0,
+      "homepage": "https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news_en",
+      "feed_url": "https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news_en",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 60,
       "entries_kept": 0,
-      "elapsed_seconds": 0.43
+      "elapsed_seconds": 4.24
     },
     {
       "name": "UK DSIT",
@@ -331,8 +331,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 3,
-      "elapsed_seconds": 0.76
+      "entries_kept": 1,
+      "elapsed_seconds": 1.14
     },
     {
       "name": "METI Press Releases",
@@ -340,12 +340,12 @@
       "source_type": "Government",
       "region": "Asia",
       "homepage": "https://www.meti.go.jp/english/press/index.html",
-      "feed_url": "https://www.meti.go.jp/english/press/index.rdf",
+      "feed_url": "https://www.meti.go.jp/english/press/index.html",
       "status": "error",
-      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/english/press/index.rdf",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/english/press/index.html; sitemap: https://www.meti.go.jp/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.15
+      "elapsed_seconds": 0.3
     },
     {
       "name": "WHO News",
@@ -358,7 +358,7 @@
       "detail": "",
       "entries_seen": 25,
       "entries_kept": 1,
-      "elapsed_seconds": 0.8
+      "elapsed_seconds": 0.46
     },
     {
       "name": "IEA News",
@@ -366,25 +366,25 @@
       "source_type": "Intergovernmental",
       "region": "Global",
       "homepage": "https://www.iea.org/news",
-      "feed_url": "https://www.iea.org/rss/news.xml",
+      "feed_url": "https://www.iea.org/news",
       "status": "error",
-      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/rss/news.xml",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/news; sitemap: https://www.iea.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.25
+      "elapsed_seconds": 0.47
     },
     {
       "name": "OECD Newsroom",
       "organization": "OECD",
       "source_type": "Intergovernmental",
       "region": "Global",
-      "homepage": "https://www.oecd.org/newsroom/",
-      "feed_url": "https://www.oecd.org/newsroom/rss.xml",
+      "homepage": "https://www.oecd.org/en/about/newsroom.html",
+      "feed_url": "https://www.oecd.org/en/about/newsroom.html",
       "status": "error",
-      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/rss.xml",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/en/about/newsroom.html; sitemap: https://www.oecd.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.21
+      "elapsed_seconds": 0.39
     },
     {
       "name": "OpenAI News",
@@ -397,7 +397,7 @@
       "detail": "",
       "entries_seen": 1050,
       "entries_kept": 1,
-      "elapsed_seconds": 0.38
+      "elapsed_seconds": 1.24
     },
     {
       "name": "Google AI",
@@ -410,7 +410,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 0.23
+      "elapsed_seconds": 0.28
     },
     {
       "name": "NVIDIA Blog",
@@ -423,7 +423,7 @@
       "detail": "",
       "entries_seen": 18,
       "entries_kept": 3,
-      "elapsed_seconds": 1.13
+      "elapsed_seconds": 1.04
     },
     {
       "name": "Intel Newsroom",
@@ -436,7 +436,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 2,
-      "elapsed_seconds": 0.35
+      "elapsed_seconds": 0.86
     },
     {
       "name": "IBM Research",
@@ -444,12 +444,12 @@
       "source_type": "Official Company",
       "region": "Global",
       "homepage": "https://research.ibm.com/blog",
-      "feed_url": "https://research.ibm.com/blog/rss.xml",
-      "status": "error",
-      "detail": "HTTPError: 404 Client Error: Not Found for url: https://research.ibm.com/blog/rss.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.4
+      "feed_url": "https://research.ibm.com/blog",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 49,
+      "entries_kept": 3,
+      "elapsed_seconds": 6.01
     },
     {
       "name": "Microsoft Research",
@@ -462,7 +462,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.78
+      "elapsed_seconds": 0.73
     },
     {
       "name": "Samsung Global Newsroom",
@@ -475,7 +475,449 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 0.62
+      "elapsed_seconds": 102.12
+    },
+    {
+      "name": "Anthropic News",
+      "organization": "Anthropic",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.anthropic.com/news",
+      "feed_url": "https://www.anthropic.com/news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 113,
+      "entries_kept": 8,
+      "elapsed_seconds": 2.45
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "organization": "Google DeepMind",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://deepmind.google/discover/blog/",
+      "feed_url": "https://deepmind.google/discover/blog/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 893,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.41
+    },
+    {
+      "name": "Meta AI Blog",
+      "organization": "Meta",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://ai.meta.com/blog/",
+      "feed_url": "https://ai.meta.com/blog/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 79,
+      "entries_kept": 0,
+      "elapsed_seconds": 4.71
+    },
+    {
+      "name": "Amazon Science",
+      "organization": "Amazon",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.amazon.science/latest-news",
+      "feed_url": "https://www.amazon.science/latest-news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 275,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.52
+    },
+    {
+      "name": "Mistral AI News",
+      "organization": "Mistral AI",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://mistral.ai/",
+      "feed_url": "https://mistral.ai/news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 216,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.77
+    },
+    {
+      "name": "Boston Dynamics Blog",
+      "organization": "Boston Dynamics",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://bostondynamics.com/blog/",
+      "feed_url": "https://bostondynamics.com/blog/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 206,
+      "entries_kept": 0,
+      "elapsed_seconds": 6.97
+    },
+    {
+      "name": "Toyota Research Institute News",
+      "organization": "Toyota Research Institute",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.tri.global/news",
+      "feed_url": "https://www.tri.global/news",
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.tri.global/news; sitemap: https://www.tri.global/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.tri.global/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.23
+    },
+    {
+      "name": "ABB Robotics News",
+      "organization": "ABB Robotics",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://new.abb.com/products/robotics",
+      "feed_url": "https://new.abb.com/news",
+      "status": "error",
+      "detail": "listing: ReadTimeout: HTTPSConnectionPool(host='new.abb.com', port=443): Read timed out. (read timeout=15); sitemap: https://new.abb.com/sitemap.xml: ReadTimeout: HTTPSConnectionPool(host='new.abb.com', port=443): Read timed out. (read timeout=20)",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 96.35
+    },
+    {
+      "name": "FANUC America Press Releases",
+      "organization": "FANUC",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.fanuc.co.jp/eindex.html",
+      "feed_url": "https://www.fanucamerica.com/press-releases",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 226,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.83
+    },
+    {
+      "name": "TSMC News",
+      "organization": "TSMC",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://pr.tsmc.com/english",
+      "feed_url": "https://pr.tsmc.com/english/latest-news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 314,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.51
+    },
+    {
+      "name": "ASML News",
+      "organization": "ASML",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.asml.com/en/news/press-releases",
+      "feed_url": "https://www.asml.com/en/news/press-releases",
+      "status": "ok",
+      "detail": "official sitemap fallback: 4",
+      "entries_seen": 2006,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.93
+    },
+    {
+      "name": "SK hynix Newsroom",
+      "organization": "SK hynix",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://news.skhynix.com/",
+      "feed_url": "https://news.skhynix.com/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 208,
+      "entries_kept": 5,
+      "elapsed_seconds": 3.37
+    },
+    {
+      "name": "Arm Newsroom",
+      "organization": "Arm",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://newsroom.arm.com/",
+      "feed_url": "https://newsroom.arm.com/news",
+      "status": "ok",
+      "detail": "official sitemap fallback: 8",
+      "entries_seen": 1076,
+      "entries_kept": 0,
+      "elapsed_seconds": 7.19
+    },
+    {
+      "name": "Qualcomm News",
+      "organization": "Qualcomm",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.qualcomm.com/news/releases",
+      "feed_url": "https://www.qualcomm.com/news/releases",
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 10515,
+      "entries_kept": 0,
+      "elapsed_seconds": 4.78
+    },
+    {
+      "name": "Ericsson Press Releases",
+      "organization": "Ericsson",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.ericsson.com/en/newsroom",
+      "feed_url": "https://www.ericsson.com/en/newsroom",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 283,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.35
+    },
+    {
+      "name": "Nokia Newsroom",
+      "organization": "Nokia",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.nokia.com/about-us/newsroom/",
+      "feed_url": "https://www.nokia.com/about-us/newsroom/",
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.nokia.com/about-us/newsroom/; sitemap: https://www.nokia.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.nokia.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.46
+    },
+    {
+      "name": "NTT R&D News",
+      "organization": "NTT",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://group.ntt/en/newsrelease/",
+      "feed_url": "https://group.ntt/en/newsrelease/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 438,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.13
+    },
+    {
+      "name": "Rapidus News",
+      "organization": "Rapidus",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.rapidus.inc/en/news_topics/",
+      "feed_url": "https://www.rapidus.inc/en/news_topics/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 5",
+      "entries_seen": 207,
+      "entries_kept": 0,
+      "elapsed_seconds": 5.1
+    },
+    {
+      "name": "Quantinuum News",
+      "organization": "Quantinuum",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.quantinuum.com/news/news",
+      "feed_url": "https://www.quantinuum.com/news/news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 112,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.56
+    },
+    {
+      "name": "IonQ News",
+      "organization": "IonQ",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.ionq.com/news",
+      "feed_url": "https://www.ionq.com/news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 80,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.41
+    },
+    {
+      "name": "Commonwealth Fusion Systems News",
+      "organization": "Commonwealth Fusion Systems",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://cfs.energy/news-and-media/",
+      "feed_url": "https://cfs.energy/news-and-media/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 58,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.14
+    },
+    {
+      "name": "Helion Energy News",
+      "organization": "Helion Energy",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.helionenergy.com/blog",
+      "feed_url": "https://www.helionenergy.com/blog",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 73,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.21
+    },
+    {
+      "name": "Tokamak Energy News",
+      "organization": "Tokamak Energy",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://tokamakenergy.com/latest-news/",
+      "feed_url": "https://tokamakenergy.com/latest-news/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 4",
+      "entries_seen": 407,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.6
+    },
+    {
+      "name": "Kyoto Fusioneering News",
+      "organization": "Kyoto Fusioneering",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://kyotofusioneering.com/en/news/",
+      "feed_url": "https://kyotofusioneering.com/en/news/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 8",
+      "entries_seen": 729,
+      "entries_kept": 0,
+      "elapsed_seconds": 3.75
+    },
+    {
+      "name": "Moderna Media Center",
+      "organization": "Moderna",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.modernatx.com/media-center/all-media",
+      "feed_url": "https://www.modernatx.com/media-center/all-media",
+      "status": "ok",
+      "detail": "listing: HTTPError: 404 Client Error: Not Found for url: https://www.modernatx.com/media-center/all-media; official sitemap fallback: 2",
+      "entries_seen": 49,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.0
+    },
+    {
+      "name": "BioNTech Press Releases",
+      "organization": "BioNTech",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.biontech.com/int/en/home/mediaroom/news.html",
+      "feed_url": "https://www.biontech.com/int/en/home/mediaroom/news.html",
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 1905,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.58
+    },
+    {
+      "name": "Roche Media Releases",
+      "organization": "Roche",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.roche.com/media/releases",
+      "feed_url": "https://www.roche.com/media/releases",
+      "status": "ok",
+      "detail": "official sitemap fallback: 2",
+      "entries_seen": 2185,
+      "entries_kept": 3,
+      "elapsed_seconds": 14.29
+    },
+    {
+      "name": "AstraZeneca Press Releases",
+      "organization": "AstraZeneca",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.astrazeneca.com/media-centre/press-releases.html",
+      "feed_url": "https://www.astrazeneca.com/media-centre/press-releases.html",
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.astrazeneca.com/media-centre/press-releases.html; sitemap: https://www.astrazeneca.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.astrazeneca.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.27
+    },
+    {
+      "name": "Illumina News Center",
+      "organization": "Illumina",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.illumina.com/company/news-center.html",
+      "feed_url": "https://www.illumina.com/company/news-center.html",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 543,
+      "entries_kept": 0,
+      "elapsed_seconds": 4.31
+    },
+    {
+      "name": "SpaceX Updates",
+      "organization": "SpaceX",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.spacex.com/updates",
+      "feed_url": "https://www.spacex.com/updates",
+      "status": "error",
+      "detail": "sitemap: https://www.spacex.com/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.spacex.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.95
+    },
+    {
+      "name": "Blue Origin News",
+      "organization": "Blue Origin",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.blueorigin.com/news",
+      "feed_url": "https://www.blueorigin.com/news",
+      "status": "error",
+      "detail": "listing: HTTPError: 429 Client Error: Too Many Requests for url: https://www.blueorigin.com/news; sitemap: https://www.blueorigin.com/sitemap.xml: HTTPError: 429 Client Error: Too Many Requests for url: https://www.blueorigin.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.33
+    },
+    {
+      "name": "Rocket Lab Updates",
+      "organization": "Rocket Lab",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://rocketlabcorp.com/updates/",
+      "feed_url": "https://rocketlabcorp.com/updates/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 3",
+      "entries_seen": 1134,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.51
+    },
+    {
+      "name": "Astroscale News",
+      "organization": "Astroscale",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.astroscale.com/en/news/",
+      "feed_url": "https://www.astroscale.com/en/news/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 2",
+      "entries_seen": 3609,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.52
+    },
+    {
+      "name": "ispace News",
+      "organization": "ispace",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.ispace-inc.com/news/",
+      "feed_url": "https://www.ispace-inc.com/news/",
+      "status": "ok",
+      "detail": "official sitemap fallback: 3",
+      "entries_seen": 1009,
+      "entries_kept": 1,
+      "elapsed_seconds": 7.11
     },
     {
       "name": "ITER News",
@@ -488,7 +930,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 1.03
+      "elapsed_seconds": 0.93
     },
     {
       "name": "Fusion Industry Association",
@@ -501,7 +943,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 1.07
+      "elapsed_seconds": 1.12
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -514,7 +956,7 @@
       "detail": "",
       "entries_seen": 18,
       "entries_kept": 1,
-      "elapsed_seconds": 1.88
+      "elapsed_seconds": 2.27
     },
     {
       "name": "Japan IP Strategy Headquarters",
@@ -540,7 +982,7 @@
       "detail": "",
       "entries_seen": 505,
       "entries_kept": 8,
-      "elapsed_seconds": 1.83
+      "elapsed_seconds": 1.48
     },
     {
       "name": "White House OSTP News",
@@ -553,7 +995,7 @@
       "detail": "",
       "entries_seen": 182,
       "entries_kept": 8,
-      "elapsed_seconds": 0.16
+      "elapsed_seconds": 0.24
     },
     {
       "name": "WIPO News",
@@ -566,7 +1008,7 @@
       "detail": "",
       "entries_seen": 157,
       "entries_kept": 8,
-      "elapsed_seconds": 1.36
+      "elapsed_seconds": 0.88
     },
     {
       "name": "European Patent Office News",
@@ -579,111 +1021,111 @@
       "detail": "",
       "entries_seen": 959,
       "entries_kept": 8,
-      "elapsed_seconds": 1.24
+      "elapsed_seconds": 3.74
     },
     {
-      "name": "NSF Policy Benchmarks",
-      "organization": "U.S. National Science Foundation",
+      "name": "U.S. Treasury R&D Tax Policy",
+      "organization": "U.S. Department of the Treasury",
       "source_type": "Government",
       "region": "United States",
-      "homepage": "https://www.nsf.gov/news",
-      "feed_url": "https://www.nsf.gov/news",
+      "homepage": "https://home.treasury.gov/news/press-releases",
+      "feed_url": "https://home.treasury.gov/news/press-releases",
       "status": "ok",
       "detail": "",
-      "entries_seen": 2,
-      "entries_kept": 2,
-      "elapsed_seconds": 0.0
+      "entries_seen": 348,
+      "entries_kept": 8,
+      "elapsed_seconds": 123.43
     },
     {
-      "name": "White House Science Policy Benchmarks",
-      "organization": "The White House",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.whitehouse.gov/ostp/",
-      "feed_url": "https://www.whitehouse.gov/ostp/news/",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 1,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.0
-    },
-    {
-      "name": "United States R&D Tax Policy Benchmarks",
-      "organization": "Internal Revenue Service",
-      "source_type": "Government",
-      "region": "United States",
-      "homepage": "https://www.irs.gov/",
-      "feed_url": "https://www.irs.gov/irb/2025-38_IRB",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 1,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.0
-    },
-    {
-      "name": "United Kingdom Innovation Policy Benchmarks",
-      "organization": "UK Department for Science, Innovation and Technology",
-      "source_type": "Government",
-      "region": "EU & Europe",
-      "homepage": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
-      "feed_url": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 2,
-      "entries_kept": 2,
-      "elapsed_seconds": 0.0
-    },
-    {
-      "name": "China Innovation Policy Benchmarks",
+      "name": "China State Council Innovation Policies",
       "organization": "State Council of the People's Republic of China",
       "source_type": "Government",
       "region": "Asia",
-      "homepage": "https://english.www.gov.cn/",
+      "homepage": "https://english.www.gov.cn/policies/",
       "feed_url": "https://english.www.gov.cn/policies/",
       "status": "ok",
       "detail": "",
-      "entries_seen": 2,
-      "entries_kept": 2,
-      "elapsed_seconds": 0.0
+      "entries_seen": 60,
+      "entries_kept": 8,
+      "elapsed_seconds": 4.99
     },
     {
-      "name": "Korea Innovation Policy Benchmarks",
-      "organization": "Ministry of Science and ICT, Republic of Korea",
+      "name": "Korea MSIT Press Releases",
+      "organization": "Ministry of Science and ICT",
       "source_type": "Government",
       "region": "Asia",
       "homepage": "https://www.msit.go.kr/eng/",
-      "feed_url": "https://www.msit.go.kr/eng/bbs/list.do?bbsSeqNo=42&mId=4",
+      "feed_url": "https://www.msit.go.kr/eng/bbs/list.do?mId=4&mPid=2&sCode=eng",
       "status": "ok",
-      "detail": "",
-      "entries_seen": 1,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.0
+      "detail": "official scripted listing",
+      "entries_seen": 10,
+      "entries_kept": 8,
+      "elapsed_seconds": 8.97
     },
     {
-      "name": "European Innovation Council Policy Benchmarks",
+      "name": "European Innovation Council News",
       "organization": "European Innovation Council",
       "source_type": "Government",
       "region": "EU & Europe",
-      "homepage": "https://eic.ec.europa.eu/",
-      "feed_url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-2026-work-programme_en",
+      "homepage": "https://eic.ec.europa.eu/news_en",
+      "feed_url": "https://eic.ec.europa.eu/news_en",
       "status": "ok",
       "detail": "",
-      "entries_seen": 1,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.0
+      "entries_seen": 86,
+      "entries_kept": 8,
+      "elapsed_seconds": 4.05
     },
     {
-      "name": "WIPO Policy Benchmarks",
-      "organization": "World Intellectual Property Organization",
-      "source_type": "Intergovernmental",
-      "region": "Global",
-      "homepage": "https://www.wipo.int/en/web/world-ip-report",
-      "feed_url": "https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/index.html",
+      "name": "UAE Advanced Technology Research Council",
+      "organization": "Advanced Technology Research Council",
+      "source_type": "Government",
+      "region": "Middle East",
+      "homepage": "https://www.atrc.gov.ae/news",
+      "feed_url": "https://www.atrc.gov.ae/news",
+      "status": "error",
+      "detail": "listing: SSLError: HTTPSConnectionPool(host='www.atrc.gov.ae', port=443): Max retries exceeded with url: /news (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to; sitemap: https://www.atrc.gov.ae/sitemap.xml: SSLError: HTTPSConnectionPool(host='www.atrc.gov.ae', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 4.04
+    },
+    {
+      "name": "Saudi Research, Development and Innovation Authority",
+      "organization": "Research, Development and Innovation Authority",
+      "source_type": "Government",
+      "region": "Middle East",
+      "homepage": "https://www.rdia.gov.sa/en/",
+      "feed_url": "https://www.rdia.gov.sa/en/media-center/news/",
       "status": "ok",
       "detail": "",
-      "entries_seen": 1,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.0
+      "entries_seen": 64,
+      "entries_kept": 4,
+      "elapsed_seconds": 5.05
+    },
+    {
+      "name": "Israel Innovation Authority",
+      "organization": "Israel Innovation Authority",
+      "source_type": "Government",
+      "region": "Middle East",
+      "homepage": "https://innovationisrael.org.il/en/press_release/",
+      "feed_url": "https://innovationisrael.org.il/en/press_release/",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 85,
+      "entries_kept": 0,
+      "elapsed_seconds": 45.46
+    },
+    {
+      "name": "UAE Ministry of Industry and Advanced Technology",
+      "organization": "Ministry of Industry and Advanced Technology",
+      "source_type": "Government",
+      "region": "Middle East",
+      "homepage": "https://moiat.gov.ae/en/media-center/news",
+      "feed_url": "https://moiat.gov.ae/en/media-center/news",
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 210,
+      "entries_kept": 6,
+      "elapsed_seconds": 17.79
     },
     {
       "name": "OpenAlex Journal Articles",
@@ -694,9 +1136,9 @@
       "feed_url": "https://api.openalex.org/works",
       "status": "ok",
       "detail": "",
-      "entries_seen": 54,
+      "entries_seen": 58,
       "entries_kept": 14,
-      "elapsed_seconds": 2.62
+      "elapsed_seconds": 2.15
     },
     {
       "name": "OpenAlex Conference Papers",
@@ -709,7 +1151,7 @@
       "detail": "",
       "entries_seen": 11,
       "entries_kept": 1,
-      "elapsed_seconds": 1.35
+      "elapsed_seconds": 1.43
     },
     {
       "name": "OpenAlex Preprints",
@@ -720,9 +1162,9 @@
       "feed_url": "https://api.openalex.org/works",
       "status": "ok",
       "detail": "",
-      "entries_seen": 33,
+      "entries_seen": 43,
       "entries_kept": 6,
-      "elapsed_seconds": 1.79
+      "elapsed_seconds": 1.5
     }
   ]
 }
