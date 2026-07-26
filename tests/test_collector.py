@@ -20,6 +20,20 @@ class CollectorTests(unittest.TestCase):
         self.assertNotIn("Innovation Policy", collector.TOPIC_KEYWORDS)
         self.assertIn("Patents & Intellectual Property", collector.POLICY_AREA_KEYWORDS)
 
+    def test_only_current_reviewed_nonexcluded_items_are_publishable(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title_ja": "量子技術の新成果",
+            "summary_ja": "新しい量子制御手法を実証した。",
+        }
+        self.assertTrue(collector.is_publishable(item))
+        item["status"] = "Excluded"
+        self.assertFalse(collector.is_publishable(item))
+        self.assertFalse(collector.needs_scope_review(item))
+        item["scope_review_version"] = "older-review"
+        self.assertTrue(collector.needs_scope_review(item))
+
     def test_canonicalize_url_removes_tracking(self):
         actual = collector.canonicalize_url(
             "https://www.example.com/story/?utm_source=rss&b=2&a=1#section"
