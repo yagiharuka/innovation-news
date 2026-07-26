@@ -45,7 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
           JAPANESE_SUMMARY_BACKFILL_LIMIT: "120"
-          JAPANESE_SUMMARY_BATCH_SIZE: "10"
+          JAPANESE_SUMMARY_BATCH_SIZE: "6"
 
       - name: Commit refreshed data
         run: |
