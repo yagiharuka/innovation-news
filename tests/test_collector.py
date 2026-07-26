@@ -94,6 +94,10 @@ class CollectorTests(unittest.TestCase):
                 "items": [
                     {
                         "id": "article-1",
+                        "in_scope": True,
+                        "topics": ["Quantum", "Innovation Policy"],
+                        "policy_relevance": 5,
+                        "reason": "量子研究開発政策を直接扱う。",
                         "title_ja": "量子技術の新計画",
                         "summary_ja": "政府が研究開発支援を拡充する。",
                     },
@@ -109,6 +113,57 @@ class CollectorTests(unittest.TestCase):
         parsed = collector.parse_japanese_summary_response(raw, {"article-1"})
         self.assertEqual(set(parsed), {"article-1"})
         self.assertEqual(parsed["article-1"]["title_ja"], "量子技術の新計画")
+        self.assertTrue(parsed["article-1"]["in_scope"])
+        self.assertEqual(parsed["article-1"]["topics"], ["Quantum", "Innovation Policy"])
+        self.assertEqual(parsed["article-1"]["policy_relevance"], 5)
+
+    def test_parse_scope_review_excludes_general_news(self):
+        raw = json.dumps(
+            {
+                "items": [
+                    {
+                        "id": "article-1",
+                        "in_scope": False,
+                        "topics": [],
+                        "policy_relevance": 0,
+                        "reason": "技術革新ではなく一般的な観光記事。",
+                        "title_ja": "",
+                        "summary_ja": "",
+                    }
+                ]
+            },
+            ensure_ascii=False,
+        )
+        parsed = collector.parse_japanese_summary_response(raw, {"article-1"})
+        self.assertFalse(parsed["article-1"]["in_scope"])
+        self.assertEqual(parsed["article-1"]["topics"], [])
+
+    def test_build_item_applies_source_url_allowlist(self):
+        source = {
+            "name": "Example Technology",
+            "organization": "Example",
+            "source_type": "Major Media",
+            "region": "Asia",
+            "country": "Hong Kong",
+            "priority": 4,
+            "include_url_patterns": ["/tech/"],
+        }
+        entry = {
+            "title": "New AI accelerator architecture",
+            "link": "https://example.com/news/general-story",
+            "summary": "A new AI accelerator architecture was announced.",
+            "published": "2026-07-26T00:00:00Z",
+        }
+        self.assertIsNone(
+            collector.build_item(
+                source,
+                entry["title"],
+                entry["link"],
+                entry["summary"],
+                collector.now_utc(),
+                collector.now_utc(),
+            )
+        )
 
 
 if __name__ == "__main__":
