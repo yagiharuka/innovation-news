@@ -476,6 +476,7 @@ footer p {
   }
 
   .article__source {
+    grid-column: 2;
     margin-top: 0;
     text-align: right;
   }
