@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T11:19:15Z",
+  "updated_at": "2026-07-26T11:24:57Z",
   "summary": {
     "checked": 38,
     "succeeded": 28,
@@ -20,7 +20,7 @@
       "detail": "",
       "entries_seen": 2,
       "entries_kept": 0,
-      "elapsed_seconds": 0.37
+      "elapsed_seconds": 0.27
     },
     {
       "name": "BBC Science & Environment",
@@ -33,7 +33,7 @@
       "detail": "",
       "entries_seen": 42,
       "entries_kept": 0,
-      "elapsed_seconds": 0.22
+      "elapsed_seconds": 0.2
     },
     {
       "name": "BBC Technology",
@@ -59,7 +59,7 @@
       "detail": "",
       "entries_seen": 24,
       "entries_kept": 8,
-      "elapsed_seconds": 0.08
+      "elapsed_seconds": 0.06
     },
     {
       "name": "The New York Times Science",
@@ -71,8 +71,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 29,
-      "entries_kept": 7,
-      "elapsed_seconds": 0.03
+      "entries_kept": 6,
+      "elapsed_seconds": 0.04
     },
     {
       "name": "NISTEP Updates",
@@ -85,7 +85,7 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 0,
-      "elapsed_seconds": 2.02
+      "elapsed_seconds": 1.56
     },
     {
       "name": "The Guardian Technology",
@@ -98,7 +98,7 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.34
+      "elapsed_seconds": 0.2
     },
     {
       "name": "MIT Technology Review",
@@ -111,7 +111,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 4,
-      "elapsed_seconds": 0.08
+      "elapsed_seconds": 0.11
     },
     {
       "name": "IEEE Spectrum",
@@ -123,8 +123,8 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 30,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.37
+      "entries_kept": 2,
+      "elapsed_seconds": 0.3
     },
     {
       "name": "Nature",
@@ -137,7 +137,7 @@
       "detail": "",
       "entries_seen": 75,
       "entries_kept": 4,
-      "elapsed_seconds": 1.46
+      "elapsed_seconds": 0.25
     },
     {
       "name": "Science",
@@ -150,7 +150,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.22
+      "elapsed_seconds": 0.37
     },
     {
       "name": "South China Morning Post Technology",
@@ -163,7 +163,7 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 0.51
+      "elapsed_seconds": 0.59
     },
     {
       "name": "Arab News Technology",
@@ -176,7 +176,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/taxonomy/term/2936/feed",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.09
+      "elapsed_seconds": 0.03
     },
     {
       "name": "The National Technology",
@@ -189,7 +189,7 @@
       "detail": "",
       "entries_seen": 3,
       "entries_kept": 3,
-      "elapsed_seconds": 1.06
+      "elapsed_seconds": 3.41
     },
     {
       "name": "Brookings TechTank",
@@ -202,7 +202,7 @@
       "detail": "",
       "entries_seen": 4,
       "entries_kept": 1,
-      "elapsed_seconds": 0.18
+      "elapsed_seconds": 0.12
     },
     {
       "name": "CSIS Analysis",
@@ -215,7 +215,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.22
+      "elapsed_seconds": 0.21
     },
     {
       "name": "CSET",
@@ -228,7 +228,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 1,
-      "elapsed_seconds": 0.65
+      "elapsed_seconds": 0.12
     },
     {
       "name": "Bruegel",
@@ -241,7 +241,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.17
+      "elapsed_seconds": 0.13
     },
     {
       "name": "MERICS",
@@ -254,7 +254,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://merics.org/en/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.99
+      "elapsed_seconds": 0.93
     },
     {
       "name": "National Science Foundation News",
@@ -267,7 +267,7 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 3,
-      "elapsed_seconds": 0.22
+      "elapsed_seconds": 0.11
     },
     {
       "name": "NIST News",
@@ -280,7 +280,7 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 1,
-      "elapsed_seconds": 0.09
+      "elapsed_seconds": 0.06
     },
     {
       "name": "NIH News Releases",
@@ -293,7 +293,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.nih.gov/news-events/news-releases/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.53
+      "elapsed_seconds": 0.3
     },
     {
       "name": "DOE Office of Science News",
@@ -306,7 +306,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 1,
-      "elapsed_seconds": 0.09
+      "elapsed_seconds": 0.04
     },
     {
       "name": "European Commission Press Corner",
@@ -319,7 +319,7 @@
       "detail": "HTTPError: 400 Client Error: Bad Request for url: https://ec.europa.eu/commission/presscorner/api/rss?language=en&documenttype=press_release",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.6
+      "elapsed_seconds": 0.46
     },
     {
       "name": "UK DSIT",
@@ -332,7 +332,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 3,
-      "elapsed_seconds": 0.77
+      "elapsed_seconds": 0.15
     },
     {
       "name": "METI Press Releases",
@@ -345,7 +345,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/english/press/index.rdf",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.23
+      "elapsed_seconds": 0.14
     },
     {
       "name": "WHO News",
@@ -358,7 +358,7 @@
       "detail": "",
       "entries_seen": 25,
       "entries_kept": 1,
-      "elapsed_seconds": 0.45
+      "elapsed_seconds": 0.42
     },
     {
       "name": "IEA News",
@@ -371,7 +371,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/rss/news.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.18
+      "elapsed_seconds": 0.13
     },
     {
       "name": "OECD Newsroom",
@@ -384,7 +384,7 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/newsroom/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.19
+      "elapsed_seconds": 0.13
     },
     {
       "name": "OpenAI News",
@@ -397,7 +397,7 @@
       "detail": "",
       "entries_seen": 1050,
       "entries_kept": 4,
-      "elapsed_seconds": 0.26
+      "elapsed_seconds": 0.41
     },
     {
       "name": "Google AI",
@@ -410,7 +410,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 1,
-      "elapsed_seconds": 0.28
+      "elapsed_seconds": 0.35
     },
     {
       "name": "NVIDIA Blog",
@@ -423,7 +423,7 @@
       "detail": "",
       "entries_seen": 18,
       "entries_kept": 4,
-      "elapsed_seconds": 0.17
+      "elapsed_seconds": 0.23
     },
     {
       "name": "Intel Newsroom",
@@ -436,7 +436,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 2,
-      "elapsed_seconds": 0.28
+      "elapsed_seconds": 0.13
     },
     {
       "name": "IBM Research",
@@ -449,7 +449,7 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://research.ibm.com/blog/rss.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.59
+      "elapsed_seconds": 0.46
     },
     {
       "name": "Microsoft Research",
@@ -462,7 +462,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.77
+      "elapsed_seconds": 0.65
     },
     {
       "name": "Samsung Global Newsroom",
@@ -475,7 +475,7 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 0.35
+      "elapsed_seconds": 0.45
     },
     {
       "name": "ITER News",
@@ -488,7 +488,7 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 1.18
+      "elapsed_seconds": 1.26
     },
     {
       "name": "Fusion Industry Association",
@@ -501,7 +501,7 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 1.1
+      "elapsed_seconds": 1.17
     }
   ]
 }

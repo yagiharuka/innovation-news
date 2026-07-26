@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-07-26T11:19:15Z",
-  "updated_at_jst": "2026-07-26T20:19:15+09:00",
+  "schema_version": 2,
+  "updated_at": "2026-07-26T11:24:57Z",
+  "updated_at_jst": "2026-07-26T20:24:57+09:00",
   "source_policy": "Government, official company, established policy institute, major media, and leading scientific publication allowlist only.",
-  "article_count": 39,
+  "article_count": 14,
   "source_count": 38,
   "items": [
     {
@@ -15,6 +15,9 @@
       "topics": [
         "Semiconductors & Telecom"
       ],
+      "article_frames": [],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 3,
       "source_type": "Official Company",
       "source": "Samsung Global Newsroom",
@@ -29,28 +32,6 @@
       "status": "New"
     },
     {
-      "id": "2a99e80e122a0e1b78658c57",
-      "published_at": "2026-07-24T19:55:05Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 1,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times",
-      "title": "What to Know About Peptides the FDA Is Considering for Use",
-      "title_original": "What to Know About Peptides the FDA Is Considering for Use",
-      "summary": "The agency is considering whether compounding pharmacies should be allowed to produce BPC-157, TB-500 and other previously banned peptides.",
-      "summary_original": "The agency is considering whether compounding pharmacies should be allowed to produce BPC-157, TB-500 and other previously banned peptides.",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/23/well/peptides-fda-research.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
       "id": "10eedf14d7d6b636e24e447d",
       "published_at": "2026-07-24T16:46:59Z",
       "collected_at_jst": "2026-07-26T18:56:03+09:00",
@@ -59,13 +40,18 @@
       "topics": [
         "Semiconductors & Telecom"
       ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 3,
       "source_type": "Official Company",
       "source": "Intel Newsroom",
       "organization": "Intel Newsroom",
       "title": "インテルとレンズテクノロジー、AI時代の先進半導体パッケージングを実現するために協力",
       "title_original": "Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era",
-      "summary": "インテルとレンズテクノロジーは、ガラス基板を用いた先進半導体パッケージング技術の開発を加速するための戦略的協力を発表しました。これにより、性能向上や相互接続密度の増加が期待されています。",
+      "summary": "インテルとレンズテクノロジーが、AI時代に向けた先進的な半導体パッケージング技術の開発を目指す戦略的コラボレーションを発表した。",
       "summary_original": "SANTA CLARA, Calif. & CHANGSHA, China — Intel Corporation and Lens Technology today announced a strategic collaboration focused on enabling new technologies for advanced semiconductor packaging. Through this work, the companies intend to explore opportunities to accelerate the development of glass substrate-based packaging solutions that can help enable higher performance, increased interconnect density, and improved … The post Intel and Lens Technology Collaborate to Enable Advanced Semiconductor Packaging for the AI Era appeared first on Newsroom .",
       "summary_language": "ja",
       "url": "https://newsroom.intel.com/new-technologies/intel-and-lens-technology-collaborate-to-enable-advanced-semiconductor-packaging-for-the-ai-era",
@@ -73,289 +59,86 @@
       "status": "New"
     },
     {
-      "id": "72af9a1d3b7d7274dd0ca533",
-      "published_at": "2026-07-24T14:46:32Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
+      "id": "556f1cad5674dfe48a261c54",
+      "published_at": "2026-07-24T15:25:30Z",
+      "collected_at_jst": "2026-07-26T20:24:57+09:00",
       "region": "EU & Europe",
-      "country": "United States",
-      "topics": [
-        "Fusion Energy"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times",
-      "title": "Life of Alan Turing Emerges in Richer Detail From Short Story",
-      "title_original": "Life of Alan Turing Emerges in Richer Detail From Short Story",
-      "summary": "A Cambridge professor has transcribed a handwritten story that the famous mathematician wrote in the year before his death, presenting a different side of him.",
-      "summary_original": "A Cambridge professor has transcribed a handwritten story that the famous mathematician wrote in the year before his death, presenting a different side of him.",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/24/world/europe/alan-turing-short-story-cambridge.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "35ca7b9882d04ac7b97464b0",
-      "published_at": "2026-07-24T14:25:17Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Healthcare"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times",
-      "title": "Health Care Agency Discontinues Dozens of Active Research Awards",
-      "title_original": "Health Care Agency Discontinues Dozens of Active Research Awards",
-      "summary": "The Agency for Healthcare Research and Quality slowed the awarding of new grants last year. Now it is stopping existing ones.",
-      "summary_original": "The Agency for Healthcare Research and Quality slowed the awarding of new grants last year. Now it is stopping existing ones.",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/23/science/health-research-funding-ahrq.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "7de4799418b19aa7b1ed024c",
-      "published_at": "2026-07-24T14:08:05Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The New York Times Technology",
-      "organization": "The New York Times",
-      "title": "An A.I. Music F.A.Q.: Can I Remix Madonna? Is This All Legal?",
-      "title_original": "An A.I. Music F.A.Q.: Can I Remix Madonna? Is This All Legal?",
-      "summary": "Advances in A.I. are making it possible to create all kinds of music from scratch, but they also raise questions about what is legal and who will actually listen.",
-      "summary_original": "Advances in A.I. are making it possible to create all kinds of music from scratch, but they also raise questions about what is legal and who will actually listen.",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/24/arts/music/ai-music-faq.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "7bc77efe108aea824dae5a1b",
-      "published_at": "2026-07-24T13:32:42Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times",
-      "title": "Jacob Tsimerman Lives in Number Theory",
-      "title_original": "Jacob Tsimerman Lives in Number Theory",
-      "summary": "Dr. Tsimerman won one of four Fields Medals, an award for top mathematicians under 40, for his work on the André-Oort conjecture, but is now changing his focus to artificial intelligence.",
-      "summary_original": "Dr. Tsimerman won one of four Fields Medals, an award for top mathematicians under 40, for his work on the André-Oort conjecture, but is now changing his focus to artificial intelligence.",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/23/science/jacob-tsimerman-fields-medal.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "e6017b8b35489923d29a4728",
-      "published_at": "2026-07-24T13:29:44Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
+      "country": "United Kingdom",
+      "topics": [],
+      "article_frames": [
         "Innovation Policy"
       ],
-      "policy_relevance": 1,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times",
-      "title": "FDAパネルが4つのペプチドの制限解除を支持",
-      "title_original": "FDA Panel Supports Lifting Restrictions on Four Peptides",
-      "summary": "FDAのパネルは、3年前に禁止された未承認薬への広範なアクセスを許可することに反対する科学者たちの議論を行った。",
-      "summary_original": "In an all-day hearing, the agency’s scientists argued against allowing broad access to unproven drugs that the agency had banned three years ago.",
-      "summary_language": "ja",
-      "url": "https://www.nytimes.com/2026/07/23/health/fda-scientists-rfk-peptides.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "Department for Science, Innovation and Technology",
+      "title": "Guidance: Cyber Resilience Pledge - list of signatories",
+      "title_original": "Guidance: Cyber Resilience Pledge - list of signatories",
+      "summary": "Organisations that have signed the Cyber Resilience Pledge.",
+      "summary_original": "Organisations that have signed the Cyber Resilience Pledge.",
+      "summary_language": "",
+      "url": "https://www.gov.uk/government/publications/cyber-resilience-pledge-list-of-signatories",
+      "first_seen": "2026-07-26T20:24:57+09:00",
       "status": "New"
     },
     {
-      "id": "ac01b28f85e133214755b7cc",
-      "published_at": "2026-07-24T13:00:14Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
+      "id": "590a8cbd726d99d379ccecb1",
+      "published_at": "2026-07-23T16:58:28Z",
+      "collected_at_jst": "2026-07-26T20:24:57+09:00",
       "region": "Global",
-      "country": "United Kingdom",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Guardian Technology",
-      "organization": "Guardian News & Media",
-      "title": "Be skeptical of OpenAI’s rogue hacker agent story | John Thickstun",
-      "title_original": "Be skeptical of OpenAI’s rogue hacker agent story | John Thickstun",
-      "summary": "If OpenAI loudly proclaims how dangerous AI is, investors will hear how powerful it is. And who benefits from that? On 14 February 2019, OpenAI announced a language model called GPT-2, the precursor to the models that power modern AI chatbots and agents such as ChatGPT and Claude. But OpenAI declared GPT-2 was too risky to release, citing concerns about safety and abuse. I recall being annoyed at the time that OpenAI would make such a useless announcement: the risks seemed overblown, and without access to the model there wasn’t much for a researcher like me to learn about GPT-2. Continue reading...",
-      "summary_original": "If OpenAI loudly proclaims how dangerous AI is, investors will hear how powerful it is. And who benefits from that? On 14 February 2019, OpenAI announced a language model called GPT-2, the precursor to the models that power modern AI chatbots and agents such as ChatGPT and Claude. But OpenAI declared GPT-2 was too risky to release, citing concerns about safety and abuse. I recall being annoyed at the time that OpenAI would make such a useless announcement: the risks seemed overblown, and without access to the model there wasn’t much for a researcher like me to learn about GPT-2. Continue reading...",
-      "summary_language": "",
-      "url": "https://www.theguardian.com/technology/2026/jul/24/openai-rogue-hacker",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "d7259db0d54f48b0f5039bb8",
-      "published_at": "2026-07-24T12:00:14Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "Asia",
-      "country": "United Kingdom",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Guardian Technology",
-      "organization": "Guardian News & Media",
-      "title": "Should you use AI for a task? Here’s a simple way to decide | Bruce Schneier",
-      "title_original": "Should you use AI for a task? Here’s a simple way to decide | Bruce Schneier",
-      "summary": "Sometimes, what matters isn’t your output but what you put into the process. Think of it like work v the gym I teach public policy at the Harvard Kennedy School and the Munk School at the University of Toronto. And it will come as no surprise to you that my students regularly use AI to complete their writing assignments. Doing so is a waste of their tuition money. But if their entire career is going to include AI writing assistants, why shouldn’t they embrace their future? The best way I’ve found to explain the dilemma comes from the AI researcher Daniel Meissler: it’s the difference between work and the gym. Continue reading...",
-      "summary_original": "Sometimes, what matters isn’t your output but what you put into the process. Think of it like work v the gym I teach public policy at the Harvard Kennedy School and the Munk School at the University of Toronto. And it will come as no surprise to you that my students regularly use AI to complete their writing assignments. Doing so is a waste of their tuition money. But if their entire career is going to include AI writing assistants, why shouldn’t they embrace their future? The best way I’ve found to explain the dilemma comes from the AI researcher Daniel Meissler: it’s the difference between work and the gym. Continue reading...",
-      "summary_language": "",
-      "url": "https://www.theguardian.com/commentisfree/2026/jul/24/should-you-use-ai",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "9df818f0442aeef1a46447c7",
-      "published_at": "2026-07-24T11:39:05Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "Asia",
-      "country": "United Arab Emirates",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The National Technology",
-      "organization": "The National",
-      "title": "Zoom launches live voice translation, with Arabic coming in late 2026",
-      "title_original": "Zoom launches live voice translation, with Arabic coming in late 2026",
-      "summary": "Zoom Technologies has launched a new live voice translation service, with Arabic support coming in the fourth quarter of this year. Five languages – English, Chinese, French, Japanese and Spanish – will initially be available, the California-based company said. A Zoom representative confirmed to The National that Arabic will be available in the fourth quarter, alongside German, Italian and Portuguese. Zoom launched a version of the service in April, after promoting it at its Zoomtopia conference last September. Using the live voice translation feature requires a Pro, Business, or Enterprise account, the artificial intelligence plug-in ZoomMate, or a stand-alone add-on. Zoom has posted instr…",
-      "summary_original": "Zoom Technologies has launched a new live voice translation service, with Arabic support coming in the fourth quarter of this year. Five languages – English, Chinese, French, Japanese and Spanish – will initially be available, the California-based company said. A Zoom representative confirmed to The National that Arabic will be available in the fourth quarter, alongside German, Italian and Portuguese. Zoom launched a version of the service in April, after promoting it at its Zoomtopia conference last September. Using the live voice translation feature requires a Pro, Business, or Enterprise account, the artificial intelligence plug-in ZoomMate, or a stand-alone add-on. Zoom has posted instr…",
-      "summary_language": "",
-      "url": "https://www.thenationalnews.com/future/technology/2026/07/24/zoom-launches-live-voice-translation-with-arabic-coming-in-late-2026/",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "1227687d6341c95d9729e93a",
-      "published_at": "2026-07-24T11:00:03Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
       "country": "United States",
       "topics": [
-        "Artificial Intelligence"
+        "Biotechnology"
       ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 0,
       "source_type": "Major Media",
-      "source": "The New York Times Technology",
-      "organization": "The New York Times",
-      "title": "OpenAI Models Go Rogue + Kimi K3 Freakout + A.I. Superforecasting",
-      "title_original": "OpenAI Models Go Rogue + Kimi K3 Freakout + A.I. Superforecasting",
-      "summary": "“The story that we’re talking about in this segment was science fiction until Tuesday, OK?”",
-      "summary_original": "“The story that we’re talking about in this segment was science fiction until Tuesday, OK?”",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/24/podcasts/hardfork-hugging-face-openai.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
+      "source": "MIT Technology Review",
+      "organization": "MIT Technology Review",
+      "title": "超冷却された腎臓が豚に移植される",
+      "title_original": "Supercooled kidneys have been transplanted into pigs in a “landmark achievement”",
+      "summary": "臓器移植において、超冷却された腎臓が豚に移植されるという重要な成果が報告されている。",
+      "summary_original": "When it comes to organ donation, time is everything. As soon as an organ has been carefully removed from a donor’s body, it starts to deteriorate. Surgeons have a matter of hours to get it into a recipient. Leave it too long and the organ will become unusable. In most cases, organs will be kept…",
+      "summary_language": "ja",
+      "url": "https://www.technologyreview.com/2026/07/23/1140765/supercooled-kidneys-have-been-transplanted-into-pigs-in-a-landmark-achievement/",
+      "first_seen": "2026-07-26T20:24:57+09:00",
       "status": "New"
     },
     {
-      "id": "fc39eee8898a984a897b9824",
-      "published_at": "2026-07-24T06:30:46Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
+      "id": "1ab937d4b6a64131b0a68bfc",
+      "published_at": "2026-07-23T12:30:11Z",
+      "collected_at_jst": "2026-07-26T20:24:57+09:00",
       "region": "United States",
       "country": "Hong Kong",
       "topics": [
         "Artificial Intelligence"
       ],
-      "policy_relevance": 0,
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 1,
       "source_type": "Major Media",
       "source": "South China Morning Post Technology",
       "organization": "South China Morning Post",
-      "title": "China’s Kimi K3 ‘significantly below’ US rivals in hacking power, study shows",
-      "title_original": "China’s Kimi K3 ‘significantly below’ US rivals in hacking power, study shows",
-      "summary": "Chinese unicorn Moonshot AI’s Kimi K3 model trails far behind top American rivals in its ability to launch cyberattacks, joint British-US government research shows, challenging Washington’s brewing anxiety over the rapid rise of Chinese open-source artificial intelligence. The model, currently considered China’s most powerful large language model, performs “significantly below the most recent frontier cyber-capable models”, according to a report published on Thursday by the UK Artificial...",
-      "summary_original": "Chinese unicorn Moonshot AI’s Kimi K3 model trails far behind top American rivals in its ability to launch cyberattacks, joint British-US government research shows, challenging Washington’s brewing anxiety over the rapid rise of Chinese open-source artificial intelligence. The model, currently considered China’s most powerful large language model, performs “significantly below the most recent frontier cyber-capable models”, according to a report published on Thursday by the UK Artificial...",
-      "summary_language": "",
-      "url": "https://www.scmp.com/tech/tech-war/article/3361711/chinas-kimi-k3-significantly-below-us-rivals-hacking-power-uk-us-study-shows?utm_source=rss_feed",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "30744ac6eef4bc37b48358ce",
-      "published_at": "2026-07-23T20:58:35Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United Kingdom",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 1,
-      "source_type": "Major Media",
-      "source": "BBC Technology",
-      "organization": "BBC",
-      "title": "Lawmakers push for AI 'kill switch' after OpenAI models go rogue",
-      "title_original": "Lawmakers push for AI 'kill switch' after OpenAI models go rogue",
-      "summary": "A new bill would let the US government order the shutdown of AI models that pose a public threat.",
-      "summary_original": "A new bill would let the US government order the shutdown of AI models that pose a public threat.",
-      "summary_language": "",
-      "url": "https://www.bbc.co.uk/news/articles/cx2vqj2e9x8o?at_medium=RSS&at_campaign=rss",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "5ab5ea23fbff158109e679af",
-      "published_at": "2026-07-23T15:27:52Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United Kingdom",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 1,
-      "source_type": "Major Media",
-      "source": "The Guardian Technology",
-      "organization": "Guardian News & Media",
-      "title": "Elon Musk says he got ‘carried away’ with Trump – but still holds on to contentious political views",
-      "title_original": "Elon Musk says he got ‘carried away’ with Trump – but still holds on to contentious political views",
-      "summary": "In interview, billionaire says instead of running ‘Doge’ he should’ve ‘worked on my companies’ and shares extreme predictions Elon Musk has admitted he became too consumed by politics during his volatile alliance with Donald Trump and his brief appointment as the president’s financial axman, running the so-called “department of government efficiency” (Doge). The world’s richest person, and briefly its first trillionaire after his SpaceX company floated on the New York stock exchange in June, made the confession in a wide-ranging interview with the Economist published on Thursday. He shared his positions on subjects from foreign wars to AI, and made a number of eye-opening predictions for th…",
-      "summary_original": "In interview, billionaire says instead of running ‘Doge’ he should’ve ‘worked on my companies’ and shares extreme predictions Elon Musk has admitted he became too consumed by politics during his volatile alliance with Donald Trump and his brief appointment as the president’s financial axman, running the so-called “department of government efficiency” (Doge). The world’s richest person, and briefly its first trillionaire after his SpaceX company floated on the New York stock exchange in June, made the confession in a wide-ranging interview with the Economist published on Thursday. He shared his positions on subjects from foreign wars to AI, and made a number of eye-opening predictions for th…",
-      "summary_language": "",
-      "url": "https://www.theguardian.com/technology/2026/jul/23/elon-musk-regret-trump-doge-ai",
-      "first_seen": "2026-07-26T20:19:15+09:00",
-      "status": "New"
-    },
-    {
-      "id": "1e298ac58555866955586e90",
-      "published_at": "2026-07-23T15:23:13Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 1,
-      "source_type": "Major Media",
-      "source": "The New York Times Technology",
-      "organization": "The New York Times",
-      "title": "Lawsuit Against Meta Over Social Media Addiction Is Dropped",
-      "title_original": "Lawsuit Against Meta Over Social Media Addiction Is Dropped",
-      "summary": "For Meta, the move was a reprieve after it and YouTube were found liable in another case in March of negligence and personal injury for their platforms’ addictive features.",
-      "summary_original": "For Meta, the move was a reprieve after it and YouTube were found liable in another case in March of negligence and personal injury for their platforms’ addictive features.",
-      "summary_language": "",
-      "url": "https://www.nytimes.com/2026/07/22/technology/meta-social-media-lawsuit.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
+      "title": "米国の主張に対抗するAI専門家たち",
+      "title_original": "Global AI experts push back on US ‘distillation’ claims against Moonshot’s Kimi K3 model",
+      "summary": "AIコミュニティが米国政府の知的財産権に関する主張に反論し、AIモデルの出力が著作権で保護されないことを指摘している。",
+      "summary_original": "The global AI community has pushed back against the Trump administration’s claims that Moonshot AI’s groundbreaking Kimi K3 distilled US models, citing a lack of justification and arguing that the practice does not constitute intellectual property theft. In separate posts on X on Thursday, a number of AI experts called the accusations “political” and “reckless”, pointing out that an AI model’s output was not copyrighted. A Moonshot employee on Thursday hit back at the US officials’ claims that...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-war/article/3361625/global-ai-experts-push-back-us-distillation-claims-against-moonshots-kimi-k3-model?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:24:57+09:00",
       "status": "New"
     },
     {
@@ -368,6 +151,9 @@
         "Robotics",
         "Innovation Policy"
       ],
+      "article_frames": [],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 2,
       "source_type": "Major Media",
       "source": "South China Morning Post Technology",
@@ -382,91 +168,86 @@
       "status": "New"
     },
     {
-      "id": "3935aad326cb655427958fe7",
-      "published_at": "2026-07-23T00:43:11Z",
-      "collected_at_jst": "2026-07-26T20:19:15+09:00",
-      "region": "United States",
-      "country": "United States",
+      "id": "2d5de96218ebc1a4b06e4e7c",
+      "published_at": "2026-07-23T10:00:17Z",
+      "collected_at_jst": "2026-07-26T20:24:57+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
       "topics": [
-        "Innovation Policy"
+        "Artificial Intelligence"
       ],
-      "policy_relevance": 2,
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
       "source_type": "Major Media",
-      "source": "The New York Times Technology",
-      "organization": "The New York Times",
-      "title": "Clarity Actが大統領の暗号販売禁止を巡る議論に巻き込まれる",
-      "title_original": "Clarity Act Mired In Debate Over Whether to Bar President From Selling Crypto",
-      "summary": "暗号産業が推進するClarity Actについて、民主党と共和党が議論を交わしており、上院での投票が近づいている。",
-      "summary_original": "Democrats and Republicans are haggling about the Clarity Act, a major bill pushed by the crypto industry, as it moves closer to a Senate vote.",
-      "summary_language": "ja",
-      "url": "https://www.nytimes.com/2026/07/22/technology/crypto-bill-trump.html",
-      "first_seen": "2026-07-26T20:19:15+09:00",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "title": "China’s tech firms turn the global AI boom into opportunity amid fierce rivalry at home",
+      "title_original": "China’s tech firms turn the global AI boom into opportunity amid fierce rivalry at home",
+      "summary": "Driven by a global surge in AI spending and fierce competition at home, Chinese tech companies are rapidly expanding their international footprint, not just via physical supply chains, but increasingly through cloud-based software and foundation models. The broader push aligns with recent customs data from the first half of 2026 showing a sharp rise in physical tech exports. Integrated-circuit exports nearly doubled in value to US$177.3 billion, a 96 per cent year-on-year surge heavily inflated...",
+      "summary_original": "Driven by a global surge in AI spending and fierce competition at home, Chinese tech companies are rapidly expanding their international footprint, not just via physical supply chains, but increasingly through cloud-based software and foundation models. The broader push aligns with recent customs data from the first half of 2026 showing a sharp rise in physical tech exports. Integrated-circuit exports nearly doubled in value to US$177.3 billion, a 96 per cent year-on-year surge heavily inflated...",
+      "summary_language": "",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3361596/chinas-tech-firms-turn-global-ai-boom-opportunity-amid-fierce-rivalry-home?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:24:57+09:00",
       "status": "New"
     },
     {
-      "id": "1e9fd9033d38bacea37c0f42",
-      "published_at": "2026-07-22T14:21:46Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "United Kingdom",
+      "id": "c174fc131c4d55cb839833e9",
+      "published_at": "2026-07-23T02:00:46Z",
+      "collected_at_jst": "2026-07-26T20:24:57+09:00",
+      "region": "Global",
+      "country": "United States",
       "topics": [
-        "Innovation Policy"
+        "Semiconductors & Telecom"
       ],
-      "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "UK DSIT",
-      "title": "ガイダンス：研究における女性のチャーター",
-      "title_original": "Guidance: Women in Research Charter",
-      "summary": "英国の研究システムにおける女性の成果を改善するための自主的な取り組みが発表されました。",
-      "summary_original": "A voluntary commitment to improve outcomes for women across the UK research system, with actions for research funders and research performing organisations.",
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "NVIDIA Blog",
+      "organization": "NVIDIA",
+      "title": "NVIDIA AIスーパコンピュータが海軍大学院校で稼働開始",
+      "title_original": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
+      "summary": "NVIDIAが海軍大学院校にAIスーパコンピュータを導入し、学生や研究者に強力なAIプラットフォームを提供します。",
+      "summary_original": "NVIDIA founder and CEO Jensen Huang today visited the Naval Postgraduate School in Monterey, California, to commission an NVIDIA DGX GB300 system — bringing one of the world’s most powerful AI platforms fully online for the students, researchers and faculty at the U.S. military’s flagship graduate university. “Our nation depends on our men and women […]",
       "summary_language": "ja",
-      "url": "https://www.gov.uk/government/publications/women-in-research-charter",
-      "first_seen": "2026-07-26T18:56:03+09:00",
+      "url": "https://blogs.nvidia.com/blog/naval-postgraduate-school-dgx-ai-supercomputer/",
+      "first_seen": "2026-07-26T20:24:57+09:00",
       "status": "New"
     },
     {
-      "id": "23fa1d6907c14d73ce3a41cd",
-      "published_at": "2026-07-22T14:12:14Z",
-      "collected_at_jst": "2026-07-26T19:05:06+09:00",
+      "id": "863086979e9f7f63c082cb57",
+      "published_at": "2026-07-22T14:12:00Z",
+      "collected_at_jst": "2026-07-26T20:24:57+09:00",
       "region": "United States",
       "country": "United States",
       "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
         "Innovation Policy"
       ],
-      "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "DOE Office of Science News",
-      "organization": "DOE Office of Science News",
-      "title": "エネルギー長官がAI駆動の科学発見を加速するためのプロジェクトを発表",
-      "title_original": "Secretary of Energy Chris Wright Announces First Genesis Mission Projects Selected to Accelerate AI-Driven Scientific Discovery",
-      "summary": "エネルギー長官が、AI駆動の科学発見を加速するために選定された約300のプロジェクトを発表しました。",
-      "summary_original": "Nearly 300 projects selected from historic RFA response spanning all 50 states to accelerate breakthroughs in energy, discovery science, and national security.",
-      "summary_language": "ja",
-      "url": "https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate",
-      "first_seen": "2026-07-26T19:05:06+09:00",
-      "status": "New"
-    },
-    {
-      "id": "a651f42eb5805e39f03fbebe",
-      "published_at": "2026-07-22T13:58:00Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "United Kingdom",
-      "topics": [
-        "Innovation Policy"
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
       ],
       "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "UK DSIT",
-      "title": "ガイダンス：登録して関心を示す",
-      "title_original": "Guidance: Consult: register your interest",
-      "summary": "政府チームが公的相談の回答を分析するためのAIツール「Consult」の利用に関心を示すよう呼びかけています。",
-      "summary_original": "Register your interest in using Consult, the AI tool that helps government teams analyse public consultation responses. Join the waitlist for access.",
-      "summary_language": "ja",
-      "url": "https://www.gov.uk/government/publications/consult-register-your-interest",
-      "first_seen": "2026-07-26T18:56:03+09:00",
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "Center for Security and Emerging Technology",
+      "title": "Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican",
+      "title_original": "Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican",
+      "summary": "CSET Senior Fellow Emelia Probasco shares her experience and the remarks she gave at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War, which took place at Borgo Laudato Si’, Vatican. The post Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican appeared first on Center for Security and Emerging Technology .",
+      "summary_original": "CSET Senior Fellow Emelia Probasco shares her experience and the remarks she gave at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War, which took place at Borgo Laudato Si’, Vatican. The post Remarks at the Global Nobel Laureates Assembly on Artificial Intelligence and Nuclear War in Borgo Laudato Si’, Vatican appeared first on Center for Security and Emerging Technology .",
+      "summary_language": "",
+      "url": "https://cset.georgetown.edu/article/remarks-at-the-global-nobel-laureates-assembly-on-artificial-intelligence-and-nuclear-war/",
+      "first_seen": "2026-07-26T20:24:57+09:00",
       "status": "New"
     },
     {
@@ -476,16 +257,22 @@
       "region": "United States",
       "country": "United States",
       "topics": [
-        "Innovation Policy",
         "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
       ],
       "policy_relevance": 5,
       "source_type": "Government",
       "source": "National Science Foundation News",
       "organization": "National Science Foundation News",
-      "title": "NSFのスタッフ長がAI優先事項を推進する声明を発表",
+      "title": "NSF長官補のブライアン・ストーンによる声明：ジェネシスミッションを通じてAIの優先事項を進める",
       "title_original": "Statement from NSF Chief of Staff Brian Stone, performing the duties of the NSF director, on advancing the Administration's AI priorities through the Genesis Mission",
-      "summary": "米国国立科学財団は、ホワイトハウスの科学技術政策室やエネルギー省と連携し、AIに関する優先事項を推進することを表明しました。",
+      "summary": "米国国立科学財団がホワイトハウスと連携し、AIに関する優先事項を進める取り組みを発表。",
       "summary_original": "The U.S. National Science Foundation is proud to join the White House Office of Science and Technology Policy, the U.S. Department of Energy and other federal partners in advancing the administration's artificial intelligence priorities through the…",
       "summary_language": "ja",
       "url": "https://www.nsf.gov/news/statement-nsf-chief-staff-brian-stone-performing-duties-nsf-1",
@@ -499,8 +286,14 @@
       "region": "United States",
       "country": "United States",
       "topics": [
-        "Innovation Policy",
         "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
       ],
       "policy_relevance": 4,
       "source_type": "Government",
@@ -508,189 +301,11 @@
       "organization": "National Science Foundation News",
       "title": "新しいNSFイニシアティブがAIを活用した科学的発見のためのデータセットの価値を引き出すことを目指す",
       "title_original": "New NSF initiative aims to unlock dataset value for AI-enabled scientific discovery",
-      "summary": "米国国立科学財団は、AIを活用した科学的発見を促進するための新しいプログラムを発表し、科学コミュニティのデータセットを活用することを目指しています。",
+      "summary": "米国国立科学財団がAIを活用した科学的発見を促進するための新しいプログラムを発表し、データセットの価値を引き出すことを目指す。",
       "summary_original": "The U.S. National Science Foundation announced the NSF Unlocking Dataset Value for AI-Enabled Scientific Discovery program, a new investment to advance scientific community datasets and enable discovery and innovation using artificial intelligence…",
       "summary_language": "ja",
       "url": "https://www.nsf.gov/news/new-nsf-initiative-aims-unlock-dataset-value-ai-enabled",
       "first_seen": "2026-07-26T19:05:06+09:00",
-      "status": "New"
-    },
-    {
-      "id": "018d40b7e6eb7aa4b8cfb5fa",
-      "published_at": "2026-07-22T13:53:06Z",
-      "collected_at_jst": "2026-07-26T19:05:06+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "National Science Foundation News",
-      "organization": "National Science Foundation News",
-      "title": "NSFがAI駆動の科学を進めるために8300万ドルの投資を発表",
-      "title_original": "NSF announces $83M investment in integrated data systems and services to advance AI-driven science and strengthen U.S. research infrastructure",
-      "summary": "米国国立科学財団は、AI駆動の科学を進めるために8300万ドルの資金を発表し、研究者がデータインフラを利用できるようにすることを目指しています。",
-      "summary_original": "The U.S. National Science Foundation today announced $83 million in awards through the Integrated Data Systems and Services (IDSS) program. The awards will expand access to data infrastructure resources that researchers can use alongside computing…",
-      "summary_language": "ja",
-      "url": "https://www.nsf.gov/news/nsf-announces-83m-investment-integrated-data-systems",
-      "first_seen": "2026-07-26T19:05:06+09:00",
-      "status": "New"
-    },
-    {
-      "id": "5aa9c93bc7040291c9f08bfa",
-      "published_at": "2026-07-22T12:00:00Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 5,
-      "source_type": "Government",
-      "source": "NIST News",
-      "organization": "NIST News",
-      "title": "NISTが中小企業製造業者を支援するための資金提供機会を発表",
-      "title_original": "NIST Announces Funding Opportunity for 14 MEP Centers to Advance Small and Medium-Sized U.S. Manufacturers",
-      "summary": "NIST MEPが中小企業製造業者を支援するための資金提供機会についての情報ウェビナーを開催することを発表しました。",
-      "summary_original": "NIST MEP will host an informational webinar on Tuesday, July 28, 2026, at 1 p.m. ET to provide general information about this opportunity and guidance on preparing applications.",
-      "summary_language": "ja",
-      "url": "https://www.nist.gov/news-events/news/2026/07/nist-announces-funding-opportunity-14-mep-centers-advance-small-and-medium",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "577ddf6b90e6d70b43383fc6",
-      "published_at": "2026-07-22T12:00:00Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 2,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "title": "国家科学の次の時代を進める",
-      "title_original": "Advancing the next era of national science",
-      "summary": "OpenAIは、米国エネルギー省や国立研究所と協力し、フロンティアAIを活用して発見を加速することにコミットしています。",
-      "summary_original": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate discovery.",
-      "summary_language": "ja",
-      "url": "https://openai.com/index/advancing-the-next-era-of-national-science",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "2366dc909672b56b77a196bd",
-      "published_at": "2026-07-21T19:44:19Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Innovation Policy",
-        "Fusion Energy"
-      ],
-      "policy_relevance": 2,
-      "source_type": "Industry Association",
-      "source": "Fusion Industry Association",
-      "organization": "Fusion Industry Association",
-      "title": "FIAとクリーンエアタスクフォースがコードと基準に関する原則を発表",
-      "title_original": "FIA and Clean Air Task Force Publish Principles on Codes and Standards",
-      "summary": "FIAとクリーンエアタスクフォースが、核融合の安全な展開を確保しつつ革新を促進するためのコードと基準に関する原則を発表しました。",
-      "summary_original": "In partnership with the Clean Air Task Force, the Fusion Industry Association published a one-pager outlining its principles for fusion codes and standards. As fusion moves towards deployment, it is critical that codes and standards ensure safe deployment while enabling innovation. The post FIA and Clean Air Task Force Publish Principles on Codes and Standards appeared first on Fusion Industry Association .",
-      "summary_language": "ja",
-      "url": "https://www.fusionindustryassociation.org/fia-and-clean-air-task-force-publish-principles-on-codes-and-standards/?utm_source=rss&utm_medium=rss&utm_campaign=fia-and-clean-air-task-force-publish-principles-on-codes-and-standards",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "88893e13a25a6efc42ed57ea",
-      "published_at": "2026-07-21T15:06:31Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "United Kingdom",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 5,
-      "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "UK DSIT",
-      "title": "TechFirst地域助成金プログラムのガイダンス",
-      "title_original": "Guidance: TechFirst Local",
-      "summary": "TechFirst地域助成金プログラムの詳細が記載されており、デジタルスキルを向上させ、技術職への支援を行います。",
-      "summary_original": "Details of the TechFirst local grant funding programme to boost digital skills and support people into tech jobs.",
-      "summary_language": "ja",
-      "url": "https://www.gov.uk/government/publications/techlocal",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "406416679082f87595cbd50b",
-      "published_at": "2026-07-21T15:05:29Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "United Kingdom",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "UK DSIT",
-      "title": "TechFirst PhDサポート",
-      "title_original": "TechFirst PhD Support",
-      "summary": "TechFirstの一環として、英国の急成長する技術セクターへの道を開く政府のスキルプログラムです。",
-      "summary_original": "Part of TechFirst, the government’s flagship skills programme opening pathways into the UK’s fast-growing tech sector.",
-      "summary_language": "ja",
-      "url": "https://www.gov.uk/guidance/techexpert",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "4ae9e496e9b66c66de074041",
-      "published_at": "2026-07-21T15:05:21Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "United Kingdom",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "UK DSIT",
-      "title": "TechFirst：英国の技術スキルプログラム",
-      "title_original": "TechFirst",
-      "summary": "TechFirstは、英国の急成長する技術セクターへの道を開く政府の主要な技術スキルプログラムであり、全国各地で機会を提供します。",
-      "summary_original": "TechFirst is the government’s flagship tech skills programme opening pathways into the UK’s fast-growing tech sector, providing opportunities across all parts of the UK.",
-      "summary_language": "ja",
-      "url": "https://www.gov.uk/guidance/techfirst",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "d5e4431b57fcb4b6271f6c72",
-      "published_at": "2026-07-21T15:05:11Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "EU & Europe",
-      "country": "United Kingdom",
-      "topics": [
-        "Innovation Policy",
-        "Semiconductors & Telecom"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Government",
-      "source": "UK DSIT",
-      "organization": "UK DSIT",
-      "title": "固定通信近代化のための政策文書",
-      "title_original": "Policy paper: Fixed Telecoms Modernisation Charter",
-      "summary": "この文書は、通信事業者が現在および将来の固定通信の近代化を行う際に従うべきステップを示しています。",
-      "summary_original": "This document sets out the steps that telecoms providers should follow when carrying out any current and future fixed telecoms modernisations.",
-      "summary_language": "ja",
-      "url": "https://www.gov.uk/government/publications/fixed-telecoms-modernisation-charter",
-      "first_seen": "2026-07-26T18:56:03+09:00",
       "status": "New"
     },
     {
@@ -702,6 +317,9 @@
       "topics": [
         "Fusion Energy"
       ],
+      "article_frames": [],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 3,
       "source_type": "Industry Association",
       "source": "Fusion Industry Association",
@@ -716,28 +334,6 @@
       "status": "New"
     },
     {
-      "id": "14dd15caca066d18dfcf2e34",
-      "published_at": "2026-07-18T07:27:54Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Healthcare"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Intergovernmental",
-      "source": "WHO News",
-      "organization": "WHO News",
-      "title": "WHO加盟国が病原体アクセスと利益配分に関する交渉を継続",
-      "title_original": "WHO Member States continue negotiations on the Pathogen Access and Benefit Sharing Annex",
-      "summary": "WHO加盟国は、パンデミック協定の中心要素である病原体アクセスと利益配分に関する交渉を進め、将来のパンデミックに対する迅速かつ効果的な対応を支える枠組みの最終化に向けた議論を行っています。",
-      "summary_original": "WHO Member States have advanced negotiations on the Pathogen Access and Benefit Sharing (PABS) annex, a central component of the WHO Pandemic Agreement, while agreeing that continued discussions are needed to finalize a framework that supports a faster, more effective and equitable response to future pandemics.",
-      "summary_language": "ja",
-      "url": "https://www.who.int/news/item/20-07-2026-who-member-states-continue-negotiations-on-the-pathogen-access-and-benefit-sharing-annex",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
       "id": "7ef6110ab078602757409abf",
       "published_at": "2026-07-17T18:42:47Z",
       "collected_at_jst": "2026-07-26T18:56:03+09:00",
@@ -747,6 +343,9 @@
         "Innovation Policy",
         "Fusion Energy"
       ],
+      "article_frames": [],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 4,
       "source_type": "Industry Association",
       "source": "Fusion Industry Association",
@@ -769,6 +368,9 @@
       "topics": [
         "Fusion Energy"
       ],
+      "article_frames": [],
+      "innovation_policy": false,
+      "policy_areas": [],
       "policy_relevance": 3,
       "source_type": "Industry Association",
       "source": "Fusion Industry Association",
@@ -779,97 +381,6 @@
       "summary_original": "Starlight Engine has raised JPY 6.06 billion in its first external funding round to accelerate development of FAST. The company is developing a tokamak-based fusion machine that builds on decades of research, including Japan's JT-60SA program and international efforts. The post Starlight Engine Raises JPY 6.06 Billion appeared first on Fusion Industry Association .",
       "summary_language": "ja",
       "url": "https://www.nikkei.com/article/DGXZQOUC152ET0V10C26A7000000/#new_tab?utm_source=rss&utm_medium=rss&utm_campaign=starlight-engine-raises-jpy-6-06-billion",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "72b002f5a04f35d9ca1e9949",
-      "published_at": "2026-07-14T12:00:00Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Innovation Policy"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Government",
-      "source": "NIST News",
-      "organization": "NIST News",
-      "title": "NIST、微生物を殺す給湯器の新特許を取得",
-      "title_original": "NIST Receives New Patent for Microbe-Killing Water Heater",
-      "summary": "家庭の配管内の温水が有害な細菌の繁殖地となる可能性があることから、NISTが新たな特許を取得した。",
-      "summary_original": "Warm water in household pipes can be a breeding ground for harmful bacteria.",
-      "summary_language": "ja",
-      "url": "https://www.nist.gov/news-events/news/2026/07/nist-receives-new-patent-microbe-killing-water-heater",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "e96177000536ef3f58f8fb3c",
-      "published_at": "2026-07-13T21:00:00Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Innovation Policy",
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Policy Institute",
-      "source": "CSET",
-      "organization": "CSET",
-      "title": "米国、中国がAIを米国モデルで訓練するのを阻止しようとする",
-      "title_original": "Washington Is Looking to Keep China From Training Its AI on US Models",
-      "summary": "米国では、中国のAI企業が米国のシステムからの出力を使用してモデルを訓練することに対する懸念が高まっており、知的財産や競争、国家安全保障に関する議論が進んでいる。",
-      "summary_original": "CSET’s Colin Shea-Blymyer shared his expert insight in an article published by Bloomberg. The article examines growing concerns in Washington over the use of \"distillation\" by Chinese AI companies to train models using outputs from leading US systems, and the resulting debate over intellectual property, competition, and national security in the global AI race. The post Washington Is Looking to Keep China From Training Its AI on US Models appeared first on Center for Security and Emerging Technology .",
-      "summary_language": "ja",
-      "url": "https://cset.georgetown.edu/article/washington-is-looking-to-keep-china-from-training-its-ai-on-us-models/",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "297a8b5b279e5916cf45fddb",
-      "published_at": "2026-07-13T12:00:41Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Semiconductors & Telecom",
-        "Artificial Intelligence"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Official Company",
-      "source": "Intel Newsroom",
-      "organization": "Intel Newsroom",
-      "title": "インテル、ヨーロッパでの製造拡大に50億ユーロを投資",
-      "title_original": "Intel Invests €5 Billion to Expand Manufacturing in Europe",
-      "summary": "インテルはアイルランドのLeixlipキャンパスに50億ユーロを投資し、AIと高性能コンピューティング向けの先進的なシリコンの需要に応えるための製造能力を拡大する。",
-      "summary_original": "LEIXLIP, Ireland, July 13, 2026 —Intel today announced a €5 billion ($5.7 billion) capital investment at its Leixlip campus in Ireland, marking the next phase in the site’s capacity expansion. Global demand for AI and high-performance computing is driving the need for advanced silicon to power AI Factories, and Intel is scaling capacity in Ireland … The post Intel Invests €5 Billion to Expand Manufacturing in Europe appeared first on Newsroom .",
-      "summary_language": "ja",
-      "url": "https://newsroom.intel.com/intel-foundry/intel-invests-5-billion-euro-to-expand-manufacturing-in-europe",
-      "first_seen": "2026-07-26T18:56:03+09:00",
-      "status": "New"
-    },
-    {
-      "id": "9e1bc06c29b61bed048d4f44",
-      "published_at": "2026-07-12T21:00:00Z",
-      "collected_at_jst": "2026-07-26T18:56:03+09:00",
-      "region": "Asia",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence",
-        "Innovation Policy"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Policy Institute",
-      "source": "CSET",
-      "organization": "CSET",
-      "title": "企業がコスト削減のために中国のAIモデルに注目",
-      "title_original": "Companies turn to Chinese AI models to cut costs",
-      "summary": "企業がコスト削減を目的に中国のAIモデルを採用する動きが広がっており、低コストや改善された能力、オープンウェイトシステムの柔軟性がその要因とされている。",
-      "summary_original": "CSET’s Sam Bresnick shared his expert insight in an article published by The Financial Times. The article examines why companies around the world are increasingly adopting Chinese AI models, drawn by their lower costs, improving capabilities, and the flexibility offered by open-weight systems. The post Companies turn to Chinese AI models to cut costs appeared first on Center for Security and Emerging Technology .",
-      "summary_language": "ja",
-      "url": "https://cset.georgetown.edu/article/companies-turn-to-chinese-ai-models-to-cut-costs/",
       "first_seen": "2026-07-26T18:56:03+09:00",
       "status": "New"
     }
