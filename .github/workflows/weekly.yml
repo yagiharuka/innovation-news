@@ -41,7 +41,6 @@ jobs:
           snapshot_dir="${RUNNER_TEMP}/innovation-news-published"
           mkdir -p "$snapshot_dir"
           cp docs/data/news.json "$snapshot_dir/news.json"
-          cp docs/innovation_news_ledger.xlsx "$snapshot_dir/ledger.xlsx"
           args=(--cadence weekly --max-age-hours 216)
           if [[ "${FORCE_BACKFILL}" == "true" ]]; then
             args+=(--backfill)
@@ -51,11 +50,9 @@ jobs:
           current_count=$(jq -r '.article_count // 0' docs/data/news.json)
           summary_errors=$(jq -r '.runs[-1].summary_errors // 0' data/run_log.json)
           if (( previous_count > 0 && current_count * 4 < previous_count * 3 && summary_errors > 0 )); then
-            jq -s '.[0] as $current | .[1] as $previous | $current + {article_count: ($previous.items | length), items: $previous.items}' docs/data/news.json "$snapshot_dir/news.json" > "$snapshot_dir/preserved-news.json"
-            cp "$snapshot_dir/preserved-news.json" data/news.json
-            cp "$snapshot_dir/preserved-news.json" docs/data/news.json
-            cp "$snapshot_dir/ledger.xlsx" docs/innovation_news_ledger.xlsx
-            echo "[GUARD] Preserved $previous_count published articles after $summary_errors review batch errors."
+            python -u scripts/collect.py --preserve-published-from "$snapshot_dir/news.json"
+            preserved_count=$(jq -r '.article_count // 0' docs/data/news.json)
+            echo "[GUARD] Preserved $preserved_count eligible articles after $summary_errors review batch errors."
           fi
         env:
           GITHUB_TOKEN: ${{ github.token }}

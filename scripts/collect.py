@@ -3879,6 +3879,72 @@ def save_json_outputs(
             handle.write("\n")
 
 
+def preserved_public_payload(
+    current_payload: dict[str, Any],
+    previous_payload: dict[str, Any],
+) -> dict[str, Any]:
+    """Keep the last good publication without reviving retired sources."""
+    preserved_items = exclude_retired_sources(
+        previous_payload.get("items", [])
+    )
+    payload = dict(current_payload)
+    payload["article_count"] = len(preserved_items)
+    payload["items"] = preserved_items
+    return payload
+
+
+def hydrate_preserved_ledger_items(
+    public_items: list[dict[str, Any]],
+    master_items: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Restore ledger-only fields while retaining the published Japanese text."""
+    master_by_id = {
+        item.get("canonical_id") or item.get("id", ""): item
+        for item in master_items
+        if item.get("canonical_id") or item.get("id")
+    }
+    hydrated: list[dict[str, Any]] = []
+    for public in public_items:
+        item_id = public.get("canonical_id") or public.get("id", "")
+        item = dict(master_by_id.get(item_id, {}))
+        item.update(public)
+        item["canonical_id"] = item_id
+        item["title_ja"] = public.get("title", "")
+        item["summary_ja"] = public.get("summary", "")
+        item["title"] = public.get("title_original", item.get("title", ""))
+        item["summary"] = public.get(
+            "summary_original",
+            item.get("summary", ""),
+        )
+        hydrated.append(item)
+    return hydrated
+
+
+def preserve_previous_publication(previous_path: Path) -> int:
+    """Apply the publication guard and rebuild every output consistently."""
+    with previous_path.open(encoding="utf-8") as handle:
+        previous_payload = json.load(handle)
+    with PUBLIC_JSON.open(encoding="utf-8") as handle:
+        current_payload = json.load(handle)
+
+    payload = preserved_public_payload(current_payload, previous_payload)
+    for path in (MASTER_JSON, PUBLIC_JSON):
+        with path.open("w", encoding="utf-8") as handle:
+            json.dump(payload, handle, ensure_ascii=False, indent=2)
+            handle.write("\n")
+
+    config = load_config()
+    active_sources = [
+        source for source in config["sources"] if source.get("active")
+    ]
+    ledger_items = hydrate_preserved_ledger_items(
+        payload["items"],
+        load_master(),
+    )
+    update_workbook(ledger_items, active_sources, load_run_log())
+    return len(payload["items"])
+
+
 def parse_iso(raw: str, fallback: datetime) -> datetime:
     if not raw:
         return fallback
@@ -4529,12 +4595,34 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default="daily",
         help="Collect sources assigned to this cadence (default: daily).",
     )
+    parser.add_argument(
+        "--preserve-published-from",
+        type=Path,
+        help=(
+            "Restore the previous public items after review errors, "
+            "excluding retired sources and rebuilding the workbook."
+        ),
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     try:
+        if args.preserve_published_from:
+            preserved = preserve_previous_publication(
+                args.preserve_published_from
+            )
+            print(
+                json.dumps(
+                    {
+                        "status": "preserved",
+                        "published_items": preserved,
+                    },
+                    ensure_ascii=False,
+                )
+            )
+            return 0
         return run(
             max_age_hours=args.max_age_hours,
             policy_history_days=args.policy_history_days,

@@ -7,7 +7,7 @@
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 91,
+  "article_count": 84,
   "source_count": 260,
   "source_counts": {
     "daily": 252,
@@ -17,42 +17,6 @@
     "tier_b": 8
   },
   "items": [
-    {
-      "id": "c2c6b4643598298d6a0dbf2d",
-      "published_at": "2026-07-25T07:03:59Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "R&D Funding & Tax Incentives"
-      ],
-      "policy_relevance": 2,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Daily",
-      "title": "サイバーセキュリティ助成プログラムによる防御者の強化",
-      "title_original": "Empowering defenders through our Cybersecurity Grant Program",
-      "summary": "サイバーセキュリティにおける革新的な研究とAI統合を強調した助成プログラムについての報告。",
-      "summary_original": "Highlighting innovative research and AI integration in cybersecurity",
-      "summary_language": "ja",
-      "url": "https://openai.com/index/empowering-defenders-through-our-cybersecurity-grant-program",
-      "first_seen": "2026-07-26T21:02:36+09:00",
-      "status": "New"
-    },
     {
       "id": "0709c55767ed6dbd79c145c1",
       "published_at": "2026-07-24T01:25:22Z",
@@ -329,77 +293,6 @@
       "summary_language": "ja",
       "url": "https://doi.org/10.5281/zenodo.21512028",
       "first_seen": "2026-07-26T21:29:09+09:00",
-      "status": "New"
-    },
-    {
-      "id": "57b488d288c298008e72a574",
-      "published_at": "2026-07-23T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation",
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Public Procurement & Industrial Policy"
-      ],
-      "policy_relevance": 1,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Daily",
-      "title": "AdventHealthがOpenAIを活用して全人的ケアを進める",
-      "title_original": "AdventHealth advances whole-person care with OpenAI",
-      "summary": "AdventHealthがChatGPTを利用して業務を効率化し、患者ケアにより多くの時間を戻す取り組みを行っている。",
-      "summary_original": "AdventHealth is using ChatGPT for Healthcare to streamline workflows, reduce administrative burden, and return more time to patient care.",
-      "summary_language": "ja",
-      "url": "https://openai.com/index/adventhealth",
-      "first_seen": "2026-07-26T21:02:36+09:00",
-      "status": "New"
-    },
-    {
-      "id": "bf70d809f9542eeef4af8727",
-      "published_at": "2026-07-23T00:00:00Z",
-      "collected_at_jst": "2026-07-26T20:29:40+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "",
-      "collection_mode": "Daily",
-      "title": "ChatGPTにおけるヘルスケア機能の開始",
-      "title_original": "Launching Health in ChatGPT",
-      "summary": "ChatGPTの新機能により、米国の利用者は医療記録とApple Healthを安全に接続し、より個別化された健康情報を得ることができるようになった。",
-      "summary_original": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their health.",
-      "summary_language": "ja",
-      "url": "https://openai.com/index/health-in-chatgpt",
-      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
@@ -1701,77 +1594,6 @@
       "status": "New"
     },
     {
-      "id": "23b1197c74335456a9552d5a",
-      "published_at": "2026-07-15T12:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Regulation & Governance"
-      ],
-      "policy_relevance": 2,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Historical Backfill",
-      "title": "米国、州と連邦の行動を通じてAI安全性を推進",
-      "title_original": "The US is advancing AI safety through state and federal action",
-      "summary": "OpenAIは、州法が安全で民主的なAIのための国家的フレームワークを構築する「逆連邦主義」アプローチを概説しています。",
-      "summary_original": "OpenAI outlines a “reverse federalism” approach to AI governance, where state laws help build a national framework for safe, democratic AI.",
-      "summary_language": "ja",
-      "url": "https://openai.com/index/advancing-ai-safety-through-state-and-federal-action",
-      "first_seen": "2026-07-15T21:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "85bbe066139c673fbb76100c",
-      "published_at": "2026-07-15T10:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Healthcare",
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 1,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "Penda HealthとのAI臨床コパイロットの開発",
-      "title_original": "Pioneering an AI clinical copilot with Penda Health",
-      "summary": "OpenAIとPenda Healthが共同でAI臨床コパイロットを発表し、実際の使用で診断エラーを16%削減した。",
-      "summary_original": "OpenAI and Penda Health debut an AI clinical copilot that cuts diagnostic errors by 16% in real-world use—offering a new path for safe, effective AI in healthcare.",
-      "summary_language": "ja",
-      "url": "https://openai.com/index/ai-clinical-copilot-penda-health",
-      "first_seen": "2026-07-15T19:00:00+09:00",
-      "status": "New"
-    },
-    {
       "id": "de4a8c6972dcbf82c2e445b3",
       "published_at": "2026-07-14T16:00:08Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -2361,42 +2183,6 @@
       "status": "New"
     },
     {
-      "id": "15bd5956a07021e966ca1264",
-      "published_at": "2026-06-11T17:39:29Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Patents & Intellectual Property"
-      ],
-      "policy_relevance": 2,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "特許に関する私たちのアプローチ",
-      "title_original": "Our approach to patents",
-      "summary": "OpenAIは、AIのための広範なアクセス、協力、安全性の原則にコミットしています。",
-      "summary_original": "At OpenAI, we are committed to the principles of broad access, collaboration, and safety for beneficial AI.",
-      "summary_language": "ja",
-      "url": "https://openai.com/approach-to-patents",
-      "first_seen": "2026-06-12T02:39:29+09:00",
-      "status": "New"
-    },
-    {
       "id": "bf24d6f8eb27dabbbe4e196e",
       "published_at": "2026-06-09T19:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -2745,41 +2531,6 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits",
       "first_seen": "2026-04-15T21:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "66439e0ac0aedcb0a787347c",
-      "published_at": "2026-04-10T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence",
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 1,
-      "source_type": "Official Company",
-      "source": "OpenAI News",
-      "organization": "OpenAI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "医療におけるAIの活用",
-      "title_original": "Healthcare",
-      "summary": "医療現場でのChatGPTの活用により、診断や文書作成、患者ケアを支援する方法が探求されている。",
-      "summary_original": "Explore how clinicians use ChatGPT to support diagnosis, documentation, and patient care with secure, HIPAA-compliant AI tools.",
-      "summary_language": "ja",
-      "url": "https://openai.com/academy/healthcare",
-      "first_seen": "2026-04-10T09:00:00+09:00",
       "status": "New"
     },
     {
