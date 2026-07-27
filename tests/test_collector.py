@@ -88,7 +88,13 @@ class CollectorTests(unittest.TestCase):
             mock.patch.object(
                 collector,
                 "load_backfill_state",
-                return_value={"backfill_version": collector.BACKFILL_VERSION},
+                return_value={
+                    "cadences": {
+                        "daily": {
+                            "backfill_version": collector.BACKFILL_VERSION,
+                        }
+                    }
+                },
             ),
             mock.patch.object(
                 collector,
@@ -113,6 +119,7 @@ class CollectorTests(unittest.TestCase):
             mock.patch.object(collector, "save_master"),
             mock.patch.object(collector, "save_json_outputs"),
             mock.patch.object(collector, "save_source_status") as save_status,
+            mock.patch.object(collector, "save_backfill_state"),
             mock.patch.object(collector, "append_run_log", return_value=[]),
             mock.patch.object(collector, "update_workbook"),
         ):
@@ -194,6 +201,208 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("Quantum", topics)
         self.assertIn("Semiconductors & Telecom", topics)
         self.assertIn("Space", topics)
+
+    def test_source_cadence_defaults_to_daily_and_selects_due_sources(self):
+        sources = [
+            {"active": True, "name": "Legacy"},
+            {"active": True, "name": "Daily", "cadence": "daily"},
+            {"active": True, "name": "Weekly", "cadence": "weekly"},
+            {"active": True, "name": "Tier B", "coverage_tier": "B"},
+            {"active": True, "name": "Legacy B", "priority": 3},
+            {"active": False, "name": "Inactive", "cadence": "daily"},
+        ]
+        self.assertEqual(
+            [source["name"] for source in collector.sources_for_cadence(sources, "daily")],
+            ["Legacy", "Daily"],
+        )
+        self.assertEqual(
+            [source["name"] for source in collector.sources_for_cadence(sources, "weekly")],
+            ["Weekly", "Tier B", "Legacy B"],
+        )
+
+    def test_strict_relevance_uses_source_tags_only_as_review_hints(self):
+        source = {
+            "name": "Example Research",
+            "organization": "Example",
+            "source_type": "Official Company",
+            "region": "Global",
+            "country": "Global",
+            "category": "Artificial intelligence and quantum research",
+            "priority": 4,
+            "strict_relevance": True,
+            "topic_tags": ["Artificial Intelligence", "Quantum"],
+        }
+        item = collector.build_item(
+            source,
+            "Company appoints a new chief financial officer",
+            "https://example.com/news/cfo",
+            "The appointment takes effect next month.",
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            datetime(2026, 7, 27, tzinfo=timezone.utc),
+        )
+        self.assertIsNotNone(item)
+        self.assertTrue(item["candidate_from_source_topic_tags"])
+        self.assertEqual(
+            item["topics"],
+            ["Artificial Intelligence", "Quantum"],
+        )
+
+    def test_source_coverage_tier_supports_explicit_and_legacy_values(self):
+        self.assertEqual(collector.source_coverage_tier({"coverage_tier": "S"}), "S")
+        self.assertEqual(collector.source_coverage_tier({"priority": 4}), "A")
+        self.assertEqual(collector.source_coverage_tier({"priority": 3}), "B")
+
+    def test_invalid_tier_and_cadence_are_not_silently_accepted(self):
+        with self.assertRaises(ValueError):
+            collector.source_coverage_tier(
+                {"name": "Typo", "coverage_tier": "C"}
+            )
+        with self.assertRaises(ValueError):
+            collector.source_cadence(
+                {"name": "Typo", "cadence": "wekly"}
+            )
+
+    def test_company_and_a_tier_sources_default_to_strict_relevance(self):
+        self.assertTrue(
+            collector.source_requires_strict_relevance(
+                {"source_type": "Official Company", "priority": 5}
+            )
+        )
+        self.assertTrue(
+            collector.source_requires_strict_relevance(
+                {"source_type": "Major Media", "priority": 4}
+            )
+        )
+        self.assertFalse(
+            collector.source_requires_strict_relevance(
+                {
+                    "source_type": "Government",
+                    "priority": 5,
+                    "strict_relevance": False,
+                }
+            )
+        )
+
+    def test_source_topic_tags_infer_multi_topic_company_remit(self):
+        self.assertEqual(
+            collector.source_topic_tags(
+                {
+                    "category": "AI, semiconductors, robotics and quantum",
+                }
+            ),
+            [
+                "Robotics",
+                "Artificial Intelligence",
+                "Semiconductors & Telecom",
+                "Quantum",
+            ],
+        )
+        self.assertEqual(
+            collector.source_topic_tags(
+                {"category": "Space sustainability and on-orbit servicing"}
+            ),
+            ["Space"],
+        )
+
+    def test_model_review_can_confirm_a_product_name_from_source_topic_hints(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title": "GPT-6 reaches a new scientific reasoning milestone",
+            "summary": "The release improves experimental planning and tool use.",
+            "topics": ["Artificial Intelligence"],
+            "topic": "Artificial Intelligence",
+            "article_frames": ["Technology Innovation"],
+            "candidate_from_source_topic_tags": True,
+            "scope_evidence": "Improves experimental planning and tool use.",
+        }
+        collector.normalize_reviewed_topics([item])
+        self.assertEqual(item["topics"], ["Artificial Intelligence"])
+
+    def test_backfill_version_is_tracked_separately_by_cadence(self):
+        state = {
+            "cadences": {
+                "daily": {"backfill_version": collector.BACKFILL_VERSION},
+            }
+        }
+        self.assertEqual(
+            collector.cadence_backfill_version(state, "daily"),
+            collector.BACKFILL_VERSION,
+        )
+        self.assertEqual(
+            collector.cadence_backfill_version(state, "weekly"),
+            0,
+        )
+        self.assertEqual(
+            collector.cadence_backfill_version(
+                {"backfill_version": collector.BACKFILL_VERSION},
+                "daily",
+            ),
+            0,
+        )
+
+    def test_source_status_keeps_the_other_cadence_last_result(self):
+        daily_source = {
+            "active": True,
+            "name": "Daily",
+            "organization": "Daily Org",
+            "source_type": "Government",
+            "region": "Asia",
+            "homepage": "https://daily.example.com/",
+            "feed_url": "https://daily.example.com/feed",
+            "priority": 5,
+            "coverage_tier": "S",
+            "cadence": "daily",
+            "category": "Artificial intelligence",
+        }
+        weekly_source = {
+            "active": True,
+            "name": "Weekly",
+            "organization": "Weekly Org",
+            "source_type": "Scientific Publication",
+            "region": "Global",
+            "homepage": "https://weekly.example.com/",
+            "feed_url": "https://weekly.example.com/feed",
+            "priority": 3,
+            "coverage_tier": "B",
+            "cadence": "weekly",
+            "category": "Quantum",
+        }
+        previous = {
+            "updated_at": "2026-07-26T00:00:00Z",
+            "sources": [
+                {
+                    "name": "Weekly",
+                    "status": "ok",
+                    "entries_seen": 3,
+                    "entries_kept": 1,
+                    "elapsed_seconds": 0.5,
+                }
+            ],
+        }
+        result = collector.FeedResult(
+            source=daily_source,
+            entries_seen=4,
+            entries_kept=2,
+            status="ok",
+            detail="",
+            elapsed_seconds=0.4,
+        )
+        payload = collector.source_status_payload(
+            [result],
+            datetime(2026, 7, 27, tzinfo=timezone.utc),
+            sources=[daily_source, weekly_source],
+            previous_payload=previous,
+        )
+        by_name = {entry["name"]: entry for entry in payload["sources"]}
+        self.assertEqual(by_name["Daily"]["entries_kept"], 2)
+        self.assertEqual(by_name["Weekly"]["entries_kept"], 1)
+        self.assertEqual(
+            by_name["Weekly"]["last_checked_at"],
+            "2026-07-26T00:00:00Z",
+        )
+        self.assertEqual(payload["coverage_summary"]["registered"], 2)
+        self.assertEqual(payload["coverage_summary"]["checked_once"], 2)
 
     def test_policy_classification_is_separate_from_technology_topics(self):
         text = (
@@ -854,6 +1063,74 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["topics"], ["Quantum"])
         self.assertIn("lower error rates", items[0]["summary"])
 
+    def test_link_list_rejects_matching_paths_on_external_domains(self):
+        listing_url = "https://agency.example.com/news"
+        listing_html = """
+        <main>
+          <a href="/news/internal-quantum-program">
+            Quantum research programme opens
+          </a>
+          <a href="https://untrusted.example.net/news/copied-quantum-program">
+            Copied quantum research programme
+          </a>
+        </main>
+        """
+
+        response = collector.requests.Response()
+        response.status_code = 200
+        response.url = listing_url
+        response._content = listing_html.encode("utf-8")
+        response.encoding = "utf-8"
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                self.assert_url = url
+                return response
+
+        source = {
+            "active": True,
+            "name": "Example Agency",
+            "organization": "Example Agency",
+            "source_type": "Government",
+            "region": "Global",
+            "country": "Global",
+            "category": "Quantum research",
+            "feed_url": listing_url,
+            "fetch_mode": "link_list",
+            "listing_url": listing_url,
+            "include_link_patterns": ["/news/"],
+            "homepage": "https://agency.example.com/",
+            "priority": 5,
+            "native_feed": False,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            False,
+        )
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(
+            items[0]["url"],
+            "https://agency.example.com/news/internal-quantum-program",
+        )
+
+    def test_explicit_article_path_can_use_an_about_newsroom_route(self):
+        source = {
+            "listing_url": "https://company.example.com/about-us/newsroom",
+            "homepage": "https://company.example.com/",
+            "feed_url": "https://company.example.com/about-us/newsroom",
+            "include_link_patterns": ["/about-us/newsroom/"],
+        }
+        self.assertTrue(
+            collector.site_scan_link_allowed(
+                source,
+                "https://company.example.com/about-us/newsroom/new-robot",
+            )
+        )
+
     def test_site_scan_reads_generic_more_link_title_and_card_date(self):
         listing_url = "https://research.example.com/news"
         article_url = "https://research.example.com/news/quantum-programme"
@@ -1170,7 +1447,7 @@ class CollectorTests(unittest.TestCase):
             for source in active_sources
             if source.get("source_type") == "Official Company"
         ]
-        self.assertGreaterEqual(len(companies), 41)
+        self.assertGreaterEqual(len(companies), 100)
         company_names = {source["name"] for source in companies}
         self.assertTrue(
             {
@@ -1180,8 +1457,83 @@ class CollectorTests(unittest.TestCase):
                 "Kyoto Fusioneering News",
                 "Roche Media Releases",
                 "Astroscale News",
+                "Fujitsu Research",
+                "Preferred Networks",
+                "東京エレクトロン",
+                "QunaSys",
+                "Helical Fusion",
+                "Takeda",
+                "Synspective",
+                "Apple Machine Learning Research",
+                "AMD",
+                "PsiQuantum",
+                "General Fusion",
+                "Isomorphic Labs",
+                "ICEYE",
             }.issubset(company_names)
         )
+
+    def test_config_includes_required_japan_and_overseas_primary_sources(self):
+        sources = collector.load_config()["sources"]
+        active_names = {
+            source["name"] for source in sources if source.get("active")
+        }
+        self.assertTrue(
+            {
+                "NEDO ニュース",
+                "NEDO 公募",
+                "産総研 研究成果",
+                "JST プレスリリース",
+                "理化学研究所",
+                "NICT",
+                "JAXA",
+                "QST",
+                "NIMS",
+                "文部科学省",
+                "PMDA",
+                "DARPA",
+                "ARPA-E",
+                "CHIPS for America",
+                "UKRI",
+                "CORDIS",
+                "ESA",
+                "KISTEP",
+                "ITRI",
+                "Chinese Academy of Sciences",
+                "CSIRO",
+                "KAUST",
+            }.issubset(active_names)
+        )
+
+    def test_config_source_names_are_unique_and_tiers_have_expected_cadence(self):
+        sources = collector.load_config()["sources"]
+        names = [source["name"] for source in sources]
+        self.assertEqual(len(names), len(set(names)))
+        for source in sources:
+            if not source.get("active"):
+                continue
+            tier = collector.source_coverage_tier(source)
+            cadence = collector.source_cadence(source)
+            self.assertIn(tier, collector.SOURCE_COVERAGE_TIERS)
+            self.assertIn(cadence, collector.SOURCE_CADENCES)
+            if source.get("coverage_tier") in {"S", "A"}:
+                self.assertEqual(cadence, "daily", source["name"])
+            if source.get("coverage_tier") == "B":
+                self.assertEqual(cadence, "weekly", source["name"])
+            if tier == "A":
+                self.assertTrue(
+                    collector.source_requires_strict_relevance(source),
+                    source["name"],
+                )
+            if source.get("source_type") == "Official Company":
+                self.assertTrue(
+                    collector.source_requires_strict_relevance(source),
+                    source["name"],
+                )
+                self.assertTrue(
+                    collector.source_topic_tags(source),
+                    source["name"],
+                )
 
     def test_config_includes_primary_policy_benchmark_sources(self):
         sources = collector.load_config()["sources"]
