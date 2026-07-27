@@ -755,9 +755,12 @@
       "region": "United States",
       "country": "United States",
       "category": "Robotics, autonomous systems and physical AI",
-      "feed_url": "https://bostondynamics.com/blog/",
+      "feed_url": "https://bostondynamics.com/blog-sitemap.xml",
       "fetch_mode": "site_scan",
-      "listing_url": "https://bostondynamics.com/blog/",
+      "listing_url": "https://bostondynamics.com/blog-sitemap.xml",
+      "sitemap_urls": [
+        "https://bostondynamics.com/blog-sitemap.xml"
+      ],
       "include_link_patterns": [
         "/blog/"
       ],
@@ -1112,18 +1115,11 @@
       "region": "EU & Europe",
       "country": "United Kingdom",
       "category": "Fusion energy, spherical tokamaks and high-temperature superconducting magnets",
-      "feed_url": "https://tokamakenergy.com/latest-news/",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://tokamakenergy.com/latest-news/",
-      "include_link_patterns": [
-        "/20"
-      ],
+      "feed_url": "https://tokamakenergy.com/feed/",
       "homepage": "https://tokamakenergy.com/latest-news/",
       "priority": 4,
-      "native_feed": false,
+      "native_feed": true,
       "historical_backfill": false,
-      "site_scan_daily_limit": 6,
-      "site_scan_backfill_limit": 12,
       "notes": "Official fusion-energy company newsroom."
     },
     {
@@ -1437,14 +1433,14 @@
       "region": "Asia",
       "country": "Japan",
       "category": "Patents, intellectual property and technology transfer policy",
-      "feed_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "feed_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/index.html",
       "fetch_mode": "link_list",
       "history_window": "policy",
-      "listing_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "listing_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/index.html",
       "include_title_patterns": [
         "知的財産推進計画20"
       ],
-      "homepage": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "homepage": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/index.html",
       "priority": 5,
       "native_feed": false,
       "notes": "Official Japanese intellectual-property strategy and policy updates."
@@ -1509,16 +1505,11 @@
       "region": "Global",
       "country": "Global",
       "category": "Patents, intellectual property and innovation policy",
-      "feed_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
-      "fetch_mode": "link_list",
+      "feed_url": "https://www.wipo.int/pressroom/en/rss.xml",
       "history_window": "policy",
-      "listing_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
-      "include_link_patterns": [
-        "/pressroom/en/articles/"
-      ],
       "homepage": "https://www.wipo.int/pressroom/en/",
       "priority": 5,
-      "native_feed": false,
+      "native_feed": true,
       "notes": "Official WIPO news on patents, intellectual property and innovation policy."
     },
     {
@@ -4470,15 +4461,7 @@
       "region": "EU & Europe",
       "country": "European Union",
       "category": "Frontier research funding, work programs, grants and research results",
-      "feed_url": "https://erc.europa.eu/news-events/news",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://erc.europa.eu/news-events/news",
-      "include_link_patterns": [
-        "/news-events/"
-      ],
-      "exclude_link_patterns": [
-        "/news-events/events"
-      ],
+      "feed_url": "https://erc.europa.eu/rss.xml",
       "homepage": "https://erc.europa.eu/",
       "priority": 4,
       "coverage_tier": "A",
@@ -4494,9 +4477,8 @@
         "Space"
       ],
       "strict_relevance": true,
-      "native_feed": false,
+      "native_feed": true,
       "historical_backfill": false,
-      "site_scan_daily_limit": 4,
       "notes": "Official ERC news; strict filtering keeps grants, programs and results in monitored fields."
     },
     {
@@ -6132,11 +6114,14 @@
       "country": "Japan",
       "category": "Applied research, collaboration, research infrastructure and technology transfer",
       "feed_url": "https://www.aist.go.jp/aist_j/news/announce/l_news_announce.html",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "html",
       "listing_url": "https://www.aist.go.jp/aist_j/news/announce/l_news_announce.html",
-      "include_link_patterns": [
-        "/aist_j/news/announce/au"
-      ],
+      "html": {
+        "item_selector": ".newsList li",
+        "title_selector": ".newsTitle a",
+        "link_selector": ".newsTitle a",
+        "date_selector": ".newsDate"
+      },
       "homepage": "https://www.aist.go.jp/aist_j/news/",
       "priority": 5,
       "coverage_tier": "S",
@@ -6153,8 +6138,9 @@
       ],
       "strict_relevance": true,
       "native_feed": false,
+      "enrich_from_page": true,
       "historical_backfill": false,
-      "site_scan_daily_limit": 4,
+      "daily_item_limit": 4,
       "notes": "Mandatory official AIST source; strict content filter removes events, awards and routine administration."
     },
     {
@@ -6166,12 +6152,14 @@
       "country": "Japan",
       "category": "Official applied research results",
       "feed_url": "https://www.aist.go.jp/aist_j/news/research/l_news_research.html",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "html",
       "listing_url": "https://www.aist.go.jp/aist_j/news/research/l_news_research.html",
-      "include_link_patterns": [
-        "/aist_j/press_release/",
-        "/aist_j/news/research/"
-      ],
+      "html": {
+        "item_selector": ".newsList li",
+        "title_selector": ".newsTitle a",
+        "link_selector": ".newsTitle a",
+        "date_selector": ".newsDate"
+      },
       "homepage": "https://www.aist.go.jp/aist_j/news/research/l_news_research.html",
       "priority": 5,
       "coverage_tier": "S",
@@ -6188,8 +6176,9 @@
       ],
       "strict_relevance": true,
       "native_feed": false,
+      "enrich_from_page": true,
       "historical_backfill": false,
-      "site_scan_daily_limit": 6,
+      "daily_item_limit": 6,
       "notes": "Mandatory official AIST research-results listing, limited to the eight monitored technology fields."
     },
     {

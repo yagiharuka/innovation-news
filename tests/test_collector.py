@@ -76,6 +76,53 @@ class CollectorTests(unittest.TestCase):
             ["current", "keep-1", "keep-2"],
         )
 
+    def test_publication_guard_only_carries_still_unreviewed_master_items(self):
+        current = {
+            "updated_at": "2026-07-28T00:00:00Z",
+            "history_windows": {
+                "innovation_policy_days": 365,
+                "technology_innovation_days": 183,
+            },
+            "items": [],
+        }
+        previous = {
+            "items": [
+                {
+                    "id": "pending",
+                    "source": "NEDO News",
+                    "published_at": "2026-07-20T00:00:00Z",
+                    "article_frames": ["Technology Innovation"],
+                    "topics": ["Artificial Intelligence"],
+                },
+                {
+                    "id": "excluded",
+                    "source": "NEDO News",
+                    "published_at": "2026-07-19T00:00:00Z",
+                    "article_frames": ["Technology Innovation"],
+                    "topics": ["Artificial Intelligence"],
+                },
+            ]
+        }
+        master = [
+            {
+                "canonical_id": "pending",
+                "scope_review_version": "old-version",
+            },
+            {
+                "canonical_id": "excluded",
+                "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+                "status": "Excluded",
+            },
+        ]
+
+        payload = collector.preserved_public_payload(
+            current,
+            previous,
+            master,
+        )
+
+        self.assertEqual([item["id"] for item in payload["items"]], ["pending"])
+
     def test_publication_guard_prefers_current_version_of_duplicate_item(self):
         current = {
             "items": [
@@ -327,7 +374,11 @@ class CollectorTests(unittest.TestCase):
                 return_value=summary_result,
             ),
             mock.patch.object(collector, "save_master"),
-            mock.patch.object(collector, "save_json_outputs"),
+            mock.patch.object(
+                collector,
+                "publish_outputs",
+                return_value=({"items": []}, []),
+            ),
             mock.patch.object(collector, "save_source_status") as save_status,
             mock.patch.object(collector, "save_backfill_state"),
             mock.patch.object(collector, "append_run_log", return_value=[]),
@@ -342,6 +393,70 @@ class CollectorTests(unittest.TestCase):
             [result.source["name"] for result in saved_results],
             [source["name"] for source in sources],
         )
+
+    def test_balanced_review_selection_prioritizes_underreviewed_sources(self):
+        def pending(item_id, source, published):
+            return {
+                "canonical_id": item_id,
+                "source": source,
+                "published_at": published,
+                "scope_review_version": "old-version",
+            }
+
+        items = [
+            pending("a-1", "Source A", "2026-07-28T00:00:00Z"),
+            pending("a-2", "Source A", "2026-07-27T00:00:00Z"),
+            pending("b-1", "Source B", "2026-07-26T00:00:00Z"),
+            pending("c-1", "Source C", "2026-07-25T00:00:00Z"),
+        ]
+        items.extend(
+            {
+                "canonical_id": f"a-reviewed-{index}",
+                "source": "Source A",
+                "status": "Excluded",
+                "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            }
+            for index in range(5)
+        )
+
+        selected = collector.select_scope_review_items(
+            items,
+            [],
+            limit=3,
+            balanced=True,
+        )
+
+        self.assertEqual(
+            {item["source"] for item in selected[:2]},
+            {"Source B", "Source C"},
+        )
+        self.assertEqual(selected[2]["source"], "Source A")
+
+    def test_balanced_review_selection_resolves_public_pending_first(self):
+        items = [
+            {
+                "canonical_id": "backlog-newer",
+                "source": "Source B",
+                "published_at": "2026-07-28T00:00:00Z",
+                "scope_review_version": "old-version",
+            },
+            {
+                "canonical_id": "public-older",
+                "source": "Source A",
+                "published_at": "2026-07-20T00:00:00Z",
+                "scope_review_version": "old-version",
+            },
+        ]
+
+        selected = collector.select_scope_review_items(
+            items,
+            [],
+            limit=1,
+            balanced=True,
+            priority_ids={"public-older"},
+        )
+
+        self.assertEqual(selected[0]["canonical_id"], "public-older")
 
     def test_taxonomy_has_eight_technology_topics_and_separate_policy_axis(self):
         self.assertEqual(len(collector.TOPIC_KEYWORDS), 8)
@@ -621,6 +736,9 @@ class CollectorTests(unittest.TestCase):
         self.assertNotIn("OpenAI News", by_name)
         self.assertEqual(payload["coverage_summary"]["registered"], 2)
         self.assertEqual(payload["coverage_summary"]["checked_once"], 2)
+        self.assertEqual(payload["summary"]["checked"], 2)
+        self.assertEqual(payload["summary"]["succeeded"], 2)
+        self.assertEqual(payload["current_run"]["checked"], 1)
 
     def test_policy_classification_is_separate_from_technology_topics(self):
         text = (
@@ -1115,7 +1233,7 @@ class CollectorTests(unittest.TestCase):
 
         calls = []
 
-        def fake_request(batch, token, model):
+        def fake_request(batch, token, model, request_stats=None):
             calls.append([item["canonical_id"] for item in batch])
             if len(calls) == 1:
                 return {"article-1": translated("article-1")}
@@ -1145,6 +1263,160 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(calls, [["article-1", "article-2"], ["article-2"]])
         self.assertEqual(result["reviewed"], 2)
         self.assertEqual(result["pending"], 0)
+
+    def test_summary_review_stops_after_rate_limit_and_keeps_completed_batch(self):
+        items = [
+            {
+                "canonical_id": f"article-{index}",
+                "title": f"AI research {index}",
+                "summary": "A concrete AI method was validated.",
+                "published_at": f"2026-07-2{3 - index}T00:00:00Z",
+                "source": f"Source {index}",
+                "scope_review_version": "old-version",
+            }
+            for index in (1, 2)
+        ]
+
+        def translated(item_id):
+            return {
+                "in_scope": True,
+                "topics": ["Artificial Intelligence"],
+                "is_innovation_policy": False,
+                "policy_areas": [],
+                "policy_relevance": 0,
+                "reason": "AIの具体的な新手法。",
+                "content_type": "research_breakthrough",
+                "technical_focus": "AIの新手法",
+                "scope_evidence": "新手法を実証した。",
+                "title_ja": f"AI新手法 {item_id}",
+                "summary_ja": "研究チームがAIの新手法を実証した。",
+            }
+
+        calls = []
+
+        def fake_request(batch, token, model, request_stats=None):
+            calls.append([item["canonical_id"] for item in batch])
+            if len(calls) == 1:
+                if request_stats is not None:
+                    request_stats["requests"] = 1
+                return {"article-1": translated("article-1")}
+            raise collector.SummaryRateLimitError(
+                "rate limited",
+                remaining="0",
+                reset_at="123456",
+            )
+
+        with (
+            mock.patch.dict(
+                os.environ,
+                {
+                    "GITHUB_TOKEN": "test-token",
+                    "JAPANESE_SUMMARY_BACKFILL_LIMIT": "2",
+                    "JAPANESE_SUMMARY_BATCH_SIZE": "2",
+                    "JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS": "0",
+                },
+            ),
+            mock.patch.object(
+                collector,
+                "japanese_summary_request",
+                side_effect=fake_request,
+            ),
+            mock.patch.object(collector.time, "sleep"),
+        ):
+            result = collector.enrich_japanese_summaries(items, items)
+
+        self.assertEqual(
+            calls,
+            [["article-1", "article-2"], ["article-2"]],
+        )
+        self.assertEqual(result["reviewed"], 1)
+        self.assertEqual(result["pending"], 1)
+        self.assertTrue(result["rate_limited"])
+        self.assertEqual(result["errors"], 1)
+
+    def test_review_only_does_not_fetch_or_update_source_collection_state(self):
+        source = {
+            "active": True,
+            "name": "NEDO News",
+            "organization": "NEDO",
+            "source_type": "Government",
+            "region": "Asia",
+            "country": "Japan",
+            "category": "Artificial intelligence",
+            "feed_url": "https://example.com/feed",
+            "homepage": "https://example.com/",
+            "priority": 5,
+        }
+        item = {
+            "canonical_id": "pending",
+            "source": "NEDO News",
+            "published_at": "2026-07-27T00:00:00Z",
+            "article_frames": ["Technology Innovation"],
+            "topics": ["Artificial Intelligence"],
+            "scope_review_version": "old-version",
+        }
+        summary_result = {
+            "generated": 0,
+            "reviewed": 0,
+            "excluded_ids": [],
+            "pending": 1,
+            "errors": 0,
+            "selected": 1,
+            "requests": 0,
+            "rate_limited": False,
+            "request_budget_reached": False,
+            "detail": "",
+        }
+        with (
+            mock.patch.object(collector, "ensure_seed_files"),
+            mock.patch.object(
+                collector,
+                "load_config",
+                return_value={"sources": [source]},
+            ),
+            mock.patch.object(collector, "load_master", return_value=[item]),
+            mock.patch.object(collector, "load_public_payload", return_value={}),
+            mock.patch.object(
+                collector,
+                "now_utc",
+                return_value=datetime(2026, 7, 28, tzinfo=timezone.utc),
+            ),
+            mock.patch.object(collector, "make_http_session") as make_session,
+            mock.patch.object(
+                collector,
+                "refresh_academic_review_summaries",
+                return_value={
+                    "targets": 0,
+                    "attempted": 0,
+                    "restored": 0,
+                    "errors": 0,
+                },
+            ),
+            mock.patch.object(
+                collector,
+                "enrich_japanese_summaries",
+                return_value=summary_result,
+            ),
+            mock.patch.object(collector, "save_master"),
+            mock.patch.object(
+                collector,
+                "publish_outputs",
+                return_value=({"items": []}, []),
+            ),
+            mock.patch.object(collector, "append_run_log", return_value=[]),
+            mock.patch.object(collector, "update_workbook"),
+            mock.patch.object(collector, "save_review_state"),
+            mock.patch.object(collector, "fetch_source") as fetch_source,
+            mock.patch.object(collector, "save_source_status") as save_status,
+            mock.patch.object(collector, "save_backfill_state") as save_backfill,
+        ):
+            result = collector.review_backlog(365, 183)
+
+        self.assertEqual(result, 0)
+        make_session.assert_called_once()
+        fetch_source.assert_not_called()
+        save_status.assert_not_called()
+        save_backfill.assert_not_called()
 
     def test_public_item_includes_academic_metadata(self):
         public = collector.public_item(
@@ -2273,6 +2545,38 @@ class CollectorTests(unittest.TestCase):
             datetime(2026, 2, 11, tzinfo=timezone.utc),
         )
 
+    def test_page_metadata_reads_aist_research_point_summary(self):
+        article_url = "https://www.aist.go.jp/aist_j/press_release/example.html"
+        article_html = """
+        <html>
+          <head><title>新しい半導体材料を実証</title></head>
+          <body>
+            <div class="point_text">
+              新材料の結晶構造を制御し、従来材料より高い性能を実証した。
+              量産プロセスへの適用に向けた評価も開始した。
+            </div>
+          </body>
+        </html>
+        """
+        response = collector.requests.Response()
+        response.status_code = 200
+        response.url = article_url
+        response._content = article_html.encode("utf-8")
+        response.encoding = "utf-8"
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                return response
+
+        _, summary, _ = collector.page_metadata(
+            FakeSession(),
+            article_url,
+            "Fallback title",
+            datetime(2026, 7, 24, tzinfo=timezone.utc),
+        )
+
+        self.assertIn("新材料の結晶構造", summary)
+
     def test_config_has_separate_scholarly_kinds(self):
         config = collector.load_config()
         academic_kinds = {
@@ -2464,11 +2768,30 @@ class CollectorTests(unittest.TestCase):
             "日本人工知能学会": "https://www.ai-gakkai.or.jp/feed/",
             "EE Times Japan": "https://rss.itmedia.co.jp/rss/2.0/eetimes.xml",
             "Bruegel": "https://www.bruegel.org/feed/analysis",
+            "Tokamak Energy News": "https://tokamakenergy.com/feed/",
+            "WIPO News": "https://www.wipo.int/pressroom/en/rss.xml",
+            "European Research Council": "https://erc.europa.eu/rss.xml",
         }
         for name, feed_url in native_feeds.items():
             with self.subTest(name=name):
                 self.assertEqual(active_sources[name]["feed_url"], feed_url)
                 self.assertTrue(active_sources[name]["native_feed"])
+
+        self.assertEqual(
+            active_sources["Japan IP Strategy Headquarters"]["listing_url"],
+            "https://www.cas.go.jp/jp/seisakukaigi/titeki2/index.html",
+        )
+        self.assertEqual(
+            active_sources["Boston Dynamics Blog"]["sitemap_urls"],
+            ["https://bostondynamics.com/blog-sitemap.xml"],
+        )
+        for name in ("産総研 お知らせ", "産総研 研究成果"):
+            with self.subTest(name=name):
+                self.assertEqual(active_sources[name]["fetch_mode"], "html")
+                self.assertEqual(
+                    active_sources[name]["html"]["date_selector"],
+                    ".newsDate",
+                )
 
     def test_config_includes_primary_policy_benchmark_sources(self):
         sources = collector.load_config()["sources"]
