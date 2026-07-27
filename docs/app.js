@@ -32,37 +32,27 @@ const LABELS = {
 const SOURCE_GROUPS = [
   {
     value: "public",
-    label: "政府・公的機関",
-    sourceTypes: ["Government"],
-  },
-  {
-    value: "intergovernmental",
-    label: "国際機関",
-    sourceTypes: ["Intergovernmental"],
-  },
-  {
-    value: "policy-institute",
-    label: "政策シンクタンク",
-    sourceTypes: ["Policy Institute"],
+    label: "政府系機関（各国政府・政府間機関）",
+    sourceTypes: ["Government", "Intergovernmental"],
   },
   {
     value: "company",
-    label: "企業公式",
+    label: "事業会社（公式情報）",
     sourceTypes: ["Official Company"],
   },
   {
-    value: "industry",
-    label: "産業団体・標準化機関",
+    value: "research",
+    label: "非政府調査・研究機関",
+    sourceTypes: ["Policy Institute"],
+  },
+  {
+    value: "membership",
+    label: "会員制団体（業界・専門・標準化）",
     sourceTypes: ["Industry Association"],
   },
   {
-    value: "media",
-    label: "主要メディア",
-    sourceTypes: ["Major Media"],
-  },
-  {
     value: "academic",
-    label: "学術・研究情報",
+    label: "学術情報（大学・論文誌・論文DB）",
     sourceTypes: [
       "Scientific Publication",
       "Journal Article",
@@ -70,7 +60,24 @@ const SOURCE_GROUPS = [
       "Preprint",
     ],
   },
+  {
+    value: "media",
+    label: "報道機関",
+    sourceTypes: ["Major Media"],
+  },
 ];
+
+// Some legacy feed types describe the publication format rather than the
+// publisher. These overrides keep every source in one primary source class.
+const SOURCE_GROUP_BY_SOURCE = new Map([
+  ["JST CRDS STI Policy Reports", "public"],
+  ["KISTEP", "public"],
+  ["STEPI", "public"],
+  ["Technology Innovation Institute", "public"],
+  ["Science Japan", "public"],
+  ["日本人工知能学会", "membership"],
+  ["Japan Space Systems", "research"],
+]);
 
 const SOURCE_GROUP_BY_TYPE = new Map(
   SOURCE_GROUPS.flatMap((group) =>
@@ -123,7 +130,11 @@ function academicKind(item) {
 }
 
 function sourceGroup(item) {
-  return SOURCE_GROUP_BY_TYPE.get(item.source_type) || "other";
+  return (
+    SOURCE_GROUP_BY_SOURCE.get(item.source) ||
+    SOURCE_GROUP_BY_TYPE.get(item.source_type) ||
+    "other"
+  );
 }
 
 function sourceGroupLabel(value) {

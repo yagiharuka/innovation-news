@@ -48,19 +48,64 @@ class FrontendFilterTests(unittest.TestCase):
 
     def test_source_groups_are_japanese_and_mece(self):
         labels = [
-            "政府・公的機関",
-            "国際機関",
-            "政策シンクタンク",
-            "企業公式",
-            "産業団体・標準化機関",
-            "主要メディア",
-            "学術・研究情報",
+            "政府系機関（各国政府・政府間機関）",
+            "事業会社（公式情報）",
+            "非政府調査・研究機関",
+            "会員制団体（業界・専門・標準化）",
+            "学術情報（大学・論文誌・論文DB）",
+            "報道機関",
         ]
         for label in labels:
             with self.subTest(label=label):
                 self.assertEqual(APP_JS.count(f'label: "{label}"'), 1)
-        self.assertIn("<span>情報源区分</span>", INDEX_HTML)
+        self.assertIn(
+            'sourceTypes: ["Government", "Intergovernmental"]',
+            APP_JS,
+        )
+        self.assertNotIn('label: "国際機関"', APP_JS)
+        self.assertNotIn('label: "政策シンクタンク"', APP_JS)
+        self.assertNotIn('label: "産業団体・標準化機関"', APP_JS)
+        self.assertIn("<span>情報源の主分類</span>", INDEX_HTML)
+        self.assertNotIn("<span>情報源区分</span>", INDEX_HTML)
         self.assertNotIn("<span>情報源の種類</span>", INDEX_HTML)
+
+    def test_legacy_institution_overrides_are_exclusive(self):
+        override_block = APP_JS.split(
+            "const SOURCE_GROUP_BY_SOURCE = new Map([", 1
+        )[1].split("]);", 1)[0]
+        expected = {
+            "JST CRDS STI Policy Reports": "public",
+            "KISTEP": "public",
+            "STEPI": "public",
+            "Technology Innovation Institute": "public",
+            "Science Japan": "public",
+            "日本人工知能学会": "membership",
+            "Japan Space Systems": "research",
+        }
+        config = json.loads(
+            (ROOT / "config" / "sources.json").read_text(encoding="utf-8")
+        )
+        configured_sources = {
+            source["name"]
+            for source in config["sources"]
+            if source.get("active", True)
+        }
+        valid_groups = {
+            "public",
+            "company",
+            "research",
+            "membership",
+            "academic",
+            "media",
+        }
+        for source, group in expected.items():
+            with self.subTest(source=source):
+                self.assertIn(source, configured_sources)
+                self.assertIn(group, valid_groups)
+                self.assertEqual(
+                    override_block.count(f'["{source}", "{group}"]'),
+                    1,
+                )
 
 
 if __name__ == "__main__":
