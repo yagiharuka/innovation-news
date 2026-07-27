@@ -31,6 +31,67 @@ class CollectorTests(unittest.TestCase):
             items[1:],
         )
 
+    def test_publication_guard_does_not_revive_retired_sources(self):
+        current = {
+            "article_count": 1,
+            "source_count": 260,
+            "items": [{"id": "current", "source": "NEDO News"}],
+        }
+        previous = {
+            "article_count": 3,
+            "source_count": 261,
+            "items": [
+                {"id": "keep-1", "source": "NEDO News"},
+                {"id": "retire", "source": "OpenAI News"},
+                {"id": "keep-2", "source": "Science Advances"},
+            ],
+        }
+
+        payload = collector.preserved_public_payload(current, previous)
+
+        self.assertEqual(payload["article_count"], 2)
+        self.assertEqual(payload["source_count"], 260)
+        self.assertEqual(
+            [item["id"] for item in payload["items"]],
+            ["keep-1", "keep-2"],
+        )
+
+    def test_guard_hydrates_ledger_from_purged_master(self):
+        public_items = [
+            {
+                "id": "keep",
+                "source": "NEDO News",
+                "title": "公開見出し",
+                "title_original": "Original title",
+                "summary": "公開要約",
+                "summary_original": "Original summary",
+            }
+        ]
+        master_items = [
+            {
+                "canonical_id": "keep",
+                "source": "NEDO News",
+                "collected_at_jst": "2026-07-27T12:00:00+09:00",
+                "title": "Master title",
+                "summary": "Master summary",
+            }
+        ]
+
+        hydrated = collector.hydrate_preserved_ledger_items(
+            public_items,
+            master_items,
+        )
+
+        self.assertEqual(hydrated[0]["canonical_id"], "keep")
+        self.assertEqual(
+            hydrated[0]["collected_at_jst"],
+            "2026-07-27T12:00:00+09:00",
+        )
+        self.assertEqual(hydrated[0]["title_ja"], "公開見出し")
+        self.assertEqual(hydrated[0]["summary_ja"], "公開要約")
+        self.assertEqual(hydrated[0]["title"], "Original title")
+        self.assertEqual(hydrated[0]["summary"], "Original summary")
+
     def test_run_fetches_sources_concurrently_and_preserves_source_order(self):
         sources = [
             {
