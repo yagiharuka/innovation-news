@@ -1505,6 +1505,31 @@ class CollectorTests(unittest.TestCase):
             }.issubset(active_names)
         )
 
+    def test_config_includes_requested_policy_institutes(self):
+        sources = collector.load_config()["sources"]
+        active_sources = {
+            source["name"]: source
+            for source in sources
+            if source.get("active", True)
+        }
+        expected = {
+            "Brookings TechTank": "Brookings Institution",
+            "CSIS Analysis": "Center for Strategic and International Studies",
+            "RAND Corporation": "RAND Corporation",
+            "ITIF Publications": "Information Technology and Innovation Foundation",
+        }
+        for name, organization in expected.items():
+            with self.subTest(name=name):
+                self.assertIn(name, active_sources)
+                self.assertEqual(
+                    active_sources[name]["organization"],
+                    organization,
+                )
+                self.assertEqual(
+                    active_sources[name]["source_type"],
+                    "Policy Institute",
+                )
+
     def test_config_source_names_are_unique_and_tiers_have_expected_cadence(self):
         sources = collector.load_config()["sources"]
         names = [source["name"] for source in sources]

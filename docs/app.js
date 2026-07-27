@@ -3,7 +3,7 @@
 const PAGE_SIZE = 20;
 
 const LABELS = {
-  "Technology Innovation": "技術イノベーション",
+  "Technology Innovation": "技術",
   "Innovation Policy": "イノベーション政策",
   "Artificial Intelligence": "AI",
   Robotics: "ロボット",
@@ -28,6 +28,55 @@ const LABELS = {
   "Conference proceedings — review status varies": "会議により査読状況が異なります",
   "Not peer reviewed": "未査読",
 };
+
+const SOURCE_GROUPS = [
+  {
+    value: "public",
+    label: "政府・公的機関",
+    sourceTypes: ["Government"],
+  },
+  {
+    value: "intergovernmental",
+    label: "国際機関",
+    sourceTypes: ["Intergovernmental"],
+  },
+  {
+    value: "policy-institute",
+    label: "政策シンクタンク",
+    sourceTypes: ["Policy Institute"],
+  },
+  {
+    value: "company",
+    label: "企業公式",
+    sourceTypes: ["Official Company"],
+  },
+  {
+    value: "industry",
+    label: "産業団体・標準化機関",
+    sourceTypes: ["Industry Association"],
+  },
+  {
+    value: "media",
+    label: "主要メディア",
+    sourceTypes: ["Major Media"],
+  },
+  {
+    value: "academic",
+    label: "学術・研究情報",
+    sourceTypes: [
+      "Scientific Publication",
+      "Journal Article",
+      "Conference Paper",
+      "Preprint",
+    ],
+  },
+];
+
+const SOURCE_GROUP_BY_TYPE = new Map(
+  SOURCE_GROUPS.flatMap((group) =>
+    group.sourceTypes.map((sourceType) => [sourceType, group.value])
+  )
+);
 
 const state = {
   items: [],
@@ -73,6 +122,14 @@ function academicKind(item) {
   return item.academic_kind || "News & Official Release";
 }
 
+function sourceGroup(item) {
+  return SOURCE_GROUP_BY_TYPE.get(item.source_type) || "other";
+}
+
+function sourceGroupLabel(value) {
+  return SOURCE_GROUPS.find((group) => group.value === value)?.label || "その他";
+}
+
 function formatDate(value, withTime = false) {
   if (!value) return "未更新";
   const date = new Date(value);
@@ -101,6 +158,23 @@ function populateSelect(select, values) {
     fragment.append(option);
   }
   select.append(fragment);
+}
+
+function populateSourceGroupSelect(items) {
+  const presentGroups = new Set(items.map(sourceGroup));
+  const groups = SOURCE_GROUPS.filter((group) => presentGroups.has(group.value));
+  if (presentGroups.has("other")) {
+    groups.push({ value: "other", label: "その他" });
+  }
+
+  const fragment = document.createDocumentFragment();
+  for (const group of groups) {
+    const option = document.createElement("option");
+    option.value = group.value;
+    option.textContent = group.label;
+    fragment.append(option);
+  }
+  elements.sourceType.append(fragment);
 }
 
 function tag(label, modifier = "") {
@@ -233,6 +307,8 @@ function applyFilters(resetPage = true) {
         item.organization,
         item.country,
         item.region,
+        sourceGroup(item),
+        sourceGroupLabel(sourceGroup(item)),
         academicKind(item),
         displayLabel(academicKind(item)),
         item.review_status,
@@ -248,7 +324,7 @@ function applyFilters(resetPage = true) {
       (!frame || (item.article_frames || []).includes(frame)) &&
       (!topic || (item.topics || []).includes(topic)) &&
       (!policyArea || (item.policy_areas || []).includes(policyArea)) &&
-      (!sourceType || item.source_type === sourceType) &&
+      (!sourceType || sourceGroup(item) === sourceType) &&
       (!selectedAcademicKind || academicKind(item) === selectedAcademicKind) &&
       Number(item.policy_relevance || 0) >= minimumPolicy
     );
@@ -330,7 +406,7 @@ async function loadData() {
     populateSelect(elements.frame, optionValues(state.items, (item) => item.article_frames || []));
     populateSelect(elements.topic, optionValues(state.items, (item) => item.topics || []));
     populateSelect(elements.policyArea, optionValues(state.items, (item) => item.policy_areas || []));
-    populateSelect(elements.sourceType, optionValues(state.items, (item) => [item.source_type]));
+    populateSourceGroupSelect(state.items);
     populateSelect(elements.academicKind, optionValues(state.items, (item) => [academicKind(item)]));
     applyFilters(true);
   } catch (error) {
