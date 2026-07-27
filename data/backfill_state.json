@@ -1,12 +1,22 @@
 {
-  "schema_version": 1,
-  "backfill_version": 2,
-  "completed_at": "2026-07-26T12:45:54Z",
-  "completed_at_jst": "2026-07-26T21:45:54+09:00",
-  "policy_history_days": 365,
-  "technology_history_days": 183,
-  "archive_sources_checked": 81,
-  "archive_sources_succeeded": 36,
-  "archive_items_found": 109,
-  "status": "completed"
+  "schema_version": 2,
+  "backfill_version": 0,
+  "updated_at": "2026-07-27T02:51:54Z",
+  "updated_at_jst": "2026-07-27T11:51:54+09:00",
+  "status": "partial",
+  "cadences": {
+    "daily": {
+      "backfill_version": 3,
+      "completed_at": "2026-07-27T02:51:54Z",
+      "completed_at_jst": "2026-07-27T11:51:54+09:00",
+      "policy_history_days": 365,
+      "technology_history_days": 183,
+      "sources_checked": 251,
+      "sources_succeeded": 225,
+      "archive_sources_checked": 96,
+      "archive_sources_succeeded": 38,
+      "archive_items_found": 166,
+      "status": "completed_with_errors"
+    }
+  }
 }

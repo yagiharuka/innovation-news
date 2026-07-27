@@ -1,12 +1,17 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-07-26T22:11:33Z",
+  "schema_version": 2,
+  "updated_at": "2026-07-27T02:51:54Z",
   "summary": {
-    "checked": 89,
-    "succeeded": 76,
-    "failed": 13,
-    "entries_seen": 34106,
-    "entries_kept": 187
+    "checked": 347,
+    "succeeded": 263,
+    "failed": 84,
+    "entries_seen": 154680,
+    "entries_kept": 3010
+  },
+  "coverage_summary": {
+    "registered": 259,
+    "checked_once": 255,
+    "waiting_first_check": 4
   },
   "sources": [
     {
@@ -16,11 +21,15 @@
       "region": "Global",
       "homepage": "https://www.bloomberg.com/technology",
       "feed_url": "https://www.bloomberg.com/feeds/technology/news.rss",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 3,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.48
+      "entries_seen": 11,
+      "entries_kept": 4,
+      "elapsed_seconds": 1.67,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "BBC Science & Environment",
@@ -29,11 +38,15 @@
       "region": "Global",
       "homepage": "https://www.bbc.com/news/science_and_environment",
       "feed_url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 42,
       "entries_kept": 0,
-      "elapsed_seconds": 1.44
+      "elapsed_seconds": 2.26,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "BBC Technology",
@@ -42,11 +55,15 @@
       "region": "Global",
       "homepage": "https://www.bbc.com/news/technology",
       "feed_url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 21,
-      "entries_kept": 4,
-      "elapsed_seconds": 1.38
+      "entries_kept": 8,
+      "elapsed_seconds": 5.51,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "The New York Times Technology",
@@ -55,11 +72,15 @@
       "region": "United States",
       "homepage": "https://www.nytimes.com/section/technology",
       "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 24,
-      "entries_kept": 8,
-      "elapsed_seconds": 0.75
+      "entries_kept": 14,
+      "elapsed_seconds": 1.87,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "The New York Times Science",
@@ -68,11 +89,15 @@
       "region": "United States",
       "homepage": "https://www.nytimes.com/section/science",
       "feed_url": "https://rss.nytimes.com/services/xml/rss/nyt/Science.xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 30,
-      "entries_kept": 5,
-      "elapsed_seconds": 1.05
+      "entries_kept": 7,
+      "elapsed_seconds": 1.89,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "NISTEP Updates",
@@ -81,11 +106,15 @@
       "region": "Asia",
       "homepage": "https://www.nistep.go.jp/",
       "feed_url": "https://www.nistep.go.jp/feed",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 15,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.04
+      "entries_kept": 15,
+      "elapsed_seconds": 12.12,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "The Guardian Technology",
@@ -98,7 +127,11 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.38
+      "elapsed_seconds": 0.38,
+      "last_checked_at": "2026-07-26T22:11:33Z",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": []
     },
     {
       "name": "MIT Technology Review",
@@ -107,11 +140,15 @@
       "region": "Global",
       "homepage": "https://www.technologyreview.com/",
       "feed_url": "https://www.technologyreview.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 4,
-      "elapsed_seconds": 0.65
+      "entries_kept": 8,
+      "elapsed_seconds": 1.77,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "IEEE Spectrum",
@@ -120,11 +157,15 @@
       "region": "Global",
       "homepage": "https://spectrum.ieee.org/",
       "feed_url": "https://spectrum.ieee.org/feeds/feed.rss",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 30,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.77
+      "entries_kept": 12,
+      "elapsed_seconds": 1.62,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Nature",
@@ -133,11 +174,15 @@
       "region": "Global",
       "homepage": "https://www.nature.com/",
       "feed_url": "https://www.nature.com/nature.rss",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 75,
-      "entries_kept": 5,
-      "elapsed_seconds": 0.57
+      "entries_kept": 24,
+      "elapsed_seconds": 0.45,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Science",
@@ -146,11 +191,15 @@
       "region": "Global",
       "homepage": "https://www.science.org/news/latest-news",
       "feed_url": "https://www.science.org/news/latest-news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/news/latest-news; sitemap: https://www.science.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/sitemap_index.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.98
+      "elapsed_seconds": 1.42,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "South China Morning Post Technology",
@@ -159,11 +208,15 @@
       "region": "Asia",
       "homepage": "https://www.scmp.com/tech",
       "feed_url": "https://www.scmp.com/rss/36/feed",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 50,
-      "entries_kept": 8,
-      "elapsed_seconds": 1.43
+      "entries_kept": 24,
+      "elapsed_seconds": 3.86,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Arab News Technology",
@@ -176,7 +229,11 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/tags/technology; sitemap: https://www.arabnews.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.43
+      "elapsed_seconds": 0.43,
+      "last_checked_at": "2026-07-26T22:11:33Z",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": []
     },
     {
       "name": "The National Technology",
@@ -185,11 +242,15 @@
       "region": "Middle East",
       "homepage": "https://www.thenationalnews.com/future/technology/",
       "feed_url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/category/future/technology/?outputType=xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 2,
       "entries_kept": 2,
-      "elapsed_seconds": 1.0
+      "elapsed_seconds": 0.76,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Brookings TechTank",
@@ -198,11 +259,15 @@
       "region": "United States",
       "homepage": "https://www.brookings.edu/tags/techtank/",
       "feed_url": "https://www.brookings.edu/tags/techtank/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 4,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.33
+      "entries_kept": 4,
+      "elapsed_seconds": 0.27,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "CSIS Analysis",
@@ -211,11 +276,15 @@
       "region": "United States",
       "homepage": "https://www.csis.org/analysis",
       "feed_url": "https://www.csis.org/rss.xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.28
+      "elapsed_seconds": 0.29,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "CSET",
@@ -224,11 +293,15 @@
       "region": "United States",
       "homepage": "https://cset.georgetown.edu/",
       "feed_url": "https://cset.georgetown.edu/feed/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.1
+      "entries_kept": 10,
+      "elapsed_seconds": 1.98,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Bruegel",
@@ -237,11 +310,15 @@
       "region": "EU & Europe",
       "homepage": "https://www.bruegel.org/analysis",
       "feed_url": "https://www.bruegel.org/analysis",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/analysis; sitemap: https://www.bruegel.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.bruegel.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.51
+      "elapsed_seconds": 0.26,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "MERICS",
@@ -250,11 +327,15 @@
       "region": "Asia",
       "homepage": "https://merics.org/en/research",
       "feed_url": "https://merics.org/en/research",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 98,
-      "entries_kept": 3,
-      "elapsed_seconds": 2.29
+      "entries_kept": 2,
+      "elapsed_seconds": 3.17,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "National Science Foundation News",
@@ -263,11 +344,15 @@
       "region": "United States",
       "homepage": "https://www.nsf.gov/news",
       "feed_url": "https://www.nsf.gov/rss/rss_www_news.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 15,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.18
+      "entries_kept": 15,
+      "elapsed_seconds": 1.32,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "NIST News",
@@ -276,11 +361,15 @@
       "region": "United States",
       "homepage": "https://www.nist.gov/news-events/news",
       "feed_url": "https://www.nist.gov/news-events/news/rss.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 40,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.11
+      "entries_kept": 24,
+      "elapsed_seconds": 1.72,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "NIH News Releases",
@@ -289,11 +378,18 @@
       "region": "United States",
       "homepage": "https://www.nih.gov/news-events/news-releases",
       "feed_url": "https://www.nih.gov/news-events/news-releases",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 114,
-      "entries_kept": 3,
-      "elapsed_seconds": 0.56
+      "entries_kept": 11,
+      "elapsed_seconds": 2.07,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "DOE Office of Science News",
@@ -302,11 +398,17 @@
       "region": "United States",
       "homepage": "https://www.energy.gov/science/listings/office-science-news",
       "feed_url": "https://www.energy.gov/rss/science/3662436",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.09
+      "entries_kept": 10,
+      "elapsed_seconds": 8.77,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "European Commission Research & Innovation",
@@ -315,11 +417,15 @@
       "region": "EU & Europe",
       "homepage": "https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news_en",
       "feed_url": "https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news_en",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 60,
-      "entries_kept": 0,
-      "elapsed_seconds": 4.47
+      "entries_kept": 18,
+      "elapsed_seconds": 8.39,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "UK DSIT",
@@ -328,11 +434,15 @@
       "region": "EU & Europe",
       "homepage": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology",
       "feed_url": "https://www.gov.uk/government/organisations/department-for-science-innovation-and-technology.atom",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.04
+      "entries_kept": 20,
+      "elapsed_seconds": 7.85,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "METI Press Releases",
@@ -341,11 +451,15 @@
       "region": "Asia",
       "homepage": "https://www.meti.go.jp/english/press/index.html",
       "feed_url": "https://www.meti.go.jp/english/press/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/english/press/index.html; sitemap: https://www.meti.go.jp/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.meti.go.jp/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.27
+      "elapsed_seconds": 0.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "WHO News",
@@ -354,11 +468,17 @@
       "region": "Global",
       "homepage": "https://www.who.int/news",
       "feed_url": "https://www.who.int/rss-feeds/news-english.xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 25,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.32
+      "entries_kept": 24,
+      "elapsed_seconds": 2.41,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "IEA News",
@@ -367,11 +487,15 @@
       "region": "Global",
       "homepage": "https://www.iea.org/news",
       "feed_url": "https://www.iea.org/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/news; sitemap: https://www.iea.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.81
+      "elapsed_seconds": 0.78,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "OECD Newsroom",
@@ -380,11 +504,15 @@
       "region": "Global",
       "homepage": "https://www.oecd.org/en/about/newsroom.html",
       "feed_url": "https://www.oecd.org/en/about/newsroom.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/en/about/newsroom.html; sitemap: https://www.oecd.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.85
+      "elapsed_seconds": 0.68,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "OpenAI News",
@@ -393,11 +521,17 @@
       "region": "Global",
       "homepage": "https://openai.com/news/",
       "feed_url": "https://openai.com/news/rss.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 1050,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.38
+      "entries_kept": 24,
+      "elapsed_seconds": 5.0,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Google AI",
@@ -406,11 +540,17 @@
       "region": "Global",
       "homepage": "https://blog.google/technology/ai/",
       "feed_url": "https://blog.google/technology/ai/rss/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.41
+      "entries_kept": 20,
+      "elapsed_seconds": 3.07,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "NVIDIA Blog",
@@ -419,11 +559,18 @@
       "region": "Global",
       "homepage": "https://blogs.nvidia.com/",
       "feed_url": "https://blogs.nvidia.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 18,
-      "entries_kept": 3,
-      "elapsed_seconds": 0.99
+      "entries_kept": 18,
+      "elapsed_seconds": 2.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Intel Newsroom",
@@ -432,11 +579,17 @@
       "region": "Global",
       "homepage": "https://newsroom.intel.com/",
       "feed_url": "https://newsroom.intel.com/feed",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 2,
-      "elapsed_seconds": 0.59
+      "entries_kept": 10,
+      "elapsed_seconds": 1.26,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "IBM Research",
@@ -445,11 +598,18 @@
       "region": "Global",
       "homepage": "https://research.ibm.com/blog",
       "feed_url": "https://research.ibm.com/blog",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 49,
-      "entries_kept": 3,
-      "elapsed_seconds": 5.21
+      "entries_kept": 18,
+      "elapsed_seconds": 11.52,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Microsoft Research",
@@ -458,11 +618,18 @@
       "region": "Global",
       "homepage": "https://www.microsoft.com/en-us/research/blog/",
       "feed_url": "https://www.microsoft.com/en-us/research/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.1
+      "entries_kept": 10,
+      "elapsed_seconds": 7.3,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Samsung Global Newsroom",
@@ -471,11 +638,18 @@
       "region": "Asia",
       "homepage": "https://news.samsung.com/global/",
       "feed_url": "https://news.samsung.com/global/feed",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 50,
-      "entries_kept": 3,
-      "elapsed_seconds": 76.0
+      "entries_kept": 24,
+      "elapsed_seconds": 251.15,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Anthropic News",
@@ -484,11 +658,17 @@
       "region": "United States",
       "homepage": "https://www.anthropic.com/news",
       "feed_url": "https://www.anthropic.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 113,
-      "entries_kept": 8,
-      "elapsed_seconds": 2.34
+      "entries_kept": 12,
+      "elapsed_seconds": 1.74,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Google DeepMind Blog",
@@ -497,11 +677,19 @@
       "region": "Global",
       "homepage": "https://deepmind.google/discover/blog/",
       "feed_url": "https://deepmind.google/discover/blog/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Biotechnology",
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "official sitemap fallback: 1",
       "entries_seen": 893,
       "entries_kept": 0,
-      "elapsed_seconds": 2.87
+      "elapsed_seconds": 3.8,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Meta AI Blog",
@@ -510,11 +698,17 @@
       "region": "Global",
       "homepage": "https://ai.meta.com/blog/",
       "feed_url": "https://ai.meta.com/blog/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 79,
-      "entries_kept": 0,
-      "elapsed_seconds": 3.93
+      "entries_kept": 10,
+      "elapsed_seconds": 10.04,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Amazon Science",
@@ -523,11 +717,19 @@
       "region": "Global",
       "homepage": "https://www.amazon.science/latest-news",
       "feed_url": "https://www.amazon.science/latest-news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence",
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 275,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.63
+      "entries_kept": 2,
+      "elapsed_seconds": 1.33,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Mistral AI News",
@@ -536,11 +738,17 @@
       "region": "EU & Europe",
       "homepage": "https://mistral.ai/",
       "feed_url": "https://mistral.ai/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 216,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.9
+      "entries_kept": 12,
+      "elapsed_seconds": 4.16,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Boston Dynamics Blog",
@@ -549,11 +757,18 @@
       "region": "United States",
       "homepage": "https://bostondynamics.com/blog/",
       "feed_url": "https://bostondynamics.com/blog/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 206,
       "entries_kept": 0,
-      "elapsed_seconds": 6.69
+      "elapsed_seconds": 12.08,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Toyota Research Institute News",
@@ -562,11 +777,18 @@
       "region": "Global",
       "homepage": "https://www.tri.global/news",
       "feed_url": "https://www.tri.global/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.tri.global/news; sitemap: https://www.tri.global/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.tri.global/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.17
+      "elapsed_seconds": 0.18,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "ABB Robotics News",
@@ -575,11 +797,18 @@
       "region": "EU & Europe",
       "homepage": "https://new.abb.com/products/robotics",
       "feed_url": "https://new.abb.com/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
       "status": "error",
       "detail": "listing: ReadTimeout: HTTPSConnectionPool(host='new.abb.com', port=443): Read timed out. (read timeout=15); sitemap: https://new.abb.com/sitemap.xml: ReadTimeout: HTTPSConnectionPool(host='new.abb.com', port=443): Read timed out. (read timeout=20)",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 95.84
+      "elapsed_seconds": 96.05,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "FANUC America Press Releases",
@@ -588,11 +817,18 @@
       "region": "Global",
       "homepage": "https://www.fanuc.co.jp/eindex.html",
       "feed_url": "https://www.fanucamerica.com/press-releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 226,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.04
+      "entries_kept": 9,
+      "elapsed_seconds": 6.1,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "TSMC News",
@@ -601,11 +837,17 @@
       "region": "Asia",
       "homepage": "https://pr.tsmc.com/english",
       "feed_url": "https://pr.tsmc.com/english/latest-news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 314,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.61
+      "entries_kept": 12,
+      "elapsed_seconds": 26.49,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "ASML News",
@@ -614,11 +856,17 @@
       "region": "EU & Europe",
       "homepage": "https://www.asml.com/en/news/press-releases",
       "feed_url": "https://www.asml.com/en/news/press-releases",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 4",
-      "entries_seen": 2006,
-      "entries_kept": 0,
-      "elapsed_seconds": 3.51
+      "detail": "",
+      "entries_seen": 139,
+      "entries_kept": 3,
+      "elapsed_seconds": 1.48,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "SK hynix Newsroom",
@@ -627,11 +875,18 @@
       "region": "Asia",
       "homepage": "https://news.skhynix.com/",
       "feed_url": "https://news.skhynix.com/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 208,
-      "entries_kept": 5,
-      "elapsed_seconds": 3.56
+      "entries_kept": 12,
+      "elapsed_seconds": 5.38,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Arm Newsroom",
@@ -640,11 +895,18 @@
       "region": "EU & Europe",
       "homepage": "https://newsroom.arm.com/",
       "feed_url": "https://newsroom.arm.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "official sitemap fallback: 8",
       "entries_seen": 1076,
-      "entries_kept": 0,
-      "elapsed_seconds": 6.14
+      "entries_kept": 16,
+      "elapsed_seconds": 8.36,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Qualcomm News",
@@ -653,11 +915,18 @@
       "region": "Global",
       "homepage": "https://www.qualcomm.com/news/releases",
       "feed_url": "https://www.qualcomm.com/news/releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "official sitemap fallback: 1",
       "entries_seen": 10515,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.67
+      "entries_kept": 12,
+      "elapsed_seconds": 7.32,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Ericsson Press Releases",
@@ -666,11 +935,17 @@
       "region": "EU & Europe",
       "homepage": "https://www.ericsson.com/en/newsroom",
       "feed_url": "https://www.ericsson.com/en/newsroom",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 283,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.22
+      "entries_kept": 1,
+      "elapsed_seconds": 2.07,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Nokia Newsroom",
@@ -679,11 +954,18 @@
       "region": "EU & Europe",
       "homepage": "https://www.nokia.com/about-us/newsroom/",
       "feed_url": "https://www.nokia.com/about-us/newsroom/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Quantum"
+      ],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.nokia.com/about-us/newsroom/; sitemap: https://www.nokia.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.nokia.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.85
+      "elapsed_seconds": 0.23,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "NTT R&D News",
@@ -692,11 +974,19 @@
       "region": "Asia",
       "homepage": "https://group.ntt/en/newsrelease/",
       "feed_url": "https://group.ntt/en/newsrelease/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 438,
-      "entries_kept": 0,
-      "elapsed_seconds": 5.2
+      "entries_kept": 15,
+      "elapsed_seconds": 14.14,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Rapidus News",
@@ -705,11 +995,17 @@
       "region": "Asia",
       "homepage": "https://www.rapidus.inc/en/news_topics/",
       "feed_url": "https://www.rapidus.inc/en/news_topics/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 5",
-      "entries_seen": 207,
-      "entries_kept": 0,
-      "elapsed_seconds": 5.3
+      "detail": "",
+      "entries_seen": 58,
+      "entries_kept": 10,
+      "elapsed_seconds": 8.81,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Quantinuum News",
@@ -718,11 +1014,17 @@
       "region": "Global",
       "homepage": "https://www.quantinuum.com/news/news",
       "feed_url": "https://www.quantinuum.com/news/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 112,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.58
+      "entries_kept": 1,
+      "elapsed_seconds": 0.65,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "IonQ News",
@@ -731,11 +1033,17 @@
       "region": "United States",
       "homepage": "https://www.ionq.com/news",
       "feed_url": "https://www.ionq.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 80,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.23
+      "entries_kept": 12,
+      "elapsed_seconds": 1.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Commonwealth Fusion Systems News",
@@ -744,11 +1052,17 @@
       "region": "United States",
       "homepage": "https://cfs.energy/news-and-media/",
       "feed_url": "https://cfs.energy/news-and-media/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 58,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.51
+      "entries_kept": 6,
+      "elapsed_seconds": 2.14,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Helion Energy News",
@@ -757,11 +1071,17 @@
       "region": "United States",
       "homepage": "https://www.helionenergy.com/blog",
       "feed_url": "https://www.helionenergy.com/blog",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 73,
       "entries_kept": 0,
-      "elapsed_seconds": 0.83
+      "elapsed_seconds": 1.4,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Tokamak Energy News",
@@ -770,11 +1090,17 @@
       "region": "EU & Europe",
       "homepage": "https://tokamakenergy.com/latest-news/",
       "feed_url": "https://tokamakenergy.com/latest-news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 4",
-      "entries_seen": 407,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.96
+      "detail": "",
+      "entries_seen": 386,
+      "entries_kept": 8,
+      "elapsed_seconds": 3.79,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Kyoto Fusioneering News",
@@ -783,11 +1109,17 @@
       "region": "Asia",
       "homepage": "https://kyotofusioneering.com/en/news/",
       "feed_url": "https://kyotofusioneering.com/en/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 8",
-      "entries_seen": 729,
-      "entries_kept": 0,
-      "elapsed_seconds": 4.08
+      "detail": "",
+      "entries_seen": 66,
+      "entries_kept": 12,
+      "elapsed_seconds": 4.83,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Moderna Media Center",
@@ -796,11 +1128,18 @@
       "region": "United States",
       "homepage": "https://www.modernatx.com/media-center/all-media",
       "feed_url": "https://www.modernatx.com/media-center/all-media",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "status": "ok",
-      "detail": "listing: HTTPError: 404 Client Error: Not Found for url: https://www.modernatx.com/media-center/all-media; official sitemap fallback: 2",
-      "entries_seen": 49,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.88
+      "detail": "listing: HTTPError: 404 Client Error: Not Found for url: https://www.modernatx.com/media-center/all-media; official sitemap fallback: 3",
+      "entries_seen": 98,
+      "entries_kept": 14,
+      "elapsed_seconds": 16.69,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "BioNTech Press Releases",
@@ -809,11 +1148,17 @@
       "region": "EU & Europe",
       "homepage": "https://www.biontech.com/int/en/home/mediaroom/news.html",
       "feed_url": "https://www.biontech.com/int/en/home/mediaroom/news.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology"
+      ],
       "status": "ok",
       "detail": "official sitemap fallback: 1",
-      "entries_seen": 1905,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.26
+      "entries_seen": 262,
+      "entries_kept": 16,
+      "elapsed_seconds": 6.89,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Roche Media Releases",
@@ -822,11 +1167,18 @@
       "region": "EU & Europe",
       "homepage": "https://www.roche.com/media/releases",
       "feed_url": "https://www.roche.com/media/releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "status": "ok",
       "detail": "official sitemap fallback: 2",
-      "entries_seen": 2185,
-      "entries_kept": 3,
-      "elapsed_seconds": 16.32
+      "entries_seen": 1755,
+      "entries_kept": 16,
+      "elapsed_seconds": 23.99,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "AstraZeneca Press Releases",
@@ -835,11 +1187,18 @@
       "region": "EU & Europe",
       "homepage": "https://www.astrazeneca.com/media-centre/press-releases.html",
       "feed_url": "https://www.astrazeneca.com/media-centre/press-releases.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "status": "error",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.astrazeneca.com/media-centre/press-releases.html; sitemap: https://www.astrazeneca.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.astrazeneca.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.23
+      "elapsed_seconds": 0.37,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Illumina News Center",
@@ -848,11 +1207,18 @@
       "region": "United States",
       "homepage": "https://www.illumina.com/company/news-center.html",
       "feed_url": "https://www.illumina.com/company/news-center.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 543,
-      "entries_kept": 0,
-      "elapsed_seconds": 4.04
+      "entries_kept": 1,
+      "elapsed_seconds": 15.8,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "SpaceX Updates",
@@ -861,11 +1227,18 @@
       "region": "United States",
       "homepage": "https://www.spacex.com/updates",
       "feed_url": "https://www.spacex.com/updates",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Semiconductors & Telecom"
+      ],
       "status": "error",
       "detail": "sitemap: https://www.spacex.com/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.spacex.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 1.74
+      "elapsed_seconds": 1.86,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Blue Origin News",
@@ -874,11 +1247,17 @@
       "region": "United States",
       "homepage": "https://www.blueorigin.com/news",
       "feed_url": "https://www.blueorigin.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space"
+      ],
       "status": "error",
       "detail": "listing: HTTPError: 429 Client Error: Too Many Requests for url: https://www.blueorigin.com/news; sitemap: https://www.blueorigin.com/sitemap.xml: HTTPError: 429 Client Error: Too Many Requests for url: https://www.blueorigin.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.29
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Rocket Lab Updates",
@@ -887,11 +1266,17 @@
       "region": "Global",
       "homepage": "https://rocketlabcorp.com/updates/",
       "feed_url": "https://rocketlabcorp.com/updates/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 3",
-      "entries_seen": 1134,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.38
+      "detail": "",
+      "entries_seen": 122,
+      "entries_kept": 13,
+      "elapsed_seconds": 1.16,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Astroscale News",
@@ -900,11 +1285,17 @@
       "region": "Asia",
       "homepage": "https://www.astroscale.com/en/news/",
       "feed_url": "https://www.astroscale.com/en/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 2",
-      "entries_seen": 3609,
-      "entries_kept": 0,
-      "elapsed_seconds": 2.15
+      "detail": "",
+      "entries_seen": 47,
+      "entries_kept": 12,
+      "elapsed_seconds": 4.16,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "ispace News",
@@ -913,11 +1304,17 @@
       "region": "Asia",
       "homepage": "https://www.ispace-inc.com/news/",
       "feed_url": "https://www.ispace-inc.com/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space"
+      ],
       "status": "ok",
-      "detail": "official sitemap fallback: 3",
-      "entries_seen": 1009,
-      "entries_kept": 1,
-      "elapsed_seconds": 7.05
+      "detail": "",
+      "entries_seen": 148,
+      "entries_kept": 10,
+      "elapsed_seconds": 12.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "ITER News",
@@ -926,11 +1323,17 @@
       "region": "EU & Europe",
       "homepage": "https://www.iter.org/news",
       "feed_url": "https://www.iter.org/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.09
+      "entries_kept": 20,
+      "elapsed_seconds": 0.99,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Fusion Industry Association",
@@ -943,7 +1346,13 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.84
+      "elapsed_seconds": 0.84,
+      "last_checked_at": "2026-07-26T22:11:33Z",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": [
+        "Fusion Energy"
+      ]
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -952,11 +1361,15 @@
       "region": "Asia",
       "homepage": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
       "feed_url": "https://www8.cao.go.jp/cstp/tougosenryaku/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 18,
       "entries_kept": 1,
-      "elapsed_seconds": 2.77
+      "elapsed_seconds": 1.73,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Japan IP Strategy Headquarters",
@@ -965,11 +1378,15 @@
       "region": "Asia",
       "homepage": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
       "feed_url": "https://www.cas.go.jp/jp/seisakukaigi/titeki2/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 381,
       "entries_kept": 7,
-      "elapsed_seconds": 1.56
+      "elapsed_seconds": 1.36,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "JST CRDS STI Policy Reports",
@@ -978,11 +1395,15 @@
       "region": "Asia",
       "homepage": "https://www.jst.go.jp/crds/",
       "feed_url": "https://www.jst.go.jp/crds/report/by-category/05/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 505,
-      "entries_kept": 8,
-      "elapsed_seconds": 2.33
+      "entries_kept": 24,
+      "elapsed_seconds": 1.84,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "White House OSTP News",
@@ -991,11 +1412,15 @@
       "region": "United States",
       "homepage": "https://www.whitehouse.gov/ostp/",
       "feed_url": "https://www.whitehouse.gov/ostp/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 182,
-      "entries_kept": 8,
-      "elapsed_seconds": 0.11
+      "entries_kept": 24,
+      "elapsed_seconds": 0.57,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "WIPO News",
@@ -1004,11 +1429,15 @@
       "region": "Global",
       "homepage": "https://www.wipo.int/pressroom/en/",
       "feed_url": "https://www.wipo.int/pressroom/en/articles/archive.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 157,
-      "entries_kept": 8,
-      "elapsed_seconds": 1.01
+      "entries_kept": 21,
+      "elapsed_seconds": 0.88,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "European Patent Office News",
@@ -1017,11 +1446,15 @@
       "region": "EU & Europe",
       "homepage": "https://www.epo.org/en/news-events/news",
       "feed_url": "https://www.epo.org/en/news-events/news/feed",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 959,
-      "entries_kept": 8,
-      "elapsed_seconds": 4.29
+      "entries_kept": 24,
+      "elapsed_seconds": 7.84,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "U.S. Treasury R&D Tax Policy",
@@ -1030,11 +1463,15 @@
       "region": "United States",
       "homepage": "https://home.treasury.gov/news/press-releases",
       "feed_url": "https://home.treasury.gov/news/press-releases",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 348,
-      "entries_kept": 8,
-      "elapsed_seconds": 115.76
+      "entries_kept": 15,
+      "elapsed_seconds": 146.61,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "China State Council Innovation Policies",
@@ -1043,11 +1480,15 @@
       "region": "Asia",
       "homepage": "https://english.www.gov.cn/policies/",
       "feed_url": "https://english.www.gov.cn/policies/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 60,
-      "entries_kept": 8,
-      "elapsed_seconds": 4.92
+      "entries_kept": 11,
+      "elapsed_seconds": 5.21,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Korea MSIT Press Releases",
@@ -1056,11 +1497,17 @@
       "region": "Asia",
       "homepage": "https://www.msit.go.kr/eng/",
       "feed_url": "https://www.msit.go.kr/eng/bbs/list.do?mId=4&mPid=2&sCode=eng",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
       "status": "ok",
       "detail": "official scripted listing",
       "entries_seen": 10,
-      "entries_kept": 8,
-      "elapsed_seconds": 10.47
+      "entries_kept": 10,
+      "elapsed_seconds": 9.44,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "European Innovation Council News",
@@ -1069,11 +1516,15 @@
       "region": "EU & Europe",
       "homepage": "https://eic.ec.europa.eu/news_en",
       "feed_url": "https://eic.ec.europa.eu/news_en",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 86,
-      "entries_kept": 8,
-      "elapsed_seconds": 4.42
+      "entries_kept": 20,
+      "elapsed_seconds": 5.48,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "UAE Advanced Technology Research Council",
@@ -1082,11 +1533,19 @@
       "region": "Middle East",
       "homepage": "https://www.atrc.gov.ae/news",
       "feed_url": "https://www.atrc.gov.ae/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Quantum"
+      ],
       "status": "error",
       "detail": "listing: SSLError: HTTPSConnectionPool(host='www.atrc.gov.ae', port=443): Max retries exceeded with url: /news (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to; sitemap: https://www.atrc.gov.ae/sitemap.xml: SSLError: HTTPSConnectionPool(host='www.atrc.gov.ae', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 3.16
+      "elapsed_seconds": 3.55,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Saudi Research, Development and Innovation Authority",
@@ -1095,11 +1554,15 @@
       "region": "Middle East",
       "homepage": "https://www.rdia.gov.sa/en/",
       "feed_url": "https://www.rdia.gov.sa/en/media-center/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 64,
-      "entries_kept": 4,
-      "elapsed_seconds": 5.16
+      "entries_kept": 2,
+      "elapsed_seconds": 4.36,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "Israel Innovation Authority",
@@ -1108,11 +1571,15 @@
       "region": "Middle East",
       "homepage": "https://innovationisrael.org.il/en/press_release/",
       "feed_url": "https://innovationisrael.org.il/en/press_release/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 85,
       "entries_kept": 0,
-      "elapsed_seconds": 6.82
+      "elapsed_seconds": 11.95,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "UAE Ministry of Industry and Advanced Technology",
@@ -1121,11 +1588,3753 @@
       "region": "Middle East",
       "homepage": "https://moiat.gov.ae/en/media-center/news",
       "feed_url": "https://moiat.gov.ae/en/media-center/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 210,
       "entries_kept": 6,
-      "elapsed_seconds": 27.77
+      "elapsed_seconds": 25.25,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "KISTEP",
+      "organization": "Korea Institute of S&T Evaluation and Planning",
+      "source_type": "Policy Institute",
+      "region": "Asia",
+      "homepage": "https://www.kistep.re.kr/",
+      "feed_url": "https://www.kistep.re.kr/board.es?mid=a20501000000&bid=0051",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 95,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.47,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "STEPI",
+      "organization": "Science and Technology Policy Institute",
+      "source_type": "Policy Institute",
+      "region": "Asia",
+      "homepage": "https://www.stepi.re.kr/",
+      "feed_url": "https://www.stepi.re.kr/site/stepien/ex/bbs/List.do?cbIdx=1303",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 77,
+      "entries_kept": 10,
+      "elapsed_seconds": 1.43,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "KIST",
+      "organization": "Korea Institute of Science and Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://kist.re.kr/",
+      "feed_url": "https://kist.re.kr/ko/news/latest-research-results.do",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 424,
+      "entries_kept": 10,
+      "elapsed_seconds": 1.68,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ETRI",
+      "organization": "Electronics and Telecommunications Research Institute",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.etri.re.kr/eng/",
+      "feed_url": "https://www.etri.re.kr/eng/bbs/list.etri?b_board_id=ENG02",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Robotics",
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 151,
+      "entries_kept": 10,
+      "elapsed_seconds": 1.44,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "KEIT",
+      "organization": "Korea Planning & Evaluation Institute of Industrial Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.keit.re.kr/",
+      "feed_url": "https://www.keit.re.kr/gallery.es?bid=0004&mid=a10202010000",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 222,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.65,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ITRI",
+      "organization": "Industrial Technology Research Institute",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.itri.org.tw/english/",
+      "feed_url": "https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=06&MmmID=617731531241750114&SiteID=1",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 108,
+      "entries_kept": 7,
+      "elapsed_seconds": 1.16,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Taiwan NSTC",
+      "organization": "National Science and Technology Council, Taiwan",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nstc.gov.tw/?l=en",
+      "feed_url": "https://www.nstc.gov.tw/folksonomy/list/eb9eb136-4319-40d6-abd3-0788bea0d3a8?l=en",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 175,
+      "entries_kept": 21,
+      "elapsed_seconds": 2.68,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NRF Singapore",
+      "organization": "National Research Foundation Singapore",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nrf.gov.sg/",
+      "feed_url": "https://www.nrf.gov.sg/Resources/press-releases/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 142,
+      "entries_kept": 3,
+      "elapsed_seconds": 0.15,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "China MOST",
+      "organization": "Ministry of Science and Technology of the People's Republic of China",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://en.most.gov.cn/",
+      "feed_url": "https://en.most.gov.cn/pressroom/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 22,
+      "entries_kept": 10,
+      "elapsed_seconds": 3.67,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Chinese Academy of Sciences",
+      "organization": "Chinese Academy of Sciences",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://english.cas.cn/",
+      "feed_url": "https://english.cas.cn/newsroom/research-news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 115,
+      "entries_kept": 18,
+      "elapsed_seconds": 8.35,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NSFC",
+      "organization": "National Natural Science Foundation of China",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nsfc.gov.cn/english/site_1/",
+      "feed_url": "https://www.nsfc.gov.cn/english/site_1/news/A2/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 75,
+      "entries_kept": 18,
+      "elapsed_seconds": 7.42,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ISRO",
+      "organization": "Indian Space Research Organisation",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.isro.gov.in/",
+      "feed_url": "https://www.isro.gov.in/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 273,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.38,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "CSIRO",
+      "organization": "Commonwealth Scientific and Industrial Research Organisation",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.csiro.au/",
+      "feed_url": "https://www.csiro.au/en/news/All",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 1512,
+      "entries_kept": 17,
+      "elapsed_seconds": 29.25,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Australian Research Council",
+      "organization": "Australian Research Council",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.arc.gov.au/",
+      "feed_url": "https://www.arc.gov.au/news-and-publications/media/media-releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "error",
+      "detail": "listing: ReadTimeout: HTTPSConnectionPool(host='www.arc.gov.au', port=443): Read timed out. (read timeout=15); sitemap: https://www.arc.gov.au/sitemap.xml: ReadTimeout: HTTPSConnectionPool(host='www.arc.gov.au', port=443): Read timed out. (read timeout=20)",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 95.63,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NRC Canada",
+      "organization": "National Research Council Canada",
+      "source_type": "Government",
+      "region": "Global",
+      "homepage": "https://nrc.canada.ca/en",
+      "feed_url": "https://nrc.canada.ca/en/stories",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 159,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.3,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ISED Canada",
+      "organization": "Innovation, Science and Economic Development Canada",
+      "source_type": "Government",
+      "region": "Global",
+      "homepage": "https://ised-isde.canada.ca/site/ised/en",
+      "feed_url": "https://api.io.canada.ca/io-server/gc/news/en/v2?atomtitle=Innovation%2C+Science+and+Economic+Development+Canada&dept=departmentofindustry&format=atom&orderBy=desc&pick=50&publishedDate%3E=2021-07-23&sort=publishedDate",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 50,
+      "entries_kept": 24,
+      "elapsed_seconds": 21.03,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "KAUST",
+      "organization": "King Abdullah University of Science and Technology",
+      "source_type": "Scientific Publication",
+      "region": "Middle East",
+      "homepage": "https://www.kaust.edu.sa/",
+      "feed_url": "https://www.kaust.edu.sa/en/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 196,
+      "entries_kept": 16,
+      "elapsed_seconds": 0.94,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Qatar QRDI Council",
+      "organization": "Qatar Research, Development and Innovation Council",
+      "source_type": "Government",
+      "region": "Middle East",
+      "homepage": "https://qrdi.org.qa/en-US/",
+      "feed_url": "https://qrdi.org.qa/en-US/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 89,
+      "entries_kept": 6,
+      "elapsed_seconds": 1.42,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "MBZUAI",
+      "organization": "Mohamed bin Zayed University of Artificial Intelligence",
+      "source_type": "Scientific Publication",
+      "region": "Middle East",
+      "homepage": "https://mbzuai.ac.ae/",
+      "feed_url": "https://mbzuai.ac.ae/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Healthcare",
+        "Biotechnology"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 249,
+      "entries_kept": 8,
+      "elapsed_seconds": 1.05,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Technology Innovation Institute",
+      "organization": "Technology Innovation Institute",
+      "source_type": "Scientific Publication",
+      "region": "Middle East",
+      "homepage": "https://www.tii.ae/",
+      "feed_url": "https://www.tii.ae/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 81,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.78,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "arXiv",
+      "status": "not_checked",
+      "detail": "Waiting for the first scheduled collection.",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0,
+      "last_checked_at": "",
+      "organization": "Cornell University",
+      "source_type": "Preprint",
+      "region": "Global",
+      "homepage": "https://arxiv.org/",
+      "feed_url": "https://export.arxiv.org/api/query?search_query=all%3A%22artificial%20intelligence%22%20OR%20all%3Arobotics%20OR%20all%3Asemiconductor%20OR%20all%3Atelecommunications%20OR%20all%3Aquantum%20OR%20all%3A%22nuclear%20fusion%22%20OR%20all%3Abiotechnology%20OR%20all%3Ahealthcare%20OR%20all%3A%22space%20technology%22&start=0&max_results=40&sortBy=submittedDate&sortOrder=descending",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ]
+    },
+    {
+      "name": "AAAI Proceedings",
+      "status": "not_checked",
+      "detail": "Waiting for the first scheduled collection.",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0,
+      "last_checked_at": "",
+      "organization": "Association for the Advancement of Artificial Intelligence",
+      "source_type": "Conference Paper",
+      "region": "Global",
+      "homepage": "https://ojs.aaai.org/index.php/AAAI",
+      "feed_url": "https://ojs.aaai.org/index.php/AAAI/gateway/plugin/WebFeedGatewayPlugin/rss2",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics"
+      ]
+    },
+    {
+      "name": "日本人工知能学会",
+      "status": "not_checked",
+      "detail": "Waiting for the first scheduled collection.",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0,
+      "last_checked_at": "",
+      "organization": "Japanese Society for Artificial Intelligence",
+      "source_type": "Scientific Publication",
+      "region": "Asia",
+      "homepage": "https://www.ai-gakkai.or.jp/",
+      "feed_url": "https://kikaku.ai-gakkai.or.jp/category/news/feed",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics"
+      ]
+    },
+    {
+      "name": "3GPP",
+      "organization": "3rd Generation Partnership Project",
+      "source_type": "Industry Association",
+      "region": "Global",
+      "homepage": "https://www.3gpp.org/",
+      "feed_url": "https://www.3gpp.org/news-events/3gpp-news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 283,
+      "entries_kept": 17,
+      "elapsed_seconds": 16.46,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ETSI",
+      "organization": "European Telecommunications Standards Institute",
+      "source_type": "Industry Association",
+      "region": "EU & Europe",
+      "homepage": "https://www.etsi.org/",
+      "feed_url": "https://www.etsi.org/newsroom/?_sft_category=press-releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 108,
+      "entries_kept": 8,
+      "elapsed_seconds": 12.97,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "O-RAN Alliance",
+      "organization": "O-RAN Alliance",
+      "source_type": "Industry Association",
+      "region": "Global",
+      "homepage": "https://www.o-ran.org/",
+      "feed_url": "https://www.o-ran.org/blog",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 315,
+      "entries_kept": 9,
+      "elapsed_seconds": 1.91,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ITU News",
+      "organization": "International Telecommunication Union",
+      "source_type": "Intergovernmental",
+      "region": "Global",
+      "homepage": "https://www.itu.int/",
+      "feed_url": "https://www.itu.int/hub/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 63,
+      "entries_kept": 4,
+      "elapsed_seconds": 2.58,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Science|Business",
+      "organization": "Science Business Publishing",
+      "source_type": "Major Media",
+      "region": "EU & Europe",
+      "homepage": "https://sciencebusiness.net/",
+      "feed_url": "https://sciencebusiness.net/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://sciencebusiness.net/news; sitemap: https://sciencebusiness.net/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://sciencebusiness.net/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Semiconductor Engineering",
+      "organization": "Semiconductor Engineering",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://semiengineering.com/",
+      "feed_url": "https://semiengineering.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 11.99,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "EE Times",
+      "organization": "EE Times",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://www.eetimes.com/",
+      "feed_url": "https://www.eetimes.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics",
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 251.8,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "EE Times Japan",
+      "organization": "ITmedia",
+      "source_type": "Major Media",
+      "region": "Asia",
+      "homepage": "https://eetimes.itmedia.co.jp/ee/",
+      "feed_url": "https://eetimes.itmedia.co.jp/ee/rss/index.rdf",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics",
+        "Quantum"
+      ],
+      "status": "error",
+      "detail": "HTTPError: 404 Client Error: Not Found for url: https://eetimes.itmedia.co.jp/ee/rss/index.rdf",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.96,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "The Robot Report",
+      "organization": "WTWH Media",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://www.therobotreport.com/",
+      "feed_url": "https://www.therobotreport.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 15,
+      "entries_kept": 15,
+      "elapsed_seconds": 1.83,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "STAT Biotech",
+      "organization": "STAT",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://www.statnews.com/category/biotech/",
+      "feed_url": "https://www.statnews.com/category/biotech/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 20,
+      "entries_kept": 20,
+      "elapsed_seconds": 2.97,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://www.fiercebiotech.com/",
+      "feed_url": "https://www.fiercebiotech.com/rss/xml",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 25,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.23,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "SpaceNews",
+      "organization": "SpaceNews",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://spacenews.com/",
+      "feed_url": "https://spacenews.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 24,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.68,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Payload",
+      "organization": "Payload",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://payloadspace.com/",
+      "feed_url": "https://payloadspace.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 13,
+      "entries_kept": 13,
+      "elapsed_seconds": 1.2,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://thequantuminsider.com/",
+      "feed_url": "https://thequantuminsider.com/feed/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 8.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Fusion Energy Insights",
+      "status": "not_checked",
+      "detail": "Waiting for the first scheduled collection.",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0,
+      "last_checked_at": "",
+      "organization": "Fusion Energy Insights",
+      "source_type": "Major Media",
+      "region": "Global",
+      "homepage": "https://www.fusionenergyinsights.com/",
+      "feed_url": "https://ghl.fusionenergyinsights.com/blog",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": [
+        "Fusion Energy"
+      ]
+    },
+    {
+      "name": "TAE Technologies",
+      "organization": "TAE Technologies",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://tae.com/",
+      "feed_url": "https://tae.com/news/pressreleases/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 62,
+      "entries_kept": 13,
+      "elapsed_seconds": 0.42,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Zap Energy",
+      "organization": "Zap Energy",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.zapenergy.com/",
+      "feed_url": "https://legacy.zapenergy.com/news-archive",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 198,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.22,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "General Fusion",
+      "organization": "General Fusion",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://generalfusion.com/",
+      "feed_url": "https://generalfusion.com/news-insights/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 75,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.18,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Type One Energy",
+      "organization": "Type One Energy",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://typeoneenergy.com/",
+      "feed_url": "https://typeoneenergy.com/newsroom/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 85,
+      "entries_kept": 8,
+      "elapsed_seconds": 1.29,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Proxima Fusion",
+      "organization": "Proxima Fusion",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.proximafusion.com/",
+      "feed_url": "https://www.proximafusion.com/press-news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 28,
+      "entries_kept": 4,
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Beam Therapeutics",
+      "organization": "Beam Therapeutics",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://beamtx.com/",
+      "feed_url": "https://investors.beamtx.com/press-releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 100,
+      "entries_kept": 20,
+      "elapsed_seconds": 0.25,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Intellia Therapeutics",
+      "organization": "Intellia Therapeutics",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.intelliatx.com/",
+      "feed_url": "https://ir.intelliatx.com/news-releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 67,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.32,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Recursion",
+      "organization": "Recursion Pharmaceuticals",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.recursion.com/",
+      "feed_url": "https://ir.recursion.com/news-events/press-releases",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 50,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.34,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Isomorphic Labs",
+      "organization": "Isomorphic Labs",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.isomorphiclabs.com/",
+      "feed_url": "https://www.isomorphiclabs.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 79,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.26,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Intuitive Surgical",
+      "organization": "Intuitive Surgical",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.intuitive.com/en-us/about-us/newsroom",
+      "feed_url": "https://www.intuitive.com/en-us/about-us/newsroom",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare",
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 279,
+      "entries_kept": 0,
+      "elapsed_seconds": 6.72,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Axiom Space",
+      "organization": "Axiom Space",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.axiomspace.com/",
+      "feed_url": "https://www.axiomspace.com/newsroom",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Healthcare",
+        "Biotechnology",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 139,
+      "entries_kept": 7,
+      "elapsed_seconds": 0.22,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ICEYE",
+      "organization": "ICEYE",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.iceye.com/",
+      "feed_url": "https://www.iceye.com/newsroom/press-releases",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 178,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.36,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Sierra Space",
+      "organization": "Sierra Space",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.sierraspace.com/",
+      "feed_url": "https://www.sierraspace.com/newsroom/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Healthcare",
+        "Biotechnology",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 181,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Planet",
+      "organization": "Planet Labs",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.planet.com/",
+      "feed_url": "https://www.planet.com/pulse/category/tech/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 92,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.35,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Spire Global",
+      "organization": "Spire Global",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://ir.spire.com/news-events/press-releases",
+      "feed_url": "https://ir.spire.com/news-events/press-releases/rss",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 2.08,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Apple Machine Learning Research",
+      "organization": "Apple",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://machinelearning.apple.com/",
+      "feed_url": "https://machinelearning.apple.com/highlights",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Healthcare",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 217,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.55,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Cohere",
+      "organization": "Cohere",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://cohere.com/",
+      "feed_url": "https://cohere.com/blog",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 282,
+      "entries_kept": 24,
+      "elapsed_seconds": 6.27,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "xAI",
+      "organization": "xAI",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://x.ai/",
+      "feed_url": "https://x.ai/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Space",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 132,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.47,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Figure",
+      "organization": "Figure AI",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.figure.ai/",
+      "feed_url": "https://www.figure.ai/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 42,
+      "entries_kept": 7,
+      "elapsed_seconds": 0.45,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Physical Intelligence",
+      "organization": "Physical Intelligence",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.pi.website/",
+      "feed_url": "https://www.pi.website/blog",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 18,
+      "entries_kept": 7,
+      "elapsed_seconds": 0.23,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "AMD",
+      "organization": "AMD",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.amd.com/",
+      "feed_url": "https://newsroom.amd.com/all-news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics",
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 93,
+      "entries_kept": 23,
+      "elapsed_seconds": 0.2,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Lam Research",
+      "organization": "Lam Research",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.lamresearch.com/",
+      "feed_url": "https://newsroom.lamresearch.com/blog",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 320,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.27,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Micron",
+      "organization": "Micron Technology",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.micron.com/",
+      "feed_url": "https://investors.micron.com/latest-news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "error",
+      "detail": "ReadTimeout: HTTPSConnectionPool(host='investors.micron.com', port=443): Read timed out. (read timeout=30)",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 30.69,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "MediaTek",
+      "organization": "MediaTek",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.mediatek.com/",
+      "feed_url": "https://www.mediatek.com/press-room",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 337,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.95,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Huawei",
+      "organization": "Huawei",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.huawei.com/en/",
+      "feed_url": "https://www.huawei.com/en/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics",
+        "Healthcare"
+      ],
+      "status": "error",
+      "detail": "sitemap: https://www.huawei.com/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.huawei.com/sitemap.xml",
+      "entries_seen": 239,
+      "entries_kept": 0,
+      "elapsed_seconds": 3.3,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "PsiQuantum",
+      "organization": "PsiQuantum",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.psiquantum.com/",
+      "feed_url": "https://www.psiquantum.com/news-import",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 141,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.4,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Rigetti",
+      "organization": "Rigetti Computing",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.rigetti.com/",
+      "feed_url": "https://investors.rigetti.com/news-events/news-releases/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 53,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.51,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "D-Wave",
+      "organization": "D-Wave Quantum",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.dwavequantum.com/",
+      "feed_url": "https://www.dwavequantum.com/company/newsroom/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 115,
+      "entries_kept": 6,
+      "elapsed_seconds": 0.35,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Pasqal",
+      "organization": "Pasqal",
+      "source_type": "Official Company",
+      "region": "EU & Europe",
+      "homepage": "https://www.pasqal.com/",
+      "feed_url": "https://www.pasqal.com/newsroom/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 117,
+      "entries_kept": 13,
+      "elapsed_seconds": 0.63,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "QuEra",
+      "organization": "QuEra Computing",
+      "source_type": "Official Company",
+      "region": "United States",
+      "homepage": "https://www.quera.com/",
+      "feed_url": "https://www.quera.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 174,
+      "entries_kept": 7,
+      "elapsed_seconds": 0.32,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "UKRI",
+      "organization": "UK Research and Innovation",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://www.ukri.org/news/",
+      "feed_url": "https://www.ukri.org/news/feed/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 20,
+      "entries_kept": 20,
+      "elapsed_seconds": 5.12,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Innovate UK",
+      "organization": "Innovate UK",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://www.ukri.org/councils/innovate-uk/news/",
+      "feed_url": "https://www.ukri.org/news/feed/?cat=52",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 20,
+      "entries_kept": 9,
+      "elapsed_seconds": 4.79,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ARIA",
+      "organization": "Advanced Research and Invention Agency",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://aria.org.uk/",
+      "feed_url": "https://aria.org.uk/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 58,
+      "entries_kept": 8,
+      "elapsed_seconds": 3.37,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "CORDIS",
+      "organization": "European Commission",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://cordis.europa.eu/news/en",
+      "feed_url": "https://cordis.europa.eu/search/en?format=rss&num=10&p=1&q=%2Farticle%2Frelations%2Fcategories%2Fcollection%2Fcode%3D%27news%27+AND+language%3D%27en%27+AND+%2Farticle%2Frelations%2Fcategories%2Fsource%2Fcode%3D%27editorial%27&srt=contentUpdateDate%3Adecreasing",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 4.42,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "EuroHPC JU",
+      "organization": "European High Performance Computing Joint Undertaking",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://www.eurohpc-ju.europa.eu/media-events/press-releases_en",
+      "feed_url": "https://www.eurohpc-ju.europa.eu/node/205/rss_en",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 30,
+      "entries_kept": 24,
+      "elapsed_seconds": 2.27,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Chips Joint Undertaking",
+      "organization": "Chips Joint Undertaking",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://www.chips-ju.europa.eu/",
+      "feed_url": "https://www.chips-ju.europa.eu/News/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 65,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.18,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "European Quantum Flagship",
+      "organization": "European Quantum Flagship",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://qt.eu/",
+      "feed_url": "https://qt.eu/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 164,
+      "entries_kept": 12,
+      "elapsed_seconds": 10.5,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "EUROfusion",
+      "organization": "EUROfusion Consortium",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://euro-fusion.org/",
+      "feed_url": "https://euro-fusion.org/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 292,
+      "entries_kept": 10,
+      "elapsed_seconds": 10.35,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ESA",
+      "organization": "European Space Agency",
+      "source_type": "Intergovernmental",
+      "region": "EU & Europe",
+      "homepage": "https://www.esa.int/Services/RSS_Feeds",
+      "feed_url": "https://www.esa.int/rssfeed/Our_Activities/Space_News",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Healthcare",
+        "Biotechnology"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 9,
+      "entries_kept": 8,
+      "elapsed_seconds": 2.02,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "European Research Council",
+      "organization": "European Research Council",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://erc.europa.eu/",
+      "feed_url": "https://erc.europa.eu/news-events/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 146,
+      "entries_kept": 13,
+      "elapsed_seconds": 3.26,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "EU Joint Research Centre",
+      "organization": "European Commission Joint Research Centre",
+      "source_type": "Government",
+      "region": "EU & Europe",
+      "homepage": "https://joint-research-centre.ec.europa.eu/jrc-news-and-updates_en",
+      "feed_url": "https://joint-research-centre.ec.europa.eu/node/2/rss_en",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 30,
+      "entries_kept": 24,
+      "elapsed_seconds": 3.98,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "DARPA",
+      "organization": "Defense Advanced Research Projects Agency",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.darpa.mil/news",
+      "feed_url": "https://www.darpa.mil/rss.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 3.1,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ARPA-E",
+      "organization": "Advanced Research Projects Agency-Energy",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://arpa-e.energy.gov/",
+      "feed_url": "https://arpa-e.energy.gov/news-and-events/news-and-insights",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Semiconductors & Telecom",
+        "Biotechnology",
+        "Artificial Intelligence"
+      ],
+      "status": "error",
+      "detail": "sitemap: https://arpa-e.energy.gov/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://arpa-e.energy.gov/sitemap.xml",
+      "entries_seen": 1,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.6,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "IARPA",
+      "organization": "Intelligence Advanced Research Projects Activity",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.iarpa.gov/",
+      "feed_url": "https://www.iarpa.gov/newsroom",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum",
+        "Biotechnology",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 78,
+      "entries_kept": 3,
+      "elapsed_seconds": 2.71,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ARPA-H",
+      "organization": "Advanced Research Projects Agency for Health",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://arpa-h.gov/",
+      "feed_url": "https://arpa-h.gov/news-and-events/news-archive",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare",
+        "Biotechnology",
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 81,
+      "entries_kept": 16,
+      "elapsed_seconds": 8.77,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Defense Innovation Unit",
+      "organization": "Defense Innovation Unit",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.diu.mil/",
+      "feed_url": "https://www.diu.mil/latest",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 25,
+      "entries_kept": 2,
+      "elapsed_seconds": 3.58,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NASA",
+      "organization": "National Aeronautics and Space Administration",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.nasa.gov/",
+      "feed_url": "https://www.nasa.gov/news/recently-published/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 309,
+      "entries_kept": 15,
+      "elapsed_seconds": 2.13,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "CHIPS for America",
+      "organization": "National Institute of Standards and Technology",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.nist.gov/chips",
+      "feed_url": "https://www.nist.gov/chips/chips-news-releases",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 188,
+      "entries_kept": 10,
+      "elapsed_seconds": 2.51,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "USPTO",
+      "organization": "United States Patent and Trademark Office",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.uspto.gov/",
+      "feed_url": "https://www.uspto.gov/about-us/news-updates",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 7",
+      "entries_seen": 96403,
+      "entries_kept": 15,
+      "elapsed_seconds": 6.73,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "GAO Science & Technology",
+      "organization": "U.S. Government Accountability Office",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.gao.gov/topics/science-and-technology",
+      "feed_url": "https://www.gao.gov/topics/science-and-technology",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.gao.gov/topics/science-and-technology; sitemap: https://www.gao.gov/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.gao.gov/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.65,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "SBIR.gov",
+      "organization": "U.S. Small Business Administration",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.sbir.gov/",
+      "feed_url": "https://www.sbir.gov/news-listing",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 48,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.5,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Congressional Research Service",
+      "organization": "Library of Congress",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.congress.gov/crs-products",
+      "feed_url": "https://www.congress.gov/crs-products",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "error",
+      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.congress.gov/crs-products",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.2,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "National Academies STEP",
+      "organization": "National Academies of Sciences, Engineering, and Medicine",
+      "source_type": "Policy Institute",
+      "region": "United States",
+      "homepage": "https://www.nationalacademies.org/step",
+      "feed_url": "https://nap.nationalacademies.org/authors.php?author=STEP&n=10",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 250,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.64,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Federal Register Science & Technology",
+      "organization": "Office of the Federal Register",
+      "source_type": "Government",
+      "region": "United States",
+      "homepage": "https://www.federalregister.gov/documents/search?conditions%5Bsections%5D%5B%5D=science-and-technology",
+      "feed_url": "https://www.federalregister.gov/documents/search.rss?conditions%5Bsections%5D%5B%5D=science-and-technology",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "error",
+      "detail": "ValueError: <unknown>:17:67: not well-formed (invalid token)",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.29,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "QunaSys",
+      "organization": "QunaSys",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://qunasys.com/",
+      "feed_url": "https://qunasys.com/en/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 99,
+      "entries_kept": 20,
+      "elapsed_seconds": 0.75,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Helical Fusion",
+      "organization": "Helical Fusion",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.helicalfusion.com/",
+      "feed_url": "https://www.helicalfusion.com/blog",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 259,
+      "entries_kept": 5,
+      "elapsed_seconds": 33.95,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "LINEA Innovations",
+      "organization": "LINEA Innovations",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://linea-innovations.com/en/",
+      "feed_url": "https://linea-innovations.com/en/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 40,
+      "entries_kept": 19,
+      "elapsed_seconds": 1.49,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "EX-Fusion",
+      "organization": "EX-Fusion",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://ex-fusion.com/",
+      "feed_url": "https://ex-fusion.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 80,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.9,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Takeda",
+      "organization": "Takeda Pharmaceutical",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.takeda.com/",
+      "feed_url": "https://www.takeda.com/newsroom/press-releases/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 8",
+      "entries_seen": 539,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.09,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Chugai",
+      "organization": "Chugai Pharmaceutical",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.chugai-pharm.co.jp/english/news/",
+      "feed_url": "https://www.chugai-pharm.co.jp/rss/news_releases_en.php",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 5,
+      "entries_kept": 5,
+      "elapsed_seconds": 3.15,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Daiichi Sankyo",
+      "organization": "Daiichi Sankyo",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.daiichisankyo.com/",
+      "feed_url": "https://www.daiichisankyo.com/media/press_release/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 1880,
+      "entries_kept": 1,
+      "elapsed_seconds": 2.18,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Astellas",
+      "organization": "Astellas Pharma",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.astellas.com/",
+      "feed_url": "https://newsroom.astellas.com/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 186,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.28,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Sysmex R&D",
+      "organization": "Sysmex",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.sysmex.co.jp/en/rd/",
+      "feed_url": "https://www.sysmex.co.jp/en/rd/news.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare",
+        "Biotechnology",
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 2055,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.22,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Olympus",
+      "organization": "Olympus",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.olympus-global.com/",
+      "feed_url": "https://www.olympus-global.com/news/release/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare",
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 1",
+      "entries_seen": 505,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.08,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Terumo",
+      "organization": "Terumo",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://www.terumo.com/",
+      "feed_url": "https://www.terumo.com/newsrelease",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare",
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 258,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.9,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Interstellar Technologies",
+      "organization": "Interstellar Technologies",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.istellartech.com/en/",
+      "feed_url": "https://www.istellartech.com/en/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 51,
+      "entries_kept": 1,
+      "elapsed_seconds": 2.71,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Synspective",
+      "organization": "Synspective",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://synspective.com/",
+      "feed_url": "https://synspective.com/news/press-release/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 83,
+      "entries_kept": 13,
+      "elapsed_seconds": 1.61,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Axelspace",
+      "organization": "Axelspace",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.axelspace.com/",
+      "feed_url": "https://www.axelspace.com/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 176,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.03,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "iQPS",
+      "organization": "Institute for Q-shu Pioneers of Space",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://i-qps.net/en/",
+      "feed_url": "https://i-qps.net/en/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 56,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.02,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "IHI",
+      "organization": "IHI Corporation",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.ihi.co.jp/en/",
+      "feed_url": "https://www.ihi.co.jp/en/all_news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Fusion Energy",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 204,
+      "entries_kept": 24,
+      "elapsed_seconds": 6.32,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ArkEdge Space",
+      "organization": "ArkEdge Space",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://arkedgespace.com/en/",
+      "feed_url": "https://arkedgespace.com/en/news-press-release",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 338,
+      "entries_kept": 24,
+      "elapsed_seconds": 9.7,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "GITAI",
+      "organization": "GITAI",
+      "source_type": "Official Company",
+      "region": "Global",
+      "homepage": "https://gitai.tech/",
+      "feed_url": "https://gitai.tech/news/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 66,
+      "entries_kept": 9,
+      "elapsed_seconds": 0.36,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Fujitsu Research",
+      "organization": "Fujitsu",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://global.fujitsu/en-global/technology/research",
+      "feed_url": "https://global.fujitsu/en-global/pr",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum",
+        "Semiconductors & Telecom",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 109,
+      "entries_kept": 5,
+      "elapsed_seconds": 4.13,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NEC R&D",
+      "organization": "NEC",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.nec.com/en/global/rd/",
+      "feed_url": "https://www.nec.com/en/global/rd/index.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum",
+        "Semiconductors & Telecom",
+        "Robotics",
+        "Space"
+      ],
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.nec.com/en/global/rd/index.html; sitemap: https://www.nec.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.nec.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.34,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Preferred Networks",
+      "organization": "Preferred Networks",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.preferred.jp/en/",
+      "feed_url": "https://www.preferred.jp/en/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 246,
+      "entries_kept": 24,
+      "elapsed_seconds": 0.66,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Sony AI",
+      "organization": "Sony AI",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://ai.sony/",
+      "feed_url": "https://ai.sony/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 66,
+      "entries_kept": 13,
+      "elapsed_seconds": 0.22,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Hitachi R&D",
+      "organization": "Hitachi",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://rd.hitachi.co.jp/",
+      "feed_url": "https://rd.hitachi.co.jp/_news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Quantum",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 209,
+      "entries_kept": 21,
+      "elapsed_seconds": 1.08,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "三菱電機 R&D",
+      "organization": "Mitsubishi Electric",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.mitsubishielectric.com/en/about/rd/",
+      "feed_url": "https://www.mitsubishielectric.com/en/pr/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 125,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "SoftBank R&D",
+      "organization": "SoftBank",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.softbank.jp/corp/technology/research/",
+      "feed_url": "https://www.softbank.jp/corp/technology/research/topics/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.39,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "CyberAgent AI Lab",
+      "organization": "CyberAgent",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://research.cyberagent.ai/",
+      "feed_url": "https://research.cyberagent.ai/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 61,
+      "entries_kept": 20,
+      "elapsed_seconds": 0.16,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "TIER IV",
+      "organization": "TIER IV",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://tier4.co.jp/en/",
+      "feed_url": "https://tier4.co.jp/en/updates",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 112,
+      "entries_kept": 12,
+      "elapsed_seconds": 3.82,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "安川電機",
+      "organization": "Yaskawa Electric",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.yaskawa-global.com/",
+      "feed_url": "https://www.yaskawa-global.com/newsrelease",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 349,
+      "entries_kept": 24,
+      "elapsed_seconds": 2.02,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "川崎重工",
+      "organization": "Kawasaki Heavy Industries",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://global.kawasaki.com/",
+      "feed_url": "https://global.kawasaki.com/en/corp/newsroom/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 132,
+      "entries_kept": 13,
+      "elapsed_seconds": 1.23,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Mujin",
+      "organization": "Mujin",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://mujin-corp.com/",
+      "feed_url": "https://mujin-corp.com/resources/news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 154,
+      "entries_kept": 20,
+      "elapsed_seconds": 0.37,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "DENSO",
+      "organization": "DENSO",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.denso.com/global/en/news/newsroom/",
+      "feed_url": "https://www.denso.com/global/en/news/newsroom/RSSNews",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum"
+      ],
+      "status": "error",
+      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.denso.com/global/en/news/newsroom/RSSNews",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.12,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "東京エレクトロン",
+      "organization": "Tokyo Electron",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.tel.com/",
+      "feed_url": "https://www.tel.com/news/product/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 110,
+      "entries_kept": 3,
+      "elapsed_seconds": 0.45,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Renesas",
+      "organization": "Renesas Electronics",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.renesas.com/",
+      "feed_url": "https://www.renesas.com/en/about/press-room",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.renesas.com/en/about/press-room; sitemap: https://www.renesas.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.renesas.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.06,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Kioxia",
+      "organization": "Kioxia",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.kioxia.com/",
+      "feed_url": "https://www.kioxia.com/en-jp/about/news.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "official sitemap fallback: 3",
+      "entries_seen": 1157,
+      "entries_kept": 0,
+      "elapsed_seconds": 2.72,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Sony Semiconductor Solutions",
+      "organization": "Sony Semiconductor Solutions",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.sony-semicon.com/",
+      "feed_url": "https://www.sony-semicon.com/en/news/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Robotics",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 418,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.25,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Advantest",
+      "organization": "Advantest",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.advantest.com/",
+      "feed_url": "https://www.advantest.com/en/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 323,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.31,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "SCREEN",
+      "organization": "SCREEN Holdings",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.screen.co.jp/en/",
+      "feed_url": "https://www.screen.co.jp/en/news",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 160,
+      "entries_kept": 9,
+      "elapsed_seconds": 25.77,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "KDDI総合研究所",
+      "organization": "KDDI Research",
+      "source_type": "Official Company",
+      "region": "Asia",
+      "homepage": "https://www.kddi-research.jp/english/newsrelease.html",
+      "feed_url": "https://www.kddi-research.jp/english/rss.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence",
+        "Quantum",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 2,
+      "elapsed_seconds": 3.28,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NEDO ニュース",
+      "organization": "New Energy and Industrial Technology Development Organization",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nedo.go.jp/",
+      "feed_url": "https://www.nedo.go.jp/form/event.php?f=press.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 52,
+      "entries_kept": 10,
+      "elapsed_seconds": 2.9,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NEDO 公募",
+      "organization": "New Energy and Industrial Technology Development Organization",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nedo.go.jp/koubo/",
+      "feed_url": "https://www.nedo.go.jp/koubo/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 53,
+      "entries_kept": 19,
+      "elapsed_seconds": 0.87,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NEDO グリーンイノベーション基金",
+      "organization": "New Energy and Industrial Technology Development Organization",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://green-innovation.nedo.go.jp/",
+      "feed_url": "https://www.nedo.go.jp/form/event.php?f=press.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Fusion Energy"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 52,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.93,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "産総研 お知らせ",
+      "organization": "National Institute of Advanced Industrial Science and Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.aist.go.jp/aist_j/news/",
+      "feed_url": "https://www.aist.go.jp/aist_j/news/announce/l_news_announce.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 118,
+      "entries_kept": 15,
+      "elapsed_seconds": 7.29,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "産総研 研究成果",
+      "organization": "National Institute of Advanced Industrial Science and Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.aist.go.jp/aist_j/news/research/l_news_research.html",
+      "feed_url": "https://www.aist.go.jp/aist_j/news/research/l_news_research.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 118,
+      "entries_kept": 18,
+      "elapsed_seconds": 8.22,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "理化学研究所",
+      "organization": "RIKEN",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.riken.jp/press/",
+      "feed_url": "https://www.riken.jp/feed/press_feed/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 50,
+      "entries_kept": 24,
+      "elapsed_seconds": 3.77,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NICT",
+      "organization": "National Institute of Information and Communications Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nict.go.jp/",
+      "feed_url": "https://www.nict.go.jp/press/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 165,
+      "entries_kept": 10,
+      "elapsed_seconds": 4.5,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "JAXA",
+      "organization": "Japan Aerospace Exploration Agency",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.jaxa.jp/press/",
+      "feed_url": "https://www.jaxa.jp/rss/press_j.rdf",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 20,
+      "entries_kept": 20,
+      "elapsed_seconds": 9.54,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "JAXA 宇宙戦略基金",
+      "organization": "Japan Aerospace Exploration Agency",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://fund.jaxa.jp/",
+      "feed_url": "https://fund.jaxa.jp/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 682,
+      "entries_kept": 18,
+      "elapsed_seconds": 32.75,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "JST プレスリリース",
+      "organization": "Japan Science and Technology Agency",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.jst.go.jp/pr/index.html",
+      "feed_url": "https://www.jst.go.jp/rss/press.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 9,
+      "entries_kept": 9,
+      "elapsed_seconds": 2.52,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Science Japan",
+      "organization": "Japan Science and Technology Agency",
+      "source_type": "Scientific Publication",
+      "region": "Asia",
+      "homepage": "https://sj.jst.go.jp/",
+      "feed_url": "https://sj.jst.go.jp/news/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 75,
+      "entries_kept": 18,
+      "elapsed_seconds": 4.28,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "QST",
+      "organization": "National Institutes for Quantum Science and Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.qst.go.jp/site/press/",
+      "feed_url": "https://www.qst.go.jp/rss/10/list7.xml",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Fusion Energy",
+        "Healthcare",
+        "Biotechnology"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 100,
+      "entries_kept": 24,
+      "elapsed_seconds": 4.0,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "NIMS",
+      "organization": "National Institute for Materials Science",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nims.go.jp/",
+      "feed_url": "https://www.nims.go.jp/press/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 220,
+      "entries_kept": 16,
+      "elapsed_seconds": 5.67,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "KEK",
+      "organization": "High Energy Accelerator Research Organization",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.kek.jp/ja/",
+      "feed_url": "https://www.kek.jp/ja/press",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 175,
+      "entries_kept": 10,
+      "elapsed_seconds": 8.85,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "核融合科学研究所",
+      "organization": "National Institute for Fusion Science",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nifs.ac.jp/",
+      "feed_url": "https://www.nifs.ac.jp/news/researches.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 153,
+      "entries_kept": 4,
+      "elapsed_seconds": 3.11,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "JAEA",
+      "organization": "Japan Atomic Energy Agency",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.jaea.go.jp/",
+      "feed_url": "https://www.jaea.go.jp/news/press/results.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy",
+        "Quantum",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 50,
+      "entries_kept": 12,
+      "elapsed_seconds": 5.22,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "農研機構",
+      "organization": "National Agriculture and Food Research Organization",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.naro.go.jp/",
+      "feed_url": "https://www.naro.go.jp/publicity_report/press/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Artificial Intelligence",
+        "Robotics",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 222,
+      "entries_kept": 13,
+      "elapsed_seconds": 9.55,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "医薬基盤・健康・栄養研究所",
+      "organization": "National Institutes of Biomedical Innovation, Health and Nutrition",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nibn.go.jp/",
+      "feed_url": "https://www.nibn.go.jp/information.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 250,
+      "entries_kept": 18,
+      "elapsed_seconds": 5.69,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "国立情報学研究所",
+      "organization": "National Institute of Informatics",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.nii.ac.jp/",
+      "feed_url": "https://www.nii.ac.jp/news/release/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 616,
+      "entries_kept": 18,
+      "elapsed_seconds": 7.51,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "文部科学省",
+      "organization": "Ministry of Education, Culture, Sports, Science and Technology",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.mext.go.jp/",
+      "feed_url": "https://www.mext.go.jp/b_menu/houdou/kagaku/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 278,
+      "entries_kept": 24,
+      "elapsed_seconds": 9.78,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "総務省",
+      "organization": "Ministry of Internal Affairs and Communications",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.soumu.go.jp/",
+      "feed_url": "https://www.soumu.go.jp/menu_news/s-news/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 246,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.1,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "IPA",
+      "organization": "Information-technology Promotion Agency, Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.ipa.go.jp/",
+      "feed_url": "https://www.ipa.go.jp/pressrelease/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 155,
+      "entries_kept": 22,
+      "elapsed_seconds": 1.04,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "PMDA",
+      "organization": "Pharmaceuticals and Medical Devices Agency",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.pmda.go.jp/",
+      "feed_url": "https://www.pmda.go.jp/0017.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 491,
+      "entries_kept": 7,
+      "elapsed_seconds": 7.61,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "防衛装備庁",
+      "organization": "Acquisition, Technology & Logistics Agency",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.mod.go.jp/atla/",
+      "feed_url": "https://www.mod.go.jp/atla/history.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1309,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.47,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "SIP",
+      "organization": "Cabinet Office, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www8.cao.go.jp/cstp/gaiyo/sip/",
+      "feed_url": "https://www8.cao.go.jp/cstp/gaiyo/sip/",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 34,
+      "entries_kept": 11,
+      "elapsed_seconds": 1.36,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "ムーンショット型研究開発",
+      "organization": "Cabinet Office, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www8.cao.go.jp/cstp/moonshot/index.html",
+      "feed_url": "https://www8.cao.go.jp/cstp/moonshot/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 32,
+      "entries_kept": 10,
+      "elapsed_seconds": 0.75,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "K Program",
+      "organization": "Cabinet Office, Government of Japan",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www8.cao.go.jp/cstp/anzen_anshin/kprogram.html",
+      "feed_url": "https://www8.cao.go.jp/cstp/anzen_anshin/whatsnew_kpro.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Biotechnology",
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 9,
+      "entries_kept": 3,
+      "elapsed_seconds": 0.61,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "特許庁",
+      "organization": "Japan Patent Office",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.jpo.go.jp/",
+      "feed_url": "https://www.jpo.go.jp/news/shinchaku/koshin/index.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
+      "status": "error",
+      "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.jpo.go.jp/news/shinchaku/koshin/index.html",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.64,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "INPIT",
+      "organization": "National Center for Industrial Property Information and Training",
+      "source_type": "Government",
+      "region": "Asia",
+      "homepage": "https://www.inpit.go.jp/",
+      "feed_url": "https://www.inpit.go.jp/topics.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 1679,
+      "entries_kept": 4,
+      "elapsed_seconds": 8.94,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "J-Fusion",
+      "organization": "Japan Fusion Energy Council",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://jfusion.jp/",
+      "feed_url": "https://jfusion.jp/C21/news_list",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Fusion Energy"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 52,
+      "entries_kept": 3,
+      "elapsed_seconds": 4.03,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Q-STAR",
+      "organization": "Quantum STrategic industry Alliance for Revolution",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://qstar.jp/",
+      "feed_url": "https://qstar.jp/archives/about_news",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Quantum"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 43,
+      "entries_kept": 11,
+      "elapsed_seconds": 4.07,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "JEITA",
+      "organization": "Japan Electronics and Information Technology Industries Association",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jeita.or.jp/",
+      "feed_url": "https://www.jeita.or.jp/cgi-bin/topics/list.cgi",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 163,
+      "entries_kept": 18,
+      "elapsed_seconds": 9.75,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "日本ロボット工業会",
+      "organization": "Japan Robot Association",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jara.jp/",
+      "feed_url": "https://www.jara.jp/news/index.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 70,
+      "entries_kept": 0,
+      "elapsed_seconds": 3.54,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "日本バイオ産業人会議",
+      "organization": "Japan Association of Bioindustries Executives",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://jabex.jp/",
+      "feed_url": "https://jabex.jp/category/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 103,
+      "entries_kept": 10,
+      "elapsed_seconds": 13.77,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "バイオインダストリー協会",
+      "organization": "Japan Bioindustry Association",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jba.or.jp/",
+      "feed_url": "https://www.jba.or.jp/jba_info/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "error",
+      "detail": "sitemap: https://www.jba.or.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.jba.or.jp/sitemap.xml",
+      "entries_seen": 39,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.92,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "日本製薬工業協会",
+      "organization": "Japan Pharmaceutical Manufacturers Association",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jpma.or.jp/",
+      "feed_url": "https://www.jpma.or.jp/news_room/release/index.html",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 380,
+      "entries_kept": 14,
+      "elapsed_seconds": 13.05,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "日本医療機器産業連合会",
+      "organization": "Japan Federation of Medical Devices Associations",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jfmda.gr.jp/",
+      "feed_url": "https://www.jfmda.gr.jp/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Healthcare",
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 144,
+      "entries_kept": 0,
+      "elapsed_seconds": 3.13,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "日本航空宇宙工業会",
+      "organization": "Society of Japanese Aerospace Companies",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.sjac.or.jp/",
+      "feed_url": "https://www.sjac.or.jp/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 38,
+      "entries_kept": 4,
+      "elapsed_seconds": 8.26,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "Japan Space Systems",
+      "organization": "Japan Space Systems",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jspacesystems.or.jp/",
+      "feed_url": "https://www.jspacesystems.or.jp/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Space",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 112,
+      "entries_kept": 9,
+      "elapsed_seconds": 9.4,
+      "last_checked_at": "2026-07-27T02:51:54Z"
+    },
+    {
+      "name": "日本ディープラーニング協会",
+      "organization": "Japan Deep Learning Association",
+      "source_type": "Industry Association",
+      "region": "Asia",
+      "homepage": "https://www.jdla.org/",
+      "feed_url": "https://www.jdla.org/news/",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence"
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 148,
+      "entries_kept": 11,
+      "elapsed_seconds": 6.96,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "OpenAlex Journal Articles",
@@ -1134,11 +5343,15 @@
       "region": "Global",
       "homepage": "https://openalex.org/",
       "feed_url": "https://api.openalex.org/works",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 58,
-      "entries_kept": 14,
-      "elapsed_seconds": 1.74
+      "entries_seen": 256,
+      "entries_kept": 64,
+      "elapsed_seconds": 3.61,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "OpenAlex Conference Papers",
@@ -1147,11 +5360,15 @@
       "region": "Global",
       "homepage": "https://openalex.org/",
       "feed_url": "https://api.openalex.org/works",
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 11,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.15
+      "entries_seen": 106,
+      "entries_kept": 30,
+      "elapsed_seconds": 1.45,
+      "last_checked_at": "2026-07-27T02:51:54Z"
     },
     {
       "name": "OpenAlex Preprints",
@@ -1164,7 +5381,11 @@
       "detail": "",
       "entries_seen": 43,
       "entries_kept": 6,
-      "elapsed_seconds": 1.28
+      "elapsed_seconds": 1.28,
+      "last_checked_at": "2026-07-26T22:11:33Z",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": []
     }
   ]
 }
