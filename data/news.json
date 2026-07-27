@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-27T14:37:06Z",
-  "updated_at_jst": "2026-07-27T23:37:06+09:00",
+  "updated_at": "2026-07-27T16:34:11Z",
+  "updated_at_jst": "2026-07-28T01:34:11+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 142,
+  "article_count": 143,
   "source_count": 260,
   "source_counts": {
     "daily": 252,
@@ -51,6 +51,40 @@
       "summary_language": "ja",
       "url": "https://www.inpit.go.jp/j-platpat_info/lecture/design.html",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e454b0f1a906e0868068a774",
+      "published_at": "2026-07-27T14:58:45Z",
+      "collected_at_jst": "2026-07-28T01:34:11+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ピッツバーグスーパーコンピューティングセンターが新しいハイブリッド量子古典スーパーコンピュータを構築",
+      "title_original": "Pittsburgh Supercomputing Center Will Build New Hybrid Quantum-Classical Supercomputer",
+      "summary": "ピッツバーグスーパーコンピューティングセンターが、国立科学財団からの500万ドルの助成金を受けてハイブリッド量子古典コンピュータを構築する計画を発表しました。",
+      "summary_original": "Insider Brief PRESS RELEASE — A hybrid quantum-classical computer will soon operate at the Pittsburgh Supercomputing Center, thanks to a $5-million grant from the National Science Foundation. To deliver on the grant, PSC, HPE, and Rigetti Computing will partner together to build the TangleLab supercomputing testbed. “TangleLab continues PSC’s long tradition of making next-generation computing […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/27/pittsburgh-supercomputing-center-will-build-new-hybrid-quantum-classical-supercomputer/",
+      "first_seen": "2026-07-28T01:34:11+09:00",
       "status": "New"
     },
     {
