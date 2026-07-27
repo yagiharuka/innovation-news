@@ -3807,6 +3807,30 @@ def contains_japanese(value: str) -> bool:
     return bool(re.search(r"[\u3040-\u30ff\u3400-\u9fff]", value or ""))
 
 
+def needs_taxonomy_repair(item: dict[str, Any]) -> bool:
+    if item.get("status") == "Excluded":
+        return False
+    article_frames = item.get("article_frames") or [
+        part.strip()
+        for part in item.get("article_frame", "").split("|")
+        if part.strip()
+    ]
+    topics = item.get("topics") or [
+        part.strip()
+        for part in item.get("topic", "").split("|")
+        if part.strip()
+    ]
+    policy_areas = item.get("policy_areas") or [
+        part.strip()
+        for part in item.get("policy_area", "").split("|")
+        if part.strip()
+    ]
+    return (
+        ("Technology Innovation" in article_frames and not topics)
+        or ("Innovation Policy" in article_frames and not policy_areas)
+    )
+
+
 def needs_scope_review(item: dict[str, Any]) -> bool:
     academic_kind = item.get("academic_kind", ACADEMIC_KIND_NEWS)
     return (
@@ -3820,6 +3844,7 @@ def needs_scope_review(item: dict[str, Any]) -> bool:
             item.get("status") != "Excluded"
             and (not item.get("title_ja") or not item.get("summary_ja"))
         )
+        or needs_taxonomy_repair(item)
     )
 
 
@@ -3887,7 +3912,7 @@ def select_scope_review_items(
         item_id = review_item_id(item)
         if item_id in new_ids:
             return 0
-        if item_id in priority_ids:
+        if item_id in priority_ids or needs_taxonomy_repair(item):
             return 1
         return 2
 
@@ -3998,12 +4023,23 @@ def normalize_reviewed_topics(items: list[dict[str, Any]]) -> None:
         ]
         if (
             not verified_topics
-            and item.get("candidate_from_source_topic_tags")
+            and not evidence_topics
+            and current_topics
+            and item.get("scope_content_type") in TECH_SCOPE_CONTENT_TYPES
+            and item.get("scope_content_type") != "technology_policy"
+            and item.get("scope_focus")
             and item.get("scope_evidence")
         ):
+            # The deterministic keyword classifier cannot name every niche
+            # research method. Preserve one topic from the current structured
+            # model review when it supplied both a concrete focus and evidence,
+            # but only when the source text does not support a conflicting
+            # topic. For a multi-topic response without deterministic support,
+            # retain only the primary topic so the record does not enter an
+            # endless repair/re-review loop.
             verified_topics = [
                 topic for topic in current_topics if topic in allowed_topics
-            ]
+            ][:1]
         article_frames = item.get("article_frames") or [
             part.strip()
             for part in item.get("article_frame", "").split("|")
