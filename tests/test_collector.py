@@ -19,6 +19,18 @@ SPEC.loader.exec_module(collector)
 
 
 class CollectorTests(unittest.TestCase):
+    def test_exclude_retired_sources_removes_openai_news_only(self):
+        items = [
+            {"source": "OpenAI News", "title": "retired"},
+            {"source": "Science Advances", "title": "OpenAlex venue"},
+            {"source": "NEDO News", "title": "active source"},
+        ]
+
+        self.assertEqual(
+            collector.exclude_retired_sources(items),
+            items[1:],
+        )
+
     def test_run_fetches_sources_concurrently_and_preserves_source_order(self):
         sources = [
             {
@@ -377,6 +389,13 @@ class CollectorTests(unittest.TestCase):
                     "entries_seen": 3,
                     "entries_kept": 1,
                     "elapsed_seconds": 0.5,
+                },
+                {
+                    "name": "OpenAI News",
+                    "status": "ok",
+                    "entries_seen": 5,
+                    "entries_kept": 2,
+                    "elapsed_seconds": 0.5,
                 }
             ],
         }
@@ -401,6 +420,7 @@ class CollectorTests(unittest.TestCase):
             by_name["Weekly"]["last_checked_at"],
             "2026-07-26T00:00:00Z",
         )
+        self.assertNotIn("OpenAI News", by_name)
         self.assertEqual(payload["coverage_summary"]["registered"], 2)
         self.assertEqual(payload["coverage_summary"]["checked_once"], 2)
 

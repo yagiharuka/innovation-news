@@ -1,6 +1,7 @@
 "use strict";
 
 const PAGE_SIZE = 20;
+const RETIRED_SOURCE_NAMES = new Set(["OpenAI News"]);
 
 const LABELS = {
   "Technology Innovation": "技術",
@@ -406,8 +407,9 @@ async function loadData() {
     const response = await fetch("./data/news.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
-    state.items = Array.isArray(payload.items) ? payload.items : [];
-    elements.articleCount.textContent = Number(payload.article_count || state.items.length).toLocaleString("ja-JP");
+    const items = Array.isArray(payload.items) ? payload.items : [];
+    state.items = items.filter((item) => !RETIRED_SOURCE_NAMES.has(item.source));
+    elements.articleCount.textContent = state.items.length.toLocaleString("ja-JP");
     elements.sourceCount.textContent = Number(payload.source_count || 0).toLocaleString("ja-JP");
     elements.updatedAt.textContent = payload.updated_at_jst
       ? `${formatDate(payload.updated_at_jst, true)} 更新`

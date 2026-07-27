@@ -513,20 +513,6 @@
     },
     {
       "active": true,
-      "name": "OpenAI News",
-      "organization": "OpenAI",
-      "source_type": "Official Company",
-      "region": "Global",
-      "country": "United States",
-      "category": "Artificial intelligence",
-      "feed_url": "https://openai.com/news/rss.xml",
-      "homepage": "https://openai.com/news/",
-      "priority": 5,
-      "native_feed": true,
-      "notes": "Official company newsroom."
-    },
-    {
-      "active": true,
       "name": "Google AI",
       "organization": "Google",
       "source_type": "Official Company",

@@ -65,6 +65,7 @@ DEFAULT_PUBLIC_ITEM_LIMIT = 2500
 DEFAULT_SOURCE_FETCH_WORKERS = 4
 SOURCE_CADENCES = {"daily", "weekly"}
 SOURCE_COVERAGE_TIERS = {"S", "A", "B"}
+RETIRED_SOURCE_NAMES = frozenset({"OpenAI News"})
 TECH_SCOPE_CONTENT_TYPES = {
     "research_breakthrough",
     "engineering_development",
@@ -871,6 +872,17 @@ def load_master() -> list[dict[str, Any]]:
             row["collection_mode"] = row.get("collection_mode", "Daily")
             items.append(row)
     return items
+
+
+def exclude_retired_sources(
+    items: Iterable[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Drop records from sources that must no longer appear in any output."""
+    return [
+        item
+        for item in items
+        if item.get("source") not in RETIRED_SOURCE_NAMES
+    ]
 
 
 def load_run_log() -> list[dict[str, Any]]:
@@ -4195,7 +4207,7 @@ def run(
         source for source in config["sources"] if source.get("active")
     ]
     sources = sources_for_cadence(active_sources, cadence)
-    existing = load_master()
+    existing = exclude_retired_sources(load_master())
     collected_at = now_utc()
     backfill_state = load_backfill_state()
     backfill = (
@@ -4384,8 +4396,9 @@ def run(
         ),
         reverse=True,
     )
+    candidates = exclude_retired_sources(candidates)
     new_items, duplicates = deduplicate(candidates, existing)
-    merged = new_items + existing
+    merged = exclude_retired_sources(new_items + existing)
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     academic_refresh = refresh_academic_review_summaries(session, merged)
     if academic_refresh["targets"]:
