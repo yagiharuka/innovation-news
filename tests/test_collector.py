@@ -480,6 +480,27 @@ class CollectorTests(unittest.TestCase):
         item["scope_review_version"] = "older-review"
         self.assertTrue(collector.needs_scope_review(item))
 
+    def test_current_review_with_missing_topic_is_queued_for_taxonomy_repair(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title_ja": "新しい学会論文",
+            "summary_ja": "新手法を提案した。",
+            "article_frames": ["Technology Innovation"],
+            "topics": [],
+        }
+
+        self.assertTrue(collector.needs_taxonomy_repair(item))
+        self.assertTrue(collector.needs_scope_review(item))
+
+        selected = collector.select_scope_review_items(
+            [item],
+            [],
+            limit=1,
+            balanced=True,
+        )
+        self.assertEqual(selected, [item])
+
     def test_reviewed_topics_require_article_evidence_not_source_category(self):
         item = {
             "status": "New",
@@ -488,10 +509,70 @@ class CollectorTests(unittest.TestCase):
             "summary": "The programme funds artificial intelligence research infrastructure.",
             "topics": ["Quantum"],
             "topic": "Quantum",
+            "candidate_from_source_topic_tags": True,
+            "scope_content_type": "research_breakthrough",
+            "scope_focus": "量子技術",
+            "scope_evidence": "The programme funds artificial intelligence research infrastructure.",
         }
         collector.normalize_reviewed_topics([item])
         self.assertEqual(item["topics"], ["Artificial Intelligence"])
         self.assertEqual(item["topic"], "Artificial Intelligence")
+
+    def test_structured_review_preserves_niche_model_topic_without_keyword_match(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title": "ProAR: Probabilistic Autoregressive Modeling for Molecular Dynamics",
+            "summary": "",
+            "topics": ["Artificial Intelligence"],
+            "topic": "Artificial Intelligence",
+            "article_frames": ["Technology Innovation"],
+            "scope_content_type": "conference_paper",
+            "scope_focus": "ProARによる分子動力学のモデリング",
+            "scope_evidence": "確率的自己回帰フレームワークで軌道を生成する。",
+        }
+
+        collector.normalize_reviewed_topics([item])
+
+        self.assertEqual(item["topics"], ["Artificial Intelligence"])
+        self.assertEqual(item["topic"], "Artificial Intelligence")
+
+    def test_structured_review_keeps_only_primary_unsupported_model_topic(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title": "ProAR: Probabilistic Autoregressive Modeling for Molecular Dynamics",
+            "summary": "",
+            "topics": ["Artificial Intelligence", "Robotics"],
+            "topic": "Artificial Intelligence | Robotics",
+            "article_frames": ["Technology Innovation"],
+            "scope_content_type": "conference_paper",
+            "scope_focus": "ProARによる分子動力学のモデリング",
+            "scope_evidence": "確率的自己回帰フレームワークで軌道を生成する。",
+        }
+
+        collector.normalize_reviewed_topics([item])
+
+        self.assertEqual(item["topics"], ["Artificial Intelligence"])
+        self.assertEqual(item["topic"], "Artificial Intelligence")
+        self.assertFalse(collector.needs_taxonomy_repair(item))
+
+    def test_unsubstantiated_model_topic_is_removed_without_structured_evidence(self):
+        item = {
+            "status": "New",
+            "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            "title": "Company announces a milestone",
+            "summary": "The company shared an update.",
+            "topics": ["Artificial Intelligence"],
+            "topic": "Artificial Intelligence",
+            "article_frames": ["Technology Innovation"],
+            "candidate_from_source_topic_tags": True,
+        }
+
+        collector.normalize_reviewed_topics([item])
+
+        self.assertEqual(item["topics"], [])
+        self.assertEqual(item["topic"], "")
 
     def test_private_fundraising_is_not_innovation_policy(self):
         item = {
@@ -640,6 +721,8 @@ class CollectorTests(unittest.TestCase):
             "article_frames": ["Technology Innovation"],
             "candidate_from_source_topic_tags": True,
             "scope_evidence": "Improves experimental planning and tool use.",
+            "scope_content_type": "engineering_development",
+            "scope_focus": "GPT-6の科学推論能力",
         }
         collector.normalize_reviewed_topics([item])
         self.assertEqual(item["topics"], ["Artificial Intelligence"])
