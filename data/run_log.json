@@ -427,6 +427,27 @@
       "summary_rate_limit_reset": "",
       "duration_seconds": 396.43,
       "note": "Review backlog"
+    },
+    {
+      "run_at": "2026-07-27T17:08:04Z",
+      "run_at_jst": "2026-07-28T02:08:04+09:00",
+      "feeds_checked": 252,
+      "feeds_succeeded": 231,
+      "new_items": 0,
+      "duplicates_skipped": 506,
+      "feed_errors": 21,
+      "summaries_generated": 21,
+      "items_reviewed": 55,
+      "items_excluded": 34,
+      "summaries_pending": 2289,
+      "summary_errors": 3,
+      "summary_requests": 14,
+      "summary_rate_limited": true,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "",
+      "summary_rate_limit_reset": "",
+      "duration_seconds": 479.25,
+      "note": "Daily update"
     }
   ]
 }
