@@ -26,7 +26,15 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
-from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlsplit, urlunsplit
+from urllib.parse import (
+    parse_qsl,
+    quote,
+    unquote,
+    urlencode,
+    urljoin,
+    urlsplit,
+    urlunsplit,
+)
 
 import feedparser
 import requests
@@ -610,6 +618,46 @@ def make_http_session() -> requests.Session:
     return session
 
 
+def get_json_with_retry(
+    session: requests.Session,
+    url: str,
+    *,
+    params: dict[str, Any] | None = None,
+    timeout: tuple[int, int] = (8, 30),
+    attempts: int = 3,
+) -> Any:
+    """Fetch JSON, retrying only transient transport and HTTP failures."""
+    retryable_statuses = {408, 429, 500, 502, 503, 504}
+    attempts = max(1, attempts)
+    for attempt in range(attempts):
+        try:
+            response = session.get(
+                url,
+                params=params,
+                timeout=timeout,
+                headers={"Accept": "application/json"},
+            )
+        except requests.RequestException:
+            if attempt + 1 >= attempts:
+                raise
+            time.sleep(min(float(2**attempt), 4.0))
+            continue
+        if response.ok:
+            return response.json()
+        if (
+            response.status_code not in retryable_statuses
+            or attempt + 1 >= attempts
+        ):
+            response.raise_for_status()
+        retry_after = response.headers.get("Retry-After", "")
+        try:
+            delay = max(0.0, float(retry_after))
+        except ValueError:
+            delay = float(2**attempt)
+        time.sleep(min(delay, 4.0))
+    raise RuntimeError(f"JSON endpoint returned no response: {url}")
+
+
 def entry_summary(entry: Any) -> str:
     raw = getattr(entry, "summary", "") or getattr(entry, "description", "")
     if not raw:
@@ -647,6 +695,13 @@ def canonicalize_url(url: str) -> str:
         query_items.append((key, value))
     query = urlencode(sorted(query_items))
     return urlunsplit((scheme, netloc, path, query, ""))
+
+
+def dedupe_url(url: str) -> str:
+    """Keep resource-identifying fragments while retaining canonical URL rules."""
+    canonical = canonicalize_url(url)
+    fragment = urlsplit(url.strip()).fragment if url else ""
+    return f"{canonical}#{fragment}" if canonical and fragment else canonical
 
 
 def title_fingerprint(title: str) -> str:
@@ -1163,6 +1218,557 @@ def parse_html_date(node: Any, selector: str, attribute: str, fallback: datetime
         return fallback
     raw = date_node.get(attribute, "") if attribute else date_node.get_text(" ", strip=True)
     return parse_listing_date(str(raw), fallback)
+
+
+def structured_item_limit(source: dict[str, Any], backfill: bool) -> int:
+    keys = (
+        ("backfill_item_limit", "site_scan_backfill_limit")
+        if backfill
+        else ("daily_item_limit", "site_scan_daily_limit")
+    )
+    default = 24 if backfill else 8
+    raw_limit = next(
+        (source[key] for key in keys if source.get(key) is not None),
+        default,
+    )
+    return max(1, min(24, int(raw_limit)))
+
+
+def fetch_federal_register_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Collect the official Science & Technology section through its JSON API."""
+    started = time.monotonic()
+    entries_seen = 0
+    try:
+        api_url = source.get("api_url") or source["feed_url"]
+        per_page = max(
+            20,
+            min(
+                1000,
+                int(source.get("api_per_page", 1000 if backfill else 100)),
+            ),
+        )
+        payload = get_json_with_retry(
+            session,
+            api_url,
+            params={
+                "conditions[sections][]": source.get(
+                    "section_slug",
+                    "science-and-technology",
+                ),
+                "conditions[publication_date][gte]": cutoff.date().isoformat(),
+                "conditions[publication_date][lte]": (
+                    collected_at.date().isoformat()
+                ),
+                "order": "newest",
+                "per_page": per_page,
+            },
+            timeout=(8, 30),
+        )
+        if not isinstance(payload, dict) or not isinstance(
+            payload.get("results"),
+            list,
+        ):
+            raise ValueError("Federal Register API response has no results list")
+        records = payload["results"]
+        entries_seen = len(records)
+        items: list[dict[str, Any]] = []
+        for record in records:
+            if not isinstance(record, dict):
+                continue
+            title = normalize_space(str(record.get("title") or ""))
+            link = normalize_space(str(record.get("html_url") or ""))
+            published = parse_archive_date(
+                str(record.get("publication_date") or "")
+            )
+            if (
+                not title
+                or not link
+                or published is None
+                or not (cutoff <= published <= collected_at + timedelta(days=2))
+            ):
+                continue
+            raw_agencies = record.get("agencies", [])
+            if not isinstance(raw_agencies, list):
+                raw_agencies = []
+            agency_names = [
+                normalize_space(str(agency.get("name") or ""))
+                for agency in raw_agencies
+                if isinstance(agency, dict)
+                and normalize_space(str(agency.get("name") or ""))
+            ]
+            document_type = normalize_space(str(record.get("type") or ""))
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary=str(record.get("abstract") or ""),
+                published=published,
+                collected_at=collected_at,
+                extra_text=" ".join([document_type, *agency_names]),
+            )
+            if not item:
+                continue
+            document_number = normalize_space(
+                str(record.get("document_number") or "")
+            )
+            if agency_names:
+                item["organization"] = " | ".join(agency_names)
+            item["notes"] = "; ".join(
+                part
+                for part in (
+                    f"Federal Register document {document_number}"
+                    if document_number
+                    else "",
+                    document_type,
+                )
+                if part
+            )
+            item["discovery_method"] = "Federal Register JSON API"
+            items.append(item)
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[:structured_item_limit(source, backfill)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=len(items),
+            status="ok",
+            detail="official JSON API",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
+def fetch_moderna_press_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Collect releases from the structured feed embedded by Moderna."""
+    started = time.monotonic()
+    entries_seen = 0
+    try:
+        api_url = source.get("api_url") or source["feed_url"]
+        symbol = normalize_space(str(source.get("api_symbol", "MRNA")))
+        payload = get_json_with_retry(
+            session,
+            api_url,
+            params={
+                "topics": symbol,
+                "excludeTopics": "None",
+                "noSrc": "qmr",
+                "src": (
+                    "pzo,bayaw,prn,bwi,TheNewsWire,nfil,actw,irw,"
+                    "acn,cnw,nwd,glpr,nwmw"
+                ),
+                "thumbnailurl": "true",
+                "summary": "true",
+                "summLen": 500,
+                "start": cutoff.date().isoformat(),
+                "end": collected_at.date().isoformat(),
+            },
+            timeout=(8, 30),
+        )
+        if isinstance(payload, str):
+            payload = json.loads(payload)
+        results = payload.get("results") if isinstance(payload, dict) else None
+        groups = results.get("news") if isinstance(results, dict) else None
+        if not isinstance(groups, list):
+            raise ValueError("Moderna press API response has no news list")
+
+        records = [
+            record
+            for group in groups
+            if isinstance(group, dict)
+            for record in group.get("newsitem", [])
+            if isinstance(record, dict)
+        ]
+        entries_seen = len(records)
+        public_post_base = normalize_space(
+            str(source.get("public_post_base_url", ""))
+        ) or "https://feeds.issuerdirect.com/news-release.html"
+        items: list[dict[str, Any]] = []
+        for record in records:
+            news_id = normalize_space(str(record.get("newsid") or ""))
+            title = normalize_space(str(record.get("headline") or ""))
+            published = parse_archive_date(str(record.get("datetime") or ""))
+            if (
+                not news_id
+                or not title
+                or published is None
+                or not (cutoff <= published <= collected_at + timedelta(days=2))
+            ):
+                continue
+            link = (
+                f"{public_post_base}?{urlencode({'newsid': news_id, 'symbol': symbol})}"
+            )
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary=str(record.get("qmsummary") or ""),
+                published=published,
+                collected_at=collected_at,
+                extra_text=str(record.get("topic") or ""),
+            )
+            if not item:
+                continue
+            item["discovery_method"] = "Moderna official newsroom JSON feed"
+            items.append(item)
+
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[:structured_item_limit(source, backfill)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=len(items),
+            status="ok",
+            detail="structured feed embedded by the official newsroom",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
+def fetch_abb_newsbank_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Collect ABB Robotics stories from the JSON feed used on abb.com."""
+    started = time.monotonic()
+    entries_seen = 0
+    try:
+        api_url = source.get("api_url") or source["feed_url"]
+        feed_id = normalize_space(str(source.get("api_feed_id") or ""))
+        if not feed_id:
+            raise ValueError("ABB NewsBank source has no api_feed_id")
+        payload = get_json_with_retry(
+            session,
+            api_url,
+            params={
+                "requestType": "getNewsList",
+                "feedId": feed_id,
+                "cultureInfo": source.get("api_culture", "en"),
+                "pageNumber": "0",
+            },
+            timeout=(8, 30),
+        )
+        news = payload.get("news") if isinstance(payload, dict) else None
+        records = news.get("items") if isinstance(news, dict) else None
+        if not isinstance(records, list):
+            raise ValueError("ABB NewsBank API response has no news items list")
+
+        entries_seen = len(records)
+        public_post_base = normalize_space(
+            str(source.get("public_post_base_url") or "")
+        ) or "https://www.abb.com/global/en/news"
+        items: list[dict[str, Any]] = []
+        for record in records:
+            if not isinstance(record, dict):
+                continue
+            news_id = normalize_space(str(record.get("id") or ""))
+            slug = normalize_space(str(record.get("newsUrlTitleSlug") or ""))
+            title = normalize_space(str(record.get("title") or ""))
+            published = parse_archive_date(
+                str(record.get("scheduledPublishDate") or "")
+            )
+            if (
+                not news_id
+                or not slug
+                or not title
+                or published is None
+                or not (cutoff <= published <= collected_at + timedelta(days=2))
+            ):
+                continue
+
+            categories = record.get("categories", [])
+            if not isinstance(categories, list):
+                categories = []
+            category_labels = [
+                normalize_space(str(category.get("name") or ""))
+                for category in categories
+                if isinstance(category, dict)
+                and normalize_space(str(category.get("name") or ""))
+            ]
+            feeds = record.get("feeds", [])
+            if not isinstance(feeds, list):
+                feeds = []
+            feed_labels = [
+                normalize_space(str(feed.get("name") or ""))
+                for feed in feeds
+                if isinstance(feed, dict)
+                and normalize_space(str(feed.get("name") or ""))
+            ]
+            news_type = normalize_space(str(record.get("newsType") or ""))
+            link = (
+                public_post_base.rstrip("/")
+                + "/"
+                + quote(news_id, safe="")
+                + "/"
+                + quote(slug, safe="-._~")
+            )
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary=str(record.get("abstract") or ""),
+                published=published,
+                collected_at=collected_at,
+                extra_text=" ".join([news_type, *category_labels, *feed_labels]),
+            )
+            if not item:
+                continue
+            item["discovery_method"] = "ABB official NewsBank JSON API"
+            item["notes"] = "; ".join(
+                part
+                for part in (
+                    f"ABB news ID: {news_id}",
+                    "Feeds: " + " | ".join(feed_labels) if feed_labels else "",
+                )
+                if part
+            )
+            items.append(item)
+
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[:structured_item_limit(source, backfill)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=len(items),
+            status="ok",
+            detail="official ABB Robotics NewsBank JSON API",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
+def fetch_fusion_energy_insights_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Collect FEI posts from the JSON endpoint used by its official frontend."""
+    started = time.monotonic()
+    entries_seen = 0
+    try:
+        api_url = source.get("api_url") or source["feed_url"]
+        payload = get_json_with_retry(session, api_url, timeout=(8, 30))
+        if not isinstance(payload, dict) or not isinstance(
+            payload.get("posts"),
+            list,
+        ):
+            raise ValueError("Fusion Energy Insights API response has no posts list")
+        posts = payload["posts"]
+        entries_seen = len(posts)
+        public_post_base = normalize_space(
+            str(source.get("public_post_base_url") or "")
+        ) or "https://www.fusionenergyinsights.com/blog/post/"
+        items: list[dict[str, Any]] = []
+        for post in posts:
+            if not isinstance(post, dict):
+                continue
+            slug = normalize_space(str(post.get("slug") or ""))
+            title = normalize_space(str(post.get("title") or ""))
+            published = parse_archive_date(str(post.get("publishedAt") or ""))
+            if (
+                not slug
+                or not title
+                or published is None
+                or not (cutoff <= published <= collected_at + timedelta(days=2))
+            ):
+                continue
+            raw_categories = post.get("categories", [])
+            if not isinstance(raw_categories, list):
+                raw_categories = []
+            category_labels = [
+                normalize_space(str(category.get("label") or ""))
+                for category in raw_categories
+                if isinstance(category, dict)
+                and normalize_space(str(category.get("label") or ""))
+            ]
+            link = public_post_base.rstrip("/") + "/" + quote(
+                slug,
+                safe="-._~",
+            )
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary=str(post.get("excerpt") or ""),
+                published=published,
+                collected_at=collected_at,
+                extra_text=" ".join(category_labels),
+            )
+            if not item:
+                continue
+            item["discovery_method"] = "Fusion Energy Insights JSON API"
+            if category_labels:
+                item["notes"] = "Categories: " + " | ".join(category_labels)
+            items.append(item)
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[:structured_item_limit(source, backfill)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=len(items),
+            status="ok",
+            detail="official frontend JSON API",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
+def spacex_update_summary(update: dict[str, Any]) -> str:
+    parts: list[str] = []
+    blocks = update.get("contentBlocks", [])
+    if not isinstance(blocks, list):
+        return ""
+    for block in blocks:
+        if not isinstance(block, dict):
+            continue
+        for field in ("heading", "paragraph"):
+            value = normalize_space(str(block.get(field) or ""))
+            if value:
+                parts.append(value)
+        list_items = block.get("listItems", [])
+        if not isinstance(list_items, list):
+            continue
+        for list_item in list_items:
+            if isinstance(list_item, dict):
+                value = normalize_space(
+                    str(list_item.get("description") or "")
+                )
+            else:
+                value = normalize_space(str(list_item))
+            if value:
+                parts.append(value)
+    return plain_text(" ".join(parts), limit=900)
+
+
+def fetch_spacex_updates_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Collect official SpaceX updates from the CMS used by spacex.com."""
+    started = time.monotonic()
+    entries_seen = 0
+    try:
+        api_url = source.get("api_url") or source["feed_url"]
+        payload = get_json_with_retry(session, api_url, timeout=(8, 30))
+        if not isinstance(payload, list):
+            raise ValueError("SpaceX updates API response is not a list")
+        entries_seen = len(payload)
+        listing_url = normalize_space(
+            str(source.get("listing_url") or source.get("homepage", ""))
+        ) or "https://www.spacex.com/updates"
+        listing_parts = urlsplit(listing_url)
+        public_base = urlunsplit(
+            (
+                listing_parts.scheme,
+                listing_parts.netloc,
+                listing_parts.path,
+                listing_parts.query,
+                "",
+            )
+        )
+        items: list[dict[str, Any]] = []
+        for update in payload:
+            if not isinstance(update, dict):
+                continue
+            update_id = normalize_space(str(update.get("updateId") or ""))
+            title = normalize_space(str(update.get("title") or ""))
+            published = parse_archive_date(str(update.get("date") or ""))
+            if (
+                not update_id
+                or not title
+                or published is None
+                or not (cutoff <= published <= collected_at + timedelta(days=2))
+            ):
+                continue
+            link = public_base + "#" + quote(update_id, safe="-._~")
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary=spacex_update_summary(update),
+                published=published,
+                collected_at=collected_at,
+            )
+            if not item:
+                continue
+            stable_id = hashlib.sha256(
+                f"{source['name']}|{update_id}".encode("utf-8")
+            ).hexdigest()[:24]
+            item["id"] = stable_id
+            item["canonical_id"] = stable_id
+            item["discovery_method"] = "SpaceX official CMS JSON API"
+            item["notes"] = f"SpaceX update ID: {update_id}"
+            items.append(item)
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[:structured_item_limit(source, backfill)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=len(items),
+            status="ok",
+            detail="official CMS JSON API",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
 
 
 def openalex_metadata_summary(work: dict[str, Any]) -> str:
@@ -2438,7 +3044,7 @@ def fetch_site_scan_source(
     ] = []
     candidate_ids: set[str] = set()
     entries_seen = 0
-    allowed_links_seen = 0
+    listing_reached = False
     detail_parts: list[str] = []
 
     try:
@@ -2460,6 +3066,7 @@ def fetch_site_scan_source(
         nodes = BeautifulSoup(body, "html.parser").select(
             source.get("link_selector", "a[href]")
         )
+        listing_reached = True
         entries_seen += len(nodes)
         for node in nodes[:scan_limit]:
             title = site_scan_link_title(node)
@@ -2468,7 +3075,6 @@ def fetch_site_scan_source(
             link = urljoin(response.url, node.get("href", ""))
             if not site_scan_link_allowed(source, link):
                 continue
-            allowed_links_seen += 1
             canonical = canonicalize_url(link)
             if not canonical or canonical in candidate_ids:
                 continue
@@ -2614,7 +3220,11 @@ def fetch_site_scan_source(
         reverse=True,
     )
     items = items[: (24 if backfill else 8)]
-    source_reached = bool(allowed_links_seen or sitemap_checked)
+    source_reached = bool(listing_reached or sitemap_checked)
+    if listing_reached and not candidates:
+        detail_parts.append(
+            "Listing reachable; no collectable article links found"
+        )
     if not source_reached and not detail_parts:
         detail_parts.append("No official article links found on listing or sitemap")
     return items, FeedResult(
@@ -2774,6 +3384,46 @@ def fetch_source(
     items: list[dict[str, Any]] = []
     try:
         fetch_mode = source.get("fetch_mode", "feed")
+        if fetch_mode == "federal_register":
+            return fetch_federal_register_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "moderna_press_api":
+            return fetch_moderna_press_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "abb_newsbank_api":
+            return fetch_abb_newsbank_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "fusion_energy_insights_api":
+            return fetch_fusion_energy_insights_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "spacex_updates_api":
+            return fetch_spacex_updates_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
         if fetch_mode == "openalex":
             return fetch_openalex_source(
                 session,
@@ -3027,9 +3677,9 @@ def deduplicate(
         if item.get("canonical_id") or item.get("id")
     }
     by_url = {
-        canonicalize_url(item.get("url", "")): item
+        dedupe_url(item.get("url") or item.get("canonical_url", "")): item
         for item in existing
-        if item.get("url")
+        if item.get("url") or item.get("canonical_url")
     }
     by_title = {
         title_fingerprint(item.get("title", "")): item
@@ -3041,7 +3691,7 @@ def deduplicate(
 
     for item in candidates:
         item_id = item["canonical_id"]
-        url = item["canonical_url"]
+        url = dedupe_url(item.get("url") or item.get("canonical_url", ""))
         title_key = item["title_fingerprint"]
         duplicate = by_id.get(item_id) or by_url.get(url) or by_title.get(title_key)
         if duplicate is not None:

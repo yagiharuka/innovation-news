@@ -1444,6 +1444,639 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(items[0]["url"], article_url)
 
+    def test_json_retry_recovers_from_a_transient_server_error(self):
+        api_url = "https://api.example.com/posts"
+        calls = []
+
+        def response(status, payload):
+            value = collector.requests.Response()
+            value.status_code = status
+            value.url = api_url
+            value._content = json.dumps(payload).encode("utf-8")
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                calls.append((url, kwargs))
+                if len(calls) == 1:
+                    return response(500, {"error": "temporary"})
+                return response(200, {"posts": []})
+
+        with mock.patch.object(collector.time, "sleep") as sleep:
+            payload = collector.get_json_with_retry(FakeSession(), api_url)
+
+        self.assertEqual(payload, {"posts": []})
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(calls[0][1]["headers"]["Accept"], "application/json")
+        sleep.assert_called_once()
+
+    def test_federal_register_json_api_maps_filtered_documents(self):
+        api_url = "https://www.federalregister.gov/api/v1/documents.json"
+        payload = {
+            "results": [
+                {
+                    "title": "Quantum network research funding programme",
+                    "abstract": (
+                        "The agency is funding quantum communication research "
+                        "and laboratory infrastructure."
+                    ),
+                    "document_number": "2026-12345",
+                    "type": "Notice",
+                    "publication_date": "2026-07-24",
+                    "html_url": (
+                        "https://www.federalregister.gov/documents/2026/07/24/"
+                        "2026-12345/quantum-network-research"
+                    ),
+                    "agencies": [{"name": "National Science Foundation"}],
+                },
+                {
+                    "title": "Old semiconductor research notice",
+                    "abstract": "An older semiconductor research notice.",
+                    "document_number": "2026-00001",
+                    "type": "Notice",
+                    "publication_date": "2026-06-01",
+                    "html_url": (
+                        "https://www.federalregister.gov/documents/2026/06/01/"
+                        "2026-00001/old-semiconductor-notice"
+                    ),
+                    "agencies": [{"name": "Department of Commerce"}],
+                },
+            ]
+        }
+        calls = []
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                calls.append((url, kwargs))
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = json.dumps(payload).encode("utf-8")
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "active": True,
+            "name": "Federal Register Science & Technology",
+            "organization": "Office of the Federal Register",
+            "source_type": "Government",
+            "region": "United States",
+            "country": "United States",
+            "category": "Science and technology policy",
+            "feed_url": api_url,
+            "api_url": api_url,
+            "fetch_mode": "federal_register",
+            "homepage": "https://www.federalregister.gov/",
+            "priority": 4,
+            "topic_tags": ["Quantum", "Semiconductors & Telecom"],
+            "strict_relevance": True,
+            "daily_item_limit": 4,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+            False,
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 2)
+        self.assertEqual(result.entries_kept, 1)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["published_at"][:10], "2026-07-24")
+        self.assertEqual(items[0]["organization"], "National Science Foundation")
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Federal Register JSON API",
+        )
+        self.assertIn("2026-12345", items[0]["notes"])
+        self.assertEqual(calls[0][0], api_url)
+        self.assertEqual(
+            calls[0][1]["params"]["conditions[sections][]"],
+            "science-and-technology",
+        )
+        self.assertEqual(
+            calls[0][1]["params"]["conditions[publication_date][gte]"],
+            "2026-07-20",
+        )
+        self.assertEqual(
+            calls[0][1]["params"]["conditions[publication_date][lte]"],
+            "2026-07-26",
+        )
+
+    def test_federal_register_valid_empty_results_is_ok(self):
+        api_url = "https://www.federalregister.gov/api/v1/documents.json"
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = b'{"results":[]}'
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "name": "Federal Register Science & Technology",
+            "source_type": "Government",
+            "region": "United States",
+            "country": "United States",
+            "category": "Science and technology policy",
+            "feed_url": api_url,
+            "fetch_mode": "federal_register",
+            "priority": 4,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(items, [])
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 0)
+
+    def test_moderna_reads_current_structured_newsroom_feed(self):
+        api_url = "https://www.accesswire.com/qm/data/getHeadlines.json"
+        payload = {
+            "results": {
+                "news": [
+                    {
+                        "topicstring": "MRNA",
+                        "newsitem": [
+                            {
+                                "newsid": 6014596879866592,
+                                "datetime": "2026-07-16T07:00:00-04:00",
+                                "headline": (
+                                    "Moderna doses first participant in "
+                                    "tumor-targeted mRNA therapy trial"
+                                ),
+                                "qmsummary": (
+                                    "The Phase 1 trial evaluates a new "
+                                    "tumor-targeted mRNA cancer therapy."
+                                ),
+                                "topic": "[MRNA,BIOTECH,HEALTHC]",
+                            }
+                        ],
+                    }
+                ]
+            }
+        }
+        calls = []
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                calls.append((url, kwargs))
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = json.dumps(json.dumps(payload)).encode("utf-8")
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "active": True,
+            "name": "Moderna Media Center",
+            "organization": "Moderna",
+            "source_type": "Official Company",
+            "region": "United States",
+            "country": "United States",
+            "category": "Biotechnology, mRNA and clinical research",
+            "feed_url": "https://news.modernatx.com/",
+            "fetch_mode": "moderna_press_api",
+            "api_url": api_url,
+            "api_symbol": "MRNA",
+            "public_post_base_url": (
+                "https://feeds.issuerdirect.com/news-release.html"
+            ),
+            "homepage": "https://news.modernatx.com/",
+            "priority": 4,
+            "topic_tags": ["Biotechnology", "Healthcare"],
+            "strict_relevance": True,
+            "daily_item_limit": 4,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 1, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 1)
+        self.assertEqual(result.entries_kept, 1)
+        self.assertEqual(items[0]["published_at"], "2026-07-16T11:00:00Z")
+        self.assertIn("newsid=6014596879866592", items[0]["url"])
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Moderna official newsroom JSON feed",
+        )
+        self.assertEqual(calls[0][1]["params"]["topics"], "MRNA")
+        self.assertEqual(calls[0][1]["params"]["start"], "2026-07-01")
+        self.assertEqual(calls[0][1]["params"]["end"], "2026-07-26")
+
+    def test_abb_robotics_reads_official_newsbank_json_feed(self):
+        api_url = "https://www.abb.com/conf/abbcommon/services/newsbank.json"
+        feed_id = "cbcceb45d7e74cfe9a4601cee01344df"
+        payload = {
+            "news": {
+                "items": [
+                    {
+                        "title": (
+                            "ABB Robotics and NVIDIA define the impact of "
+                            "physical AI on manufacturing"
+                        ),
+                        "id": 137409,
+                        "newsUrlTitleSlug": (
+                            "abb-robotics-and-nvidia-define-physical-ai"
+                        ),
+                        "scheduledPublishDate": (
+                            "2026-07-17T10:00:00.1230000Z"
+                        ),
+                        "abstract": (
+                            "The companies published new industrial robotics "
+                            "research on physical AI."
+                        ),
+                        "newsType": "Press release",
+                        "categories": [
+                            {"id": "press", "name": "Press release"}
+                        ],
+                        "feeds": [
+                            {"id": feed_id, "name": "All stories"},
+                            {"id": "robotics", "name": "Robotics"},
+                        ],
+                    },
+                    {
+                        "title": "Old ABB robotics research story",
+                        "id": 100,
+                        "newsUrlTitleSlug": "old-abb-robotics-story",
+                        "scheduledPublishDate": "2026-06-01T10:00:00Z",
+                        "abstract": "An older industrial robotics story.",
+                    },
+                ]
+            }
+        }
+        calls = []
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                calls.append((url, kwargs))
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = json.dumps(payload).encode("utf-8")
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "name": "ABB Robotics News",
+            "organization": "ABB Robotics",
+            "source_type": "Official Company",
+            "region": "EU & Europe",
+            "country": "Switzerland",
+            "category": "Industrial robotics, automation and physical AI",
+            "feed_url": "https://www.abb.com/global/en/areas/robotics",
+            "fetch_mode": "abb_newsbank_api",
+            "api_url": api_url,
+            "api_feed_id": feed_id,
+            "homepage": "https://www.abb.com/global/en/areas/robotics",
+            "priority": 4,
+            "topic_tags": ["Artificial Intelligence", "Robotics"],
+            "strict_relevance": True,
+            "daily_item_limit": 6,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 1, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 2)
+        self.assertEqual(result.entries_kept, 1)
+        self.assertEqual(
+            items[0]["url"],
+            (
+                "https://www.abb.com/global/en/news/137409/"
+                "abb-robotics-and-nvidia-define-physical-ai"
+            ),
+        )
+        self.assertEqual(items[0]["published_at"], "2026-07-17T10:00:00Z")
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "ABB official NewsBank JSON API",
+        )
+        self.assertIn("Robotics", items[0]["notes"])
+        self.assertEqual(calls[0][0], api_url)
+        self.assertEqual(calls[0][1]["params"]["requestType"], "getNewsList")
+        self.assertEqual(calls[0][1]["params"]["feedId"], feed_id)
+
+    def test_structured_api_invalid_schema_is_error(self):
+        api_url = "https://www.federalregister.gov/api/v1/documents.json"
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = b'{"documents":[]}'
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "name": "Federal Register Science & Technology",
+            "source_type": "Government",
+            "region": "United States",
+            "country": "United States",
+            "category": "Science and technology policy",
+            "feed_url": api_url,
+            "fetch_mode": "federal_register",
+            "priority": 4,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(items, [])
+        self.assertEqual(result.status, "error")
+        self.assertIn("no results list", result.detail)
+
+    def test_fusion_energy_insights_reads_frontend_json_api(self):
+        api_url = (
+            "https://fusionenergyinsights-blog.kevin-strite-online.workers.dev/"
+            "posts"
+        )
+        payload = {
+            "posts": [
+                {
+                    "id": "new",
+                    "slug": "new-fusion-magnet",
+                    "title": "New superconducting magnet advances fusion energy",
+                    "excerpt": (
+                        "Engineers demonstrated a superconducting magnet for "
+                        "a new fusion power system."
+                    ),
+                    "publishedAt": "2026-07-24T09:30:00.000Z",
+                    "categories": [
+                        {"label": "FEI Insights", "slug": "-fei-insights"}
+                    ],
+                },
+                {
+                    "id": "old",
+                    "slug": "old-fusion-post",
+                    "title": "Old fusion energy post",
+                    "excerpt": "An older fusion energy article.",
+                    "publishedAt": "2026-06-01T09:30:00.000Z",
+                    "categories": [{"label": "Perspectives"}],
+                },
+            ],
+            "total": 2,
+        }
+        calls = []
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                calls.append(url)
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = json.dumps(payload).encode("utf-8")
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "name": "Fusion Energy Insights",
+            "organization": "Fusion Energy Insights",
+            "source_type": "Major Media",
+            "region": "Global",
+            "country": "United Kingdom",
+            "category": "Fusion energy analysis",
+            "feed_url": api_url,
+            "api_url": api_url,
+            "fetch_mode": "fusion_energy_insights_api",
+            "homepage": "https://www.fusionenergyinsights.com/",
+            "priority": 3,
+            "topic_tags": ["Fusion Energy"],
+            "strict_relevance": True,
+            "daily_item_limit": 4,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(calls, [api_url])
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 2)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(
+            items[0]["url"],
+            (
+                "https://www.fusionenergyinsights.com/blog/post/"
+                "new-fusion-magnet"
+            ),
+        )
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Fusion Energy Insights JSON API",
+        )
+        self.assertIn("FEI Insights", items[0]["notes"])
+
+    def test_spacex_updates_are_sorted_and_keep_distinct_anchor_identities(self):
+        api_url = (
+            "https://content.spacex.com/api/spacex-website/updates"
+        )
+        payload = [
+            {
+                "updateId": "first-engine-test",
+                "date": "2026-05-12",
+                "title": "Starship engine test advances reusable rockets",
+                "contentBlocks": [
+                    {
+                        "heading": "Raptor test",
+                        "paragraph": (
+                            "SpaceX tested a <b>reusable rocket engine</b>."
+                        ),
+                        "listItems": [],
+                    }
+                ],
+            },
+            {
+                "updateId": "second-engine-test",
+                "date": "2026-05-21",
+                "title": "Second Starship engine test improves reliability",
+                "contentBlocks": [
+                    {
+                        "heading": None,
+                        "paragraph": "The Starship test improved reliability.",
+                        "listItems": [
+                            {
+                                "description": (
+                                    "A new avionics controller was validated."
+                                )
+                            }
+                        ],
+                    }
+                ],
+            },
+        ]
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = json.dumps(payload).encode("utf-8")
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "name": "SpaceX Updates",
+            "organization": "SpaceX",
+            "source_type": "Official Company",
+            "region": "United States",
+            "country": "United States",
+            "category": "Space launch and reusable rockets",
+            "feed_url": api_url,
+            "api_url": api_url,
+            "fetch_mode": "spacex_updates_api",
+            "listing_url": "https://www.spacex.com/updates",
+            "homepage": "https://www.spacex.com/updates",
+            "priority": 5,
+            "topic_tags": ["Space"],
+            "strict_relevance": True,
+            "daily_item_limit": 8,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 5, 1, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 2)
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["published_at"][:10], "2026-05-21")
+        self.assertEqual(
+            items[0]["url"],
+            "https://www.spacex.com/updates#second-engine-test",
+        )
+        self.assertNotIn("None", items[0]["summary"])
+        self.assertNotIn("<b>", items[1]["summary"])
+        self.assertNotEqual(
+            items[0]["canonical_id"],
+            items[1]["canonical_id"],
+        )
+        added, duplicates = collector.deduplicate(items, [])
+        self.assertEqual(len(added), 2)
+        self.assertEqual(duplicates, 0)
+
+    def test_site_scan_reachable_listing_survives_optional_sitemap_404(self):
+        listing_url = "https://shell.example.com/updates"
+        sitemap_url = "https://shell.example.com/sitemap.xml"
+
+        def response(url, status):
+            value = collector.requests.Response()
+            value.status_code = status
+            value.url = url
+            value._content = (
+                b"<html><body><div id='root'></div></body></html>"
+                if status == 200
+                else b""
+            )
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(url, 200)
+                if url == sitemap_url:
+                    return response(url, 404)
+                raise AssertionError(f"Unexpected URL: {url}")
+
+        source = {
+            "name": "Example Shell",
+            "organization": "Example",
+            "source_type": "Official Company",
+            "region": "Global",
+            "country": "Global",
+            "category": "Quantum research",
+            "feed_url": listing_url,
+            "fetch_mode": "site_scan",
+            "listing_url": listing_url,
+            "homepage": listing_url,
+            "sitemap_urls": [sitemap_url],
+            "priority": 5,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(items, [])
+        self.assertEqual(result.status, "ok")
+        self.assertIn("sitemap:", result.detail)
+        self.assertIn("Listing reachable", result.detail)
+
+    def test_site_scan_primary_and_sitemap_failures_remain_error(self):
+        listing_url = "https://failed.example.com/updates"
+        sitemap_url = "https://failed.example.com/sitemap.xml"
+
+        def response(url, status):
+            value = collector.requests.Response()
+            value.status_code = status
+            value.url = url
+            value._content = b""
+            value.encoding = "utf-8"
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(url, 503)
+                if url == sitemap_url:
+                    return response(url, 404)
+                raise AssertionError(f"Unexpected URL: {url}")
+
+        source = {
+            "name": "Failed Example",
+            "organization": "Example",
+            "source_type": "Official Company",
+            "region": "Global",
+            "country": "Global",
+            "category": "Quantum research",
+            "feed_url": listing_url,
+            "fetch_mode": "site_scan",
+            "listing_url": listing_url,
+            "homepage": listing_url,
+            "sitemap_urls": [sitemap_url],
+            "priority": 5,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+            datetime(2026, 7, 26, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(items, [])
+        self.assertEqual(result.status, "error")
+        self.assertIn("listing:", result.detail)
+        self.assertIn("sitemap:", result.detail)
+
     def test_infer_date_from_hyphenated_release_slug(self):
         actual = collector.infer_date_from_url(
             "https://www.roche.com/media/releases/med-cor-2026-07-24"
@@ -1615,6 +2248,12 @@ class CollectorTests(unittest.TestCase):
         sources = collector.load_config()["sources"]
         names = [source["name"] for source in sources]
         self.assertEqual(len(names), len(set(names)))
+        active_sources = [source for source in sources if source.get("active")]
+        self.assertEqual(len(active_sources), 260)
+        self.assertNotIn(
+            "OpenAI News",
+            {source["name"] for source in active_sources},
+        )
         for source in sources:
             if not source.get("active"):
                 continue
@@ -1640,6 +2279,59 @@ class CollectorTests(unittest.TestCase):
                     collector.source_topic_tags(source),
                     source["name"],
                 )
+            if source.get("source_type") == "Policy Institute":
+                self.assertTrue(
+                    collector.source_topic_tags(source),
+                    source["name"],
+                )
+
+    def test_config_uses_current_structured_and_native_source_endpoints(self):
+        active_sources = {
+            source["name"]: source
+            for source in collector.load_config()["sources"]
+            if source.get("active")
+        }
+        expected = {
+            "Federal Register Science & Technology": (
+                "federal_register",
+                "https://www.federalregister.gov/api/v1/documents.json",
+            ),
+            "Fusion Energy Insights": (
+                "fusion_energy_insights_api",
+                "https://fusionenergyinsights-blog.kevin-strite-online.workers.dev/posts",
+            ),
+            "SpaceX Updates": (
+                "spacex_updates_api",
+                "https://content.spacex.com/api/spacex-website/updates",
+            ),
+            "Moderna Media Center": (
+                "moderna_press_api",
+                "https://www.accesswire.com/qm/data/getHeadlines.json",
+            ),
+            "ABB Robotics News": (
+                "abb_newsbank_api",
+                "https://www.abb.com/conf/abbcommon/services/newsbank.json",
+            ),
+        }
+        for name, (fetch_mode, api_url) in expected.items():
+            with self.subTest(name=name):
+                self.assertEqual(active_sources[name]["fetch_mode"], fetch_mode)
+                self.assertEqual(active_sources[name]["api_url"], api_url)
+
+        native_feeds = {
+            "Google DeepMind Blog": "https://deepmind.google/blog/rss.xml",
+            "Nokia Newsroom": (
+                "https://www.nokia.com/newsroom/tagfeed/en-us/"
+                "tags/press__releases"
+            ),
+            "日本人工知能学会": "https://www.ai-gakkai.or.jp/feed/",
+            "EE Times Japan": "https://rss.itmedia.co.jp/rss/2.0/eetimes.xml",
+            "Bruegel": "https://www.bruegel.org/feed/analysis",
+        }
+        for name, feed_url in native_feeds.items():
+            with self.subTest(name=name):
+                self.assertEqual(active_sources[name]["feed_url"], feed_url)
+                self.assertTrue(active_sources[name]["native_feed"])
 
     def test_config_includes_primary_policy_benchmark_sources(self):
         sources = collector.load_config()["sources"]

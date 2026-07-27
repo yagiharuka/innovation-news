@@ -192,10 +192,10 @@
       "region": "Middle East",
       "country": "Saudi Arabia",
       "category": "Technology",
-      "feed_url": "https://www.arabnews.com/tags/technology",
+      "feed_url": "https://www.arabnews.com/category/tags/technology",
       "fetch_mode": "site_scan",
-      "listing_url": "https://www.arabnews.com/tags/technology",
-      "homepage": "https://www.arabnews.com/tags/technology",
+      "listing_url": "https://www.arabnews.com/category/tags/technology",
+      "homepage": "https://www.arabnews.com/category/tags/technology",
       "priority": 3,
       "native_feed": false,
       "notes": "Established regional media; scans the official technology page because the former feed is access-blocked."
@@ -235,6 +235,16 @@
       },
       "homepage": "https://www.brookings.edu/tags/techtank/",
       "priority": 5,
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
       "native_feed": false,
       "notes": "Technology-policy analysis from Brookings; official listing-page fallback."
     },
@@ -249,6 +259,16 @@
       "feed_url": "https://www.csis.org/rss.xml",
       "homepage": "https://www.csis.org/analysis",
       "priority": 4,
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
       "native_feed": true,
       "notes": "Broad analysis feed; innovation-topic filter is applied."
     },
@@ -326,6 +346,16 @@
       "feed_url": "https://cset.georgetown.edu/feed/",
       "homepage": "https://cset.georgetown.edu/",
       "priority": 5,
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
       "native_feed": true,
       "notes": "University-based emerging-technology policy center."
     },
@@ -337,13 +367,21 @@
       "region": "EU & Europe",
       "country": "Belgium",
       "category": "Economic and innovation policy",
-      "feed_url": "https://www.bruegel.org/analysis",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://www.bruegel.org/analysis",
-      "homepage": "https://www.bruegel.org/analysis",
+      "feed_url": "https://www.bruegel.org/feed/analysis",
+      "homepage": "https://www.bruegel.org/publications/analyses",
       "priority": 4,
-      "native_feed": false,
-      "notes": "European economic-policy institute; scans the official analysis page."
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
+      "native_feed": true,
+      "notes": "European economic-policy institute; official analysis RSS."
     },
     {
       "active": true,
@@ -358,6 +396,16 @@
       "listing_url": "https://merics.org/en/research",
       "homepage": "https://merics.org/en/research",
       "priority": 4,
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
       "native_feed": false,
       "notes": "China-focused policy institute; scans the official research page."
     },
@@ -627,19 +675,14 @@
       "region": "Global",
       "country": "United Kingdom / United States",
       "category": "Artificial intelligence, robotics, biotechnology and scientific discovery",
-      "feed_url": "https://deepmind.google/discover/blog/",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://deepmind.google/discover/blog/",
-      "include_link_patterns": [
-        "/discover/blog/"
-      ],
-      "homepage": "https://deepmind.google/discover/blog/",
+      "feed_url": "https://deepmind.google/blog/rss.xml",
+      "homepage": "https://deepmind.google/blog/",
       "priority": 5,
-      "native_feed": false,
+      "native_feed": true,
       "historical_backfill": false,
-      "site_scan_daily_limit": 8,
-      "site_scan_backfill_limit": 16,
-      "notes": "Official corporate research publication."
+      "daily_item_limit": 8,
+      "backfill_item_limit": 16,
+      "notes": "Official corporate research RSS."
     },
     {
       "active": true,
@@ -700,8 +743,8 @@
       "priority": 4,
       "native_feed": false,
       "historical_backfill": false,
-      "site_scan_daily_limit": 6,
-      "site_scan_backfill_limit": 12,
+      "daily_item_limit": 6,
+      "backfill_item_limit": 12,
       "notes": "Official European AI company publication."
     },
     {
@@ -756,19 +799,18 @@
       "region": "EU & Europe",
       "country": "Switzerland",
       "category": "Industrial robotics, automation and physical AI",
-      "feed_url": "https://new.abb.com/news",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://new.abb.com/news",
-      "include_link_patterns": [
-        "/news/detail/"
-      ],
-      "homepage": "https://new.abb.com/products/robotics",
+      "feed_url": "https://www.abb.com/global/en/areas/robotics",
+      "fetch_mode": "abb_newsbank_api",
+      "api_url": "https://www.abb.com/conf/abbcommon/services/newsbank.json",
+      "api_feed_id": "cbcceb45d7e74cfe9a4601cee01344df",
+      "listing_url": "https://www.abb.com/global/en/areas/robotics/news-and-media/news-archive",
+      "homepage": "https://www.abb.com/global/en/areas/robotics",
       "priority": 4,
       "native_feed": false,
       "historical_backfill": false,
       "site_scan_daily_limit": 6,
       "site_scan_backfill_limit": 12,
-      "notes": "Official ABB releases; the technology filter retains robotics and automation R&D."
+      "notes": "Official ABB Robotics all-stories feed exposed by ABB's NewsBank JSON service."
     },
     {
       "active": true,
@@ -924,16 +966,14 @@
       "region": "EU & Europe",
       "country": "Finland",
       "category": "Telecommunications, 5G, 6G, optical networking and quantum-safe networks",
-      "feed_url": "https://www.nokia.com/about-us/newsroom/",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://www.nokia.com/about-us/newsroom/",
-      "homepage": "https://www.nokia.com/about-us/newsroom/",
+      "feed_url": "https://www.nokia.com/newsroom/tagfeed/en-us/tags/press__releases",
+      "homepage": "https://www.nokia.com/newsroom/",
       "priority": 4,
-      "native_feed": false,
+      "native_feed": true,
       "historical_backfill": false,
-      "site_scan_daily_limit": 6,
-      "site_scan_backfill_limit": 12,
-      "notes": "Official telecommunications research and technology newsroom."
+      "daily_item_limit": 6,
+      "backfill_item_limit": 12,
+      "notes": "Official telecommunications press-release RSS."
     },
     {
       "active": true,
@@ -1116,19 +1156,22 @@
       "region": "United States",
       "country": "United States",
       "category": "Biotechnology, mRNA platforms, vaccines and clinical research",
-      "feed_url": "https://www.modernatx.com/media-center/all-media",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://www.modernatx.com/media-center/all-media",
-      "include_link_patterns": [
-        "/media-center/"
-      ],
-      "homepage": "https://www.modernatx.com/media-center/all-media",
+      "feed_url": "https://news.modernatx.com/",
+      "fetch_mode": "moderna_press_api",
+      "api_url": "https://www.accesswire.com/qm/data/getHeadlines.json",
+      "public_post_base_url": "https://feeds.issuerdirect.com/news-release.html",
+      "api_symbol": "MRNA",
+      "homepage": "https://news.modernatx.com/",
       "priority": 4,
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "native_feed": false,
       "historical_backfill": false,
-      "site_scan_daily_limit": 8,
-      "site_scan_backfill_limit": 16,
-      "notes": "Official biotechnology company newsroom; financial-only releases are excluded."
+      "daily_item_limit": 8,
+      "backfill_item_limit": 16,
+      "notes": "Official biotechnology company press releases from the structured feed used by Moderna's newsroom; financial-only releases are excluded."
     },
     {
       "active": true,
@@ -1146,6 +1189,10 @@
       ],
       "homepage": "https://www.biontech.com/int/en/home/mediaroom/news.html",
       "priority": 4,
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
       "native_feed": false,
       "historical_backfill": false,
       "site_scan_daily_limit": 8,
@@ -1224,18 +1271,16 @@
       "country": "United States",
       "category": "Space launch, spacecraft, satellite communications and reusable rockets",
       "feed_url": "https://www.spacex.com/updates",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "spacex_updates_api",
+      "api_url": "https://content.spacex.com/api/spacex-website/updates",
       "listing_url": "https://www.spacex.com/updates",
-      "include_link_patterns": [
-        "/updates/"
-      ],
       "homepage": "https://www.spacex.com/updates",
       "priority": 5,
       "native_feed": false,
       "historical_backfill": false,
-      "site_scan_daily_limit": 8,
-      "site_scan_backfill_limit": 16,
-      "notes": "Official launch-vehicle and spacecraft engineering updates."
+      "daily_item_limit": 8,
+      "backfill_item_limit": 16,
+      "notes": "Official launch-vehicle and spacecraft engineering updates from the SpaceX website CMS."
     },
     {
       "active": true,
@@ -1421,6 +1466,16 @@
       ],
       "homepage": "https://www.jst.go.jp/crds/",
       "priority": 5,
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Fusion Energy",
+        "Biotechnology",
+        "Healthcare",
+        "Space"
+      ],
       "native_feed": false,
       "notes": "Official Japanese public-policy research reports from JST CRDS."
     },
@@ -2877,7 +2932,7 @@
       "region": "Asia",
       "country": "Japan",
       "category": "AI research community, conferences and society news",
-      "feed_url": "https://kikaku.ai-gakkai.or.jp/category/news/feed",
+      "feed_url": "https://www.ai-gakkai.or.jp/feed/",
       "homepage": "https://www.ai-gakkai.or.jp/",
       "priority": 3,
       "coverage_tier": "B",
@@ -3100,7 +3155,7 @@
       "region": "Asia",
       "country": "Japan",
       "category": "Semiconductors, electronics, telecommunications and AI",
-      "feed_url": "https://eetimes.itmedia.co.jp/ee/rss/index.rdf",
+      "feed_url": "https://rss.itmedia.co.jp/rss/2.0/eetimes.xml",
       "homepage": "https://eetimes.itmedia.co.jp/ee/",
       "priority": 4,
       "coverage_tier": "A",
@@ -3270,11 +3325,10 @@
       "country": "United Kingdom",
       "category": "Fusion energy technology, industry and policy analysis",
       "feed_url": "https://ghl.fusionenergyinsights.com/blog",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "fusion_energy_insights_api",
+      "api_url": "https://fusionenergyinsights-blog.kevin-strite-online.workers.dev/posts",
+      "public_post_base_url": "https://ghl.fusionenergyinsights.com/blog/post/",
       "listing_url": "https://ghl.fusionenergyinsights.com/blog",
-      "include_link_patterns": [
-        "/blog/post/"
-      ],
       "homepage": "https://www.fusionenergyinsights.com/",
       "priority": 3,
       "coverage_tier": "B",
@@ -3285,8 +3339,8 @@
       "strict_relevance": true,
       "native_feed": false,
       "historical_backfill": false,
-      "site_scan_daily_limit": 4,
-      "notes": "Weekly B-tier specialist analysis; only public metadata and pages are collected."
+      "daily_item_limit": 4,
+      "notes": "Weekly B-tier specialist analysis from the JSON endpoint used by the official public frontend."
     },
     {
       "active": true,
@@ -4839,7 +4893,7 @@
       "include_link_patterns": [
         "/catalog/"
       ],
-      "homepage": "https://www.nationalacademies.org/step",
+      "homepage": "https://www.nationalacademies.org/units/PGA-STEP-22-P-460",
       "priority": 4,
       "coverage_tier": "A",
       "cadence": "daily",
@@ -4865,7 +4919,9 @@
       "region": "United States",
       "country": "United States",
       "category": "Science and technology regulation, funding, standards and federal policy",
-      "feed_url": "https://www.federalregister.gov/documents/search.rss?conditions%5Bsections%5D%5B%5D=science-and-technology",
+      "feed_url": "https://www.federalregister.gov/api/v1/documents.json",
+      "fetch_mode": "federal_register",
+      "api_url": "https://www.federalregister.gov/api/v1/documents.json",
       "homepage": "https://www.federalregister.gov/documents/search?conditions%5Bsections%5D%5B%5D=science-and-technology",
       "priority": 4,
       "coverage_tier": "A",
@@ -4881,10 +4937,10 @@
         "Space"
       ],
       "strict_relevance": true,
-      "native_feed": true,
+      "native_feed": false,
       "historical_backfill": false,
       "daily_item_limit": 4,
-      "notes": "Official Federal Register science-and-technology RSS with strict topic and policy filtering."
+      "notes": "Official Federal Register science-and-technology JSON API with strict topic and policy filtering."
     },
     {
       "active": true,
@@ -5811,11 +5867,11 @@
       "region": "Asia",
       "country": "Japan",
       "category": "Semiconductors, embedded AI, robotics and communications",
-      "feed_url": "https://www.renesas.com/en/about/press-room",
+      "feed_url": "https://www.renesas.com/en/about/newsroom",
       "fetch_mode": "site_scan",
-      "listing_url": "https://www.renesas.com/en/about/press-room",
+      "listing_url": "https://www.renesas.com/en/about/newsroom",
       "include_link_patterns": [
-        "/en/about/press-room/"
+        "/en/about/newsroom/"
       ],
       "homepage": "https://www.renesas.com/",
       "priority": 5,
