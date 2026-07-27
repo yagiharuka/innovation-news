@@ -58,11 +58,13 @@ OPENALEX_WORKS_ENDPOINT = "https://api.openalex.org/works"
 DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
 TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v6"
 ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v2"
-BACKFILL_VERSION = 2
+BACKFILL_VERSION = 3
 DEFAULT_POLICY_HISTORY_DAYS = 365
 DEFAULT_TECHNOLOGY_HISTORY_DAYS = 183
 DEFAULT_PUBLIC_ITEM_LIMIT = 2500
 DEFAULT_SOURCE_FETCH_WORKERS = 4
+SOURCE_CADENCES = {"daily", "weekly"}
+SOURCE_COVERAGE_TIERS = {"S", "A", "B"}
 TECH_SCOPE_CONTENT_TYPES = {
     "research_breakthrough",
     "engineering_development",
@@ -122,6 +124,11 @@ TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
         "unmanned system",
         "ロボット",
         "自律システム",
+        "産業自動化",
+        "物流自動化",
+        "工場自動化",
+        "ロボット自動化",
+        "フィジカルai",
     ),
     "Semiconductors & Telecom": (
         "semiconductor",
@@ -144,6 +151,8 @@ TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
         "半導体",
         "通信",
         "先端パッケージ",
+        "光電融合",
+        "無線",
     ),
     "Quantum": (
         "quantum",
@@ -182,6 +191,9 @@ TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
         "バイオ",
         "ゲノム",
         "遺伝子編集",
+        "細胞治療",
+        "再生医療",
+        "合成生物",
     ),
     "Healthcare": (
         "healthcare",
@@ -200,6 +212,9 @@ TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
         "治験",
         "診断",
         "創薬",
+        "医薬品",
+        "医療機器",
+        "承認申請",
     ),
     "Space": (
         "space technology",
@@ -213,6 +228,9 @@ TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
         "moon mission",
         "earth observation",
         "space station",
+        "space sustainability",
+        "on-orbit",
+        "debris removal",
         "satellite",
         "宇宙",
         "宇宙船",
@@ -246,6 +264,13 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "補助金",
         "助成金",
         "科学技術予算",
+        "研究開発公募",
+        "技術開発公募",
+        "研究公募",
+        "公募の採択",
+        "研究課題を採択",
+        "委託事業",
+        "研究基金",
     ),
     "National Programs & Strategy": (
         "innovation policy",
@@ -273,6 +298,8 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "科学技術・イノベーション基本計画",
         "ロードマップ",
         "研究開発",
+        "実証事業",
+        "社会実装",
     ),
     "Patents & Intellectual Property": (
         "patent",
@@ -304,6 +331,14 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "規制のサンドボックス",
         "輸出管理",
         "ガバナンス",
+        "技術規制",
+        "ai規制",
+        "医療規制",
+        "輸出規制",
+        "規制改革",
+        "承認制度",
+        "審査指針",
+        "ガイドライン",
     ),
     "Standards & Safety": (
         "technical standard",
@@ -319,6 +354,9 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "認証",
         "計量",
         "標準化",
+        "技術規格",
+        "国際規格",
+        "標準規格",
     ),
     "Public Procurement & Industrial Policy": (
         "industrial policy",
@@ -335,6 +373,10 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "生産基盤",
         "製造戦略",
         "サプライチェーン政策",
+        "政府調達",
+        "公共調達",
+        "研究開発調達",
+        "経済安全保障",
     ),
     "Research System & Talent": (
         "research system",
@@ -350,6 +392,7 @@ POLICY_AREA_KEYWORDS: dict[str, tuple[str, ...]] = {
         "博士人材",
         "研究者流動性",
         "科学技術人材",
+        "産学連携",
     ),
 }
 
@@ -713,6 +756,74 @@ def load_config() -> dict[str, Any]:
         return json.load(handle)
 
 
+def source_coverage_tier(source: dict[str, Any]) -> str:
+    """Return the explicit S/A/B tier or infer it from the legacy priority."""
+    raw_tier = source.get("coverage_tier")
+    if raw_tier is not None:
+        tier = normalize_space(str(raw_tier)).upper()
+        if tier in SOURCE_COVERAGE_TIERS:
+            return tier
+        raise ValueError(
+            f"Invalid coverage tier for {source.get('name', 'unnamed source')}: "
+            f"{raw_tier}"
+        )
+    priority = int(source.get("priority", 4))
+    if priority >= 5:
+        return "S"
+    if priority >= 4:
+        return "A"
+    return "B"
+
+
+def source_cadence(source: dict[str, Any]) -> str:
+    """Return explicit cadence or infer it from S/A/B before legacy priority."""
+    raw_cadence = source.get("cadence")
+    if raw_cadence is not None:
+        cadence = normalize_space(str(raw_cadence)).casefold()
+        if cadence in SOURCE_CADENCES:
+            return cadence
+        raise ValueError(
+            f"Invalid cadence for {source.get('name', 'unnamed source')}: "
+            f"{raw_cadence}"
+        )
+    return "weekly" if source_coverage_tier(source) == "B" else "daily"
+
+
+def source_requires_strict_relevance(source: dict[str, Any]) -> bool:
+    """Apply strict article-level filtering to broad A-tier and company sources."""
+    if "strict_relevance" in source:
+        return bool(source.get("strict_relevance"))
+    return (
+        source.get("source_type") == "Official Company"
+        or source_coverage_tier(source) == "A"
+    )
+
+
+def source_topic_tags(source: dict[str, Any]) -> list[str]:
+    """Return explicit multi-topic tags or infer them from the source remit."""
+    configured = source.get("topic_tags")
+    if isinstance(configured, list) and configured:
+        return list(dict.fromkeys(
+            str(tag) for tag in configured if str(tag) in TOPIC_KEYWORDS
+        ))
+    return classify_topics(str(source.get("category", "")))
+
+
+def sources_for_cadence(
+    sources: Iterable[dict[str, Any]],
+    cadence: str,
+) -> list[dict[str, Any]]:
+    """Select active sources due in this daily or weekly collection run."""
+    normalized_cadence = normalize_space(cadence).casefold()
+    if normalized_cadence not in SOURCE_CADENCES:
+        raise ValueError(f"Unsupported source cadence: {cadence}")
+    return [
+        source
+        for source in sources
+        if source.get("active") and source_cadence(source) == normalized_cadence
+    ]
+
+
 def load_master() -> list[dict[str, Any]]:
     if not MASTER_CSV.exists():
         return []
@@ -784,25 +895,78 @@ def load_backfill_state() -> dict[str, Any]:
         return {}
 
 
+def cadence_backfill_version(
+    backfill_state: dict[str, Any],
+    cadence: str,
+) -> int:
+    cadence_states = backfill_state.get("cadences", {})
+    if not isinstance(cadence_states, dict):
+        return 0
+    cadence_state = cadence_states.get(cadence, {})
+    if not isinstance(cadence_state, dict):
+        return 0
+    try:
+        return int(cadence_state.get("backfill_version") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
 def save_backfill_state(
     collected_at: datetime,
+    cadence: str,
     policy_history_days: int,
     technology_history_days: int,
+    source_results: list[FeedResult],
     archive_results: list[FeedResult],
     archive_items: int,
 ) -> None:
-    successful = sum(1 for result in archive_results if result.status == "ok")
-    payload = {
-        "schema_version": 1,
+    source_successful = sum(
+        1 for result in source_results if result.status == "ok"
+    )
+    archive_successful = sum(
+        1 for result in archive_results if result.status == "ok"
+    )
+    checked = len(source_results) + len(archive_results)
+    successful = source_successful + archive_successful
+    cadence_payload = {
         "backfill_version": BACKFILL_VERSION,
         "completed_at": iso_z(collected_at),
         "completed_at_jst": iso_jst(collected_at),
         "policy_history_days": policy_history_days,
         "technology_history_days": technology_history_days,
+        "sources_checked": len(source_results),
+        "sources_succeeded": source_successful,
         "archive_sources_checked": len(archive_results),
-        "archive_sources_succeeded": successful,
+        "archive_sources_succeeded": archive_successful,
         "archive_items_found": archive_items,
-        "status": "completed" if successful else "completed_with_errors",
+        "status": (
+            "completed"
+            if checked > 0 and successful == checked
+            else "completed_with_errors"
+        ),
+    }
+    existing = load_backfill_state()
+    cadence_states = existing.get("cadences", {})
+    if not isinstance(cadence_states, dict):
+        cadence_states = {}
+    cadence_states = {
+        key: value
+        for key, value in cadence_states.items()
+        if key in SOURCE_CADENCES and isinstance(value, dict)
+    }
+    cadence_states[cadence] = cadence_payload
+    all_current = all(
+        cadence_backfill_version({"cadences": cadence_states}, due_cadence)
+        >= BACKFILL_VERSION
+        for due_cadence in SOURCE_CADENCES
+    )
+    payload = {
+        "schema_version": 2,
+        "backfill_version": BACKFILL_VERSION if all_current else 0,
+        "updated_at": iso_z(collected_at),
+        "updated_at_jst": iso_jst(collected_at),
+        "status": "completed" if all_current else "partial",
+        "cadences": cadence_states,
     }
     BACKFILL_STATE_JSON.parent.mkdir(parents=True, exist_ok=True)
     with BACKFILL_STATE_JSON.open("w", encoding="utf-8") as handle:
@@ -833,14 +997,26 @@ def build_item(
         pattern in link.casefold() for pattern in include_url_patterns
     ):
         return None
-    classification_text = " ".join(
-        [title, summary, extra_text, source.get("category", "")]
+    content_text = " ".join([title, summary, extra_text])
+    source_category = (
+        ""
+        if source_requires_strict_relevance(source)
+        else source.get("category", "")
     )
-    topics = classify_topics(classification_text, source.get("category", ""))
+    classification_text = " ".join([content_text, source_category])
+    topics = classify_topics(content_text, source_category)
     policy_areas = classify_policy_areas(
-        classification_text,
-        source.get("category", ""),
+        content_text,
+        source_category,
     )
+    used_source_topic_hints = False
+    if (
+        not topics
+        and not policy_areas
+        and source_requires_strict_relevance(source)
+    ):
+        topics = source_topic_tags(source)
+        used_source_topic_hints = bool(topics)
     if not topics and not policy_areas:
         return None
     innovation_policy = bool(policy_areas)
@@ -882,6 +1058,7 @@ def build_item(
         "first_seen": iso_jst(collected_at),
         "status": "New",
         "notes": "",
+        "candidate_from_source_topic_tags": used_source_topic_hints,
         "scope_review_version": "",
         "scope_reason": "",
         "scope_content_type": "",
@@ -894,7 +1071,7 @@ def build_item(
         "doi": "",
         "citation_count": 0,
         "discovery_method": source.get("fetch_mode", "feed"),
-        "collection_mode": "Daily",
+        "collection_mode": source_cadence(source).title(),
         "source_priority": int(source.get("priority", 3)),
         "title_fingerprint": title_fingerprint(title),
     }
@@ -1445,6 +1622,13 @@ def site_scan_link_allowed(source: dict[str, Any], url: str) -> bool:
         )
     ):
         return False
+    include_patterns = [
+        str(pattern).casefold()
+        for pattern in source.get("include_link_patterns", [])
+        if normalize_space(str(pattern))
+    ]
+    if include_patterns:
+        return any(pattern in url.casefold() for pattern in include_patterns)
     excluded_fragments = [
         "/about",
         "/careers",
@@ -1466,12 +1650,7 @@ def site_scan_link_allowed(source: dict[str, Any], url: str) -> bool:
     )
     if any(fragment in path for fragment in excluded_fragments):
         return False
-    include_patterns = [
-        str(pattern).casefold()
-        for pattern in source.get("include_link_patterns", [])
-        if normalize_space(str(pattern))
-    ]
-    return not include_patterns or any(pattern in url.casefold() for pattern in include_patterns)
+    return True
 
 
 ARCHIVE_URL_KEYWORDS = {
@@ -2324,6 +2503,30 @@ def fetch_site_scan_source(
             source,
             cutoff,
             collected_at,
+            max_sitemaps=max(
+                1,
+                min(
+                    8,
+                    int(
+                        source.get(
+                            "site_scan_max_sitemaps",
+                            8 if backfill else 4,
+                        )
+                    ),
+                ),
+            ),
+            max_urls=max(
+                20,
+                min(
+                    200,
+                    int(
+                        source.get(
+                            "site_scan_max_urls",
+                            160 if backfill else 100,
+                        )
+                    ),
+                ),
+            ),
         )
         candidates.extend(sitemap_candidates_found)
         entries_seen += sitemap_urls_seen
@@ -2590,7 +2793,18 @@ def fetch_source(
             if fetch_mode == "link_list"
             else (120 if backfill else 40)
         )
-        item_limit = 24 if backfill else 8
+        item_limit = max(
+            1,
+            min(
+                24,
+                int(
+                    source.get(
+                        "backfill_item_limit" if backfill else "daily_item_limit",
+                        24 if backfill else 8,
+                    )
+                ),
+            ),
+        )
         fetch_url = (
             source.get("listing_url")
             if fetch_mode in {"html", "link_list"}
@@ -2616,6 +2830,8 @@ def fetch_source(
             for node in nodes[:scan_limit]:
                 title = normalize_space(node.get_text(" ", strip=True))
                 link = urljoin(response.url, node.get("href", ""))
+                if not site_scan_link_allowed(source, link):
+                    continue
                 context_node = node.parent or node
                 context = normalize_space(context_node.get_text(" ", strip=True))
                 if title_patterns and not any(
@@ -2950,6 +3166,14 @@ def normalize_reviewed_topics(items: list[dict[str, Any]]) -> None:
             for topic in current_topics
             if topic in allowed_topics and topic in evidence_topics
         ]
+        if (
+            not verified_topics
+            and item.get("candidate_from_source_topic_tags")
+            and item.get("scope_evidence")
+        ):
+            verified_topics = [
+                topic for topic in current_topics if topic in allowed_topics
+            ]
         article_frames = item.get("article_frames") or [
             part.strip()
             for part in item.get("article_frame", "").split("|")
@@ -3601,13 +3825,40 @@ def save_json_outputs(
         "schema_version": 3,
         "updated_at": iso_z(collected_at),
         "updated_at_jst": iso_jst(collected_at),
-        "source_policy": "Government, official company, established policy institute, major media, leading scientific publication, and clearly labeled scholarly records from OpenAlex.",
+        "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
         "history_windows": {
             "innovation_policy_days": policy_history_days,
             "technology_innovation_days": technology_history_days,
         },
         "article_count": len(public_items),
         "source_count": sum(1 for source in sources if source.get("active")),
+        "source_counts": {
+            "daily": sum(
+                1
+                for source in sources
+                if source.get("active") and source_cadence(source) == "daily"
+            ),
+            "weekly": sum(
+                1
+                for source in sources
+                if source.get("active") and source_cadence(source) == "weekly"
+            ),
+            "tier_s": sum(
+                1
+                for source in sources
+                if source.get("active") and source_coverage_tier(source) == "S"
+            ),
+            "tier_a": sum(
+                1
+                for source in sources
+                if source.get("active") and source_coverage_tier(source) == "A"
+            ),
+            "tier_b": sum(
+                1
+                for source in sources
+                if source.get("active") and source_coverage_tier(source) == "B"
+            ),
+        },
         "items": public_items,
     }
     for path in (MASTER_JSON, PUBLIC_JSON):
@@ -3628,9 +3879,89 @@ def parse_iso(raw: str, fallback: datetime) -> datetime:
         return fallback
 
 
-def source_status_payload(results: list[FeedResult], collected_at: datetime) -> dict[str, Any]:
+def source_status_payload(
+    results: list[FeedResult],
+    collected_at: datetime,
+    sources: list[dict[str, Any]] | None = None,
+    previous_payload: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    checked_at = iso_z(collected_at)
+    current_entries = {
+        result.source["name"]: {
+            "name": result.source["name"],
+            "organization": result.source.get("organization", ""),
+            "source_type": result.source.get("source_type", ""),
+            "region": result.source.get("region", ""),
+            "homepage": result.source.get("homepage", ""),
+            "feed_url": result.source.get("feed_url", ""),
+            "coverage_tier": source_coverage_tier(result.source),
+            "cadence": source_cadence(result.source),
+            "topic_tags": source_topic_tags(result.source),
+            "status": result.status,
+            "detail": result.detail,
+            "entries_seen": result.entries_seen,
+            "entries_kept": result.entries_kept,
+            "elapsed_seconds": result.elapsed_seconds,
+            "last_checked_at": checked_at,
+        }
+        for result in results
+    }
+    previous_payload = (
+        previous_payload if isinstance(previous_payload, dict) else {}
+    )
+    previous_checked_at = normalize_space(
+        str(previous_payload.get("updated_at", ""))
+    )
+    previous_entries = {
+        str(entry.get("name", "")): entry
+        for entry in previous_payload.get("sources", [])
+        if isinstance(entry, dict) and entry.get("name")
+    }
+    registered_sources = [
+        source
+        for source in (sources or [])
+        if source.get("active")
+    ]
+    if registered_sources:
+        merged_entries: list[dict[str, Any]] = []
+        for source in registered_sources:
+            name = source["name"]
+            entry = dict(
+                current_entries.get(name)
+                or previous_entries.get(name)
+                or {
+                    "name": name,
+                    "status": "not_checked",
+                    "detail": "Waiting for the first scheduled collection.",
+                    "entries_seen": 0,
+                    "entries_kept": 0,
+                    "elapsed_seconds": 0,
+                    "last_checked_at": "",
+                }
+            )
+            if not entry.get("last_checked_at") and entry.get("status") != "not_checked":
+                entry["last_checked_at"] = previous_checked_at
+            entry.update(
+                {
+                    "name": name,
+                    "organization": source.get("organization", ""),
+                    "source_type": source.get("source_type", ""),
+                    "region": source.get("region", ""),
+                    "homepage": source.get("homepage", ""),
+                    "feed_url": source.get("feed_url", ""),
+                    "coverage_tier": source_coverage_tier(source),
+                    "cadence": source_cadence(source),
+                    "topic_tags": source_topic_tags(source),
+                }
+            )
+            merged_entries.append(entry)
+    else:
+        merged_entries = list(current_entries.values())
+    checked_once = sum(
+        1 for entry in merged_entries if entry.get("status") != "not_checked"
+    )
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "updated_at": iso_z(collected_at),
         "summary": {
             "checked": len(results),
@@ -3639,27 +3970,35 @@ def source_status_payload(results: list[FeedResult], collected_at: datetime) -> 
             "entries_seen": sum(result.entries_seen for result in results),
             "entries_kept": sum(result.entries_kept for result in results),
         },
-        "sources": [
-            {
-                "name": result.source["name"],
-                "organization": result.source.get("organization", ""),
-                "source_type": result.source.get("source_type", ""),
-                "region": result.source.get("region", ""),
-                "homepage": result.source.get("homepage", ""),
-                "feed_url": result.source.get("feed_url", ""),
-                "status": result.status,
-                "detail": result.detail,
-                "entries_seen": result.entries_seen,
-                "entries_kept": result.entries_kept,
-                "elapsed_seconds": result.elapsed_seconds,
-            }
-            for result in results
-        ],
+        "coverage_summary": {
+            "registered": len(merged_entries),
+            "checked_once": checked_once,
+            "waiting_first_check": len(merged_entries) - checked_once,
+        },
+        "sources": merged_entries,
     }
 
 
-def save_source_status(results: list[FeedResult], collected_at: datetime) -> None:
-    payload = source_status_payload(results, collected_at)
+def save_source_status(
+    results: list[FeedResult],
+    collected_at: datetime,
+    sources: list[dict[str, Any]] | None = None,
+) -> None:
+    previous_payload: dict[str, Any] = {}
+    if SOURCE_STATUS_JSON.exists():
+        try:
+            with SOURCE_STATUS_JSON.open(encoding="utf-8") as handle:
+                loaded = json.load(handle)
+            if isinstance(loaded, dict):
+                previous_payload = loaded
+        except (OSError, json.JSONDecodeError, TypeError):
+            previous_payload = {}
+    payload = source_status_payload(
+        results,
+        collected_at,
+        sources=sources,
+        previous_payload=previous_payload,
+    )
     for path in (SOURCE_STATUS_JSON, PUBLIC_SOURCE_STATUS):
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", encoding="utf-8") as handle:
@@ -3752,7 +4091,12 @@ def update_workbook(
     for validation in ledger.data_validations.dataValidation:
         validation.sqref = f"N4:N{ledger_last_row}"
 
-    for row in registry.iter_rows(min_row=4, max_row=max(registry.max_row, 4), min_col=1, max_col=11):
+    for row in registry.iter_rows(
+        min_row=4,
+        max_row=max(registry.max_row, 4),
+        min_col=1,
+        max_col=14,
+    ):
         for cell in row:
             cell.value = None
     for row_index, source in enumerate(sources, start=4):
@@ -3768,6 +4112,9 @@ def update_workbook(
             int(source.get("priority", 3)),
             "Yes" if source.get("native_feed") else "No",
             source.get("notes", ""),
+            source_coverage_tier(source),
+            source_cadence(source).title(),
+            " | ".join(source_topic_tags(source)),
         ]
         for col_index, value in enumerate(values, start=1):
             target = registry.cell(row=row_index, column=col_index)
@@ -3777,8 +4124,10 @@ def update_workbook(
         registry.cell(row=row_index, column=8).hyperlink = source.get("homepage", "")
         registry.row_dimensions[row_index].height = 36
     if "SourceRegistryTable" in registry.tables:
-        registry.tables["SourceRegistryTable"].ref = f"A3:K{max(4, len(sources) + 3)}"
-    registry.auto_filter.ref = f"A3:K{max(4, len(sources) + 3)}"
+        registry.tables["SourceRegistryTable"].ref = (
+            f"A3:N{max(4, len(sources) + 3)}"
+        )
+    registry.auto_filter.ref = f"A3:N{max(4, len(sources) + 3)}"
 
     for row in log_sheet.iter_rows(min_row=4, max_row=max(log_sheet.max_row, 4), min_col=1, max_col=8):
         for cell in row:
@@ -3837,17 +4186,23 @@ def run(
     policy_history_days: int,
     technology_history_days: int,
     force_backfill: bool = False,
+    cadence: str = "daily",
 ) -> int:
     started = time.monotonic()
     ensure_seed_files()
     config = load_config()
-    sources = [source for source in config["sources"] if source.get("active")]
+    active_sources = [
+        source for source in config["sources"] if source.get("active")
+    ]
+    sources = sources_for_cadence(active_sources, cadence)
     existing = load_master()
     collected_at = now_utc()
     backfill_state = load_backfill_state()
-    backfill = force_backfill or int(
-        backfill_state.get("backfill_version") or 0
-    ) < BACKFILL_VERSION
+    backfill = (
+        force_backfill
+        or cadence_backfill_version(backfill_state, cadence)
+        < BACKFILL_VERSION
+    )
     policy_cutoff = collected_at - timedelta(days=policy_history_days)
     technology_cutoff = collected_at - timedelta(days=technology_history_days)
     daily_cutoff = collected_at - timedelta(hours=max_age_hours)
@@ -3858,7 +4213,7 @@ def run(
             f"historical backfill: policy={policy_history_days}d, "
             f"technology={technology_history_days}d"
             if backfill
-            else f"daily update: {max_age_hours}h"
+            else f"{cadence} update: {max_age_hours}h"
         )
     )
 
@@ -3943,6 +4298,7 @@ def run(
             f"{result.elapsed_seconds:.2f}s"
         )
 
+    source_results = list(results)
     archive_results: list[FeedResult] = []
     archive_items: list[dict[str, Any]] = []
     if backfill:
@@ -4060,17 +4416,19 @@ def run(
     save_master(merged)
     save_json_outputs(
         publishable_items,
-        sources,
+        active_sources,
         collected_at,
         policy_history_days,
         technology_history_days,
     )
-    save_source_status(results, collected_at)
+    save_source_status(results, collected_at, active_sources)
     if backfill:
         save_backfill_state(
             collected_at,
+            cadence,
             policy_history_days,
             technology_history_days,
+            source_results,
             archive_results,
             len(archive_items),
         )
@@ -4095,11 +4453,11 @@ def run(
             f"Historical backfill: policy {policy_history_days}d / "
             f"technology {technology_history_days}d"
             if backfill
-            else "Daily update"
+            else f"{cadence.title()} update"
         ),
     }
     runs = append_run_log(run_record)
-    update_workbook(publishable_items, sources, runs)
+    update_workbook(publishable_items, active_sources, runs)
 
     print(
         json.dumps(
@@ -4116,7 +4474,7 @@ def run(
                 "summaries_pending": summary_result["pending"],
                 "summary_errors": summary_result["errors"],
                 "ledger_items": len(publishable_items),
-                "mode": "historical_backfill" if backfill else "daily",
+                "mode": "historical_backfill" if backfill else cadence,
                 "archive_items": len(archive_items),
                 "public_json": str(PUBLIC_JSON.relative_to(ROOT)),
                 "public_xlsx": str(PUBLIC_XLSX.relative_to(ROOT)),
@@ -4152,6 +4510,12 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         action="store_true",
         help="Force a historical backfill even when the current version is complete.",
     )
+    parser.add_argument(
+        "--cadence",
+        choices=sorted(SOURCE_CADENCES),
+        default="daily",
+        help="Collect sources assigned to this cadence (default: daily).",
+    )
     return parser.parse_args(argv)
 
 
@@ -4163,6 +4527,7 @@ def main(argv: list[str] | None = None) -> int:
             policy_history_days=args.policy_history_days,
             technology_history_days=args.technology_history_days,
             force_backfill=args.backfill,
+            cadence=args.cadence,
         )
     except Exception as exc:
         print(f"fatal: {type(exc).__name__}: {exc}", file=sys.stderr)

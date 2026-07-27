@@ -1,24 +1,15 @@
-name: Daily innovation brief
+name: Weekly research sources
 
 on:
   schedule:
-    - cron: "0 21 * * *"
+    - cron: "0 20 * * 6"
   workflow_dispatch:
     inputs:
       backfill:
-        description: "政策1年・8技術半年の履歴収集をもう一度実行する"
+        description: "B層ソースの履歴収集をもう一度実行する"
         required: false
         default: false
         type: boolean
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/daily.yml"
-      - "assets/**"
-      - "config/**"
-      - "requirements.txt"
-      - "scripts/**"
 
 permissions:
   contents: write
@@ -45,13 +36,13 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --requirement requirements.txt
 
-      - name: Collect and build outputs
+      - name: Collect weekly sources and build outputs
         run: |
           snapshot_dir="${RUNNER_TEMP}/innovation-news-published"
           mkdir -p "$snapshot_dir"
           cp docs/data/news.json "$snapshot_dir/news.json"
           cp docs/innovation_news_ledger.xlsx "$snapshot_dir/ledger.xlsx"
-          args=()
+          args=(--cadence weekly --max-age-hours 216)
           if [[ "${FORCE_BACKFILL}" == "true" ]]; then
             args+=(--backfill)
           fi
@@ -82,6 +73,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else
-            git commit -m "data: refresh innovation brief"
+            git commit -m "data: refresh weekly research sources"
             git push
           fi
