@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "review_version": "tech-innovation-v6",
+  "updated_at": "2026-07-27T16:46:34Z",
+  "updated_at_jst": "2026-07-28T01:46:34+09:00",
+  "status": "request_budget_reached",
+  "selected": 100,
+  "reviewed": 46,
+  "excluded": 18,
+  "model_requests": 20,
+  "rate_limited": false,
+  "request_budget_reached": true,
+  "retry_after": "",
+  "rate_limit_remaining": "",
+  "rate_limit_reset": "",
+  "pending_before": 2366,
+  "pending_in_window": 2320,
+  "pending_expired": 3,
+  "public_items": 145,
+  "academic_refresh": {
+    "targets": 0,
+    "attempted": 0,
+    "restored": 0,
+    "errors": 0
+  }
+}

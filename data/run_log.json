@@ -404,6 +404,29 @@
       "summary_rate_limit_reset": "",
       "duration_seconds": 253.27,
       "note": "Historical backfill: policy 365d / technology 183d"
+    },
+    {
+      "run_at": "2026-07-27T16:46:34Z",
+      "run_at_jst": "2026-07-28T01:46:34+09:00",
+      "feeds_checked": 0,
+      "feeds_succeeded": 0,
+      "new_items": 0,
+      "duplicates_skipped": 0,
+      "feed_errors": 0,
+      "summaries_generated": 28,
+      "items_selected": 100,
+      "items_reviewed": 46,
+      "items_excluded": 18,
+      "summaries_pending": 2320,
+      "summaries_pending_expired": 3,
+      "summary_errors": 5,
+      "summary_requests": 20,
+      "summary_rate_limited": false,
+      "summary_request_budget_reached": true,
+      "summary_rate_limit_remaining": "",
+      "summary_rate_limit_reset": "",
+      "duration_seconds": 396.43,
+      "note": "Review backlog"
     }
   ]
 }
