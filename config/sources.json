@@ -254,7 +254,7 @@
     },
     {
       "active": true,
-      "name": "RAND Science, Technology, and Innovation Policy",
+      "name": "RAND Corporation",
       "organization": "RAND Corporation",
       "source_type": "Policy Institute",
       "region": "United States",
@@ -279,7 +279,7 @@
       "native_feed": true,
       "historical_backfill": false,
       "daily_item_limit": 12,
-      "notes": "Official RAND research-reports feed; article-level strict relevance filtering against science, technology, and innovation policy."
+      "notes": "Broad official RAND research-reports feed; article-level strict relevance filtering limits publication to science, technology, and innovation policy."
     },
     {
       "active": true,

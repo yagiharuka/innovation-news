@@ -1515,7 +1515,7 @@ class CollectorTests(unittest.TestCase):
         expected = {
             "Brookings TechTank": "Brookings Institution",
             "CSIS Analysis": "Center for Strategic and International Studies",
-            "RAND Science, Technology, and Innovation Policy": "RAND Corporation",
+            "RAND Corporation": "RAND Corporation",
             "ITIF Publications": "Information Technology and Innovation Foundation",
         }
         for name, organization in expected.items():
