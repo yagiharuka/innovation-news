@@ -31,30 +31,137 @@ class CollectorTests(unittest.TestCase):
             items[1:],
         )
 
-    def test_publication_guard_does_not_revive_retired_sources(self):
+    def test_publication_guard_merges_current_and_previous_without_retired_sources(
+        self,
+    ):
         current = {
             "article_count": 1,
             "source_count": 260,
-            "items": [{"id": "current", "source": "NEDO News"}],
+            "items": [
+                {
+                    "id": "current",
+                    "source": "NEDO News",
+                    "published_at": "2026-07-27T00:00:00Z",
+                }
+            ],
         }
         previous = {
             "article_count": 3,
             "source_count": 261,
             "items": [
-                {"id": "keep-1", "source": "NEDO News"},
-                {"id": "retire", "source": "OpenAI News"},
-                {"id": "keep-2", "source": "Science Advances"},
+                {
+                    "id": "keep-1",
+                    "source": "NEDO News",
+                    "published_at": "2026-07-26T00:00:00Z",
+                },
+                {
+                    "id": "retire",
+                    "source": "OpenAI News",
+                    "published_at": "2026-07-25T00:00:00Z",
+                },
+                {
+                    "id": "keep-2",
+                    "source": "Science Advances",
+                    "published_at": "2026-07-24T00:00:00Z",
+                },
             ],
         }
 
         payload = collector.preserved_public_payload(current, previous)
 
-        self.assertEqual(payload["article_count"], 2)
+        self.assertEqual(payload["article_count"], 3)
         self.assertEqual(payload["source_count"], 260)
         self.assertEqual(
             [item["id"] for item in payload["items"]],
-            ["keep-1", "keep-2"],
+            ["current", "keep-1", "keep-2"],
         )
+
+    def test_publication_guard_prefers_current_version_of_duplicate_item(self):
+        current = {
+            "items": [
+                {
+                    "id": "same",
+                    "source": "NEDO News",
+                    "title": "更新版",
+                    "url": "https://example.com/same",
+                    "published_at": "2026-07-27T00:00:00Z",
+                }
+            ]
+        }
+        previous = {
+            "items": [
+                {
+                    "id": "same",
+                    "source": "NEDO News",
+                    "title": "旧版",
+                    "url": "https://example.com/old",
+                    "published_at": "2026-07-27T00:00:00Z",
+                }
+            ]
+        }
+
+        payload = collector.preserved_public_payload(current, previous)
+
+        self.assertEqual(payload["article_count"], 1)
+        self.assertEqual(payload["items"][0]["title"], "更新版")
+
+    def test_publication_guard_deduplicates_matching_canonical_url(self):
+        current = {
+            "items": [
+                {
+                    "id": "current-id",
+                    "source": "NEDO News",
+                    "title": "更新版",
+                    "url": "https://example.com/article?utm_source=daily",
+                }
+            ]
+        }
+        previous = {
+            "items": [
+                {
+                    "id": "previous-id",
+                    "source": "NEDO News",
+                    "title": "旧版",
+                    "url": "https://example.com/article",
+                }
+            ]
+        }
+
+        payload = collector.preserved_public_payload(current, previous)
+
+        self.assertEqual(payload["article_count"], 1)
+        self.assertEqual(payload["items"][0]["id"], "current-id")
+
+    def test_publication_guard_drops_items_outside_history_window(self):
+        current = {
+            "updated_at": "2026-07-27T00:00:00Z",
+            "history_windows": {
+                "innovation_policy_days": 365,
+                "technology_innovation_days": 183,
+            },
+            "items": [],
+        }
+        previous = {
+            "items": [
+                {
+                    "id": "recent",
+                    "source": "NEDO News",
+                    "published_at": "2026-07-26T00:00:00Z",
+                    "article_frames": ["Technology Innovation"],
+                },
+                {
+                    "id": "expired",
+                    "source": "NEDO News",
+                    "published_at": "2025-01-01T00:00:00Z",
+                    "article_frames": ["Technology Innovation"],
+                },
+            ]
+        }
+
+        payload = collector.preserved_public_payload(current, previous)
+
+        self.assertEqual(payload["article_count"], 1)
+        self.assertEqual(payload["items"][0]["id"], "recent")
 
     def test_guard_hydrates_ledger_from_purged_master(self):
         public_items = [
