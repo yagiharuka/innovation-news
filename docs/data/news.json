@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-27T02:51:54Z",
-  "updated_at_jst": "2026-07-27T11:51:54+09:00",
+  "updated_at": "2026-07-27T09:40:11Z",
+  "updated_at_jst": "2026-07-27T18:40:11+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
   "article_count": 91,
-  "source_count": 259,
+  "source_count": 261,
   "source_counts": {
-    "daily": 251,
+    "daily": 253,
     "weekly": 8,
     "tier_s": 152,
-    "tier_a": 99,
+    "tier_a": 101,
     "tier_b": 8
   },
   "items": [
