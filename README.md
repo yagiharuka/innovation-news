@@ -9,6 +9,7 @@
 - `data/news.csv` — 全件のマスターデータ
 - `data/run_log.json` — 日次収集の実行履歴
 - `data/source_status.json` — 情報源ごとの取得成否
+- `data/review_state.json` — 未審査候補の進捗、モデル呼出数、レート制限状態
 
 サイトとExcelでは、原文の見出し・RSS概要に加え、許可リスト内の公式記事ページで公開されている概要・冒頭をGitHub Modelsで審査し、技術の内容・研究開発・実装・科学技術政策を実質的に扱う記事だけを掲載します。企業については、研究成果、研究所・ファブ・実証設備へのR&D投資、試作品、実証・臨床試験、共同研究、量産化・商用化への移行も対象です。掲載記事は、固有名詞と数値を保った1〜2文の日本語要約で表示します。一般ニュース、事件、戦況、観光、生活情報、単なる製品販促などは、技術革新を具体的に扱わない限り除外します。公開対象は現行基準で審査済みの記事だけです。除外IDはマスター台帳に保持して再混入を防ぎ、審査や要約に失敗した記事は翌日の実行で再試行します。追加のAPIキーは不要です。
 
@@ -53,9 +54,11 @@ NatureとScienceの一般フィードも引き続き確認しますが、ニュ�
 
 ## 自動更新
 
-GitHub Actions がS/Aソースを毎日 06:00（日本時間）に実行し、Bソースを毎週日曜 05:00（日本時間）に216時間の重なりを持たせて確認します。バックフィル版の初回は、イノベーション政策を過去365日、8技術を過去183日まで調べます。サイトにも同じ期間を保持します。完了後の日次実行は直近96時間を確認します。個別のRSS・公式サイト・API取得や日本語要約に失敗しても、残りの処理は継続します。GitHub Modelsの一時的な429エラーで掲載記事が大幅に減る場合は、廃止済みソースを除いた直前の公開データとExcelを保持します。
+GitHub Actions がS/Aソースを毎日 06:00（日本時間）に実行し、Bソースを毎週日曜 05:00（日本時間）に216時間の重なりを持たせて確認します。バックフィル版の初回は、イノベーション政策を過去365日、8技術を過去183日まで調べます。サイトにも同じ期間を保持します。完了後の日次実行は直近96時間を確認します。
 
-手動実行は GitHub の **Actions → Daily innovation brief → Run workflow** から行えます。`backfill` を有効にすると履歴収集を再実行できます。
+収集と候補審査は分離しています。未審査候補は1媒体に偏らない順序で1回100件ずつ、毎日4回の **Review candidate backlog** で再開可能な形で処理します。GitHub Modelsが429を返した場合は、その時点までの審査結果を保存して残りの要求を停止します。公開データは、現行基準で審査済みの記事と、まだ再審査が終わっていない直前の掲載記事だけを統合します。正常に除外された記事を保全し続けることはありません。JSONとExcelは同じID・同じ順序で生成し、260ソース、重複、廃止済みOpenAI Newsの混入もコミット前に検証します。
+
+手動実行は GitHub の **Actions → Daily innovation brief → Run workflow** から行えます。`backfill` を有効にすると履歴収集を再実行できます。候補審査だけを進める場合は **Actions → Review candidate backlog → Run workflow** を使います。
 
 ## GitHub Pages を有効にする
 
@@ -68,6 +71,8 @@ python -m pip install -r requirements.txt
 python scripts/collect.py
 python scripts/collect.py --cadence weekly --max-age-hours 216
 python scripts/collect.py --backfill
+python scripts/collect.py --review-only
+python scripts/validate_outputs.py
 ```
 
 APIキーは不要です。

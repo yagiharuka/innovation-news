@@ -12,6 +12,7 @@ import argparse
 import calendar
 import csv
 import hashlib
+import heapq
 import html
 import json
 import os
@@ -20,6 +21,7 @@ import sys
 import time
 import unicodedata
 import xml.etree.ElementTree as ET
+from collections import Counter, defaultdict, deque
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from copy import copy
 from dataclasses import dataclass
@@ -54,6 +56,7 @@ MASTER_JSON = DATA_DIR / "news.json"
 RUN_LOG_JSON = DATA_DIR / "run_log.json"
 SOURCE_STATUS_JSON = DATA_DIR / "source_status.json"
 BACKFILL_STATE_JSON = DATA_DIR / "backfill_state.json"
+REVIEW_STATE_JSON = DATA_DIR / "review_state.json"
 PUBLIC_JSON = DOCS_DATA_DIR / "news.json"
 PUBLIC_SOURCE_STATUS = DOCS_DATA_DIR / "source_status.json"
 TEMPLATE_XLSX = ROOT / "assets" / "innovation_news_ledger_template.xlsx"
@@ -565,6 +568,27 @@ class FeedResult:
     status: str
     detail: str
     elapsed_seconds: float
+
+
+class SummaryRateLimitError(RuntimeError):
+    """Stop the current review pass when GitHub Models returns HTTP 429."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        retry_after: str = "",
+        remaining: str = "",
+        reset_at: str = "",
+    ) -> None:
+        super().__init__(message)
+        self.retry_after = retry_after
+        self.remaining = remaining
+        self.reset_at = reset_at
+
+
+class SummaryRequestBudgetError(RuntimeError):
+    """Stop before a review pass exceeds its configured request budget."""
 
 
 def now_utc() -> datetime:
@@ -2153,7 +2177,9 @@ def page_metadata(
                 break
         if len(description) < 220:
             paragraphs: list[str] = []
-            for node in soup.select("article p, main p"):
+            for node in soup.select(
+                "article p, main p, .point_text, .contents_text p"
+            ):
                 paragraph = plain_text(node.get_text(" ", strip=True), limit=360)
                 if (
                     len(paragraph) < 45
@@ -3527,6 +3553,7 @@ def fetch_source(
             soup = BeautifulSoup(decoded_response_text(response), "html.parser")
             nodes = soup.select(settings["item_selector"])
             entries_seen = len(nodes)
+            enrichment_count = 0
             for node in nodes[:scan_limit]:
                 title_node = node.select_one(settings["title_selector"])
                 if settings.get("link_selector") == ":self":
@@ -3550,11 +3577,37 @@ def fetch_source(
                     if settings.get("summary_selector")
                     else None
                 )
+                title = title_node.get_text(" ", strip=True)
+                link = urljoin(response.url, link_node.get("href", ""))
+                summary = (
+                    summary_node.get_text(" ", strip=True)
+                    if summary_node
+                    else ""
+                )
+                if (
+                    source.get("enrich_from_page") is True
+                    and enrichment_count < item_limit
+                ):
+                    enriched_title, enriched_summary, enriched_published = (
+                        page_metadata(
+                            session,
+                            link,
+                            title,
+                            published,
+                            summary,
+                        )
+                    )
+                    title = enriched_title or title
+                    if len(enriched_summary) > len(summary):
+                        summary = enriched_summary
+                    if cutoff <= enriched_published <= collected_at + timedelta(days=2):
+                        published = enriched_published
+                    enrichment_count += 1
                 item = build_item(
                     source=source,
-                    title=title_node.get_text(" ", strip=True),
-                    link=urljoin(response.url, link_node.get("href", "")),
-                    summary=summary_node.get_text(" ", strip=True) if summary_node else "",
+                    title=title,
+                    link=link,
+                    summary=summary,
                     published=published,
                     collected_at=collected_at,
                 )
@@ -3768,6 +3821,121 @@ def needs_scope_review(item: dict[str, Any]) -> bool:
             and (not item.get("title_ja") or not item.get("summary_ja"))
         )
     )
+
+
+def seed_japanese_fields(items: Iterable[dict[str, Any]]) -> None:
+    """Reuse Japanese source text without spending a model request."""
+    for item in items:
+        if not item.get("title_ja") and contains_japanese(item.get("title", "")):
+            item["title_ja"] = item.get("title", "")
+        if not item.get("summary_ja") and contains_japanese(item.get("summary", "")):
+            item["summary_ja"] = item.get("summary", "")
+
+
+def review_item_id(item: dict[str, Any]) -> str:
+    return str(item.get("canonical_id") or item.get("id") or "")
+
+
+def review_source_key(item: dict[str, Any]) -> str:
+    return normalize_space(
+        str(
+            item.get("source")
+            or item.get("organization")
+            or item.get("venue")
+            or "(unknown source)"
+        )
+    )
+
+
+def select_scope_review_items(
+    items: list[dict[str, Any]],
+    new_items: list[dict[str, Any]],
+    *,
+    limit: int,
+    balanced: bool = False,
+    priority_ids: set[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Select a resumable review batch.
+
+    Normal collection keeps the established new/latest ordering.  Backlog
+    review can instead round-robin across sources, first resolving newly
+    collected and already-public records so high-volume publishers do not
+    monopolize the queue.
+    """
+    if limit <= 0:
+        return []
+    pending = [item for item in items if needs_scope_review(item)]
+    new_ids = {review_item_id(item) for item in new_items}
+    priority_ids = priority_ids or set()
+    pending.sort(key=lambda item: item.get("published_at", ""), reverse=True)
+    if not balanced:
+        pending.sort(
+            key=lambda item: (
+                review_item_id(item) not in new_ids,
+                item.get("collection_mode", "Daily") == "Historical Backfill",
+            )
+        )
+        return pending[:limit]
+
+    reviewed_by_source = Counter(
+        review_source_key(item)
+        for item in items
+        if not needs_scope_review(item)
+    )
+
+    def bucket(item: dict[str, Any]) -> int:
+        item_id = review_item_id(item)
+        if item_id in new_ids:
+            return 0
+        if item_id in priority_ids:
+            return 1
+        return 2
+
+    selected: list[dict[str, Any]] = []
+    selected_by_source: Counter[str] = Counter()
+    for bucket_number in range(3):
+        grouped: dict[str, deque[dict[str, Any]]] = defaultdict(deque)
+        for item in pending:
+            if bucket(item) == bucket_number:
+                grouped[review_source_key(item)].append(item)
+
+        heap: list[tuple[int, float, str]] = []
+        for source, queue in grouped.items():
+            published = parse_iso(
+                str(queue[0].get("published_at", "")),
+                datetime(1970, 1, 1, tzinfo=timezone.utc),
+            )
+            heapq.heappush(
+                heap,
+                (
+                    reviewed_by_source[source],
+                    -published.timestamp(),
+                    source,
+                ),
+            )
+
+        while heap and len(selected) < limit:
+            _, _, source = heapq.heappop(heap)
+            queue = grouped[source]
+            selected.append(queue.popleft())
+            selected_by_source[source] += 1
+            if queue:
+                published = parse_iso(
+                    str(queue[0].get("published_at", "")),
+                    datetime(1970, 1, 1, tzinfo=timezone.utc),
+                )
+                heapq.heappush(
+                    heap,
+                    (
+                        reviewed_by_source[source]
+                        + selected_by_source[source],
+                        -published.timestamp(),
+                        source,
+                    ),
+                )
+        if len(selected) >= limit:
+            break
+    return selected
 
 
 def is_publishable(item: dict[str, Any]) -> bool:
@@ -4040,7 +4208,9 @@ def japanese_summary_request(
     batch: list[dict[str, Any]],
     token: str,
     model: str,
+    request_stats: dict[str, Any] | None = None,
 ) -> dict[str, dict[str, Any]]:
+    request_stats = request_stats if request_stats is not None else {}
     inputs = [
         {
             "id": item.get("canonical_id") or item.get("id", ""),
@@ -4191,6 +4361,13 @@ def japanese_summary_request(
         "の形式で返してください。\n"
         + json.dumps(inputs, ensure_ascii=False)
     )
+    try:
+        max_tokens = max(
+            1,
+            min(4000, int(os.getenv("JAPANESE_SUMMARY_MAX_TOKENS", "4000"))),
+        )
+    except ValueError:
+        max_tokens = 4000
     payload = {
         "model": model,
         "messages": [
@@ -4198,7 +4375,7 @@ def japanese_summary_request(
             {"role": "user", "content": user_prompt},
         ],
         "temperature": 0.1,
-        "max_tokens": 5000,
+        "max_tokens": max_tokens,
         "response_format": {"type": "json_object"},
     }
     headers = {
@@ -4211,15 +4388,44 @@ def japanese_summary_request(
 
     response: requests.Response | None = None
     for attempt in range(4):
+        try:
+            request_budget = max(
+                1,
+                int(os.getenv("JAPANESE_SUMMARY_REQUEST_BUDGET", "25")),
+            )
+        except ValueError:
+            request_budget = 25
+        if int(request_stats.get("requests", 0)) >= request_budget:
+            raise SummaryRequestBudgetError(
+                f"GitHub Models request budget reached ({request_budget})"
+            )
+        request_stats["requests"] = int(request_stats.get("requests", 0)) + 1
         response = requests.post(
             GITHUB_MODELS_ENDPOINT,
             headers=headers,
             json=payload,
             timeout=90,
         )
+        request_stats["http_status"] = response.status_code
+        request_stats["retry_after"] = response.headers.get("Retry-After", "")
+        request_stats["remaining"] = response.headers.get(
+            "X-RateLimit-Remaining",
+            "",
+        )
+        request_stats["reset_at"] = response.headers.get(
+            "X-RateLimit-Reset",
+            "",
+        )
         if response.ok:
             break
-        if response.status_code not in {408, 429, 500, 502, 503, 504}:
+        if response.status_code == 429:
+            raise SummaryRateLimitError(
+                "GitHub Models rate limit reached",
+                retry_after=str(request_stats["retry_after"]),
+                remaining=str(request_stats["remaining"]),
+                reset_at=str(request_stats["reset_at"]),
+            )
+        if response.status_code not in {408, 500, 502, 503, 504}:
             response.raise_for_status()
         retry_after = response.headers.get("Retry-After", "")
         try:
@@ -4241,25 +4447,14 @@ def japanese_summary_request(
 def enrich_japanese_summaries(
     items: list[dict[str, Any]],
     new_items: list[dict[str, Any]],
+    *,
+    selected_items: list[dict[str, Any]] | None = None,
+    balanced: bool = False,
+    priority_ids: set[str] | None = None,
 ) -> dict[str, Any]:
-    for item in items:
-        if not item.get("title_ja") and contains_japanese(item.get("title", "")):
-            item["title_ja"] = item.get("title", "")
-        if not item.get("summary_ja") and contains_japanese(item.get("summary", "")):
-            item["summary_ja"] = item.get("summary", "")
+    seed_japanese_fields(items)
 
     pending = [item for item in items if needs_scope_review(item)]
-    new_ids = {
-        item.get("canonical_id") or item.get("id", "")
-        for item in new_items
-    }
-    pending.sort(key=lambda item: item.get("published_at", ""), reverse=True)
-    pending.sort(
-        key=lambda item: (
-            (item.get("canonical_id") or item.get("id", "")) not in new_ids,
-            item.get("collection_mode", "Daily") == "Historical Backfill",
-        )
-    )
 
     try:
         limit = max(0, int(os.getenv("JAPANESE_SUMMARY_BACKFILL_LIMIT", "120")))
@@ -4269,7 +4464,21 @@ def enrich_japanese_summaries(
         )
     except ValueError:
         limit, batch_size = 120, 10
-    selected = pending[:limit]
+    selected = (
+        [
+            item
+            for item in selected_items
+            if needs_scope_review(item)
+        ][:limit]
+        if selected_items is not None
+        else select_scope_review_items(
+            items,
+            new_items,
+            limit=limit,
+            balanced=balanced,
+            priority_ids=priority_ids,
+        )
+    )
     token = os.getenv("GITHUB_TOKEN", "").strip()
     model = os.getenv(
         "JAPANESE_SUMMARY_MODEL",
@@ -4282,6 +4491,13 @@ def enrich_japanese_summaries(
             "excluded_ids": [],
             "pending": len(pending),
             "errors": 0 if not selected else 1,
+            "selected": len(selected),
+            "requests": 0,
+            "rate_limited": False,
+            "request_budget_reached": False,
+            "retry_after": "",
+            "rate_limit_remaining": "",
+            "rate_limit_reset": "",
             "detail": "No pending summaries" if not selected else "GITHUB_TOKEN is not set",
         }
 
@@ -4289,13 +4505,73 @@ def enrich_japanese_summaries(
     reviewed = 0
     excluded_ids: list[str] = []
     errors: list[str] = []
+    request_stats: dict[str, Any] = {"requests": 0}
+    rate_limited = False
+    request_budget_reached = False
+    try:
+        request_interval = max(
+            0.0,
+            float(os.getenv("JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS", "4.1")),
+        )
+    except ValueError:
+        request_interval = 4.1
+
+    def apply_summaries(
+        batch: list[dict[str, Any]],
+        summaries: dict[str, dict[str, Any]],
+    ) -> None:
+        nonlocal generated, reviewed
+        for item in batch:
+            item_id = item.get("canonical_id") or item.get("id", "")
+            translated = summaries.get(item_id)
+            if not translated:
+                continue
+            reviewed += 1
+            item["scope_review_version"] = TECH_SCOPE_REVIEW_VERSION
+            if (
+                item.get("academic_kind", ACADEMIC_KIND_NEWS)
+                != ACADEMIC_KIND_NEWS
+            ):
+                item["academic_review_version"] = ACADEMIC_SCOPE_REVIEW_VERSION
+            item["scope_reason"] = translated.get("reason", "")
+            item["scope_content_type"] = translated.get("content_type", "")
+            item["scope_focus"] = translated.get("technical_focus", "")
+            item["scope_evidence"] = translated.get("scope_evidence", "")
+            if not translated.get("in_scope"):
+                item["status"] = "Excluded"
+                excluded_ids.append(item_id)
+                continue
+            item["status"] = "New"
+            item["topics"] = translated["topics"]
+            item["topic"] = " | ".join(translated["topics"])
+            item["innovation_policy"] = translated["is_innovation_policy"]
+            item["policy_areas"] = translated["policy_areas"]
+            item["policy_area"] = " | ".join(translated["policy_areas"])
+            article_frames: list[str] = []
+            if translated["content_type"] != "technology_policy":
+                article_frames.append("Technology Innovation")
+            if translated["is_innovation_policy"]:
+                article_frames.append("Innovation Policy")
+            item["article_frames"] = article_frames
+            item["article_frame"] = " | ".join(article_frames)
+            item["policy_relevance"] = translated["policy_relevance"]
+            item["title_ja"] = translated["title_ja"]
+            item["summary_ja"] = translated["summary_ja"]
+            generated += 1
+
     for start in range(0, len(selected), batch_size):
         batch = selected[start : start + batch_size]
+        summaries: dict[str, dict[str, Any]] = {}
+        unresolved = list(batch)
+        stop_review = False
         try:
-            summaries: dict[str, dict[str, Any]] = {}
-            unresolved = list(batch)
             for response_attempt in range(3):
-                partial = japanese_summary_request(unresolved, token, model)
+                partial = japanese_summary_request(
+                    unresolved,
+                    token,
+                    model,
+                    request_stats,
+                )
                 summaries.update(partial)
                 unresolved = [
                     item
@@ -4305,55 +4581,33 @@ def enrich_japanese_summaries(
                 ]
                 if not unresolved:
                     break
-                time.sleep(float(response_attempt + 1))
+                time.sleep(max(request_interval, float(response_attempt + 1)))
             if unresolved:
                 errors.append(
                     f"batch {start // batch_size + 1}: "
                     f"{len(unresolved)} item(s) omitted after retries"
                 )
-            for item in batch:
-                item_id = item.get("canonical_id") or item.get("id", "")
-                translated = summaries.get(item_id)
-                if not translated:
-                    continue
-                reviewed += 1
-                item["scope_review_version"] = TECH_SCOPE_REVIEW_VERSION
-                if (
-                    item.get("academic_kind", ACADEMIC_KIND_NEWS)
-                    != ACADEMIC_KIND_NEWS
-                ):
-                    item[
-                        "academic_review_version"
-                    ] = ACADEMIC_SCOPE_REVIEW_VERSION
-                item["scope_reason"] = translated.get("reason", "")
-                item["scope_content_type"] = translated.get("content_type", "")
-                item["scope_focus"] = translated.get("technical_focus", "")
-                item["scope_evidence"] = translated.get("scope_evidence", "")
-                if not translated.get("in_scope"):
-                    item["status"] = "Excluded"
-                    excluded_ids.append(item_id)
-                    continue
-                item["status"] = "New"
-                item["topics"] = translated["topics"]
-                item["topic"] = " | ".join(translated["topics"])
-                item["innovation_policy"] = translated["is_innovation_policy"]
-                item["policy_areas"] = translated["policy_areas"]
-                item["policy_area"] = " | ".join(translated["policy_areas"])
-                article_frames: list[str] = []
-                if translated["content_type"] != "technology_policy":
-                    article_frames.append("Technology Innovation")
-                if translated["is_innovation_policy"]:
-                    article_frames.append("Innovation Policy")
-                item["article_frames"] = article_frames
-                item["article_frame"] = " | ".join(article_frames)
-                item["policy_relevance"] = translated["policy_relevance"]
-                item["title_ja"] = translated["title_ja"]
-                item["summary_ja"] = translated["summary_ja"]
-                generated += 1
+        except SummaryRateLimitError as exc:
+            rate_limited = True
+            stop_review = True
+            errors.append(
+                f"batch {start // batch_size + 1}: "
+                f"SummaryRateLimitError: {exc}"
+            )
+        except SummaryRequestBudgetError as exc:
+            request_budget_reached = True
+            stop_review = True
+            errors.append(
+                f"batch {start // batch_size + 1}: "
+                f"SummaryRequestBudgetError: {exc}"
+            )
         except (requests.RequestException, ValueError, TypeError, json.JSONDecodeError) as exc:
             errors.append(f"batch {start // batch_size + 1}: {type(exc).__name__}: {exc}")
+        apply_summaries(batch, summaries)
+        if stop_review:
+            break
         if start + batch_size < len(selected):
-            time.sleep(1)
+            time.sleep(request_interval)
 
     excluded_id_set = set(excluded_ids)
     remaining = sum(
@@ -4370,6 +4624,13 @@ def enrich_japanese_summaries(
         "excluded_ids": excluded_ids,
         "pending": remaining,
         "errors": len(errors),
+        "selected": len(selected),
+        "requests": int(request_stats.get("requests", 0)),
+        "rate_limited": rate_limited,
+        "request_budget_reached": request_budget_reached,
+        "retry_after": str(request_stats.get("retry_after", "")),
+        "rate_limit_remaining": str(request_stats.get("remaining", "")),
+        "rate_limit_reset": str(request_stats.get("reset_at", "")),
         "detail": "; ".join(errors[:3]),
     }
 
@@ -4470,7 +4731,7 @@ def save_json_outputs(
     collected_at: datetime,
     policy_history_days: int = DEFAULT_POLICY_HISTORY_DAYS,
     technology_history_days: int = DEFAULT_TECHNOLOGY_HISTORY_DAYS,
-) -> None:
+) -> dict[str, Any]:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
     public_items = [
@@ -4523,15 +4784,30 @@ def save_json_outputs(
         },
         "items": public_items,
     }
+    write_public_payload(payload)
+    return payload
+
+
+def write_public_payload(payload: dict[str, Any]) -> None:
     for path in (MASTER_JSON, PUBLIC_JSON):
         with path.open("w", encoding="utf-8") as handle:
             json.dump(payload, handle, ensure_ascii=False, indent=2)
             handle.write("\n")
 
 
+def load_public_payload(path: Path = PUBLIC_JSON) -> dict[str, Any]:
+    try:
+        with path.open(encoding="utf-8") as handle:
+            payload = json.load(handle)
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, json.JSONDecodeError, TypeError):
+        return {}
+
+
 def preserved_public_payload(
     current_payload: dict[str, Any],
     previous_payload: dict[str, Any],
+    master_items: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Merge the current publication with the last good one.
 
@@ -4542,9 +4818,33 @@ def preserved_public_payload(
     """
     merged_items: list[dict[str, Any]] = []
     seen: set[str] = set()
+    previous_items = exclude_retired_sources(previous_payload.get("items", []))
+    if master_items is not None:
+        master_by_id = {
+            review_item_id(item): item
+            for item in master_items
+            if review_item_id(item)
+        }
+        master_by_url = {
+            dedupe_url(str(item.get("url") or "")): item
+            for item in master_items
+            if dedupe_url(str(item.get("url") or ""))
+        }
+        unresolved_previous: list[dict[str, Any]] = []
+        for item in previous_items:
+            master_item = master_by_id.get(
+                str(item.get("id") or item.get("canonical_id") or "")
+            )
+            if master_item is None:
+                master_item = master_by_url.get(
+                    dedupe_url(str(item.get("url") or ""))
+                )
+            if master_item is None or needs_scope_review(master_item):
+                unresolved_previous.append(item)
+        previous_items = unresolved_previous
     candidates = [
         *exclude_retired_sources(current_payload.get("items", [])),
-        *exclude_retired_sources(previous_payload.get("items", [])),
+        *previous_items,
     ]
     for item in candidates:
         item_id = str(item.get("id") or item.get("canonical_id") or "")
@@ -4645,6 +4945,36 @@ def hydrate_preserved_ledger_items(
     return hydrated
 
 
+def publish_outputs(
+    publishable_items: list[dict[str, Any]],
+    master_items: list[dict[str, Any]],
+    sources: list[dict[str, Any]],
+    collected_at: datetime,
+    policy_history_days: int,
+    technology_history_days: int,
+    previous_payload: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Build JSON once and derive the Excel rows from that exact item order."""
+    current_payload = save_json_outputs(
+        publishable_items,
+        sources,
+        collected_at,
+        policy_history_days,
+        technology_history_days,
+    )
+    final_payload = preserved_public_payload(
+        current_payload,
+        previous_payload or {},
+        master_items,
+    )
+    write_public_payload(final_payload)
+    ledger_items = hydrate_preserved_ledger_items(
+        final_payload.get("items", []),
+        master_items,
+    )
+    return final_payload, ledger_items
+
+
 def preserve_previous_publication(previous_path: Path) -> int:
     """Apply the publication guard and rebuild every output consistently."""
     with previous_path.open(encoding="utf-8") as handle:
@@ -4652,11 +4982,13 @@ def preserve_previous_publication(previous_path: Path) -> int:
     with PUBLIC_JSON.open(encoding="utf-8") as handle:
         current_payload = json.load(handle)
 
-    payload = preserved_public_payload(current_payload, previous_payload)
-    for path in (MASTER_JSON, PUBLIC_JSON):
-        with path.open("w", encoding="utf-8") as handle:
-            json.dump(payload, handle, ensure_ascii=False, indent=2)
-            handle.write("\n")
+    master_items = load_master()
+    payload = preserved_public_payload(
+        current_payload,
+        previous_payload,
+        master_items,
+    )
+    write_public_payload(payload)
 
     config = load_config()
     active_sources = [
@@ -4664,7 +4996,7 @@ def preserve_previous_publication(previous_path: Path) -> int:
     ]
     ledger_items = hydrate_preserved_ledger_items(
         payload["items"],
-        load_master(),
+        master_items,
     )
     update_workbook(ledger_items, active_sources, load_run_log())
     return len(payload["items"])
@@ -4764,9 +5096,26 @@ def source_status_payload(
         1 for entry in merged_entries if entry.get("status") != "not_checked"
     )
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "updated_at": iso_z(collected_at),
         "summary": {
+            "checked": checked_once,
+            "succeeded": sum(
+                1 for entry in merged_entries if entry.get("status") == "ok"
+            ),
+            "failed": sum(
+                1 for entry in merged_entries if entry.get("status") == "error"
+            ),
+            "entries_seen": sum(
+                int(entry.get("entries_seen") or 0)
+                for entry in merged_entries
+            ),
+            "entries_kept": sum(
+                int(entry.get("entries_kept") or 0)
+                for entry in merged_entries
+            ),
+        },
+        "current_run": {
             "checked": len(results),
             "succeeded": sum(1 for result in results if result.status == "ok"),
             "failed": sum(1 for result in results if result.status != "ok"),
@@ -4999,6 +5348,7 @@ def run(
     ]
     sources = sources_for_cadence(active_sources, cadence)
     existing = exclude_retired_sources(load_master())
+    previous_public_payload = load_public_payload()
     collected_at = now_utc()
     backfill_state = load_backfill_state()
     backfill = (
@@ -5212,18 +5562,22 @@ def run(
         f"reviewed={summary_result['reviewed']} "
         f"excluded={len(excluded_ids)} "
         f"pending={summary_result['pending']} "
-        f"errors={summary_result['errors']}"
+        f"errors={summary_result['errors']} "
+        f"requests={summary_result.get('requests', 0)} "
+        f"rate_limited={summary_result.get('rate_limited', False)}"
     )
     if summary_result.get("detail"):
         print(f"[SUMMARY] {summary_result['detail']}")
 
     save_master(merged)
-    save_json_outputs(
+    public_payload, ledger_items = publish_outputs(
         publishable_items,
+        merged,
         active_sources,
         collected_at,
         policy_history_days,
         technology_history_days,
+        previous_public_payload,
     )
     save_source_status(results, collected_at, active_sources)
     if backfill:
@@ -5252,6 +5606,20 @@ def run(
         "items_excluded": len(excluded_ids),
         "summaries_pending": summary_result["pending"],
         "summary_errors": summary_result["errors"],
+        "summary_requests": summary_result.get("requests", 0),
+        "summary_rate_limited": summary_result.get("rate_limited", False),
+        "summary_request_budget_reached": summary_result.get(
+            "request_budget_reached",
+            False,
+        ),
+        "summary_rate_limit_remaining": summary_result.get(
+            "rate_limit_remaining",
+            "",
+        ),
+        "summary_rate_limit_reset": summary_result.get(
+            "rate_limit_reset",
+            "",
+        ),
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": (
             f"Historical backfill: policy {policy_history_days}d / "
@@ -5261,7 +5629,7 @@ def run(
         ),
     }
     runs = append_run_log(run_record)
-    update_workbook(publishable_items, active_sources, runs)
+    update_workbook(ledger_items, active_sources, runs)
 
     print(
         json.dumps(
@@ -5277,11 +5645,262 @@ def run(
                 "items_excluded": len(excluded_ids),
                 "summaries_pending": summary_result["pending"],
                 "summary_errors": summary_result["errors"],
-                "ledger_items": len(publishable_items),
+                "ledger_items": len(public_payload.get("items", [])),
                 "mode": "historical_backfill" if backfill else cadence,
                 "archive_items": len(archive_items),
                 "public_json": str(PUBLIC_JSON.relative_to(ROOT)),
                 "public_xlsx": str(PUBLIC_XLSX.relative_to(ROOT)),
+            },
+            ensure_ascii=False,
+        )
+    )
+    return 0
+
+
+def load_review_state() -> dict[str, Any]:
+    try:
+        with REVIEW_STATE_JSON.open(encoding="utf-8") as handle:
+            payload = json.load(handle)
+        return payload if isinstance(payload, dict) else {}
+    except (OSError, json.JSONDecodeError, TypeError):
+        return {}
+
+
+def save_review_state(payload: dict[str, Any]) -> None:
+    REVIEW_STATE_JSON.parent.mkdir(parents=True, exist_ok=True)
+    with REVIEW_STATE_JSON.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+
+
+def review_backlog(
+    policy_history_days: int,
+    technology_history_days: int,
+) -> int:
+    """Review queued candidates without refetching any source."""
+    started = time.monotonic()
+    ensure_seed_files()
+    config = load_config()
+    active_sources = [
+        source for source in config["sources"] if source.get("active")
+    ]
+    merged = exclude_retired_sources(load_master())
+    previous_public_payload = load_public_payload()
+    collected_at = now_utc()
+    seed_japanese_fields(merged)
+
+    in_window = [
+        item
+        for item in merged
+        if item_within_public_window(
+            item,
+            collected_at,
+            policy_history_days,
+            technology_history_days,
+        )
+    ]
+    in_window_object_ids = {id(item) for item in in_window}
+    pending_before = sum(1 for item in in_window if needs_scope_review(item))
+    pending_expired_before = sum(
+        1
+        for item in merged
+        if id(item) not in in_window_object_ids and needs_scope_review(item)
+    )
+    previous_ids = {
+        str(item.get("id") or item.get("canonical_id") or "")
+        for item in previous_public_payload.get("items", [])
+        if item.get("id") or item.get("canonical_id")
+    }
+    try:
+        limit = max(
+            1,
+            int(os.getenv("JAPANESE_SUMMARY_BACKFILL_LIMIT", "100")),
+        )
+    except ValueError:
+        limit = 100
+    selected = select_scope_review_items(
+        in_window,
+        [],
+        limit=limit,
+        balanced=True,
+        priority_ids=previous_ids,
+    )
+
+    if pending_before == 0:
+        prior_state = load_review_state()
+        if (
+            prior_state.get("status") == "completed"
+            and prior_state.get("review_version") == TECH_SCOPE_REVIEW_VERSION
+            and int(prior_state.get("pending_in_window") or 0) == 0
+        ):
+            print(
+                json.dumps(
+                    {
+                        "status": "already_complete",
+                        "pending_in_window": 0,
+                        "pending_expired": pending_expired_before,
+                    },
+                    ensure_ascii=False,
+                )
+            )
+            return 0
+
+    academic_refresh = {
+        "targets": 0,
+        "attempted": 0,
+        "restored": 0,
+        "errors": 0,
+    }
+    if selected:
+        session = make_http_session()
+        try:
+            academic_refresh = refresh_academic_review_summaries(
+                session,
+                selected,
+            )
+        finally:
+            session.close()
+        if academic_refresh["targets"]:
+            print(
+                "[ACADEMIC] "
+                f"targets={academic_refresh['targets']} "
+                f"attempted={academic_refresh['attempted']} "
+                f"abstracts={academic_refresh['restored']} "
+                f"errors={academic_refresh['errors']}"
+            )
+
+    summary_result = enrich_japanese_summaries(
+        merged,
+        [],
+        selected_items=selected,
+        balanced=True,
+        priority_ids=previous_ids,
+    )
+    normalize_reviewed_topics(merged)
+    normalize_reviewed_policy_axis(merged)
+
+    pending_after = sum(1 for item in in_window if needs_scope_review(item))
+    pending_expired_after = sum(
+        1
+        for item in merged
+        if id(item) not in in_window_object_ids and needs_scope_review(item)
+    )
+    publishable_items = [item for item in merged if is_publishable(item)]
+    save_master(merged)
+    carry_payload = previous_public_payload if pending_after else {}
+    public_payload, ledger_items = publish_outputs(
+        publishable_items,
+        merged,
+        active_sources,
+        collected_at,
+        policy_history_days,
+        technology_history_days,
+        carry_payload,
+    )
+
+    previous_public_ids = {
+        str(item.get("id") or "")
+        for item in previous_public_payload.get("items", [])
+        if item.get("id")
+    }
+    current_public_ids = {
+        str(item.get("id") or "")
+        for item in public_payload.get("items", [])
+        if item.get("id")
+    }
+    run_record = {
+        "run_at": iso_z(collected_at),
+        "run_at_jst": iso_jst(collected_at),
+        "feeds_checked": 0,
+        "feeds_succeeded": 0,
+        "new_items": len(current_public_ids - previous_public_ids),
+        "duplicates_skipped": 0,
+        "feed_errors": 0,
+        "summaries_generated": summary_result["generated"],
+        "items_selected": summary_result.get("selected", len(selected)),
+        "items_reviewed": summary_result["reviewed"],
+        "items_excluded": len(summary_result["excluded_ids"]),
+        "summaries_pending": pending_after,
+        "summaries_pending_expired": pending_expired_after,
+        "summary_errors": summary_result["errors"],
+        "summary_requests": summary_result.get("requests", 0),
+        "summary_rate_limited": summary_result.get("rate_limited", False),
+        "summary_request_budget_reached": summary_result.get(
+            "request_budget_reached",
+            False,
+        ),
+        "summary_rate_limit_remaining": summary_result.get(
+            "rate_limit_remaining",
+            "",
+        ),
+        "summary_rate_limit_reset": summary_result.get(
+            "rate_limit_reset",
+            "",
+        ),
+        "duration_seconds": round(time.monotonic() - started, 2),
+        "note": "Review backlog",
+    }
+    runs = append_run_log(run_record)
+    update_workbook(ledger_items, active_sources, runs)
+
+    state_status = "completed" if pending_after == 0 else "in_progress"
+    if summary_result.get("rate_limited"):
+        state_status = "rate_limited"
+    elif summary_result.get("request_budget_reached"):
+        state_status = "request_budget_reached"
+    review_state = {
+        "schema_version": 1,
+        "review_version": TECH_SCOPE_REVIEW_VERSION,
+        "updated_at": iso_z(collected_at),
+        "updated_at_jst": iso_jst(collected_at),
+        "status": state_status,
+        "selected": summary_result.get("selected", len(selected)),
+        "reviewed": summary_result["reviewed"],
+        "excluded": len(summary_result["excluded_ids"]),
+        "model_requests": summary_result.get("requests", 0),
+        "rate_limited": summary_result.get("rate_limited", False),
+        "request_budget_reached": summary_result.get(
+            "request_budget_reached",
+            False,
+        ),
+        "retry_after": summary_result.get("retry_after", ""),
+        "rate_limit_remaining": summary_result.get(
+            "rate_limit_remaining",
+            "",
+        ),
+        "rate_limit_reset": summary_result.get("rate_limit_reset", ""),
+        "pending_before": pending_before,
+        "pending_in_window": pending_after,
+        "pending_expired": pending_expired_after,
+        "public_items": len(public_payload.get("items", [])),
+        "academic_refresh": academic_refresh,
+    }
+    save_review_state(review_state)
+    print(
+        "[REVIEW] "
+        f"selected={review_state['selected']} "
+        f"reviewed={review_state['reviewed']} "
+        f"excluded={review_state['excluded']} "
+        f"pending={review_state['pending_in_window']} "
+        f"requests={review_state['model_requests']} "
+        f"rate_limited={review_state['rate_limited']}"
+    )
+    if summary_result.get("detail"):
+        print(f"[REVIEW] {summary_result['detail']}")
+    print(
+        json.dumps(
+            {
+                "status": state_status,
+                "items_selected": review_state["selected"],
+                "items_reviewed": review_state["reviewed"],
+                "items_excluded": review_state["excluded"],
+                "summaries_pending": review_state["pending_in_window"],
+                "summaries_pending_expired": review_state["pending_expired"],
+                "summary_errors": summary_result["errors"],
+                "summary_requests": review_state["model_requests"],
+                "summary_rate_limited": review_state["rate_limited"],
+                "ledger_items": review_state["public_items"],
+                "mode": "review_backlog",
             },
             ensure_ascii=False,
         )
@@ -5313,6 +5932,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--backfill",
         action="store_true",
         help="Force a historical backfill even when the current version is complete.",
+    )
+    parser.add_argument(
+        "--review-only",
+        action="store_true",
+        help="Review the saved candidate backlog without fetching sources.",
     )
     parser.add_argument(
         "--cadence",
@@ -5348,6 +5972,11 @@ def main(argv: list[str] | None = None) -> int:
                 )
             )
             return 0
+        if args.review_only:
+            return review_backlog(
+                policy_history_days=args.policy_history_days,
+                technology_history_days=args.technology_history_days,
+            )
         return run(
             max_age_hours=args.max_age_hours,
             policy_history_days=args.policy_history_days,
