@@ -4569,6 +4569,7 @@ def preserved_public_payload(
                 )
             )
         if seen.intersection(identities):
+            seen.update(identities)
             continue
         seen.update(identities)
         merged_items.append(item)

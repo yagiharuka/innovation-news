@@ -132,6 +132,36 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(payload["article_count"], 1)
         self.assertEqual(payload["items"][0]["id"], "current-id")
 
+    def test_publication_guard_propagates_transitive_id_and_url_aliases(self):
+        current = {
+            "items": [
+                {
+                    "id": "current-id",
+                    "source": "NEDO News",
+                    "url": "https://example.com/article-a",
+                }
+            ]
+        }
+        previous = {
+            "items": [
+                {
+                    "id": "previous-id",
+                    "source": "NEDO News",
+                    "url": "https://example.com/article-a",
+                },
+                {
+                    "id": "previous-id",
+                    "source": "NEDO News",
+                    "url": "https://example.com/article-b",
+                },
+            ]
+        }
+
+        payload = collector.preserved_public_payload(current, previous)
+
+        self.assertEqual(payload["article_count"], 1)
+        self.assertEqual(payload["items"][0]["id"], "current-id")
+
     def test_publication_guard_drops_items_outside_history_window(self):
         current = {
             "updated_at": "2026-07-27T00:00:00Z",
