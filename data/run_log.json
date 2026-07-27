@@ -346,6 +346,22 @@
       "summary_errors": 3,
       "duration_seconds": 819.04,
       "note": "Daily update"
+    },
+    {
+      "run_at": "2026-07-27T14:37:06Z",
+      "run_at_jst": "2026-07-27T23:37:06+09:00",
+      "feeds_checked": 252,
+      "feeds_succeeded": 199,
+      "new_items": 0,
+      "duplicates_skipped": 440,
+      "feed_errors": 53,
+      "summaries_generated": 17,
+      "items_reviewed": 143,
+      "items_excluded": 126,
+      "summaries_pending": 2363,
+      "summary_errors": 3,
+      "duration_seconds": 856.75,
+      "note": "Daily update"
     }
   ]
 }
