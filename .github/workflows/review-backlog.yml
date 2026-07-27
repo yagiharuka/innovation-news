@@ -2,7 +2,7 @@ name: Review candidate backlog
 
 on:
   schedule:
-    - cron: "30 0,6,12,18 * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
     inputs:
       review_limit:
@@ -48,12 +48,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '100' }}
+          # 48 scheduled runs x 2 requests + daily 25 + weekly 25 = 146,
+          # staying within the free low-tier allowance of 150 requests/day.
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '12' }}
           JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
-          JAPANESE_SUMMARY_REQUEST_BUDGET: "20"
+          JAPANESE_SUMMARY_REQUEST_BUDGET: ${{ github.event_name == 'workflow_dispatch' && '20' || '2' }}
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
-          REVIEW_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '100' }}
+          REVIEW_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '12' }}
 
       - name: Commit review checkpoint
         run: |
