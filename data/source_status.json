@@ -1,24 +1,24 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-27T16:34:11Z",
+  "updated_at": "2026-07-27T16:39:30Z",
   "summary": {
-    "checked": 256,
-    "succeeded": 235,
+    "checked": 260,
+    "succeeded": 239,
     "failed": 21,
-    "entries_seen": 114968,
-    "entries_kept": 522
+    "entries_seen": 115386,
+    "entries_kept": 625
   },
   "current_run": {
-    "checked": 252,
-    "succeeded": 232,
-    "failed": 20,
-    "entries_seen": 114879,
-    "entries_kept": 508
+    "checked": 8,
+    "succeeded": 7,
+    "failed": 1,
+    "entries_seen": 507,
+    "entries_kept": 117
   },
   "coverage_summary": {
     "registered": 260,
-    "checked_once": 256,
-    "waiting_first_check": 4
+    "checked_once": 260,
+    "waiting_first_check": 0
   },
   "sources": [
     {
@@ -130,15 +130,15 @@
       "region": "Global",
       "homepage": "https://www.theguardian.com/technology",
       "feed_url": "https://www.theguardian.com/technology/rss",
+      "coverage_tier": "B",
+      "cadence": "weekly",
+      "topic_tags": [],
       "status": "ok",
       "detail": "",
       "entries_seen": 36,
-      "entries_kept": 8,
-      "elapsed_seconds": 0.38,
-      "last_checked_at": "2026-07-26T22:11:33Z",
-      "coverage_tier": "B",
-      "cadence": "weekly",
-      "topic_tags": []
+      "entries_kept": 24,
+      "elapsed_seconds": 1.04,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "MIT Technology Review",
@@ -232,15 +232,15 @@
       "region": "Middle East",
       "homepage": "https://www.arabnews.com/category/tags/technology",
       "feed_url": "https://www.arabnews.com/category/tags/technology",
-      "status": "error",
-      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/tags/technology; sitemap: https://www.arabnews.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/sitemap.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.43,
-      "last_checked_at": "2026-07-26T22:11:33Z",
       "coverage_tier": "B",
       "cadence": "weekly",
-      "topic_tags": []
+      "topic_tags": [],
+      "status": "error",
+      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/category/tags/technology; sitemap: https://www.arabnews.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.arabnews.com/sitemap.xml",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.39,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "The National Technology",
@@ -1428,17 +1428,17 @@
       "region": "Global",
       "homepage": "https://www.fusionindustryassociation.org/",
       "feed_url": "https://www.fusionindustryassociation.org/feed/",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 10,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.84,
-      "last_checked_at": "2026-07-26T22:11:33Z",
       "coverage_tier": "B",
       "cadence": "weekly",
       "topic_tags": [
         "Fusion Energy"
-      ]
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 10,
+      "elapsed_seconds": 1.13,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2191,12 +2191,6 @@
     },
     {
       "name": "arXiv",
-      "status": "not_checked",
-      "detail": "Waiting for the first scheduled collection.",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0,
-      "last_checked_at": "",
       "organization": "Cornell University",
       "source_type": "Preprint",
       "region": "Global",
@@ -2213,16 +2207,16 @@
         "Biotechnology",
         "Healthcare",
         "Space"
-      ]
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 40,
+      "entries_kept": 24,
+      "elapsed_seconds": 1.36,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "AAAI Proceedings",
-      "status": "not_checked",
-      "detail": "Waiting for the first scheduled collection.",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0,
-      "last_checked_at": "",
       "organization": "Association for the Advancement of Artificial Intelligence",
       "source_type": "Conference Paper",
       "region": "Global",
@@ -2233,16 +2227,16 @@
       "topic_tags": [
         "Artificial Intelligence",
         "Robotics"
-      ]
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 94,
+      "entries_kept": 24,
+      "elapsed_seconds": 2.54,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "日本人工知能学会",
-      "status": "not_checked",
-      "detail": "Waiting for the first scheduled collection.",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0,
-      "last_checked_at": "",
       "organization": "Japanese Society for Artificial Intelligence",
       "source_type": "Scientific Publication",
       "region": "Asia",
@@ -2253,7 +2247,13 @@
       "topic_tags": [
         "Artificial Intelligence",
         "Robotics"
-      ]
+      ],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 1,
+      "elapsed_seconds": 4.07,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "3GPP",
@@ -2559,12 +2559,6 @@
     },
     {
       "name": "Fusion Energy Insights",
-      "status": "not_checked",
-      "detail": "Waiting for the first scheduled collection.",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0,
-      "last_checked_at": "",
       "organization": "Fusion Energy Insights",
       "source_type": "Major Media",
       "region": "Global",
@@ -2574,7 +2568,13 @@
       "cadence": "weekly",
       "topic_tags": [
         "Fusion Energy"
-      ]
+      ],
+      "status": "ok",
+      "detail": "official frontend JSON API",
+      "entries_seen": 221,
+      "entries_kept": 10,
+      "elapsed_seconds": 1.09,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     },
     {
       "name": "TAE Technologies",
@@ -5472,15 +5472,15 @@
       "region": "Global",
       "homepage": "https://openalex.org/",
       "feed_url": "https://api.openalex.org/works",
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 43,
-      "entries_kept": 6,
-      "elapsed_seconds": 1.28,
-      "last_checked_at": "2026-07-26T22:11:33Z",
       "coverage_tier": "B",
       "cadence": "weekly",
-      "topic_tags": []
+      "topic_tags": [],
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 96,
+      "entries_kept": 24,
+      "elapsed_seconds": 3.21,
+      "last_checked_at": "2026-07-27T16:39:30Z"
     }
   ]
 }

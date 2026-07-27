@@ -383,6 +383,27 @@
       "summary_rate_limit_reset": "",
       "duration_seconds": 241.51,
       "note": "Daily update"
+    },
+    {
+      "run_at": "2026-07-27T16:39:30Z",
+      "run_at_jst": "2026-07-28T01:39:30+09:00",
+      "feeds_checked": 8,
+      "feeds_succeeded": 7,
+      "new_items": 29,
+      "duplicates_skipped": 51,
+      "feed_errors": 1,
+      "summaries_generated": 30,
+      "items_reviewed": 56,
+      "items_excluded": 26,
+      "summaries_pending": 2369,
+      "summary_errors": 1,
+      "summary_requests": 12,
+      "summary_rate_limited": true,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "",
+      "summary_rate_limit_reset": "",
+      "duration_seconds": 253.27,
+      "note": "Historical backfill: policy 365d / technology 183d"
     }
   ]
 }
