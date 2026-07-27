@@ -4533,13 +4533,88 @@ def preserved_public_payload(
     current_payload: dict[str, Any],
     previous_payload: dict[str, Any],
 ) -> dict[str, Any]:
-    """Keep the last good publication without reviving retired sources."""
-    preserved_items = exclude_retired_sources(
-        previous_payload.get("items", [])
+    """Merge the current publication with the last good one.
+
+    The guard exists to retain previously published articles when a partial
+    model failure makes the current result shrink sharply.  Current eligible
+    articles must remain in the output as well; otherwise every newly reviewed
+    article from that run is discarded.
+    """
+    merged_items: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    candidates = [
+        *exclude_retired_sources(current_payload.get("items", [])),
+        *exclude_retired_sources(previous_payload.get("items", [])),
+    ]
+    for item in candidates:
+        item_id = str(item.get("id") or item.get("canonical_id") or "")
+        item_url = dedupe_url(str(item.get("url") or ""))
+        identities = {
+            value
+            for value in (
+                f"id:{item_id}" if item_id else "",
+                f"url:{item_url}" if item_url else "",
+            )
+            if value
+        }
+        if not identities:
+            identities.add(
+                "fallback:"
+                + "\0".join(
+                    (
+                        str(item.get("source") or ""),
+                        str(item.get("title_original") or item.get("title") or ""),
+                        str(item.get("published_at") or ""),
+                    )
+                )
+            )
+        if seen.intersection(identities):
+            seen.update(identities)
+            continue
+        seen.update(identities)
+        merged_items.append(item)
+
+    history_windows = current_payload.get("history_windows")
+    if current_payload.get("updated_at") and isinstance(history_windows, dict):
+        collected_at = parse_iso(
+            str(current_payload["updated_at"]),
+            datetime.now(timezone.utc),
+        )
+        try:
+            policy_history_days = int(
+                history_windows.get(
+                    "innovation_policy_days",
+                    DEFAULT_POLICY_HISTORY_DAYS,
+                )
+            )
+            technology_history_days = int(
+                history_windows.get(
+                    "technology_innovation_days",
+                    DEFAULT_TECHNOLOGY_HISTORY_DAYS,
+                )
+            )
+        except (TypeError, ValueError):
+            policy_history_days = DEFAULT_POLICY_HISTORY_DAYS
+            technology_history_days = DEFAULT_TECHNOLOGY_HISTORY_DAYS
+        merged_items = [
+            item
+            for item in merged_items
+            if item_within_public_window(
+                item,
+                collected_at,
+                policy_history_days,
+                technology_history_days,
+            )
+        ]
+
+    merged_items.sort(
+        key=lambda item: item.get("published_at", ""),
+        reverse=True,
     )
+    merged_items = merged_items[:DEFAULT_PUBLIC_ITEM_LIMIT]
     payload = dict(current_payload)
-    payload["article_count"] = len(preserved_items)
-    payload["items"] = preserved_items
+    payload["article_count"] = len(merged_items)
+    payload["items"] = merged_items
     return payload
 
 
