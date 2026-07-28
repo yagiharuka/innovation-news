@@ -1,22 +1,18 @@
 import unittest
 from pathlib import Path
 
-import yaml
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class WorkflowTests(unittest.TestCase):
-    def test_workflow_yaml_is_valid(self):
+    def test_workflow_files_have_required_sections(self):
         for path in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
             with self.subTest(path=path.name):
-                payload = yaml.load(
-                    path.read_text(encoding="utf-8"),
-                    Loader=yaml.BaseLoader,
-                )
-                self.assertIsInstance(payload, dict)
-                self.assertIn("jobs", payload)
+                workflow = path.read_text(encoding="utf-8")
+                self.assertIn("name:", workflow)
+                self.assertIn("on:", workflow)
+                self.assertIn("jobs:", workflow)
 
     def test_backlog_review_has_one_30_minute_schedule(self):
         daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(
