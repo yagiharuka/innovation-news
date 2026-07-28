@@ -18,7 +18,6 @@ permissions:
 concurrency:
   group: innovation-news-collection
   cancel-in-progress: false
-  queue: max
 
 jobs:
   collect:
