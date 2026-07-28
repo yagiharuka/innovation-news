@@ -119,6 +119,12 @@ TOPIC_KEYWORDS: dict[str, tuple[str, ...]] = {
         "ai safety",
         "ai governance",
         "ai chip",
+        "openai",
+        "nvidia",
+        "gpu",
+        "data center",
+        "data centre",
+        "hyperscaler",
         "compute infrastructure",
         "データセンター",
         "人工知能",
@@ -1078,6 +1084,8 @@ def build_item(
     link = normalize_space(link)
     summary = plain_text(summary)
     if not title or not link:
+        return None
+    if not source_text_filter_allows(source, title, summary):
         return None
     include_url_patterns = [
         str(pattern).casefold()
@@ -2868,7 +2876,7 @@ def site_scan_article_score(url: str) -> int:
             "/research/",
         )
     )
-    if re.search(r"/20\d{2}(?:[-/]\d{1,2})", path):
+    if re.search(r"(?:/|-)20\d{2}(?:[-/]\d{1,2})", path):
         score += 1
     return score
 
@@ -2910,6 +2918,32 @@ def site_scan_link_context(node: Any) -> str:
         if len(context) >= 12:
             contexts.append(context)
     return max(contexts, key=len, default="")
+
+
+def source_text_filter_allows(
+    source: dict[str, Any],
+    title: str,
+    context: str = "",
+) -> bool:
+    """Apply optional source-level title filters before expensive enrichment."""
+    searchable = f" {normalized_text(title)} {normalized_text(context)} "
+    include_patterns = [
+        normalize_space(str(pattern))
+        for pattern in source.get("include_title_patterns", [])
+        if normalize_space(str(pattern))
+    ]
+    if include_patterns and not any(
+        contains_keyword(searchable, pattern) for pattern in include_patterns
+    ):
+        return False
+    exclude_patterns = [
+        normalize_space(str(pattern))
+        for pattern in source.get("exclude_title_patterns", [])
+        if normalize_space(str(pattern))
+    ]
+    return not any(
+        contains_keyword(searchable, pattern) for pattern in exclude_patterns
+    )
 
 
 def site_scan_sitemap_candidates(
@@ -3003,9 +3037,18 @@ def site_scan_sitemap_candidates(
                 if not canonical or canonical in candidate_ids:
                     continue
                 lastmod_node = node.find("{*}lastmod")
-                published = parse_archive_date(
-                    lastmod_node.text if lastmod_node is not None else ""
-                ) or infer_date_from_url(link)
+                publication_node = node.find(".//{*}publication_date")
+                published = (
+                    parse_archive_date(
+                        lastmod_node.text if lastmod_node is not None else ""
+                    )
+                    or parse_archive_date(
+                        publication_node.text
+                        if publication_node is not None
+                        else ""
+                    )
+                    or infer_date_from_url(link)
+                )
                 date_known = published is not None
                 if date_known and not (
                     cutoff <= published <= collected_at + timedelta(days=2)
@@ -3016,17 +3059,24 @@ def site_scan_sitemap_candidates(
                     score += 1
                 if score == 0:
                     continue
+                title_node = node.find(".//{*}title")
+                sitemap_title = normalize_space(
+                    title_node.text if title_node is not None else ""
+                )
                 slug = (
                     urlsplit(link).path.rstrip("/").rsplit("/", 1)[-1]
                     .replace("-", " ")
                     .replace("_", " ")
                 )
+                fallback_title = sitemap_title or normalize_space(slug)
+                if not source_text_filter_allows(source, fallback_title):
+                    continue
                 candidate_ids.add(canonical)
                 candidates.append(
                     (
                         score,
                         -len(candidates),
-                        normalize_space(slug),
+                        fallback_title,
                         link,
                         "",
                         published or unknown_date,
@@ -3105,6 +3155,8 @@ def fetch_site_scan_source(
             if not canonical or canonical in candidate_ids:
                 continue
             context = site_scan_link_context(node)
+            if not source_text_filter_allows(source, title, context):
+                continue
             published = parse_listing_date(context, unknown_date)
             if published == unknown_date:
                 published = infer_date_from_url(link) or unknown_date
