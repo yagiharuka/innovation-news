@@ -1,11 +1,6 @@
 name: Review candidate backlog
 
 on:
-  schedule:
-    # GitHub may delay or drop individual scheduled events. Wake up every
-    # 15 minutes, then use the checkpoint gate below to keep actual reviews
-    # approximately 30 minutes apart.
-    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
     inputs:
       review_limit:
