@@ -37,6 +37,14 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("inputs.force", review)
         self.assertIn('--request-budget "$GATE_REQUEST_BUDGET"', review)
 
+    def test_backlog_review_has_a_manual_push_trigger(self):
+        review = (
+            ROOT / ".github" / "workflows" / "review-backlog.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn('".github/manual-review-trigger"', review)
+        self.assertIn("github.event_name == 'workflow_dispatch'", review)
+
     def test_code_push_runs_verification_without_a_model_collection(self):
         daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(
             encoding="utf-8"
