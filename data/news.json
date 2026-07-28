@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T17:00:41Z",
-  "updated_at_jst": "2026-07-29T02:00:41+09:00",
+  "updated_at": "2026-07-28T17:30:46Z",
+  "updated_at_jst": "2026-07-29T02:30:46+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 235,
+  "article_count": 237,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -6792,6 +6792,42 @@
       "status": "New"
     },
     {
+      "id": "bb4fc2e3621ea9a91035b27d",
+      "published_at": "2026-07-16T12:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "CHIPS for America",
+      "organization": "CHIPS for America",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "トランプ政権、TSMCからの半導体製造投資を追加で1000億ドル確保",
+      "title_original": "Trump Administration Secures an Additional $100 Billion U.S. Semiconductor Manufacturing Investment for a Total of $265 Billion from TSMC",
+      "summary": "トランプ政権は、米国と台湾の貿易・投資に関する歴史的合意の結果、TSMCからの半導体製造投資を2650億ドルに増加させることを発表しました。",
+      "summary_original": "Trump Administration Secures an Additional $100 Billion U.S. Semiconductor Manufacturing Investment for a Total of $265 Billion from TSMC July 16, 2026 As a result of the historic deal related to U.S. and Taiwan Trade and Investment announced in January 2026, TSMC has just announced an incremental $100 billion...",
+      "summary_language": "ja",
+      "url": "https://www.nist.gov/news-events/news/2026/07/trump-administration-secures-additional-100-billion-us-semiconductor",
+      "first_seen": "2026-07-16T21:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "85f482f3f904d00f68946a80",
       "published_at": "2026-07-15T23:00:54Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -6858,6 +6894,42 @@
       "summary_language": "ja",
       "url": "https://cset.georgetown.edu/article/meet-gpt-red-an-llm-super-hacker-openai-built-to-make-its-models-safer/",
       "first_seen": "2026-07-16T06:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "39d849a90f00c62e282ed98d",
+      "published_at": "2026-07-15T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "Middle East",
+      "country": "United Arab Emirates",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "UAE Ministry of Industry and Advanced Technology",
+      "organization": "UAE Ministry of Industry and Advanced Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "UAE、エージェントAIを通じて食品産業サービスを進展させる協議会を開催",
+      "title_original": "- MOIAT",
+      "summary": "UAEの産業・先進技術省が、エージェントAIを活用して食品産業サービスを進展させるためのインタラクティブな協議会を開催しました。",
+      "summary_original": "Read More July 15, 2026 Ministry of Industry and Advanced Technology and Sharjah Agricultural and Livestock Production Establishment host interactive council to advance food industry services through Agentic AI Read More June 29, 2026 Ministry of Industry and Advanced Technology and New York University Abu Dhabi sign MoU to Accelerate Commercialization of Applied Research and Advance the UAE’s Innovation Ecosystem Read More June 26, 2026 Ministry of Industry and Advanced Technology Hosts Interactive Council to Streamline Services, Enhance Industrial Resilience, and Sustain Supply Chains Read More June 10, 2026 Industrialists Career Exhibition Concludes with More Than 1,000 Job Opportunities…",
+      "summary_language": "ja",
+      "url": "https://moiat.gov.ae/en/media-center/news/2026/07/16/1607",
+      "first_seen": "2026-07-15T09:00:00+09:00",
       "status": "New"
     },
     {
