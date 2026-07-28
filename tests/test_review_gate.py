@@ -148,6 +148,38 @@ class ReviewGateTests(unittest.TestCase):
         )
         self.assertTrue(result["should_run"])
 
+    def test_persisted_quota_reset_survives_a_successful_review_state(self):
+        result = review_gate.evaluate_review_gate(
+            {
+                "runs": [
+                    {
+                        "run_at": "2026-07-28T06:00:00Z",
+                        "summary_requests": 145,
+                        "note": "Daily update",
+                    },
+                    {
+                        "run_at": "2026-07-28T09:00:00Z",
+                        "summary_requests": 2,
+                        "note": "Review backlog",
+                    },
+                ]
+            },
+            {
+                "updated_at": "2026-07-28T11:00:00Z",
+                "pending_in_window": 100,
+                "rate_limited": False,
+                "quota_window_reset_at": "2026-07-28T08:00:00Z",
+            },
+            now=self.NOW,
+        )
+
+        self.assertEqual(result["all_requests_used"], 2)
+        self.assertEqual(
+            result["window_start"],
+            "2026-07-28T08:00:00+00:00",
+        )
+        self.assertTrue(result["should_run"])
+
     def test_force_does_not_bypass_quota_safeguards(self):
         result = review_gate.evaluate_review_gate(
             {

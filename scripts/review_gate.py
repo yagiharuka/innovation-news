@@ -161,11 +161,31 @@ def evaluate_review_gate(
         except (KeyError, TypeError, ValueError):
             pass
 
+    persisted_quota_reset: datetime | None = None
+    try:
+        if review_state.get("quota_window_reset_at"):
+            persisted_quota_reset = parse_datetime(
+                review_state["quota_window_reset_at"]
+            )
+    except (TypeError, ValueError):
+        data_valid = False
+        details.append("persisted quota reset is invalid; blocking review")
+
     retry_at = max(
-        (
+        [
             retry_at
             for _, retry_at in rate_limit_events
             if retry_at + timedelta(seconds=cooldown_safety_seconds) > now
+        ]
+        + (
+            [persisted_quota_reset]
+            if (
+                persisted_quota_reset is not None
+                and persisted_quota_reset
+                + timedelta(seconds=cooldown_safety_seconds)
+                > now
+            )
+            else []
         ),
         default=None,
     )
@@ -186,6 +206,11 @@ def evaluate_review_gate(
         for event_at, retry_at in rate_limit_events
         if retry_at <= now and retry_at - event_at >= timedelta(minutes=5)
     ]
+    if (
+        persisted_quota_reset is not None
+        and now - timedelta(hours=24) <= persisted_quota_reset <= now
+    ):
+        completed_long_cooldowns.append(persisted_quota_reset)
     known_window_reset = max(completed_long_cooldowns, default=None)
     if known_window_reset is not None:
         window_start = max(window_start, known_window_reset)

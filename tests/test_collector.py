@@ -1559,6 +1559,29 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(request_stats["retry_after"], "543")
 
+    def test_successful_review_carries_forward_the_quota_reset_checkpoint(self):
+        checkpoint = collector.quota_window_reset_checkpoint(
+            {
+                "updated_at": "2026-07-28T09:09:15Z",
+                "rate_limited": True,
+                "retry_after": "7036",
+            },
+            {"rate_limited": False},
+            datetime(2026, 7, 28, 11, 10, tzinfo=timezone.utc),
+        )
+        carried = collector.quota_window_reset_checkpoint(
+            {
+                "updated_at": "2026-07-28T11:10:00Z",
+                "rate_limited": False,
+                "quota_window_reset_at": checkpoint,
+            },
+            {"rate_limited": False},
+            datetime(2026, 7, 28, 11, 40, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(checkpoint, "2026-07-28T11:06:31Z")
+        self.assertEqual(carried, checkpoint)
+
     def test_review_only_does_not_fetch_or_update_source_collection_state(self):
         source = {
             "active": True,

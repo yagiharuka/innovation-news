@@ -41,6 +41,17 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("inputs.force", review)
         self.assertIn('--request-budget "$GATE_REQUEST_BUDGET"', review)
 
+    def test_code_push_runs_verification_without_a_model_collection(self):
+        daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(
+            encoding="utf-8"
+        )
+
+        self.assertIn("github.event_name == 'workflow_dispatch'", daily)
+        self.assertIn("verify:", daily)
+        self.assertIn("if: github.event_name == 'push'", daily)
+        self.assertIn("python -m unittest discover -s tests", daily)
+        self.assertNotIn("github.event_name != 'schedule'", daily)
+
 
 if __name__ == "__main__":
     unittest.main()

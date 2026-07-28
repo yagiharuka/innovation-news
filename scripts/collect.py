@@ -5807,6 +5807,95 @@ def save_review_state(payload: dict[str, Any]) -> None:
         handle.write("\n")
 
 
+def quota_window_reset_checkpoint(
+    prior_state: dict[str, Any],
+    summary_result: dict[str, Any],
+    collected_at: datetime,
+) -> str:
+    candidates: list[datetime] = []
+
+    def strict_datetime(value: Any) -> datetime:
+        parsed = (
+            value
+            if isinstance(value, datetime)
+            else date_parser.parse(str(value))
+        )
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.astimezone(timezone.utc)
+
+    explicit_reset = str(prior_state.get("quota_window_reset_at", "")).strip()
+    if explicit_reset:
+        try:
+            candidates.append(strict_datetime(explicit_reset))
+        except (TypeError, ValueError, OverflowError):
+            pass
+
+    for payload, fallback_time in (
+        (prior_state, prior_state.get("updated_at", "")),
+        (summary_result, collected_at),
+    ):
+        if not payload.get("rate_limited"):
+            continue
+        try:
+            event_at = strict_datetime(
+                payload.get("rate_limited_at") or fallback_time
+            )
+        except (TypeError, ValueError, OverflowError):
+            continue
+
+        retry_at: datetime | None = None
+        reset_text = str(payload.get("rate_limit_reset", "")).strip()
+        if reset_text:
+            try:
+                retry_at = datetime.fromtimestamp(
+                    float(reset_text),
+                    tz=timezone.utc,
+                )
+            except (OverflowError, TypeError, ValueError):
+                try:
+                    retry_at = date_parser.parse(reset_text)
+                    if retry_at.tzinfo is None:
+                        retry_at = retry_at.replace(tzinfo=timezone.utc)
+                    retry_at = retry_at.astimezone(timezone.utc)
+                except (TypeError, ValueError, OverflowError):
+                    retry_at = None
+
+        retry_text = str(payload.get("retry_after", "")).strip()
+        if retry_text:
+            try:
+                retry_candidate = event_at + timedelta(
+                    seconds=max(0.0, float(retry_text))
+                )
+            except (TypeError, ValueError):
+                try:
+                    retry_candidate = date_parser.parse(retry_text)
+                    if retry_candidate.tzinfo is None:
+                        retry_candidate = retry_candidate.replace(
+                            tzinfo=timezone.utc
+                        )
+                    retry_candidate = retry_candidate.astimezone(timezone.utc)
+                except (TypeError, ValueError, OverflowError):
+                    retry_candidate = None
+            if retry_candidate is not None and (
+                retry_at is None or retry_candidate > retry_at
+            ):
+                retry_at = retry_candidate
+
+        if (
+            retry_at is not None
+            and retry_at - event_at >= timedelta(minutes=5)
+        ):
+            candidates.append(retry_at)
+
+    valid_candidates = [
+        candidate
+        for candidate in candidates
+        if candidate >= collected_at - timedelta(hours=24)
+    ]
+    return iso_z(max(valid_candidates)) if valid_candidates else ""
+
+
 def review_backlog(
     policy_history_days: int,
     technology_history_days: int,
@@ -5820,6 +5909,7 @@ def review_backlog(
     ]
     merged = exclude_retired_sources(load_master())
     previous_public_payload = load_public_payload()
+    prior_state = load_review_state()
     collected_at = now_utc()
     seed_japanese_fields(merged)
 
@@ -5861,7 +5951,6 @@ def review_backlog(
     )
 
     if pending_before == 0:
-        prior_state = load_review_state()
         if (
             prior_state.get("status") == "completed"
             and prior_state.get("review_version") == TECH_SCOPE_REVIEW_VERSION
@@ -6009,6 +6098,11 @@ def review_backlog(
             "",
         ),
         "rate_limit_reset": summary_result.get("rate_limit_reset", ""),
+        "quota_window_reset_at": quota_window_reset_checkpoint(
+            prior_state,
+            summary_result,
+            collected_at,
+        ),
         "pending_before": pending_before,
         "pending_in_window": pending_after,
         "pending_expired": pending_expired_after,
