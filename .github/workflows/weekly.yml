@@ -18,6 +18,7 @@ permissions:
 concurrency:
   group: innovation-news-collection
   cancel-in-progress: false
+  queue: max
 
 jobs:
   collect:
@@ -26,6 +27,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
