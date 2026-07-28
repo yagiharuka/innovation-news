@@ -19,6 +19,19 @@ GITHUB_ACTIONS_TOKEN
 
 Never commit the token to this repository.
 
+## Deploy from GitHub
+
+1. In Cloudflare, open **Workers & Pages** and select **Create application**.
+2. Under **Import a repository**, connect GitHub and select
+   `yagiharuka/innovation-news`.
+3. Set the Worker name to `innovation-news-scheduler`.
+4. Set the production branch to `main` and the root directory to
+   `cloudflare-scheduler`.
+5. Keep the deploy command as `npx wrangler deploy`, then select
+   **Save and Deploy**.
+6. Open the deployed Worker and add the encrypted runtime secret
+   `GITHUB_ACTIONS_TOKEN` under **Settings > Variables & Secrets**.
+
 ## Schedule
 
 `wrangler.jsonc` configures the Worker to run at minute `00` and `30` of every
