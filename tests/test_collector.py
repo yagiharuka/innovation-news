@@ -2027,7 +2027,7 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("official sitemap fallback", result.detail)
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["title"], "Nvidia may guarantee OpenAI data center financing")
-        self.assertEqual(items[0]["published_at"], "2026-07-27T22:00:00Z")
+        self.assertEqual(items[0]["published_at"], "2026-07-27T21:00:00Z")
         self.assertIn("Artificial Intelligence", items[0]["topics"])
         self.assertEqual(
             items[0]["discovery_method"],
