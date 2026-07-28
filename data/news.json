@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T23:00:27Z",
-  "updated_at_jst": "2026-07-29T08:00:27+09:00",
+  "updated_at": "2026-07-28T23:30:29Z",
+  "updated_at_jst": "2026-07-29T08:30:29+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 286,
+  "article_count": 287,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -5408,6 +5408,40 @@
       "summary_original": "OpenAlex research topics: IoT-based Smart Home Systems; Social Robot Interaction and HRI; Smart Parking Systems Research; Interactive kiosk; Relay; Service (business); Interface (matter); Firmware; Robot; Web service; User interface",
       "summary_language": "ja",
       "url": "https://doi.org/10.22214/ijraset.2026.84406",
+      "first_seen": "2026-07-29T06:53:38+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6013ac3ef25d231687097058",
+      "published_at": "2026-07-27T00:00:00Z",
+      "collected_at_jst": "2026-07-29T06:53:38+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Scientific Reports",
+      "organization": "Scientific Reports",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Scientific Reports",
+      "doi": "https://doi.org/10.1038/s41598-026-62519-x",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "無線センサーネットワークのための適応型深層強化学習に基づくセキュアルーティング",
+      "title_original": "Adaptive deep reinforcement learning–based secure routing for wireless sensor networks",
+      "summary": "無線センサーネットワークにおけるセキュリティ課題に対処するため、深層強化学習を用いた適応型ルーティングプロトコルを提案。",
+      "summary_original": "OpenAlex research topics: Security in Wireless Sensor Networks; Energy Efficient Wireless Sensor Networks; Mobile Ad Hoc Networks; Wireless sensor network; Routing protocol; Intrusion detection system; Resilience (materials science); Reinforcement learning; Routing (electronic design automation); Protocol (science); Software deployment; Wireless Routing Protocol",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1038/s41598-026-62519-x",
       "first_seen": "2026-07-29T06:53:38+09:00",
       "status": "New"
     },
