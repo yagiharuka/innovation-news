@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T10:55:02Z",
-  "updated_at_jst": "2026-07-28T19:55:02+09:00",
+  "updated_at": "2026-07-28T11:03:28Z",
+  "updated_at_jst": "2026-07-28T20:03:28+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -70,7 +70,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "ITmedia AI+",
-      "organization": "ITmedia",
+      "organization": "ITmedia AI+",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
@@ -104,7 +104,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "South China Morning Post Technology",
-      "organization": "South China Morning Post",
+      "organization": "South China Morning Post Technology",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
