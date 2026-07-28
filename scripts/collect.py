@@ -3040,12 +3040,12 @@ def site_scan_sitemap_candidates(
                 publication_node = node.find(".//{*}publication_date")
                 published = (
                     parse_archive_date(
-                        lastmod_node.text if lastmod_node is not None else ""
-                    )
-                    or parse_archive_date(
                         publication_node.text
                         if publication_node is not None
                         else ""
+                    )
+                    or parse_archive_date(
+                        lastmod_node.text if lastmod_node is not None else ""
                     )
                     or infer_date_from_url(link)
                 )
