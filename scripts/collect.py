@@ -767,7 +767,7 @@ def contains_keyword(text: str, keyword: str) -> bool:
     lowered = text.casefold()
     needle = keyword.casefold()
     if re.fullmatch(r"[a-z0-9+\-&. ]+", needle):
-        if needle.strip() in {"ai", "eu", "us", "5g", "6g"}:
+        if needle.strip() in {"ai", "eu", "us", "5g", "6g", "gene", "nasa"}:
             return re.search(rf"(?<!\w){re.escape(needle.strip())}(?!\w)", lowered) is not None
     return needle in lowered
 
