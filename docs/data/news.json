@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T14:50:20Z",
-  "updated_at_jst": "2026-07-28T23:50:20+09:00",
+  "updated_at": "2026-07-28T15:29:32Z",
+  "updated_at_jst": "2026-07-29T00:29:32+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 228,
+  "article_count": 233,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -405,6 +405,40 @@
       "summary_language": "ja",
       "url": "https://www.reuters.com/world/asia-pacific/chinese-tech-firms-apple-suppliers-openai-rivals-raise-17-billion-hong-kong-2026-07-22/",
       "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3d5c908c4640d4eb89274944",
+      "published_at": "2026-07-28T00:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "European Commission Research & Innovation",
+      "organization": "European Commission Research & Innovation",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "企業の研究インフラへのアクセスを促進する新憲章の採択",
+      "title_original": "New Charter boosts access for companies to cutting-edge research and technology infrastructures in Europe",
+      "summary": "欧州委員会が企業の研究インフラへのアクセスを促進する憲章を採択しました。",
+      "summary_original": "News article 28 July 2026 New Charter boosts access for companies to cutting-edge research and technology infrastructures in Europe The Commission has adopted a Charter of Access for Industrial Users to Research and Technology Infrastructures to speed up and simplify companies’ access to Europe’s world-class infrastructures. 3 min read",
+      "summary_language": "ja",
+      "url": "https://research-and-innovation.ec.europa.eu/news/all-research-and-innovation-news/new-charter-boosts-access-companies-cutting-edge-research-and-technology-infrastructures-europe-2026-07-28_en",
+      "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
     {
@@ -5727,6 +5761,146 @@
       "summary_language": "ja",
       "url": "https://www.axios.com/2026/07/24/white-house-ai-line-china",
       "first_seen": "2026-07-28T09:58:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0ac8098aa1b083eff7c3b1a1",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Standards & Safety"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Industry Association",
+      "source": "Q-STAR",
+      "organization": "Q-STAR",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "イリノイ量子パークがQ-STARとの連携を発表",
+      "title_original": "Illinois Quantum and Microelectronics Park Announces Partnership with Q-STAR to Strengthen Collaboration Between Quantum Ecosystems in Japan and IllinoisMemorandum of Understanding Creates Framework for Connectivity and Mutual Benefit Between the Two Ecosystems - Q-STAR 一般社団法人量子技術による新産業創出協議会",
+      "summary": "イリノイ量子パークがQ-STARとの連携を発表し、国際的な量子エコシステムの強化を目指します。",
+      "summary_original": "2026/07/24 Illinois Quantum and Microelectronics Park Announces Partnership with Q-STAR to Strengthen Collaboration Between Quantum Ecosystems in Japan and Illinois Memorandum of Understanding Creates Framework for Connectivity and Mutual Benefit Between the Two Ecosystems 2026/07/03 Q2B Tokyo 2026 が日経クロステックで紹介されました 2026/03/06 量子技術分野における国際連携促進に関する協力覚書を締結 －海外機関との協業、企業のグローバル展開、人材交流を３者で支援－ 2026/02/03 量子時代に誰でも“量子の基本”が学べる指針 「量子リテラシー標準（QSS-L）ver.1.0」を策定・公開 2025/10/24 国際標準化合同専門委員会「IEC/ISO JTC 3 – Quantum technologies」の WG12「量子コンピューティングのベンチマーク」の主査に G-QuAT副センター長 堀部雅弘氏が就任 2025/10/28 Q-STARとNQCP、 量子産業における日本・デンマーク連携強化に向け覚書を締結 2025/07/09 大阪・関西万博にて「Quantum Gamification」を開催 2025/06/25 G7首脳による量子技術声明に関するICQ…",
+      "summary_language": "ja",
+      "url": "https://qstar.jp/archives/about_news/illinois-quantum-and-microelectronics-park-announces-partnership-with-q-star-to-strengthen-collaboration-between-quantum-ecosystems-in-japan-and-illinois",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "8f219e2d6b0e8c0e03cb5dd6",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "npj Biofilms and Microbiomes",
+      "organization": "npj Biofilms and Microbiomes",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "npj Biofilms and Microbiomes",
+      "doi": "https://doi.org/10.1038/s41522-026-01107-3",
+      "citation_count": 1,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "微生物生態系が宿主代謝に与える影響の精密予測",
+      "title_original": "Precision Prediction of Microbial Ecosystem Impact on Host Metabolism Using Genome-Resolved Metagenomics",
+      "summary": "微生物生態系が宿主代謝に与える影響に関する研究が発表されました。",
+      "summary_original": "OpenAlex research topics: Gut microbiota and health; Microbial Community Ecology and Physiology; Genomics and Phylogenetic Studies; Metagenomics; Host (biology); Ecosystem; Genome; Computational biology; Biology; Ecology; Gene; Genetics",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1038/s41522-026-01107-3",
+      "first_seen": "2026-07-27T06:32:05+09:00",
+      "status": "New"
+    },
+    {
+      "id": "47f370198fba81f3ceaa72db",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Research Square",
+      "organization": "Research Square",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Research Square",
+      "doi": "https://doi.org/10.21203/rs.3.rs-10394274/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "膵臓癌における新しいEGFR阻害剤の設計と検証",
+      "title_original": "Generative AI–Driven Design and Experimental Validation of EGFPAN_EMBS, a Novel EGFR Inhibitor in Pancreatic Cancer",
+      "summary": "膵臓癌に対する新しいEGFR阻害剤の設計と実験的検証に関する研究が発表されました。",
+      "summary_original": "OpenAlex research topics: Computational Drug Discovery Methods; Cell Image Analysis Techniques; Protein Degradation and Inhibitors; Pancreatic cancer; EGFR inhibitors; PubChem; Autophosphorylation; Epidermal growth factor receptor; Drug discovery; Cancer; Apoptosis; Docking (animal)",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.21203/rs.3.rs-10394274/v1",
+      "first_seen": "2026-07-27T06:32:05+09:00",
+      "status": "New"
+    },
+    {
+      "id": "be6943c5a9838b587e66f9dd",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "organization": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "doi": "https://doi.org/10.64898/2026.07.23.738723",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "腸内の硫化水素レベルを調整するための代謝工学",
+      "title_original": "Metabolic engineering of Escherichia coli to modulate hydrogen sulfide levels in the mammalian gut",
+      "summary": "腸内の硫化水素レベルを調整するための代謝工学に関する研究が発表されました。",
+      "summary_original": "OpenAlex research topics: Sulfur Compounds in Biology; Odor and Emission Control Technologies; Polyamine Metabolism and Applications; Metabolic engineering; Escherichia coli; Glutathione; Metabolite; Metabolic pathway; Bacteria; Microbial metabolism; Hydrogen sulfide; Enterobacteriaceae",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.64898/2026.07.23.738723",
+      "first_seen": "2026-07-27T06:32:05+09:00",
       "status": "New"
     },
     {
