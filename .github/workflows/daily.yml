@@ -19,6 +19,7 @@ on:
       - "config/**"
       - "requirements.txt"
       - "scripts/**"
+      - "tests/**"
 
 permissions:
   contents: write
