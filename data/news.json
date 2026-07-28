@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T17:30:46Z",
-  "updated_at_jst": "2026-07-29T02:30:46+09:00",
+  "updated_at": "2026-07-28T18:00:48Z",
+  "updated_at_jst": "2026-07-29T03:00:48+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 237,
+  "article_count": 238,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -7034,6 +7034,41 @@
       "summary_language": "ja",
       "url": "https://www.nsf.gov/news/nsf-launches-project-triad-advance-quantum-technology-real",
       "first_seen": "2026-07-08T03:00:07+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c46b553fd115efc18a42e9e5",
+      "published_at": "2026-07-06T18:02:54Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Healthcare",
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Moderna Media Center",
+      "organization": "Moderna Media Center",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "リンチ症候群におけるmRNAのがん予防の可能性を探る",
+      "title_original": "Lynch Syndrome: Exploring the Potential of mRNA in Cancer Prevention",
+      "summary": "リンチ症候群の患者を対象にしたmRNA-4194という新しいmRNAワクチンの臨床試験が開始される。これは、がんの診断後の治療から、がんの予防へとケアをシフトすることを目指している。",
+      "summary_original": "We recently received authorization from the UK’s Medicines and Healthcare products Regulatory Agency (MHRA) for our Phase 1/2 clinical study evaluating mRNA-4194, an investigational mRNA-based vaccine for people with Lynch syndrome, an inherited condition that increases the risk of cancer. While we anticipate the first trial participant to be dosed sometime this summer, this is the first step toward advancing a novel mRNA approach that aims to shift care from treating cancer after its diagnosis to preventing cancer from occurring. By applying mRNA technology earlier in the patient journey, the goal is to harness the immune system when it coul… I sat down for an episode of IR Insights to pro…",
+      "summary_language": "ja",
+      "url": "https://www.modernatx.com/media-center/all-media/blogs/potential-mRNA-cancer-prevention",
+      "first_seen": "2026-07-07T03:02:54+09:00",
       "status": "New"
     },
     {
