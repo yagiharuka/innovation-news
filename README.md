@@ -15,7 +15,7 @@
 
 ## 収集方針
 
-`config/sources.json` を唯一の情報源リストとして使います。現在は287件を有効化し、政府・国際機関、国内外108社の企業公式発表、主要報道機関、著名な政策研究機関、主要学術誌・学会・標準化団体、およびOpenAlex・arXivの学術記録を対象にしています。主要報道機関にはBloomberg、Reuters、Financial Times、Wall Street Journal、Associated Press、Washington Post、CNBC、New York Times、BBC、WIRED、Ars Technica、The Verge、TechCrunch、日本経済新聞、Nikkei Asia、日経クロステック、日経バイオテク、日刊工業新聞、ITmedia、MONOistなどを含みます。NEDO、産総研、JST、RIKEN、NICT、JAXA、QST、NIMSなどの国内一次情報に加え、DARPA、ARPA-E、ARPA-H、NASA、CHIPS for America、UKRI、ARIA、CORDIS、ESA、KISTEP、ITRI、CAS、CSIRO、KAUSTなどの公式更新先を直接確認します。
+`config/sources.json` を唯一の情報源リストとして使います。現在は285件を有効化し、政府・国際機関、国内外108社の企業公式発表、主要報道機関、著名な政策研究機関、主要学術誌・学会・標準化団体、およびOpenAlex・arXivの学術記録を対象にしています。主要報道機関にはBloomberg、Reuters、Financial Times、Wall Street Journal、Associated Press、CNBC、Axios、New York Times、BBC、Scientific American、WIRED、Ars Technica、The Verge、TechCrunch、日本経済新聞、Nikkei Asia、日経クロステック、日経バイオテク、ITmedia、MONOistなどを含みます。NEDO、産総研、JST、RIKEN、NICT、JAXA、QST、NIMSなどの国内一次情報に加え、DARPA、ARPA-E、ARPA-H、NASA、CHIPS for America、UKRI、ARIA、CORDIS、ESA、KISTEP、ITRI、CAS、CSIRO、KAUSTなどの公式更新先を直接確認します。
 
 RSSがない公式サイトは、公式ニュース一覧と記事ページの公開メタデータを確認します。有料媒体は認証や本文取得を回避せず、公開RSS・公開見出し・日付・直接リンクだけを使います。一覧が動的表示で取得できない場合も、同じ公式ドメインのサイトマップまたは公式ページ内の公開データだけを補助経路に使います。固定登録の政策資料を日次監視件数に含めず、公式政策一覧をライブ確認します。匿名ブログ、転載サイト、コンテンツファームは自動探索しません。過去記事の探索にGDELTを使う場合も、掲載対象は許可リスト内の原サイトに限り、カードは原サイトへ直接リンクします。
 
