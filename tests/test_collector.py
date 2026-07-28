@@ -1936,6 +1936,104 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(items[0]["url"], article_url)
 
+    def test_reuters_news_sitemap_fallback_reads_news_title_and_date(self):
+        listing_url = "https://www.reuters.com/technology/"
+        sitemap_url = (
+            "https://www.reuters.com/arc/outboundfeeds/"
+            "news-sitemap/?outputType=xml"
+        )
+        article_url = (
+            "https://www.reuters.com/business/"
+            "nvidia-openai-data-center-financing-2026-07-27/"
+        )
+        sitemap_xml = f"""
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+                xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+          <url>
+            <loc>{article_url}</loc>
+            <lastmod>2026-07-27T22:00:00Z</lastmod>
+            <news:news>
+              <news:publication_date>2026-07-27T21:00:00Z</news:publication_date>
+              <news:title>Nvidia may guarantee OpenAI data center financing</news:title>
+            </news:news>
+          </url>
+          <url>
+            <loc>https://www.reuters.com/sports/example-2026-07-27/</loc>
+            <lastmod>2026-07-27T22:10:00Z</lastmod>
+            <news:news>
+              <news:publication_date>2026-07-27T22:10:00Z</news:publication_date>
+              <news:title>Sports team wins a tournament</news:title>
+            </news:news>
+          </url>
+        </urlset>
+        """
+
+        def response(url, body, status=200, content_type="text/html"):
+            value = collector.requests.Response()
+            value.status_code = status
+            value.url = url
+            value._content = body.encode("utf-8")
+            value.encoding = "utf-8"
+            value.headers["Content-Type"] = content_type
+            return value
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                if url == listing_url:
+                    return response(url, "Unauthorized", 401)
+                if url == sitemap_url:
+                    return response(
+                        url,
+                        sitemap_xml,
+                        200,
+                        "application/xml",
+                    )
+                return response(url, "Unauthorized", 401)
+
+        source = {
+            "active": True,
+            "name": "Reuters Technology & Science",
+            "organization": "Reuters",
+            "source_type": "Major Media",
+            "region": "Global",
+            "country": "Global",
+            "category": "Major international reporting",
+            "feed_url": listing_url,
+            "fetch_mode": "site_scan",
+            "listing_url": listing_url,
+            "sitemap_urls": [sitemap_url],
+            "include_title_patterns": [
+                "openai",
+                "artificial intelligence",
+                "quantum",
+            ],
+            "homepage": listing_url,
+            "priority": 5,
+            "coverage_tier": "A",
+            "cadence": "daily",
+            "strict_relevance": True,
+            "native_feed": False,
+            "site_scan_daily_limit": 8,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 27, tzinfo=timezone.utc),
+            datetime(2026, 7, 28, tzinfo=timezone.utc),
+            False,
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertIn("official sitemap fallback", result.detail)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["title"], "Nvidia may guarantee OpenAI data center financing")
+        self.assertEqual(items[0]["published_at"], "2026-07-27T22:00:00Z")
+        self.assertIn("Artificial Intelligence", items[0]["topics"])
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Official-site sitemap and page metadata",
+        )
+
     def test_json_retry_recovers_from_a_transient_server_error(self):
         api_url = "https://api.example.com/posts"
         calls = []
@@ -2769,11 +2867,16 @@ class CollectorTests(unittest.TestCase):
                 )
 
     def test_config_source_names_are_unique_and_tiers_have_expected_cadence(self):
-        sources = collector.load_config()["sources"]
+        config = collector.load_config()
+        sources = config["sources"]
         names = [source["name"] for source in sources]
         self.assertEqual(len(names), len(set(names)))
         active_sources = [source for source in sources if source.get("active")]
-        self.assertEqual(len(active_sources), 260)
+        self.assertEqual(config["expected_active_source_count"], 287)
+        self.assertEqual(
+            len(active_sources),
+            config["expected_active_source_count"],
+        )
         self.assertNotIn(
             "OpenAI News",
             {source["name"] for source in active_sources},
@@ -2808,6 +2911,134 @@ class CollectorTests(unittest.TestCase):
                     collector.source_topic_tags(source),
                     source["name"],
                 )
+
+    def test_config_includes_audited_major_media_sources(self):
+        active_sources = {
+            source["name"]: source
+            for source in collector.load_config()["sources"]
+            if source.get("active")
+        }
+        expected = {
+            "Reuters Technology & Science": (
+                "https://www.reuters.com/technology/",
+                "site_scan",
+                False,
+            ),
+            "Financial Times Technology": (
+                "https://www.ft.com/technology?format=rss",
+                "feed",
+                True,
+            ),
+            "Wall Street Journal Technology": (
+                "https://feeds.content.dowjones.io/public/rss/RSSWSJD",
+                "feed",
+                True,
+            ),
+            "Associated Press Technology": (
+                "https://apnews.com/technology",
+                "site_scan",
+                False,
+            ),
+            "Washington Post Technology": (
+                "https://www.washingtonpost.com/business/technology/",
+                "site_scan",
+                False,
+            ),
+            "日本経済新聞 テック": (
+                "https://www.nikkei.com/technology/",
+                "site_scan",
+                False,
+            ),
+            "Nikkei Asia Technology": (
+                "https://asia.nikkei.com/rss/feed/nar",
+                "feed",
+                True,
+            ),
+            "日経クロステック": (
+                "https://xtech.nikkei.com/",
+                "site_scan",
+                False,
+            ),
+            "ITmedia AI+": (
+                "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+                "feed",
+                True,
+            ),
+        }
+        for name, (url, fetch_mode, native_feed) in expected.items():
+            with self.subTest(name=name):
+                source = active_sources[name]
+                self.assertEqual(source["source_type"], "Major Media")
+                self.assertEqual(source["coverage_tier"], "A")
+                self.assertEqual(source["cadence"], "daily")
+                self.assertTrue(source["strict_relevance"])
+                self.assertEqual(source["feed_url"], url)
+                self.assertEqual(source.get("fetch_mode", "feed"), fetch_mode)
+                self.assertEqual(source["native_feed"], native_feed)
+
+        reuters = active_sources["Reuters Technology & Science"]
+        self.assertEqual(
+            reuters["sitemap_urls"],
+            [
+                "https://www.reuters.com/arc/outboundfeeds/"
+                "news-sitemap/?outputType=xml"
+            ],
+        )
+        self.assertIn("openai", reuters["include_title_patterns"])
+        self.assertEqual(
+            active_sources["Nikkei Asia Technology"]["include_url_patterns"],
+            [
+                "/business/technology/",
+                "/business/electronics/",
+                "/spotlight/artificial-intelligence/",
+            ],
+        )
+
+    def test_source_title_filters_include_and_exclude(self):
+        source = {
+            "include_title_patterns": ["openai", "quantum"],
+            "exclude_title_patterns": ["sponsored"],
+        }
+        self.assertTrue(
+            collector.source_text_filter_allows(
+                source,
+                "OpenAI expands a quantum research programme",
+            )
+        )
+        self.assertFalse(
+            collector.source_text_filter_allows(
+                source,
+                "Sponsored: OpenAI expands a quantum programme",
+            )
+        )
+        self.assertFalse(
+            collector.source_text_filter_allows(
+                source,
+                "Retail sales rose in July",
+            )
+        )
+
+    def test_openai_nvidia_data_center_headline_is_classified_as_ai(self):
+        item = collector.build_item(
+            {
+                "name": "Example Media",
+                "organization": "Example Media",
+                "source_type": "Major Media",
+                "region": "United States",
+                "country": "United States",
+                "category": "Major business reporting",
+                "priority": 5,
+                "coverage_tier": "A",
+                "strict_relevance": True,
+            },
+            "Nvidia may guarantee OpenAI data center financing",
+            "https://example.com/openai-data-center-financing",
+            "The planned financing supports a large AI computing facility.",
+            datetime(2026, 7, 28, tzinfo=timezone.utc),
+            datetime(2026, 7, 28, tzinfo=timezone.utc),
+        )
+        self.assertIsNotNone(item)
+        self.assertIn("Artificial Intelligence", item["topics"])
 
     def test_config_uses_current_structured_and_native_source_endpoints(self):
         active_sources = {
