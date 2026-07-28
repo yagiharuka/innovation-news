@@ -21,6 +21,7 @@ permissions:
 concurrency:
   group: innovation-news-collection
   cancel-in-progress: false
+  queue: max
 
 jobs:
   review:
@@ -29,6 +30,10 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          # Scheduled runs can wait behind daily/weekly collection. Always read
+          # the latest checkpoint when the queued job actually starts.
+          ref: main
 
       - name: Check whether a scheduled review is due
         id: review_due
@@ -49,8 +54,10 @@ jobs:
           from pathlib import Path
 
           minimum_age_seconds = 25 * 60
-          should_run = True
-          detail = "checkpoint unavailable; running as a safe fallback"
+          backlog_request_budget = 96
+          checkpoint_due = True
+          quota_available = True
+          details = []
 
           try:
               state = json.loads(Path("data/review_state.json").read_text(encoding="utf-8"))
@@ -58,19 +65,40 @@ jobs:
               checkpoint = datetime.fromisoformat(updated_at)
               if checkpoint.tzinfo is None:
                   checkpoint = checkpoint.replace(tzinfo=timezone.utc)
-              age_seconds = max(
-                  0,
-                  int((datetime.now(timezone.utc) - checkpoint.astimezone(timezone.utc)).total_seconds()),
+              age_seconds = int(
+                  (datetime.now(timezone.utc) - checkpoint.astimezone(timezone.utc)).total_seconds()
               )
-              should_run = age_seconds >= minimum_age_seconds
-              detail = f"checkpoint age={age_seconds}s; minimum={minimum_age_seconds}s"
+              if age_seconds < -300:
+                  raise ValueError(f"checkpoint is unexpectedly in the future ({age_seconds}s)")
+              age_seconds = max(0, age_seconds)
+              checkpoint_due = age_seconds >= minimum_age_seconds
+              details.append(f"checkpoint age={age_seconds}s; minimum={minimum_age_seconds}s")
           except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
-              detail = f"{detail}: {exc}"
+              details.append(f"checkpoint unavailable; running as a safe fallback: {exc}")
+
+          try:
+              now = datetime.now(timezone.utc)
+              run_log = json.loads(Path("data/run_log.json").read_text(encoding="utf-8"))
+              requests_used = 0
+              for run in run_log.get("runs", []):
+                  if run.get("note") != "Review backlog":
+                      continue
+                  run_at = datetime.fromisoformat(str(run["run_at"]).replace("Z", "+00:00"))
+                  if run_at.astimezone(timezone.utc).date() == now.date():
+                      requests_used += max(0, int(run.get("summary_requests", 0)))
+              quota_available = requests_used + 2 <= backlog_request_budget
+              details.append(
+                  f"backlog requests today={requests_used}; budget={backlog_request_budget}"
+              )
+          except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+              details.append(f"request log unavailable; running as a safe fallback: {exc}")
+
+          should_run = checkpoint_due and quota_available
 
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"should_run={'true' if should_run else 'false'}\n")
 
-          print(f"Scheduled review due={should_run}; {detail}")
+          print(f"Scheduled review due={should_run}; {'; '.join(details)}")
           PY
 
       - name: Set up Python
@@ -97,9 +125,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          # The 15-minute wake-up is only redundancy. The checkpoint gate caps
-          # ordinary review runs at about 48/day: 48 x 2 + daily 25 + weekly 25
-          # = 146 requests, within the free low-tier allowance of 150/day.
+          # There are 96 redundant wake-ups/day, but the checkpoint gate keeps
+          # ordinary reviews near 48/day. The daily quota gate caps backlog use
+          # at 96 requests; daily 25 + weekly 25 keeps the busiest day at 146,
+          # within the free low-tier allowance of 150/day.
           JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '12' }}
           JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
