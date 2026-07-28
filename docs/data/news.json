@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T11:03:28Z",
-  "updated_at_jst": "2026-07-28T20:03:28+09:00",
+  "updated_at": "2026-07-28T13:00:27Z",
+  "updated_at_jst": "2026-07-28T22:00:27+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 226,
+  "article_count": 228,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -408,6 +408,43 @@
       "status": "New"
     },
     {
+      "id": "23af5b0cf39eb7984fcd7ab1",
+      "published_at": "2026-07-28T00:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "JAEA",
+      "organization": "JAEA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "ウラン化合物で新しい電子秩序を発見",
+      "title_original": "左右対称な物質に現れた「電子の利き手」 ―ウラン化合物で新しい電子秩序を発見―",
+      "summary": "ウラン化合物において新しい電子秩序が発見され、量子技術への応用が期待されます。",
+      "summary_original": "研究開発成果関連（2026年度） 2026/07/28： 左右対称な物質に現れた「電子の利き手」―ウラン化合物で新しい電子秩序を発見― 2026/07/23： 原子炉内で生じる”溶けた物質の流れ”を3Dで見える化 ―溶融金属の実験を支えるシミュレーション技術の活用に道― 2026/07/02： トポロジカル磁性体の新たな設計指針を確立 ― ディラック電子を持つ正方格子物質でホモロガス系列を発見 ― 2026/05/28： 熱帯の泥炭地の炭素貯蔵庫が崩壊の危機 ―人間の活動が放つ「過去3,000年分の炭素」が地球温暖化を加速させる― 2026/05/22： 高レベル放射性廃液から発生する水素を実測 ―水素発生量の温度依存性データを整備― 2026/05/13： 地球の外核に大量の水素が存在する可能性 — 世界初、液体鉄中の水素量をその場観察で直接決定 — 2026/04/30： 広い温度域で動作する次世代固体冷媒を開発 －従来の理論スケーリングを超える弾性熱量効果を発見－ 2026/04/30： 世界初！ 海塩粒子をリアルタイムで自動測定！ ―市販の花粉センサーを応用した新モニタリング技術― 2026/04/27： ガラスの「新たな非平衡状態」をレーザー照射により創出 ―高圧処理とは異なる特異な原子構造と発光特性の解明に成功― 2026/04/23： 表面に集まるゲルマニウム原子がゲルマネン合成の鍵 ―加熱か冷却かで「粒」か「シート」かが決まる原理を解明、量子ビット材料探索に貢献― 2026/04/13： 自然界には存在しない構造を持つ2次元酸化鉄の作製に成功 ～グラフェン/S…",
+      "summary_language": "ja",
+      "url": "https://www.jaea.go.jp/02/press2026/p26072801/",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
       "id": "d26cb7d61fb4afa21041dcce",
       "published_at": "2026-07-28T00:00:00Z",
       "collected_at_jst": "2026-07-28T09:43:19+09:00",
@@ -714,6 +751,40 @@
       "summary_language": "ja",
       "url": "https://www.theverge.com/tech/971437/amazon-leo-direct-to-device-satellite-network",
       "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "58f002f80bf59fbdb1329202",
+      "published_at": "2026-07-27T15:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "農研機構",
+      "organization": "農研機構",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "乳中脂肪酸組成から乳用牛のメタン排出量を推定する式を開発",
+      "title_original": "プレスリリース (研究成果) 乳中脂肪酸組成等から乳用牛のメタン排出量を推定する式を開発",
+      "summary": "乳中脂肪酸組成を用いて乳用牛のメタン排出量を推定する新しい式が開発されました。",
+      "summary_original": "2026年7月28日 (研究成果)高精度な縄文人・弥生人ゲノムが明らかにする祖先集団の歴史と食への適応進化(外部リンク:金沢大学) 2026年7月28日 (研究成果) 乳中脂肪酸組成等から乳用牛のメタン排出量を推定する式を開発 2026年7月28日 [生研支援センター](お知らせ)成果事例こぼれ話 第73話の公表 (ゲノム編集技術にAI予測を組み合わせ遺伝子発現量を調節) 2026年7月28日 (研究成果) イチゴの生育調査・計測項目と手法の統一基準を公開 - 生育データの\"ものさし\"を統一しデータ駆動型農業の普及を加速 - 2026年7月17日 (研究成果)乳用牛の乳中脂肪酸組成と受胎率の関係を解明 - 分娩後のエネルギー不足の簡易判定により受胎率向上が可能に - 2026年7月9日 [生研支援センター](お知らせ)令和8年度「オープンイノベーション研究・実用化推進事業」 新規採択課題の決定 2026年7月8日 (研究成果) ヘクタール規模の草地でマメ科植物の分布をAIで簡単に把握 - 育種現場で培った技術を生産現場に展開し、 イネ科/マメ科牧草の混播栽培における適正な比率管理に貢献 - 2026年6月30日 (お知らせ)「スマート農業イノベーション推進会議(IPCSA, イプサ)」令和8年度(第2回)総会を開催します!(外部リンク:農林水産省) 2026年6月17日 (研究成果) 土壌伝染性のウイルス病に強い麦茶用大麦の新品種「カシマホープ」 - 国産麦茶用大麦の安定生産に貢献 - 2026年6月12日 [生研支援センター](お知らせ)「スマート農業技術の開発・供給に関す…",
+      "summary_language": "ja",
+      "url": "https://www.naro.go.jp/publicity_report/press/laboratory/nilgs/176906.html",
+      "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
     {
