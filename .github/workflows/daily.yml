@@ -3,9 +3,9 @@ name: Daily innovation brief
 on:
   schedule:
     - cron: "0 21 * * *"
-    # The established daily workflow also owns the resilient backlog schedule.
-    # This avoids relying on a separately registered GitHub cron workflow.
-    - cron: "7,22,37,52 * * * *"
+    # Keep backlog checks out of the UTC 20:00-22:59 collection window so a
+    # pending daily/weekly run is not replaced by another scheduled check.
+    - cron: "7,22,37,52 0-19,23 * * *"
   workflow_dispatch:
     inputs:
       backfill:
@@ -30,7 +30,6 @@ permissions:
 concurrency:
   group: innovation-news-collection
   cancel-in-progress: false
-  queue: max
 
 jobs:
   collect:
@@ -84,7 +83,7 @@ jobs:
           fi
 
   review:
-    if: github.event_name == 'schedule' && github.event.schedule == '7,22,37,52 * * * *'
+    if: github.event_name == 'schedule' && github.event.schedule == '7,22,37,52 0-19,23 * * *'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
