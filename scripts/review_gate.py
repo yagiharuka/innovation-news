@@ -132,7 +132,9 @@ def evaluate_review_gate(
         if not isinstance(run, dict) or not run.get("summary_rate_limited"):
             continue
         try:
-            event_at = parse_datetime(run["run_at"])
+            event_at = parse_datetime(
+                run.get("summary_rate_limited_at") or run["run_at"]
+            )
         except (KeyError, TypeError, ValueError):
             continue
         retry_at = parse_retry_at(
@@ -145,7 +147,10 @@ def evaluate_review_gate(
 
     if review_state.get("rate_limited"):
         try:
-            event_at = parse_datetime(review_state["updated_at"])
+            event_at = parse_datetime(
+                review_state.get("rate_limited_at")
+                or review_state["updated_at"]
+            )
             retry_at = parse_retry_at(
                 event_at,
                 review_state.get("retry_after", ""),
@@ -188,6 +193,17 @@ def evaluate_review_gate(
 
     all_requests_used = 0
     backlog_requests_used = 0
+    legacy_unmetered = 0
+    metered_run_times: list[datetime] = []
+    for run in runs:
+        if not isinstance(run, dict) or "summary_requests" not in run:
+            continue
+        try:
+            metered_run_times.append(parse_datetime(run["run_at"]))
+        except (KeyError, TypeError, ValueError):
+            data_valid = False
+    request_logging_started_at = min(metered_run_times, default=None)
+
     for run in runs:
         if not isinstance(run, dict):
             data_valid = False
@@ -206,7 +222,16 @@ def evaluate_review_gate(
             requests = int(run["summary_requests"])
             if requests < 0:
                 raise ValueError("negative summary_requests")
-        except (KeyError, TypeError, ValueError):
+        except KeyError:
+            if (
+                request_logging_started_at is not None
+                and run_at < request_logging_started_at
+            ):
+                legacy_unmetered += 1
+                continue
+            data_valid = False
+            continue
+        except (TypeError, ValueError):
             data_valid = False
             continue
         all_requests_used += requests
@@ -233,7 +258,8 @@ def evaluate_review_gate(
     details.append(
         f"model requests={all_requests_used}/{global_request_budget}; "
         f"reserved={reserved_requests}; "
-        f"backlog requests={backlog_requests_used}/{backlog_request_budget}"
+        f"backlog requests={backlog_requests_used}/{backlog_request_budget}; "
+        f"legacy unmetered runs={legacy_unmetered}"
     )
 
     should_run = (
@@ -253,6 +279,7 @@ def evaluate_review_gate(
         "all_requests_used": all_requests_used,
         "backlog_requests_used": backlog_requests_used,
         "reserved_requests": reserved_requests,
+        "legacy_unmetered": legacy_unmetered,
         "window_start": window_start.isoformat(),
         "retry_blocked_until": (
             retry_blocked_until.isoformat()
@@ -278,15 +305,24 @@ def main() -> int:
         action="store_true",
         help="Bypass only the checkpoint-age test; quota safeguards remain active.",
     )
+    parser.add_argument(
+        "--request-budget",
+        type=int,
+        default=2,
+        help="Maximum GitHub Models requests the proposed review may use.",
+    )
     parser.add_argument("--run-log", type=Path, default=RUN_LOG_PATH)
     parser.add_argument("--review-state", type=Path, default=REVIEW_STATE_PATH)
     args = parser.parse_args()
+    if args.request_budget < 1:
+        parser.error("--request-budget must be at least 1")
 
     result = evaluate_review_gate(
         load_json(args.run_log),
         load_json(args.review_state),
         now=datetime.now(timezone.utc),
         force=args.force,
+        next_request_budget=args.request_budget,
     )
     output_path = os.getenv("GITHUB_OUTPUT", "").strip()
     if output_path:

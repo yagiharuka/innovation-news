@@ -27,7 +27,7 @@ class WorkflowTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
 
         self.assertNotIn("7,22,37,52", daily)
-        self.assertIn('cron: "7,37 0-19,23 * * *"', review)
+        self.assertIn('cron: "7,37 * * * *"', review)
         self.assertEqual(review.count("cron:"), 1)
 
     def test_scheduled_review_uses_eight_item_batches_and_global_gate(self):
@@ -39,6 +39,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("|| '16'", review)
         self.assertIn('JAPANESE_SUMMARY_BATCH_SIZE: "8"', review)
         self.assertIn("inputs.force", review)
+        self.assertIn('--request-budget "$GATE_REQUEST_BUDGET"', review)
 
 
 if __name__ == "__main__":

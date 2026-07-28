@@ -2,9 +2,9 @@ name: Review candidate backlog
 
 on:
   schedule:
-    # One dedicated off-peak schedule is more reliable than duplicate
-    # high-frequency entries. UTC 20:00-22:59 is reserved for collection.
-    - cron: "7,37 0-19,23 * * *"
+    # A single dedicated expression requests one review every 30 minutes.
+    # Shared concurrency safely serializes it with daily/weekly collection.
+    - cron: "7,37 * * * *"
   workflow_dispatch:
     inputs:
       review_limit:
@@ -43,12 +43,15 @@ jobs:
         shell: bash
         env:
           FORCE_REVIEW: ${{ github.event_name == 'workflow_dispatch' && inputs.force || false }}
+          GATE_REQUEST_BUDGET: ${{ github.event_name == 'workflow_dispatch' && '20' || '2' }}
         run: |
           args=()
           if [[ "$FORCE_REVIEW" == "true" ]]; then
             args+=(--force)
           fi
-          python3 scripts/review_gate.py "${args[@]}"
+          python3 scripts/review_gate.py \
+            --request-budget "$GATE_REQUEST_BUDGET" \
+            "${args[@]}"
 
       - name: Set up Python
         if: steps.review_due.outputs.should_run == 'true'

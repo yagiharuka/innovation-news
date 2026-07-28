@@ -1522,6 +1522,43 @@ class CollectorTests(unittest.TestCase):
         self.assertFalse(parsed["excluded"]["in_scope"])
         self.assertNotIn("incomplete", parsed)
 
+    def test_summary_request_records_the_exact_rate_limit_time(self):
+        response = collector.requests.Response()
+        response.status_code = 429
+        response.headers["Retry-After"] = "543"
+        request_stats = {"requests": 0}
+        rate_limited_at = datetime(2026, 7, 28, 10, 57, 49, tzinfo=timezone.utc)
+
+        with (
+            mock.patch.dict(
+                os.environ,
+                {"JAPANESE_SUMMARY_REQUEST_BUDGET": "2"},
+            ),
+            mock.patch.object(
+                collector.requests,
+                "post",
+                return_value=response,
+            ),
+            mock.patch.object(
+                collector,
+                "now_utc",
+                return_value=rate_limited_at,
+            ),
+            self.assertRaises(collector.SummaryRateLimitError),
+        ):
+            collector.japanese_summary_request(
+                [{"canonical_id": "article-1", "title": "AI research"}],
+                "test-token",
+                collector.DEFAULT_JAPANESE_SUMMARY_MODEL,
+                request_stats,
+            )
+
+        self.assertEqual(
+            request_stats["rate_limited_at"],
+            "2026-07-28T10:57:49Z",
+        )
+        self.assertEqual(request_stats["retry_after"], "543")
+
     def test_review_only_does_not_fetch_or_update_source_collection_state(self):
         source = {
             "active": True,

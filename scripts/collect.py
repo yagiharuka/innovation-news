@@ -4512,6 +4512,7 @@ def japanese_summary_request(
         if response.ok:
             break
         if response.status_code == 429:
+            request_stats["rate_limited_at"] = iso_z(now_utc())
             raise SummaryRateLimitError(
                 "GitHub Models rate limit reached",
                 retry_after=str(request_stats["retry_after"]),
@@ -4589,6 +4590,7 @@ def enrich_japanese_summaries(
             "rate_limited": False,
             "request_budget_reached": False,
             "retry_after": "",
+            "rate_limited_at": "",
             "rate_limit_remaining": "",
             "rate_limit_reset": "",
             "detail": "No pending summaries" if not selected else "GITHUB_TOKEN is not set",
@@ -4755,6 +4757,7 @@ def enrich_japanese_summaries(
         "rate_limited": rate_limited,
         "request_budget_reached": request_budget_reached,
         "retry_after": str(request_stats.get("retry_after", "")),
+        "rate_limited_at": str(request_stats.get("rate_limited_at", "")),
         "rate_limit_remaining": str(request_stats.get("remaining", "")),
         "rate_limit_reset": str(request_stats.get("reset_at", "")),
         "detail": "; ".join(errors[:3]),
@@ -5747,6 +5750,10 @@ def run(
             "",
         ),
         "summary_retry_after": summary_result.get("retry_after", ""),
+        "summary_rate_limited_at": summary_result.get(
+            "rate_limited_at",
+            "",
+        ),
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": (
             f"Historical backfill: policy {policy_history_days}d / "
@@ -5965,6 +5972,10 @@ def review_backlog(
             "",
         ),
         "summary_retry_after": summary_result.get("retry_after", ""),
+        "summary_rate_limited_at": summary_result.get(
+            "rate_limited_at",
+            "",
+        ),
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": "Review backlog",
     }
@@ -5992,6 +6003,7 @@ def review_backlog(
             False,
         ),
         "retry_after": summary_result.get("retry_after", ""),
+        "rate_limited_at": summary_result.get("rate_limited_at", ""),
         "rate_limit_remaining": summary_result.get(
             "rate_limit_remaining",
             "",

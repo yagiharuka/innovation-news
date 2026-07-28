@@ -46,9 +46,10 @@ class ReviewGateTests(unittest.TestCase):
 
     def test_retry_after_blocks_until_the_reported_time(self):
         state = {
-            "updated_at": "2026-07-28T11:30:00Z",
+            "updated_at": "2026-07-28T11:00:00Z",
             "pending_in_window": 100,
             "rate_limited": True,
+            "rate_limited_at": "2026-07-28T11:30:00Z",
             "retry_after": "3600",
         }
         result = review_gate.evaluate_review_gate(
@@ -63,6 +64,56 @@ class ReviewGateTests(unittest.TestCase):
             result["retry_blocked_until"],
             "2026-07-28T12:31:00+00:00",
         )
+        self.assertFalse(result["should_run"])
+
+    def test_legacy_runs_before_request_logging_do_not_block_forever(self):
+        result = review_gate.evaluate_review_gate(
+            {
+                "runs": [
+                    {
+                        "run_at": "2026-07-28T09:00:00Z",
+                        "summaries_generated": 10,
+                        "note": "Daily update",
+                    },
+                    {
+                        "run_at": "2026-07-28T10:00:00Z",
+                        "summary_requests": 2,
+                        "note": "Review backlog",
+                    },
+                ]
+            },
+            {
+                "updated_at": "2026-07-28T11:00:00Z",
+                "pending_in_window": 100,
+            },
+            now=self.NOW,
+        )
+
+        self.assertTrue(result["data_valid"])
+        self.assertEqual(result["legacy_unmetered"], 1)
+        self.assertEqual(result["all_requests_used"], 2)
+
+    def test_manual_twenty_request_budget_is_reserved_by_gate(self):
+        result = review_gate.evaluate_review_gate(
+            {
+                "runs": [
+                    {
+                        "run_at": "2026-07-28T10:00:00Z",
+                        "summary_requests": 110,
+                        "note": "Daily update",
+                    }
+                ]
+            },
+            {
+                "updated_at": "2026-07-28T11:00:00Z",
+                "pending_in_window": 100,
+            },
+            now=self.NOW,
+            force=True,
+            next_request_budget=20,
+        )
+
+        self.assertFalse(result["quota_available"])
         self.assertFalse(result["should_run"])
 
     def test_completed_long_cooldown_starts_a_fresh_quota_window(self):
