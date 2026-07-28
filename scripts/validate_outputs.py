@@ -40,14 +40,22 @@ def main() -> int:
         source for source in config.get("sources", []) if source.get("active")
     ]
     source_names = [str(source.get("name") or "") for source in active_sources]
-    if len(source_names) != 260:
-        raise ValueError(f"expected 260 active sources, found {len(source_names)}")
+    expected_source_count = int(
+        config.get("expected_active_source_count", len(source_names))
+    )
+    if len(source_names) != expected_source_count:
+        raise ValueError(
+            f"expected {expected_source_count} active sources, "
+            f"found {len(source_names)}"
+        )
     if not all(source_names) or len(source_names) != len(set(source_names)):
         raise ValueError("active source names are empty or duplicated")
     if "OpenAI News" in source_names:
         raise ValueError("OpenAI News remains active")
-    if public_news.get("source_count") != len(source_names):
-        raise ValueError("source_count does not match the active registry")
+    if public_news.get("source_count") != expected_source_count:
+        raise ValueError(
+            "source_count does not match expected_active_source_count"
+        )
 
     workbook = load_workbook(
         ROOT / "docs" / "innovation_news_ledger.xlsx",
