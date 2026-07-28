@@ -185,20 +185,51 @@
       "notes": "Major Asia-focused technology media; only /tech/ article URLs are accepted."
     },
     {
-      "active": true,
+      "active": false,
       "name": "Arab News Technology",
       "organization": "Arab News",
       "source_type": "Major Media",
       "region": "Middle East",
       "country": "Saudi Arabia",
-      "category": "Technology",
-      "feed_url": "https://www.arabnews.com/category/tags/technology",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://www.arabnews.com/category/tags/technology",
+      "category": "Middle East technology, science and innovation reporting",
+      "feed_url": "https://www.arabnews.com/rss.xml",
+      "include_title_patterns": [
+        "artificial intelligence",
+        "ai",
+        "robot",
+        "drone",
+        "semiconductor",
+        "chip",
+        "telecom",
+        "5g",
+        "6g",
+        "quantum",
+        "fusion",
+        "biotech",
+        "gene",
+        "genome",
+        "drug",
+        "clinical",
+        "healthcare",
+        "medical",
+        "space",
+        "satellite",
+        "rocket",
+        "research",
+        "technology",
+        "digital infrastructure",
+        "data center",
+        "data centre"
+      ],
       "homepage": "https://www.arabnews.com/category/tags/technology",
       "priority": 3,
-      "native_feed": false,
-      "notes": "Established regional media; scans the official technology page because the former feed is access-blocked."
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": true,
+      "historical_backfill": false,
+      "daily_item_limit": 8,
+      "notes": "Temporarily inactive: the official technology listing returns HTTP 403 and the general official RSS is stale or times out in the collector. Re-enable only after a stable official technology feed is available."
     },
     {
       "active": true,
@@ -3056,7 +3087,7 @@
       "notes": "Official ITU news with strict monitored-topic filtering."
     },
     {
-      "active": true,
+      "active": false,
       "name": "Science|Business",
       "organization": "Science Business Publishing",
       "source_type": "Major Media",
@@ -3087,7 +3118,7 @@
       "native_feed": false,
       "historical_backfill": false,
       "site_scan_daily_limit": 4,
-      "notes": "Established specialist publication covering EU R&D funding and policy."
+      "notes": "Temporarily inactive: the official news page and sitemap repeatedly return HTTP 403 to the collector. Re-enable only after a stable official feed or listing becomes available."
     },
     {
       "active": true,
@@ -7423,7 +7454,7 @@
       "notes": "AP Science public listing; strict eight-technology relevance filtering excludes general science news."
     },
     {
-      "active": true,
+      "active": false,
       "name": "Washington Post Technology",
       "organization": "The Washington Post",
       "source_type": "Major Media",
@@ -7445,7 +7476,7 @@
       "historical_backfill": false,
       "site_scan_daily_limit": 10,
       "site_scan_backfill_limit": 20,
-      "notes": "Uses the public Technology listing because the official RSS endpoint is currently reachable but empty."
+      "notes": "Temporarily inactive: the official technology RSS is reachable but empty, while the official listing and sitemap time out in the collector. Re-enable only after a stable official feed is available."
     },
     {
       "active": true,
@@ -7626,6 +7657,106 @@
     },
     {
       "active": true,
+      "name": "Axios Technology",
+      "organization": "Axios",
+      "source_type": "Major Media",
+      "region": "United States",
+      "country": "United States",
+      "category": "United States technology policy, AI regulation and innovation reporting",
+      "feed_url": "https://api.axios.com/feed/",
+      "homepage": "https://www.axios.com/technology",
+      "include_title_patterns": [
+        "artificial intelligence",
+        "openai",
+        "nvidia",
+        "ai model",
+        "robot",
+        "drone",
+        "semiconductor",
+        "chip",
+        "telecom",
+        "5g",
+        "6g",
+        "quantum",
+        "fusion",
+        "biotech",
+        "gene",
+        "genome",
+        "drug",
+        "clinical",
+        "healthcare",
+        "medical",
+        "space",
+        "satellite",
+        "rocket",
+        "nasa",
+        "research funding",
+        "technology policy",
+        "ai regulation",
+        "patent",
+        "data center",
+        "data centre"
+      ],
+      "exclude_title_patterns": [
+        "sponsored"
+      ],
+      "priority": 4,
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": true,
+      "historical_backfill": false,
+      "daily_item_limit": 8,
+      "notes": "Official Axios all-news feed with strict technology and innovation-policy filtering."
+    },
+    {
+      "active": true,
+      "name": "Scientific American",
+      "organization": "Scientific American",
+      "source_type": "Major Media",
+      "region": "United States",
+      "country": "United States",
+      "category": "Major science and technology reporting",
+      "feed_url": "https://www.scientificamerican.com/platform/syndication/rss/",
+      "homepage": "https://www.scientificamerican.com/",
+      "include_title_patterns": [
+        "artificial intelligence",
+        "openai",
+        "ai model",
+        "robot",
+        "drone",
+        "semiconductor",
+        "chip",
+        "telecom",
+        "5g",
+        "6g",
+        "quantum",
+        "fusion",
+        "biotech",
+        "gene",
+        "genome",
+        "drug",
+        "clinical",
+        "healthcare",
+        "medical",
+        "space",
+        "satellite",
+        "rocket",
+        "nasa",
+        "research funding",
+        "technology policy"
+      ],
+      "priority": 4,
+      "coverage_tier": "A",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": true,
+      "historical_backfill": false,
+      "daily_item_limit": 8,
+      "notes": "Official Scientific American RSS with strict filtering to the eight technologies and innovation policy."
+    },
+    {
+      "active": true,
       "name": "日本経済新聞 テック",
       "organization": "日本経済新聞社",
       "source_type": "Major Media",
@@ -7734,7 +7865,7 @@
       "notes": "Official Nikkei Biotech listing; excludes seminars, events and promotional items."
     },
     {
-      "active": true,
+      "active": false,
       "name": "日刊工業新聞",
       "organization": "日刊工業新聞社",
       "source_type": "Major Media",
@@ -7756,7 +7887,7 @@
       "historical_backfill": false,
       "site_scan_daily_limit": 12,
       "site_scan_backfill_limit": 20,
-      "notes": "Official Nikkan Kogyo listing; strict relevance focuses on R&D, manufacturing technology, scale-up and industrial policy."
+      "notes": "Temporarily inactive: the official listing returns HTTP 405 and the published sitemap is malformed for automated collection. Re-enable only after a stable official feed or listing is available."
     },
     {
       "active": true,
@@ -7908,5 +8039,5 @@
       "notes": "Official Straits Times Technology listing; branded and sponsored content excluded."
     }
   ],
-  "expected_active_source_count": 287
+  "expected_active_source_count": 285
 }
