@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T09:09:15Z",
-  "updated_at_jst": "2026-07-28T18:09:15+09:00",
+  "updated_at": "2026-07-28T10:55:02Z",
+  "updated_at_jst": "2026-07-28T19:55:02+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 224,
+  "article_count": 226,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -51,6 +51,74 @@
       "summary_language": "ja",
       "url": "https://www.inpit.go.jp/j-platpat_info/lecture/design.html",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "86a8030925c7bd6a78a7b9a5",
+      "published_at": "2026-07-28T16:57:16Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "ITmedia AI+",
+      "organization": "ITmedia",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "「Kimi K3」のモデルウェイトと技術レポート公開",
+      "title_original": "「Kimi K3」のモデルウェイトと技術レポート公開 日本でも「NVIDIA B300×8」環境での利用報告",
+      "summary": "中国のMoonshot AIが最新モデル「Kimi K3」の技術レポートを公開し、NVIDIA B300環境でのデプロイ報告が上がっている。",
+      "summary_original": "中国Moonshot AIは7月27日（現地時間）、同社の最新モデル「Kimi K3」のモデルウェイトと技術レポートを公開した。国内でも「NVIDIA B300」を8基使ったシングルノード環境でのデプロイ報告が上がっている。 Kimi K3はオープンウェイトモデルながら、米OpenAIの「GPT-5.6 Sol」や米Anthropicの「Claude Fable 5」に一部匹敵する性能を持つとされる。16日の発表同日からAPIやチャットAI「Kimi」で提供され、27日までにモデルウェイトと技術レポートを公開すると予告されていた。 ソフトウェア開発企業フィックスターズ（東京都港区）は28日（日本時間）、同社技術ブログでKimi K3のダウンロードと利用を報告した。NVIDIA B300を8基使ったシングルノード環境にデプロイし、実用速度で動作したという。一方、運用面の課題として、起動完了までに88.8分、その内モデルロードに81.4分かかる点を挙げた。 Kimi K3を巡っては、米科学技術政策局（OSTP）のマイケル・クラツィオス局長がClaude Fable 5の「蒸留」を主張するなど、規制や制裁の必要性が指摘されていた。 こうした中、米NVIDIAや米Microsoft、OpenAIなどが広範かつ性急な規制に反対する声明を出したり、同声明に参加していないAnthropicのダリオ・アモデイCEOがオープンウェイトモデルの一律禁止には反対しつつ、産業規模の蒸留への対策や高性能モデルに対する安全性試験を求める独自の立場を表明したりするなど、議論に発展している。 Copyrig…",
+      "summary_language": "ja",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2607/28/2000000236/",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
+      "id": "cb14f4d726251b20f389e5f3",
+      "published_at": "2026-07-28T10:30:08Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "中国のDUV進展はASMLにとって最大の脅威ではないとアナリストが指摘",
+      "title_original": "China’s DUV progress not the biggest threat to ASML, analysts say",
+      "summary": "アナリストによると、中国の半導体製造機器の進展はASMLにとっての最大の脅威ではないという。",
+      "summary_original": "Western anxiety over a potential breakthrough in Chinese chipmaking gear may be rising, but home-grown machines are not the greatest threat facing industry leader ASML, according to analysts. The Dutch firm’s shares fell more than 8 per cent at one point on Monday in the US before closing down 5.8 per cent, after The Information reported that China had begun manufacturing home-grown immersion deep-ultraviolet (DUV) lithography machines through a state-backed company in Shanghai. China would...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3362139/chinas-home-grown-duv-progress-not-biggest-threat-asml-analysts-say?utm_source=rss_feed",
+      "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
     {
