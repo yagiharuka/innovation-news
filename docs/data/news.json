@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T18:00:48Z",
-  "updated_at_jst": "2026-07-29T03:00:48+09:00",
+  "updated_at": "2026-07-28T18:30:55Z",
+  "updated_at_jst": "2026-07-29T03:30:55+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 238,
+  "article_count": 243,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -5940,6 +5940,42 @@
       "status": "New"
     },
     {
+      "id": "45666dc6b70620cd64d2f4fc",
+      "published_at": "2026-07-23T04:30:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "JAXA",
+      "organization": "JAXA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "H3ロケット8号機打上げ失敗の原因究明に係る調査報告書",
+      "title_original": "JAXA | 「H3ロケット8号機打上げ失敗の原因究明に係る調査・安全小委員会 報告書（案）」について（宇宙開発利用部会（第107回））",
+      "summary": "H3ロケット8号機打上げ失敗の原因究明に関する調査報告書が公開されました。",
+      "summary_original": "「「H3ロケット8号機打上げ失敗の原因究明に係る調査・安全小委員会 報告書（案）」について（宇宙開発利用部会（第107回））」を掲載しています。 -宇宙航空研究開発機構 JAXA（ジャクサ）は、宇宙航空分野の基礎研究から開発・利用に至るまで一貫して行う機関です。",
+      "summary_language": "ja",
+      "url": "https://www.jaxa.jp/press/2026/07/20260723-2_j.html",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "0f53b9e079b5f01ec34debad",
       "published_at": "2026-07-23T04:00:01Z",
       "collected_at_jst": "2026-07-26T21:45:54+09:00",
@@ -5971,6 +6007,42 @@
       "summary_language": "ja",
       "url": "https://www.epo.org/en/news-events/news/patent-granting-process-fully-digital-1-april-2027",
       "first_seen": "2026-07-26T21:45:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9c5b8d9ea59c951101310207",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "Korea MSIT Press Releases",
+      "organization": "Korea MSIT Press Releases",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official MSIT scripted listing and article page",
+      "collection_mode": "Daily",
+      "title": "AIと科学技術を通じた韓国の未来に関する発表",
+      "title_original": "An Unrivaled Korea, Happy Together Through AI and Science and Technology",
+      "summary": "韓国がAIと科学技術を通じた未来に関する政策を発表しました。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.msit.go.kr/eng/bbs/view.do?mId=4&mPid=2&sCode=eng&bbsSeqNo=42&nttSeqNo=1284",
+      "first_seen": "2026-07-27T06:32:05+09:00",
       "status": "New"
     },
     {
@@ -6933,6 +7005,76 @@
       "status": "New"
     },
     {
+      "id": "3b34bd70fa4ae08017bf6486",
+      "published_at": "2026-07-13T15:00:00Z",
+      "collected_at_jst": "2026-07-26T22:54:37+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "Japan Cabinet Office STI Strategy",
+      "organization": "Japan Cabinet Office STI Strategy",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Historical Backfill",
+      "title": "統合イノベーション戦略2026の閣議決定",
+      "title_original": "統合イノベーション戦略2026 （2026年7月14日閣議決定）",
+      "summary": "2026年7月14日に閣議決定された統合イノベーション戦略についての情報です。",
+      "summary_original": "統合イノベーション戦略2026 （2026年7月14日閣議決定）",
+      "summary_language": "ja",
+      "url": "https://www8.cao.go.jp/cstp/tougosenryaku/2026.html",
+      "first_seen": "2026-07-14T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "895a7ee1b8e855d5eac190da",
+      "published_at": "2026-07-10T18:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "QST",
+      "organization": "QST",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "タウタンパク質病変が脳回路を介して認知症状を生む仕組みを解明",
+      "title_original": "タウタンパク質病変が脳回路を介して認知症状を生む仕組みを解明<br>～難病「進行性核上性麻痺」で実証、認知症における症状の予測と回路標的治療の実現へ～ - 量子科学技術研究開発機構",
+      "summary": "タウタンパク質病変が脳回路を介して認知症状を生む仕組みを解明した研究成果が発表されました。",
+      "summary_original": "研究成果や活動に関するプレスリリースです。",
+      "summary_language": "ja",
+      "url": "https://www.qst.go.jp/site/press/20260711.html",
+      "first_seen": "2026-07-11T03:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "a0ed06f7d374240814073762",
       "published_at": "2026-07-10T00:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -7103,6 +7245,40 @@
       "summary_language": "ja",
       "url": "https://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/",
       "first_seen": "2026-06-30T06:14:22+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d7de02d7ef8fb610b83c4771",
+      "published_at": "2026-06-29T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 2,
+      "source_type": "Government",
+      "source": "核融合科学研究所",
+      "organization": "核融合科学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "世界最高水準のプラズマ計測システムを構築",
+      "title_original": "プラズマの状態を多点同時に長時間計測できる世界最高水準の計測システムを構築 / 研究成果 プレスリリース / 自然科学研究機構 核融合科学研究所 (NIFS ニフス)",
+      "summary": "核融合科学研究所がプラズマの状態を長時間計測できるシステムを構築しました。",
+      "summary_original": "核融合科学研究所では、核融合エネルギーを私たちが利用できる形で実現するために必要なプラズマ物理をはじめとする様々な研究課題に、国内外の大学・研究機関と連携して取り組んでいます。そして、核融合科学の進展とともに、広く科学技術の基盤形成に寄与したいと考えています。",
+      "summary_language": "ja",
+      "url": "https://www.nifs.ac.jp/news/research/260630.html",
+      "first_seen": "2026-06-30T00:00:00+09:00",
       "status": "New"
     },
     {
