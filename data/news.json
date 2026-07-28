@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-27T22:31:53Z",
-  "updated_at_jst": "2026-07-28T07:31:53+09:00",
+  "updated_at": "2026-07-28T00:09:56Z",
+  "updated_at_jst": "2026-07-28T09:09:56+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 187,
+  "article_count": 189,
   "source_count": 260,
   "source_counts": {
     "daily": 252,
@@ -3776,6 +3776,42 @@
       "status": "New"
     },
     {
+      "id": "06a15458c97f10e058099624",
+      "published_at": "2026-07-27T00:00:00Z",
+      "collected_at_jst": "2026-07-28T01:34:11+09:00",
+      "region": "United States",
+      "country": "European Union",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "European Quantum Flagship",
+      "organization": "European Quantum Flagship",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "量子技術に関するSRIAの更新に向けた公的意見募集",
+      "title_original": "2026 public consultation open: Help us shape the updated SRIA roadmaps",
+      "summary": "量子技術に関するSRIAの更新に向けて、初稿のレビューとフィードバックを求める公的意見募集が開始された。",
+      "summary_original": "JavaScript seems to be disabled in your browser. Please enable JavaScript in your browser to use the page. The Quantum Flagship has opened a public consultation on the first drafts of six Roadmaps that will become chapters of the updated Strategic Research and Industry Agenda (SRIA) for quantum technologies in Europe. Anyone with an interest in the field is invited to review the drafts and submit feedback until 16 August 2026, helping shape the final SRIA before… As part of the ongoing update of the Strategic Research and Industry Agenda (SRIA), the Quantum Flagship has been working with expert editor groups from across Europe's quantum community to draft six new roadmaps. Once finalised, t…",
+      "summary_language": "ja",
+      "url": "https://qt.eu/news/2026/2026-07-27_2026-public-consultation-open.php",
+      "first_seen": "2026-07-28T01:34:11+09:00",
+      "status": "New"
+    },
+    {
       "id": "d90424dd6865574b60d3a522",
       "published_at": "2026-07-26T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -3807,6 +3843,40 @@
       "summary_language": "ja",
       "url": "https://kist.re.kr/ko/news/latest-research-results.do?mode=view&articleNo=18040&article.offset=0&articleLimit=10",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "8d9792af0219384a47d24023",
+      "published_at": "2026-07-25T00:00:00Z",
+      "collected_at_jst": "2026-07-27T23:37:06+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Fusion Engineering and Design",
+      "organization": "Fusion Engineering and Design",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Fusion Engineering and Design",
+      "doi": "https://doi.org/10.1016/j.fusengdes.2026.115965",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "Helios核融合発電所の電力供給システム",
+      "title_original": "Electrical and power supply systems of Helios fusion power plant",
+      "summary": "Helios核融合発電所の電力供給システムの前概念設計を発表し、390 MWeの電力出力を可能にする設計が示された。",
+      "summary_original": "OpenAlex research topics: Magnetic confinement fusion research; Superconducting Materials and Applications; Electromagnetic Launch and Propulsion Technology; Modular design; Stellarator; Power (physics); Converters; Electric power; Fusion power; Electric power system; Power module; Maximum power transfer theorem",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1016/j.fusengdes.2026.115965",
+      "first_seen": "2026-07-27T23:37:06+09:00",
       "status": "New"
     },
     {
