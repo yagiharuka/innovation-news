@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T22:30:29Z",
-  "updated_at_jst": "2026-07-29T07:30:29+09:00",
+  "updated_at": "2026-07-28T23:00:27Z",
+  "updated_at_jst": "2026-07-29T08:00:27+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 284,
+  "article_count": 286,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -1068,6 +1068,40 @@
       "status": "New"
     },
     {
+      "id": "40b1613d3cb55e5816a30e05",
+      "published_at": "2026-07-28T00:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "UKRI",
+      "organization": "UKRI",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "英国で初めて個別化された肺がん治療ワクチンが投与",
+      "title_original": "First UK patient given bespoke lung cancer therapy vaccine",
+      "summary": "英国で、個別化された肺がん治療ワクチンが初めて患者に投与されました。",
+      "summary_original": "A pioneering therapeutic cancer vaccine, publicly funded by Medical Research Council (MRC), has been administered to a UK patient for the first time. Clinicians and researchers are studying the tailored vaccine, designed to match the unique genetic changes found in patient Chris Jones’s tumour in this early-stage clinical trial. Chris, who lives in Hoylake, on the Wirral, has advanced lung cancer that has only partially responded to standard immunotherapy treatment. It is hoped the vaccine will boost her immune system to recognise tumour cells and attack them after searching them out in her body. This will help her benefit from treatment for longer. The trial, publicly funded by MRC, will i…",
+      "summary_language": "ja",
+      "url": "https://www.ukri.org/news/first-uk-patient-given-bespoke-lung-cancer-therapy-vaccine/",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
       "id": "d26cb7d61fb4afa21041dcce",
       "published_at": "2026-07-28T00:00:00Z",
       "collected_at_jst": "2026-07-28T09:43:19+09:00",
@@ -1374,6 +1408,42 @@
       "summary_language": "ja",
       "url": "https://www.theverge.com/tech/971437/amazon-leo-direct-to-device-satellite-network",
       "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "cd77622908e9c05a2563ffeb",
+      "published_at": "2026-07-27T15:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "JAXA 宇宙戦略基金",
+      "organization": "JAXA 宇宙戦略基金",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "有人宇宙輸送システムにおける安全確保の基盤技術の開発課題を公表",
+      "title_original": "「有人宇宙輸送システムにおける安全確保の基盤技術」の「技術開発課題の概要」を公表しました | JAXA宇宙戦略基金",
+      "summary": "JAXAが有人宇宙輸送システムに関する技術開発課題の概要を公表しました。",
+      "summary_original": "2026年7月28日 お知らせ 「有人宇宙輸送システムにおける安全確保の基盤技術」の「技術開発課題の概要」を公表しました",
+      "summary_language": "ja",
+      "url": "https://fund.jaxa.jp/topics/%e3%80%8c%e6%9c%89%e4%ba%ba%e5%ae%87%e5%ae%99%e8%bc%b8%e9%80%81%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e5%ae%89%e5%85%a8%e7%a2%ba%e4%bf%9d%e3%81%ae%e5%9f%ba%e7%9b%a4/",
+      "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
     {
