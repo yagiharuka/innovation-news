@@ -2,3 +2,10 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .venv/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
