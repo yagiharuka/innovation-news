@@ -3018,6 +3018,23 @@ class CollectorTests(unittest.TestCase):
             )
         )
 
+    def test_short_source_keywords_do_not_match_inside_unrelated_words(self):
+        source = {
+            "include_title_patterns": ["gene", "nasa"],
+        }
+        self.assertFalse(
+            collector.source_text_filter_allows(
+                source,
+                "General markets update: Nasdaq closes higher",
+            )
+        )
+        self.assertTrue(
+            collector.source_text_filter_allows(
+                source,
+                "NASA funds a gene therapy experiment in orbit",
+            )
+        )
+
     def test_openai_nvidia_data_center_headline_is_classified_as_ai(self):
         item = collector.build_item(
             {
