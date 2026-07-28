@@ -4427,7 +4427,9 @@ def japanese_summary_request(
         "content_typeを優先してください。"
         "掲載対象ではtechnical_focusに具体的な技術・研究・政策対象を、"
         "scope_evidenceに掲載判断を裏付ける入力中の具体的事実を短く書いてください。"
-        "掲載対象外でもin_scope=falseと除外理由を必ず返してください。"
+        "入力された全IDについて、入力順のまま重複なく1件ずつ必ず返してください。"
+        "掲載対象外は出力を短くするため、id、in_scope=false、reasonだけを返し、"
+        "掲載対象だけに分類・日本語見出し・日本語要約などの全項目を返してください。"
         "JSON以外は出力しないでください。"
     )
     user_prompt = (
@@ -4435,8 +4437,11 @@ def japanese_summary_request(
         + json.dumps(list(TOPIC_KEYWORDS), ensure_ascii=False)
         + "。使用できるpolicy_areasは次の完全一致だけです："
         + json.dumps(list(POLICY_AREA_KEYWORDS), ensure_ascii=False)
-        + "。次の記事を処理し、"
-        '{"items":[{"id":"入力と同じID","in_scope":true,'
+        + "。次の記事を処理してください。入力IDは省略せず、入力順を維持し、"
+        "各IDを重複なく1回だけ返してください。掲載対象外は"
+        '{"id":"入力と同じID","in_scope":false,"reason":"除外理由"}、'
+        "掲載対象は"
+        '{"id":"入力と同じID","in_scope":true,'
         '"topics":["完全一致の8技術分野名"],'
         '"is_innovation_policy":false,'
         '"policy_areas":["完全一致の政策分野名"],'
@@ -4445,8 +4450,8 @@ def japanese_summary_request(
         '"content_type":"research_breakthrough",'
         '"technical_focus":"具体的な技術・研究・政策対象",'
         '"scope_evidence":"入力から確認できる具体的な根拠",'
-        '"title_ja":"自然な日本語見出し","summary_ja":"日本語要約"}]} '
-        "の形式で返してください。\n"
+        '"title_ja":"自然な日本語見出し","summary_ja":"日本語要約"}'
+        "とし、全体を{\"items\":[...]}のJSON形式で返してください。\n"
         + json.dumps(inputs, ensure_ascii=False)
     )
     try:
@@ -4603,6 +4608,13 @@ def enrich_japanese_summaries(
         )
     except ValueError:
         request_interval = 4.1
+    try:
+        request_budget = max(
+            1,
+            int(os.getenv("JAPANESE_SUMMARY_REQUEST_BUDGET", "25")),
+        )
+    except ValueError:
+        request_budget = 25
 
     def apply_summaries(
         batch: list[dict[str, Any]],
@@ -4647,54 +4659,80 @@ def enrich_japanese_summaries(
             item["summary_ja"] = translated["summary_ja"]
             generated += 1
 
-    for start in range(0, len(selected), batch_size):
-        batch = selected[start : start + batch_size]
+    unseen = deque(selected)
+    retry_queue: deque[dict[str, Any]] = deque()
+    response_attempts: Counter[str] = Counter()
+    batch_number = 0
+
+    while retry_queue or unseen:
+        if int(request_stats.get("requests", 0)) >= request_budget:
+            request_budget_reached = True
+            errors.append(
+                "SummaryRequestBudgetError: "
+                f"GitHub Models request budget reached ({request_budget})"
+            )
+            break
+
+        batch: list[dict[str, Any]] = []
+        batch_ids: set[str] = set()
+        for queue in (retry_queue, unseen):
+            while queue and len(batch) < batch_size:
+                item = queue.popleft()
+                item_id = item.get("canonical_id") or item.get("id", "")
+                if not item_id or item_id in batch_ids or not needs_scope_review(item):
+                    continue
+                batch.append(item)
+                batch_ids.add(item_id)
+        if not batch:
+            break
+
+        batch_number += 1
         summaries: dict[str, dict[str, Any]] = {}
-        unresolved = list(batch)
-        stop_review = False
         try:
-            for response_attempt in range(3):
-                partial = japanese_summary_request(
-                    unresolved,
-                    token,
-                    model,
-                    request_stats,
-                )
-                summaries.update(partial)
-                unresolved = [
-                    item
-                    for item in unresolved
-                    if (item.get("canonical_id") or item.get("id", ""))
-                    not in summaries
-                ]
-                if not unresolved:
-                    break
-                time.sleep(max(request_interval, float(response_attempt + 1)))
-            if unresolved:
-                errors.append(
-                    f"batch {start // batch_size + 1}: "
-                    f"{len(unresolved)} item(s) omitted after retries"
-                )
+            summaries = japanese_summary_request(
+                batch,
+                token,
+                model,
+                request_stats,
+            )
         except SummaryRateLimitError as exc:
             rate_limited = True
-            stop_review = True
             errors.append(
-                f"batch {start // batch_size + 1}: "
+                f"batch {batch_number}: "
                 f"SummaryRateLimitError: {exc}"
             )
+            break
         except SummaryRequestBudgetError as exc:
             request_budget_reached = True
-            stop_review = True
             errors.append(
-                f"batch {start // batch_size + 1}: "
+                f"batch {batch_number}: "
                 f"SummaryRequestBudgetError: {exc}"
             )
-        except (requests.RequestException, ValueError, TypeError, json.JSONDecodeError) as exc:
-            errors.append(f"batch {start // batch_size + 1}: {type(exc).__name__}: {exc}")
-        apply_summaries(batch, summaries)
-        if stop_review:
             break
-        if start + batch_size < len(selected):
+        except (requests.RequestException, ValueError, TypeError, json.JSONDecodeError) as exc:
+            errors.append(f"batch {batch_number}: {type(exc).__name__}: {exc}")
+
+        for item in batch:
+            item_id = item.get("canonical_id") or item.get("id", "")
+            response_attempts[item_id] += 1
+        apply_summaries(batch, summaries)
+
+        exhausted = 0
+        for item in batch:
+            item_id = item.get("canonical_id") or item.get("id", "")
+            if item_id in summaries or not needs_scope_review(item):
+                continue
+            if response_attempts[item_id] < 3:
+                retry_queue.append(item)
+            else:
+                exhausted += 1
+        if exhausted:
+            errors.append(
+                f"batch {batch_number}: "
+                f"{exhausted} item(s) omitted after retries"
+            )
+
+        if retry_queue or unseen:
             time.sleep(request_interval)
 
     excluded_id_set = set(excluded_ids)
@@ -5708,6 +5746,7 @@ def run(
             "rate_limit_reset",
             "",
         ),
+        "summary_retry_after": summary_result.get("retry_after", ""),
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": (
             f"Historical backfill: policy {policy_history_days}d / "
@@ -5925,6 +5964,7 @@ def review_backlog(
             "rate_limit_reset",
             "",
         ),
+        "summary_retry_after": summary_result.get("retry_after", ""),
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": "Review backlog",
     }

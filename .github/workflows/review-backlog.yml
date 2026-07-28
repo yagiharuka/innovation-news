@@ -2,9 +2,9 @@ name: Review candidate backlog
 
 on:
   schedule:
-    # Staggered fallback for the primary review schedule in daily.yml. If one
-    # GitHub cron event is delayed or dropped, the other workflow can recover.
-    - cron: "11,26,41,56 0-19,23 * * *"
+    # One dedicated off-peak schedule is more reliable than duplicate
+    # high-frequency entries. UTC 20:00-22:59 is reserved for collection.
+    - cron: "7,37 0-19,23 * * *"
   workflow_dispatch:
     inputs:
       review_limit:
@@ -12,6 +12,11 @@ on:
         required: false
         default: "100"
         type: string
+      force:
+        description: "25分の間隔だけを無視する（API上限は常に守る）"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -37,67 +42,13 @@ jobs:
         id: review_due
         shell: bash
         env:
-          EVENT_NAME: ${{ github.event_name }}
+          FORCE_REVIEW: ${{ github.event_name == 'workflow_dispatch' && inputs.force || false }}
         run: |
-          if [[ "$EVENT_NAME" != "schedule" ]]; then
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-            echo "Manual run: bypassing the schedule checkpoint gate."
-            exit 0
+          args=()
+          if [[ "$FORCE_REVIEW" == "true" ]]; then
+            args+=(--force)
           fi
-
-          python3 - <<'PY'
-          import json
-          import os
-          from datetime import datetime, timezone
-          from pathlib import Path
-
-          minimum_age_seconds = 25 * 60
-          backlog_request_budget = 96
-          checkpoint_due = True
-          quota_available = True
-          details = []
-
-          try:
-              state = json.loads(Path("data/review_state.json").read_text(encoding="utf-8"))
-              updated_at = str(state["updated_at"]).replace("Z", "+00:00")
-              checkpoint = datetime.fromisoformat(updated_at)
-              if checkpoint.tzinfo is None:
-                  checkpoint = checkpoint.replace(tzinfo=timezone.utc)
-              age_seconds = int(
-                  (datetime.now(timezone.utc) - checkpoint.astimezone(timezone.utc)).total_seconds()
-              )
-              if age_seconds < -300:
-                  raise ValueError(f"checkpoint is unexpectedly in the future ({age_seconds}s)")
-              age_seconds = max(0, age_seconds)
-              checkpoint_due = age_seconds >= minimum_age_seconds
-              details.append(f"checkpoint age={age_seconds}s; minimum={minimum_age_seconds}s")
-          except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
-              details.append(f"checkpoint unavailable; running as a safe fallback: {exc}")
-
-          try:
-              now = datetime.now(timezone.utc)
-              run_log = json.loads(Path("data/run_log.json").read_text(encoding="utf-8"))
-              requests_used = 0
-              for run in run_log.get("runs", []):
-                  if run.get("note") != "Review backlog":
-                      continue
-                  run_at = datetime.fromisoformat(str(run["run_at"]).replace("Z", "+00:00"))
-                  if run_at.astimezone(timezone.utc).date() == now.date():
-                      requests_used += max(0, int(run.get("summary_requests", 0)))
-              quota_available = requests_used + 2 <= backlog_request_budget
-              details.append(
-                  f"backlog requests today={requests_used}; budget={backlog_request_budget}"
-              )
-          except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
-              details.append(f"request log unavailable; running as a safe fallback: {exc}")
-
-          should_run = checkpoint_due and quota_available
-
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write(f"should_run={'true' if should_run else 'false'}\n")
-
-          print(f"Scheduled review due={should_run}; {'; '.join(details)}")
-          PY
+          python3 scripts/review_gate.py "${args[@]}"
 
       - name: Set up Python
         if: steps.review_due.outputs.should_run == 'true'
@@ -123,16 +74,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          # The primary and fallback schedules may both wake up, but the
-          # checkpoint gate keeps actual reviews near 48/day. The daily quota
-          # gate caps backlog use at 96 requests; daily 25 + weekly 25 keeps the
-          # busiest day at 146, within the free low-tier allowance of 150/day.
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '12' }}
-          JAPANESE_SUMMARY_BATCH_SIZE: "6"
+          # Two batches of eight stay within the model's 8k input / 4k output
+          # limits. The gate reserves daily/weekly collection capacity.
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '16' }}
+          JAPANESE_SUMMARY_BATCH_SIZE: "8"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
           JAPANESE_SUMMARY_REQUEST_BUDGET: ${{ github.event_name == 'workflow_dispatch' && '20' || '2' }}
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
-          REVIEW_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '12' }}
+          REVIEW_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '16' }}
 
       - name: Commit review checkpoint
         if: steps.review_due.outputs.should_run == 'true'

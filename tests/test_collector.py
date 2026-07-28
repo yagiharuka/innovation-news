@@ -1417,6 +1417,111 @@ class CollectorTests(unittest.TestCase):
         self.assertTrue(result["rate_limited"])
         self.assertEqual(result["errors"], 1)
 
+    def test_summary_review_refills_second_request_with_fresh_items(self):
+        items = [
+            {
+                "canonical_id": f"article-{index}",
+                "title": f"AI research {index}",
+                "summary": "A concrete AI method was validated.",
+                "source": "Example",
+                "scope_review_version": "old-version",
+            }
+            for index in range(1, 17)
+        ]
+
+        def translated(item_id):
+            return {
+                "in_scope": True,
+                "topics": ["Artificial Intelligence"],
+                "is_innovation_policy": False,
+                "policy_areas": [],
+                "policy_relevance": 0,
+                "reason": "AIの具体的な新手法。",
+                "content_type": "research_breakthrough",
+                "technical_focus": "AIの新手法",
+                "scope_evidence": "新手法を実証した。",
+                "title_ja": f"AI新手法 {item_id}",
+                "summary_ja": "研究チームがAIの新手法を実証した。",
+            }
+
+        calls = []
+
+        def fake_request(batch, token, model, request_stats=None):
+            calls.append([item["canonical_id"] for item in batch])
+            request_stats["requests"] += 1
+            returned = batch[:5] if len(calls) == 1 else batch
+            return {
+                item["canonical_id"]: translated(item["canonical_id"])
+                for item in returned
+            }
+
+        with (
+            mock.patch.dict(
+                os.environ,
+                {
+                    "GITHUB_TOKEN": "test-token",
+                    "JAPANESE_SUMMARY_BACKFILL_LIMIT": "16",
+                    "JAPANESE_SUMMARY_BATCH_SIZE": "8",
+                    "JAPANESE_SUMMARY_REQUEST_BUDGET": "2",
+                    "JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS": "0",
+                },
+            ),
+            mock.patch.object(
+                collector,
+                "japanese_summary_request",
+                side_effect=fake_request,
+            ),
+            mock.patch.object(collector.time, "sleep"),
+        ):
+            result = collector.enrich_japanese_summaries(
+                items,
+                items,
+                selected_items=items,
+            )
+
+        self.assertEqual(
+            calls,
+            [
+                [f"article-{index}" for index in range(1, 9)],
+                [f"article-{index}" for index in range(6, 14)],
+            ],
+        )
+        self.assertEqual(result["requests"], 2)
+        self.assertEqual(result["reviewed"], 13)
+        self.assertEqual(result["pending"], 3)
+        self.assertTrue(result["request_budget_reached"])
+
+    def test_summary_parser_accepts_compact_exclusion_but_not_incomplete_inclusion(self):
+        parsed = collector.parse_japanese_summary_response(
+            json.dumps(
+                {
+                    "items": [
+                        {
+                            "id": "excluded",
+                            "in_scope": False,
+                            "reason": "技術内容を伴わない企業業績。",
+                        },
+                        {
+                            "id": "incomplete",
+                            "in_scope": True,
+                            "reason": "AI研究。",
+                            "topics": ["Artificial Intelligence"],
+                            "content_type": "research_breakthrough",
+                            "technical_focus": "AI",
+                            "scope_evidence": "新手法を実証した。",
+                            "title_ja": "AI研究",
+                        },
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            {"excluded", "incomplete"},
+        )
+
+        self.assertIn("excluded", parsed)
+        self.assertFalse(parsed["excluded"]["in_scope"])
+        self.assertNotIn("incomplete", parsed)
+
     def test_review_only_does_not_fetch_or_update_source_collection_state(self):
         source = {
             "active": True,
