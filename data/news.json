@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T18:30:55Z",
-  "updated_at_jst": "2026-07-29T03:30:55+09:00",
+  "updated_at": "2026-07-28T19:00:41Z",
+  "updated_at_jst": "2026-07-29T04:00:41+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 243,
+  "article_count": 249,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -7318,6 +7318,80 @@
       "status": "New"
     },
     {
+      "id": "967febd2a716d0b259a7906b",
+      "published_at": "2026-06-25T01:02:50Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Industry Association",
+      "source": "日本バイオ産業人会議",
+      "organization": "日本バイオ産業人会議",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "日本成長戦略会議における官民投資ロードマップの公表",
+      "title_original": "2026年6月24日「日本成長戦略会議における官民投資ロードマップ」が公開されました。 - 日本バイオ産業人会議 JABEX",
+      "summary": "日本成長戦略会議において、バイオ産業に関わる官民投資ロードマップが公表されました。",
+      "summary_original": "今般、日本成長戦略会議における官民投資ロードマップが公表されました。一般財団法人バイオインダストリー協会（JBA）、日本バイオ産業人会議（JABEX）およびGreater Tokyo Biocommunity（GTB）は、日本成長戦略の17の戦略分野および分野横断的課題のうち、バイオ産業に関わる重要課題について、「日本成長戦略の検討課題に向けた提言」を3者連名で発出し、関係府省の皆様と継続的に対話を重ねてまいりました。バイオ産業は、気候変動、資源・食料問題、医療・健康課題、さらには経済安全保障上の課題に対し、横断的に貢献し得る基幹産業です。今回の官民投資ロードマップにおいて、3者連名提言の内容が数多く盛り込まれたことに、深く感謝申し上げます。 本文詳細は、下記リンクからご参照ください。 〇 本文詳細 こちら…",
+      "summary_language": "ja",
+      "url": "https://jabex.jp/2026%e5%b9%b46%e6%9c%8824%e6%97%a5%e3%80%8c%e6%97%a5%e6%9c%ac%e6%88%90%e9%95%b7%e6%88%a6%e7%95%a5%e4%bc%9a%e8%ad%b0%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e5%ae%98%e6%b0%91%e6%8a%95%e8%b3%87%e3%83%ad/",
+      "first_seen": "2026-06-25T10:02:50+09:00",
+      "status": "New"
+    },
+    {
+      "id": "db1235c26055689380c759f7",
+      "published_at": "2026-06-25T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Official Company",
+      "source": "QuEra",
+      "organization": "QuEra",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Historical Backfill",
+      "title": "QuEraがGigaquop-Class Fault-Tolerant Roadmapを発表",
+      "title_original": "PRESS RELEASE June 25, 2026 QuEra Unveils Gigaquop-Class Fault-Tolerant Roadmap and Invites Organizations to Co-Design Quantum Applications Read More",
+      "summary": "QuEraがGigaquop-Class Fault-Tolerant Roadmapを発表し、量子アプリケーションの共同設計を招待しました。",
+      "summary_original": "PRESS RELEASE June 25, 2026 QuEra Unveils Gigaquop-Class Fault-Tolerant Roadmap and Invites Organizations to Co-Design Quantum Applications Read More",
+      "summary_language": "ja",
+      "url": "https://www.quera.com/press-releases/quera-unveils-gigaquop-class-fault-tolerant-roadmap-and-invites-organizations-to-co-design-quantum-applications",
+      "first_seen": "2026-06-25T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "b2dd25b759a779cc41e323b2",
       "published_at": "2026-06-23T14:30:00Z",
       "collected_at_jst": "2026-07-28T06:54:39+09:00",
@@ -7497,6 +7571,41 @@
       "status": "New"
     },
     {
+      "id": "7a20479902918e553bfd315e",
+      "published_at": "2026-06-19T05:51:56Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 2,
+      "source_type": "Official Company",
+      "source": "KDDI総合研究所",
+      "organization": "KDDI総合研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "KDDIが6G時代に向けたRANデジタルツインの共同開発を開始",
+      "title_original": "KDDI, KDDI Research and Global Partners Launch RAN Digital Twin Collaboration for the 6G Era",
+      "summary": "KDDIが6G時代に向けてRANデジタルツインの共同開発を開始しました。",
+      "summary_original": "On June 23, 2026, KDDI Corporation and KDDI Research, Inc. launched an initiative toward realizing a high-fidelity RAN Digital Twin, creating a virtual replica of real-world radio access networks. This foundational platform will enable safe and efficient AI-driven network optimization, autonomous operation, and AI-algorithm evaluation in the 6G era. To accelerate this vision, KDDI and KDDI Research, Inc., are collaborating with NVIDIA Corporation, Keysight Technologies, Inc., and Samsung Research America, Inc to jointly develop this environment.",
+      "summary_language": "ja",
+      "url": "https://www.kddi-research.jp/english/newsrelease/2026/062301.html",
+      "first_seen": "2026-06-19T14:51:56+09:00",
+      "status": "New"
+    },
+    {
       "id": "d4c7b12d61b3d909256f0d10",
       "published_at": "2026-06-17T00:00:00Z",
       "collected_at_jst": "2026-07-26T22:54:37+09:00",
@@ -7672,6 +7781,115 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/06/nist-mathematical-proof-supports-transition-continuous-monitor-and-update",
       "first_seen": "2026-06-09T21:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e7f4ebd66ac8c52301cbf20f",
+      "published_at": "2026-06-08T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "医薬基盤・健康・栄養研究所",
+      "organization": "医薬基盤・健康・栄養研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "個別化ネオアンチゲンワクチン療法における免疫反応の特徴解明",
+      "title_original": "個別化ネオアンチゲンワクチン療法において 免疫反応を起こしやすいネオアンチゲンの特徴を解明",
+      "summary": "個別化ネオアンチゲンワクチン療法において、免疫反応を起こしやすいネオアンチゲンの特徴を解明しました。",
+      "summary_original": "国立研究開発法人医薬基盤・健康・栄養研究所（大阪府茨木市、理事長：中村祐輔） 難病・免疫ゲノム研究プロジェクトの清谷一馬プロジェクトリーダー、趙鵬特任研究員（研究当時は同プロジェクト研修生）と公益財団法人がん研究会（東京都江東区、理事長：浅野敏雄）、福岡がん総合クリニック（福岡県福岡市、院長：森崎隆）の共同研究グループは、患者一人ひとりに合わせて作られた個別化ネオアンチゲンワクチンを投与されたがん患者の大規模なデータを詳しく解析し、実際に免疫細胞（T細胞）が免疫反応を起こしやすいネオアンチゲンの特徴を明らかにしました。 ネオアンチゲンは、がん細胞の遺伝子変異（遺伝子の傷）によって生じる、がん細胞だけに存在する目印（抗原）であり、免疫の力でがんを攻撃する治療（がん免疫療法）の標的として世界中で注目されています。本研究グループは、患者一人ひとりの遺伝子情報を解析し、その患者にあったネオアンチゲンを選び出し、そのネオアンチゲンを患者自身の樹状細胞という免疫の司令塔となる細胞に取り込ませて投与する個別化ネオアンチゲン樹状細胞ワクチンによるがん免疫療法を行ってきました。 今回の研究では、この治療を受けた352例のがん患者に投与された2,317種類のネオアンチゲンを詳しく解析し、実際に体の中で免疫反応を起こしやすいネオアンチゲンにどのような特徴があるのかを明らかにしました。 本研究は、個別化ネオアンチゲンワクチンを実際に投与された患者データを用いた解析としては、世界最大規模の研究の一つです。今後、一人ひとりの患者に合った個別化ネオアンチゲンワクチン療法の開発に大きく貢献することが期待され…",
+      "summary_language": "ja",
+      "url": "https://www.nibn.go.jp/pr/press/20260609.html",
+      "first_seen": "2026-06-09T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c180becba22f98a3320c630d",
+      "published_at": "2026-06-08T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Conference Paper",
+      "source": "Proceedings of the International Conference on Automated Planning and Scheduling",
+      "organization": "Proceedings of the International Conference on Automated Planning and Scheduling",
+      "academic_kind": "Conference Paper",
+      "review_status": "Conference proceedings — review status varies",
+      "venue": "Proceedings of the International Conference on Automated Planning and Scheduling",
+      "doi": "https://doi.org/10.1609/icaps.v36i1.42871",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "NASAの宇宙ミッションにおける深層強化学習の適用",
+      "title_original": "Deep RL for Fast Long-Horizon Operations Scheduling on NASA’s Carruthers Geocorona Observatory Mission",
+      "summary": "NASAの宇宙ミッションにおいて、深層強化学習を用いたスケジューリング手法を紹介します。",
+      "summary_original": "OpenAlex research topics: Spacecraft Dynamics and Control; Satellite Communication Systems; Space Satellite Systems and Control; Reinforcement learning; Scheduling (production processes); Scalability; Heuristics; Spacecraft; Suite; Observatory; Robustness (evolution)",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1609/icaps.v36i1.42871",
+      "first_seen": "2026-06-08T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2a21d0b49325e5d315ea50b9",
+      "published_at": "2026-06-07T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum",
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "産総研 お知らせ",
+      "organization": "産総研 お知らせ",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "光量子コンピュータ「MoQuren」の稼働開始",
+      "title_original": "産総研：OptQCと産総研、光量子コンピュータ1号機「MoQuren」を構築し稼働開始 ～【世界初】商用化を目指す国産光量子コンピュータが稼働。開発者向け実行環境の整備を加速～",
+      "summary": "OptQCと産総研が光量子コンピュータ1号機「MoQuren」を構築し、稼働を開始しました。",
+      "summary_original": "2026/07/21 OptQCと産総研、光量子コンピュータ1号機「MoQuren」を構築し稼働開始 ～【世界初】商用化を目指す国産光量子コンピュータが稼働。開発者向け実行環境の整備を加速～ 2026/07/17 ＼最先端の環境で、日本の未来を担う専門人材を育成／ NEDO「量子コンピュータの産業化にかかる 人材育成事業」に採択 ―「量子情報科学学位プログラム」を基盤として最先端研究と産業界をつなぐ高度専門人材育成拠点を構築― 2026/07/17 フィジカルAIに係る事業の始動について 2026/07/02 産総研、製造AX拠点を始動 －製造データとAIでつなぎ、高稼働率、高品質、高収益体質な製造業へと変革－ 2026/07/01 若手人材によるディープテック研究開発「覚醒プロジェクト」の採択者決定！ 2026/06/30 マルチモーダル基盤モデルおよびフィジカルAI基盤技術に関する研究開発が、NEDOのAI開発事業に採択 2026/06/26 臨時閉館のお知らせ 2026/06/11 AISolと農研機構が連携・協力協定を締結しました 2026/06/10 2026年6月8日に発生したフィリピン南部の地震（M7.8）に関する情報 2026/06/02 臨時閉館のお知らせ 2026/05/28 東北大学との連携強化に向けた協定を締結し、連携強化シンポジウムを開催 2026/05/28 量子・AIハイブリッド技術を活用したアプリケーション開発を支援するチュートリアルを公開 2026/04/28 令和8年（2026年）4月20日16時52分に発生した三陸沖の地震の関連情報 20…",
+      "summary_language": "ja",
+      "url": "https://www.aist.go.jp/aist_j/news/announce/au20260721.html",
+      "first_seen": "2026-06-08T00:00:00+09:00",
       "status": "New"
     },
     {
