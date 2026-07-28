@@ -1,6 +1,10 @@
 name: Review candidate backlog
 
 on:
+  schedule:
+    # Staggered fallback for the primary review schedule in daily.yml. If one
+    # GitHub cron event is delayed or dropped, the other workflow can recover.
+    - cron: "11,26,41,56 0-19,23 * * *"
   workflow_dispatch:
     inputs:
       review_limit:
@@ -119,10 +123,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          # There are 96 redundant wake-ups/day, but the checkpoint gate keeps
-          # ordinary reviews near 48/day. The daily quota gate caps backlog use
-          # at 96 requests; daily 25 + weekly 25 keeps the busiest day at 146,
-          # within the free low-tier allowance of 150/day.
+          # The primary and fallback schedules may both wake up, but the
+          # checkpoint gate keeps actual reviews near 48/day. The daily quota
+          # gate caps backlog use at 96 requests; daily 25 + weekly 25 keeps the
+          # busiest day at 146, within the free low-tier allowance of 150/day.
           JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || '12' }}
           JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
