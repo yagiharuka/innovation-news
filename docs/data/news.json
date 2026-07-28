@@ -1,20 +1,20 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T00:43:19Z",
-  "updated_at_jst": "2026-07-28T09:43:19+09:00",
+  "updated_at": "2026-07-28T00:58:31Z",
+  "updated_at_jst": "2026-07-28T09:58:31+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 205,
-  "source_count": 287,
+  "article_count": 212,
+  "source_count": 285,
   "source_counts": {
-    "daily": 279,
-    "weekly": 8,
+    "daily": 278,
+    "weekly": 7,
     "tier_s": 151,
-    "tier_a": 128,
-    "tier_b": 8
+    "tier_a": 127,
+    "tier_b": 7
   },
   "items": [
     {
@@ -51,6 +51,151 @@
       "summary_language": "ja",
       "url": "https://www.inpit.go.jp/j-platpat_info/lecture/design.html",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "67269dabbdb1b404d8ad523c",
+      "published_at": "2026-07-28T00:43:19Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Nikkei Asia Technology",
+      "organization": "Nikkei Asia Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "日本の大学スタートアップ、繊細な作業向けのAIロボットアームを開発",
+      "title_original": "Japanese university startups develop AI robot arms for delicate tasks",
+      "summary": "日本の大学スタートアップが、繊細な作業を行うためのAIロボットアームを開発した。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/japanese-university-startups-develop-ai-robot-arms-for-delicate-tasks",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "29b3946fee36701e4a4ba8ee",
+      "published_at": "2026-07-28T00:43:19Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Nikkei Asia Technology",
+      "organization": "Nikkei Asia Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "三井不動産、TSMCの熊本拠点近くに物理的AIハブを建設",
+      "title_original": "Mitsui Fudosan to build physical AI hub near TSMC's Kumamoto base",
+      "summary": "三井不動産が、TSMCの熊本拠点近くに物理的なAIハブを建設する計画を発表。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/mitsui-fudosan-to-build-physical-ai-hub-near-tsmc-s-kumamoto-base",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3be3043fdbc4641c0b4e84f0",
+      "published_at": "2026-07-28T00:30:00Z",
+      "collected_at_jst": "2026-07-28T09:58:31+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "EE Times Japan",
+      "organization": "ITmedia",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "三菱電機、OBC用SiCモジュール初公開 ディスクリート4個を置き換え",
+      "title_original": "三菱電機、OBC用SiCモジュール初公開 ディスクリート4個を置き換え",
+      "summary": "三菱電機は、車載オンボードチャージャー向けの炭化ケイ素（SiC）MOSFETモジュールを初公開し、設計の簡素化や実装面積の削減を実現した。",
+      "summary_original": "三菱電機は世界最大規模のパワーエレクトロニクス展示会「PCIM Expo & Conference 2026」において、開発中の車載オンボードチャージャー（OBC）向け炭化ケイ素（SiC）MOSFETモジュールを初公開した。絶縁型2-in-1 SiC MOSFETモジュールで、従来4個のディスクリートデバイスで構成していた回路を1パッケージで置き換えられ、設計の簡素化や実装面積の削減が実現する。",
+      "summary_language": "ja",
+      "url": "https://eetimes.itmedia.co.jp/ee/articles/2607/28/news046.html",
+      "first_seen": "2026-07-28T09:58:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "55692fb5fbc2e11073565aba",
+      "published_at": "2026-07-28T00:17:24Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Asia",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Reuters Technology & Science",
+      "organization": "Reuters Technology & Science",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site sitemap and page metadata",
+      "collection_mode": "Daily",
+      "title": "中国のテクノロジー企業、271.3億ドルを調達",
+      "title_original": "Chinese tech firms, from Apple suppliers to OpenAI rivals, raise $27.13 bln in Hong Kong",
+      "summary": "中国のテクノロジー企業が香港で271.3億ドルを調達した。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.reuters.com/world/asia-pacific/chinese-tech-firms-apple-suppliers-openai-rivals-raise-17-billion-hong-kong-2026-07-22/",
+      "first_seen": "2026-07-28T09:43:19+09:00",
       "status": "New"
     },
     {
@@ -4371,6 +4516,78 @@
       "status": "New"
     },
     {
+      "id": "3258730766320ed5208e0060",
+      "published_at": "2026-07-26T12:39:04Z",
+      "collected_at_jst": "2026-07-28T09:58:31+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "Axios Technology",
+      "organization": "Axios",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "サム・アルトマンがホワイトハウスに伝えること",
+      "title_original": "What Sam Altman will tell the White House this week",
+      "summary": "OpenAIのCEOが新しいAIモデルをホワイトハウスに提案し、政府とビジネスの協力を促進する計画を発表する。",
+      "summary_original": "OpenAI CEO Sam Altman heads to Washington this week to preview the company's most powerful AI yet, pushing for speedy approval of a model that just hacked a real company. Why it matters: He'll tout a model powerful enough to solve an 80-year-old math problem, breach another company's system unprompted and begin to make complex work more cost-efficient for U.S. business. What Sam will show: It does original science. An internal model solved the 80-year-old Erdős unit distance problem, the first prominent open math problem cracked autonomously by AI and verified by outside mathematicians. It allows government and business to unleash swarms of agents, working together, without rest, on complex…",
+      "summary_language": "ja",
+      "url": "https://www.axios.com/2026/07/26/sam-altman-openai-trump-white-house-visit",
+      "first_seen": "2026-07-28T09:58:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0c50225c8960c4b3a855096d",
+      "published_at": "2026-07-26T12:24:03Z",
+      "collected_at_jst": "2026-07-28T09:58:31+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Major Media",
+      "source": "Axios Technology",
+      "organization": "Axios",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "労働者がAIと交渉している",
+      "title_original": "Unionized workers are bargaining with the bots",
+      "summary": "労働者がAIの影響に対抗するために交渉を行い、労働条件の保護を求めている。",
+      "summary_original": "With Congress on the sidelines, union contracts are among the strongest guardrails American workers have against artificial intelligence . Why it matters: Nearly 90% of the U.S. workforce lacks union representation, leaving about 130 million workers without that leverage as companies use AI to rewrite job descriptions and cut jobs. What they're saying: The only meaningful guardrails around workplace AI are happening \"at the bargaining table , where workers are showing up and demanding protections,\" NewsGuild-CWA President Jon Schleuss tells Axios. \"AI is something we can negotiate,\" Schleuss says. \"Without a contract and without a union , you have no say.\" Former FTC Commissioner Alvaro Bed…",
+      "summary_language": "ja",
+      "url": "https://www.axios.com/2026/07/26/union-contracts-ai-workplace-disruption",
+      "first_seen": "2026-07-28T09:58:31+09:00",
+      "status": "New"
+    },
+    {
       "id": "d90424dd6865574b60d3a522",
       "published_at": "2026-07-26T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -4914,6 +5131,42 @@
       "summary_language": "ja",
       "url": "https://arxiv.org/abs/2607.22468v1",
       "first_seen": "2026-07-28T01:39:30+09:00",
+      "status": "New"
+    },
+    {
+      "id": "dab38e769de0ea36828045d0",
+      "published_at": "2026-07-24T09:15:04Z",
+      "collected_at_jst": "2026-07-28T09:58:31+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Axios Technology",
+      "organization": "Axios",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ホワイトハウス、中国に対する新たなAI方針を示す",
+      "title_original": "White House draws new AI line on China",
+      "summary": "トランプ政権が中国企業による技術盗用を非難しつつ、オープンAI開発を支持する新たな方針を打ち出した。",
+      "summary_original": "The Trump administration this week staked out a new position that could reshape its approach to AI policy, accusing Chinese companies of stealing U.S. technology even as it defends open AI development. Why it matters: That distinction could become the foundation for U.S. action against Chinese AI companies without broadly restricting the open-weight models that businesses, researchers and startups increasingly rely on. Driving the news: The Trump administration is backing open-weight models while accusing China's Moonshot of using distillation — the process of training a smaller AI model using the outputs of a larger model — to copy Anthropic's Fable model. \"Legitimate AI distillation used…",
+      "summary_language": "ja",
+      "url": "https://www.axios.com/2026/07/24/white-house-ai-line-china",
+      "first_seen": "2026-07-28T09:58:31+09:00",
       "status": "New"
     },
     {
