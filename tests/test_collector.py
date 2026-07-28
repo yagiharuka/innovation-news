@@ -2872,7 +2872,7 @@ class CollectorTests(unittest.TestCase):
         names = [source["name"] for source in sources]
         self.assertEqual(len(names), len(set(names)))
         active_sources = [source for source in sources if source.get("active")]
-        self.assertEqual(config["expected_active_source_count"], 287)
+        self.assertEqual(config["expected_active_source_count"], 285)
         self.assertEqual(
             len(active_sources),
             config["expected_active_source_count"],
@@ -2939,11 +2939,6 @@ class CollectorTests(unittest.TestCase):
                 "site_scan",
                 False,
             ),
-            "Washington Post Technology": (
-                "https://www.washingtonpost.com/business/technology/",
-                "site_scan",
-                False,
-            ),
             "日本経済新聞 テック": (
                 "https://www.nikkei.com/technology/",
                 "site_scan",
@@ -2961,6 +2956,16 @@ class CollectorTests(unittest.TestCase):
             ),
             "ITmedia AI+": (
                 "https://rss.itmedia.co.jp/rss/2.0/aiplus.xml",
+                "feed",
+                True,
+            ),
+            "Axios Technology": (
+                "https://api.axios.com/feed/",
+                "feed",
+                True,
+            ),
+            "Scientific American": (
+                "https://www.scientificamerican.com/platform/syndication/rss/",
                 "feed",
                 True,
             ),
@@ -2985,6 +2990,10 @@ class CollectorTests(unittest.TestCase):
             ],
         )
         self.assertIn("openai", reuters["include_title_patterns"])
+        self.assertNotIn("Arab News Technology", active_sources)
+        self.assertNotIn("Science|Business", active_sources)
+        self.assertNotIn("Washington Post Technology", active_sources)
+        self.assertNotIn("日刊工業新聞", active_sources)
         self.assertEqual(
             active_sources["Nikkei Asia Technology"]["include_url_patterns"],
             [
