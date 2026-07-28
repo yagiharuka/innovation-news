@@ -5,6 +5,12 @@ on:
     # A single dedicated expression requests one review every 30 minutes.
     # Shared concurrency safely serializes it with daily/weekly collection.
     - cron: "7,37 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      # Updating this marker provides a reliable, user-requested manual trigger.
+      - ".github/manual-review-trigger"
   workflow_dispatch:
     inputs:
       review_limit:
