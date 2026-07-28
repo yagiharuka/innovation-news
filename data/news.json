@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T00:58:31Z",
-  "updated_at_jst": "2026-07-28T09:58:31+09:00",
+  "updated_at": "2026-07-28T03:16:57Z",
+  "updated_at_jst": "2026-07-28T12:16:57+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 212,
+  "article_count": 223,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -51,6 +51,147 @@
       "summary_language": "ja",
       "url": "https://www.inpit.go.jp/j-platpat_info/lecture/design.html",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6bcd75c58d217117ea1f3cab",
+      "published_at": "2026-07-28T03:16:57Z",
+      "collected_at_jst": "2026-07-28T12:16:57+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Fujitsu Research",
+      "organization": "Fujitsu",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Daily",
+      "title": "富士通、金融機関向けの独自AIプラットフォームの開発を開始",
+      "title_original": "Fujitsu initiates development of proprietary AI platform for financial institutions",
+      "summary": "富士通が金融機関向けの独自AIプラットフォームの開発を開始した。",
+      "summary_original": "Fujitsu initiates development of proprietary AI platform for financial institutions",
+      "summary_language": "ja",
+      "url": "https://global.fujitsu/en-global/pr/news/2026/07/28-01",
+      "first_seen": "2026-07-28T12:16:57+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e5311bb74a8e3a0b6bc8182a",
+      "published_at": "2026-07-28T02:20:22Z",
+      "collected_at_jst": "2026-07-28T12:16:57+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "The Korea Herald Technology",
+      "organization": "The Korea Herald",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "KT、アモーレパシフィックと共同でAIアシスタント「Lemon」を開発",
+      "title_original": "KT, Amorepacific jointly develop AI assistant Lemon",
+      "summary": "KTがアモーレパシフィックの研究開発データをAI準備データに統合するプロジェクトを完了し、AIアシスタント「Lemon」を開発した。",
+      "summary_original": "KT said Tuesday it has completed a companywide data integration project for Amorepacific's Research & Innovation Center, building an AI-ready data platform designed to accelerate research and development. Dubbed Data Highway, the project reorganized and integrated 70 years of Amorepacific's R&D data into AI-ready data, making it easier for artificial intelligence to process and use the company's research assets. The platform standardizes both structured and unstructured data, allowing researcher",
+      "summary_language": "ja",
+      "url": "https://m.koreaherald.com/article/10822698",
+      "first_seen": "2026-07-28T12:16:57+09:00",
+      "status": "New"
+    },
+    {
+      "id": "fc3a77fb12080a3ad2bb8aab",
+      "published_at": "2026-07-28T02:00:09Z",
+      "collected_at_jst": "2026-07-28T12:16:57+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "中国のAI開発者、商業ライセンス料の徴収へシフトか",
+      "title_original": "Chinese AI developers may shift to ‘paid weights’ commercial licensing: Goldman Sachs",
+      "summary": "中国のAI開発者がクラウドプラットフォームに商業ライセンス料を徴収する可能性があると報告されている。",
+      "summary_original": "Chinese artificial intelligence developers could start charging cloud platforms commercial licensing fees to host their open-weight models, according to the head of Asia internet research at Goldman Sachs, as firms look to capture more revenue from their soaring global use. The assessment comes as Chinese AI models – such as Moonshot AI’s Kimi K3 and Zhipu AI’s GLM-5.2 – have reached performance levels just a fraction behind top US rivals. However, because Chinese developers typically release...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/big-tech/article/3362032/chinese-ai-developers-may-shift-paid-weights-commercial-licensing-goldman-sachs?utm_source=rss_feed",
+      "first_seen": "2026-07-28T12:16:57+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7edabdb463b58ce9c86e423a",
+      "published_at": "2026-07-28T01:30:00Z",
+      "collected_at_jst": "2026-07-28T12:16:57+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "EE Times Japan",
+      "organization": "ITmedia",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ムーア氏も予見していたチップレット集積 AI時代に重要性増す",
+      "title_original": "ムーア氏も予見していたチップレット集積 AI時代に重要性増す",
+      "summary": "横浜国立大学の井上教授は、AI時代における後工程技術の重要性が高まっていると述べ、ゴードン・ムーア氏のチップレットの考え方を引用した。",
+      "summary_original": "横浜国立大学 教授の井上史大氏は、2026年6月に開催された「SEMISOL 2026」の基調講演で、AI時代における後工程技術の重要性が高まっていると強調した。ゴードン・ムーア氏も約60年前に、チップを分割して接続する考え方のコスト優位性を示唆していたという。 (1/2)",
+      "summary_language": "ja",
+      "url": "https://eetimes.itmedia.co.jp/ee/articles/2607/28/news045.html",
+      "first_seen": "2026-07-28T12:16:57+09:00",
       "status": "New"
     },
     {
@@ -145,7 +286,7 @@
       "policy_relevance": 0,
       "source_type": "Major Media",
       "source": "EE Times Japan",
-      "organization": "ITmedia",
+      "organization": "EE Times Japan",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
@@ -195,6 +336,111 @@
       "summary_original": "",
       "summary_language": "ja",
       "url": "https://www.reuters.com/world/asia-pacific/chinese-tech-firms-apple-suppliers-openai-rivals-raise-17-billion-hong-kong-2026-07-22/",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d26cb7d61fb4afa21041dcce",
+      "published_at": "2026-07-28T00:00:00Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "「自発的」瞬き頻度が学習満足度の指標として機能する",
+      "title_original": "\"Spontaneous\" blink frequency serves as indicator of learning satisfaction",
+      "summary": "医療教育における学習者の瞬き頻度が学習満足度と相関することを発見した研究。",
+      "summary_original": "A research team including Graduate Student Mari Miya, Junior Associate Professor Yu Akaishi, and Professor Masanaga Yamawaki of the Department of Medical Education Research and Development, Graduate School of Medicine & Dentistry, Institute of Science Tokyo, has discovered that there is a correlation between the frequency of a learner's blinks during online… The knowledge that medical students need to learn is increasing exponentially, making the improvement of educational methods and quality a critical challenge. It has been reported that instructors estimate the level of understanding of a lecture from the facial expressions of learners during the class, and learners also respond to non-v…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202607/n0728-01k.html",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "643114adc7525df4d402fbb4",
+      "published_at": "2026-07-28T00:00:00Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "有機薄膜の自己組織化メカニズムを解明：次世代電子デバイスの高性能化に寄与",
+      "title_original": "Elucidating the molecular mechanism of organic thin films self-assembly: Contributing to development of high-performance next-generation electronic devices",
+      "summary": "有機薄膜トランジスタの性能向上に向けて、分子動力学シミュレーションを用いて有機半導体分子の整列メカニズムを解明した研究が発表された。",
+      "summary_original": "In electronics such as smartphones and flexible displays, devices such as organic thin-film transistors made of carbon-based organic materials are used. To maximize the performance of these devices, it is extremely important that the organic semiconductor molecules formed on the solid surface are orderly aligned. A research team led by Professor Go Watanabe of the School of Frontier Engineering, Kitasato University, performed \"all-atom molecular dynamics simulation,\" which tracks and simulates the movement of each atom over time on a supercomputer. With this simulation method, the team visualized the effects of film thickness, molecular type, and presence of solid s… This approach will play…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202607/n0728-01j.html",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3bd6070dc03b68a1a2842a6d",
+      "published_at": "2026-07-27T22:30:00Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Major Media",
+      "source": "MONOist",
+      "organization": "MONOist",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "自動車14社が参画、CLOとAI連携で“フィジカルインターネット”実現へ",
+      "title_original": "自動車14社が参画、CLOとAI連携で“フィジカルインターネット”実現へ",
+      "summary": "経済産業省と国土交通省は、フィジカルインターネット実現に向けた新たなロードマップを発表し、自動車ワーキンググループを設置した。",
+      "summary_original": "経済産業省と国土交通省は、「2026年度 第3回 フィジカルインターネット実現会議」を開催し、ロードマップの改訂版を発表した。自動車ワーキンググループの設置や、CLOへの期待などを新たに追記した。",
+      "summary_language": "ja",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2607/28/news044.html",
       "first_seen": "2026-07-28T09:43:19+09:00",
       "status": "New"
     },
@@ -298,6 +544,108 @@
       "summary_language": "ja",
       "url": "https://www.bloomberg.com/news/articles/2026-07-27/what-is-moonshot-ai-s-kimi-k3-model-and-why-is-it-making-waves",
       "first_seen": "2026-07-28T06:54:39+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5931f68713861b24f58cc1ed",
+      "published_at": "2026-07-27T17:20:13Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Global",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Financial Times Technology",
+      "organization": "Financial Times Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "NvidiaがIlya SutskeverのAIブレークスルーに50億ドルを賭ける",
+      "title_original": "Nvidia bets $5bn on Ilya Sutskever’s AI breakthrough",
+      "summary": "NvidiaがVera Rubinチップを使用して計算能力を急速に拡大するための研究に50億ドルを投資する。",
+      "summary_original": "Safe Superintelligence will use Vera Rubin chips to rapidly expand computing capacity for its secretive research",
+      "summary_language": "ja",
+      "url": "https://www.ft.com/content/5c78dec1-b6d6-415e-9456-f1ab5eed6146?syn-25a6b1a6=1",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "041ce25aa95924ad40131ef8",
+      "published_at": "2026-07-27T15:57:14Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Global",
+      "country": "United Kingdom",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Financial Times Technology",
+      "organization": "Financial Times Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "アマゾンがモバイルサービス向けの衛星コンステレーションを目指す",
+      "title_original": "Amazon targets Musk’s Starlink with satellite constellation for mobile services",
+      "summary": "アマゾンが5000基以上の衛星を打ち上げ、グローバルな消費者サービスを提供する計画を発表。",
+      "summary_original": "Tech giant files to launch more than 5,000 satellites to provide global consumer service",
+      "summary_language": "ja",
+      "url": "https://www.ft.com/content/83e93ce0-1ebd-4b04-a70c-82ff7b64a5f4?syn-25a6b1a6=1",
+      "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "014a71bdb325452c4cdf15ab",
+      "published_at": "2026-07-27T15:40:38Z",
+      "collected_at_jst": "2026-07-28T09:43:19+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Verge Technology",
+      "organization": "The Verge Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "アマゾン、2028年にグローバル衛星携帯電話ネットワークを開始予定",
+      "title_original": "Amazon’s trying to launch a global satellite cellphone network in 2028",
+      "summary": "アマゾンは、音声、メッセージング、データ、緊急サービスを提供する新しい低軌道衛星コンステレーションのFCC申請を行い、2028年に5,105基の衛星を展開する計画を発表しました。",
+      "summary_original": "Amazon filed an FCC application on Saturday to launch a new Leo satellite constellation that will provide direct-to-device satellite service for \"voice, messaging, data, and emergency services.\" If approved, Amazon will begin deploying the new constellation of 5,105 satellites in 2028. It says it plans to partner with mobile network operators to offer direct-to-device satellite […]",
+      "summary_language": "ja",
+      "url": "https://www.theverge.com/tech/971437/amazon-leo-direct-to-device-satellite-network",
+      "first_seen": "2026-07-28T09:43:19+09:00",
       "status": "New"
     },
     {
@@ -677,6 +1025,43 @@
       "summary_language": "ja",
       "url": "https://www.soumu.go.jp/menu_news/s-news/01kiban18_01000284.html",
       "first_seen": "2026-07-27T18:40:11+09:00",
+      "status": "New"
+    },
+    {
+      "id": "965e1e86fb4a8726fd0929f2",
+      "published_at": "2026-07-27T09:00:00Z",
+      "collected_at_jst": "2026-07-28T12:16:57+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "JST プレスリリース",
+      "organization": "Japan Science and Technology Agency",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "共同発表：どんな習慣ができるかを決める2つの神経回路を発見～強迫症などの理解へ前進～",
+      "title_original": "共同発表：どんな習慣ができるかを決める2つの神経回路を発見～強迫症などの理解へ前進～",
+      "summary": "京都大学の研究チームが、習慣化に関与する神経回路を発見し、強迫症の理解に寄与する可能性を示した。",
+      "summary_original": "運動や掃除など、「やったほうがいいとは分かっているけれど面倒なこと」を続ける方法として、その行動を習慣にすること（習慣化）が注目されています。習慣化には「同じ行動を何度も繰り返すこと」が大切ですが、意外にも、「繰り返した行動がそのまま同じ形で習慣になる」のかどうかは分かっていませんでした。 京都大学 大学院医学研究科 淺岡 希美 助教、Adachi Pagano Diane 博士課程学生、林 康紀 教授らの研究グループは、マウスに対して私たちヒトのような習慣行動を引き起こすことに成功し、そのとき何が起きているかを調べました。その結果、「行動が習慣になるかどうか」と、「習慣になった後どれくらい行動するか（頻度や量）」は、脳内の別々の神経回路によって決定されていることが分かりました。実際、「頻度や量」を決める神経回路の働きが弱いマウスは、行動を習慣化することはできても、習慣化した行動の頻度や量に関しては元の行動より少なくなってしまいました。 この結果は、「行動を繰り返せば、その行動はそのまま習慣となる」といったこれまでの考え方よりも、複雑なメカニズムで習慣が作られていることを示しています。この発見は、「頻度や量」を決める神経回路を選んで働きを変化させることで、強迫症などでみられる病的な習慣行動がどのように生まれるかを理解し、その制御法の開発につながる可能性があります。 本研究成果は、2026年7月27日（ロンドン時間）付で国際学術誌「Nature Communications」にオンライン掲載されました。 本研究は、文部科学省 科学研究費補助金（JP22K15291、JP25K0…",
+      "summary_language": "ja",
+      "url": "https://www.jst.go.jp/pr/announce/20260727-3/index.html",
+      "first_seen": "2026-07-28T12:16:57+09:00",
       "status": "New"
     },
     {
@@ -4534,7 +4919,7 @@
       "policy_relevance": 4,
       "source_type": "Major Media",
       "source": "Axios Technology",
-      "organization": "Axios",
+      "organization": "Axios Technology",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
@@ -4570,7 +4955,7 @@
       "policy_relevance": 2,
       "source_type": "Major Media",
       "source": "Axios Technology",
-      "organization": "Axios",
+      "organization": "Axios Technology",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
@@ -5152,7 +5537,7 @@
       "policy_relevance": 1,
       "source_type": "Major Media",
       "source": "Axios Technology",
-      "organization": "Axios",
+      "organization": "Axios Technology",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
