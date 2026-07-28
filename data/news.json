@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T16:30:40Z",
-  "updated_at_jst": "2026-07-29T01:30:40+09:00",
+  "updated_at": "2026-07-28T17:00:41Z",
+  "updated_at_jst": "2026-07-29T02:00:41+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 233,
+  "article_count": 235,
   "source_count": 285,
   "source_counts": {
     "daily": 278,
@@ -6366,6 +6366,44 @@
       "status": "New"
     },
     {
+      "id": "3b99c26a02099a6f0cdaa441",
+      "published_at": "2026-07-21T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "KEK",
+      "organization": "KEK",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "量子ビットを超えたダイヤモンド量子センサーによる暗黒物質探索",
+      "title_original": "抗血栓性高分子のバリア機能の原因を解明 - KEK｜高エネルギー加速器研究機構",
+      "summary": "ダイヤモンド量子センサーを用いた暗黒物質探索の高精度化に成功しました。",
+      "summary_original": "プレスリリース すべて 2026年 2025年 2024年 2023年 2022年 2021年 2020年 抗血栓性高分子のバリア機能の原因を解明 中性子散乱による中間水の状態の解析に成功 物質構造科学研究所 研究成果 公開日 2026/07/21 超小型蓄積リングに荷電粒子ビームを入射する「3次元らせん入射手法」を開発 世界で初めて実験的に実証 次世代加速器技術への展開目指す 加速器研究施設 研究成果 公開日 2026/07/16 KEK制作の科学映像が第67回科学技術映像祭 文部科学大臣賞を受賞 加速器研究施設 素粒子原子核研究所 公開日 2026/07/14 酸化物界面における「隠れた電荷移動経路」を特定 従来の半導体物理では考慮されていなかった界面における「化学結合ネットワーク」の重要性を実証 物質構造科学研究所 研究成果 公開日 2026/07/14 氷の中でのミュオンの不思議な挙動を解明 50年来の謎を解く鍵は「量子」の振る舞い 大強度陽子加速器施設 物質構造科学研究所 研究成果 公開日 2026/07/10 量子ビットを超えて ダイヤモンド量子センサーで暗黒物質探索を高精度化 量子場計測システム国際拠点 研究成果 公開日 2026/07/09 PathAhead、KEK本田 孝志氏との共同研究が国土交通省「SBIR建設技術研究開発助成制度」に採択 物質構造科学研究所 研究成果 公開日 2026/07/07 中高生11名が世界最高強度の加速器J-PARCでミュオンビーム実験を実施 大強度陽子加速器施設 物質構造科学研究所 公開日 2026/07/03 不安定で作れ…",
+      "summary_language": "ja",
+      "url": "https://www.kek.jp/ja/press/202607211100",
+      "first_seen": "2026-07-21T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "1cd467f8ebb1388daedc245f",
       "published_at": "2026-07-21T00:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -6467,6 +6505,42 @@
       "summary_language": "ja",
       "url": "https://event.on24.com/wcc/r/5418459/287E3D5B99470D34C830D69A24B3B207",
       "first_seen": "2026-07-21T00:55:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c19869979ff9f1973f387fbd",
+      "published_at": "2026-07-20T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "日本製薬工業協会",
+      "organization": "日本製薬工業協会",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "「骨太の方針2026」閣議決定を受けて",
+      "title_original": "「骨太の方針2026」閣議決定を受けて | 2026年 ニュースリリース | 日本製薬工業協会",
+      "summary": "「経済財政運営と改革の基本方針2026」が閣議決定され、創薬・先端医療が日本の成長を支える重要分野として位置付けられました。特に新薬の初収載時における適切な評価が強調されています。",
+      "summary_original": "今般、経済財政諮問会議での答申を経て、「経済財政運営と改革の基本方針2026（骨太の方針2026）」が閣議決定されました。本方針の策定にご尽力いただいた関係各位に敬意を表します。本方針において、創薬・先端医療が日本の成長を支える重要分野として位置付けられたことは、大変意義深いものと考えています。 特に、医薬品の初収載時*における適切な価値評価をはじめ、革新的新薬のイノベーションを更に評価する方向性が明記されたことを、重要な前進として受け止めています。 日本製薬工業協会は、患者さん・国民が必要な医薬品に継続的にアクセスできる環境を維持するとともに、持続可能な社会保障制度とイノベーション創出の両立に向け、以下の点が実現されるよう、引き続き、関係者との対話を積極的に進めてまいります。 米国における医薬品最恵国待遇（ＭFＮ）価格政策等、諸外国の医薬品をめぐる政策の動きがある中、本方針では、必要な医薬品等が確実に上市される環境整備を目指す旨が明記された。新薬の初収載時における適切な評価をはじめ、市場拡大再算定および持続可能性特例価格調整を含む薬価の在り方について、イノベーションを更に評価するための具体的な制度設計を速やかに関係者と議論し、日本が新薬の開発や導入先として選ばれ続ける市場環境の実現につなげていく。 新薬の初収載時におけるイノベーションの価値が適切に評価されることを前提として、費用対効果評価制度については、結論を急ぐあまり拙速な検証や見直しになることなく、合理性と透明性を確保し、イノベーションを阻害しない制度とする必要がある。患者さんに革新的な医薬品を継続的に届けるためにも、…",
+      "summary_language": "ja",
+      "url": "https://www.jpma.or.jp/news_room/release/2026/260721.html",
+      "first_seen": "2026-07-21T00:00:00+09:00",
       "status": "New"
     },
     {
