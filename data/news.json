@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T00:26:18Z",
-  "updated_at_jst": "2026-07-28T09:26:18+09:00",
+  "updated_at": "2026-07-28T00:43:19Z",
+  "updated_at_jst": "2026-07-28T09:43:19+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
   "article_count": 205,
-  "source_count": 260,
+  "source_count": 287,
   "source_counts": {
-    "daily": 252,
+    "daily": 279,
     "weekly": 8,
     "tier_s": 151,
-    "tier_a": 101,
+    "tier_a": 128,
     "tier_b": 8
   },
   "items": [
@@ -70,7 +70,7 @@
       "policy_relevance": 0,
       "source_type": "Government",
       "source": "National Science Foundation News",
-      "organization": "U.S. National Science Foundation",
+      "organization": "National Science Foundation News",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
@@ -172,7 +172,7 @@
       "policy_relevance": 0,
       "source_type": "Government",
       "source": "理化学研究所",
-      "organization": "RIKEN",
+      "organization": "理化学研究所",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
@@ -3884,7 +3884,7 @@
       "region": "Asia",
       "country": "Japan",
       "topics": [
-        "Robotics"
+        "Artificial Intelligence"
       ],
       "article_frames": [
         "Technology Innovation"
@@ -3998,7 +3998,7 @@
       "policy_relevance": 2,
       "source_type": "Official Company",
       "source": "Anthropic News",
-      "organization": "Anthropic",
+      "organization": "Anthropic News",
       "academic_kind": "News & Official Release",
       "review_status": "",
       "venue": "",
