@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T16:37:28Z",
-  "updated_at_jst": "2026-07-30T01:37:28+09:00",
+  "updated_at": "2026-07-29T17:30:12Z",
+  "updated_at_jst": "2026-07-30T02:30:12+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 308,
+  "article_count": 309,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -7555,6 +7555,44 @@
       "summary_original": "プレスリリース すべて 2026年 2025年 2024年 2023年 2022年 2021年 2020年 抗血栓性高分子のバリア機能の原因を解明 中性子散乱による中間水の状態の解析に成功 物質構造科学研究所 研究成果 公開日 2026/07/21 超小型蓄積リングに荷電粒子ビームを入射する「3次元らせん入射手法」を開発 世界で初めて実験的に実証 次世代加速器技術への展開目指す 加速器研究施設 研究成果 公開日 2026/07/16 KEK制作の科学映像が第67回科学技術映像祭 文部科学大臣賞を受賞 加速器研究施設 素粒子原子核研究所 公開日 2026/07/14 酸化物界面における「隠れた電荷移動経路」を特定 従来の半導体物理では考慮されていなかった界面における「化学結合ネットワーク」の重要性を実証 物質構造科学研究所 研究成果 公開日 2026/07/14 氷の中でのミュオンの不思議な挙動を解明 50年来の謎を解く鍵は「量子」の振る舞い 大強度陽子加速器施設 物質構造科学研究所 研究成果 公開日 2026/07/10 量子ビットを超えて ダイヤモンド量子センサーで暗黒物質探索を高精度化 量子場計測システム国際拠点 研究成果 公開日 2026/07/09 PathAhead、KEK本田 孝志氏との共同研究が国土交通省「SBIR建設技術研究開発助成制度」に採択 物質構造科学研究所 研究成果 公開日 2026/07/07 中高生11名が世界最高強度の加速器J-PARCでミュオンビーム実験を実施 大強度陽子加速器施設 物質構造科学研究所 公開日 2026/07/03 不安定で作れ…",
       "summary_language": "ja",
       "url": "https://www.kek.jp/ja/press/202607161000",
+      "first_seen": "2026-07-21T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "15b51025c710c6786a4af1f4",
+      "published_at": "2026-07-21T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "KEK",
+      "organization": "KEK",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "KEK制作の科学映像が第67回科学技術映像祭 文部科学大臣賞を受賞",
+      "title_original": "KEK制作の科学映像が第67回科学技術映像祭 文部科学大臣賞を受賞 - KEK｜高エネルギー加速器研究機構",
+      "summary": "KEKが制作した科学映像が文部科学大臣賞を受賞し、量子技術に関する研究成果が評価されました。",
+      "summary_original": "プレスリリース すべて 2026年 2025年 2024年 2023年 2022年 2021年 2020年 抗血栓性高分子のバリア機能の原因を解明 中性子散乱による中間水の状態の解析に成功 物質構造科学研究所 研究成果 公開日 2026/07/21 超小型蓄積リングに荷電粒子ビームを入射する「3次元らせん入射手法」を開発 世界で初めて実験的に実証 次世代加速器技術への展開目指す 加速器研究施設 研究成果 公開日 2026/07/16 KEK制作の科学映像が第67回科学技術映像祭 文部科学大臣賞を受賞 加速器研究施設 素粒子原子核研究所 公開日 2026/07/14 酸化物界面における「隠れた電荷移動経路」を特定 従来の半導体物理では考慮されていなかった界面における「化学結合ネットワーク」の重要性を実証 物質構造科学研究所 研究成果 公開日 2026/07/14 氷の中でのミュオンの不思議な挙動を解明 50年来の謎を解く鍵は「量子」の振る舞い 大強度陽子加速器施設 物質構造科学研究所 研究成果 公開日 2026/07/10 量子ビットを超えて ダイヤモンド量子センサーで暗黒物質探索を高精度化 量子場計測システム国際拠点 研究成果 公開日 2026/07/09 PathAhead、KEK本田 孝志氏との共同研究が国土交通省「SBIR建設技術研究開発助成制度」に採択 物質構造科学研究所 研究成果 公開日 2026/07/07 中高生11名が世界最高強度の加速器J-PARCでミュオンビーム実験を実施 大強度陽子加速器施設 物質構造科学研究所 公開日 2026/07/03 不安定で作れ…",
+      "summary_language": "ja",
+      "url": "https://www.kek.jp/ja/press/202607141500",
       "first_seen": "2026-07-21T09:00:00+09:00",
       "status": "New"
     },
