@@ -2530,6 +2530,77 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(calls[0][1]["params"]["requestType"], "getNewsList")
         self.assertEqual(calls[0][1]["params"]["feedId"], feed_id)
 
+    def test_kyowakirin_reads_official_newsroom_json_feed(self):
+        api_url = (
+            "https://www.kyowakirin.com/media_center/share/json/release.json"
+        )
+        payload = [
+            {
+                "ttl": (
+                    "Kyowa Kirin announces Phase 3 gene therapy study results"
+                ),
+                "type": "normal",
+                "url": (
+                    "/media_center/news_releases/2026/"
+                    "e20260720_01.html"
+                ),
+                "category": ["R&D"],
+                "date": {"year": "2026", "month": "07", "day": "20"},
+            }
+        ]
+
+        class FakeSession:
+            def get(self, url, *args, **kwargs):
+                value = collector.requests.Response()
+                value.status_code = 200
+                value.url = url
+                value._content = json.dumps(payload).encode("utf-8")
+                value.encoding = "utf-8"
+                return value
+
+        source = {
+            "active": True,
+            "name": "Kyowa Kirin News",
+            "organization": "Kyowa Kirin",
+            "source_type": "Official Company",
+            "region": "Asia",
+            "country": "Japan",
+            "category": "Biotechnology, drug discovery and healthcare",
+            "feed_url": api_url,
+            "fetch_mode": "kyowakirin_release_api",
+            "api_url": api_url,
+            "homepage": (
+                "https://www.kyowakirin.com/media_center/"
+                "news_releases/index.html"
+            ),
+            "priority": 5,
+            "topic_tags": ["Biotechnology", "Healthcare"],
+            "strict_relevance": True,
+            "daily_item_limit": 10,
+        }
+        items, result = collector.fetch_source(
+            FakeSession(),
+            source,
+            datetime(2026, 7, 1, tzinfo=timezone.utc),
+            datetime(2026, 7, 29, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(result.entries_seen, 1)
+        self.assertEqual(result.entries_kept, 1)
+        self.assertEqual(items[0]["published_at"], "2026-07-20T00:00:00Z")
+        self.assertEqual(
+            items[0]["url"],
+            (
+                "https://www.kyowakirin.com/media_center/"
+                "news_releases/2026/e20260720_01.html"
+            ),
+        )
+        self.assertEqual(
+            items[0]["discovery_method"],
+            "Kyowa Kirin official newsroom JSON feed",
+        )
+
     def test_structured_api_invalid_schema_is_error(self):
         api_url = "https://www.federalregister.gov/api/v1/documents.json"
 
@@ -3037,7 +3108,7 @@ class CollectorTests(unittest.TestCase):
         names = [source["name"] for source in sources]
         self.assertEqual(len(names), len(set(names)))
         active_sources = [source for source in sources if source.get("active")]
-        self.assertEqual(config["expected_active_source_count"], 285)
+        self.assertEqual(config["expected_active_source_count"], 304)
         self.assertEqual(
             len(active_sources),
             config["expected_active_source_count"],
@@ -3257,6 +3328,13 @@ class CollectorTests(unittest.TestCase):
             "ABB Robotics News": (
                 "abb_newsbank_api",
                 "https://www.abb.com/conf/abbcommon/services/newsbank.json",
+            ),
+            "Kyowa Kirin News": (
+                "kyowakirin_release_api",
+                (
+                    "https://www.kyowakirin.com/media_center/"
+                    "share/json/release.json"
+                ),
             ),
         }
         for name, (fetch_mode, api_url) in expected.items():
