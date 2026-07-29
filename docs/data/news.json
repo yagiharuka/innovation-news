@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T01:00:28Z",
-  "updated_at_jst": "2026-07-29T10:00:28+09:00",
+  "updated_at": "2026-07-29T01:30:23Z",
+  "updated_at_jst": "2026-07-29T10:30:23+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 293,
+  "article_count": 294,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -8224,6 +8224,41 @@
       "summary_language": "ja",
       "url": "https://www.modernatx.com/media-center/all-media/blogs/potential-mRNA-cancer-prevention",
       "first_seen": "2026-07-07T03:02:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e2c62d931b776bfb3f9a7b09",
+      "published_at": "2026-07-03T05:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "QST",
+      "organization": "QST",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "重水素イオンを加速可能な「ブーストクーロン爆発」の発見",
+      "title_original": "重水素イオンを加速可能な 「ブーストクーロン爆発」の発見<br>～レーザー駆動中性子源や医療用放射性同位体の生成応用に期待～ - 量子科学技術研究開発機構",
+      "summary": "量子科学技術研究開発機構が発表した研究成果で、重水素イオンを加速する新たな技術がレーザー駆動中性子源や医療用放射性同位体の生成に応用できる可能性があることが示されました。",
+      "summary_original": "研究成果や活動に関するプレスリリースです。",
+      "summary_language": "ja",
+      "url": "https://www.qst.go.jp/site/press/20260703-2.html",
+      "first_seen": "2026-07-03T14:00:00+09:00",
       "status": "New"
     },
     {
