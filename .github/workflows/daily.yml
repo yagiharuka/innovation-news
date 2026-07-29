@@ -83,6 +83,7 @@ jobs:
             git push
           fi
 
+  # Rebuild derived outputs so source-registry changes are validated together.
   verify:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
