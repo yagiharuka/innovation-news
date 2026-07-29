@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "review_version": "tech-innovation-v6",
-  "updated_at": "2026-07-29T13:40:30Z",
-  "updated_at_jst": "2026-07-29T22:40:30+09:00",
+  "updated_at": "2026-07-29T14:56:30Z",
+  "updated_at_jst": "2026-07-29T23:56:30+09:00",
   "status": "request_budget_reached",
-  "selected": 32,
-  "reviewed": 15,
-  "excluded": 13,
-  "model_requests": 4,
+  "selected": 12,
+  "reviewed": 0,
+  "excluded": 0,
+  "model_requests": 2,
   "rate_limited": false,
   "request_budget_reached": true,
   "retry_after": "",
@@ -15,14 +15,14 @@
   "rate_limit_remaining": "",
   "rate_limit_reset": "",
   "quota_window_reset_at": "",
-  "pending_before": 1852,
+  "pending_before": 1837,
   "pending_in_window": 1837,
   "pending_expired": 12,
   "public_items": 307,
   "academic_refresh": {
-    "targets": 1,
-    "attempted": 1,
-    "restored": 1,
+    "targets": 0,
+    "attempted": 0,
+    "restored": 0,
     "errors": 0
   }
 }
