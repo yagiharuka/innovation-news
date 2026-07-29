@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-28T23:30:29Z",
-  "updated_at_jst": "2026-07-29T08:30:29+09:00",
+  "updated_at": "2026-07-29T00:30:26Z",
+  "updated_at_jst": "2026-07-29T09:30:26+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 287,
+  "article_count": 291,
   "source_count": 304,
   "source_counts": {
-    "daily": 278,
+    "daily": 297,
     "weekly": 7,
-    "tier_s": 151,
-    "tier_a": 127,
+    "tier_s": 161,
+    "tier_a": 136,
     "tier_b": 7
   },
   "items": [
@@ -6559,6 +6559,44 @@
       "status": "New"
     },
     {
+      "id": "3e45640c5dfd1987087aab70",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence",
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Standards & Safety"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "産総研 研究成果",
+      "organization": "産総研 研究成果",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "AIを用いた花粉症対策の革新",
+      "title_original": "産総研：固体中をイオンが高速で流れる仕組みを解明",
+      "summary": "AIと専門家の協力により、花粉症対策のための自動花粉同定システムの開発に成功しました。",
+      "summary_original": "2026/07/24 ここにどうして蛇紋岩？ －沈み込み帯の浅いところ起源の付加体に、深いところ起源の蛇紋岩が混じるわけ－ 2026/07/21 固体中をイオンが高速で流れる仕組みを解明 －単純物理モデルが明らかにした超イオン伝導の基礎原理－ 2026/07/21 植物由来の分子で環境発電 －コガネバナの根から抽出できる成分の蒸着膜を用いた素子で振動発電を実証－ 2026/07/10 プラスチック製ボトルキャップに乗ったゴカイ達の航海記録 －付着生物相・同位体分析・海流モデルから海洋ごみ生態系の漂流の道のりを推定－ 2026/07/10 混合廃プラスチックのリサイクルに新たな手法 －廃プラスチックのなかのポリウレタンを選択的に分解する触媒の開発－ 2026/07/09 AI×専門家が協調した人間参加型AIアプローチで花粉症対策に革新！ －実践的な「AI自動花粉同定システム」の開発に成功－ 2026/07/08 バイオものづくり由来の廃棄物と廃水をまとめて処理してエネルギー回収 －嫌気性微生物による有機物分解とメタンガス生成が効率的に進む新型反応器を開発－ 2026/07/06 世界最高精度で曲面ミラーの形状を測る装置を開発 －EUV露光装置などに用いられる光学素子形状を、2ナノメートル精度で非接触測定－ 2026/07/01 “松やに”から黒鉛製造 －松の樹液に含まれる樹脂酸から黒鉛前駆体ピッチの合成に成功－ 2026/06/29 次世代XRコンテンツ産業を規格が後押し －サイバー空間における利用者の身体“アバター”の設計と利用に関する国際規格－ 2026/06/25 LLM…",
+      "summary_language": "ja",
+      "url": "https://www.aist.go.jp/aist_j/press_release/pr2026/pr20260721_2/pr20260721_2.html",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "0ac8098aa1b083eff7c3b1a1",
       "published_at": "2026-07-24T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -6735,6 +6773,40 @@
       "status": "New"
     },
     {
+      "id": "342b8ba4bb73401006cd755e",
+      "published_at": "2026-07-23T09:58:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "European Union",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 2,
+      "source_type": "Government",
+      "source": "CORDIS",
+      "organization": "CORDIS",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "哺乳類の再生能力を活性化する新技術の提案",
+      "title_original": "Do humans have hidden regenerative powers?",
+      "summary": "研究チームが哺乳類が失った肢を再生する能力を活性化する新技術を提案しました。",
+      "summary_original": "Article available in the following languages: Scientists propose a new technique to activate a dormant ability to regrow lost limbs in mammals. Over the years, scientists have seen the fact that humans and other mammals cannot regrow lost body parts as a major limitation. While animals such as salamanders can grow back entire limbs, humans usually just heal injuries by forming scar tissue. Because we can heal, the power to regenerate is within us, but it’s dormant. Is the day coming when humans wil… A research team led by Texas A&M College of Veterinary Medicine and Biomedical Sciences (VMBS) suggests that mammals might actually be able to regrow body parts. Instead of missing this ability…",
+      "summary_language": "ja",
+      "url": "https://cordis.europa.eu/article/rcn/466711/en?WT.mc_id=RSS-Feed&WT.rss_f=article&WT.rss_a=466711&WT.rss_ev=a",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "45666dc6b70620cd64d2f4fc",
       "published_at": "2026-07-23T04:30:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -6802,6 +6874,44 @@
       "summary_language": "ja",
       "url": "https://www.epo.org/en/news-events/news/patent-granting-process-fully-digital-1-april-2027",
       "first_seen": "2026-07-26T21:45:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4c42752ac4b53eaa9f5d6f86",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum",
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "JAEA",
+      "organization": "JAEA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "原子炉内の物質流れを3Dで可視化する技術の研究成果",
+      "title_original": "原子炉内で生じる”溶けた物質の流れ”を3Dで見える化 ―溶融金属の実験を支えるシミュレーション技術の活用に道―",
+      "summary": "原子炉内で生じる溶けた物質の流れを3Dで見える化する技術の研究成果が発表されました。",
+      "summary_original": "研究開発成果関連（2026年度） 2026/07/23： 原子炉内で生じる”溶けた物質の流れ”を3Dで見える化 ―溶融金属の実験を支えるシミュレーション技術の活用に道― 2026/07/02： トポロジカル磁性体の新たな設計指針を確立 ― ディラック電子を持つ正方格子物質でホモロガス系列を発見 ― 2026/05/28： 熱帯の泥炭地の炭素貯蔵庫が崩壊の危機 ―人間の活動が放つ「過去3,000年分の炭素」が地球温暖化を加速させる― 2026/05/22： 高レベル放射性廃液から発生する水素を実測 ―水素発生量の温度依存性データを整備― 2026/05/13： 地球の外核に大量の水素が存在する可能性 — 世界初、液体鉄中の水素量をその場観察で直接決定 — 2026/04/30： 広い温度域で動作する次世代固体冷媒を開発 －従来の理論スケーリングを超える弾性熱量効果を発見－ 2026/04/30： 世界初！ 海塩粒子をリアルタイムで自動測定！ ―市販の花粉センサーを応用した新モニタリング技術― 2026/04/27： ガラスの「新たな非平衡状態」をレーザー照射により創出 ―高圧処理とは異なる特異な原子構造と発光特性の解明に成功― 2026/04/23： 表面に集まるゲルマニウム原子がゲルマネン合成の鍵 ―加熱か冷却かで「粒」か「シート」かが決まる原理を解明、量子ビット材料探索に貢献― 2026/04/13： 自然界には存在しない構造を持つ2次元酸化鉄の作製に成功 ～グラフェン/SiC界面が生み出す新物質～ 2026/04/13： 世界の宇宙線被ばく線量地図を改定 ～世界の公衆被ば…",
+      "summary_language": "ja",
+      "url": "https://www.jaea.go.jp/02/press2026/p26072301/",
+      "first_seen": "2026-07-23T09:00:00+09:00",
       "status": "New"
     },
     {
@@ -6875,6 +6985,40 @@
       "summary_language": "ja",
       "url": "https://doi.org/10.5281/zenodo.21512028",
       "first_seen": "2026-07-26T21:29:09+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5de1a569286ffa7e4f221586",
+      "published_at": "2026-07-22T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "NIMS",
+      "organization": "NIMS",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "熱を電気に変える「ナノ界面」をマクロに三次元形成した磁性体を開発",
+      "title_original": "熱を電気に変える「ナノ界面」をマクロに三次元形成した磁性体を開発",
+      "summary": "高温で速度に影響されない「理想の摩擦」を観測し、熱エネルギーの有効活用に向けた新たな材料設計の指針を示す研究成果が発表されました。",
+      "summary_original": "2026年 高温で速度に影響されない「理想の摩擦」を呈する挙動を観測 — 摩擦の起源解明につながる新発見 — 2026年07月23日 熱を電気に変える「ナノ界面」をマクロに三次元形成した磁性体を開発 — 熱エネルギーの有効活用に向けた新たな材料設計の指針 — 2026年07月21日 職員の懲戒処分について 2026年07月15日 報告 NIMSとIBM、生成AIを活用した次世代材料研究基盤の構築に向けた協業に合意 — NIMSの材料データ基盤とIBMのAI・先端コンピューティング技術を連携し、材料科学の基盤構築を目指す — 2026年07月01日 細菌をマイクロ電源とした高効率リチウム回収を実現 — 「電気化学方式に匹敵する効率と速度」と「細菌と材料の自己組織化」で大スケール化を可能に — 2026年06月29日 NIMS Award 2026 受賞者決定 — 固体電解質の創製を通じて全固体電池技術に革新をもたらした、菅野了次氏、辰巳砂昌弘氏の2名を顕彰 — 2026年06月16日 シリコン上の縦型GaNデバイス実現に道を拓く低抵抗バッファー層を開発 — GaNのエピタキシャル成長と縦方向の電気伝導を両立 — 2026年06月15日 国立研究開発法人物質・材料研究機構(NIMS)と国立大学法人京都大学との連携・協力に関する協定締結について 2026年06月04日 硬い酸化物が大きく膨張する新現象を発見 — 結晶の基本骨格と化学組成を保ったまま、原子の並び方が変わることで「戻らない巨大膨張」を実現 — 2026年06月01日 赤色蛍光体関連中国特許を巡る無効審判・行政訴訟の終結…",
+      "summary_language": "ja",
+      "url": "https://www.nims.go.jp/press/2026/07/202607210.html",
+      "first_seen": "2026-07-23T00:00:00+09:00",
       "status": "New"
     },
     {
