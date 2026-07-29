@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T17:30:12Z",
-  "updated_at_jst": "2026-07-30T02:30:12+09:00",
+  "updated_at": "2026-07-29T18:00:14Z",
+  "updated_at_jst": "2026-07-30T03:00:14+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 309,
+  "article_count": 312,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -7949,6 +7949,40 @@
       "status": "New"
     },
     {
+      "id": "382d893da003fce45bbc4495",
+      "published_at": "2026-07-16T13:42:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "DARPA",
+      "organization": "DARPA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "DARPA、米空軍がAI制御のF-16を飛行",
+      "title_original": "DARPA, U.S. Air Force fly AI-controlled F-16",
+      "summary": "米空軍のF-16戦闘機がAIエージェントによる自律飛行テストを実施し、戦闘AIの迅速な開発を可能にする技術基盤の進展を示しています。",
+      "summary_original": "Eglin Air Force Base, Fla. — A U.S. Air Force F-16 fighter jet, recently modified to serve as an autonomous flying testbed, is undergoing in-air testing using an artificial intelligence (AI) agent to autonomously control flight. This milestone advances state of the art technological infrastructure designed to enable rapid, scalable combat AI development acr… The aircraft is one of a group of F-16s that have been converted into autonomous-capable platforms under the Viper Experimentation and Next-generation Operations Model (VENOM) program — a joint effort between the U.S. Air Force and DARPA, initiated under the Air Combat Evolution (ACE) program . Building on previous ACE flights with the…",
+      "summary_language": "ja",
+      "url": "https://www.darpa.mil/news/2026/darpa-us-air-force-fly-ai-controlled-f-16",
+      "first_seen": "2026-07-16T22:42:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "17ffa424cf814d722a951c64",
       "published_at": "2026-07-16T13:35:15Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -8018,6 +8052,74 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/07/trump-administration-secures-additional-100-billion-us-semiconductor",
       "first_seen": "2026-07-16T21:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "b0224e16a024ce665e5d6844",
+      "published_at": "2026-07-16T07:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "Japan",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "ispace News",
+      "organization": "ispace News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "ispaceとSKY Perfectが日本の月面探査ミッションのための通信インフラを進展させるMOUを締結",
+      "title_original": "ispace and SKY Perfect Sign MOU to Advance Commercial Communications Infrastructure for Japan’s Lunar Exploration Missions",
+      "summary": "ispaceとSKY Perfectが日本の月面探査ミッションに向けた商業通信インフラの進展を目指す覚書を締結しました。",
+      "summary_original": "Stay up to date on our progress Years All 2026 2025 2024 2023 2022 2021 2020 2019 2018 2017 2016 Filter All Corporate Finance Mission Partner Regions All Europe Japan US Mission 07.24.2026 ESA Awards ispace-EUROPE Contract for Execution of MAGPIE, ESA’s First Lunar Rover Learn More Learn More Mission 07.16.2026 ispace and SKY Perfect Sign MOU to Advance Commercial Communications Infrastructure for Japan’s Lunar Exploration Missions Learn More Learn More Mission 07.15.2026 ispace-U.S. Update on Contract with Draper Learn More Learn More Partner 07.08.2026 ispace Accelerates Growth in the “Lunar Infrastructure Market” Learn More Learn More Corporate 06.26.2026 ispace Announces Reappointment o…",
+      "summary_language": "ja",
+      "url": "https://www.ispace-inc.com/2026/07/16/ispace-and-sky-perfect-sign-mou-to-advance-commercial-communications-infrastructure-for-japans-lunar-exploration-missions/",
+      "first_seen": "2026-07-16T16:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c4abc2519fcaccb73afbbc77",
+      "published_at": "2026-07-16T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Kyoto Fusioneering News",
+      "organization": "Kyoto Fusioneering News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "京都フュージョニアリング、核融合発電所向けFLiBe技術の開発に向けた戦略的パートナーシップを発表",
+      "title_original": "Newsletter 2026 Vol.4 | NEWS | Kyoto Fusioneering",
+      "summary": "京都フュージョニアリングとNGKが、核融合発電所向けのFLiBe技術を開発するための戦略的パートナーシップを発表しました。",
+      "summary_original": "NEWS HOME > NEWS 2026.07.16 NEWS RELEASE Kyoto Fusioneering and NGK Announce Strategic Partnership to Develop Molten Salt FLiBe Technology for Fusion Power Plants 2026.07.14 INTERVIEWS & COLUMNS Behind the Fusion Scene: Chris Else 2026.06.03 NEWSLETTER Newsletter 2026 Vol.4 2026.05.29 BLOG THE FUSION ERA: Participation in SusHi Tech Tokyo 2026 2026.05.27 NEWS RELEASE Kyoto Fusioneering Announces Opening of Tokyo Satellite Office 2026.05.15 NEWS RELEASE Kyoto Fusioneering Awarded Contract by QST to Develop Tritium Extraction and Accountancy System Prototypes for ITER Test Blanket System 2026.05.11 INTERVIEWS & COLUMNS Behind the Fusion Scene: Tomoya Yokoi 2026.04.30 NEWS RELEASE TECHNOLOGY T…",
+      "summary_language": "ja",
+      "url": "https://kyotofusioneering.com/en/news/2026/06/03/4001",
+      "first_seen": "2026-07-16T09:00:00+09:00",
       "status": "New"
     },
     {
