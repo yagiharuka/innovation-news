@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T12:32:45Z",
-  "updated_at_jst": "2026-07-29T21:32:45+09:00",
+  "updated_at": "2026-07-29T13:40:30Z",
+  "updated_at_jst": "2026-07-29T22:40:30+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 305,
+  "article_count": 307,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -6597,6 +6597,44 @@
       "status": "New"
     },
     {
+      "id": "2a2cf605f086103648997285",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence",
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Standards & Safety"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "産総研 研究成果",
+      "organization": "産総研 研究成果",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "産総研：植物由来の分子で環境発電",
+      "title_original": "産総研：植物由来の分子で環境発電",
+      "summary": "産総研が植物由来の分子を用いた環境発電の実証を行い、AIを活用した花粉症対策の新システムを開発しました。",
+      "summary_original": "2026/07/24 ここにどうして蛇紋岩？ －沈み込み帯の浅いところ起源の付加体に、深いところ起源の蛇紋岩が混じるわけ－ 2026/07/21 固体中をイオンが高速で流れる仕組みを解明 －単純物理モデルが明らかにした超イオン伝導の基礎原理－ 2026/07/21 植物由来の分子で環境発電 －コガネバナの根から抽出できる成分の蒸着膜を用いた素子で振動発電を実証－ 2026/07/10 プラスチック製ボトルキャップに乗ったゴカイ達の航海記録 －付着生物相・同位体分析・海流モデルから海洋ごみ生態系の漂流の道のりを推定－ 2026/07/10 混合廃プラスチックのリサイクルに新たな手法 －廃プラスチックのなかのポリウレタンを選択的に分解する触媒の開発－ 2026/07/09 AI×専門家が協調した人間参加型AIアプローチで花粉症対策に革新！ －実践的な「AI自動花粉同定システム」の開発に成功－ 2026/07/08 バイオものづくり由来の廃棄物と廃水をまとめて処理してエネルギー回収 －嫌気性微生物による有機物分解とメタンガス生成が効率的に進む新型反応器を開発－ 2026/07/06 世界最高精度で曲面ミラーの形状を測る装置を開発 －EUV露光装置などに用いられる光学素子形状を、2ナノメートル精度で非接触測定－ 2026/07/01 “松やに”から黒鉛製造 －松の樹液に含まれる樹脂酸から黒鉛前駆体ピッチの合成に成功－ 2026/06/29 次世代XRコンテンツ産業を規格が後押し －サイバー空間における利用者の身体“アバター”の設計と利用に関する国際規格－ 2026/06/25 LLM…",
+      "summary_language": "ja",
+      "url": "https://www.aist.go.jp/aist_j/press_release/pr2026/pr20260721/pr20260721.html",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "0ac8098aa1b083eff7c3b1a1",
       "published_at": "2026-07-24T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -6664,6 +6702,40 @@
       "summary_original": "OpenAlex research topics: Gut microbiota and health; Microbial Community Ecology and Physiology; Genomics and Phylogenetic Studies; Metagenomics; Host (biology); Ecosystem; Genome; Computational biology; Biology; Ecology; Gene; Genetics",
       "summary_language": "ja",
       "url": "https://doi.org/10.1038/s41522-026-01107-3",
+      "first_seen": "2026-07-27T06:32:05+09:00",
+      "status": "New"
+    },
+    {
+      "id": "429a356e4f394ec4469a62b7",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Nuclear Fusion",
+      "organization": "Nuclear Fusion",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Nuclear Fusion",
+      "doi": "https://doi.org/10.1088/1741-4326/ae8fe9",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "高-nトロイダルAlfvén固有モードの線形不安定性解析に関する研究",
+      "title_original": "Physics-augmented surrogate model for linear instability analysis of high-n toroidal Alfvén eigenmodes in tokamaks",
+      "summary": "高-nトロイダルAlfvén固有モードの線形不安定性解析に関する物理拡張サロゲートモデルを提案しました。",
+      "summary_original": "OpenAlex research topics: Magnetic confinement fusion research; Model Reduction and Neural Networks; Physics of Superconductivity and Magnetism; Surrogate model; Instability; Eigenvalues and eigenvectors; Generalization; Toroid; Tokamak; Stability (learning theory); Ballooning",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1088/1741-4326/ae8fe9",
       "first_seen": "2026-07-27T06:32:05+09:00",
       "status": "New"
     },
