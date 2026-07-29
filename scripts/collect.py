@@ -94,6 +94,11 @@ USER_AGENT = (
     "WorldInnovationBrief/1.0 "
     "(RSS reader; contact: repository owner at github.com/yagiharuka/innovation-news)"
 )
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/126.0.0.0 Safari/537.36"
+)
 TRACKING_PARAMS = {
     "fbclid",
     "gclid",
@@ -1594,6 +1599,88 @@ def fetch_abb_newsbank_source(
             entries_kept=len(items),
             status="ok",
             detail="official ABB Robotics NewsBank JSON API",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
+def fetch_kyowakirin_release_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Collect Kyowa Kirin releases from its official newsroom JSON."""
+    started = time.monotonic()
+    entries_seen = 0
+    try:
+        api_url = source.get("api_url") or source["feed_url"]
+        payload = get_json_with_retry(session, api_url, timeout=(8, 30))
+        if not isinstance(payload, list):
+            raise ValueError("Kyowa Kirin release feed is not a list")
+        entries_seen = len(payload)
+        items: list[dict[str, Any]] = []
+        base_url = normalize_space(str(source.get("homepage") or ""))
+        for record in payload:
+            if not isinstance(record, dict):
+                continue
+            date = record.get("date")
+            if not isinstance(date, dict):
+                continue
+            published = parse_archive_date(
+                "-".join(
+                    str(date.get(part) or "")
+                    for part in ("year", "month", "day")
+                )
+            )
+            title = normalize_space(str(record.get("ttl") or ""))
+            relative_url = normalize_space(str(record.get("url") or ""))
+            if (
+                not title
+                or not relative_url
+                or published is None
+                or not (cutoff <= published <= collected_at + timedelta(days=2))
+            ):
+                continue
+            categories = record.get("category")
+            category_text = (
+                " ".join(str(value) for value in categories)
+                if isinstance(categories, list)
+                else str(categories or "")
+            )
+            item = build_item(
+                source=source,
+                title=title,
+                link=urljoin(base_url, relative_url),
+                summary=category_text,
+                published=published,
+                collected_at=collected_at,
+                extra_text=category_text,
+            )
+            if not item:
+                continue
+            item["discovery_method"] = (
+                "Kyowa Kirin official newsroom JSON feed"
+            )
+            items.append(item)
+
+        items.sort(key=lambda item: item["published_at"], reverse=True)
+        items = items[:structured_item_limit(source, backfill)]
+        return items, FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=len(items),
+            status="ok",
+            detail="official newsroom JSON feed",
             elapsed_seconds=round(time.monotonic() - started, 2),
         )
     except Exception as exc:
@@ -3461,6 +3548,11 @@ def fetch_source(
     entries_seen = 0
     items: list[dict[str, Any]] = []
     try:
+        if source.get("browser_user_agent") is True:
+            session.headers["User-Agent"] = BROWSER_USER_AGENT
+            session.headers["Accept"] = (
+                "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            )
         fetch_mode = source.get("fetch_mode", "feed")
         if fetch_mode == "federal_register":
             return fetch_federal_register_source(
@@ -3480,6 +3572,14 @@ def fetch_source(
             )
         if fetch_mode == "abb_newsbank_api":
             return fetch_abb_newsbank_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "kyowakirin_release_api":
+            return fetch_kyowakirin_release_source(
                 session,
                 source,
                 cutoff,
@@ -3550,7 +3650,18 @@ def fetch_source(
             if fetch_mode in {"html", "link_list"}
             else source["feed_url"]
         )
-        response = session.get(fetch_url or source["feed_url"], timeout=(8, 30))
+        connect_timeout = max(
+            3,
+            min(30, int(source.get("connect_timeout_seconds", 8))),
+        )
+        read_timeout = max(
+            10,
+            min(60, int(source.get("read_timeout_seconds", 30))),
+        )
+        response = session.get(
+            fetch_url or source["feed_url"],
+            timeout=(connect_timeout, read_timeout),
+        )
         response.raise_for_status()
         if fetch_mode == "link_list":
             title_patterns = [
