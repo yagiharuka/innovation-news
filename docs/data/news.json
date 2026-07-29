@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T18:00:14Z",
-  "updated_at_jst": "2026-07-30T03:00:14+09:00",
+  "updated_at": "2026-07-29T19:00:14Z",
+  "updated_at_jst": "2026-07-30T04:00:14+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 312,
+  "article_count": 315,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -8368,6 +8368,74 @@
       "status": "New"
     },
     {
+      "id": "104a65fa616014c48589c059",
+      "published_at": "2026-07-09T16:46:22Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Microsoft Research",
+      "organization": "Microsoft Research",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Aurora 1.5: 天候と地球システムアプリケーションのためのオープン基盤モデルの拡張",
+      "title_original": "Aurora 1.5: Extending open foundation models for weather and Earth-system applications",
+      "summary": "Aurora 1.5は、22の変数、時間的解像度、確率的アンサンブル予測を追加し、実世界の天候、気候、エネルギーアプリケーションに役立つようにしています。",
+      "summary_original": "Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for real-world weather, climate, and energy applications. The post Aurora 1.5: Extending open foundation models for weather and Earth-system applications appeared first on Microsoft Research .",
+      "summary_language": "ja",
+      "url": "https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/",
+      "first_seen": "2026-07-10T01:46:22+09:00",
+      "status": "New"
+    },
+    {
+      "id": "38326291ef4a663ab2d3c385",
+      "published_at": "2026-07-08T11:30:49Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "EUROfusion",
+      "organization": "EUROfusion",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "デンマークに新しい施設が開設され、エンジニアが重要な核融合部品を扱うロボットをテスト",
+      "title_original": "New facility in Denmark will let engineers test robots in handling key fusion components - EUROfusion",
+      "summary": "デンマークのオーデンセに新しいロボティクスセンターが開設され、エンジニアが放射性核融合部品を安全に取り扱う方法をテストします。",
+      "summary_original": "Denmark opens facility to test robots on fusion parts July 8, 2026 EUROfusion news The new robotics centre in Odense will help engineers test how to safely remove radioactive fusion parts",
+      "summary_language": "ja",
+      "url": "https://euro-fusion.org/eurofusion-news/new-facility-in-denmark-will-let-engineers-test-robots-in-handling-key-fusion-components/",
+      "first_seen": "2026-07-08T20:30:49+09:00",
+      "status": "New"
+    },
+    {
       "id": "ffa2f59ee7918b4bbfdce082",
       "published_at": "2026-07-08T08:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -8399,6 +8467,40 @@
       "summary_language": "ja",
       "url": "https://news.samsung.com/global/samsung-begins-mass-production-of-pm1763-ssd-optimized-for-next-generation-ai-infrastructure",
       "first_seen": "2026-07-08T17:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f2250ecb323b29607e1f93a2",
+      "published_at": "2026-07-08T06:45:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Spire Global",
+      "organization": "Spire Global",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Spire Global、SpaceXのTransporter-17ライドシェアミッションで10機の衛星を成功裏に打ち上げ",
+      "title_original": "Spire Global Successfully Launches Ten Satellites on SpaceX’s Transporter-17 Rideshare Mission",
+      "summary": "Spire Globalは、SpaceXのTransporter-17ライドシェアミッションで10機の衛星を成功裏に打ち上げました。",
+      "summary_original": "VIENNA, Va.--(BUSINESS WIRE)-- Spire Global, Inc. (NYSE: SPIR) (“Spire” or “the Company”), a global provider of space-based data, analytics and intelligence, has successfully launched ten satellites aboard SpaceX’s Transporter-17 rideshare mission. The satellites were integrated by Germany’s launch integrator Exolaunch. Included in the launch were two satellites for GHGSat to monitor greenhouse gas emissions, expanding the company’s constellation dedicated to high-resolution methane detection. Spire has manufactured and now operates a total of seven satellites for GHGSat, supporting its goal of providing actionable insights that help industries and governments track and re… The mission also…",
+      "summary_language": "ja",
+      "url": "https://ir.spire.com/news-events/press-releases/detail/304/spire-global-successfully-launches-ten-satellites-on",
+      "first_seen": "2026-07-08T15:45:00+09:00",
       "status": "New"
     },
     {
