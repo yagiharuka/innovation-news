@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T21:00:22Z",
-  "updated_at_jst": "2026-07-30T06:00:22+09:00",
+  "updated_at": "2026-07-29T21:30:59Z",
+  "updated_at_jst": "2026-07-30T06:30:59+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 318,
+  "article_count": 320,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -9471,6 +9471,80 @@
       "summary_language": "ja",
       "url": "https://www.aist.go.jp/aist_j/news/announce/au20260717.html",
       "first_seen": "2026-06-08T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d901e7856f06fe52c90ac213",
+      "published_at": "2026-06-07T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum",
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "産総研 お知らせ",
+      "organization": "産総研 お知らせ",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "産総研：フィジカルAIに係る事業の始動について",
+      "title_original": "産総研：フィジカルAIに係る事業の始動について",
+      "summary": "産総研が光量子コンピュータの商用化を目指し、フィジカルAIに関する事業を始動。人材育成事業も進行中。",
+      "summary_original": "2026/07/21 OptQCと産総研、光量子コンピュータ1号機「MoQuren」を構築し稼働開始 ～【世界初】商用化を目指す国産光量子コンピュータが稼働。開発者向け実行環境の整備を加速～ 2026/07/17 ＼最先端の環境で、日本の未来を担う専門人材を育成／ NEDO「量子コンピュータの産業化にかかる 人材育成事業」に採択 ―「量子情報科学学位プログラム」を基盤として最先端研究と産業界をつなぐ高度専門人材育成拠点を構築― 2026/07/17 フィジカルAIに係る事業の始動について 2026/07/02 産総研、製造AX拠点を始動 －製造データとAIでつなぎ、高稼働率、高品質、高収益体質な製造業へと変革－ 2026/07/01 若手人材によるディープテック研究開発「覚醒プロジェクト」の採択者決定！ 2026/06/30 マルチモーダル基盤モデルおよびフィジカルAI基盤技術に関する研究開発が、NEDOのAI開発事業に採択 2026/06/26 臨時閉館のお知らせ 2026/06/11 AISolと農研機構が連携・協力協定を締結しました 2026/06/10 2026年6月8日に発生したフィリピン南部の地震（M7.8）に関する情報 2026/06/02 臨時閉館のお知らせ 2026/05/28 東北大学との連携強化に向けた協定を締結し、連携強化シンポジウムを開催 2026/05/28 量子・AIハイブリッド技術を活用したアプリケーション開発を支援するチュートリアルを公開 2026/04/28 令和8年（2026年）4月20日16時52分に発生した三陸沖の地震の関連情報 20…",
+      "summary_language": "ja",
+      "url": "https://www.aist.go.jp/aist_j/news/announce/au20260717-2.html",
+      "first_seen": "2026-06-08T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3ee9fb846addbc8b6ecd4773",
+      "published_at": "2026-05-29T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "INPIT",
+      "organization": "INPIT",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "特許情報プラットフォーム（J-PlatPat）講習会の開催",
+      "title_original": "［INPIT］特許情報プラットフォーム（J-PlatPat）講習会【特許・実用新案編（中級）】 | 独立行政法人 工業所有権情報・研修館",
+      "summary": "特許・実用新案に関する中級講習会が開催され、J-PlatPatの操作方法を学ぶ機会が提供される。",
+      "summary_original": "※皆様を指名してご発言を求めることはありません。なお、講習形式は変更となる場合があります。 ※今回取り扱う法域は「特許・実用新案」かつ中級の内容となりますので、ご注意ください。特許・実用新案編（初級）・意匠編・商標編は、翌月以降に実施いたします。詳細が決まり次第、当HPにてお知らせします。 ※通信障害などにより講習会が中断した場合、復旧次第再開します。中断が10分を超える場合、同日の開催は中止します。 ※講習テキスト・INPIT職員が操作しているJ-PlatPatの画面を見ながら、ご自身でもJ-PlatPatを操作いただくため、PCが必要です。スマートフォンでも受講は可能ですが、画面の見え方などが異なるため、PCを推奨します。 講習会と同内容の動画、より詳細な内容の動画、お問合せの多い操作方法に関する動画などを多数ご用意しておりますので、当日受講できない方などにおかれましては、 J-PlatPat動画一覧 からぜひご視聴ください。 講習会及び実施後のアンケートで頂いたご質問とその回答を掲載しています。アンケート全体の集計結果は、「講習会の実施報告」に後日掲載予定です。 本講習会の申し込みに必要な個人情報は本講習会の円滑な運営のために利用するとともに、INPIT事業に関する情報のご案内及び今後のサービス向上に役立てるために利用いたします。その他の目的で利用することはありません。 特許・実用新案に限定し、重点的に説明を受けたいポイントを踏まえ、より発展的・応用的な内容をご説明する個別説明会、及びJ-PlatPatに関する意見交換を、企業・団体様向けに実施しております。 ご好評につ…",
+      "summary_language": "ja",
+      "url": "https://www.inpit.go.jp/j-platpat_info/lecture/patent_intermediate.html",
+      "first_seen": "2026-05-29T09:00:00+09:00",
       "status": "New"
     },
     {
