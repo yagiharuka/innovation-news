@@ -103,4 +103,5 @@ jobs:
       - name: Run tests and validate current outputs
         run: |
           python -m unittest discover -s tests
+          python scripts/collect.py --preserve-published-from docs/data/news.json
           python scripts/validate_outputs.py
