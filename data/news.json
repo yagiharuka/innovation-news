@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T04:27:50Z",
-  "updated_at_jst": "2026-07-29T13:27:50+09:00",
+  "updated_at": "2026-07-29T07:25:27Z",
+  "updated_at_jst": "2026-07-29T16:25:27+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 301,
+  "article_count": 305,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -9805,6 +9805,108 @@
       "status": "New"
     },
     {
+      "id": "f5416a506c99930787e426a1",
+      "published_at": "2026-03-06T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Science Advances",
+      "organization": "Science Advances",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Science Advances",
+      "doi": "https://doi.org/10.1126/sciadv.aea4259",
+      "citation_count": 2,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "小惑星の軌道変化の直接検出",
+      "title_original": "Direct detection of an asteroid’s heliocentric deflection: The Didymos system after DART",
+      "summary": "DARTによる小惑星の軌道変化を初めて測定した研究成果を発表。",
+      "summary_original": "OpenAlex research topics: Astro and Planetary Science; Planetary Science and Exploration; Space Satellite Systems and Control; Asteroid; Kinetic energy; Spacecraft; Dart; Impulse (physics); Heliocentric orbit; Occultation; Orbital mechanics; Earth's orbit",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1126/sciadv.aea4259",
+      "first_seen": "2026-03-06T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2c9e1a33e74e24a3f068c18e",
+      "published_at": "2026-03-02T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Sensors",
+      "organization": "Sensors",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Sensors",
+      "doi": "https://doi.org/10.3390/s26051568",
+      "citation_count": 1,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "VIS–NIRスペクトルで動作するフォトニックガスセンサーの進展",
+      "title_original": "Advances in Photonic Gas Sensors Operating in the VIS–NIR Spectrum: Structures, Materials, and Performance",
+      "summary": "フォトニック集積回路を用いたガスセンサーの技術的進展について概説。",
+      "summary_original": "OpenAlex research topics: Photonic and Optical Devices; Advanced Fiber Optic Sensors; Plasmonic and Surface Plasmon Research; Photonics; Key (lock); Limit (mathematics); Integrated circuit; Silicon nitride; Silicon; Photonic integrated circuit",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.3390/s26051568",
+      "first_seen": "2026-03-02T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "61f45e0615bbde6f0f39ef94",
+      "published_at": "2026-02-27T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Microsystems & Nanoengineering",
+      "organization": "Microsystems & Nanoengineering",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Microsystems & Nanoengineering",
+      "doi": "https://doi.org/10.1038/s41378-026-01169-5",
+      "citation_count": 5,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "テラヘルツMEMSアクチュエータとその応用",
+      "title_original": "Terahertz MEMS actuators and applications",
+      "summary": "テラヘルツデバイスの動的制御を向上させるMEMSアクチュエータの技術的進展をレビュー。",
+      "summary_original": "OpenAlex research topics: Advanced MEMS and NEMS Technologies; Superconducting and THz Device Technology; Terahertz technology and applications; Terahertz radiation; Microelectromechanical systems; Actuator; Microfabrication; Terahertz gap",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1038/s41378-026-01169-5",
+      "first_seen": "2026-02-27T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "05022994d11a8d44cf509354",
       "published_at": "2026-02-25T00:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -10043,6 +10145,40 @@
       "summary_original": "OpenAlex research topics: Advanced Sensor and Energy Harvesting Materials; Advanced Materials and Mechanics; Micro and Nano Robotics; Interface (matter); Tactile sensor; Underwater; Biomimetics; Perception; Adaptation (eye); Tactile perception; Object (grammar); Embodied cognition",
       "summary_language": "ja",
       "url": "https://doi.org/10.1002/adma.202519665",
+      "first_seen": "2026-02-12T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9a620b53ec8eae21b841cb1c",
+      "published_at": "2026-02-12T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Advanced Materials",
+      "organization": "Advanced Materials",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Advanced Materials",
+      "doi": "https://doi.org/10.1002/adma.202520433",
+      "citation_count": 3,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "宇宙におけるペロブスカイト太陽電池の耐久性",
+      "title_original": "Beyond Earth: Resilience of Quasi‐2D Perovskite Solar Cells in Space",
+      "summary": "ペロブスカイト太陽電池が宇宙環境でのエネルギー収集において優れた性能を示すことが確認されました。",
+      "summary_original": "OpenAlex research topics: Perovskite Materials and Applications; solar cell performance optimization; TiO2 Photocatalysis and Solar Cells; Perovskite (structure); Payload (computing); Solar sail; Resilience (materials science); Proton; Geocentric orbit; Space environment; Degradation (telecommunications); Low earth orbit",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1002/adma.202520433",
       "first_seen": "2026-02-12T09:00:00+09:00",
       "status": "New"
     },
