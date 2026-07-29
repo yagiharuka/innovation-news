@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T19:00:14Z",
-  "updated_at_jst": "2026-07-30T04:00:14+09:00",
+  "updated_at": "2026-07-29T19:30:15Z",
+  "updated_at_jst": "2026-07-30T04:30:15+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 315,
+  "article_count": 318,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -8607,6 +8607,115 @@
       "summary_language": "ja",
       "url": "https://www.qst.go.jp/site/press/20260703-2.html",
       "first_seen": "2026-07-03T14:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c5904215841a3b751d9ea41c",
+      "published_at": "2026-07-02T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum",
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "QST",
+      "organization": "QST",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "超伝導トカマクのプラズマ立ち上げの物理機構を解明",
+      "title_original": "超伝導トカマクのプラズマ立ち上げの物理機構を解明<br>～ITERや原型炉でのプラズマ立ち上げの課題を解決～ - 量子科学技術研究開発機構",
+      "summary": "超伝導トカマクにおけるプラズマ立ち上げの物理機構を解明し、ITERや原型炉での課題解決に寄与する研究成果を発表しました。",
+      "summary_original": "研究成果や活動に関するプレスリリースです。",
+      "summary_language": "ja",
+      "url": "https://www.qst.go.jp/site/press/20260703.html",
+      "first_seen": "2026-07-03T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "dfd384acba823463a363ca64",
+      "published_at": "2026-07-01T00:00:00Z",
+      "collected_at_jst": "2026-07-27T06:32:05+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "European Innovation Council News",
+      "organization": "European Innovation Council News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "EIC STEP Scale Up Defence callが本日開始",
+      "title_original": "EIC STEP Scale Up Defence call opens today",
+      "summary": "EU加盟国向けに防衛技術のスケールアップを支援するEIC STEP Scale Up Defence callが開始され、最大3000万ユーロの資金が提供されます。",
+      "summary_original": "As announced on 17 June 2026, today the EIC opens the EIC STEP Scale Up Defence call . Companies in the EU Member States, in countries from the European Economic Area that are associated to Horizon Europe and in Ukraine can receive up to €30 million in direct equity financing to accelerate the scale-up of their industrial capabilities on, among others, air and missile defence, drones and counter drones, and other critical defence technologies…",
+      "summary_language": "ja",
+      "url": "https://eic.ec.europa.eu/news/eic-step-scale-defence-call-opens-today-2026-07-01_en",
+      "first_seen": "2026-07-01T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "010f598e06261400f567c362",
+      "published_at": "2026-06-30T12:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 2,
+      "source_type": "Government",
+      "source": "European Research Council",
+      "organization": "European Research Council",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "2025年の概念実証助成金: プロジェクトの例",
+      "title_original": "Proof of Concept Grants 2025: Examples of projects",
+      "summary": "2025年の概念実証助成金は、ERCの助成者が基礎科学から実生活の応用への橋渡しを支援します。この資金は、ヨーロッパの23カ国で300人の研究者を支援し、科学的概念の実現可能性をテストしたり、ビジネス機会を探ったり、特許申請の準備を行ったりします。",
+      "summary_original": "The 2025 Proof of Concept Grants will help ERC grantees in their efforts to bridge the gap from basic science to real-life applications. The funding will support 300 researchers in 23 different countries across Europe to test the feasibility of scientific concepts, explore business opportunities or prepare patent applications. The 2025 Proof of Concept Grants will help ERC grantees in their efforts to bridge the gap from basic science to real-life applications. The funding will support 300 researchers in 23 different countries across Europe to test the feasibility of scientific concepts, explore business opportunities or prepare patent applications.",
+      "summary_language": "ja",
+      "url": "https://erc.europa.eu/news-events/news/proof-concept-grants-2025-examples-projects",
+      "first_seen": "2026-06-30T21:00:00+09:00",
       "status": "New"
     },
     {
