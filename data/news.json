@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T01:30:23Z",
-  "updated_at_jst": "2026-07-29T10:30:23+09:00",
+  "updated_at": "2026-07-29T02:00:29Z",
+  "updated_at_jst": "2026-07-29T11:00:29+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 294,
+  "article_count": 295,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -8437,6 +8437,44 @@
       "summary_language": "ja",
       "url": "https://www.quera.com/press-releases/quera-unveils-gigaquop-class-fault-tolerant-roadmap-and-invites-organizations-to-co-design-quantum-applications",
       "first_seen": "2026-06-25T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ce801dbbd054932278871f89",
+      "published_at": "2026-06-23T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Industry Association",
+      "source": "日本製薬工業協会",
+      "organization": "日本製薬工業協会",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "創薬・バイオを日本の成長エンジンへ—「日本成長戦略会議におけるワーキンググループ・ロードマップ」公表",
+      "title_original": "—創薬・バイオを日本の成長エンジンへ— 「日本成長戦略会議におけるワーキンググループ・ロードマップ」公表を受けて | 2026年 ニュースリリース | 日本製薬工業協会",
+      "summary": "日本成長戦略会議で創薬・バイオ分野の官民投資ロードマップが公表され、医薬品産業の重要性が強調されました。特に特許市場の強化と国内製造基盤の強化が重要視されています。",
+      "summary_original": "今般、日本成長戦略会議において、戦略17分野に関する官民投資ロードマップが公表されました。日本製薬工業協会（以下、製薬協）の会長として、製薬業界を代表し本会議に参画し意見を述べる機会をいただいたことに深く感謝申し上げます。また、本ロードマップの取りまとめにあたり、ご尽力いただいた関係府省の皆様に心より敬意を表します。 製薬協は、「創薬・先端医療」および「合成生物学・バイオ」の2つのワーキンググループにおいて、創薬力の強化、健康安全保障を支える国内製造基盤の強靱化、人材育成の重要性に加え、日本市場の魅力向上の必要性について一貫して主張してまいりました。 今回、各ロードマップにおいて、医薬品産業が日本の成長を支える戦略的投資分野として明確に位置づけられるとともに、国家として目指す、中長期にわたる成長の方向性が示されたことは、極めて大きな意義を有するものです。 これは、患者さんに革新的な医薬品を届ける産業の重要性を国内外に示すものであり、日本市場の魅力向上や投資の呼び込みにつながるものと考えます。 特に対象となるロードマップにおいて、当協会としては、今後の政策具体化に向けた極めて重要な方向性として以下の2点を高く評価しています。 我が国の特許品市場が、世界の成長に比肩する水準を目指すことが示された点は極めて重要です。これは、国内外からの投資を呼び込み、日本市場の魅力を高めるとともに、日本が創薬の地として選ばれ続けるための基盤になると考えます。 感染症対応製品やバイオ医薬品・再生医療等製品について、国内製造・供給体制の強化の重要性が示されました。地政学的リスクが高まる中、医薬品の安定…",
+      "summary_language": "ja",
+      "url": "https://www.jpma.or.jp/news_room/release/2026/20624_2.html",
+      "first_seen": "2026-06-24T00:00:00+09:00",
       "status": "New"
     },
     {
