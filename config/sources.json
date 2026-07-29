@@ -8037,7 +8037,585 @@
       "site_scan_daily_limit": 8,
       "site_scan_backfill_limit": 16,
       "notes": "Official Straits Times Technology listing; branded and sponsored content excluded."
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "site_scan",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Toshiba R&D News",
+      "organization": "Toshiba",
+      "category": "AI, quantum, semiconductors and industrial research",
+      "feed_url": "https://www.global.toshiba/ww/technology/corporate/rdc/rd/topics.html",
+      "listing_url": "https://www.global.toshiba/ww/technology/corporate/rdc/rd/topics.html",
+      "include_link_patterns": [
+        "/ww/technology/corporate/rdc/rd/topics/"
+      ],
+      "homepage": "https://www.global.toshiba/ww/technology/corporate/rdc.html",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Healthcare"
+      ],
+      "notes": "Official Toshiba Corporate R&D Center research-news listing.",
+      "browser_user_agent": true,
+      "connect_timeout_seconds": 20
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Canon News",
+      "organization": "Canon",
+      "category": "Imaging, AI, semiconductors and medical technology",
+      "feed_url": "https://global.canon/en/news/",
+      "listing_url": "https://global.canon/en/news/",
+      "include_link_patterns": [
+        "/en/news/20"
+      ],
+      "homepage": "https://global.canon/en/technology/",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "notes": "Official Canon global news listing; strict relevance excludes routine product and corporate announcements.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Eisai News",
+      "organization": "Eisai",
+      "category": "Biotechnology, drug discovery and healthcare",
+      "feed_url": "https://www.eisai.com/news/index.html",
+      "listing_url": "https://www.eisai.com/news/index.html",
+      "include_link_patterns": [
+        "/news/20"
+      ],
+      "homepage": "https://www.eisai.com/innovation/",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "notes": "Official Eisai news listing; prioritizes research, clinical, regulatory and R&D partnership updates.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Otsuka Pharmaceutical News",
+      "organization": "Otsuka Pharmaceutical",
+      "category": "Biotechnology, drug discovery and healthcare",
+      "feed_url": "https://www.otsuka.co.jp/en/company/newsreleases/",
+      "listing_url": "https://www.otsuka.co.jp/en/company/newsreleases/",
+      "include_link_patterns": [
+        "/en/company/newsreleases/20"
+      ],
+      "homepage": "https://www.otsuka.co.jp/en/research-and-development/",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "notes": "Official Otsuka Pharmaceutical release listing; strict relevance excludes consumer-product promotion.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "site_scan",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Shionogi News",
+      "organization": "Shionogi",
+      "category": "Biotechnology, drug discovery and healthcare",
+      "feed_url": "https://www.shionogi.com/global/en/news.html",
+      "listing_url": "https://www.shionogi.com/global/en/news.html",
+      "include_link_patterns": [
+        "/global/en/news/20"
+      ],
+      "homepage": "https://www.shionogi.com/global/en/innovation.html",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "notes": "Official Shionogi global news listing; prioritizes research, clinical and regulatory developments.",
+      "browser_user_agent": true,
+      "exclude_link_patterns": [
+        "index.html"
+      ],
+      "connect_timeout_seconds": 20
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "kyowakirin_release_api",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Kyowa Kirin News",
+      "organization": "Kyowa Kirin",
+      "category": "Biotechnology, drug discovery and healthcare",
+      "feed_url": "https://www.kyowakirin.com/media_center/share/json/release.json",
+      "homepage": "https://www.kyowakirin.com/media_center/news_releases/index.html",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "notes": "Official Kyowa Kirin news-release listing; prioritizes R&D, clinical and regulatory updates.",
+      "api_url": "https://www.kyowakirin.com/media_center/share/json/release.json",
+      "daily_item_limit": 10
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Mitsubishi Heavy Industries News",
+      "organization": "Mitsubishi Heavy Industries",
+      "category": "Robotics, AI, space and advanced energy systems",
+      "feed_url": "https://www.mhi.com/news",
+      "listing_url": "https://www.mhi.com/news",
+      "include_link_patterns": [
+        "/news/20"
+      ],
+      "homepage": "https://www.mhi.com/",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Fusion Energy",
+        "Space"
+      ],
+      "notes": "Official MHI news listing; strict relevance focuses on advanced engineering, aerospace, energy and automation.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": true,
+      "historical_backfill": false,
+      "name": "Toyota Global Newsroom",
+      "organization": "Toyota Motor",
+      "category": "AI, robotics, mobility and advanced manufacturing",
+      "feed_url": "https://global.toyota/export/en/allnews_rss.xml",
+      "homepage": "https://global.toyota/en/newsroom/",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Healthcare"
+      ],
+      "notes": "Official Toyota global newsroom; strict relevance excludes routine vehicle launches, sales and motorsports.",
+      "browser_user_agent": true,
+      "connect_timeout_seconds": 20,
+      "daily_item_limit": 10
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Honda Global Newsroom",
+      "organization": "Honda Motor",
+      "category": "AI, robotics, mobility, aerospace and advanced manufacturing",
+      "feed_url": "https://global.honda/en/newsroom/",
+      "listing_url": "https://global.honda/en/newsroom/",
+      "include_link_patterns": [
+        "/en/newsroom/news/20"
+      ],
+      "homepage": "https://global.honda/en/tech/",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Space"
+      ],
+      "notes": "Official Honda global newsroom; strict relevance excludes routine product, sales and motorsports updates.",
+      "browser_user_agent": true,
+      "connect_timeout_seconds": 20
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "SUBARU News",
+      "organization": "Subaru",
+      "category": "AI, mobility and advanced manufacturing",
+      "feed_url": "https://www.subaru.co.jp/en/news/car.html",
+      "listing_url": "https://www.subaru.co.jp/en/news/car.html",
+      "include_link_patterns": [
+        "/news-en/20"
+      ],
+      "homepage": "https://www.subaru.co.jp/en/",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "notes": "Official SUBARU news listing; strict relevance excludes sales, finance and motorsports."
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": true,
+      "historical_backfill": false,
+      "name": "Nissan Technology News",
+      "organization": "Nissan Motor",
+      "category": "AI, robotics, mobility and advanced manufacturing",
+      "feed_url": "https://global.nissannews.com/en/rss",
+      "homepage": "https://global.nissannews.com/en/channels/technology-en",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "notes": "Official Nissan technology channel.",
+      "daily_item_limit": 8,
+      "browser_user_agent": true,
+      "connect_timeout_seconds": 20
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Aisin News",
+      "organization": "Aisin",
+      "category": "AI, robotics, mobility and advanced manufacturing",
+      "feed_url": "https://www.aisin.com/en/news/news_release/",
+      "listing_url": "https://www.aisin.com/en/news/news_release/",
+      "include_link_patterns": [
+        "/en/news/20"
+      ],
+      "homepage": "https://www.aisin.com/en/",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom"
+      ],
+      "notes": "Official Aisin release listing; strict relevance excludes routine corporate and product updates.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Fuji Electric News",
+      "organization": "Fuji Electric",
+      "category": "Power semiconductors, industrial automation and advanced energy",
+      "feed_url": "https://www.fujielectric.com/about/news/index.html",
+      "listing_url": "https://www.fujielectric.com/about/news/index.html",
+      "include_link_patterns": [
+        "/about/news/detail/"
+      ],
+      "homepage": "https://www.fujielectric.com/about/research/",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Fusion Energy"
+      ],
+      "notes": "Official Fuji Electric news listing; prioritizes power devices, automation and energy R&D.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Kaneka News",
+      "organization": "Kaneka",
+      "category": "Biotechnology, healthcare and advanced materials",
+      "feed_url": "https://www.kaneka.co.jp/en/topics/news/",
+      "listing_url": "https://www.kaneka.co.jp/en/topics/news/",
+      "include_link_patterns": [
+        "/en/topics/news/20"
+      ],
+      "homepage": "https://www.kaneka.co.jp/en/",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Semiconductors & Telecom"
+      ],
+      "notes": "Official Kaneka news listing; strict relevance focuses on biotech, healthcare and enabling materials.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Oji Holdings R&D News",
+      "organization": "Oji Holdings",
+      "category": "Biotechnology, biomanufacturing and advanced materials",
+      "feed_url": "https://www.ojiholdings.co.jp/en/news/release/",
+      "listing_url": "https://www.ojiholdings.co.jp/en/news/release/",
+      "include_link_patterns": [
+        "/en/news/release/"
+      ],
+      "homepage": "https://www.ojiholdings.co.jp/en/r_d/",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare",
+        "Robotics"
+      ],
+      "notes": "Official Oji Holdings release listing; strict relevance focuses on R&D, biomanufacturing and advanced materials.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "site_scan",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Sumitomo Electric Technology News",
+      "organization": "Sumitomo Electric Industries",
+      "category": "Semiconductors, telecommunications and advanced energy",
+      "feed_url": "https://sumitomoelectric.com/pr-news-articles",
+      "listing_url": "https://sumitomoelectric.com/pr-news-articles",
+      "include_link_patterns": [
+        "/press/20"
+      ],
+      "homepage": "https://sumitomoelectric.com/technology",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum"
+      ],
+      "notes": "Official Sumitomo Electric releases; strict relevance focuses on photonics, communications, devices and energy systems.",
+      "browser_user_agent": true,
+      "exclude_link_patterns": [
+        "index.html"
+      ],
+      "connect_timeout_seconds": 20
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Panasonic Technology News",
+      "organization": "Panasonic Holdings",
+      "category": "AI, robotics, semiconductors and advanced manufacturing",
+      "feed_url": "https://news.panasonic.com/global/",
+      "listing_url": "https://news.panasonic.com/global/",
+      "include_link_patterns": [
+        "/global/press/",
+        "/global/topics/",
+        "/global/stories/"
+      ],
+      "homepage": "https://holdings.panasonic/global/corporate/technology.html",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Robotics",
+        "Semiconductors & Telecom",
+        "Quantum",
+        "Healthcare"
+      ],
+      "notes": "Official Panasonic global newsroom; strict relevance limits collection to technology and R&D developments."
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "FUJIFILM Holdings News",
+      "organization": "FUJIFILM Holdings",
+      "category": "Healthcare, biotechnology, semiconductors and imaging AI",
+      "feed_url": "https://holdings.fujifilm.com/en/news",
+      "listing_url": "https://holdings.fujifilm.com/en/news",
+      "include_link_patterns": [
+        "/en/news/list/"
+      ],
+      "homepage": "https://holdings.fujifilm.com/en/about/technology",
+      "priority": 5,
+      "coverage_tier": "S",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom",
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "notes": "Official FUJIFILM Holdings news listing; strict relevance excludes routine consumer-product announcements.",
+      "exclude_link_patterns": [
+        "index.html"
+      ]
+    },
+    {
+      "active": true,
+      "source_type": "Official Company",
+      "region": "Asia",
+      "country": "Japan",
+      "fetch_mode": "link_list",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "native_feed": false,
+      "historical_backfill": false,
+      "name": "Ajinomoto Innovation News",
+      "organization": "Ajinomoto",
+      "category": "Biotechnology, biomanufacturing and healthcare",
+      "feed_url": "https://www.ajinomoto.com/media/pressreleases",
+      "listing_url": "https://www.ajinomoto.com/media/pressreleases",
+      "include_link_patterns": [
+        "/media/pressreleases/"
+      ],
+      "homepage": "https://www.ajinomoto.com/innovation",
+      "priority": 4,
+      "coverage_tier": "A",
+      "topic_tags": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "notes": "Official Ajinomoto releases; strict relevance keeps biotechnology, fermentation, biomanufacturing and healthcare R&D only."
     }
   ],
-  "expected_active_source_count": 285
+  "expected_active_source_count": 304
 }
