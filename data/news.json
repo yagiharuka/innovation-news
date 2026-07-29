@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T02:30:28Z",
-  "updated_at_jst": "2026-07-29T11:30:28+09:00",
+  "updated_at": "2026-07-29T04:27:50Z",
+  "updated_at_jst": "2026-07-29T13:27:50+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 297,
+  "article_count": 301,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -9087,6 +9087,40 @@
       "status": "New"
     },
     {
+      "id": "471dfebac0ef1ef9474747c0",
+      "published_at": "2026-05-15T08:04:56Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "KDDI総合研究所",
+      "organization": "KDDI総合研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "持続可能な6G実現に向けた基盤技術の実証試験成功",
+      "title_original": "Successful Demonstration of",
+      "summary": "KDDI研究所が持続可能な6G実現に向けた基盤技術の実証試験に成功しました。",
+      "summary_original": "KDDI Research, Inc. (“KDDI Research”) has developed a base station technology for realizing sustainable 6G, called “Intelligent 4D Resource Optimization Technology” (hereinafter “this technology”), and successfully conducted a proof-of-concept trial (hereinafter “this trial”) on April 20, 2026 with Nokia Solutions and Networks Oy (headquaters: Espoo, Finland; Head of External Communication & Marketing: Rick Foote).",
+      "summary_language": "ja",
+      "url": "https://www.kddi-research.jp/english/newsrelease/2026/052001.html",
+      "first_seen": "2026-05-15T17:04:56+09:00",
+      "status": "New"
+    },
+    {
       "id": "770e8a385a4790aa084a1d15",
       "published_at": "2026-05-14T00:00:00Z",
       "collected_at_jst": "2026-07-26T22:54:37+09:00",
@@ -9120,6 +9154,109 @@
       "summary_language": "ja",
       "url": "https://www.nsf.gov/news/nsf-announces-15b-nsf-x-labs-initiative-pursue-generational",
       "first_seen": "2026-05-14T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "62b253b538f58a83e4b624a8",
+      "published_at": "2026-04-23T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 2,
+      "source_type": "Government",
+      "source": "核融合科学研究所",
+      "organization": "核融合科学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "地球型ダイポール磁場の安定解を発見",
+      "title_original": "地球型ダイポール磁場の南北2つの磁極の安定解を発見 / 研究成果 プレスリリース / 自然科学研究機構 核融合科学研究所 (NIFS ニフス)",
+      "summary": "核融合科学研究所が核融合エネルギー実現に向けた新たな研究成果を発表しました。",
+      "summary_original": "核融合科学研究所では、核融合エネルギーを私たちが利用できる形で実現するために必要なプラズマ物理をはじめとする様々な研究課題に、国内外の大学・研究機関と連携して取り組んでいます。そして、核融合科学の進展とともに、広く科学技術の基盤形成に寄与したいと考えています。",
+      "summary_language": "ja",
+      "url": "https://www.nifs.ac.jp/news/research/260424.html",
+      "first_seen": "2026-04-24T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "b1eb285ddd79e285b0f3b077",
+      "published_at": "2026-04-16T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "Physical Intelligence",
+      "organization": "Physical Intelligence",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Historical Backfill",
+      "title": "ロボティクス応用を促進する物理知能モデルの紹介",
+      "title_original": "The Physical Intelligence Layer February 24, 2026 General-purpose physical intelligence models will enable a Cambrian explosion of robotics applications. See how our partners are already solving real-world problems.",
+      "summary": "新たな物理知能モデルがロボティクス応用の拡大を促進することが期待されています。",
+      "summary_original": "π 0.7 : a Steerable Model with Emergent Capabilities April 16, 2026 A steerable robotic foundation model that exhibits a step-change in generalization. Precise Manipulation with Efficient Online RL March 19, 2026 We extract an RL Token from VLA models to enable fast online RL and improve throughput on precise tasks with few hours of data. VLAs with Long and Short-Term Memory March 3, 2026 Multi-Scale Embodied Memory (MEM) gives our models both long-term and short-term memory, enabling complex tasks longer than ten minutes. The Physical Intelligence Layer February 24, 2026 General-purpose physical intelligence models will enable a Cambrian explosion of robotics applications. See how our part…",
+      "summary_language": "ja",
+      "url": "https://www.pi.website/blog/partner",
+      "first_seen": "2026-04-16T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e9b65da47c3b21aa3c7ab78e",
+      "published_at": "2026-04-16T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Official Company",
+      "source": "東京エレクトロン",
+      "organization": "東京エレクトロン",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Historical Backfill",
+      "title": "東京エレクトロンが新デバイスプローバーを発表",
+      "title_original": "2026.04.16 Tokyo Electron Releases Prexa™ SDP, a New Device Prober Topics Products / Services IR Sustainability Event Disaster Notice",
+      "summary": "東京エレクトロンが新しいデバイスプローバー「Prexa™ SDP」を発表しました。",
+      "summary_original": "2026.04.16 Tokyo Electron Releases Prexa™ SDP, a New Device Prober Topics Products / Services IR Sustainability Event Disaster Notice",
+      "summary_language": "ja",
+      "url": "https://www.tel.com/news/product/2026/20260416_001.html",
+      "first_seen": "2026-04-16T09:00:00+09:00",
       "status": "New"
     },
     {
