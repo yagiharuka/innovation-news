@@ -74,6 +74,7 @@ DEFAULT_POLICY_HISTORY_DAYS = 365
 DEFAULT_TECHNOLOGY_HISTORY_DAYS = 183
 DEFAULT_PUBLIC_ITEM_LIMIT = 2500
 DEFAULT_SOURCE_FETCH_WORKERS = 4
+FRESH_PRIORITY_WINDOW_HOURS = 36
 SOURCE_CADENCES = {"daily", "weekly"}
 SOURCE_COVERAGE_TIERS = {"S", "A", "B"}
 RETIRED_SOURCE_NAMES = frozenset({"OpenAI News"})
@@ -4035,6 +4036,45 @@ def review_source_key(item: dict[str, Any]) -> str:
     )
 
 
+def fresh_priority_sort_key(
+    item: dict[str, Any],
+) -> tuple[datetime, datetime, str]:
+    """Sort morning candidates by collection time so newer runs cannot jump ahead."""
+    fallback = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    return (
+        parse_iso(str(item.get("first_seen", "")), fallback),
+        parse_iso(str(item.get("published_at", "")), fallback),
+        review_item_id(item),
+    )
+
+
+def fresh_priority_review_items(
+    items: list[dict[str, Any]],
+    collected_at: datetime,
+    *,
+    window_hours: int = FRESH_PRIORITY_WINDOW_HOURS,
+) -> list[dict[str, Any]]:
+    """Return unresolved non-backfill candidates in the protected morning queue."""
+    cutoff = collected_at.astimezone(timezone.utc) - timedelta(
+        hours=max(1, window_hours)
+    )
+    fallback = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    pending: list[dict[str, Any]] = []
+    for item in items:
+        if (
+            not needs_scope_review(item)
+            or item.get("collection_mode", "Daily") == "Historical Backfill"
+        ):
+            continue
+        raw_first_seen = str(item.get("first_seen", "")).strip()
+        first_seen = parse_iso(raw_first_seen, fallback)
+        # Missing or malformed first_seen must fail closed instead of silently
+        # declaring the morning queue complete.
+        if not raw_first_seen or first_seen == fallback or first_seen >= cutoff:
+            pending.append(item)
+    return sorted(pending, key=fresh_priority_sort_key)
+
+
 def select_scope_review_items(
     items: list[dict[str, Any]],
     new_items: list[dict[str, Any]],
@@ -5790,7 +5830,16 @@ def run(
             f"abstracts={academic_refresh['restored']} "
             f"errors={academic_refresh['errors']}"
         )
-    summary_result = enrich_japanese_summaries(merged, new_items)
+    priority_items = (
+        fresh_priority_review_items(merged, collected_at)
+        if not backfill
+        else None
+    )
+    summary_result = enrich_japanese_summaries(
+        merged,
+        new_items,
+        selected_items=priority_items,
+    )
     normalize_reviewed_topics(merged)
     normalize_reviewed_policy_axis(merged)
     excluded_ids = set(summary_result["excluded_ids"])
@@ -6050,6 +6099,10 @@ def review_backlog(
             >= fresh_cutoff
         )
     ]
+    priority_pending = fresh_priority_review_items(
+        in_window,
+        collected_at,
+    )
     pending_expired_before = sum(
         1
         for item in merged
@@ -6069,7 +6122,7 @@ def review_backlog(
         limit = 100
     selected = select_scope_review_items(
         in_window,
-        fresh_pending,
+        priority_pending,
         limit=limit,
         balanced=True,
         priority_ids=previous_ids,
@@ -6133,6 +6186,11 @@ def review_backlog(
         for item in fresh_pending
         if needs_scope_review(item)
     )
+    pending_priority_after = sum(
+        1
+        for item in priority_pending
+        if needs_scope_review(item)
+    )
     pending_expired_after = sum(
         1
         for item in merged
@@ -6175,6 +6233,7 @@ def review_backlog(
         "items_excluded": len(summary_result["excluded_ids"]),
         "summaries_pending": pending_after,
         "summaries_pending_fresh_24h": pending_fresh_after,
+        "summaries_pending_priority_36h": pending_priority_after,
         "summaries_pending_expired": pending_expired_after,
         "summary_errors": summary_result["errors"],
         "summary_requests": summary_result.get("requests", 0),
@@ -6236,8 +6295,11 @@ def review_backlog(
         ),
         "pending_before": pending_before,
         "pending_fresh_before": len(fresh_pending),
+        "pending_priority_before": len(priority_pending),
         "pending_in_window": pending_after,
         "pending_fresh_24h": pending_fresh_after,
+        "pending_priority_36h": pending_priority_after,
+        "priority_window_hours": FRESH_PRIORITY_WINDOW_HOURS,
         "pending_expired": pending_expired_after,
         "public_items": len(public_payload.get("items", [])),
         "academic_refresh": academic_refresh,

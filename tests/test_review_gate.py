@@ -16,6 +16,34 @@ SPEC.loader.exec_module(review_gate)
 class ReviewGateTests(unittest.TestCase):
     NOW = datetime(2026, 7, 28, 12, 0, tzinfo=timezone.utc)
 
+    def test_priority_pending_count_prefers_36h_and_falls_back_to_legacy(self):
+        self.assertEqual(
+            review_gate.priority_pending_count(
+                {
+                    "pending_priority_36h": 4,
+                    "pending_fresh_24h": 0,
+                }
+            ),
+            4,
+        )
+        self.assertEqual(
+            review_gate.priority_pending_count(
+                {
+                    "pending_priority_36h": 0,
+                    "pending_fresh_24h": 4,
+                }
+            ),
+            0,
+        )
+        self.assertEqual(
+            review_gate.priority_pending_count(
+                {"pending_fresh_24h": 3}
+            ),
+            3,
+        )
+        with self.assertRaises(KeyError):
+            review_gate.priority_pending_count({})
+
     def test_counts_all_model_requests_not_only_backlog_runs(self):
         result = review_gate.evaluate_review_gate(
             {

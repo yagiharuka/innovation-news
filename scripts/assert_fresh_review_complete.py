@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import review_gate
+
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE_PATH = ROOT / "data" / "review_state.json"
@@ -14,7 +16,7 @@ STATE_PATH = ROOT / "data" / "review_state.json"
 def main() -> int:
     try:
         state = json.loads(STATE_PATH.read_text(encoding="utf-8"))
-        pending = int(state["pending_fresh_24h"])
+        pending = review_gate.priority_pending_count(state)
     except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
         print(f"Fresh review state is unavailable: {exc}")
         return 1

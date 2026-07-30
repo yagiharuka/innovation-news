@@ -5,7 +5,7 @@ import sys
 import threading
 import time
 import unittest
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
 
@@ -482,6 +482,74 @@ class CollectorTests(unittest.TestCase):
         )
 
         self.assertEqual(selected[0]["canonical_id"], "fresh-older")
+
+    def test_fresh_priority_queue_is_36_hours_oldest_first_and_fail_closed(self):
+        now = datetime(2026, 7, 31, tzinfo=timezone.utc)
+
+        def pending(
+            item_id,
+            first_seen,
+            *,
+            collection_mode="Daily",
+            published_at="2026-07-31T00:00:00Z",
+        ):
+            return {
+                "canonical_id": item_id,
+                "source": f"Source {item_id}",
+                "published_at": published_at,
+                "first_seen": first_seen,
+                "collection_mode": collection_mode,
+                "scope_review_version": "old-version",
+            }
+
+        items = [
+            pending(
+                "new-1h",
+                (now - timedelta(hours=1)).isoformat(),
+                published_at="2026-07-20T00:00:00Z",
+            ),
+            pending(
+                "boundary-36h",
+                (now - timedelta(hours=36)).isoformat(),
+                published_at="2026-07-30T00:00:00Z",
+            ),
+            pending(
+                "old-30h",
+                (now - timedelta(hours=30)).isoformat(),
+                published_at="2026-07-31T00:00:00Z",
+            ),
+            pending(
+                "outside-36h",
+                (now - timedelta(hours=36, seconds=1)).isoformat(),
+            ),
+            pending(
+                "historical",
+                (now - timedelta(hours=2)).isoformat(),
+                collection_mode="Historical Backfill",
+            ),
+            pending("missing-first-seen", ""),
+            {
+                "canonical_id": "reviewed",
+                "first_seen": (now - timedelta(hours=2)).isoformat(),
+                "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+                "title_ja": "審査済み",
+                "summary_ja": "審査済みの記事。",
+                "article_frames": ["Technology Innovation"],
+                "topics": ["Artificial Intelligence"],
+            },
+        ]
+
+        priority = collector.fresh_priority_review_items(items, now)
+
+        self.assertEqual(
+            [item["canonical_id"] for item in priority],
+            [
+                "missing-first-seen",
+                "boundary-36h",
+                "old-30h",
+                "new-1h",
+            ],
+        )
 
     def test_taxonomy_has_eight_technology_topics_and_separate_policy_axis(self):
         self.assertEqual(len(collector.TOPIC_KEYWORDS), 8)

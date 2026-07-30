@@ -85,6 +85,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("scripts/collect.py --review-only", history)
         self.assertIn('JAPANESE_SUMMARY_REQUEST_BUDGET: "1"', history)
 
+    def test_all_completion_gates_use_the_protected_priority_count(self):
+        for relative_path in (
+            "scripts/fresh_review_gate.py",
+            "scripts/history_review_gate.py",
+            "scripts/assert_fresh_review_complete.py",
+        ):
+            with self.subTest(path=relative_path):
+                script = (ROOT / relative_path).read_text(encoding="utf-8")
+                self.assertIn("priority_pending_count", script)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,27 +1,26 @@
 #!/usr/bin/env python3
-"""Review only daily candidates first seen in the last 24 hours."""
+"""Review the protected morning queue before historical backlog candidates."""
 
 from __future__ import annotations
 
 import collect
 
 
-original_selector = collect.select_scope_review_items
 original_append_run_log = collect.append_run_log
 
 
 def select_fresh_only(
     items: list[dict],
-    fresh_items: list[dict],
+    priority_items: list[dict],
     **kwargs: object,
 ) -> list[dict]:
-    """Keep the resumable selector, but remove historical backlog candidates."""
+    """Process the protected queue oldest-first so new runs cannot starve it."""
     del items
-    return original_selector(
-        fresh_items,
-        fresh_items,
-        **kwargs,
-    )
+    limit = max(0, int(kwargs.get("limit", 0)))
+    return sorted(
+        priority_items,
+        key=collect.fresh_priority_sort_key,
+    )[:limit]
 
 
 def append_fresh_run_log(run: dict) -> list[dict]:

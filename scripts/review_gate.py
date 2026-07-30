@@ -17,6 +17,19 @@ RUN_LOG_PATH = ROOT / "data" / "run_log.json"
 REVIEW_STATE_PATH = ROOT / "data" / "review_state.json"
 
 
+def priority_pending_count(review_state: dict[str, Any]) -> int:
+    """Read the protected queue count, falling back to legacy 24-hour state."""
+    key = (
+        "pending_priority_36h"
+        if "pending_priority_36h" in review_state
+        else "pending_fresh_24h"
+    )
+    count = int(review_state[key])
+    if count < 0:
+        raise ValueError(f"{key} cannot be negative")
+    return count
+
+
 def parse_datetime(value: Any) -> datetime:
     parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
     if parsed.tzinfo is None:

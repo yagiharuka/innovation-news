@@ -20,7 +20,7 @@ def main() -> int:
         parser.error("--request-budget must be at least 1")
 
     state = review_gate.load_json(review_gate.REVIEW_STATE_PATH)
-    state["pending_in_window"] = state.get("pending_fresh_24h", 0)
+    state["pending_in_window"] = review_gate.priority_pending_count(state)
     result = review_gate.evaluate_review_gate(
         review_gate.load_json(review_gate.RUN_LOG_PATH),
         state,
