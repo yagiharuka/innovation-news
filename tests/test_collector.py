@@ -1631,7 +1631,7 @@ class CollectorTests(unittest.TestCase):
                 collector.requests,
                 "post",
                 return_value=response,
-            ),
+            ) as post_mock,
             mock.patch.object(
                 collector,
                 "now_utc",
@@ -1646,6 +1646,11 @@ class CollectorTests(unittest.TestCase):
                 request_stats,
             )
 
+        request_headers = post_mock.call_args.kwargs["headers"]
+        self.assertEqual(
+            request_headers["X-GitHub-Api-Version"],
+            "2026-03-10",
+        )
         self.assertEqual(
             request_stats["rate_limited_at"],
             "2026-07-28T10:57:49Z",
