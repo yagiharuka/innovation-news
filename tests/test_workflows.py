@@ -37,6 +37,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn('JAPANESE_SUMMARY_BATCH_SIZE: "6"', review)
         self.assertIn("github.event_name != 'schedule'", review)
         self.assertIn("inputs.force", review)
+        self.assertIn("github.event_name == 'push' ||", review)
         self.assertIn('--request-budget "$GATE_REQUEST_BUDGET"', review)
 
     def test_backlog_review_has_a_manual_push_trigger(self):

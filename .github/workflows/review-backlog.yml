@@ -48,7 +48,7 @@ jobs:
         id: review_due
         shell: bash
         env:
-          FORCE_REVIEW: ${{ github.event_name == 'workflow_dispatch' && inputs.force || false }}
+          FORCE_REVIEW: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' && inputs.force || false }}
           # A marker push is an explicit one-off catch-up request. Scheduled
           # runs keep the conservative free-tier budget.
           GATE_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '20' || '2' }}
