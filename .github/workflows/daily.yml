@@ -60,16 +60,19 @@ jobs:
           if [[ "${FORCE_BACKFILL}" == "true" ]]; then
             args+=(--backfill)
           fi
-          python -u scripts/collect.py "${args[@]}"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT=150 \
+          JAPANESE_SUMMARY_REQUEST_BUDGET=25 \
+            python -u scripts/collect.py "${args[@]}"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT=1000 \
+          JAPANESE_SUMMARY_REQUEST_BUDGET=85 \
+            python -u scripts/review_fresh.py
           python -u scripts/validate_outputs.py
         env:
           GITHUB_TOKEN: ${{ github.token }}
           SOURCE_FETCH_WORKERS: "8"
           JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: "150"
-          JAPANESE_SUMMARY_BATCH_SIZE: "8"
+          JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
-          JAPANESE_SUMMARY_REQUEST_BUDGET: "25"
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
           FORCE_BACKFILL: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill || false }}
 
@@ -84,6 +87,9 @@ jobs:
             git commit -m "data: refresh innovation brief"
             git push
           fi
+
+      - name: Require complete fresh review
+        run: python -u scripts/assert_fresh_review_complete.py
 
   # Rebuild derived outputs so source-registry changes are validated together.
   verify:

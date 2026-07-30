@@ -1,8 +1,6 @@
 name: Weekly research sources
 
 on:
-  schedule:
-    - cron: "0 20 * * 6"
   workflow_dispatch:
     inputs:
       backfill:

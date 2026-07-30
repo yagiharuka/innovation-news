@@ -14,7 +14,7 @@ class WorkflowTests(unittest.TestCase):
                 self.assertIn("on:", workflow)
                 self.assertIn("jobs:", workflow)
 
-    def test_backlog_review_has_one_30_minute_schedule(self):
+    def test_fresh_review_has_one_30_minute_schedule(self):
         daily = (ROOT / ".github" / "workflows" / "daily.yml").read_text(
             encoding="utf-8"
         )
@@ -25,13 +25,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn("7,22,37,52", daily)
         self.assertIn('cron: "7,37 * * * *"', review)
         self.assertEqual(review.count("cron:"), 1)
+        self.assertIn("scripts/review_fresh.py", review)
+        self.assertIn("scripts/fresh_review_gate.py", review)
 
     def test_scheduled_review_uses_six_item_batches_and_global_gate(self):
         review = (
             ROOT / ".github" / "workflows" / "review-backlog.yml"
-        ).read_text(encoding="utf-8")
+        ).read_text(encoding="utf-8"
+        )
 
-        self.assertIn("python3 scripts/review_gate.py", review)
+        self.assertIn("python3 scripts/fresh_review_gate.py", review)
         self.assertIn("|| '12'", review)
         self.assertIn("&& '100' || '12'", review)
         self.assertIn('JAPANESE_SUMMARY_BATCH_SIZE: "6"', review)
@@ -59,6 +62,18 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("python -m unittest discover -s tests", daily)
         self.assertNotIn("github.event_name != 'schedule'", daily)
         self.assertIn('cron: "0 19 * * *"', daily)
+        self.assertIn("scripts/review_fresh.py", daily)
+        self.assertIn("scripts/assert_fresh_review_complete.py", daily)
+        self.assertIn("JAPANESE_SUMMARY_REQUEST_BUDGET=25", daily)
+        self.assertIn("JAPANESE_SUMMARY_REQUEST_BUDGET=85", daily)
+
+    def test_weekly_history_schedule_is_temporarily_paused(self):
+        weekly = (
+            ROOT / ".github" / "workflows" / "weekly.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertNotIn("cron:", weekly)
+        self.assertIn("workflow_dispatch:", weekly)
 
 
 if __name__ == "__main__":
