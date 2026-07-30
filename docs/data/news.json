@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T11:08:14Z",
-  "updated_at_jst": "2026-07-30T20:08:14+09:00",
+  "updated_at": "2026-07-30T11:14:42Z",
+  "updated_at_jst": "2026-07-30T20:14:42+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 349,
+  "article_count": 350,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -150,6 +150,40 @@
       "summary_original": "Companies are making sure we have a surplus of options for building qubits. If you follow quantum computing news for long enough, it can start to seem like any quantum system that can alternate between two well-separated energy states can be used as a qubit. Atoms, ions, photons, electrons, and manufactured devices all have their backers. One of the key things that attracts backers is the tech’s ability to scale. We’ll need a lot o… So even as some technologies can now support thousands of qubits, some competitors are still working on a small handful of qubits—the companies behind them are convinced that they have the potential to scale more effectively. One of those technologies involves q…",
       "summary_language": "ja",
       "url": "https://arstechnica.com/science/2026/07/quantum-computing-roundup-still-more-technologies-making-waves/",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "dc0586c291d80b45fa7830b3",
+      "published_at": "2026-07-29T17:00:05Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Axios Technology",
+      "organization": "Axios Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "OpenAI、学術研究者向けの無料AIアクセスプログラムを開始",
+      "title_original": "OpenAI launches free AI access program for academic researchers",
+      "summary": "OpenAIは、2027年までに100,000人の学術研究者に高度なAIモデルへの無料アクセスを提供する新プログラムを発表しました。このプログラムは、科学者やエンジニアが技術の可能性を追求するのを支援することを目的としています。",
+      "summary_original": "OpenAI is launching a new program Wednesday that will provide 100,000 academic researchers with free access to its advanced AI models through 2027, the company told Axios ahead of the announcement. Why it matters: The program could help scientists, mathematicians and engineers pursue the kind of breakthroughs that OpenAI and other AI companies say the technology could enable. Driving the news: Those selected will have access to OpenAI's most advanced models — including GPT-5.6 Sol Pro — and can invite four collaborators from their academic institution. The program is aimed at researchers across scientific and mathematical fields, including biology, chemistry, computer science, engineering,…",
+      "summary_language": "ja",
+      "url": "https://www.axios.com/2026/07/29/openai-academics-research-chatgpt-sol",
       "first_seen": "2026-07-30T06:44:24+09:00",
       "status": "New"
     },
