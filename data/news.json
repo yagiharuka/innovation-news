@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T10:30:11Z",
-  "updated_at_jst": "2026-07-30T19:30:11+09:00",
+  "updated_at": "2026-07-30T11:00:13Z",
+  "updated_at_jst": "2026-07-30T20:00:13+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 334,
+  "article_count": 336,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -191,6 +191,40 @@
       "status": "New"
     },
     {
+      "id": "a6a3ef1a1e186b73d0b9bf82",
+      "published_at": "2026-07-29T15:38:33Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "ITmedia AI+",
+      "organization": "ITmedia AI+",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "PFN「国産AI」で自衛隊を支援へ 防衛の作戦立案に利用",
+      "title_original": "PFN「国産AI」で自衛隊を支援へ 防衛の作戦立案に利用 防衛装備庁の実証実験を受託",
+      "summary": "PFNは、自衛隊を支援する生成AIシステムを開発し、防衛装備庁の実証実験を受託しました。",
+      "summary_original": "Preferred Networks（以下、PFN）は7月29日、生成AIで自衛隊を支援するシステムを開発すると発表した。防衛装備庁が実施する実証実験を受託した。「国産フルスクラッチ開発」をうたう同社のAIモデル「PLaMo 3.0 Prime」などを利用し、防衛分野における作戦計画立案のサポートを目指す。 文書や地理空間、部隊の運用に関わる情報などをAIで統合的に整理・分析し、自衛隊の司令部における人の判断を支援できるかどうか検証する。システムの構築では、自衛隊の指揮統制分野で実績を持つパートナー企業と協力する。将来的には大規模災害時の支援などへの応用も見据える。 PFNと防衛分野を巡っては、6月2日に 三菱重工業と国産AI技術の共同開発で業務提携すると発表 。国家安全保障などに関する機械やシステムの高度化を図るとしていた。 Copyright © ITmedia, Inc. All Rights Reserved. ITmedia AI＋に関連する情報をお探しであれば、こちらのメディアもお役に立てるかもしれません。 国内外の業界動向、AIやクラウドなどの最新技術、キャリア情報など今知りたい情報をまとめてお届けします。 Hugging Face、AIエージェント侵入の技術詳細を公開──OpenAIモデルが4.5日で1万7600回の攻撃操作 ChatGPT WorkとCodexの5時間制限「明日から再開」 GPT-5.6 Solの“トークン消費問題”を改善 「痺れるほどにミスを繰り返す」Gemini 3.6 Flashは変わった？ 公開から1週間、当初のおバカ回答を今検証する…",
+      "summary_language": "ja",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2607/29/2000000272/",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
       "id": "366066b098fded63246bd7e1",
       "published_at": "2026-07-29T15:03:00Z",
       "collected_at_jst": "2026-07-30T06:44:24+09:00",
@@ -290,6 +324,42 @@
       "summary_original": "当サイトは、Javascriptを使用しています。Javascriptを無効にして閲覧した場合、コンテンツが正常に動作しないおそれやページが表示されない場合があります。当サイトをご利用の際には、Javascriptを有効にして閲覧下さい。 理化学研究所（理研）生命医科学研究センター 構成的細胞生物学研究チームの宮﨑 牧人 チームディレクター（生命機能科学研究センター 構造生命科学／細胞生物学連携チーム 上級研究員、科学技術振興機構（JST）創発研究者）、パデュー大学 生体医工学科のキム・テヨン 准教授（理研 生命医科学研究センター 構成的細胞生物学研究チーム 客員研究員）、ラボニ・スルタナ・ファーミダ 博士課程学生の国際共同研究チームは、 アクチン細胞骨格 [1] を封入した人工細胞を用いて、細胞が示す膜変形の過程の再現に成功しました。さらに、その現象を詳細に再現できる大規模シミュレーターを開発し、膜変形を支配する物理法則を明らかにしました。 本研究成果は、細胞がどのように形を変えるのかという根本原理の理解につながる成果であり、がん細胞の浸潤など、細胞変形が関与するさまざまな生命現象の理解に貢献するだけでなく、本研究で開発した技術は、自律的に動いて分裂する人工細胞の開発など、合成生物学への応用が期待されます。 細胞は移動や分裂、 アポトーシス [2] と呼ばれるプログラムされた細胞死の際、細胞膜を局所的に膨らませる ブレブ [3] と呼ばれる突起を形成します。しかし、細胞がどのようにブレブの大きさや数、発生場所を制御しているのかはよく分かっていませんでした。 今回、国際共同研…",
       "summary_language": "ja",
       "url": "https://www.riken.jp/press/2026/20260730_1/index.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "047a8401063183a9be8c42c3",
+      "published_at": "2026-07-29T12:02:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "2Gネットワーク廃止に向けた準備：モバイルフォンとスマートデバイス",
+      "title_original": "Preparing for the 2G switch-off: mobile phones and smart devices",
+      "summary": "英国のモバイルネットワークオペレーターが2Gネットワークを廃止するため、2G専用デバイスのアップグレードが必要です。",
+      "summary_original": "How to identify if your mobile device is 2G-only and check if your phone or smart device will connect with 4G or 5G, before the 2G switch-off. UK mobile network operators will switch-off their 2G networks between 2029 and 2033. All 2G-only devices need upgrading to 4G and/or 5G capable devices to maintain connectivity. Most mobile devices in the UK are already 4G and/or 5G capable. You’ll need a phone that works with 4G and/or 5G to: Modern phones can do this, but older ones may need replacing. You can also contact your mobile provider if you are unsure whether your mobile phone can connect to 4G or 5G. If you don’t know who your provider is, check your phone settings or your bill. Your mob…",
+      "summary_language": "ja",
+      "url": "https://www.gov.uk/guidance/preparing-for-the-2g-switch-off-mobile-phones-and-smart-devices",
       "first_seen": "2026-07-30T06:44:24+09:00",
       "status": "New"
     },
