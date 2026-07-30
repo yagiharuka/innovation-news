@@ -51,7 +51,7 @@ jobs:
           FORCE_REVIEW: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' && inputs.force || false }}
           # A marker push is an explicit one-off catch-up request. Scheduled
           # runs keep the conservative free-tier budget.
-          GATE_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '20' || '2' }}
+          GATE_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '19' || '2' }}
         run: |
           args=()
           if [[ "$FORCE_REVIEW" == "true" ]]; then
@@ -90,7 +90,7 @@ jobs:
           JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || github.event_name == 'push' && '100' || '12' }}
           JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
-          JAPANESE_SUMMARY_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '20' || '2' }}
+          JAPANESE_SUMMARY_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '19' || '2' }}
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
           REVIEW_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || github.event_name == 'push' && '100' || '12' }}
 
