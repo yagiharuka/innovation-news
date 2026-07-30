@@ -31,8 +31,7 @@ class WorkflowTests(unittest.TestCase):
     def test_scheduled_review_uses_six_item_batches_and_global_gate(self):
         review = (
             ROOT / ".github" / "workflows" / "review-backlog.yml"
-        ).read_text(encoding="utf-8"
-        )
+        ).read_text(encoding="utf-8")
 
         self.assertIn("python3 scripts/fresh_review_gate.py", review)
         self.assertIn("|| '12'", review)
@@ -67,12 +66,13 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("JAPANESE_SUMMARY_REQUEST_BUDGET=25", daily)
         self.assertIn("JAPANESE_SUMMARY_REQUEST_BUDGET=85", daily)
 
-    def test_weekly_history_schedule_is_temporarily_paused(self):
+    def test_weekly_sources_run_after_the_morning_brief_with_minimal_review(self):
         weekly = (
             ROOT / ".github" / "workflows" / "weekly.yml"
         ).read_text(encoding="utf-8")
 
-        self.assertNotIn("cron:", weekly)
+        self.assertIn('cron: "0 2 * * 0"', weekly)
+        self.assertIn('JAPANESE_SUMMARY_REQUEST_BUDGET: "1"', weekly)
         self.assertIn("workflow_dispatch:", weekly)
 
 
