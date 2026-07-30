@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T11:20:57Z",
-  "updated_at_jst": "2026-07-30T20:20:57+09:00",
+  "updated_at": "2026-07-30T11:24:13Z",
+  "updated_at_jst": "2026-07-30T20:24:13+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 352,
+  "article_count": 353,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -2969,6 +2969,41 @@
       "summary_language": "ja",
       "url": "https://www.soumu.go.jp/menu_news/s-news/01kiban18_01000284.html",
       "first_seen": "2026-07-27T18:40:11+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3c849579cbc090e87165065e",
+      "published_at": "2026-07-27T09:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "台湾の技術的課題が軍事能力と連携防衛の可能性を脅かす",
+      "title_original": "Taiwan’s Tech Hurdles Threaten Military Capability and Potential Coalition Defense",
+      "summary": "CSETの専門家が、台湾の人工知能の軍事応用における課題を分析し、世界有数の半導体産業と限られた軍事AIの準備状況のギャップが、中国の侵略を抑止し、将来のパートナーとの協力に影響を与える可能性について論じています。",
+      "summary_original": "CSET’s Sam Bresnick and Fanny Chao shared their expert analysis in an op-ed published by War on the Rocks. The article examines Taiwan’s challenges in adopting artificial intelligence for military applications, highlighting how the gap between Taiwan’s world-leading semiconductor industry and its limited military AI readiness could affect its ability to deter Chinese aggression and future collaboration with partners. The post Taiwan’s Tech Hurdles Threaten Military Capability and Potential Coalition Defense appeared first on Center for Security and Emerging Technology .",
+      "summary_language": "ja",
+      "url": "https://cset.georgetown.edu/article/taiwans-tech-hurdles-threaten-military-capability-and-potential-coalition-defense/",
+      "first_seen": "2026-07-30T06:44:24+09:00",
       "status": "New"
     },
     {
