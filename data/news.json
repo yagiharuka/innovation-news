@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-29T23:30:52Z",
-  "updated_at_jst": "2026-07-30T08:30:52+09:00",
+  "updated_at": "2026-07-30T00:26:25Z",
+  "updated_at_jst": "2026-07-30T09:26:25+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 320,
+  "article_count": 331,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -17,6 +17,354 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "726d85df3835cf54e35a5536",
+      "published_at": "2026-07-29T21:44:24Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Honda Global Newsroom",
+      "organization": "Honda Global Newsroom",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Daily",
+      "title": "Noetraが日本開発のマルチモーダル基盤モデルのフルスケールR&Dを開始",
+      "title_original": "Noetra Launches Full-Scale R&D for Japan-Developed Multimodal Foundation Model",
+      "summary": "Noetraは、日本で開発されたマルチモーダル基盤モデルのフルスケール研究開発を開始しました。",
+      "summary_original": "Noetra Launches Full-Scale R&D for Japan-Developed Multimodal Foundation Model",
+      "summary_language": "ja",
+      "url": "https://global.honda/en/newsroom/news/2026/c260716eng.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "073f9140df15ba3bebbbaec9",
+      "published_at": "2026-07-29T17:37:47Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Ars Technica Science",
+      "organization": "Ars Technica Science",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "量子コンピュータの最新技術動向",
+      "title_original": "Quantum computing roundup: Still more technologies making waves",
+      "summary": "企業がキュービットを構築するための多様な技術を開発しており、量子コンピュータのスケーラビリティが注目されています。",
+      "summary_original": "Companies are making sure we have a surplus of options for building qubits. If you follow quantum computing news for long enough, it can start to seem like any quantum system that can alternate between two well-separated energy states can be used as a qubit. Atoms, ions, photons, electrons, and manufactured devices all have their backers. One of the key things that attracts backers is the tech’s ability to scale. We’ll need a lot o… So even as some technologies can now support thousands of qubits, some competitors are still working on a small handful of qubits—the companies behind them are convinced that they have the potential to scale more effectively. One of those technologies involves q…",
+      "summary_language": "ja",
+      "url": "https://arstechnica.com/science/2026/07/quantum-computing-roundup-still-more-technologies-making-waves/",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d66c746b61c4d557497019da",
+      "published_at": "2026-07-29T16:56:22Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Healthcare",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "ARPA-H",
+      "organization": "ARPA-H",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "ARPA-Hが新たな商業化サービス責任者を発表",
+      "title_original": "ARPA-H announces new head of commercialization services",
+      "summary": "ARPA-Hは医療革新を加速するための新たな商業化サービスの責任者を発表しました。",
+      "summary_original": "Filter by type: - Any - Announcement Impact Story Insight Press Release Announcement ARPA-H announces new head of commercialization services July 29, 2026 Insight ARPA-101: How to deliver healthcare breakthroughs in years July 24, 2026 Impact Story AI and Biomedical Discovery: From data to better health outcomes July 23, 2026 Press Release ARPA-H awards to advance personalized curative medicines for rare genetic diseases July 9, 2026 Impact Story How ARPA-H is revolutionizing indoor air quality—and why it can’t wait July 1, 2026 Press Release ARPA-H selects pioneering teams to make America the safest place in the world to have a baby June 23, 2026 Insight ARPA-H 101: Understanding proposal…",
+      "summary_language": "ja",
+      "url": "https://arpa-h.gov/news-and-events/arpa-h-announces-new-head-commercialization-services",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a3f34e7a649540d2bbf39c1b",
+      "published_at": "2026-07-29T15:00:03Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Intel Newsroom",
+      "organization": "Intel Newsroom",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "インテルの次世代AI半導体を可能にする先進パッケージング",
+      "title_original": "Intel’s U.S. Advanced Packaging Enables Next-Generation AI Semiconductors",
+      "summary": "インテルはAIの要求に応じた次世代半導体のための先進的なパッケージング技術を開発しています。",
+      "summary_original": "As AI demands unprecedented \"brain power,\" the semiconductor industry is moving past the era of relying on single, massive chips. Advanced packaging is the essential craft of interconnecting multiple specialized chips together. This allows them to function as a single, powerful unit that runs faster handling the massive workloads of the future.Intel’s been doing advanced … The post Intel’s U.S. Advanced Packaging Enables Next-Generation AI Semiconductors appeared first on Newsroom .",
+      "summary_language": "ja",
+      "url": "https://newsroom.intel.com/intel-foundry/intels-us-advanced-packaging-enables-next-generation-ai-semiconductors",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "76d5c9afcc271ad59451b250",
+      "published_at": "2026-07-29T15:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "理化学研究所",
+      "organization": "理化学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "人工細胞で細胞変形の設計原理を解明",
+      "title_original": "人工細胞で細胞変形の設計原理を解明",
+      "summary": "理化学研究所の研究チームが人工細胞を用いて細胞膜の変形過程を再現し、その原理を解明しました。",
+      "summary_original": "当サイトは、Javascriptを使用しています。Javascriptを無効にして閲覧した場合、コンテンツが正常に動作しないおそれやページが表示されない場合があります。当サイトをご利用の際には、Javascriptを有効にして閲覧下さい。 理化学研究所（理研）生命医科学研究センター 構成的細胞生物学研究チームの宮﨑 牧人 チームディレクター（生命機能科学研究センター 構造生命科学／細胞生物学連携チーム 上級研究員、科学技術振興機構（JST）創発研究者）、パデュー大学 生体医工学科のキム・テヨン 准教授（理研 生命医科学研究センター 構成的細胞生物学研究チーム 客員研究員）、ラボニ・スルタナ・ファーミダ 博士課程学生の国際共同研究チームは、 アクチン細胞骨格 [1] を封入した人工細胞を用いて、細胞が示す膜変形の過程の再現に成功しました。さらに、その現象を詳細に再現できる大規模シミュレーターを開発し、膜変形を支配する物理法則を明らかにしました。 本研究成果は、細胞がどのように形を変えるのかという根本原理の理解につながる成果であり、がん細胞の浸潤など、細胞変形が関与するさまざまな生命現象の理解に貢献するだけでなく、本研究で開発した技術は、自律的に動いて分裂する人工細胞の開発など、合成生物学への応用が期待されます。 細胞は移動や分裂、 アポトーシス [2] と呼ばれるプログラムされた細胞死の際、細胞膜を局所的に膨らませる ブレブ [3] と呼ばれる突起を形成します。しかし、細胞がどのようにブレブの大きさや数、発生場所を制御しているのかはよく分かっていませんでした。 今回、国際共同研…",
+      "summary_language": "ja",
+      "url": "https://www.riken.jp/press/2026/20260730_1/index.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e4a6a4388b975ab1e02a828b",
+      "published_at": "2026-07-29T12:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "CHIPS for America",
+      "organization": "CHIPS for America",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "商務省、半導体R&D加速のために7社と874百万ドルの意向書を発表",
+      "title_original": "Department of Commerce Announces Letters of Intent With 7 Companies for $874 Million to Accelerate Semiconductor R&D for the Compute Supply Chain",
+      "summary": "商務省は、CHIPSおよび科学法の下で半導体の研究開発を加速するために、7社との874百万ドルの連邦助成金に関する意向書を発表した。",
+      "summary_original": "Department of Commerce Announces Letters of Intent With 7 Companies for $874 Million to Accelerate Semiconductor R&D for the Compute Supply Chain July 29, 2026 The Department of Commerce today announced the signing of 7 letters of intent to provide $874 million in federal incentives under the CHIPS and Science Act.",
+      "summary_language": "ja",
+      "url": "https://www.nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "cd98effa58713ab45bc24166",
+      "published_at": "2026-07-29T02:16:31Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Semiconductor Engineering",
+      "organization": "Semiconductor Engineering",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "プロセッサにおけるプレシリコン電力サイドチャネル漏洩の解析",
+      "title_original": "Pre-Silicon Power Side-Channel Leakage In Processors (University of Lübeck)",
+      "summary": "ルーベック大学の研究者が、プロセッサ設計フローにおけるプレシリコン電力サイドチャネル漏洩の自動解析手法を発表しました。",
+      "summary_original": "Researchers from University of Lübeck published a technical paper titled “SPARC: Automated Root-Cause Analysis of Pre-Silicon Power Side-Channel Leakage in the Processor Design Flow.” Abstract Excerpt: “This paper presents SPARC, an automated framework for pre-silicon PSCL evaluation and root-cause analysis. SPARC leverages macro-cell-level Information Flow Tracking (IFT) augmented with enhanced shadow logic that tags switching... » read more The post Pre-Silicon Power Side-Channel Leakage In Processors (University of Lübeck) appeared first on Semiconductor Engineering .",
+      "summary_language": "ja",
+      "url": "https://semiengineering.com/pre-silicon-power-side-channel-leakage-in-processors-university-of-lubeck/",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1fbd78074c89f6f78ae6b8ba",
+      "published_at": "2026-07-29T01:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 2,
+      "source_type": "Government",
+      "source": "JST プレスリリース",
+      "organization": "JST プレスリリース",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "AIを用いた新規マグノニック結晶の発見",
+      "title_original": "共同発表：AIが次々発見、スピン波を自在に操る人工結晶～未踏ナノ磁性体を創成・解明する「ゆらぎ設計エージェント」～",
+      "summary": "東京理科大学の研究グループが、説明可能AIを用いて新しい特性を持つマグノニック結晶を発見したことを報告しています。",
+      "summary_original": "東京理科大学 先進工学部 マテリアル創成工学科の長岡 竜之輔 氏（博士課程2年）、小嗣 真人 教授、筑波大学、横浜国立大学、物質・材料研究機構（NIMS）らの共同研究グループは、説明可能AIを用いた構造ゆらぎ逆設計アプローチにより、優れた特性を持つ新規マグノニック結晶の発見に成功しました。 マグノニック結晶は、スピン波を制御できる新しいタイプのメタマテリアルで、量子コンピューターなどの次世代情報処理技術の基盤となる素子の1つです。しかし、素子構造の微小な違いがスピン波の伝搬特性に複雑な影響を与えるため、所望の特性を示すナノ構造を実現することは、材料設計における大きな未解決問題でした。そこで本研究では、遺伝的アルゴリズム（GA）と周波数領域マイクロ磁気シミュレーションを組み合わせることで自律的に構造ゆらぎ設計を行うアルゴリズムを開発し、大きな「マグノニック・バンドギャップ」を持つ新たな2次元マグノニック結晶を探索しました。 研究の結果、これまで報告例のなかったFe（鉄）とEuO（酸化ユーロピウム）を組み合わせた非自明なトポロジー構造を有するマグノニック結晶を複数発見しました。時間領域マイクロ磁気シミュレーションにより性能を検証したところ、最大8.7GHz（ギガヘルツ）幅というより広いマグノニック・バンドギャップの達成を確認しました。さらに、高速フーリエ変換（FFT）による構造特徴量の抽出および多次元尺度法（MDS）を組み合わせて最適構造の集団の探索過程を可視化したところ、5次以上の高いバンド次数の場合、優れた性能を示す構造が1カ所に集中せず、分散して存在することが明らかとなりま…",
+      "summary_language": "ja",
+      "url": "https://www.jst.go.jp/pr/announce/20260729/index.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9937f6c3ac73dd43b395bc44",
+      "published_at": "2026-07-29T00:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "Federal Register Science & Technology",
+      "organization": "Federal Register Science & Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Federal Register JSON API",
+      "collection_mode": "Daily",
+      "title": "CDCが公衆衛生基盤の近代化に向けた資金提供を発表",
+      "title_original": "Notice of Award of a Sole Source Cooperative Agreement To Fund the Public Health Foundation",
+      "summary": "CDCは公衆衛生基盤の近代化と能力向上のために約150万ドルの資金を提供することを発表しました。",
+      "summary_original": "The Centers for Disease Control and Prevention (CDC), located within the Department of Health and Human Services (HHS), announces the award of approximately $1.5 million for Year 1 funding to the Public Health Foundation. The award will support the modernization and enhancement of CDC TRAIN and the TRAIN Learning Network overall; capacity building and training to improve the skills and competence of the public health workforce; performance management, quality improvement, and innovation in governmental public health; and expanded collaborations between health departments and academic institutions. Funding amounts for years 2-5 will be set at continuation.",
+      "summary_language": "ja",
+      "url": "https://www.federalregister.gov/documents/2026/07/29/2026-15315/notice-of-award-of-a-sole-source-cooperative-agreement-to-fund-the-public-health-foundation",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a84f613db3470ffd295208ca",
+      "published_at": "2026-07-29T00:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "キャビティなしで光の伝播モードを制御する新手法の開発",
+      "title_original": "Development of new method for controlling light propagation modes without a cavity",
+      "summary": "茨城大学の北野講師と青山学院大学の前田教授を含む研究グループが、キャビティを使用せずに光の伝播モードを制御する新しい手法を開発しました。",
+      "summary_original": "A research group including Lecturer Kenta Kitano of Ibaraki University and Professor Haruka Maeda of Aoyama Gakuin University has succeeded in developing a new method to control the propagation mode (directionality) of light without the use of a cavity, which was conventionally considered essential. This was achieved by controlling a collective emission phe… Controlling the propagation mode of light is an indispensable technology for many optical devices, and cavities have typically been used to achieve this. For example, a laser oscillates by placing a gain medium inside a cavity and controlling stimulated emission through optical feedback. Furthermore, in cavity quantum electrodynamics, p…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202607/n0729-02k.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
     {
       "id": "0c8dd94b6c67e60d6050dbbc",
       "published_at": "2026-07-29T00:00:00Z",
@@ -188,6 +536,43 @@
       "summary_language": "ja",
       "url": "https://newsroom.intel.com/intel-foundry/intel-completes-ramp-c-program-accelerating-momentum-for-secure-enclave",
       "first_seen": "2026-07-29T06:53:38+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9675a192749cc43ead58206d",
+      "published_at": "2026-07-28T15:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Research System & Talent"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "NEDO ニュース",
+      "organization": "NEDO ニュース",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "半導体アライメント計測システムの高精度化を実現",
+      "title_original": "ウェハの位置・方向が正確に測定できるアライメント計測システムの高精度化を実現しました | ニュース | NEDO",
+      "summary": "ウェハの位置・方向を正確に測定できるアライメント計測システムの高精度化が実現された。",
+      "summary_original": "掲載日 事業分野 件名 記者会見 2026年 7月29日 半導体 ウェハの位置・方向が正確に測定できるアライメント計測システムの高精度化を実現しました ― 2026年 7月23日 カーボンリサイクル​ 人工石灰石を用いた製造時固定量110kg CO 2 ／m 3 のCO 2 固定コンクリート製品の現場実証を完了しました ― 2026年 7月15日 スタートアップ支援 「大学発ベンチャー表彰2026」最終ノミネート企業6社を選定しました ― 2026年 7月15日 技術シーズ発掘・育成 懸賞金総額最大8000万円「NEDO Challenge, Satellite Data -衛星データで革新する未来の都市インフラ-」の公募を開始しました ― 2026年 7月9日 自動車・蓄電池 資源リスク・調達リスクの低い革新型電池の開発に着手します ― 2026年 7月7日 技術シーズ発掘・育成 「NEDO懸賞金活用型プログラム／NEDO Challenge, Baggage-Loading Robot ～空港の未開拓領域に挑め～」の新たな公募を開始します ― 2026年 7月7日 産学連携・人材育成 産学連携の新たな形である「契約学科」設立を含めた取り組みが始動します ― 2026年 7月2日 風力発電 グリーンイノベーション基金事業「洋上風力発電の低コスト化」で2件の新たなテーマに着手します ― 2026年 7月1日 技術シーズ発掘・育成 NEDO懸賞金活用型プログラム「NEDO Challenge, Satellite Data -農林水産業を衛星データでアップデート！-」の最終選考…",
+      "summary_language": "ja",
+      "url": "https://www.nedo.go.jp/news/press/AA5_101956.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
       "status": "New"
     },
     {
