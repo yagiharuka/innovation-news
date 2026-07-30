@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T11:17:33Z",
-  "updated_at_jst": "2026-07-30T20:17:33+09:00",
+  "updated_at": "2026-07-30T11:20:57Z",
+  "updated_at_jst": "2026-07-30T20:20:57+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 350,
+  "article_count": 352,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -809,6 +809,79 @@
       "summary_original": "日立製作所は、化学品製造プラントの運転を支援する「最適運転ガイダンスシステム」を発表した。属人的な負担が課題だったバッチ生産プロセスをフィジカルAIでサイバー空間に再現し、最適な制御方法を提示する。",
       "summary_language": "ja",
       "url": "https://monoist.itmedia.co.jp/mn/articles/2607/29/news024.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bff6a7cea9ed74a4bcb62595",
+      "published_at": "2026-07-29T00:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 5,
+      "source_type": "Policy Institute",
+      "source": "Brookings TechTank",
+      "organization": "Brookings TechTank",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "html",
+      "collection_mode": "Daily",
+      "title": "AIガバナンスに関する新しい連邦法の制定が必要",
+      "title_original": "Congress must pass a new federal law on AI governance",
+      "summary": "AIガバナンスに関する新しい連邦法の制定を求める意見が述べられている。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.brookings.edu/articles/congress-must-pass-a-new-federal-law-on-ai-governance/",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0111145f8aa25e1e76f81d25",
+      "published_at": "2026-07-29T00:00:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "International / France",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Research System & Talent"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "ITER News",
+      "organization": "ITER News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "html",
+      "collection_mode": "Daily",
+      "title": "ITER/ASIPP共同ポスドクプロジェクトの応募を開始",
+      "title_original": "Applications invited for joint ITER/ASIPP postdoc projects",
+      "summary": "ITERとASIPPが共同でポスドクトレーニングプログラムを立ち上げ、若手研究者に融合研究の機会を提供する。",
+      "summary_original": "ITER and ASIPP have launched a joint postdoctoral training program that will give early-career researchers the opportunity to conduct fusion research at both institutions under the supervision of experts from China and...",
+      "summary_language": "ja",
+      "url": "https://www.iter.org/node/20687/applications-invited-joint-iter/asipp-postdoc-projects",
       "first_seen": "2026-07-30T06:44:24+09:00",
       "status": "New"
     },
