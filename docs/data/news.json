@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T21:30:55Z",
-  "updated_at_jst": "2026-07-31T06:30:55+09:00",
+  "updated_at": "2026-07-30T22:06:00Z",
+  "updated_at_jst": "2026-07-31T07:06:00+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
