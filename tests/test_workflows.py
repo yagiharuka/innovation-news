@@ -75,6 +75,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn('JAPANESE_SUMMARY_REQUEST_BUDGET: "1"', weekly)
         self.assertIn("workflow_dispatch:", weekly)
 
+    def test_historical_review_runs_only_outside_the_morning_window(self):
+        history = (
+            ROOT / ".github" / "workflows" / "review-history.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn('cron: "17 2-17 * * *"', history)
+        self.assertIn("scripts/history_review_gate.py", history)
+        self.assertIn("scripts/collect.py --review-only", history)
+        self.assertIn('JAPANESE_SUMMARY_REQUEST_BUDGET: "1"', history)
+
 
 if __name__ == "__main__":
     unittest.main()
