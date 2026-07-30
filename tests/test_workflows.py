@@ -26,14 +26,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn('cron: "7,37 * * * *"', review)
         self.assertEqual(review.count("cron:"), 1)
 
-    def test_scheduled_review_uses_eight_item_batches_and_global_gate(self):
+    def test_scheduled_review_uses_six_item_batches_and_global_gate(self):
         review = (
             ROOT / ".github" / "workflows" / "review-backlog.yml"
         ).read_text(encoding="utf-8")
 
         self.assertIn("python3 scripts/review_gate.py", review)
-        self.assertIn("|| '16'", review)
-        self.assertIn('JAPANESE_SUMMARY_BATCH_SIZE: "8"', review)
+        self.assertIn("|| '12'", review)
+        self.assertIn("&& '100' || '12'", review)
+        self.assertIn('JAPANESE_SUMMARY_BATCH_SIZE: "6"', review)
+        self.assertIn("github.event_name != 'schedule'", review)
         self.assertIn("inputs.force", review)
         self.assertIn('--request-budget "$GATE_REQUEST_BUDGET"', review)
 
@@ -55,6 +57,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("if: github.event_name == 'push'", daily)
         self.assertIn("python -m unittest discover -s tests", daily)
         self.assertNotIn("github.event_name != 'schedule'", daily)
+        self.assertIn('cron: "0 19 * * *"', daily)
 
 
 if __name__ == "__main__":

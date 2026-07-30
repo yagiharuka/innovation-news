@@ -6036,6 +6036,20 @@ def review_backlog(
     ]
     in_window_object_ids = {id(item) for item in in_window}
     pending_before = sum(1 for item in in_window if needs_scope_review(item))
+    fresh_cutoff = collected_at - timedelta(hours=24)
+    fresh_pending = [
+        item
+        for item in in_window
+        if (
+            needs_scope_review(item)
+            and item.get("collection_mode", "Daily") != "Historical Backfill"
+            and parse_iso(
+                str(item.get("first_seen", "")),
+                datetime(1970, 1, 1, tzinfo=timezone.utc),
+            )
+            >= fresh_cutoff
+        )
+    ]
     pending_expired_before = sum(
         1
         for item in merged
@@ -6055,7 +6069,7 @@ def review_backlog(
         limit = 100
     selected = select_scope_review_items(
         in_window,
-        [],
+        fresh_pending,
         limit=limit,
         balanced=True,
         priority_ids=previous_ids,
@@ -6114,6 +6128,11 @@ def review_backlog(
     normalize_reviewed_policy_axis(merged)
 
     pending_after = sum(1 for item in in_window if needs_scope_review(item))
+    pending_fresh_after = sum(
+        1
+        for item in fresh_pending
+        if needs_scope_review(item)
+    )
     pending_expired_after = sum(
         1
         for item in merged
@@ -6155,6 +6174,7 @@ def review_backlog(
         "items_reviewed": summary_result["reviewed"],
         "items_excluded": len(summary_result["excluded_ids"]),
         "summaries_pending": pending_after,
+        "summaries_pending_fresh_24h": pending_fresh_after,
         "summaries_pending_expired": pending_expired_after,
         "summary_errors": summary_result["errors"],
         "summary_requests": summary_result.get("requests", 0),
@@ -6215,7 +6235,9 @@ def review_backlog(
             collected_at,
         ),
         "pending_before": pending_before,
+        "pending_fresh_before": len(fresh_pending),
         "pending_in_window": pending_after,
+        "pending_fresh_24h": pending_fresh_after,
         "pending_expired": pending_expired_after,
         "public_items": len(public_payload.get("items", [])),
         "academic_refresh": academic_refresh,

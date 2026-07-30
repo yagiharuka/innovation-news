@@ -2,7 +2,9 @@ name: Daily innovation brief
 
 on:
   schedule:
-    - cron: "0 21 * * *"
+    # Start at 04:00 JST so fresh candidates can complete strict review
+    # before the 08:00 JST morning brief.
+    - cron: "0 19 * * *"
   workflow_dispatch:
     inputs:
       backfill:
@@ -34,7 +36,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' &&
-      github.event.schedule == '0 21 * * *')
+      github.event.schedule == '0 19 * * *')
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:

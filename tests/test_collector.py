@@ -458,6 +458,31 @@ class CollectorTests(unittest.TestCase):
 
         self.assertEqual(selected[0]["canonical_id"], "public-older")
 
+    def test_balanced_review_selection_resolves_fresh_pending_before_backlog(self):
+        items = [
+            {
+                "canonical_id": "backlog-newer",
+                "source": "Source A",
+                "published_at": "2026-07-29T00:00:00Z",
+                "scope_review_version": "old-version",
+            },
+            {
+                "canonical_id": "fresh-older",
+                "source": "Source B",
+                "published_at": "2026-07-28T00:00:00Z",
+                "scope_review_version": "old-version",
+            },
+        ]
+
+        selected = collector.select_scope_review_items(
+            items,
+            [items[1]],
+            limit=1,
+            balanced=True,
+        )
+
+        self.assertEqual(selected[0]["canonical_id"], "fresh-older")
+
     def test_taxonomy_has_eight_technology_topics_and_separate_policy_axis(self):
         self.assertEqual(len(collector.TOPIC_KEYWORDS), 8)
         self.assertIn("Space", collector.TOPIC_KEYWORDS)
