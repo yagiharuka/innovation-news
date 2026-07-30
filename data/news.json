@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T09:16:34Z",
-  "updated_at_jst": "2026-07-30T18:16:34+09:00",
+  "updated_at": "2026-07-30T10:30:11Z",
+  "updated_at_jst": "2026-07-30T19:30:11+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 332,
+  "article_count": 334,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -86,6 +86,40 @@
       "status": "New"
     },
     {
+      "id": "d8fa6f77bef4f85484b4b59a",
+      "published_at": "2026-07-29T18:30:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "「低技術」化学療法ナノ粒子が致命的な脳腫瘍の再発に対する可能性を示す",
+      "title_original": "‘Low tech’ chemotherapy nanoparticles show promise for deadly brain tumor recurrence",
+      "summary": "標準的な化学療法薬がナノ粒子に搭載され、腫瘍切除後に血液脳関門を通過できることが新たな研究で示されました。",
+      "summary_original": "A standard chemotherapy drug loaded in nanoparticles has been able to penetrate the blood-brain barrier when administered shortly after resection of the tumor, new research has suggested. Doxorubicin is a powerful anthracycline chemotherapy used to treat a variety of cancers. While doxorubicin is typically unable to cross into the brain, researchers out of the University of Manchester in the U.K. found that the drug attained this ability when it was loaded into liposome nanoparticles and given to mice as soon as 15 minutes after their gliobl… The drug then remained at the tumor margin for up to 72 hours, according to the study, which was published Wednesday in Science Translational Medicine…",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/biotech/low-tech-chemotherapy-nanoparticles-show-promise-deadly-brain-tumor-recurrence",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
       "id": "073f9140df15ba3bebbbaec9",
       "published_at": "2026-07-29T17:37:47Z",
       "collected_at_jst": "2026-07-30T06:44:24+09:00",
@@ -153,6 +187,40 @@
       "summary_original": "Filter by type: - Any - Announcement Impact Story Insight Press Release Announcement ARPA-H announces new head of commercialization services July 29, 2026 Insight ARPA-101: How to deliver healthcare breakthroughs in years July 24, 2026 Impact Story AI and Biomedical Discovery: From data to better health outcomes July 23, 2026 Press Release ARPA-H awards to advance personalized curative medicines for rare genetic diseases July 9, 2026 Impact Story How ARPA-H is revolutionizing indoor air quality—and why it can’t wait July 1, 2026 Press Release ARPA-H selects pioneering teams to make America the safest place in the world to have a baby June 23, 2026 Insight ARPA-H 101: Understanding proposal…",
       "summary_language": "ja",
       "url": "https://arpa-h.gov/news-and-events/arpa-h-announces-new-head-commercialization-services",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "366066b098fded63246bd7e1",
+      "published_at": "2026-07-29T15:03:00Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "HRL、エラー訂正を行う自己運転型シリコン量子プロセッサを展示",
+      "title_original": "HRL Shows Self-Operating Silicon Quantum Processor That Performs Error Correction",
+      "summary": "HRL Laboratoriesは、自己運転型の量子プロセッサを発表し、外部電子機器に依存せずに動作する技術的マイルストーンを達成しました。",
+      "summary_original": "Insider Brief PRESS RELEASE — HRL Laboratories published a quantum computing milestone in Nature today: a quantum processor that runs itself. Quantum computers normally depend on racks of external electronics to generate every control signal. HRL replaced those racks with a custom control chip that sits near the qubits, in the extreme cold. The combined […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/29/hrl-shows-self-operating-silicon-quantum-processor-that-performs-error-correction/",
       "first_seen": "2026-07-30T06:44:24+09:00",
       "status": "New"
     },
