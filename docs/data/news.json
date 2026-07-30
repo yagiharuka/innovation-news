@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-30T06:10:33Z",
-  "updated_at_jst": "2026-07-30T15:10:33+09:00",
+  "updated_at": "2026-07-30T09:16:34Z",
+  "updated_at_jst": "2026-07-30T18:16:34+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 331,
+  "article_count": 332,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -17,6 +17,40 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "8cdb0a75ab4f730d5c60b7e3",
+      "published_at": "2026-07-29T21:44:24Z",
+      "collected_at_jst": "2026-07-30T06:44:24+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "NEDO 公募",
+      "organization": "NEDO 公募",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Daily",
+      "title": "水素サプライチェーン構築に向けた技術開発事業の実施体制決定",
+      "title_original": "「競争的な水素サプライチェーン構築に向けた技術開発事業／総合調査研究／我が国の漁港における水素エネルギー利活用ポテンシャル調査」の実施体制の決定について",
+      "summary": "水素サプライチェーン構築に向けた技術開発事業の実施体制が決定されました。",
+      "summary_original": "「競争的な水素サプライチェーン構築に向けた技術開発事業／総合調査研究／我が国の漁港における水素エネルギー利活用ポテンシャル調査」の実施体制の決定について 水素",
+      "summary_language": "ja",
+      "url": "https://www.nedo.go.jp/koubo/SE3_100001_00136.html",
+      "first_seen": "2026-07-30T06:44:24+09:00",
+      "status": "New"
+    },
     {
       "id": "726d85df3835cf54e35a5536",
       "published_at": "2026-07-29T21:44:24Z",
