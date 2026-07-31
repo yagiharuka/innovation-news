@@ -83,7 +83,10 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn('cron: "17 2-17 * * *"', history)
         self.assertIn("scripts/history_review_gate.py", history)
         self.assertIn("scripts/collect.py --review-only", history)
-        self.assertIn('JAPANESE_SUMMARY_REQUEST_BUDGET: "1"', history)
+        self.assertIn('".github/manual-history-review-trigger"', history)
+        self.assertIn("&& '500' || '150'", history)
+        self.assertIn('JAPANESE_SUMMARY_BATCH_SIZE: "10"', history)
+        self.assertIn("&& '75' || '15'", history)
 
     def test_all_completion_gates_use_the_protected_priority_count(self):
         for relative_path in (
