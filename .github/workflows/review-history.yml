@@ -5,6 +5,12 @@ on:
     # 11:17-02:17 JST, hourly. The 03:00-10:59 window is reserved for
     # collection, fresh review, and morning-brief delivery.
     - cron: "17 2-17 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      # Updating this marker starts one resumable 500-item catch-up pass.
+      - ".github/manual-history-review-trigger"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +23,7 @@ concurrency:
 jobs:
   review:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 180
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -26,7 +32,15 @@ jobs:
 
       - name: Check whether historical review is due
         id: review_due
-        run: python3 scripts/history_review_gate.py --request-budget 1
+        shell: bash
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "push" \
+            || "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            echo "Manual historical catch-up requested."
+          else
+            python3 scripts/history_review_gate.py --request-budget 15
+          fi
 
       - name: Set up Python
         if: steps.review_due.outputs.should_run == 'true'
@@ -47,11 +61,11 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           JAPANESE_SUMMARY_MODEL: gpt-5.6-luna
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: "6"
-          JAPANESE_SUMMARY_BATCH_SIZE: "6"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name != 'schedule' && '500' || '150' }}
+          JAPANESE_SUMMARY_BATCH_SIZE: "10"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
-          JAPANESE_SUMMARY_REQUEST_BUDGET: "1"
-          JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
+          JAPANESE_SUMMARY_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '75' || '15' }}
+          JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "0.5"
 
       - name: Commit historical review checkpoint
         if: steps.review_due.outputs.should_run == 'true'
