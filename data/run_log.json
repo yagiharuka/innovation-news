@@ -2413,6 +2413,33 @@
       "summary_rate_limited_at": "",
       "duration_seconds": 661.39,
       "note": "Review backlog"
+    },
+    {
+      "run_at": "2026-07-31T01:12:30Z",
+      "run_at_jst": "2026-07-31T10:12:30+09:00",
+      "feeds_checked": 0,
+      "feeds_succeeded": 0,
+      "new_items": 222,
+      "duplicates_skipped": 0,
+      "feed_errors": 0,
+      "summaries_generated": 225,
+      "items_selected": 500,
+      "items_reviewed": 500,
+      "items_excluded": 275,
+      "summaries_pending": 270,
+      "summaries_pending_fresh_24h": 0,
+      "summaries_pending_priority_36h": 0,
+      "summaries_pending_expired": 15,
+      "summary_errors": 0,
+      "summary_requests": 51,
+      "summary_rate_limited": false,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "499",
+      "summary_rate_limit_reset": "120ms",
+      "summary_retry_after": "",
+      "summary_rate_limited_at": "",
+      "duration_seconds": 596.77,
+      "note": "Review backlog"
     }
   ]
 }
