@@ -2332,6 +2332,33 @@
       "summary_rate_limited_at": "",
       "duration_seconds": 33.98,
       "note": "Review fresh candidates"
+    },
+    {
+      "run_at": "2026-07-31T00:14:13Z",
+      "run_at_jst": "2026-07-31T09:14:13+09:00",
+      "feeds_checked": 0,
+      "feeds_succeeded": 0,
+      "new_items": 24,
+      "duplicates_skipped": 0,
+      "feed_errors": 0,
+      "summaries_generated": 24,
+      "items_selected": 85,
+      "items_reviewed": 85,
+      "items_excluded": 61,
+      "summaries_pending": 1770,
+      "summaries_pending_fresh_24h": 0,
+      "summaries_pending_priority_36h": 0,
+      "summaries_pending_expired": 15,
+      "summary_errors": 0,
+      "summary_requests": 15,
+      "summary_rate_limited": false,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "499",
+      "summary_rate_limit_reset": "120ms",
+      "summary_retry_after": "",
+      "summary_rate_limited_at": "",
+      "duration_seconds": 157.31,
+      "note": "Review fresh candidates"
     }
   ]
 }
