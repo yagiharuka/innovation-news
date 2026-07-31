@@ -1422,7 +1422,7 @@ class CollectorTests(unittest.TestCase):
             mock.patch.dict(
                 os.environ,
                 {
-                    "GITHUB_TOKEN": "test-token",
+                    "OPENAI_API_KEY": "test-token",
                     "JAPANESE_SUMMARY_BACKFILL_LIMIT": "10",
                     "JAPANESE_SUMMARY_BATCH_SIZE": "10",
                 },
@@ -1486,7 +1486,7 @@ class CollectorTests(unittest.TestCase):
             mock.patch.dict(
                 os.environ,
                 {
-                    "GITHUB_TOKEN": "test-token",
+                    "OPENAI_API_KEY": "test-token",
                     "JAPANESE_SUMMARY_BACKFILL_LIMIT": "2",
                     "JAPANESE_SUMMARY_BATCH_SIZE": "2",
                     "JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS": "0",
@@ -1552,7 +1552,7 @@ class CollectorTests(unittest.TestCase):
             mock.patch.dict(
                 os.environ,
                 {
-                    "GITHUB_TOKEN": "test-token",
+                    "OPENAI_API_KEY": "test-token",
                     "JAPANESE_SUMMARY_BACKFILL_LIMIT": "16",
                     "JAPANESE_SUMMARY_BATCH_SIZE": "8",
                     "JAPANESE_SUMMARY_REQUEST_BUDGET": "2",
@@ -1648,14 +1648,77 @@ class CollectorTests(unittest.TestCase):
 
         request_headers = post_mock.call_args.kwargs["headers"]
         self.assertEqual(
-            request_headers["X-GitHub-Api-Version"],
-            "2026-03-10",
+            request_headers["Authorization"],
+            "Bearer test-token",
+        )
+        self.assertEqual(
+            post_mock.call_args.args[0],
+            collector.OPENAI_RESPONSES_ENDPOINT,
+        )
+        request_payload = post_mock.call_args.kwargs["json"]
+        self.assertEqual(request_payload["model"], "gpt-5.6-luna")
+        self.assertFalse(request_payload["store"])
+        self.assertEqual(
+            request_payload["text"]["format"]["type"],
+            "json_schema",
         )
         self.assertEqual(
             request_stats["rate_limited_at"],
             "2026-07-28T10:57:49Z",
         )
         self.assertEqual(request_stats["retry_after"], "543")
+
+    def test_summary_request_parses_responses_api_output_text(self):
+        response = collector.requests.Response()
+        response.status_code = 200
+        response._content = json.dumps(
+            {
+                "output": [
+                    {
+                        "type": "message",
+                        "content": [
+                            {
+                                "type": "output_text",
+                                "text": json.dumps(
+                                    {
+                                        "items": [
+                                            {
+                                                "id": "article-1",
+                                                "in_scope": False,
+                                                "reason": "対象外",
+                                            }
+                                        ]
+                                    },
+                                    ensure_ascii=False,
+                                ),
+                            }
+                        ],
+                    }
+                ]
+            },
+            ensure_ascii=False,
+        ).encode("utf-8")
+
+        with (
+            mock.patch.dict(
+                os.environ,
+                {"JAPANESE_SUMMARY_REQUEST_BUDGET": "2"},
+            ),
+            mock.patch.object(
+                collector.requests,
+                "post",
+                return_value=response,
+            ),
+        ):
+            parsed = collector.japanese_summary_request(
+                [{"canonical_id": "article-1", "title": "General news"}],
+                "test-token",
+                collector.DEFAULT_JAPANESE_SUMMARY_MODEL,
+                {"requests": 0},
+            )
+
+        self.assertIn("article-1", parsed)
+        self.assertFalse(parsed["article-1"]["in_scope"])
 
     def test_successful_review_carries_forward_the_quota_reset_checkpoint(self):
         checkpoint = collector.quota_window_reset_checkpoint(

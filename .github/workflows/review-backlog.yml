@@ -26,7 +26,6 @@ on:
 
 permissions:
   contents: write
-  models: read
 
 concurrency:
   group: innovation-news-collection
@@ -83,8 +82,8 @@ jobs:
           python -u scripts/review_fresh.py
           python -u scripts/validate_outputs.py
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-          JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          JAPANESE_SUMMARY_MODEL: gpt-5.6-luna
           # Two batches of six reduce omitted IDs while preserving the lowest free
           # daily request quota. The gate reserves daily/weekly capacity.
           JAPANESE_SUMMARY_BACKFILL_LIMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.review_limit || github.event_name == 'push' && '100' || '12' }}

@@ -15,7 +15,6 @@ on:
 
 permissions:
   contents: write
-  models: read
 
 concurrency:
   group: innovation-news-collection
@@ -49,9 +48,9 @@ jobs:
           python -u scripts/collect.py "${args[@]}"
           python -u scripts/validate_outputs.py
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SOURCE_FETCH_WORKERS: "8"
-          JAPANESE_SUMMARY_MODEL: openai/gpt-4o-mini
+          JAPANESE_SUMMARY_MODEL: gpt-5.6-luna
           JAPANESE_SUMMARY_BACKFILL_LIMIT: "6"
           JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"

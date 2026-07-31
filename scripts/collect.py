@@ -63,10 +63,10 @@ TEMPLATE_XLSX = ROOT / "assets" / "innovation_news_ledger_template.xlsx"
 PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
 
 JST = timezone(timedelta(hours=9))
-GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference/chat/completions"
+OPENAI_RESPONSES_ENDPOINT = "https://api.openai.com/v1/responses"
 GDELT_DOC_ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 OPENALEX_WORKS_ENDPOINT = "https://api.openalex.org/works"
-DEFAULT_JAPANESE_SUMMARY_MODEL = "openai/gpt-4o-mini"
+DEFAULT_JAPANESE_SUMMARY_MODEL = "gpt-5.6-luna"
 TECH_SCOPE_REVIEW_VERSION = "tech-innovation-v6"
 ACADEMIC_SCOPE_REVIEW_VERSION = "openalex-abstract-v2"
 BACKFILL_VERSION = 3
@@ -583,7 +583,7 @@ class FeedResult:
 
 
 class SummaryRateLimitError(RuntimeError):
-    """Stop the current review pass when GitHub Models returns HTTP 429."""
+    """Stop the current review pass when the OpenAI API returns HTTP 429."""
 
     def __init__(
         self,
@@ -4612,21 +4612,93 @@ def japanese_summary_request(
         )
     except ValueError:
         max_tokens = 4000
+    exclusion_schema = {
+        "type": "object",
+        "properties": {
+            "id": {"type": "string"},
+            "in_scope": {"type": "boolean", "const": False},
+            "reason": {"type": "string"},
+        },
+        "required": ["id", "in_scope", "reason"],
+        "additionalProperties": False,
+    }
+    inclusion_schema = {
+        "type": "object",
+        "properties": {
+            "id": {"type": "string"},
+            "in_scope": {"type": "boolean", "const": True},
+            "topics": {
+                "type": "array",
+                "items": {"type": "string", "enum": list(TOPIC_KEYWORDS)},
+            },
+            "is_innovation_policy": {"type": "boolean"},
+            "policy_areas": {
+                "type": "array",
+                "items": {"type": "string", "enum": list(POLICY_AREA_KEYWORDS)},
+            },
+            "policy_relevance": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 5,
+            },
+            "reason": {"type": "string"},
+            "content_type": {
+                "type": "string",
+                "enum": sorted(TECH_SCOPE_CONTENT_TYPES),
+            },
+            "technical_focus": {"type": "string"},
+            "scope_evidence": {"type": "string"},
+            "title_ja": {"type": "string"},
+            "summary_ja": {"type": "string"},
+        },
+        "required": [
+            "id",
+            "in_scope",
+            "topics",
+            "is_innovation_policy",
+            "policy_areas",
+            "policy_relevance",
+            "reason",
+            "content_type",
+            "technical_focus",
+            "scope_evidence",
+            "title_ja",
+            "summary_ja",
+        ],
+        "additionalProperties": False,
+    }
     payload = {
         "model": model,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        "temperature": 0.1,
-        "max_tokens": max_tokens,
-        "response_format": {"type": "json_object"},
+        "instructions": system_prompt,
+        "input": user_prompt,
+        "reasoning": {"effort": "low"},
+        "max_output_tokens": max_tokens,
+        "store": False,
+        "text": {
+            "verbosity": "low",
+            "format": {
+                "type": "json_schema",
+                "name": "innovation_review",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "items": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [exclusion_schema, inclusion_schema],
+                            },
+                        },
+                    },
+                    "required": ["items"],
+                    "additionalProperties": False,
+                },
+            },
+        },
     }
     headers = {
-        "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
-        "X-GitHub-Api-Version": "2026-03-10",
         "User-Agent": USER_AGENT,
     }
 
@@ -4641,11 +4713,11 @@ def japanese_summary_request(
             request_budget = 25
         if int(request_stats.get("requests", 0)) >= request_budget:
             raise SummaryRequestBudgetError(
-                f"GitHub Models request budget reached ({request_budget})"
+                f"OpenAI API request budget reached ({request_budget})"
             )
         request_stats["requests"] = int(request_stats.get("requests", 0)) + 1
         response = requests.post(
-            GITHUB_MODELS_ENDPOINT,
+            OPENAI_RESPONSES_ENDPOINT,
             headers=headers,
             json=payload,
             timeout=90,
@@ -4653,11 +4725,11 @@ def japanese_summary_request(
         request_stats["http_status"] = response.status_code
         request_stats["retry_after"] = response.headers.get("Retry-After", "")
         request_stats["remaining"] = response.headers.get(
-            "X-RateLimit-Remaining",
+            "x-ratelimit-remaining-requests",
             "",
         )
         request_stats["reset_at"] = response.headers.get(
-            "X-RateLimit-Reset",
+            "x-ratelimit-reset-requests",
             "",
         )
         if response.ok:
@@ -4665,7 +4737,7 @@ def japanese_summary_request(
         if response.status_code == 429:
             request_stats["rate_limited_at"] = iso_z(now_utc())
             raise SummaryRateLimitError(
-                "GitHub Models rate limit reached",
+                "OpenAI API rate limit reached",
                 retry_after=str(request_stats["retry_after"]),
                 remaining=str(request_stats["remaining"]),
                 reset_at=str(request_stats["reset_at"]),
@@ -4679,13 +4751,20 @@ def japanese_summary_request(
             delay = float(2**attempt)
         time.sleep(min(delay, 30.0))
     if response is None:
-        raise RuntimeError("GitHub Models returned no response")
+        raise RuntimeError("OpenAI API returned no response")
     response.raise_for_status()
     body = response.json()
-    choices = body.get("choices", [])
-    if not choices:
-        raise ValueError("GitHub Models response did not contain choices")
-    content = choices[0].get("message", {}).get("content", "")
+    content = body.get("output_text", "")
+    if not content:
+        content = "".join(
+            str(part.get("text", ""))
+            for output in body.get("output", [])
+            if isinstance(output, dict)
+            for part in output.get("content", [])
+            if isinstance(part, dict) and part.get("type") == "output_text"
+        )
+    if not content:
+        raise ValueError("OpenAI API response did not contain output text")
     return parse_japanese_summary_response(content, allowed_ids)
 
 
@@ -4724,7 +4803,7 @@ def enrich_japanese_summaries(
             priority_ids=priority_ids,
         )
     )
-    token = os.getenv("GITHUB_TOKEN", "").strip()
+    token = os.getenv("OPENAI_API_KEY", "").strip()
     model = os.getenv(
         "JAPANESE_SUMMARY_MODEL",
         DEFAULT_JAPANESE_SUMMARY_MODEL,
@@ -4744,7 +4823,11 @@ def enrich_japanese_summaries(
             "rate_limited_at": "",
             "rate_limit_remaining": "",
             "rate_limit_reset": "",
-            "detail": "No pending summaries" if not selected else "GITHUB_TOKEN is not set",
+            "detail": (
+                "No pending summaries"
+                if not selected
+                else "OPENAI_API_KEY is not set"
+            ),
         }
 
     generated = 0
@@ -4822,7 +4905,7 @@ def enrich_japanese_summaries(
             request_budget_reached = True
             errors.append(
                 "SummaryRequestBudgetError: "
-                f"GitHub Models request budget reached ({request_budget})"
+                f"OpenAI API request budget reached ({request_budget})"
             )
             break
 

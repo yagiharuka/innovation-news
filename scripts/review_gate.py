@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Decide whether a scheduled backlog review may use GitHub Models."""
+"""Decide whether a scheduled backlog review may use the review API."""
 
 from __future__ import annotations
 
@@ -347,7 +347,7 @@ def main() -> int:
         "--request-budget",
         type=int,
         default=2,
-        help="Maximum GitHub Models requests the proposed review may use.",
+        help="Maximum review API requests the proposed review may use.",
     )
     parser.add_argument("--run-log", type=Path, default=RUN_LOG_PATH)
     parser.add_argument("--review-state", type=Path, default=REVIEW_STATE_PATH)
