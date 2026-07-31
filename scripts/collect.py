@@ -6167,7 +6167,13 @@ def review_backlog(
         )
     ]
     in_window_object_ids = {id(item) for item in in_window}
-    pending_before = sum(1 for item in in_window if needs_scope_review(item))
+    include_expired = os.getenv(
+        "JAPANESE_SUMMARY_INCLUDE_EXPIRED", ""
+    ).strip().lower() in {"1", "true", "yes", "on"}
+    review_queue = list(merged) if include_expired else in_window
+    pending_before = sum(
+        1 for item in review_queue if needs_scope_review(item)
+    )
     fresh_cutoff = collected_at - timedelta(hours=24)
     fresh_pending = [
         item
@@ -6204,7 +6210,7 @@ def review_backlog(
     except ValueError:
         limit = 100
     selected = select_scope_review_items(
-        in_window,
+        review_queue,
         priority_pending,
         limit=limit,
         balanced=True,
@@ -6263,7 +6269,9 @@ def review_backlog(
     normalize_reviewed_topics(merged)
     normalize_reviewed_policy_axis(merged)
 
-    pending_after = sum(1 for item in in_window if needs_scope_review(item))
+    pending_after = sum(
+        1 for item in review_queue if needs_scope_review(item)
+    )
     pending_fresh_after = sum(
         1
         for item in fresh_pending
