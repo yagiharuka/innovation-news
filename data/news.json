@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-31T01:12:30Z",
-  "updated_at_jst": "2026-07-31T10:12:30+09:00",
+  "updated_at": "2026-07-31T01:27:24Z",
+  "updated_at_jst": "2026-07-31T10:27:24+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1088,
+  "article_count": 1176,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -3683,6 +3683,40 @@
       "status": "New"
     },
     {
+      "id": "3fa723476e7328537d0b9d26",
+      "published_at": "2026-07-28T12:00:13Z",
+      "collected_at_jst": "2026-07-29T06:53:38+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Moonshot AI、オープンソースAIモデル「Kimi K3」を公開",
+      "title_original": "Moonshot’s Kimi K3 triggers Silicon Valley debate over bans on Chinese open source models",
+      "summary": "中国のMoonshot AIは、AIモデル「Kimi K3」の重みと、効率性・安定性を高める関連インフラを公開した。Nvidia以外のエコシステムへの対応をめぐり議論が広がっている。",
+      "summary_original": "China’s Moonshot AI has made its latest artificial intelligence model Kimi K3 available for public download, as its open-source strategy and more support for non-Nvidia ecosystems trigger heated debates across Silicon Valley. On Monday, the Chinese AI start-up not only released the model’s “weights” – the underlying parameters that encode its intelligence – but also made available key infrastructure, including tools to improve efficiency and stability. The move has allowed developers around the...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/article/3362143/moonshots-kimi-k3-triggers-silicon-valley-debate-over-bans-chinese-open-source-models?utm_source=rss_feed",
+      "first_seen": "2026-07-29T06:53:38+09:00",
+      "status": "New"
+    },
+    {
       "id": "cb14f4d726251b20f389e5f3",
       "published_at": "2026-07-28T10:30:08Z",
       "collected_at_jst": "2026-07-28T19:55:02+09:00",
@@ -3782,6 +3816,40 @@
       "summary_original": "CapuchinAI, a portable testing station equipped with a touch screen and facial recognition software, could help scientists study primate intelligence in the wild.",
       "summary_language": "ja",
       "url": "https://www.nytimes.com/2026/07/28/science/costa-rica-monkeys-ai.html",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1442bd1e3b571f3faf188728",
+      "published_at": "2026-07-28T09:02:39Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "中国企業、DUV液浸リソグラフィー装置の量産を開始",
+      "title_original": "China chip dreams still face long road even after breakthrough",
+      "summary": "中国・上海の国有系企業が、深紫外線（DUV）液浸リソグラフィー装置を製造していると報じられた。今年5台、来年約20台を引き渡す計画で、半導体製造装置の国産化に向けた動きとなる。",
+      "summary_original": "China has begun mass-producing some chipmaking machines, according to a report, marking a step forward in national efforts to become technologically self-sufficient. A state-backed company in Shanghai is making deep ultraviolet (DUV) immersion lithography machines, The Information reported, citing people familiar with the matter. The unidentified Shanghai-based company plans to hand over five machines this year and about 20 next year, according to the report. Shares of ASML, the world’s biggest...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/plus/tech/tech-war/article/3362124/china-chip-dreams-still-face-long-road-even-after-breakthrough?utm_source=rss_feed",
       "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
@@ -3922,6 +3990,41 @@
       "status": "New"
     },
     {
+      "id": "46a45c1abbcfb4221e286f28",
+      "published_at": "2026-07-28T06:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "ITmedia AI+",
+      "organization": "ITmedia AI+",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "生成AIで医療文書作成を支援、実運用を導入",
+      "title_original": "医療文書の作成時間を30分から5分へ、生成AIで現場の業務効率化",
+      "summary": "日本IBMと関西医科大学は、次世代の医療AI共通ICTプラットフォームを共同開発し、第1弾として生成AIによる医療文書作成支援を実運用に導入した。",
+      "summary_original": "日本アイ・ビー・エムと関西医科大学は、次世代の医療DX基盤となる「医療AI共通ICTプラットフォーム」を共同開発し、第1弾として生成AIを活用した文書作成支援の実運用を導入した。",
+      "summary_language": "ja",
+      "url": "https://monoist.itmedia.co.jp/mn/articles/2607/28/news080.html",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
       "id": "f886c61bd1e1eb3f9e8cc26f",
       "published_at": "2026-07-28T05:30:00Z",
       "collected_at_jst": "2026-07-28T19:55:02+09:00",
@@ -4021,6 +4124,74 @@
       "summary_original": "LG Innotek is expanding its robotics push from the \"eyes\" to the \"skin,\" teaming up with Japan’s TDK to develop next-generation vision and tactile sensing modules for physical AI applications. The companies said Tuesday they have formed a strategic partnership combining LG Innotek’s optical and precision engineering capabilities with TDK’s broad portfolio of sensor technologies. Under the partnership, LG Innotek will integrate TDK sensors, including inertial measurement units, position sensors a",
       "summary_language": "ja",
       "url": "https://m.koreaherald.com/article/10822894",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
+      "id": "551155d327b0c2bcd1bd8da9",
+      "published_at": "2026-07-28T04:24:13Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Korea Herald Technology",
+      "organization": "The Korea Herald Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Posco Future M、電池材料事業全体にAIを導入へ",
+      "title_original": "Posco Future M to apply AI across battery materials operations",
+      "summary": "Posco Future Mは、原材料調達から製造、製品開発、品質管理、顧客連携まで電池材料事業全体にAIを導入する計画を発表した。関連システムは2028年上半期までの完成を目指す。",
+      "summary_original": "Posco Future M said Tuesday it will apply artificial intelligence across its battery material business, from raw material procurement and manufacturing to product development, quality control and customer collaboration. The South Korean battery materials maker unveiled a companywide AI transformation strategy under a digital innovation vision called “Battery of Things Ecosystem Game Changer.” It plans to complete the related systems by the first half of 2028. Key manufacturing innovation goals i",
+      "summary_language": "ja",
+      "url": "https://m.koreaherald.com/article/10822853",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c9c8218eca5405d1a192dfd3",
+      "published_at": "2026-07-28T04:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "ITmedia AI+",
+      "organization": "ITmedia AI+",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Microsoft、Excelやメールを操作するAI機能「Copilot Cowork」を全世界で提供開始",
+      "title_original": "「Claudeより4割安い」 M365のExcel/メール操作を丸投げる「Copilot Cowork」“従量課金”の落とし穴",
+      "summary": "Microsoftは、Microsoft 365 Copilotの新機能「Copilot Cowork」の一般提供を全世界で開始した。Excelやメール操作をAIに任せる機能で、企業での本格利用に向けた実証が進んでいる。",
+      "summary_original": "Microsoftは、AIアシスタント「Microsoft 365 Copilot」の新機能「Copilot Cowork」の一般提供を全世界で開始した。業務効率化に向けた実証が進んでおり、今後企業で本格的に活用されるかどうか注目されている。",
+      "summary_language": "ja",
+      "url": "https://atmarkit.itmedia.co.jp/ait/articles/2607/28/news053.html",
       "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
@@ -4722,6 +4893,43 @@
       "summary_original": "NVIDIA、OpenAIも接近 日立Lumada10年の曲折と東原氏の執念 2026.07.28 日立「Lumada」、10年越しの総力戦 NTT、IOWN用通信チップを宇宙へ 光電融合で「スペースX超え」速度 2026.07.28 宇宙通信、世界大競争 生コン品質試験で不正発覚、監督員立ち会いで「現行犯」 北海道新幹線工事 2026.07.28 ニュース解説：土木 千葉銀行など5行の次期勘定系、マネロン検知AIをメインフレームに実装検討 2026.07.28 ニュース解説 OpenAIが競技プログラミングで人間圧倒、想定超えたAIの「勝ち方」 2026.07.28 ニュース解説 パンク寸前の米国送電網を救った日立Lumada、10年の苦闘で結実した総合力 2026.07.27 日立「Lumada」、10年越しの総力戦 耐震補強した16橋に設計ミス、橋座などが耐力不足 四国の高速道 2026.07.27 ニュース解説：土木 東風日産トップ「本社承認2回だけ」、開発期間半減 E2E自動運転はVLAに着手 2026.07.27 自動車メーカーの針路 NVIDIA、半導体後工程の米アムコーと15億ドル契約 米国での生産強化 2026.07.27 ニュース解説 ナフサ不足で建材・設備の値上げラッシュ、主要メーカーの価格改定一覧 2026.07.27 追跡！ナフサショック AI半導体、推論シフトで一変 NVIDIA1強から群雄割拠へ 2026.07.21 AI推論シフトで変わる半導体産業 「最新のAIサーバーを置けない」、NVIDIAの進化に追いつかない日本の法規制 2026.07.…",
       "summary_language": "ja",
       "url": "https://xtech.nikkei.com/atcl/nxt/column/18/00001/11921/?i_cid=nbpnxt_ranking_com_allp_c_04",
+      "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3908b6eefd3721663eaa3a24",
+      "published_at": "2026-07-28T00:00:00Z",
+      "collected_at_jst": "2026-07-28T19:55:02+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "医師とAIの協働で生じる医療責任を分類する枠組み",
+      "title_original": "When physicians and AI work together, who is accountable? How to lay out medical liability",
+      "summary": "医療現場でAIがどの程度患者ケアに関与したかを段階化し、治療が失敗した場合の責任分担を明確にする枠組みが示された。",
+      "summary_original": "Nature, Published online: 28 July 2026; doi:10.1038/d41586-026-02315-9 A staging system based on how big a role AI has in patient care can help to identify who is responsible in cases in which care fails.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/d41586-026-02315-9",
       "first_seen": "2026-07-28T19:55:02+09:00",
       "status": "New"
     },
@@ -10015,6 +10223,40 @@
       "status": "New"
     },
     {
+      "id": "4e5989e812e0089b587f2c6b",
+      "published_at": "2026-07-25T13:00:08Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "",
+      "collection_mode": "Daily",
+      "title": "AI計算を大規模化する「スーパーノード」、中国勢が新型ハードウェアを展示",
+      "title_original": "What is a supernode, and why does it matter for the China-US tech rivalry?",
+      "summary": "中国のAI関連イベントで、HuaweiやBiren Technologyなどのチップメーカーが、数百から数千のチップを接続して一つの巨大なスーパーコンピューターとして動かす「スーパーノード」向けハードウェアを展示した。",
+      "summary_original": "As the size of artificial intelligence models expands beyond 1 trillion parameters, a new concept is dominating the computing landscape: “supernode”. At this year’s World Artificial Intelligence Conference (WAIC), China’s top AI summit, domestic chipmakers from Huawei Technologies to Biren Technology showcased new hardware designed to knit hundreds or thousands of chips together to act as one giant supercomputer, which they called a supernode. The focus on supernodes at WAIC reflected a shift in...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/article/3361562/what-supernode-and-why-does-it-matter-china-us-tech-rivalry?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
       "id": "6b92f798cf49d0c14e30877b",
       "published_at": "2026-07-25T00:29:32Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -10838,6 +11080,40 @@
       "status": "New"
     },
     {
+      "id": "62ccc63a4ab89549e9ebd5bc",
+      "published_at": "2026-07-24T14:40:33Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Merck、承認前の月1回HIV予防薬候補でアクセス戦略を開始",
+      "title_original": "Merck stages expanded access to monthly HIV PrEP pill ahead of approval",
+      "summary": "Merckは、HIV予防薬候補alimatravirの第3相試験が完了する前に、サハラ以南アフリカなどの後発医薬品メーカー7社と非独占的自主ライセンス契約を結んだ。",
+      "summary_original": "Following in the footsteps of Gilead Sciences, Merck & Co. has signed voluntary licensing agreements to enable access to its investigational HIV PrEP pill alimatravir. The New Jersey pharma is accelerating that playbook even further, launching the global access strategy well before the phase 3 trial evaluating alimatravir for HIV prevention has completed enrollment or produced data. As Merck noted in a July 24 announcement, this early move represents a first in the field of HIV prevention. Merck has signed nonexclusive voluntary licensing agreements with seven generic manufactures, including Aspen Pharmacare, Quality Chemical Industries and UCL Kenya in sub-Saharan Africa; and Aurobindo, Ci…",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/pharma/merck-prepares-expanded-access-alimatravir-monthly-hiv-prep-pill-ahead-approval",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "69662405dad2bed5de5c2304",
       "published_at": "2026-07-24T14:34:25Z",
       "collected_at_jst": "2026-07-28T09:43:19+09:00",
@@ -10941,6 +11217,41 @@
       "summary_language": "ja",
       "url": "https://arstechnica.com/tech-policy/2026/07/ai-firms-want-more-data-centers-trumps-epa-may-give-neighbors-less-say/",
       "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "05008bd4ac08871fb5effb1a",
+      "published_at": "2026-07-24T13:41:07Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Quantum",
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "SKKU主導チーム、酸化亜鉛の「スピン量子ビット」を特定",
+      "title_original": "SKKU-led Team Identifies ‘Zinc Oxide Spin Qubit’ — A Semiconductor-Based Quantum Technology",
+      "summary": "成均館大学校（SKKU）主導の研究チームは、酸化亜鉛半導体内にある原子欠陥構造を初めて特定した。研究は、半導体ベースの量子技術に関わる。",
+      "summary_original": "Insider Brief PRESS RELEASE — A research team led by SKKU Professor Hosung Seo of the Department of Quantum Information Engineering and the SKKU Advanced Institute of Nanotechnology, working with the University of Wisconsin–Madison and the University of Washington, has identified—for the first time—an atomic defect structure in the zinc oxide (ZnO) semiconductor with outstanding […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/24/skku-led-team-identifies-zinc-oxide-spin-qubit-a-semiconductor-based-quantum-technology/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
       "status": "New"
     },
     {
@@ -11118,6 +11429,180 @@
       "status": "New"
     },
     {
+      "id": "efed71947aa649fdfd007a16",
+      "published_at": "2026-07-24T11:27:33Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "量子コンピューティングを支える材料工学",
+      "title_original": "Quantum Materials Engineering - The Atoms Powering Quantum Computing",
+      "summary": "量子コンピューティングでは、量子ビットの改良だけでなく、量子状態を可能にする材料が重要となる。研究者は超伝導金属、高純度シリコン、人工結晶欠陥、トポロジカル材料を探究している。",
+      "summary_original": "Insider Brief Quantum computing is often portrayed as a race to build better qubits, but this is just part of the bigger challenge. Beneath every qubit is an endeavor to find the right material that can make quantum behavior possible. Researchers are exploring superconducting metals, ultra-pure silicon, engineered crystal defects, and topological compounds. They seek […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/24/quantum-materials-engineering-the-atoms-powering-quantum-computing/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1639c14b638742d81ab679b5",
+      "published_at": "2026-07-24T10:48:36Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Quantum",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "WISERとE.ON、量子機械学習で電力需要予測を検証",
+      "title_original": "WISER and E.ON Advance Energy Demand Forecasting with Quantum Machine Learning",
+      "summary": "WISERとE.ONは、相関する電力消費時系列の予測に量子機械学習を適用する共同研究を完了した。研究では、Kernelized Quantum Reservoir Computingを含む二つの量子・古典ハイブリッド手法を検討し、成果をarXivで公開した。",
+      "summary_original": "Insider Brief Press release – The Washington Institute for STEM, Entrepreneurship and Research (WISER) announces the successful completion of a research collaboration with E.ON on energy demand forecasting using quantum machine learning. The joint project, published on arXiv, explores two hybrid quantum-classical approaches for forecasting correlated electricity consumption time series, Kernelized Quantum Reservoir Computing with Repeated […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/24/wiser-eon-quantum-machine-learning-energy-forecasting/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "73dc37d8e2e7ea964382198d",
+      "published_at": "2026-07-24T10:32:53Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "落雷にもかかわらず長征3号Bが打ち上げ成功、5衛星を軌道投入",
+      "title_original": "Lightning strikes Long March 3B after liftoff, Kinetica-1 launches 5 satellites",
+      "summary": "中国で長征3号Bロケットが打ち上げられ、飛行中に落雷を受けながらもペイロードを軌道へ投入した。Kinetica-1は5基の衛星を打ち上げた。",
+      "summary_original": "HELSINKI — China conducted a pair of launches Thursday, including a Long March 3B rocket which delivered its payload to orbit despite a lightning strike. The Long March 3B rocket […] The post Lightning strikes Long March 3B after liftoff, Kinetica-1 launches 5 satellites appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/lightning-strikes-long-march-3b-after-liftoff-kinetica-1-launches-5-satellites/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1ea0f1f08aef7deeb6cacf11",
+      "published_at": "2026-07-24T10:24:53Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Digital CatapultとNQCC、量子技術アクセス・プログラムに11組織を選定",
+      "title_original": "Digital Catapult and NQCC Select 11 Organisations for Quantum Technology Access Programme",
+      "summary": "Digital Catapultは、NQCCのSparQプログラムと連携した量子技術アクセス・プログラムの第3期参加組織として11組織を選定した。プログラムは量子イノベーションの産業応用を促進する。",
+      "summary_original": "Insider Brief Press release – Digital Catapult has today welcomed eleven leading organisations to the third cohort of its Quantum Technology Access Programme (QTAP), delivered in collaboration with the National Quantum Computing Centre’s (NQCC) SparQ programme. Designed to accelerate the practical application of quantum innovation in industry, the cohort includes NatWest, the Rail Safety and […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/24/digital-catapult-nqcc-quantum-technology-access-programme/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "71a75dfae2c4d1eec727f27e",
+      "published_at": "2026-07-24T10:13:13Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Robotics",
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Quantum Insider",
+      "organization": "The Quantum Insider",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "耐量子暗号をロボットソフトウェアの通信に実装",
+      "title_original": "Terra Quantum and Apex.AI Integrate NIST Post-Quantum Cryptography Into Robotics Software",
+      "summary": "Terra QuantumとApex.AIは、NIST標準化済みの耐量子暗号を、Apex.AIベースのロボットソフトウェア環境とクラウド制御システム間の安全な通信に実装した。",
+      "summary_original": "Insider Brief Press release – Terra Quantum, a global leader in quantum technologies, and Apex.AI, a leading provider of safe and secure software for software-defined vehicles and intelligent machines, today announced the successful implementation of NIST-standardized post-quantum cryptography (PQC) for secure communication between an Apex.AI-based robotic software environment and a cloud-based control system. The collaboration […]",
+      "summary_language": "ja",
+      "url": "https://thequantuminsider.com/2026/07/24/terra-quantum-apex-ai-post-quantum-cryptography/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "dab38e769de0ea36828045d0",
       "published_at": "2026-07-24T09:15:04Z",
       "collected_at_jst": "2026-07-28T09:58:31+09:00",
@@ -11151,6 +11636,40 @@
       "summary_language": "ja",
       "url": "https://www.axios.com/2026/07/24/white-house-ai-line-china",
       "first_seen": "2026-07-28T09:58:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "875550dd87e80135b3cdf1e9",
+      "published_at": "2026-07-24T09:13:10Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Sanofi、アトピー性皮膚炎薬amlitelimabの承認申請を断念",
+      "title_original": "Sanofi abandons plan to seek approval for eczema drug from $1.1B Kymab buyout",
+      "summary": "Sanofiは、抗OX40リガンド抗体amlitelimabについて、アトピー性皮膚炎を対象とする承認申請計画を断念した。第3相試験では主要評価項目を達成したものの、他の評価指標で既存薬を上回る有意な改善を示せなかった。",
+      "summary_original": "Sanofi has abandoned plans to seek approval for amlitelimab in atopic dermatitis (AD), admitting that a drug once tipped as a potential blockbuster “would not represent a meaningful improvement” to existing treatments. Sanofi secured amlitelimab as part of its $1.1 billion acquisition of Kymab back in 2021. But the writing was already on the wall for the anti-OX40 ligand antibody as far back as September 2025, when a phase 3 trial fell short of analyst expectations—and the bar set by Sanofi and Regeneron’s Dupixent—despite hitting the study’s key endpoints. Worse news was to come in January when another phase 3 study recorded a primary endpoint hit but missed on other key measures . Despite…",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/biotech/sanofi-abandons-plan-seek-approval-eczema-drug-11b-kymab-buyout",
+      "first_seen": "2026-07-27T11:51:54+09:00",
       "status": "New"
     },
     {
@@ -11188,6 +11707,40 @@
       "status": "New"
     },
     {
+      "id": "b162ebf6afca20ed121fb84e",
+      "published_at": "2026-07-24T09:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "米空軍、問題を抱える軍用GPS受信機 program の管理を引き継ぎ",
+      "title_original": "Air Force takes over troubled military GPS receiver program",
+      "summary": "米空軍ライフサイクル管理センターは、暗号化された軍用GPS信号へのアクセスに用いる受信機器プログラムを管轄する。今後、機器の開発、統合、維持を同センターが監督する。",
+      "summary_original": "The Air Force Life Cycle Management Center will oversee development, integration and sustainment of equipment used to access the military’s encrypted GPS signal The post Air Force takes over troubled military GPS receiver program appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/air-force-takes-over-troubled-military-gps-receiver-program/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "67be7f2535c5d5d5215094d7",
       "published_at": "2026-07-24T07:29:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -11219,6 +11772,40 @@
       "summary_language": "ja",
       "url": "https://www.esa.int/Applications/Satellite_navigation/Two_new_Galileo_satellites_enter_service",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "fc39eee8898a984a897b9824",
+      "published_at": "2026-07-24T06:30:46Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "",
+      "collection_mode": "Daily",
+      "title": "中国AIモデルKimi K3、ハッキング能力で米国の最新モデルに大きく遅れ",
+      "title_original": "China’s Kimi K3 ‘significantly below’ US rivals in hacking power, study shows",
+      "summary": "英国・米国政府の共同研究によると、中国Moonshot AIの大規模言語モデルKimi K3は、最新のサイバー攻撃対応モデルと比べて能力が大幅に低かった。",
+      "summary_original": "Chinese unicorn Moonshot AI’s Kimi K3 model trails far behind top American rivals in its ability to launch cyberattacks, joint British-US government research shows, challenging Washington’s brewing anxiety over the rapid rise of Chinese open-source artificial intelligence. The model, currently considered China’s most powerful large language model, performs “significantly below the most recent frontier cyber-capable models”, according to a report published on Thursday by the UK Artificial...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-war/article/3361711/chinas-kimi-k3-significantly-below-us-rivals-hacking-power-uk-us-study-shows?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
@@ -11287,6 +11874,41 @@
       "summary_language": "ja",
       "url": "https://monoist.itmedia.co.jp/mn/articles/2607/24/news007.html",
       "first_seen": "2026-07-28T09:43:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "00cfbfef6982b98ed0351899",
+      "published_at": "2026-07-24T02:35:52Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "",
+      "collection_mode": "Daily",
+      "title": "中国で広がるAI協働ロボット、人と働く「ロボット同僚」",
+      "title_original": "Chinese robot co-workers on the rise. Say hello to AI cobots",
+      "summary": "中国で、人間と同じ作業空間で働く協働ロボットの導入が進んでいる。最新モデルは機械学習とAIを活用し、自然言語の音声指示やジェスチャー、ドラッグ操作による作業教示に対応する。",
+      "summary_original": "While China’s humanoid robots and automated “dark factories” have made headlines, another form of automation has been advancing: the collaborative robot, or cobot. Designed to operate alongside human employees, cobots have been transformed by machine learning and artificial intelligence (AI). The latest models feature programming which requires no coding knowledge; instead they respond to natural-language voice commands, gesture controls and drag-to-teach demonstrations of tasks. They are also...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/plus/tech/tech-trends/article/3361664/chinese-robot-co-workers-rise-say-hello-ai-cobots?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:29:40+09:00",
       "status": "New"
     },
     {
@@ -12091,6 +12713,40 @@
       "status": "New"
     },
     {
+      "id": "006500c385193d3a42b6ae61",
+      "published_at": "2026-07-24T00:00:00Z",
+      "collected_at_jst": "2026-07-26T20:29:40+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "",
+      "collection_mode": "Daily",
+      "title": "CRISPR酵素、DNAを破壊してがん細胞を殺す可能性",
+      "title_original": "Bizarre CRISPR enzyme kills cancer cells by shredding their DNA",
+      "summary": "CRISPR関連の新たな酵素が、がん細胞のDNAを断片化して死滅させる可能性が示された。初期試験では、腫瘍形成変異を持つ標的にこのタンパク質を向けられる可能性が示唆されている。",
+      "summary_original": "Nature, Published online: 24 July 2026; doi:10.1038/d41586-026-02268-z Early tests suggest the protein can be aimed at targets with tumour-causing mutations.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/d41586-026-02268-z",
+      "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
       "id": "c48d7873e66f190e66756096",
       "published_at": "2026-07-23T23:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -12124,6 +12780,42 @@
       "summary_original": "America drops $5B on AI’s Genesis Mission while China lines up $295B; see why the opening bet may already be too small. The post U.S. Starts Genesis Mission with $5B for First Projects appeared first on EE Times .",
       "summary_language": "ja",
       "url": "https://www.eetimes.com/u-s-starts-genesis-mission-with-5b-for-first-projects/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a1c651a77020a0760ffe64be",
+      "published_at": "2026-07-23T21:14:49Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ポーランド、EUのIRIS²衛星通信コンステレーションに7億4500万ドルを拠出",
+      "title_original": "Poland commits $745 million to EU’s IRIS² constellation project",
+      "summary": "ポーランド政府は、EUが計画するIRIS²多軌道衛星インターネット・コンステレーションの開発に約7億4500万ドルを投資することで合意した。",
+      "summary_original": "WARSAW, Poland — The Polish government has agreed to invest around $745 million in the development of the planned IRIS² multi-orbit satellite internet constellation with the European Union. The money […] The post Poland commits $745 million to EU’s IRIS² constellation project appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/poland-commits-745-million-to-eus-iris%c2%b2-constellation-project/",
       "first_seen": "2026-07-27T11:51:54+09:00",
       "status": "New"
     },
@@ -12334,6 +13026,40 @@
       "summary_original": "Ropdeia's HOMIE is a head-mounted device, equipped with a 360º camera view, that captures first-person data for training robots. The post Ropedia raises $22M to scale data collection for training robots appeared first on The Robot Report .",
       "summary_language": "ja",
       "url": "https://www.therobotreport.com/ropedia-raises-22m-scale-data-collection-training-robots/",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "696be9e45d9b08ce75fffe6a",
+      "published_at": "2026-07-23T15:19:33Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "NASA",
+      "organization": "NASA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "NASAのMAVEN、火星オーロラの形成過程に新たな理解",
+      "title_original": "NASA’s MAVEN Illuminates New Understanding of Auroras at Mars - NASA Science",
+      "summary": "NASAのMAVENミッションの研究者は、火星の特定のオーロラが地球のオーロラと類似した仕組みで形成されることを明らかにした。研究結果はNature Communicationsに掲載された。",
+      "summary_original": "NASA’s MAVEN Illuminates New Understanding of Auroras at Mars 5 min read NASA MAVEN (Mars Atmosphere and Volatile Evolution) mission scientists have uncovered a key puzzle piece in understanding certain types of auroras on Mars, finding that they form in a similar way to Earth-based auroras. Results published Thursday in Nature Communications show… July 23, 2026 Article",
+      "summary_language": "ja",
+      "url": "https://science.nasa.gov/missions/maven/nasas-maven-illuminates-new-understanding-of-auroras-at-mars/",
       "first_seen": "2026-07-27T11:51:54+09:00",
       "status": "New"
     },
@@ -12622,6 +13348,40 @@
       "status": "New"
     },
     {
+      "id": "eba6be4a33610bf0f0719eba",
+      "published_at": "2026-07-23T13:06:45Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "イーライリリーの三重作動薬、体重22.6％減も心血管リスク低減は未証明",
+      "title_original": "Lilly’s triple-G drug hits 22.6% weight loss, but impact on reducing cardio risk is less clear",
+      "summary": "イーライリリーのretatrutideが肥満症の第3相試験で主要評価項目を達成した。体重減少は過去の試験を下回り、心血管リスクを低減する効果は示されなかった。",
+      "summary_original": "Eli Lilly’s triple-G drug retatrutide has hit the primary endpoints of a pair of phase 3 obesity trials, although the peak weight loss fell short of previous trials while failing to prove the drug reduces cardiovascular risk.",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/biotech/lillys-triple-g-drug-hits-226-weight-loss-cardio-risk-impact-disappoints",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "d9a86108d9597087190e2b60",
       "published_at": "2026-07-23T12:45:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -12692,6 +13452,40 @@
       "status": "New"
     },
     {
+      "id": "9cbd50c51eabc2d0ec68429e",
+      "published_at": "2026-07-23T12:27:04Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "FDA、ジョンソン・エンド・ジョンソンの手術支援ロボットを承認",
+      "title_original": "FDA clears Johnson & Johnson’s surgical robot for ‘the next era in surgery’",
+      "summary": "FDAは、Johnson & JohnsonのOttava Robotic Surgical Systemについて、胃バイパスや胃切除など複数の軟部組織手術への使用を承認した。",
+      "summary_original": "The FDA has authorized Johnson & Johnson’s Ottava Robotic Surgical System as it looks to compete with Intuitive ​Surgical and Medtronic. Ottava is now FDA-approved for multiple soft tissue surgeries, including Roux-en-Y gastric bypass, gastrectomy, cholecystectomy, splenectomy, gastric sleeve, small bowel resection, appendectomy, lysis of adhesions, fundoplication and hiatal hernia repair. “This is the start of the next era in surgery as we deliver not just a new surgical robotics system, but a catalyst for fundamentally better surgical care,” said Tim Schmid, EVP and worldwide chairman, MedTech, at Johnson & Johnson, in a release . The company is refraining from a full rollout as yet. J&J…",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/medtech/fda-clears-johnson-johnsons-surgical-robot-next-era-surgery",
+      "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
       "id": "342b8ba4bb73401006cd755e",
       "published_at": "2026-07-23T09:58:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -12723,6 +13517,41 @@
       "summary_language": "ja",
       "url": "https://cordis.europa.eu/article/rcn/466711/en?WT.mc_id=RSS-Feed&WT.rss_f=article&WT.rss_a=466711&WT.rss_ev=a",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9bbfcd1dad0cdcf2e946a9c2",
+      "published_at": "2026-07-23T08:00:10Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Alibaba系Amap、ロボットの脳・身体・四肢を統合する「5-in-1」AIを発表",
+      "title_original": "Alibaba unit says 5-in-1 AI gives robots unified brain, body and limbs",
+      "summary": "Alibaba系Amapは、ロボットの足、手、脳、中枢神経、運動神経を単一システムに統合するABot frameworkの改良版を発表した。",
+      "summary_original": "Alibaba Group Holding’s mapping unit has unveiled an upgrade to what it calls the world’s first technology framework that unites a robot’s “feet, hands, brains, central nerves and motor nerves” into a single system. Amap’s ABot system marks the latest move in Chinese tech players’ race to harness artificial intelligence models to make robots more capable. Referred to as embodied intelligence, the effort aims to equip machines with the “brains” and other elements required to navigate and complete...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/big-tech/article/3361564/alibaba-unit-says-5-1-ai-gives-robots-unified-brain-body-and-limbs?utm_source=rss_feed",
+      "first_seen": "2026-07-26T21:02:36+09:00",
       "status": "New"
     },
     {
@@ -13798,6 +14627,74 @@
       "status": "New"
     },
     {
+      "id": "f2d320c3bd4ee5e9ae9f8383",
+      "published_at": "2026-07-22T22:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "EE Times",
+      "organization": "EE Times",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Altera、9カ月で6チップをテープアウト",
+      "title_original": "From Rhetoric to Metrics: Raghib Hussain’s First Year as Altera CEO",
+      "summary": "Alteraは9カ月間に6種類のチップをテープアウトし、うち3件を予定より早く完了した。新CEOの下で、半導体開発の実行力を重視している。",
+      "summary_original": "Altera has taped out six chips in nine months, three ahead of schedule, as new CEO focuses on execution. The post From Rhetoric to Metrics: Raghib Hussain’s First Year as Altera CEO appeared first on EE Times .",
+      "summary_language": "ja",
+      "url": "https://www.eetimes.com/from-rhetoric-to-metrics-raghib-hussain-first-year-as-altera-ceo/",
+      "first_seen": "2026-07-23T07:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4f884b3d70f4ef2de5335da6",
+      "published_at": "2026-07-22T21:13:08Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "中国のShijian-31衛星、独自軌道で静止軌道帯を運用",
+      "title_original": "China’s Shijian-31 satellite is sweeping GEO using a unique orbit",
+      "summary": "中国が6月に打ち上げた分類衛星Shijian-31は、静止軌道帯に対して独自の軌道を運用し、同帯域を特異な視点から掃引している。",
+      "summary_original": "HELSINKI — A classified satellite launched by China in June is operating in a creative orbit, giving it a unique vantage point over the geostationary belt. Shijian-31 launched on a […] The post China’s Shijian-31 satellite is sweeping GEO using a unique orbit appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/chinas-shijian-31-satellite-is-sweeping-geo-using-a-unique-orbit/",
+      "first_seen": "2026-07-23T06:13:08+09:00",
+      "status": "New"
+    },
+    {
       "id": "d49c747c4a0c7d9c8f847d3c",
       "published_at": "2026-07-22T21:05:56Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -13865,6 +14762,43 @@
       "summary_language": "ja",
       "url": "https://research.ibm.com/blog/ibm-us-genesis-mission-quantum-ai",
       "first_seen": "2026-07-23T05:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f2b1e916b7eecd0d8733ab11",
+      "published_at": "2026-07-22T18:31:36Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Semiconductors & Telecom",
+        "Space"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "FCC、宇宙通信と5G向け周波数制度を改革",
+      "title_original": "FCC approves sweeping space reforms while clearing more C-band for 5G",
+      "summary": "米FCCは、衛星事業者を追加のC-band周波数から移し、翌年の5Gオークションに向けた措置を承認した。商業宇宙経済の加速を目的とする免許制度の大幅な見直しも進める。",
+      "summary_original": "The FCC voted July 22 to push satellite operators out of more C-band spectrum for a 5G auction next year, while approving a licensing overhaul aimed at accelerating the commercial space economy. The post FCC approves sweeping space reforms while clearing more C-band for 5G appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/fcc-approves-sweeping-space-reforms-while-clearing-more-c-band-for-5g/",
+      "first_seen": "2026-07-23T03:31:36+09:00",
       "status": "New"
     },
     {
@@ -14465,6 +15399,43 @@
       "status": "New"
     },
     {
+      "id": "7ad0ca34dda5712a6e349f99",
+      "published_at": "2026-07-22T14:44:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "NIH、500億ドル規模のAIミッションに参加し生物医学研究を推進",
+      "title_original": "<a href=\"https://www.fiercebiotech.com/research/hhs-joins-trumps-artificial-intelligence-genesis-mission\" hreflang=\"en\">NIH joins Trump’s $5B AI mission with biomedical research push</a>",
+      "summary": "米保健福祉省は、AI主導のGenesis Missionに連動する取り組みを発表した。中核はNIH主導のBio Genesis Missionで、AIを活用した生物医学研究を進める。",
+      "summary_original": "The U.S. Department of Health and Human Services announced new efforts Wednesday aligned with President Donald Trump’s artificial intelligence-driven Genesis Mission. The centerpiece of HHS’ participation is the NIH-led Bio Genesis Mission",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/research/hhs-joins-trumps-artificial-intelligence-genesis-mission",
+      "first_seen": "2026-07-22T23:44:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "1e9fd9033d38bacea37c0f42",
       "published_at": "2026-07-22T14:21:46Z",
       "collected_at_jst": "2026-07-26T20:29:40+09:00",
@@ -14816,6 +15787,40 @@
       "status": "New"
     },
     {
+      "id": "775e3cf811d672f6e26949e9",
+      "published_at": "2026-07-22T12:30:15Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "中国RedNoteのAIモデル、数学オリンピックで史上初の満点",
+      "title_original": "World’s first AI model to earn perfect score at maths Olympiad comes from China’s RedNote",
+      "summary": "中国RedNoteが開発したAIモデル「dots-note-3.0」が、国際数学オリンピックの全6問を解き、42点の満点を取得した。",
+      "summary_original": "For the first time, an artificial intelligence model has achieved a perfect score at the International Mathematical Olympiad (IMO) – and it was developed by Chinese social giant RedNote. The model, dots-note-3.0, solved all six puzzles and secured a perfect score of 42 at this year’s IMO, which concluded in Shanghai on Monday. The note variant, still in beta phase, is currently the lightest model in the dots3 family, which includes two larger versions – jazz and aria – tailored for different use...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/article/3361482/worlds-first-ai-model-earn-perfect-score-maths-olympiad-comes-chinas-rednote?utm_source=rss_feed",
+      "first_seen": "2026-07-26T21:02:36+09:00",
+      "status": "New"
+    },
+    {
       "id": "62c5c294dc0cb2f834763aa6",
       "published_at": "2026-07-22T12:10:00Z",
       "collected_at_jst": "2026-07-26T20:29:40+09:00",
@@ -14848,6 +15853,145 @@
       "summary_language": "ja",
       "url": "https://www.technologyreview.com/2026/07/22/1140717/the-download-nasa-space-telescope-openai-hugging-face-hack/",
       "first_seen": "2026-07-26T20:29:40+09:00",
+      "status": "New"
+    },
+    {
+      "id": "8e613300a50ca0d3b6daece5",
+      "published_at": "2026-07-22T11:58:49Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Relativity Space、フロリダでTerran Rロケットの生産を拡大",
+      "title_original": "Relativity Space to expand Terran R production in Florida",
+      "summary": "Relativity SpaceはSpace Floridaと契約し、フロリダ州のスペースコーストにTerran Rロケットの製造・試験施設を建設する。",
+      "summary_original": "Relativity Space struck a deal with Space Florida to build manufacturing and test facilities for its Terran R rocket on Florida’s Space Coast. The post Relativity Space to expand Terran R production in Florida appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/relativity-space-to-expand-terran-r-production-in-florida/",
+      "first_seen": "2026-07-22T20:58:49+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d41c8e00a1b00f2590b366e4",
+      "published_at": "2026-07-22T10:30:11Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "北京、AI計算能力を大幅拡充へ 2026年末に13万ペタフロップス超を目標",
+      "title_original": "Beijing ramps up computing power to boost ‘token economy’ in tech race with US",
+      "summary": "北京はAI導入を促す政策とともに、2026年後半に5万ペタフロップスの計算能力を追加し、年末までに総計13万ペタフロップス超とする目標を示した。",
+      "summary_original": "Beijing is ramping up its computing power and unveiling new policies to boost the city’s “token economy”, as China accelerates AI adoption across key industries in its tech race with the US. The Chinese capital aims to add another 50,000 petaflops of intelligent computing power in the second half of 2026, pushing its total capacity over 130,000 petaflops by the end of the year, the Beijing Municipal Bureau of Economy and Information Technology said at a press briefing on Tuesday. One petaflop is...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3361458/beijing-ramps-computing-power-boost-token-economy-tech-race-us?utm_source=rss_feed",
+      "first_seen": "2026-07-22T19:30:11+09:00",
+      "status": "New"
+    },
+    {
+      "id": "da1465a3ca8fb8bd90a0af25",
+      "published_at": "2026-07-22T10:04:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "米下院、FDAに動物実験規則の更新を指示する法案を可決",
+      "title_original": "<a href=\"https://www.fiercebiotech.com/cro/us-house-passes-bill-direct-fda-update-clinical-trial-regulations-and-allow-non-animal-testing\" hreflang=\"en\">House passes bill directing FDA to update animal testing rules</a>",
+      "summary": "米下院は、前臨床試験と医薬品開発に関わる動物実験規則の更新をFDAに指示するFDA Modernization Act 3.0を可決した。",
+      "summary_original": "The U.S. House of Representatives passed the FDA Modernization Act 3.0 this week, and lawmakers and animal welfare advocates are celebrating the bill as a step toward a new era in preclinical testing and drug development.",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/cro/us-house-passes-bill-direct-fda-update-clinical-trial-regulations-and-allow-non-animal-testing",
+      "first_seen": "2026-07-22T19:04:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4f297cc5e1445dc4220e8b16",
+      "published_at": "2026-07-22T09:32:11Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Gravity-1、上海沖から9基の衛星を軌道投入",
+      "title_original": "Gravity-1 sea launch off Shanghai puts 9 satellites into orbit",
+      "summary": "中国の商業宇宙企業Orienspaceが、上海沖の海上発射地点から3回目となるGravity-1固体ロケットを打ち上げ、9基の衛星を軌道に投入した。",
+      "summary_original": "HELSINKI — Commercial launch firm Orienspace launched its third Gravity-1 solid rocket late Tuesday, sending nine satellites into orbit from waters off Shanghai. The 30-meter-long Gravity-1 solid rocket lifted off […] The post Gravity-1 sea launch off Shanghai puts 9 satellites into orbit appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/gravity-1-sea-launch-off-shanghai-puts-9-satellites-into-orbit/",
+      "first_seen": "2026-07-22T18:32:11+09:00",
       "status": "New"
     },
     {
@@ -14916,6 +16060,108 @@
       "summary_language": "ja",
       "url": "https://www.technologyreview.com/2026/07/22/1140701/shape-shifting-mirrors-roman-space-telescope/",
       "first_seen": "2026-07-22T18:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f8cfd9fc0e822f7b7234c251",
+      "published_at": "2026-07-22T08:30:12Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "ZhipuのGLM 5.2、AIによる自律型サイバー攻撃を封じ込め",
+      "title_original": "Hugging Face deploys Zhipu’s GLM 5.2 model to contain autonomous OpenAI cyberattack",
+      "summary": "中国Zhipu AIのGLM 5.2モデルが、OpenAIの先端AIシステムによるHugging Faceへの自律型サイバー攻撃の封じ込めに用いられた。高度なAIモデルの攻撃能力と安全性をめぐる懸念も示されている。",
+      "summary_original": "A flagship model from China’s Zhipu AI has helped contain an autonomous cyberattack by OpenAI’s frontier systems targeting popular developer platform Hugging Face, as concerns grow over the security risks posed by advanced AI models. OpenAI’s latest flagship models – including GPT-5.6 Sol and an unreleased, “even more capable” system – recently breached Hugging Face’s infrastructure during internal evaluations of their offensive cyber capabilities, the US lab disclosed on Wednesday. The company...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3361450/hugging-face-deploys-zhipus-glm-52-model-contain-autonomous-openai-cyberattack?utm_source=rss_feed",
+      "first_seen": "2026-07-22T17:30:12+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5983c572723bef4c65dbf97d",
+      "published_at": "2026-07-22T07:53:34Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "EE Times",
+      "organization": "EE Times",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "CEA-Leti、AI時代に向けSRAM・DRAM以外のメモリー技術を展望",
+      "title_original": "CEA-Leti Looks Beyond SRAM and DRAM as AI Reshapes the Memory Roadmap",
+      "summary": "CEA-Letiの研究者が、AIの需要増に対応する組み込み型、永続型、低消費電力メモリーの必要性を説明し、従来のSRAM・DRAMに代わるメモリー技術の方向性を示した。",
+      "summary_original": "CEA-Leti’s François Andrieu describes more embedded, persistent, and low-energy memories that will meet the growing demands of AI. The post CEA-Leti Looks Beyond SRAM and DRAM as AI Reshapes the Memory Roadmap appeared first on EE Times .",
+      "summary_language": "ja",
+      "url": "https://www.eetimes.com/cea-leti-looks-beyond-sram-and-dram-as-ai-reshapes-the-memory-roadmap/",
+      "first_seen": "2026-07-22T16:53:34+09:00",
+      "status": "New"
+    },
+    {
+      "id": "8cbb777bc65678f5da3bb60d",
+      "published_at": "2026-07-22T05:11:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Celldex、皮膚疾患治療薬の第2相試験失敗で開発中止",
+      "title_original": "<a href=\"https://www.fiercebiotech.com/biotech/celldex-ends-work-skin-disease-after-failing-phase-2-test\" hreflang=\"en\">Celldex ends skin disease program after failing phase 2 test</a>",
+      "summary": "Celldexのbarzolvolimabは慢性皮膚疾患を対象とする第2相試験で主要評価項目を達成できず、同適応での開発が終了した。今後予定される湿疹試験の結果にも懸念が生じている。",
+      "summary_original": "A phase 2 study of Celldex’s barzolvolimab in a chronic skin disease has missed its primary endpoint, driving the biotech to end development in the indication and raising doubts about an upcoming eczema readout.",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/biotech/celldex-ends-work-skin-disease-after-failing-phase-2-test",
+      "first_seen": "2026-07-22T14:11:00+09:00",
       "status": "New"
     },
     {
@@ -15021,6 +16267,40 @@
       "summary_language": "ja",
       "url": "https://www.jst.go.jp/pr/announce/20260722-3/index.html",
       "first_seen": "2026-07-22T14:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "64acec90ab702bdb30f225b4",
+      "published_at": "2026-07-22T03:10:17Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The New York Times Technology",
+      "organization": "The New York Times Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "MetaがAIでFacebookとInstagramのアカウントを停止した結果",
+      "title_original": "What Happened When Meta Used A.I. to Ban Accounts on Facebook and Instagram",
+      "summary": "MetaがFacebookとInstagramのアカウント停止にAIを用いたところ、利用者のアカウントが誤って削除された。問題解決でも利用者はAIに頼る必要があった。",
+      "summary_original": "Users said the technology mistakenly deleted their accounts. To resolve the issue, they still had to rely on A.I.",
+      "summary_language": "ja",
+      "url": "https://www.nytimes.com/2026/07/21/technology/meta-ai-facebook-instagram-accounts.html",
+      "first_seen": "2026-07-22T12:10:17+09:00",
       "status": "New"
     },
     {
@@ -15194,6 +16474,244 @@
       "status": "New"
     },
     {
+      "id": "a3eb7f1e33aee131ed0b4bf7",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "木星質量の遠方天体、系外衛星探査に道を開く可能性",
+      "title_original": "What counts as a moon? Huge ‘exosatellite’ sparks debate",
+      "summary": "遠方で発見された木星質量の天体をめぐり、それが月を持つかどうかや「月」の定義が議論されている。この発見は、系外衛星の検出につながる可能性がある。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/d41586-026-02299-6 Discovery of a distant Jupiter-mass object could pave the way for detection of exomoons — plus, a rare transmissible cancer found in catfish.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/d41586-026-02299-6",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a49dbeef4f425713e07751f7",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "CRISPR–Cas、細菌の抗ファージ防御機構の発現を制御",
+      "title_original": "CRISPR–Cas regulates expression of embedded anti-phage defence systems",
+      "summary": "CRISPR–Casシステムが、CRISPR RNA様ガイドを用いて細菌の多様な抗ファージ防御機構を転写レベルで調整することを示した。防御機構が損なわれた際には活性を高め、細菌の生存と抗ウイルス防御のバランスを保つ仕組みが明らかになった。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10833-9 CRISPR–Cas systems transcriptionally tune diverse innate defences using CRISPR RNA-like guides to balance antiviral protection with fitness, and hyperactivate these defences when compromised, establishing a layered bacterial ‘immunity guard’ network.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/s41586-026-10833-9",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2b3e07d33c52d7713cbaf384",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "トリパノソーマのミトコンドリアRNA編集カスケードの構造基盤を解明",
+      "title_original": "Structural basis of the RNA-editing cascade in trypanosome mitochondria",
+      "summary": "クライオ電子顕微鏡により、Trypanosoma bruceiのミトコンドリアRNA編集体の構造を解析した。ウリジン塩基の挿入・欠失によってmRNA編集を進める仕組みを明らかにした。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10831-x Cryo-electron microscopy sheds light on the architecture of the Trypanosoma brucei mitochondrial editosome and reveals how this assembly mediates mRNA editing through the insertion and deletion of uridine nucleotides.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/s41586-026-10831-x",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5229cb57319aa8eac3f1d9e3",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "褐色矮星の周囲を回る惑星質量の系外衛星候補を検出",
+      "title_original": "Planetary-mass exosatellite detected around the substellar companion of a star",
+      "summary": "視線速度測定により、恒星の褐色矮星伴星CD-35 2722 Bを公転する木星質量の天体を検出した。系外衛星に類する天体の有望な検出例とされる。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10751-w Radial velocity measurements provide evidence for a Jupiter-mass exosatellite orbiting the brown dwarf companion CD-35 2722 B, a promising detection of an exomoon-like object.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/s41586-026-10751-w",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6a18f989fcdceea71e66999e",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "AlphaFold3を基盤とするモデルでDNA塩基編集を高精度化",
+      "title_original": "Precise DNA base editing using AlphaFold3-based contact modelling",
+      "summary": "AlphaFold3駆動のモデル「ContactSeek」が、接触モデリングを通じてゲノム編集ツールの精度向上を目指す研究成果として発表された。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10794-z ContactSeek is an AlphaFold3-driven model that can improve the precision of genome-editing tools.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/s41586-026-10794-z",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6e9f79f12db784e010b0dad5",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "AIで再設計した起点がタンパク質進化と酵素改良を促進",
+      "title_original": "AI-redesigned starting points and outcomes enhance protein evolution",
+      "summary": "AIで再設計した出発点を使って酵素を進化させる手法を確立した。天然タンパク質を起点とする進化と比べ、改良された性質の酵素が得られた。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10820-0 A workflow using artificial intelligence-redesigned starting points to evolve enzymes with improved properties compared with those evolved from natural proteins is established.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/s41586-026-10820-0",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "28d97f811f16bdbbe71d0897",
+      "published_at": "2026-07-22T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "グレートバリアリーフのプランクトン微生物ゲノムデータベースを構築",
+      "title_original": "The planktonic microbiome of the Great Barrier Reef",
+      "summary": "グレートバリアリーフの海水から収集した原核生物、ウイルス、真核生物のゲノムをデータベース化した。海洋微生物群集の研究や生態系管理に活用できる資源となる。",
+      "summary_original": "Nature, Published online: 22 July 2026; doi:10.1038/s41586-026-10778-z The Great Barrier Reef Microbial Genomes Database compiles prokaryotic, viral and eukaryotic genomes from seawater collected from the Great Barrier Reef, providing a rich resource for the study of marine microbial communities and ecosystem research and management.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/s41586-026-10778-z",
+      "first_seen": "2026-07-22T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "21f1e1f3e19b1a5bf0af3cb7",
       "published_at": "2026-07-21T22:35:45Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -15225,6 +16743,40 @@
       "summary_language": "ja",
       "url": "https://blogs.nvidia.com/blog/wistron-manufacturing-texas/",
       "first_seen": "2026-07-22T07:35:45+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a6720a3a857e96dc325be47c",
+      "published_at": "2026-07-21T21:26:50Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "SpaceNews",
+      "organization": "SpaceNews",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "SpaceX、老朽化衛星の寿命を延ばすNorthropのミッションを打ち上げ",
+      "title_original": "SpaceX launches Northrop mission to extend the life of aging satellites",
+      "summary": "SpaceXは、Northropが手がける衛星寿命延長ミッションを打ち上げた。DARPAが支援する機体が、静止軌道上にある商業衛星3基へ推進ポッドを取り付ける。",
+      "summary_original": "DARPA-backed vehicle will install propulsion pods on three commercial satellites in geostationary orbit The post SpaceX launches Northrop mission to extend the life of aging satellites appeared first on SpaceNews .",
+      "summary_language": "ja",
+      "url": "https://spacenews.com/spacex-launches-northrop-mission-to-extend-the-life-of-aging-satellites/",
+      "first_seen": "2026-07-22T06:26:50+09:00",
       "status": "New"
     },
     {
@@ -15293,6 +16845,40 @@
       "summary_language": "ja",
       "url": "https://www.fusionindustryassociation.org/fia-and-clean-air-task-force-publish-principles-on-codes-and-standards/?utm_source=rss&utm_medium=rss&utm_campaign=fia-and-clean-air-task-force-publish-principles-on-codes-and-standards",
       "first_seen": "2026-07-22T04:44:19+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c39235ee050423af3982257b",
+      "published_at": "2026-07-21T19:38:58Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The New York Times Technology",
+      "organization": "The New York Times Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Google、Geminiの新AIモデル3種を公開",
+      "title_original": "Google Releases Three New Gemini A.I. Models",
+      "summary": "GoogleはGeminiの新モデル3種を公開した。最も高性能なモデルに加え、サイバーセキュリティ向けにファインチューニングしたモデルも含まれる。",
+      "summary_original": "The models include one that is the company’s most powerful and another that is fine-tuned for cybersecurity, as Google competes with rivals like OpenAI and Anthropic.",
+      "summary_language": "ja",
+      "url": "https://www.nytimes.com/2026/07/21/technology/google-ai-cybersecurity-gemini.html",
+      "first_seen": "2026-07-22T04:38:58+09:00",
       "status": "New"
     },
     {
@@ -15864,6 +17450,74 @@
       "status": "New"
     },
     {
+      "id": "ae0bc883da472b68cff1cec1",
+      "published_at": "2026-07-21T14:24:30Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "中国Moonshot AIのKimi K3、AI性能競争を再燃させる",
+      "title_original": "Another ‘DeepSeek moment’? What China’s Kimi K3 means for the global AI industry",
+      "summary": "Moonshot AIがKimi K3を投入し、中国のAI開発企業が先端半導体へのアクセス制約下でも性能を高められるかをめぐる議論が再燃している。性能向上にはアーキテクチャ上の革新が関係している。",
+      "summary_original": "The launch of Moonshot AI’s Kimi K3 has revived an intense debate that has raged in Silicon Valley ever since DeepSeek’s shock breakthrough last year: whether China can overcome its limited access to advanced chips to match the performance of the United States’ frontier artificial intelligence models. Trillions of US dollars might rest on the answer, as some see Chinese developers’ success in increasing performance through architectural innovation as weakening the rationale for America’s vast...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/big-tech/article/3361387/another-deepseek-moment-what-chinas-kimi-k3-means-global-ai-industry?utm_source=rss_feed",
+      "first_seen": "2026-07-21T23:24:30+09:00",
+      "status": "New"
+    },
+    {
+      "id": "46ac030b655f66319e6208b4",
+      "published_at": "2026-07-21T14:00:14Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "中国Moonshot AI、2.8兆パラメータのオープンモデル「Kimi K3」を公開",
+      "title_original": "China’s Kimi K3 fuels fears safety curbs are holding back US AI",
+      "summary": "Moonshot AIが、2.8兆パラメータのオープンウェイトモデル「Kimi K3」を公開した。初期調査では、サイバーセキュリティ上の欠陥発見性能が米国の主要モデルに近いと報告されている。",
+      "summary_original": "Chinese unicorn Moonshot AI’s new Kimi K3 model rivals top US systems in spotting cybersecurity flaws, according to early research, stoking fears in Washington that strict safety guard rails are putting American artificial intelligence firms at a competitive disadvantage. The 2.8 trillion-parameter open-weight model, released last week, offers cybersecurity performance “extremely close” to OpenAI’s flagship GPT-5.6 Sol at a fraction of the cost, Belgian firm Aikido Security said in a report on...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-trends/article/3361358/chinas-kimi-k3-fuels-fears-safety-curbs-are-holding-back-us-ai?utm_source=rss_feed",
+      "first_seen": "2026-07-21T23:00:14+09:00",
+      "status": "New"
+    },
+    {
       "id": "421d0a7668d71736b9aa790d",
       "published_at": "2026-07-21T13:37:33Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -16001,6 +17655,40 @@
       "status": "New"
     },
     {
+      "id": "a91e543bec1532593de1d9ef",
+      "published_at": "2026-07-21T12:42:10Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Zhipu、中国製チップによる1GWのAI計算センターを構築",
+      "title_original": "Zhipu shares surge 37% as firm builds giant data centre powered by Chinese chips",
+      "summary": "中国のAI企業Z.ai（Zhipu）が、中国製チップのみで1GWの大規模計算センターを完成させた。施設はGLMモデルの訓練と展開に利用される。",
+      "summary_original": "Shares of Chinese AI giant Z.ai soared 37 per cent in Hong Kong on Tuesday to close at HK$1,219 (US$155), after the company recently completed a giant data centre powered entirely by Chinese chips. Also known as Zhipu, the firm’s share prices rebounded after a week-long drop of more than 40 per cent. According to people familiar with the matter, it had built a giant 1-gigawatt (GW) AI computing centre – a facility that will be used to train and deploy its GLM models. The company has positioned...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/big-tech/article/3361374/zai-shares-surge-37-firm-builds-giant-data-centre-powered-chinese-chips?utm_source=rss_feed",
+      "first_seen": "2026-07-21T21:42:10+09:00",
+      "status": "New"
+    },
+    {
       "id": "5e6cf60df1dcf155272c1ba0",
       "published_at": "2026-07-21T12:35:38Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -16032,6 +17720,40 @@
       "summary_language": "ja",
       "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/07/minister-joly-announces-engagement-with-pratt--whitney-canada-to-strengthen-canadas-aerospace-sector.html",
       "first_seen": "2026-07-21T21:35:38+09:00",
+      "status": "New"
+    },
+    {
+      "id": "638cc03a0f80eec006261554",
+      "published_at": "2026-07-21T08:04:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Fierce Biotech",
+      "organization": "Fierce Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Agios、低調な第2相データを受け鎌状赤血球症薬の開発中止",
+      "title_original": "<a href=\"https://www.fiercebiotech.com/biotech/agios-says-adios-sickle-cell-program-over-lackluster-phase-2-data\" hreflang=\"en\">Agios says adios to sickle cell program over lackluster phase 2 data</a>",
+      "summary": "Agios Pharmaceuticalsは、次世代ピルビン酸キナーゼ活性化薬の鎌状赤血球症第2相試験で開発継続を支持する結果が得られず、同適応の開発を中止した。",
+      "summary_original": "A phase 2 study of Agios Pharmaceuticals’ next-generation pyruvate kinase activator has failed to support continued development in sickle cell disease, leading the company to ax an indication for the second time in two months.",
+      "summary_language": "ja",
+      "url": "https://www.fiercebiotech.com/biotech/agios-says-adios-sickle-cell-program-over-lackluster-phase-2-data",
+      "first_seen": "2026-07-21T17:04:00+09:00",
       "status": "New"
     },
     {
@@ -16421,6 +18143,74 @@
       "status": "New"
     },
     {
+      "id": "5bea0c22ea44e3826352ba8f",
+      "published_at": "2026-07-21T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "China",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "Chinese Academy of Sciences",
+      "organization": "Chinese Academy of Sciences",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "BRD9を標的とする新規PROTAC分解薬2種を開発",
+      "title_original": "Researchers Develop Two BRD9-Targeting PROTAC Degraders for Cancer Therapy",
+      "summary": "中国科学院の研究チームは、CRBNリガンドとリンカー部分を最適化し、BRD9を標的とする選択性の高いPROTAC分解薬XYD224とXYD270を開発した。がん治療への応用を目指す研究成果として紹介されている。",
+      "summary_original": "Jul 21, 2026 Researchers Develop Two BRD9-Targeting PROTAC Degraders for Cancer Therapy A research team from the Guangzhou Institutes of Biomedicine and Health of the Chinese Academy of Sciences optimized the CRBN ligand and linker moieties, leading to two novel, highly selective PROTAC degraders, designated XYD224 and XYD270. Biosythesis;Cancer",
+      "summary_language": "ja",
+      "url": "https://english.cas.cn/newsroom/research-news/202607/t20260721_1178863.shtml",
+      "first_seen": "2026-07-21T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c6511f93e5a2b3ad8f756f1e",
+      "published_at": "2026-07-21T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "China",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "Chinese Academy of Sciences",
+      "organization": "Chinese Academy of Sciences",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "二周波画像でブラックホール周辺プラズマの物理を分析",
+      "title_original": "Scientists Use Dual-Frequency Images to Explore Black Hole Plasma Physics",
+      "summary": "中国科学院上海天文台の研究者らは、ブラックホールを二つの周波数で観測し、事象の地平線スケールのスペクトル指数マップを作成した。距離に伴うスペクトル指数の変化を明らかにした。",
+      "summary_original": "Jul 21, 2026 Scientists Use Dual-Frequency Images to Explore Black Hole Plasma Physics Researchers from the Shanghai Astronomical Observatory of the Chinese Academy of Sciences carried out the first dual-frequency spectral study of its kind and produced a spatially resolved spectral-index map on event-horizon scales, revealing how the spectral index changes with distance from the black hole. Astronomy",
+      "summary_language": "ja",
+      "url": "https://english.cas.cn/newsroom/research-news/202607/t20260714_1178135.shtml",
+      "first_seen": "2026-07-21T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "66a42cef2b0c950d25a5e94b",
       "published_at": "2026-07-21T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -16485,6 +18275,40 @@
       "summary_original": "Although it was known that the circadian clock regulates immune cells, the detailed mechanism remained unknown. A research group including Lecturer Akito Tsuruta, Professor Naoya Matsunaga, Professor Satoru Koyanagi, and Special Appointed Professor Shigehiro Ohdo of the Graduate School of Pharmaceutical Sciences at Kyushu University has clarified that BMAL1… The impact of clock genes on inflammation has been known for a long time. For example, rheumatism causes stiffness symptoms in the morning. While anti-inflammatory drugs, such as steroids and non-steroidal anti-inflammatory drugs (NSAIDs), have been developed to address this, many diseases still cannot be suppressed by these treatments,…",
       "summary_language": "ja",
       "url": "https://sj.jst.go.jp/news/202607/n0721-02k.html",
+      "first_seen": "2026-07-21T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "249920e047285c982edc9aeb",
+      "published_at": "2026-07-21T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "中国の最新AIモデルKimi K3、米国の競合モデルに匹敵か",
+      "title_original": "Does China’s latest AI model finally equal US rivals? What scientists think",
+      "summary": "Moonshot AIのAIモデル「Kimi K3」について、最先端モデルに匹敵または上回る性能を示すとの評価を紹介する。一方、モデルの大規模さが普及の制約となる可能性も指摘されている。",
+      "summary_original": "Nature, Published online: 21 July 2026; doi:10.1038/d41586-026-02281-2 ‘Kimi K3’ can match or outperform cutting-edge models, says Moonshot AI. But its large size might limit uptake.",
+      "summary_language": "ja",
+      "url": "https://www.nature.com/articles/d41586-026-02281-2",
       "first_seen": "2026-07-21T09:00:00+09:00",
       "status": "New"
     },
@@ -16835,6 +18659,40 @@
       "status": "New"
     },
     {
+      "id": "3424aa85e315b0eccf4c8246",
+      "published_at": "2026-07-20T14:00:12Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "中国のオープンウェイトAIモデルKimi K3、米国との差を数週間に縮める",
+      "title_original": "Why China’s open-weight AI model Kimi K3 is sparking anxiety in Silicon Valley",
+      "summary": "中国のMoonshot AIは、2.8兆パラメータの大規模言語モデル「Kimi K3」を公開した。ネイティブ視覚機能や長期的なコーディング・知識作業への対応を特徴とし、中国と米国のAI技術差を縮めたとされる。",
+      "summary_original": "Chinese start-up Moonshot AI’s Kimi K3 has narrowed the country’s artificial intelligence gap with the US to “a matter of weeks”, fuelling jitters in Silicon Valley over its lead in frontier AI as China doubles down on its open-source strategy. The Beijing-based unicorn released the Kimi K3, a massive 2.8 trillion-parameter large language model, late last week. According to the company, the model featured native vision capabilities and was built for long-horizon coding, knowledge work and...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/tech-war/article/3361142/why-chinas-open-weight-ai-model-kimi-k3-sparking-anxiety-silicon-valley?utm_source=rss_feed",
+      "first_seen": "2026-07-20T23:00:12+09:00",
+      "status": "New"
+    },
+    {
       "id": "c654a0d44a7fcbda5490cd6d",
       "published_at": "2026-07-20T13:21:36Z",
       "collected_at_jst": "2026-07-28T01:39:30+09:00",
@@ -16935,6 +18793,74 @@
       "summary_language": "ja",
       "url": "https://www.esa.int/ESA_Multimedia/Images/2026/07/Plato_s_electronics_ready_for_space",
       "first_seen": "2026-07-20T21:30:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3bd96b47ea7f533bced825c3",
+      "published_at": "2026-07-20T09:12:59Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Moonshot AIのKimi K3、フロンティアAIで中国を米国に接近させる",
+      "title_original": "Moonshot AI pushes China closer to US in frontier tech",
+      "summary": "Moonshot AIが公開したオープンウェイトAIモデル「Kimi K3」への需要が急増し、同社の処理能力が限界に近づいた。モデルの公開は、中国のAI能力に対する国際的な評価を変化させている。",
+      "summary_original": "Moonshot AI halted new subscriptions for Kimi K3 after a flood of interest, underscoring how the model’s release last week has upended global assessments of China’s artificial intelligence (AI) capabilities. “Over the past 48 hours, demand has pushed close to the limits of our current capacity,” Beijing-based Moonshot AI said in a statement posted on X on Sunday. The company’s computer chips “are feeling it.” Moonshot last week unveiled Kimi K3, an open-weight AI model that the company says...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/plus/tech/tech-war/article/3361203/moonshot-ai-pushes-china-closer-us-frontier-tech?utm_source=rss_feed",
+      "first_seen": "2026-07-20T18:12:59+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c28d7099bebc52da524f97d3",
+      "published_at": "2026-07-20T06:30:05Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "Hong Kong",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Kimi K3開発企業、計算能力の制約で新規購読を一時停止",
+      "title_original": "Kimi K3 developer suspends new subscriptions amid compute constraints",
+      "summary": "中国のMoonshot AIは、新しいAIモデル「Kimi K3」への需要急増により計算能力が逼迫したとして、新規購読の受付を一時停止した。GPUの処理能力がサービス提供の制約となっている。",
+      "summary_original": "Chinese start-up Moonshot AI has suspended new subscriptions for its groundbreaking new model Kimi K3 as surging demand squeezes its computing power, underscoring the challenges Chinese AI labs face in serving their products to global users. “Over the past 48 hours, demand has pushed close to the limits of our current capacity,” Beijing-based Moonshot AI said in a statement posted on X on Sunday. “Our GPUs [graphics processing units] are feeling it.” It had “temporarily paused new...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/article/3361172/kimi-k3-developer-suspends-new-subscriptions-amid-compute-constraints?utm_source=rss_feed",
+      "first_seen": "2026-07-20T15:30:05+09:00",
       "status": "New"
     },
     {
@@ -17448,6 +19374,40 @@
       "status": "New"
     },
     {
+      "id": "6e1bc06e11116c272493f20b",
+      "published_at": "2026-07-20T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "xAI",
+      "organization": "xAI",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Historical Backfill",
+      "title": "Gopuff、Grok搭載のAIショッピングアシスタントを導入",
+      "title_original": "Powering Gopuff's Go agent Gopuff and SpaceXAI launched Go, an AI-powered shopping assistant built into the Gopuff app and powered by Grok text, audio, and image models. Jun 9, 2026",
+      "summary": "GopuffとSpaceXAIは、Grokのテキスト・音声・画像モデルを利用するAIショッピングアシスタント「Go」をGopuffアプリに組み込んだ。アプリ内で買い物を支援する具体的なAI実装として紹介されている。",
+      "summary_original": "Grok for Excel Use the Grok add-in for Microsoft Excel to ask questions in plain English, write formulas, and run scenarios without leaving the workbook. Jul 20, 2026 Automations in Grok Describe a job once and Grok runs it on a schedule or when an email arrives, then reports back. Jul 16, 2026 Grok Build is Now Open Source Explore the harness behind our coding agent and TUI. Jul 15, 2026 21 New Flagship Grok Voices New multilingual voices for Grok Voice, plus improved naturalness for the original five. Jul 6, 2026 Introducing the Voice Agent Builder Create a personalized voice agent in under 2 minutes without a single line of code. Jul 1, 2026 Explore the markets with Interactive Brokers a…",
+      "summary_language": "ja",
+      "url": "https://x.ai/news/grok-gopuff",
+      "first_seen": "2026-07-20T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "8484d632291e4d408b9cf64a",
       "published_at": "2026-07-20T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -17826,6 +19786,40 @@
       "summary_language": "ja",
       "url": "https://www.gov.uk/government/publications/expression-of-interest-airr-heterogeneous-supercomputer-host-site-selection",
       "first_seen": "2026-07-17T21:00:04+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1787d8a9dfe8519f70619f45",
+      "published_at": "2026-07-17T08:30:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "STAT Biotech",
+      "organization": "STAT Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "超音波で遺伝子治療を細胞へ届ける技術を開発",
+      "title_original": "STAT+: Can ultrasound unlock the power of gene therapy? A startup makes big claims",
+      "summary": "スタートアップのSonotheraは、超音波を利用して遺伝子を細胞内へ送達する方法を開発している。筋ジストロフィーなどの疾患への応用が期待されるが、記事では効果は今後検証される段階とされている。",
+      "summary_original": "Sonothera is developing a new way to deliver genes into cells that, if borne out, could have a big impact on muscular dystrophy and other diseases.",
+      "summary_language": "ja",
+      "url": "https://www.statnews.com/2026/07/17/sonathera-ultrasound-duchenne-muscular-dystrophy-treatment/?utm_campaign=rss",
+      "first_seen": "2026-07-17T17:30:00+09:00",
       "status": "New"
     },
     {
@@ -18344,6 +20338,41 @@
       "status": "New"
     },
     {
+      "id": "c8f0029919a9128b115a79f8",
+      "published_at": "2026-07-16T13:04:36Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "STAT Biotech",
+      "organization": "STAT Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "FDA、Merckの経口PCSK9薬を承認 初の製品",
+      "title_original": "STAT+: FDA approves Merck’s oral PCSK9 drug, a first",
+      "summary": "FDAがMerckの経口PCSK9薬を承認した。記事概要では、これが初の承認例であることに加え、臨床試験結果への賭けや創薬企業の動向も紹介されている。",
+      "summary_original": "Kalshi allows bets on clinical trial outcomes, Eli Lilly buys a psychedelic medicine, and more biotech news from The Readout",
+      "summary_language": "ja",
+      "url": "https://www.statnews.com/2026/07/16/biotech-news-fda-approves-merck-oral-pcsk9-drug-in-a-first/?utm_campaign=rss",
+      "first_seen": "2026-07-16T22:04:36+09:00",
+      "status": "New"
+    },
+    {
       "id": "c0ebc05d7c33e5336abadf93",
       "published_at": "2026-07-16T12:00:01Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -18411,6 +20440,40 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/07/trump-administration-secures-additional-100-billion-us-semiconductor",
       "first_seen": "2026-07-16T21:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1480ed2a1c3e54d23be98433",
+      "published_at": "2026-07-16T10:30:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "STAT Biotech",
+      "organization": "STAT Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Amylyx、希少内分泌疾患向け新薬の重要試験結果を公表へ",
+      "title_original": "STAT+: Amylyx nears pivotal endocrine drug study readout",
+      "summary": "Amylyx Pharmaceuticalsは、希少な内分泌疾患向け新治療を評価するピボタル試験の結果を近く公表する予定だ。患者と同社にとって重要な節目となる。",
+      "summary_original": "Amylyx Pharmaceuticals will soon read out results from a study evaluating a new treatment for a rare endocrine disorder, a pivotal moment for patients and the company.",
+      "summary_language": "ja",
+      "url": "https://www.statnews.com/2026/07/16/amylyx-bph-avexitide-biogen-diranersen-agios/?utm_campaign=rss",
+      "first_seen": "2026-07-16T19:30:00+09:00",
       "status": "New"
     },
     {
@@ -19271,6 +21334,40 @@
       "status": "New"
     },
     {
+      "id": "3b24f8e4819fff48f6743418",
+      "published_at": "2026-07-15T15:09:21Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "STAT Biotech",
+      "organization": "STAT Biotech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Celcuityの乳がん治療薬、FDAが承認",
+      "title_original": "STAT+: Celcuity’s breast cancer drug approved, its first",
+      "summary": "FDAはCelcuityの乳がん治療薬を承認した。同社にとって初の承認薬となるが、提供情報では薬剤名や承認条件の詳細は示されていない。",
+      "summary_original": "FDA's new CBER chief promises normalcy, an weight loss drug without GLP-1s, and more biotech news from The Readout",
+      "summary_language": "ja",
+      "url": "https://www.statnews.com/2026/07/15/biotech-news-celcuity-breast-cancer-drug-approved-in-a-first/?utm_campaign=rss",
+      "first_seen": "2026-07-16T00:09:21+09:00",
+      "status": "New"
+    },
+    {
       "id": "9860e1482519bcdcd451004c",
       "published_at": "2026-07-15T15:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -19438,6 +21535,74 @@
       "summary_original": "Researchers uncovered the elusive planet after combining new observations with more than a decade of archival data. An international team has discovered a third planet orbiting the nearby star Beta Pictoris. The new planet, Beta Pictoris d, is 100 times fainter than Beta Pictoris b, the first planet discovered in the same system. It is among the lightest exoplanets ever imaged from the ground. This first clear detection of Beta Pictoris d was made using the Enhanced Resolution Imager and Spectrograph (ERIS) instrument on the European Southern Observatory’s (ESO) Very Large Telescope in Chile. A key component of ERIS is the NIX infrared camera. The camera was developed and built by the Scien…",
       "summary_language": "ja",
       "url": "https://www.ukri.org/news/uk-astronomers-help-uncover-faintest-planet-imaged-from-earth/",
+      "first_seen": "2026-07-15T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "552eeea31bfe647fcfa5e1b6",
+      "published_at": "2026-07-15T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "九州大学、植物RNA編集酵素PPR-DYWタンパク質の結晶構造を解明",
+      "title_original": "Crystal structure of \"PPR-DYW protein\" elucidated by Kyushu University — Moment of target recognition by plant RNA Editing enzyme captured",
+      "summary": "九州大学などの共同研究グループは、植物のRNA編集に関わるPPR-DYWタンパク質の結晶構造を解明した。研究では、RNA編集酵素が標的を認識する瞬間を構造的に捉えた。",
+      "summary_original": "A joint research group consisting of Assistant Professor Takamasa Teramoto, Professor Yoshimitsu Kakuta, and Technical Staff Ayumi Okada of the Faculty of Agriculture, Graduate Student Ryota Urushihara and Undergraduate Student Reiya Aoyama (at the time of the research) of the Department of Bioscience and Biotechnology, Faculty of Agriculture, in collaborat… In living organisms, DNA serves as the blueprint and RNA acts as the transcript of information to carry genetic data and produce proteins. However, there are cases where \"RNA editing\" occurs, rewriting the information of the blueprint after the DNA has been transcribed into RNA. Particularly in plant chloroplasts and mitochondria, RNA e…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202607/n0715-02k.html",
+      "first_seen": "2026-07-15T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "664c81aeae10414d3bd6db0d",
+      "published_at": "2026-07-15T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "銅イオン蓄積による「カプロトーシス」と低温誘発細胞死の関係を解明",
+      "title_original": "Copper ion accumulation leads to \"cuproptosis,\" cold-induced cell death",
+      "summary": "甲南大学を含む研究チームは、線虫の解析から、銅イオンの過剰蓄積で起きる細胞死「カプロトーシス」が低温誘発細胞死に関与することを明らかにした。",
+      "summary_original": "A research team including Professor Atsushi Kuhara, Graduate Student Serina Yamashiro, and Specially Appointed Associate Professor Akane Ohta (at the time of research) of the Graduate School of Natural Science at Konan University, has clarified through the analysis of C. elegans that \"cuproptosis,\" a form of cell death induced by copper ions, is involved in… Cuproptosis is a form of cell death induced by the excessive accumulation of copper ions inside cells, which was discovered in 2022. It is thought that cell death occurs by triggering metabolic abnormalities within mitochondria. In Japan, the number of deaths due to cold temperatures has continued to exceed those from heatstroke in seve…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202607/n0715-01k.html",
       "first_seen": "2026-07-15T09:00:00+09:00",
       "status": "New"
     },
@@ -21079,6 +23244,40 @@
       "status": "New"
     },
     {
+      "id": "5a13914ddce077f56d2cdf11",
+      "published_at": "2026-07-08T08:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Samsung Global Newsroom",
+      "organization": "Samsung Global Newsroom",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "Samsung、AI搭載の省エネ洗濯乾燥機を発売",
+      "title_original": "Samsung Launches New Bespoke AI Washer Dryer That Cuts Energy Use While Delivering Smarter Fabric Care",
+      "summary": "Samsung Electronicsは、AI Ecobubble技術とAI Washを搭載し、クラスAのエネルギー効率をうたうBespoke AI洗濯乾燥機を発表した。衣類ケア機能に加え、Air WashとSmartThings接続にも対応する。",
+      "summary_original": "Samsung Electronics today announced the launch of its new Bespoke AI Washer Dryer, a two-in-one laundry appliance that delivers Class A energy efficiency through AI Ecobubble™ technology and intelligent fabric care. Featuring Air Wash and AI Wash cycles — along with SmartThings connectivity — the new appliance provides users with a more convenient and personalized […]",
+      "summary_language": "ja",
+      "url": "https://news.samsung.com/global/samsung-launches-new-bespoke-ai-washer-dryer-that-cuts-energy-use-while-delivering-smarter-fabric-care",
+      "first_seen": "2026-07-08T17:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "ffa2f59ee7918b4bbfdce082",
       "published_at": "2026-07-08T08:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -21180,6 +23379,42 @@
       "summary_language": "ja",
       "url": "https://www.msit.go.kr/eng/bbs/view.do?mId=4&mPid=2&sCode=eng&bbsSeqNo=42&nttSeqNo=1278",
       "first_seen": "2026-07-08T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e2c0c8243354b441d2fdeea4",
+      "published_at": "2026-07-07T18:38:06Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Global",
+      "country": "Canada",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "ISED Canada",
+      "organization": "ISED Canada",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "カナダ政府、CanCode第5期に3000万ドルを投資",
+      "title_original": "Government of Canada invests $30 million to launch fifth phase of CanCode program to offer new training opportunities for youth and teachers",
+      "summary": "カナダ政府は、若者と教員に新たな訓練機会を提供するCanCodeプログラム第5期の開始に3000万ドルを投資する。110万人超の学生・教員がAI知識とコーディング技能を学ぶ計画である。",
+      "summary_original": "More than 1.1 million students and teachers will gain AI knowledge and learn coding skills",
+      "summary_language": "ja",
+      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/07/government-of-canada-invests-30-million-to-launch-fifth-phase-of-cancode-program-to-offer-new-training-opportunities-for-youth-and-teachers.html",
+      "first_seen": "2026-07-08T03:38:06+09:00",
       "status": "New"
     },
     {
@@ -22837,6 +25072,40 @@
       "status": "New"
     },
     {
+      "id": "e95ea308f772a7cff8be01ed",
+      "published_at": "2026-07-02T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "理化学研究所",
+      "organization": "理化学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "ハンチントン病モデル脳の遺伝子共発現を網羅解析",
+      "title_original": "ハンチントン病モデル脳の遺伝子共発現を網羅解析",
+      "summary": "理化学研究所は、ハンチントン病モデル脳における遺伝子共発現ネットワークを解析した。ネットワークをつなぐ遺伝子が、選択的な細胞死と関連することを示した研究成果である。",
+      "summary_original": "－共発現ネットワークをつなぐ遺伝子が選択的細胞死と関連－",
+      "summary_language": "ja",
+      "url": "https://www.riken.jp/press/2026/20260703_2/index.html",
+      "first_seen": "2026-07-03T00:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "b424268179b4ae834ffefac3",
       "published_at": "2026-07-02T12:19:20Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -23072,6 +25341,74 @@
       "summary_language": "ja",
       "url": "https://www.qst.go.jp/site/press/20260702.html",
       "first_seen": "2026-07-02T03:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7ccf1ad5754c79c9a3732350",
+      "published_at": "2026-07-01T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "理化学研究所",
+      "organization": "理化学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "ミトコンドリアRNAを介した自然免疫活性化の新機構を発見",
+      "title_original": "ミトコンドリアRNAを介した自然免疫活性化の新たな仕組みを発見",
+      "summary": "理化学研究所は、ミトコンドリアRNAを介して自然免疫が活性化される新たな仕組みを発見した。研究成果は、新たながん治療戦略への応用が期待される。",
+      "summary_original": "－新たながん治療戦略への応用に期待－",
+      "summary_language": "ja",
+      "url": "https://www.riken.jp/press/2026/20260702_3/index.html",
+      "first_seen": "2026-07-02T00:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "1dbfc89c2a5286b5d93dfc18",
+      "published_at": "2026-07-01T15:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "理化学研究所",
+      "organization": "理化学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "不安定だった「ホウ素版グラフェン」を3次元結晶表面で実現",
+      "title_original": "不安定で作れなかった「ホウ素版グラフェン」を3次元結晶の表面で実現",
+      "summary": "理化学研究所は、これまで不安定で作製できなかったホウ素版グラフェンを、3次元結晶の表面上で実現した。新しい設計手法により、次世代量子材料開発の加速が期待される。",
+      "summary_original": "－次世代量子材料開発の加速が期待される新しい設計手法－",
+      "summary_language": "ja",
+      "url": "https://www.riken.jp/press/2026/20260702_1/index.html",
+      "first_seen": "2026-07-02T00:00:00+09:00",
       "status": "New"
     },
     {
@@ -28757,6 +31094,42 @@
       "status": "New"
     },
     {
+      "id": "7aaf8ff19b0f39e925eaebe7",
+      "published_at": "2026-06-01T16:20:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Patent Organisation",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "European Patent Office News",
+      "organization": "European Patent Office News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "欧州特許庁の役割とバイオテクノロジー発明の保護ルール",
+      "title_original": "The role of the EPO",
+      "summary": "欧州特許機構の加盟40カ国は、欧州特許出願の審査と特許付与をEPOに委任している。審査は欧州特許条約に基づき、バイオテクノロジー発明にはEUのバイオ特許指令も適用される。",
+      "summary_original": "The European Patent Organisation's 40 member states have entrusted the European Patent Office (EPO) with the examination of European patent applications and the grant of European patents. Examination is performed in strict accordance with the law set by these member states: the European Patent Convention (EPC). This means that the general decision on what i… In the field of biotechnology, the rules of the EU's Directive on the legal protection of biotechnological inventions (\" Biopatent Directive \") also apply. The Directive became part of the EPC in 1999. The EPO also follows the rulings of the European Court of Justice on the correct interpretation of the Directive, and has incorporated s…",
+      "summary_language": "ja",
+      "url": "https://epo.org/en/news-events/in-focus/biotechnology-patents/the-role-of-the-epo",
+      "first_seen": "2026-06-02T01:20:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "c8c267d4fd7fe0b3fc2555cc",
       "published_at": "2026-06-01T12:30:49Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -28892,6 +31265,40 @@
       "summary_language": "ja",
       "url": "https://www.roche.com/media/releases/med-cor-2026-06-01",
       "first_seen": "2026-06-01T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bef6a1ee093c450028c482c0",
+      "published_at": "2026-05-31T22:01:00Z",
+      "collected_at_jst": "2026-07-26T21:45:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Patent Organisation",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "European Patent Office News",
+      "organization": "European Patent Office News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "欧州特許庁、特許出願人向け支援制度を案内",
+      "title_original": "EPO initiatives for patent applicants | epo.org",
+      "summary": "欧州特許庁は、小規模で特許制度の利用経験が少ない主体を対象に、欧州特許制度へのアクセスを容易にする複数の支援制度を紹介している。",
+      "summary_original": "The EPO offers several schemes aimed at supporting the growth and development of smaller and less experienced entities by making it easier for them to access the European patent system. Explore the programmes below to see if you qualify so that you can leverage patents to empower your innovation journey.",
+      "summary_language": "ja",
+      "url": "https://epo.org/en/about-us/observatory-patents-and-technology/policy-and-funding/financing-innovation-programme/epo-initiatives-patent-applicants",
+      "first_seen": "2026-06-01T07:01:00+09:00",
       "status": "New"
     },
     {
@@ -30662,6 +33069,40 @@
       "status": "New"
     },
     {
+      "id": "07bc90d5fbd9231bd72cd6a0",
+      "published_at": "2026-05-06T11:55:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Patent Organisation",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "European Patent Office News",
+      "organization": "European Patent Office News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "宇宙機の推進システムが担う多様な軌道・姿勢制御",
+      "title_original": "Cosmonautics",
+      "summary": "宇宙活動の拡大を背景に、宇宙機の推進システムが主要な移動手段として、打上げ、軌道投入・変更・維持、姿勢制御、衝突回避、廃棄、深宇宙航行などを担うことを解説する。",
+      "summary_original": "Global space activity has intensified and diversified considerably in the past decade. Technological innovations are driving down the cost of access to and use of space and are enabling new missions and applications; new players and countries are increasingly becoming engaged in space and private capital flows into the space sector are gradually growing. Th… The propulsion system is the primary mobility system of any spacecraft. Its main function is to produce thrust to permit launch, orbit acquisition, orbit changes, orbit maintenance, position control, station keeping, attitude control, proximity operations, collision avoidance, disposal at end of life and/or deep-space manoeuvres includi…",
+      "summary_language": "ja",
+      "url": "https://epo.org/en/searching-for-patents/technology-platforms/space-innovation/cosmonautics",
+      "first_seen": "2026-05-06T20:55:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "3eabf03441415e0733c714d9",
       "published_at": "2026-05-06T07:59:33Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -30761,6 +33202,40 @@
       "summary_language": "ja",
       "url": "https://www.modernatx.com/media-center/all-media/blogs/update-cystic-fibrosis-collaboration-vertex",
       "first_seen": "2026-05-05T06:23:27+09:00",
+      "status": "New"
+    },
+    {
+      "id": "534b5dac4c521f5277ed9333",
+      "published_at": "2026-05-04T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "International / France",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "ITER News",
+      "organization": "ITER News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "ITER、民間核融合事業との連携プロジェクトを開始",
+      "title_original": "Private Sector Fusion Engagement Project",
+      "summary": "ITERの民間核融合エンゲージメント・プロジェクト（PSFE）は、ITERと世界の民間核融合事業の協力を促進する。知識共有を中心に、アクセス要請を調整するヘルプデスクも設けている。",
+      "summary_original": "The Private Sector Fusion Engagement (PSFE) project was launched in November 2024 to foster collaboration between the ITER project and private sector fusion initiatives worldwide. It emphasizes the complementarity of public and private fusion efforts and seeks to optimize how ITER—drawing on its decades of experience in designing and building a fusion react… The elements of the PSFE project, described below, emerged from internal and external consultation with interested parties, including at public-private fusion workshops held in 2024, 2025 and 2026. At the heart of the project is knowledge-sharing. The PSFE Help Desk serves as the central coordination point for requests to access ITER do…",
+      "summary_language": "ja",
+      "url": "https://iter.org/scientists/private-sector-fusion-engagement-project",
+      "first_seen": "2026-05-04T09:00:00+09:00",
       "status": "New"
     },
     {
@@ -31139,6 +33614,40 @@
       "summary_original": "News article 27 April 2026 Call for Tenders: EIC Innovation Procurement Programme (Strategic Access to Innovation Procurement) EISMEA has launched a new call for tenders titled EIC Innovation Procurement Programme (Strategic Access to Innovation Procurement) (EISMEA/2026/OP/0012) focusing on support activities related to access to procurement markets 2 min read",
       "summary_language": "ja",
       "url": "https://eic.ec.europa.eu/news/call-tenders-eic-innovation-procurement-programme-strategic-access-innovation-procurement-2026-04-27_en",
+      "first_seen": "2026-04-27T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "561b1c15e2dca483e500a243",
+      "published_at": "2026-04-27T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "International / France",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "ITER News",
+      "organization": "ITER News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "US ITER、核融合装置の中央ソレノイド調達を完了",
+      "title_original": "US ITER completes central solenoid procurement package",
+      "summary": "US ITERは、世界最大級のパルス超伝導磁石である中央ソレノイドについて、バスバーや電気接続用リードを含む最終納入を完了した。ITERサイトでは6モジュール中5基が積み上げられ、組み立てが進められている。",
+      "summary_original": "US ITER has completed final deliveries for the central solenoid, the world’s most powerful pulsed superconducting magnet. The most recent deliveries included busbars and leads for electrical connections between the modules; earlier, all magnet modules , support structures , and tooling components had been delivered. US ITER will now receive credit* from the international project for the full magnet scope and is in process of closing out this project area. The 18-metre-tall magnet is now under assembly at the ITER site. Five of six modules are stacked, with the final module to be added later this year. Assembly is the responsibility of the ITER Organization, with additional technical support…",
+      "summary_language": "ja",
+      "url": "https://iter.org/node/20687/us-iter-completes-central-solenoid-procurement-package",
       "first_seen": "2026-04-27T09:00:00+09:00",
       "status": "New"
     },
@@ -31767,6 +34276,42 @@
       "status": "New"
     },
     {
+      "id": "4783b0d9acc14b70e803cc06",
+      "published_at": "2026-04-20T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "EU & Europe",
+      "country": "International / France",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 5,
+      "source_type": "Intergovernmental",
+      "source": "ITER News",
+      "organization": "ITER News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "ITER真空容器、核融合装置に適合した規制枠組みへ",
+      "title_original": "Key ruling on ITER vessel strengthens fit-for-purpose fusion regulatory approach",
+      "summary": "フランス原子力安全・放射線防護機関（ASNR）は、ITERトカマクの真空容器をフランスおよび欧州の圧力機器規則から除外する申請を承認した。電磁力が設計を左右する点を踏まえた判断で、核融合装置に合わせた規制の一歩となる。",
+      "summary_original": "On 14 April 2026, the French Authority for Nuclear Safety and Radiation Protection (ASNR) approved the ITER Organization’s request to exclude the ITER vacuum vessel from French and European pressure equipment rules. By recognizing that electromagnetic forces—not coolant pressure—drive the ITER tokamak vessel design, the decision marks a significant step toward a regulatory framework tailored to tokamak fusion devices.",
+      "summary_language": "ja",
+      "url": "https://iter.org/actualites-iter/key-ruling-iter-vessel-strengthens-fit-purpose-fusion-regulatory-approach",
+      "first_seen": "2026-04-20T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "515284a23f20d3196b319221",
       "published_at": "2026-04-17T19:30:09Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -31798,6 +34343,40 @@
       "summary_language": "ja",
       "url": "https://www.modernatx.com/media-center/all-media/blogs/david-berman-intro",
       "first_seen": "2026-04-18T04:30:09+09:00",
+      "status": "New"
+    },
+    {
+      "id": "12d04af94cb724764eda606d",
+      "published_at": "2026-04-17T14:07:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Patent Organisation",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "European Patent Office News",
+      "organization": "European Patent Office News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "EPOを国際予備審査機関として選択できる条件を説明",
+      "title_original": "Can I select the EPO as IPEA?",
+      "summary": "EPOを国際調査機関（ISA）として選択した申請者は、一定のパイロット参加条件下でEPOに国際予備審査を請求できる。EPOは補充調査を行い、申請者は必要に応じて出願を補正できる。",
+      "summary_original": "Yes. If you participate in the pilot and have selected the EPO as ISA, you may file a demand for international preliminary examination with the EPO acting as IPEA. If the international search report and written opinion issued by the EPO show that your invention is not yet patentable in its present form, you can amend your application and file a demand for international preliminary examination directly with the EPO. The EPO will then perform a top-up search to check whether any relevant citations have emerged since the… It is not possible for applicants to select the EPO as ISA and after file a demand for international preliminary examination with the CNIPA acting as IPEA. This is because th…",
+      "summary_language": "ja",
+      "url": "https://epo.org/en/service-support/faq/applying-patent/cnipa-epo-isa-ipea-pilot-programme/epo-international",
+      "first_seen": "2026-04-17T23:07:00+09:00",
       "status": "New"
     },
     {
@@ -32869,6 +35448,40 @@
       "status": "New"
     },
     {
+      "id": "6e2eff22635bc89b71302a9f",
+      "published_at": "2026-04-07T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Official Company",
+      "source": "Google AI",
+      "organization": "Google AI",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "Google、AIによるメンタルヘルス支援と臨床安全機能を強化",
+      "title_original": "我們協助照顧心理健康的最新進展",
+      "summary": "Googleは、Geminiに心理相談窓口への支援リンクを提供する機能を追加し、急性状況のリスク識別と医療資源への誘導を強化する。青少年向けには、情緒的依存やいじめを防ぐ安全機能も設ける。",
+      "summary_original": "Google 積極運用 AI 守護心理健康，最新計畫包含：升級 Gemini 以提供「一鍵式」介面的支援連結，並投入 3,000 萬美元資助全球諮詢熱線與培訓。同時，Google 強化了 AI 的臨床安全性，確保在急性狀況下能辨識風險並引導至現實醫療資源，避免強化錯誤信念或有害衝動。針對青少年，則設有防止情感依賴與霸凌的防護網。",
+      "summary_language": "ja",
+      "url": "https://blog.google/intl/zh-tw/products/explore-get-answers/gemini-mental-health",
+      "first_seen": "2026-04-07T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "ded81620235e6d9d1b7f7387",
       "published_at": "2026-04-06T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -33176,6 +35789,74 @@
       "summary_language": "ja",
       "url": "https://doi.org/10.1088/1742-6596/3191/1/012014",
       "first_seen": "2026-04-01T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f7b1ae3d81eac82b01d4d7e1",
+      "published_at": "2026-03-31T23:01:05Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "英国IPO、特許出願の付与手数料と申請手続きを案内",
+      "title_original": "Pay grant fees for patent application",
+      "summary": "英国知的財産庁は、請求を受けた場合に支払う特許出願の付与手数料や、超過請求項・超過ページの追加料金、関連様式の提出手続きを案内している。",
+      "summary_original": "Pay a grant fee for a patent application if the Intellectual Property Office (IPO) has asked you to. You should only pay a grant fee if the IPO has asked you to. £27 for each additional excess claim £13 for each additional excess page All Intellectual Property Office fee bearing forms should be filed with the appropriate fee. A new end page has been added. This contains a checklist and sending instructions. Supporting text added to questions that required further clarification. Fee sheet added to form PF34 and text 'All Intellectual Property Office fee bearing forms should be filed with the appropriate fee' added.",
+      "summary_language": "ja",
+      "url": "https://gov.uk/government/publications/grant-fee-for-patent-application",
+      "first_seen": "2026-04-01T08:01:05+09:00",
+      "status": "New"
+    },
+    {
+      "id": "33ac5f715280bf2f800578ec",
+      "published_at": "2026-03-31T19:31:10Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "EU & Europe",
+      "country": "United Kingdom",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "UK DSIT",
+      "organization": "UK DSIT",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "英国HMRC、R&D税額控除の改正救済措置に関する指針を掲載",
+      "title_original": "CIRD191000 - R&D Tax Reliefs: reformed reliefs: going concern - HMRC internal manual - GOV.UK",
+      "summary": "英国政府のHMRC内部マニュアルが、R&D税額控除に関する改正救済措置のうち、継続企業（going concern）の取扱いを示している。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://gov.uk/hmrc-internal-manuals/corporate-intangibles-research-and-development-manual/cird191000",
+      "first_seen": "2026-04-01T04:31:10+09:00",
       "status": "New"
     },
     {
@@ -33659,6 +36340,40 @@
       "summary_original": "Other News Sort Posts Categories Hidden Debris in GEO Is a Wake-Up Call: Visibility Must Be Matched by Action July 15, 2026 The Suppliers Behind Our Missions May 1, 2026 The Business of Space: How Strategic Collaboration Will Define Europe’s Orbital Future April 30, 2026 Astroscale UK Completes Critical Design Review for Orpheus Mission, Advancing UK Space Domain Awareness Capabilities April 8, 2026 ADRAS-J Mission Honored with Minister of Defense Award March 31, 2026 Astroscale’s ADRAS-J Mission Completes Operations, Begins Deorbit March 25, 2026 Satellite Life Extension in GEO: How Our LEXI Servicer Maximizes Satellite Value March 20, 2026 Astroscale Selects Isar Aerospace to Launch ELSA-…",
       "summary_language": "ja",
       "url": "https://www.astroscale.com/en/news/astroscales-adras-j-mission-completes-operations-begins-deorbit",
+      "first_seen": "2026-03-25T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "edfb0ae79009147925be0221",
+      "published_at": "2026-03-25T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Nature",
+      "doi": "https://doi.org/10.1038/s41586-026-10265-5",
+      "citation_count": 50,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "AIが研究プロセス全体をエンドツーエンドで自動化",
+      "title_original": "Towards end-to-end automation of AI research",
+      "summary": "AI Scientistは、研究アイデアの創出からコード作成、実験、データ解析、論文執筆、査読までを自動化するパイプライン。基盤モデルを組み込んだエージェント型システムを、特定テーマ型と自由探索型で評価した。",
+      "summary_original": "OpenAlex research topics: Scientific Computing and Data Management; Machine Learning in Materials Science; Cell Image Analysis Techniques; Process (computing); Automation; Presentation (obstetrics); Pipeline (software); Quality (philosophy); Workflow; Mode (computer interface); Flexibility (engineering)",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1038/s41586-026-10265-5",
       "first_seen": "2026-03-25T09:00:00+09:00",
       "status": "New"
     },
@@ -35930,6 +38645,40 @@
       "status": "New"
     },
     {
+      "id": "37b8f47461e27f1b028748ac",
+      "published_at": "2026-02-26T13:30:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "European Innovation Council News",
+      "organization": "European Innovation Council News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "EIC、ディープテック研究開発向け資金プログラムを案内",
+      "title_original": "Programme finder (3/3)",
+      "summary": "欧州イノベーション会議（EIC）は、技術準備度に応じた資金プログラムを案内している。EIC Pathfinder Openでは革新的なディープテックの実現を、別の支援枠では新技術の成熟化と市場準備性の向上を目指す。",
+      "summary_original": "Following the assessment of your innovation's TRL, find the funding programme that suits the best to boost your project. What for: taking forward breakthrough deep tech projects with a high degree of scientific and technological ambition and risk and potential to create a new market You should apply if you are looking for support from EIC Pathfinder Open to realise an ambitious vision for radically new technology, with potential to create new markets, respond to societal needs and/or to provide solutions for global challenges. What for: Mature and validate your novel technology as well as improve market readiness (incl. business plan) for specific applications with high market potential. If…",
+      "summary_language": "ja",
+      "url": "https://eic.ec.europa.eu/programme-finder-33_en",
+      "first_seen": "2026-02-26T22:30:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "9504f63c9e2cadf98372507c",
       "published_at": "2026-02-26T13:23:54Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -36244,6 +38993,40 @@
       "status": "New"
     },
     {
+      "id": "4ff2b42d1dec569f46477598",
+      "published_at": "2026-02-17T17:32:24Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "EuroHPC JU",
+      "organization": "EuroHPC JU",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "欧州、量子コンピューター「Euro-Q-Exa」を開設",
+      "title_original": "Inauguration of Euro-Q-Exa: Expanding the European Quantum Computing Infrastructure",
+      "summary": "EuroHPC共同事業体は、ドイツ・ミュンヘンに設置した新しい量子コンピューター「Euro-Q-Exa」を開設した。欧州の先端量子コンピューティング基盤構築に向けた新たな節目となる。",
+      "summary_original": "Today, the EuroHPC Joint Undertaking (EuroHPC JU) inaugurated Euro-Q-Exa, a new EuroHPC quantum computer, located in Munich, Germany. The event represents another milestone in building a state-of-the-art quantum computing infrastructure for Europe",
+      "summary_language": "ja",
+      "url": "https://www.eurohpc-ju.europa.eu/inauguration-euro-q-exa-expanding-european-quantum-computing-infrastructure-2026-02-12_en",
+      "first_seen": "2026-02-18T02:32:24+09:00",
+      "status": "New"
+    },
+    {
       "id": "f2546cdceb249a312eaf9fa2",
       "published_at": "2026-02-17T12:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -36380,6 +39163,42 @@
       "summary_language": "ja",
       "url": "https://doi.org/10.64898/2026.02.10.26345969",
       "first_seen": "2026-02-17T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "b700ca073951d8c1d50ff2dd",
+      "published_at": "2026-02-16T11:45:56Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "EuroHPC JU",
+      "organization": "EuroHPC JU",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Historical Backfill",
+      "title": "欧州、フロンティアAIモデル訓練向け第2回公募を開始",
+      "title_original": "EuroHPC JU to collaborate with the European Commission to launch the second competition to advance European AI",
+      "summary": "EuroHPC JUは欧州委員会と協力し、欧州のAI開発を促進する第2回公募を実施する。2026年2月に開始されたFrontier AI Grand Challengeでは、フロンティアAIモデルを訓練する1件のプロジェクトに資金を提供する。",
+      "summary_original": "The Frontier AI Grand Challenge, launched on 13 February 2026 by the European Commission, will fund one project to train a frontier AI model.",
+      "summary_language": "ja",
+      "url": "https://www.eurohpc-ju.europa.eu/eurohpc-ju-collaborate-european-commission-launch-second-competition-advance-european-ai-2026-02-16_en",
+      "first_seen": "2026-02-16T20:45:56+09:00",
       "status": "New"
     },
     {
@@ -36969,6 +39788,40 @@
       "status": "New"
     },
     {
+      "id": "9868f6818a383cefa17912e1",
+      "published_at": "2026-02-04T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Nature",
+      "organization": "Nature",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Nature",
+      "doi": "https://doi.org/10.1038/s41586-025-10028-8",
+      "citation_count": 22,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Historical Backfill",
+      "title": "腫瘍と脳の連絡経路ががん免疫を抑制する仕組みを解明",
+      "title_original": "Tumour–brain crosstalk restrains cancer immunity via a sensory–sympathetic axis",
+      "summary": "肺腺がんが迷走神経感覚ニューロンを介して脳幹に信号を送り、交感神経活動を高めて腫瘍内の抗腫瘍免疫を抑える機構を示した。遺伝的・薬理学的・化学遺伝学的な経路遮断により、免疫応答の強化と腫瘍増殖の抑制が確認された。",
+      "summary_original": "OpenAlex research topics: Cancer, Stress, Anesthesia, and Immune Response; Vagus Nerve Stimulation Research; Chemokine receptors and signaling; Crosstalk; Efferent; Sensory system; Brainstem; Immune system; Carcinogenesis; Lung cancer; Central nervous system; Lung",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1038/s41586-025-10028-8",
+      "first_seen": "2026-02-04T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "ffc61fd09cc103c986ec2233",
       "published_at": "2026-02-04T00:00:00Z",
       "collected_at_jst": "2026-07-26T21:02:36+09:00",
@@ -37137,6 +39990,75 @@
       "summary_original": "Innovate UK announce an investment of over £21.5 million as part of Defra’s Farming Innovation Programme (FIP). Delivered in partnership with Innovate UK, FIP supports innovative projects that strengthen farm profitability, creates new market opportunities and drives productivity and sustainable growth of the agricultural sector. The programme plays a key role in the UK’s Modern Industrial Strategy, advancing agri-tech as part of the Advanced Manufacturing Sector Plan. The eight low emissions farming projects aim to develop ambitious new solutions that accelerate UK agriculture’s transition to low emission practices. Projects from this portfolio span low emission dairy farming, healthier li…",
       "summary_language": "ja",
       "url": "https://www.ukri.org/news/driving-growth-through-precision%e2%80%91bred-crops-and-low-emissions-farming/",
+      "first_seen": "2026-02-02T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "486377f04158da089865fdb8",
+      "published_at": "2026-02-02T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "EU & Europe",
+      "country": "International / France",
+      "topics": [
+        "Robotics",
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "ITER News",
+      "organization": "ITER News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "ITER組立に向け、ロボットと専用工具を開発",
+      "title_original": "Robots, outils et opérateurs au diapason",
+      "summary": "ITERは、真空容器内壁に設置する約2万個の部品の組立に向け、ロボットや専用工具の開発を進めている。部品の多くは個別仕様で製作される。",
+      "summary_original": "Un important « programme dans le programme » prend forme dans un des bâtiments d’ITER initialement réservé au béryllium et désormais dédié aux préparatifs de l’assemblage, ainsi que dans les usines d’Inde et du Japon. Son objectif ? Développer les robots et les outils qui permettront d’installer sur la paroi interne de la chambre à vide près de 20 000 composants de différentes tailles, dont la plupart auront été réalisés « sur mesure ». Le défi est immense : depuis les bobines, tubulures et modules de couverture qui tapisseront la paroi interne de la chambre à vide jusqu’aux panneaux de première paroi positionnés directement face au plasma, pas moins d’une demi-douzaine de « couches » compr…",
+      "summary_language": "ja",
+      "url": "https://iter.org/fr/actualites-iter/robots-outils-operateurs-au-diapason",
+      "first_seen": "2026-02-02T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "52757c141928d1828d474452",
+      "published_at": "2026-02-02T00:00:00Z",
+      "collected_at_jst": "2026-07-26T21:02:36+09:00",
+      "region": "Asia",
+      "country": "International / France",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "ITER News",
+      "organization": "ITER News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "ITER、約2万個の炉内部品を設置するロボットと工具を開発",
+      "title_original": "Robots, tools and teams playing in unison",
+      "summary": "ITERでは、プラズマ chamber の内壁に約2万個の個別設計部品を取り付けるため、ロボットと工具の開発が進んでいる。真空容器内面には複数のシステム層が重ねて設置される。",
+      "summary_original": "In an on-site building originally designed for beryllium-related activities and now dedicated to assembly preparation, as well as in factories in India and Japan, a major “project within the project” is taking shape. Its objective is to develop the robots and tooling that will enable the installation of nearly 20,000 components—large and small, and for the most part individually customized—on the inner wall of the plasma chamber. The challenge is immense: from coils, manifolds, or blanket modules attached to the vacuum vessel’s inner surface, to first-wall panels directly facing the plasma, no fewer than half a dozen “system layers,” each comprising thousands of components, are superimposed…",
+      "summary_language": "ja",
+      "url": "https://iter.org/node/20687/robots-tools-and-teams-playing-unison",
       "first_seen": "2026-02-02T09:00:00+09:00",
       "status": "New"
     },
@@ -37603,6 +40525,41 @@
       "status": "New"
     },
     {
+      "id": "bfa48b5832fad87c62f1f1b0",
+      "published_at": "2025-10-06T13:22:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Patent Organisation",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Patents & Intellectual Property",
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "European Patent Office News",
+      "organization": "European Patent Office News",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "欧州特許庁、イノベーターの金融市場アクセスを支援するプログラムを展開",
+      "title_original": "Financing innovation programme",
+      "summary": "欧州特許庁は、発明者やスタートアップ、中小企業による金融市場へのアクセス改善を目的とするイノベーション・プログラムを紹介した。特許出願企業や投資家、大学発スピンアウトを探せる情報基盤も提供する。",
+      "summary_original": "The mission of this programme is to improve access to financial markets for European innovators, with a particular focus on inventors, start-ups and SMEs. These entities play a crucial role in commercialising ideas with great potential to drive progress. However, they often face financial barriers that prevent them from growing into scalable businesses. The… Explore Chief Economist studies and case studies providing both high-level expertise and practical evidence on how innovators leverage the IP system to secure funding. Our Deep Tech Finder helps you find startups with patent applications at the EPO, the names of their investors, as well as European universities and their spin-outs. Acce…",
+      "summary_language": "ja",
+      "url": "https://epo.org/en/about-us/observatory-patents-and-technology/policy-and-funding/financing-innovation-programme",
+      "first_seen": "2025-10-06T22:22:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "f5062cb90623083863eb5adc",
       "published_at": "2025-09-15T00:00:00Z",
       "collected_at_jst": "2026-07-26T22:54:37+09:00",
@@ -37634,6 +40591,42 @@
       "summary_language": "ja",
       "url": "https://www.irs.gov/irb/2025-38_IRB",
       "first_seen": "2025-09-15T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3cc2aa25d59e24836c9fa4d8",
+      "published_at": "2025-08-27T08:17:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "European Commission Research & Innovation",
+      "organization": "European Commission Research & Innovation",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "EU、Horizon 2020で公衆衛生研究への助成を推進",
+      "title_original": "EU Research and Innovation on Public health",
+      "summary": "EUのHorizon 2020は、健康、環境、メンタルヘルス、医療システム、母子保健、グローバルヘルスなどの公衆衛生研究を助成対象としている。",
+      "summary_original": "Public health research fields include health, environment and lifestyle, mental health, foresight, health systems and services, research for maternal and child health and global health. Under Horizon 2020, the EU's research and innovation funding programme, we are addressing priorities for public health research funding in these fields in Europe and worldwide, including in low-or middle-income countries. Public health policies aim to sustain population-wide health improvement and reduce health inequalities. Public health research plays a key role in providing the evidence base needed to support the development and monitoring of health policies. Despite the known benefits of physical activit…",
+      "summary_language": "ja",
+      "url": "https://research-and-innovation.ec.europa.eu/research-area/health/public-health-research_en",
+      "first_seen": "2025-08-27T17:17:00+09:00",
       "status": "New"
     },
     {
@@ -37671,6 +40664,42 @@
       "summary_language": "ja",
       "url": "https://english.www.gov.cn/policies/latestreleases/202508/27/content_WS68ae7976c6d0868f4e8f51a0.html",
       "first_seen": "2025-08-27T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "fd47a7c63ec9c02ee41b8ca6",
+      "published_at": "2025-08-07T00:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "CSET",
+      "organization": "CSET",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Original-site sitemap and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "NIHの公的研究資金が生物医学イノベーションに与える影響",
+      "title_original": "The NIH's Impact on Research and Innovation | Center for Security and Emerging Technology",
+      "summary": "CSETの分析は、世界最大の生物医学研究の公的資金提供者である米国国立衛生研究所（NIH）の研究・イノベーションへの影響を整理する。人工心臓弁やがん関連遺伝子変異の研究など、医療への波及例も示している。",
+      "summary_original": "Data Snapshots are informative descriptions and quick analyses that dig into CSET’s unique data resources. This three-part series introduces CSET’s patent clusters, which connect related patents through citations and text similarity. This is the second installment of a three-part data snapshot series. Read the first part, Introducing CSET’s Patent Clusters . The National Institutes of Health (NIH) is the largest worldwide public funder of biomedical research . NIH-supported research has impacted a wide-ranging array of human health issues, from its role in developing the first artificial heart valves to identifying and screening for cancer-associated genetic mutations . Direct research fund…",
+      "summary_language": "ja",
+      "url": "https://cset.georgetown.edu/publication/the-nihs-impact-on-research-and-innovation",
+      "first_seen": "2025-08-07T09:00:00+09:00",
       "status": "New"
     },
     {
