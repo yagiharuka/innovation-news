@@ -65,6 +65,7 @@ jobs:
           JAPANESE_SUMMARY_BATCH_SIZE: "10"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
           JAPANESE_SUMMARY_REQUEST_BUDGET: ${{ github.event_name != 'schedule' && '75' || '15' }}
+          JAPANESE_SUMMARY_INCLUDE_EXPIRED: ${{ github.event_name != 'schedule' && '1' || '0' }}
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "0.5"
 
       - name: Commit historical review checkpoint
