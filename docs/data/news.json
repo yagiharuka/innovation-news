@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-31T01:27:24Z",
-  "updated_at_jst": "2026-07-31T10:27:24+09:00",
+  "updated_at": "2026-07-31T01:43:06Z",
+  "updated_at_jst": "2026-07-31T10:43:06+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1176,
+  "article_count": 1179,
   "source_count": 304,
   "source_counts": {
     "daily": 297,
@@ -13483,6 +13483,43 @@
       "summary_language": "ja",
       "url": "https://www.fiercebiotech.com/medtech/fda-clears-johnson-johnsons-surgical-robot-next-era-surgery",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "17c856708cfe91897e9a7d7c",
+      "published_at": "2026-07-23T11:30:07Z",
+      "collected_at_jst": "2026-07-26T20:13:43+09:00",
+      "region": "United States",
+      "country": "Hong Kong",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy",
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "South China Morning Post Technology",
+      "organization": "South China Morning Post Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "",
+      "collection_mode": "Daily",
+      "title": "米下院、中国製ヒューマノイドロボットの軍事利用制限を含む国防法案を可決",
+      "title_original": "US eyes ban on Chinese humanoid robots as US-China tech rivalry intensifies",
+      "summary": "米下院は、国家安全保障とデータプライバシーへの懸念を背景に、国防総省による中国製ヒューマノイドロボットなど外国製自律システムの使用を制限する条項を含む国防権限法案を可決した。",
+      "summary_original": "US scrutiny of Chinese technology has expanded to a new frontier, as lawmakers in Washington advance defence legislation prohibiting the military from deploying Chinese-made humanoid robots. The US House of Representatives has passed the National Defence Authorisation Act (NDAA), an annual military policy bill that incorporates provisions restricting the use of foreign autonomous systems over national security and data privacy concerns. Under Section 163 of the draft bill, the Pentagon would be...",
+      "summary_language": "ja",
+      "url": "https://www.scmp.com/tech/policy/article/3361622/us-eyes-ban-chinese-humanoid-robots-us-china-tech-rivalry-intensifies?utm_source=rss_feed",
+      "first_seen": "2026-07-26T20:13:43+09:00",
       "status": "New"
     },
     {
@@ -40198,6 +40235,78 @@
       "summary_language": "ja",
       "url": "https://www.modernatx.com/media-center/all-media/blogs/recordati-collaboration-globally-commercialize-investigational-propionic-acidemia-therapy",
       "first_seen": "2026-01-30T07:02:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "81294d374038ffb260c2b551",
+      "published_at": "2026-01-27T09:30:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "EU & Europe",
+      "country": "European Union",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Standards & Safety",
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "ETSI",
+      "organization": "ETSI",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "ETSI、動的AIシステムの継続的適合性評価を可能にする新標準を開始",
+      "title_original": "ETSI launches new standard enabling continuous compliance for dynamic AI systems, aligned with the EU AI Act - ETSI",
+      "summary": "ETSIは、EU AI Actに整合する動的AIシステム向けの新たな技術仕様ETSI TS 104 008を公表した。継続監査ベース適合性評価（CABCA）の枠組みにより、AIシステムの継続的な適合性確認を扱う。",
+      "summary_original": "Press Release 27 January 2026 ETSI launches new standard enabling continuous compliance for dynamic AI systems, aligned with the EU AI Act Today, ETSI announces the publication of ETSI TS 104 008, a new Technical Specification that introduces a framework for Continuous Auditing-Based Conformity Assessment (CABCA). This... Read more ETSI launches new standard enabling continuous compliance for dynamic AI systems, aligned with the EU AI Act",
+      "summary_language": "ja",
+      "url": "https://www.etsi.org/newsroom/press-releases/2634-etsi-launches-new-standard-enabling-continuous-compliance-for-dynamic-ai-systems-aligned-with-the-eu-ai-act/",
+      "first_seen": "2026-01-27T18:30:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ab8480319b800b196530fd2d",
+      "published_at": "2026-01-26T12:00:00Z",
+      "collected_at_jst": "2026-07-27T11:51:54+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy",
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "CHIPS for America",
+      "organization": "CHIPS for America",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Historical Backfill",
+      "title": "米CHIPSプログラム、USA Rare Earthの国内一貫型「鉱山・磁石」戦略に最大2億7700万ドル",
+      "title_original": "The Department of Commerce’s CHIPS Program Announces a Letter of Intent with USA Rare Earth to Accelerate Its Domestic and Vertically Integrated \"Mine-to-Magnet\" Strategy",
+      "summary": "米商務省のCHIPSプログラム事務局は、USA Rare Earthの国内垂直統合型「マイン・ツー・マグネット」戦略を加速するため、最大2億7700万ドルの直接資金を提供する意向書を締結した。意向書は拘束力を持たない。",
+      "summary_original": "The Department of Commerce’s CHIPS Program Announces a Letter of Intent with USA Rare Earth to Accelerate Its Domestic and Vertically Integrated \"Mine-to-Magnet\" Strategy January 26, 2026 The Department of Commerce’s CHIPS Program Office announced the signing of a non-binding letter of intent to provide up to $277 million in direct funding and up...",
+      "summary_language": "ja",
+      "url": "https://www.nist.gov/news-events/news/2026/01/department-commerces-chips-program-announces-letter-intent-usa-rare-earth",
+      "first_seen": "2026-01-26T21:00:00+09:00",
       "status": "New"
     },
     {
