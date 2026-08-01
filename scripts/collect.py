@@ -2987,6 +2987,96 @@ def fetch_gdelt_domain_source(
         )
 
 
+def publisher_url_matches_domain(url: str, publisher_domain: str) -> bool:
+    """Return whether a URL belongs to the allowlisted first-party domain."""
+    hostname = (urlsplit(url).hostname or "").casefold().removeprefix("www.")
+    domain = normalize_space(publisher_domain).casefold().removeprefix("www.")
+    return bool(
+        hostname
+        and domain
+        and (hostname == domain or hostname.endswith(f".{domain}"))
+    )
+
+
+def jina_markdown_excerpt(
+    raw_markdown: str,
+    title: str = "",
+    limit: int = 1200,
+) -> str:
+    """Convert the article portion of a Jina response into a short plain excerpt."""
+    content_marker = raw_markdown.find("Markdown Content:")
+    if content_marker >= 0:
+        raw_markdown = raw_markdown[content_marker + len("Markdown Content:") :]
+    raw_markdown = raw_markdown[:12000]
+    if title:
+        title_position = raw_markdown.casefold().find(title.casefold())
+        if title_position >= 0:
+            raw_markdown = raw_markdown[title_position + len(title) :]
+    raw_markdown = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", raw_markdown)
+    raw_markdown = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", raw_markdown)
+    raw_markdown = re.sub(r"(?m)^\s*(?:#{1,6}|>|[-+*]|\d+[.)])\s*", "", raw_markdown)
+    raw_markdown = re.sub(r"[`*_~]+", " ", raw_markdown)
+    raw_markdown = re.sub(r"https?://\S+", " ", raw_markdown)
+    return plain_text(raw_markdown, limit=max(200, min(1600, limit)))
+
+
+def fetch_jina_page_metadata(
+    session: requests.Session,
+    original_url: str,
+    publisher_domain: str,
+    fallback_title: str,
+    fallback_summary: str,
+    fallback_date: datetime,
+) -> tuple[str, str, datetime, bool]:
+    """Read official-page metadata through Jina without changing source identity.
+
+    Any transport, parse, or source-identity failure returns the verified sitemap
+    values.  The Jina URL and error body are never written to an article record.
+    """
+    try:
+        response = session.get(
+            jina_reader_url(original_url),
+            headers={"Accept": "text/plain,*/*;q=0.1"},
+            timeout=(10, 45),
+        )
+        response.raise_for_status()
+        detail_text = response.text
+        source_match = re.search(r"(?im)^URL Source:\s*(\S+)", detail_text)
+        if source_match and not publisher_url_matches_domain(
+            source_match.group(1), publisher_domain
+        ):
+            raise ValueError("Jina source identity does not match publisher")
+
+        title = fallback_title
+        title_match = re.search(r"(?im)^Title:\s*(.+)$", detail_text)
+        if title_match:
+            candidate_title = normalize_space(title_match.group(1))
+            if len(candidate_title) >= 8:
+                title = candidate_title
+
+        published = fallback_date
+        date_match = re.search(
+            r"(?im)^(?:Published Time|Publication Date|Date):\s*(.+)$",
+            detail_text,
+        )
+        if date_match:
+            parsed_date = parse_archive_date(date_match.group(1))
+            if parsed_date is not None:
+                published = parsed_date
+
+        summary = jina_markdown_excerpt(detail_text, title=title, limit=1200)
+        if not summary:
+            summary = fallback_summary
+        enriched = bool(
+            title != fallback_title
+            or summary != fallback_summary
+            or published != fallback_date
+        )
+        return title, summary, published, enriched
+    except (requests.RequestException, ValueError, TypeError):
+        return fallback_title, fallback_summary, fallback_date, False
+
+
 def fetch_jina_sitemap_source(
     session: requests.Session,
     source: dict[str, Any],
@@ -3038,27 +3128,23 @@ def fetch_jina_sitemap_source(
                 )
         if not matches and proxy_errors:
             raise RuntimeError("; ".join(proxy_errors))
-        items: list[dict[str, Any]] = []
+        include_patterns = [
+            str(value).casefold()
+            for value in source.get("include_link_patterns", [])
+            if normalize_space(str(value))
+        ]
+        exclude_patterns = [
+            str(value).casefold()
+            for value in source.get("exclude_link_patterns", [])
+            if normalize_space(str(value))
+        ]
+        candidates: list[tuple[datetime, str, str]] = []
         seen_urls: set[str] = set()
         max_items = max(1, min(50, int(source.get("max_items", 30))))
-        for visible_url, linked_url, raw_date in reversed(matches):
+        for visible_url, linked_url, raw_date in matches:
             link = linked_url if linked_url == visible_url else visible_url
-            hostname = (urlsplit(link).hostname or "").casefold().removeprefix("www.")
-            if not (
-                hostname == publisher_domain
-                or hostname.endswith(f".{publisher_domain}")
-            ):
+            if not publisher_url_matches_domain(link, publisher_domain):
                 continue
-            include_patterns = [
-                str(value).casefold()
-                for value in source.get("include_link_patterns", [])
-                if normalize_space(str(value))
-            ]
-            exclude_patterns = [
-                str(value).casefold()
-                for value in source.get("exclude_link_patterns", [])
-                if normalize_space(str(value))
-            ]
             lowered_link = link.casefold()
             if include_patterns and not any(
                 pattern in lowered_link for pattern in include_patterns
@@ -3084,11 +3170,48 @@ def fetch_jina_sitemap_source(
                 continue
             if not (classify_policy_areas(title) or classify_topics(title)):
                 continue
+            candidates.append((published, link, title))
+
+        candidates.sort(key=lambda row: row[0], reverse=True)
+        detail_limit_key = (
+            "jina_detail_backfill_limit" if backfill else "jina_detail_daily_limit"
+        )
+        detail_limit = max(
+            0,
+            min(50, int(source.get(detail_limit_key, min(10, max_items)))),
+        )
+        items: list[dict[str, Any]] = []
+        detail_pages = 0
+        detail_fallbacks = 0
+        for published, link, fallback_title in candidates:
+            title = fallback_title
+            summary = ""
+            if detail_pages < detail_limit:
+                detail_pages += 1
+                title, summary, detail_published, enriched = fetch_jina_page_metadata(
+                    session,
+                    link,
+                    publisher_domain,
+                    fallback_title,
+                    "",
+                    published,
+                )
+                if detail_published <= collected_at + timedelta(days=2):
+                    published = detail_published
+                if not enriched:
+                    detail_fallbacks += 1
+            if not (cutoff <= published <= collected_at + timedelta(days=2)):
+                continue
+            if not source_text_filter_allows(source, title, summary):
+                continue
+            evidence = normalize_space(f"{title} {summary}")
+            if not (classify_policy_areas(evidence) or classify_topics(evidence)):
+                continue
             item = build_item(
                 source=source,
                 title=title,
                 link=link,
-                summary="",
+                summary=summary,
                 published=published,
                 collected_at=collected_at,
             )
@@ -3104,12 +3227,18 @@ def fetch_jina_sitemap_source(
             items.append(item)
             if len(items) >= max_items:
                 break
+        detail = (
+            "official sitemap through Jina; original publisher URLs retained; "
+            f"detail_pages={detail_pages}; detail_fallbacks={detail_fallbacks}"
+        )
+        if proxy_errors:
+            detail += f"; sitemap_errors={len(proxy_errors)}"
         return items, FeedResult(
             source=source,
             entries_seen=len(matches),
             entries_kept=len(items),
             status="ok",
-            detail="official sitemap through Jina; original publisher URLs retained",
+            detail=detail,
             elapsed_seconds=round(time.monotonic() - started, 2),
         )
     except Exception as exc:
@@ -5997,12 +6126,12 @@ def preserve_previous_publication(previous_path: Path) -> int:
         previous_payload,
         master_items,
     )
-    write_public_payload(payload)
-
     config = load_config()
     active_sources = [
         source for source in config["sources"] if source.get("active")
     ]
+    payload["source_count"] = len(active_sources)
+    write_public_payload(payload)
     ledger_items = hydrate_preserved_ledger_items(
         payload["items"],
         master_items,
@@ -6348,6 +6477,7 @@ def run(
     technology_history_days: int,
     force_backfill: bool = False,
     cadence: str = "daily",
+    target_source_names: Iterable[str] | None = None,
 ) -> int:
     started = time.monotonic()
     ensure_seed_files()
@@ -6356,6 +6486,25 @@ def run(
         source for source in config["sources"] if source.get("active")
     ]
     sources = sources_for_cadence(active_sources, cadence)
+    requested_sources = {
+        normalize_space(str(name))
+        for name in (target_source_names or [])
+        if normalize_space(str(name))
+    }
+    if requested_sources:
+        known_sources = {source["name"] for source in active_sources}
+        unknown_sources = sorted(requested_sources - known_sources)
+        if unknown_sources:
+            raise ValueError(
+                "Unknown or inactive source(s): " + ", ".join(unknown_sources)
+            )
+        sources = [
+            source for source in sources if source["name"] in requested_sources
+        ]
+        if not sources:
+            raise ValueError(
+                f"Requested sources are not assigned to {cadence} cadence"
+            )
     existing = exclude_retired_sources(load_master())
     previous_public_payload = load_public_payload()
     collected_at = now_utc()
@@ -6601,7 +6750,7 @@ def run(
         previous_public_payload,
     )
     save_source_status(results, collected_at, active_sources)
-    if backfill:
+    if backfill and not requested_sources:
         save_backfill_state(
             collected_at,
             cadence,
@@ -6648,10 +6797,17 @@ def run(
         ),
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": (
-            f"Historical backfill: policy {policy_history_days}d / "
-            f"technology {technology_history_days}d"
-            if backfill
-            else f"{cadence.title()} update"
+            (
+                "Targeted source backfill: "
+                + ", ".join(sorted(requested_sources))
+            )
+            if backfill and requested_sources
+            else (
+                f"Historical backfill: policy {policy_history_days}d / "
+                f"technology {technology_history_days}d"
+                if backfill
+                else f"{cadence.title()} update"
+            )
         ),
     }
     runs = append_run_log(run_record)
@@ -7117,6 +7273,15 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Collect sources assigned to this cadence (default: daily).",
     )
     parser.add_argument(
+        "--source",
+        action="append",
+        default=[],
+        help=(
+            "Collect only this exact active source name. Repeat for multiple "
+            "sources; other source-status records are preserved."
+        ),
+    )
+    parser.add_argument(
         "--preserve-published-from",
         type=Path,
         help=(
@@ -7155,6 +7320,7 @@ def main(argv: list[str] | None = None) -> int:
             technology_history_days=args.technology_history_days,
             force_backfill=args.backfill,
             cadence=args.cadence,
+            target_source_names=args.source,
         )
     except Exception as exc:
         print(f"fatal: {type(exc).__name__}: {exc}", file=sys.stderr)

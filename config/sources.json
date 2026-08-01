@@ -604,9 +604,54 @@
         "/en/blogs/"
       ],
       "homepage": "https://www.oecd.org/en/about/newsroom.html",
-      "priority": 4,
+      "priority": 5,
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "max_items": 50,
+      "jina_detail_daily_limit": 24,
+      "jina_detail_backfill_limit": 50,
       "native_feed": false,
-      "notes": "Official OECD source. Jina reads OECD's official sitemap because OECD blocks GitHub automation; only original oecd.org/en/about/news/ links are accepted."
+      "notes": "Critical official OECD source covering newsroom releases, statistical releases, publications and policy blogs. Jina is transport for official OECD sitemaps and detail pages because OECD blocks GitHub automation; only original oecd.org URLs are accepted and strict relevance filtering remains mandatory."
+    },
+    {
+      "active": true,
+      "name": "OECD STI Topic Hubs",
+      "organization": "OECD",
+      "source_type": "Intergovernmental",
+      "region": "Global",
+      "country": "Global",
+      "category": "Science, technology, R&D tax, AI, semiconductor and industrial policy",
+      "feed_url": "https://www.oecd.org/en/topics/science-technology-and-innovation.html",
+      "fetch_mode": "jina_listing",
+      "proxy_listing_urls": [
+        "https://r.jina.ai/http://www.oecd.org/en/topics/science-technology-and-innovation.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/technology-policy.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/r%26d-tax-incentives.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/public-support-to-r%26d-and-innovation.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/artificial-intelligence.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/semiconductors.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/industrial-policy.html",
+        "https://r.jina.ai/http://www.oecd.org/en/topics/science-technology-and-innovation-indicators.html"
+      ],
+      "publisher_domain": "oecd.org",
+      "include_link_patterns": [
+        "/en/about/news/",
+        "/en/data/insights/statistical-releases/",
+        "/en/publications/",
+        "/en/blogs/"
+      ],
+      "homepage": "https://www.oecd.org/en/topics/science-technology-and-innovation.html",
+      "priority": 5,
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "strict_relevance": true,
+      "daily_item_limit": 24,
+      "backfill_item_limit": 24,
+      "jina_detail_daily_limit": 24,
+      "jina_detail_backfill_limit": 24,
+      "native_feed": false,
+      "notes": "Redundant first-party monitoring of OECD STI, technology policy, R&D tax and support, AI, semiconductors, industrial policy and indicator topic hubs. Original OECD URLs are retained; canonical URL deduplication prevents overlap with OECD Newsroom."
     },
     {
       "active": true,
@@ -8719,5 +8764,5 @@
       "notes": "Official Ajinomoto releases; strict relevance keeps biotechnology, fermentation, biomanufacturing and healthcare R&D only."
     }
   ],
-  "expected_active_source_count": 304
+  "expected_active_source_count": 305
 }
