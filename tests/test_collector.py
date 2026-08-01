@@ -3519,9 +3519,6 @@ class CollectorTests(unittest.TestCase):
                 self.assertTrue(active_sources[name]["native_feed"])
 
         official_listing_fallbacks = {
-            "OECD Newsroom": (
-                "https://www.oecd-ilibrary.org/en/about/newsroom.html"
-            ),
             "Bruegel": "https://www.bruegel.org/publications/analyses",
             "Nokia Newsroom": "https://www.nokia.com/newsroom/",
             "Tokamak Energy News": "https://tokamakenergy.com/latest-news/",
@@ -3532,6 +3529,60 @@ class CollectorTests(unittest.TestCase):
                 self.assertEqual(active_sources[name]["fetch_mode"], "site_scan")
                 self.assertEqual(active_sources[name]["listing_url"], listing_url)
                 self.assertTrue(active_sources[name]["browser_user_agent"])
+
+        oecd = active_sources["OECD Newsroom"]
+        self.assertEqual(oecd["fetch_mode"], "gdelt_domain")
+        self.assertEqual(oecd["gdelt_domain"], "oecd.org")
+        self.assertEqual(
+            oecd["homepage"], "https://www.oecd.org/en/about/newsroom.html"
+        )
+
+    def test_gdelt_domain_source_keeps_only_original_publisher_urls(self):
+        class Response:
+            def raise_for_status(self):
+                return None
+
+            def json(self):
+                return {
+                    "articles": [
+                        {
+                            "title": "New innovation policy expands research funding",
+                            "url": "https://www.oecd.org/en/about/news/2026/08/rd.html",
+                            "seendate": "20260801T010000Z",
+                        },
+                        {
+                            "title": "New innovation policy expands research funding",
+                            "url": "https://example.com/copied-oecd-story",
+                            "seendate": "20260801T010000Z",
+                        },
+                    ]
+                }
+
+        class Session:
+            def get(self, *_args, **_kwargs):
+                return Response()
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Economic, science and innovation policy",
+            "homepage": "https://www.oecd.org/en/about/newsroom.html",
+            "gdelt_domain": "oecd.org",
+        }
+        now = datetime(2026, 8, 1, 2, tzinfo=timezone.utc)
+
+        items, result = collector.fetch_gdelt_domain_source(
+            Session(), source, now - timedelta(days=2), now
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["source"], "OECD Newsroom")
+        self.assertTrue(items[0]["url"].startswith("https://www.oecd.org/"))
+        self.assertIn("GDELT domain index", items[0]["discovery_method"])
 
     def test_fusion_topic_requires_explicit_nuclear_fusion_evidence(self):
         self.assertEqual(

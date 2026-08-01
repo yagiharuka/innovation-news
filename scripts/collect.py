@@ -2857,6 +2857,115 @@ def fetch_gdelt_archive(
         )
 
 
+def fetch_gdelt_domain_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool = False,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Discover original first-party URLs when the publisher blocks automation.
+
+    GDELT is used only as a URL index.  Published items retain the publisher's
+    original URL and the configured first-party source identity.
+    """
+    started = time.monotonic()
+    domain = normalize_space(str(source.get("gdelt_domain", "")))
+    if not domain:
+        domain = source_domain(source)
+    domain = domain.removeprefix("www.")
+    if not domain:
+        return [], FeedResult(
+            source=source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail="Could not resolve GDELT source domain",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    query = (
+        f"domain:{domain} ("
+        f"{GDELT_BACKFILL_QUERIES['policy']} OR "
+        f"{GDELT_BACKFILL_QUERIES['technology']})"
+    )
+    params = {
+        "query": query,
+        "mode": "artlist",
+        "maxrecords": 100,
+        "format": "json",
+        "sort": "DateDesc",
+        "startdatetime": cutoff.strftime("%Y%m%d%H%M%S"),
+        "enddatetime": collected_at.strftime("%Y%m%d%H%M%S"),
+    }
+    try:
+        response = session.get(GDELT_DOC_ENDPOINT, params=params, timeout=(8, 45))
+        response.raise_for_status()
+        payload = response.json()
+        articles = payload.get("articles", []) if isinstance(payload, dict) else []
+        if not isinstance(articles, list):
+            articles = []
+        items: list[dict[str, Any]] = []
+        seen_urls: set[str] = set()
+        max_items = max(1, min(50, int(source.get("max_items", 30))))
+        for article in articles:
+            if not isinstance(article, dict):
+                continue
+            link = normalize_space(str(article.get("url", "")))
+            title = normalize_space(str(article.get("title", "")))
+            hostname = (urlsplit(link).hostname or "").casefold().removeprefix("www.")
+            canonical_url = canonicalize_url(link)
+            if (
+                not title
+                or not canonical_url
+                or canonical_url in seen_urls
+                or not (hostname == domain or hostname.endswith(f".{domain}"))
+            ):
+                continue
+            seen_urls.add(canonical_url)
+            if not source_text_filter_allows(source, title):
+                continue
+            if not (classify_policy_areas(title) or classify_topics(title)):
+                continue
+            published = parse_gdelt_datetime(
+                str(article.get("seendate", "")), collected_at
+            )
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary="",
+                published=published,
+                collected_at=collected_at,
+            )
+            if not item:
+                continue
+            item["discovery_method"] = "GDELT domain index; original publisher URL"
+            item["notes"] = (
+                "Discovered through a domain-restricted index because the official "
+                "publisher blocks GitHub automation; source and link remain first-party."
+            )
+            items.append(item)
+            if len(items) >= max_items:
+                break
+        return items, FeedResult(
+            source=source,
+            entries_seen=len(articles),
+            entries_kept=len(items),
+            status="ok",
+            detail="domain-restricted GDELT discovery; original URLs retained",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:300],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
 def fetch_static_source(
     source: dict[str, Any],
     cutoff: datetime,
@@ -3593,6 +3702,14 @@ def fetch_source(
         fetch_mode = source.get("fetch_mode", "feed")
         if fetch_mode == "federal_register":
             return fetch_federal_register_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "gdelt_domain":
+            return fetch_gdelt_domain_source(
                 session,
                 source,
                 cutoff,

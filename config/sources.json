@@ -588,14 +588,14 @@
       "region": "Global",
       "country": "Global",
       "category": "Economic, science and innovation policy",
-      "feed_url": "https://www.oecd-ilibrary.org/en/about/newsroom.html",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://www.oecd-ilibrary.org/en/about/newsroom.html",
+      "feed_url": "https://www.oecd.org/en/about/newsroom.html",
+      "fetch_mode": "gdelt_domain",
+      "gdelt_domain": "oecd.org",
       "browser_user_agent": true,
       "homepage": "https://www.oecd.org/en/about/newsroom.html",
       "priority": 4,
       "native_feed": false,
-      "notes": "Official OECD source; scans the official news page."
+      "notes": "Official OECD source. GDELT is used only as a domain-restricted URL index because OECD blocks GitHub automation; every published link remains on oecd.org."
     },
     {
       "active": true,
