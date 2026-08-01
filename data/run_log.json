@@ -2573,6 +2573,32 @@
       "targeted_pending": 0,
       "duration_seconds": 260.45,
       "note": "Targeted source backfill: OECD Newsroom, OECD STI Publications & Indicators"
+    },
+    {
+      "run_at": "2026-08-01T20:11:16Z",
+      "run_at_jst": "2026-08-02T05:11:16+09:00",
+      "feeds_checked": 298,
+      "feeds_succeeded": 285,
+      "new_items": 31,
+      "duplicates_skipped": 712,
+      "feed_errors": 13,
+      "summaries_generated": 31,
+      "items_reviewed": 88,
+      "items_excluded": 57,
+      "summaries_pending": 0,
+      "summary_errors": 0,
+      "summary_requests": 15,
+      "summary_rate_limited": false,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "499",
+      "summary_rate_limit_reset": "120ms",
+      "summary_retry_after": "",
+      "summary_rate_limited_at": "",
+      "targeted_sources": [],
+      "targeted_items": 0,
+      "targeted_pending": 0,
+      "duration_seconds": 311.81,
+      "note": "Daily update"
     }
   ]
 }
