@@ -2363,7 +2363,7 @@
       "include_link_patterns": [
         "/eng/bbs/view.etri"
       ],
-      "homepage": "https://www.etri.re.kr/eng/",
+      "homepage": "https://www.etri.re.kr/eng/main/main.etri",
       "priority": 4,
       "coverage_tier": "A",
       "cadence": "daily",
@@ -7935,7 +7935,7 @@
       "country": "Japan",
       "category": "Science and technology reporting",
       "feed_url": "https://rss.itmedia.co.jp/rss/2.0/news_technology.xml",
-      "homepage": "https://www.itmedia.co.jp/news/subtop/science/",
+      "homepage": "https://www.itmedia.co.jp/news/",
       "priority": 4,
       "coverage_tier": "A",
       "cadence": "daily",
@@ -8453,7 +8453,7 @@
       "include_link_patterns": [
         "/about/news/detail/"
       ],
-      "homepage": "https://www.fujielectric.com/about/research/",
+      "homepage": "https://www.fujielectric.com/about/technology/index.html",
       "priority": 4,
       "coverage_tier": "A",
       "topic_tags": [
@@ -8547,7 +8547,7 @@
       "include_link_patterns": [
         "/press/20"
       ],
-      "homepage": "https://sumitomoelectric.com/technology",
+      "homepage": "https://sumitomoelectric.com/rd",
       "priority": 4,
       "coverage_tier": "A",
       "topic_tags": [
@@ -8613,7 +8613,7 @@
       "include_link_patterns": [
         "/en/news/list/"
       ],
-      "homepage": "https://holdings.fujifilm.com/en/about/technology",
+      "homepage": "https://holdings.fujifilm.com/en/about/rd",
       "priority": 5,
       "coverage_tier": "S",
       "topic_tags": [

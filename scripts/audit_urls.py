@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import time
 from typing import Any
+from urllib.parse import urlsplit
 
 import requests
 
@@ -113,6 +114,15 @@ def check_target(target: dict[str, str], timeout: float) -> dict[str, Any]:
         ),
         "Range": "bytes=0-4095",
     }
+    if (urlsplit(target["url"]).hostname or "").casefold() == "r.jina.ai":
+        headers = {
+            "User-Agent": (
+                "WorldInnovationBrief/1.0 "
+                "(RSS reader; contact: repository owner at github.com/"
+                "yagiharuka/innovation-news)"
+            ),
+            "Accept": "text/plain,*/*;q=0.1",
+        }
     last_error = ""
     for attempt in range(2):
         try:
