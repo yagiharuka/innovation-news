@@ -1,6 +1,13 @@
 name: Audit source and article URLs
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "config/sources.json"
+      - "scripts/audit_urls.py"
+      - ".github/workflows/url-audit.yml"
   schedule:
     # Sunday 05:40 JST.  This finishes before the Monday weekend digest.
     - cron: "40 20 * * 6"
