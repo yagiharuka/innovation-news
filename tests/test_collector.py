@@ -3561,7 +3561,13 @@ class CollectorTests(unittest.TestCase):
                 }
 
         class Session:
+            def __init__(self):
+                self.calls = 0
+
             def get(self, *_args, **_kwargs):
+                self.calls += 1
+                if self.calls == 1:
+                    raise collector.requests.ReadTimeout("temporary timeout")
                 return Response()
 
         source = {
@@ -3576,11 +3582,14 @@ class CollectorTests(unittest.TestCase):
         }
         now = datetime(2026, 8, 1, 2, tzinfo=timezone.utc)
 
-        items, result = collector.fetch_gdelt_domain_source(
-            Session(), source, now - timedelta(days=2), now
-        )
+        session = Session()
+        with mock.patch.object(collector.time, "sleep"):
+            items, result = collector.fetch_gdelt_domain_source(
+                session, source, now - timedelta(days=2), now
+            )
 
         self.assertEqual(result.status, "ok")
+        self.assertEqual(session.calls, 2)
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["source"], "OECD Newsroom")
         self.assertTrue(items[0]["url"].startswith("https://www.oecd.org/"))

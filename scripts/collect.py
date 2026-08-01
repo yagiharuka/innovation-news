@@ -2897,7 +2897,7 @@ def fetch_gdelt_domain_source(
     params = {
         "query": query,
         "mode": "artlist",
-        "maxrecords": 100,
+        "maxrecords": 50,
         "format": "json",
         "sort": "DateDesc",
         "startdatetime": cutoff.strftime("%Y%m%d%H%M%S"),
@@ -2906,9 +2906,15 @@ def fetch_gdelt_domain_source(
     try:
         response = None
         for attempt in range(3):
-            response = session.get(
-                GDELT_DOC_ENDPOINT, params=params, timeout=(8, 45)
-            )
+            try:
+                response = session.get(
+                    GDELT_DOC_ENDPOINT, params=params, timeout=(15, 90)
+                )
+            except requests.RequestException:
+                if attempt >= 2:
+                    raise
+                time.sleep(8.0 * (attempt + 1))
+                continue
             if response.status_code not in {429, 500, 502, 503, 504}:
                 break
             if attempt < 2:
