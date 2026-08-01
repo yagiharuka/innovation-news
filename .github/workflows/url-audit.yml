@@ -44,12 +44,20 @@ jobs:
       - name: Audit every active source endpoint and published article URL
         run: python -u scripts/audit_urls.py --workers 16 --timeout 15
 
-      - name: Exercise the real OECD collector path
-        run: >-
-          python -u scripts/probe_source.py
-          --source "OECD Newsroom"
-          --days 14
-          --output data/oecd_source_probe.json
+      - name: Exercise OECD and stabilized collector paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data/source_probes
+          python -u scripts/probe_source.py --source "OECD Newsroom" --days 14 --output data/oecd_source_probe.json
+          python -u scripts/probe_source.py --source "Australian Research Council" --days 40 --output data/source_probes/australian-research-council.json
+          python -u scripts/probe_source.py --source "EE Times" --days 40 --output data/source_probes/ee-times.json
+          python -u scripts/probe_source.py --source "ITU News" --days 40 --output data/source_probes/itu-news.json
+          python -u scripts/probe_source.py --source "Moderna Media Center" --days 40 --output data/source_probes/moderna-media-center.json
+          python -u scripts/probe_source.py --source "UAE Advanced Technology Research Council" --days 40 --output data/source_probes/uae-atrc.json
+          python -u scripts/probe_source.py --source "AAAI Proceedings" --days 120 --output data/source_probes/aaai-proceedings.json
+          python -u scripts/probe_source.py --source "Samsung Global Newsroom" --days 40 --output data/source_probes/samsung-global-newsroom.json
+          python -u scripts/probe_source.py --source "ITER News" --days 40 --output data/source_probes/iter-news.json
 
       - name: Upload full audit report
         uses: actions/upload-artifact@v4
@@ -58,13 +66,14 @@ jobs:
           path: |
             data/url_audit.json
             data/oecd_source_probe.json
+            data/source_probes/*.json
           retention-days: 30
 
       - name: Commit audit report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/url_audit.json docs/data/url_audit.json data/oecd_source_probe.json
+          git add data/url_audit.json docs/data/url_audit.json data/oecd_source_probe.json data/source_probes/*.json
           if git diff --cached --quiet; then
             echo "No URL audit changes to commit."
           else

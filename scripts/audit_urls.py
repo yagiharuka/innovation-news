@@ -59,6 +59,7 @@ def load_targets() -> list[dict[str, str]]:
             "homepage",
             "api_url",
             "proxy_sitemap_url",
+            "proxy_listing_url",
         ):
             url = str(source.get(field) or "").strip()
             if not url.startswith(("https://", "http://")):
@@ -72,19 +73,20 @@ def load_targets() -> list[dict[str, str]]:
                     "field": field,
                 },
             )
-        for url in source.get("proxy_sitemap_urls", []):
-            url = str(url or "").strip()
-            if not url.startswith(("https://", "http://")):
-                continue
-            targets.setdefault(
-                url,
-                {
-                    "url": url,
-                    "kind": "source",
-                    "name": str(source.get("name") or ""),
-                    "field": "proxy_sitemap_urls",
-                },
-            )
+        for proxy_field in ("proxy_sitemap_urls", "proxy_listing_urls"):
+            for url in source.get(proxy_field, []):
+                url = str(url or "").strip()
+                if not url.startswith(("https://", "http://")):
+                    continue
+                targets.setdefault(
+                    url,
+                    {
+                        "url": url,
+                        "kind": "source",
+                        "name": str(source.get("name") or ""),
+                        "field": proxy_field,
+                    },
+                )
 
     news = json.loads(PUBLIC_NEWS_PATH.read_text(encoding="utf-8"))
     articles = news.get("items", news)

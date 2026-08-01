@@ -3123,6 +3123,250 @@ def fetch_jina_sitemap_source(
         )
 
 
+
+def jina_reader_url(original_url: str) -> str:
+    """Return a Jina Reader transport URL without changing source identity."""
+    parts = urlsplit(normalize_space(original_url))
+    if not parts.netloc:
+        return ""
+    path = parts.path or "/"
+    if parts.query:
+        path += f"?{parts.query}"
+    return f"https://r.jina.ai/http://{parts.netloc}{path}"
+
+
+def fetch_jina_listing_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool = False,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Read an official listing through Jina and retain first-party article URLs.
+
+    This mode is reserved for publishers whose human-facing pages repeatedly
+    time out, close connections, or fail TLS from GitHub-hosted runners. Jina is
+    transport only: every accepted article URL must still belong to an
+    allowlisted publisher domain.
+    """
+    started = time.monotonic()
+    proxy_urls = [
+        normalize_space(str(value))
+        for value in source.get("proxy_listing_urls", [])
+        if normalize_space(str(value))
+    ]
+    if not proxy_urls:
+        proxy_url = normalize_space(str(source.get("proxy_listing_url", "")))
+        if proxy_url:
+            proxy_urls = [proxy_url]
+    publisher_domains = {
+        normalize_space(str(value)).casefold().removeprefix("www.")
+        for value in source.get("publisher_domains", [])
+        if normalize_space(str(value))
+    }
+    publisher_domain = normalize_space(str(source.get("publisher_domain", "")))
+    if publisher_domain:
+        publisher_domains.add(
+            publisher_domain.casefold().removeprefix("www.")
+        )
+    if not proxy_urls or not publisher_domains:
+        return [], FeedResult(
+            source=source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail="Missing proxy_listing_url or publisher_domain",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+    include_patterns = [
+        str(value).casefold()
+        for value in source.get("include_link_patterns", [])
+        if normalize_space(str(value))
+    ]
+    exclude_patterns = [
+        str(value).casefold()
+        for value in source.get("exclude_link_patterns", [])
+        if normalize_space(str(value))
+    ]
+    page_limit = structured_item_limit(source, backfill)
+    detail_limit = max(
+        0,
+        min(
+            12,
+            int(
+                source.get(
+                    "jina_detail_backfill_limit"
+                    if backfill
+                    else "jina_detail_daily_limit",
+                    10 if backfill else 5,
+                )
+            ),
+        ),
+    )
+    markdown_link = re.compile(
+        r"\[([^\]\n]{3,500})\]\((https?://[^)\s]+)\)"
+    )
+    unknown_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    candidates: list[tuple[str, str, str, datetime, bool]] = []
+    seen_urls: set[str] = set()
+    entries_seen = 0
+    proxy_errors: list[str] = []
+
+    for proxy_url in proxy_urls:
+        try:
+            response = session.get(
+                proxy_url,
+                headers={"Accept": "text/plain,*/*;q=0.1"},
+                timeout=(10, 60),
+            )
+            response.raise_for_status()
+            body = response.text
+        except requests.RequestException as exc:
+            proxy_errors.append(
+                normalize_space(
+                    f"{proxy_url}: {type(exc).__name__}: {exc}"
+                )
+            )
+            continue
+
+        matches = list(markdown_link.finditer(body))
+        entries_seen += len(matches)
+        for match in matches:
+            raw_title, link = match.group(1), match.group(2)
+            hostname = (
+                (urlsplit(link).hostname or "")
+                .casefold()
+                .removeprefix("www.")
+            )
+            if not any(
+                hostname == domain or hostname.endswith(f".{domain}")
+                for domain in publisher_domains
+            ):
+                continue
+            lowered_link = link.casefold()
+            if include_patterns and not any(
+                pattern in lowered_link for pattern in include_patterns
+            ):
+                continue
+            if any(pattern in lowered_link for pattern in exclude_patterns):
+                continue
+            canonical = canonicalize_url(link)
+            if not canonical or canonical in seen_urls:
+                continue
+            title = normalize_space(
+                re.sub(r"[*_#]+", " ", html.unescape(raw_title))
+            )
+            if len(title) < 8:
+                continue
+            context = normalize_space(
+                body[max(0, match.start() - 260): match.end() + 360]
+            )
+            if not source_text_filter_allows(source, title, context):
+                continue
+            published = infer_date_from_url(link)
+            if published is None:
+                published = parse_listing_date(context, unknown_date)
+            date_known = published != unknown_date
+            seen_urls.add(canonical)
+            candidates.append((title, link, context, published, date_known))
+
+    if not candidates and proxy_errors:
+        return [], FeedResult(
+            source=source,
+            entries_seen=entries_seen,
+            entries_kept=0,
+            status="error",
+            detail="; ".join(proxy_errors)[:500],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+    dated: list[tuple[str, str, str, datetime]] = []
+    detail_fetches = 0
+    for title, link, context, published, date_known in candidates:
+        summary = context
+        if not date_known and detail_fetches < detail_limit:
+            detail_fetches += 1
+            try:
+                detail = session.get(
+                    jina_reader_url(link),
+                    headers={"Accept": "text/plain,*/*;q=0.1"},
+                    timeout=(10, 60),
+                )
+                detail.raise_for_status()
+                detail_text = detail.text
+                title_match = re.search(
+                    r"(?im)^Title:\s*(.+)$", detail_text
+                )
+                if title_match:
+                    detail_title = normalize_space(title_match.group(1))
+                    if len(detail_title) >= 8:
+                        title = detail_title
+                date_match = re.search(
+                    r"(?im)^(?:Published Time|Publication Date|Date):\s*(.+)$",
+                    detail_text,
+                )
+                if date_match:
+                    parsed_date = parse_archive_date(date_match.group(1))
+                    if parsed_date is not None:
+                        published = parsed_date
+                        date_known = True
+                content_marker = detail_text.find("Markdown Content:")
+                if content_marker >= 0:
+                    summary = normalize_space(
+                        detail_text[content_marker + 17: content_marker + 1117]
+                    )
+            except requests.RequestException:
+                pass
+        if not date_known:
+            continue
+        if not (cutoff <= published <= collected_at + timedelta(days=2)):
+            continue
+        if not source_text_filter_allows(source, title, summary):
+            continue
+        dated.append((title, link, summary, published))
+
+    dated.sort(key=lambda row: row[3], reverse=True)
+    items: list[dict[str, Any]] = []
+    for title, link, summary, published in dated:
+        item = build_item(
+            source=source,
+            title=title,
+            link=link,
+            summary=summary,
+            published=published,
+            collected_at=collected_at,
+        )
+        if not item:
+            continue
+        item["discovery_method"] = (
+            "Official publisher listing via Jina reader; original URL retained"
+        )
+        item["notes"] = (
+            "Jina is transport only because the official publisher is unstable "
+            "from GitHub automation; source identity and article URL remain "
+            "first-party."
+        )
+        items.append(item)
+        if len(items) >= page_limit:
+            break
+
+    detail_parts = [
+        "official listing through Jina; original publisher URLs retained",
+        f"detail_pages={detail_fetches}",
+    ]
+    if proxy_errors:
+        detail_parts.append(f"fallback_errors={len(proxy_errors)}")
+    return items, FeedResult(
+        source=source,
+        entries_seen=entries_seen,
+        entries_kept=len(items),
+        status="ok",
+        detail="; ".join(detail_parts),
+        elapsed_seconds=round(time.monotonic() - started, 2),
+    )
+
+
 def fetch_static_source(
     source: dict[str, Any],
     cutoff: datetime,
@@ -3875,6 +4119,14 @@ def fetch_source(
             )
         if fetch_mode == "jina_sitemap":
             return fetch_jina_sitemap_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "jina_listing":
+            return fetch_jina_listing_source(
                 session,
                 source,
                 cutoff,
