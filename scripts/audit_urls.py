@@ -52,7 +52,13 @@ def load_targets() -> list[dict[str, str]]:
     for source in sources:
         if not source.get("active", True):
             continue
-        for field in ("feed_url", "listing_url", "homepage", "api_url"):
+        for field in (
+            "feed_url",
+            "listing_url",
+            "homepage",
+            "api_url",
+            "proxy_sitemap_url",
+        ):
             url = str(source.get(field) or "").strip()
             if not url.startswith(("https://", "http://")):
                 continue
@@ -63,6 +69,19 @@ def load_targets() -> list[dict[str, str]]:
                     "kind": "source",
                     "name": str(source.get("name") or ""),
                     "field": field,
+                },
+            )
+        for url in source.get("proxy_sitemap_urls", []):
+            url = str(url or "").strip()
+            if not url.startswith(("https://", "http://")):
+                continue
+            targets.setdefault(
+                url,
+                {
+                    "url": url,
+                    "kind": "source",
+                    "name": str(source.get("name") or ""),
+                    "field": "proxy_sitemap_urls",
                 },
             )
 

@@ -2987,6 +2987,142 @@ def fetch_gdelt_domain_source(
         )
 
 
+def fetch_jina_sitemap_source(
+    session: requests.Session,
+    source: dict[str, Any],
+    cutoff: datetime,
+    collected_at: datetime,
+    backfill: bool = False,
+) -> tuple[list[dict[str, Any]], FeedResult]:
+    """Read an official sitemap through Jina while retaining original URLs."""
+    started = time.monotonic()
+    proxy_urls = [
+        normalize_space(str(value))
+        for value in source.get("proxy_sitemap_urls", [])
+        if normalize_space(str(value))
+    ]
+    if not proxy_urls:
+        proxy_url = normalize_space(str(source.get("proxy_sitemap_url", "")))
+        if proxy_url:
+            proxy_urls = [proxy_url]
+    publisher_domain = normalize_space(str(source.get("publisher_domain", "")))
+    publisher_domain = publisher_domain.casefold().removeprefix("www.")
+    if not proxy_urls or not publisher_domain:
+        return [], FeedResult(
+            source=source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail="Missing proxy_sitemap_url or publisher_domain",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    try:
+        pattern = re.compile(
+            r"\[(https?://[^\]]+)\]\((https?://[^)]+)\)\s+"
+            r"(20\d{2}-\d{2}-\d{2}T[^\s]+)"
+        )
+        matches: list[tuple[str, str, str]] = []
+        proxy_errors: list[str] = []
+        for proxy_url in proxy_urls:
+            try:
+                response = session.get(
+                    proxy_url,
+                    headers={"Accept": "text/plain,*/*;q=0.1"},
+                    timeout=(10, 60),
+                )
+                response.raise_for_status()
+                matches.extend(pattern.findall(response.text))
+            except requests.RequestException as exc:
+                proxy_errors.append(
+                    normalize_space(f"{proxy_url}: {type(exc).__name__}: {exc}")
+                )
+        if not matches and proxy_errors:
+            raise RuntimeError("; ".join(proxy_errors))
+        items: list[dict[str, Any]] = []
+        seen_urls: set[str] = set()
+        max_items = max(1, min(50, int(source.get("max_items", 30))))
+        for visible_url, linked_url, raw_date in reversed(matches):
+            link = linked_url if linked_url == visible_url else visible_url
+            hostname = (urlsplit(link).hostname or "").casefold().removeprefix("www.")
+            if not (
+                hostname == publisher_domain
+                or hostname.endswith(f".{publisher_domain}")
+            ):
+                continue
+            include_patterns = [
+                str(value).casefold()
+                for value in source.get("include_link_patterns", [])
+                if normalize_space(str(value))
+            ]
+            exclude_patterns = [
+                str(value).casefold()
+                for value in source.get("exclude_link_patterns", [])
+                if normalize_space(str(value))
+            ]
+            lowered_link = link.casefold()
+            if include_patterns and not any(
+                pattern in lowered_link for pattern in include_patterns
+            ):
+                continue
+            if any(pattern in lowered_link for pattern in exclude_patterns):
+                continue
+            path_month = re.search(r"/(20\d{2})/(\d{1,2})/", urlsplit(link).path)
+            if path_month and (
+                int(path_month.group(1)), int(path_month.group(2))
+            ) < (cutoff.year, cutoff.month):
+                continue
+            published = infer_date_from_url(link) or parse_archive_date(raw_date)
+            if published is None or published < cutoff:
+                continue
+            canonical_url = canonicalize_url(link)
+            if not canonical_url or canonical_url in seen_urls:
+                continue
+            seen_urls.add(canonical_url)
+            slug = unquote(urlsplit(link).path.rstrip("/").rsplit("/", 1)[-1])
+            title = normalize_space(slug.removesuffix(".html").replace("-", " "))
+            if not title or not source_text_filter_allows(source, title):
+                continue
+            if not (classify_policy_areas(title) or classify_topics(title)):
+                continue
+            item = build_item(
+                source=source,
+                title=title,
+                link=link,
+                summary="",
+                published=published,
+                collected_at=collected_at,
+            )
+            if not item:
+                continue
+            item["discovery_method"] = (
+                "Official publisher sitemap via Jina reader; original URL retained"
+            )
+            item["notes"] = (
+                "Jina is used only as transport because the official publisher blocks "
+                "GitHub automation; source identity and article URL remain first-party."
+            )
+            items.append(item)
+            if len(items) >= max_items:
+                break
+        return items, FeedResult(
+            source=source,
+            entries_seen=len(matches),
+            entries_kept=len(items),
+            status="ok",
+            detail="official sitemap through Jina; original publisher URLs retained",
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+    except Exception as exc:
+        return [], FeedResult(
+            source=source,
+            entries_seen=0,
+            entries_kept=0,
+            status="error",
+            detail=normalize_space(f"{type(exc).__name__}: {exc}")[:300],
+            elapsed_seconds=round(time.monotonic() - started, 2),
+        )
+
+
 def fetch_static_source(
     source: dict[str, Any],
     cutoff: datetime,
@@ -3731,6 +3867,14 @@ def fetch_source(
             )
         if fetch_mode == "gdelt_domain":
             return fetch_gdelt_domain_source(
+                session,
+                source,
+                cutoff,
+                collected_at,
+                backfill,
+            )
+        if fetch_mode == "jina_sitemap":
+            return fetch_jina_sitemap_source(
                 session,
                 source,
                 cutoff,
