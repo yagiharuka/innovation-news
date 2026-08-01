@@ -691,8 +691,23 @@
       "feed_url": "https://news.samsung.com/global/feed",
       "homepage": "https://news.samsung.com/global/",
       "priority": 4,
-      "native_feed": true,
-      "notes": "Official company newsroom."
+      "native_feed": false,
+      "notes": "Official company newsroom. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "fetch_mode": "jina_listing",
+      "proxy_listing_url": "https://r.jina.ai/http://news.samsung.com/global/",
+      "publisher_domain": "news.samsung.com",
+      "include_link_patterns": [
+        "/global/"
+      ],
+      "exclude_link_patterns": [
+        "/global/category/",
+        "/global/tag/",
+        "/global/video/"
+      ],
+      "daily_item_limit": 6,
+      "backfill_item_limit": 12,
+      "jina_detail_daily_limit": 6,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
@@ -1211,10 +1226,7 @@
       "country": "United States",
       "category": "Biotechnology, mRNA platforms, vaccines and clinical research",
       "feed_url": "https://news.modernatx.com/",
-      "fetch_mode": "moderna_press_api",
-      "api_url": "https://www.accesswire.com/qm/data/getHeadlines.json",
-      "public_post_base_url": "https://feeds.issuerdirect.com/news-release.html",
-      "api_symbol": "MRNA",
+      "fetch_mode": "jina_listing",
       "homepage": "https://news.modernatx.com/",
       "priority": 4,
       "topic_tags": [
@@ -1225,7 +1237,17 @@
       "historical_backfill": false,
       "daily_item_limit": 8,
       "backfill_item_limit": 16,
-      "notes": "Official biotechnology company press releases from the structured feed used by Moderna's newsroom; financial-only releases are excluded."
+      "notes": "Official biotechnology company press releases from the structured feed used by Moderna's newsroom; financial-only releases are excluded. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "proxy_listing_url": "https://r.jina.ai/http://news.modernatx.com/",
+      "publisher_domain": "modernatx.com",
+      "publisher_domains": [
+        "modernatx.com"
+      ],
+      "include_link_patterns": [
+        "/news/"
+      ],
+      "jina_detail_daily_limit": 8,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
@@ -1435,20 +1457,22 @@
       "country": "International / France",
       "category": "Fusion energy",
       "feed_url": "https://www.iter.org/news",
-      "fetch_mode": "html",
+      "fetch_mode": "jina_listing",
       "listing_url": "https://www.iter.org/news",
-      "html": {
-        "item_selector": "a.thumbnail-event-wide",
-        "title_selector": ".thumbnail-event-wide__title",
-        "link_selector": ":self",
-        "date_selector": ".thumbnail-event-wide__date",
-        "date_attribute": "",
-        "summary_selector": ".thumbnail-event-wide__text"
-      },
       "homepage": "https://www.iter.org/news",
       "priority": 5,
       "native_feed": false,
-      "notes": "Official international fusion project; official listing-page fallback."
+      "notes": "Official international fusion project; official listing-page fallback. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "proxy_listing_url": "https://r.jina.ai/http://www.iter.org/news",
+      "publisher_domain": "iter.org",
+      "include_link_patterns": [
+        "/node/",
+        "/news/"
+      ],
+      "daily_item_limit": 6,
+      "backfill_item_limit": 12,
+      "jina_detail_daily_limit": 6,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
@@ -1682,7 +1706,7 @@
       "country": "United Arab Emirates",
       "category": "AI, quantum, autonomous systems and national R&D programs",
       "feed_url": "https://www.atrc.gov.ae/news",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "jina_listing",
       "history_window": "policy",
       "listing_url": "https://www.atrc.gov.ae/news",
       "include_link_patterns": [
@@ -1693,7 +1717,13 @@
       "native_feed": false,
       "site_scan_daily_limit": 12,
       "site_scan_backfill_limit": 24,
-      "notes": "Official Abu Dhabi advanced-technology R&D authority."
+      "notes": "Official Abu Dhabi advanced-technology R&D authority. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "proxy_listing_url": "https://r.jina.ai/http://www.atrc.gov.ae/news",
+      "publisher_domain": "atrc.gov.ae",
+      "daily_item_limit": 12,
+      "backfill_item_limit": 24,
+      "jina_detail_daily_limit": 8,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
@@ -2703,7 +2733,7 @@
       "country": "Australia",
       "category": "Research funding, grant policy, program changes and research investment",
       "feed_url": "https://www.arc.gov.au/news-and-publications/media/media-releases",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "jina_listing",
       "listing_url": "https://www.arc.gov.au/news-and-publications/media/media-releases",
       "browser_user_agent": true,
       "include_link_patterns": [
@@ -2730,7 +2760,13 @@
       "native_feed": false,
       "historical_backfill": false,
       "site_scan_daily_limit": 4,
-      "notes": "Official ARC media releases with strict funding and program filtering."
+      "notes": "Official ARC media releases with strict funding and program filtering. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "proxy_listing_url": "https://r.jina.ai/http://www.arc.gov.au/news-and-publications/media/media-releases",
+      "publisher_domain": "arc.gov.au",
+      "daily_item_limit": 4,
+      "backfill_item_limit": 12,
+      "jina_detail_daily_limit": 4,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
@@ -2971,10 +3007,19 @@
       "strict_relevance": true,
       "academic_kind": "Conference Paper",
       "review_status": "Conference proceedings — review status varies",
-      "native_feed": true,
+      "native_feed": false,
       "historical_backfill": false,
       "daily_item_limit": 6,
-      "notes": "Official AAAI proceedings RSS, used for release-time coverage beyond OpenAlex."
+      "notes": "Official AAAI proceedings RSS, used for release-time coverage beyond OpenAlex. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "fetch_mode": "jina_listing",
+      "proxy_listing_url": "https://r.jina.ai/http://ojs.aaai.org/index.php/AAAI/issue/current",
+      "publisher_domain": "ojs.aaai.org",
+      "include_link_patterns": [
+        "/article/view/"
+      ],
+      "backfill_item_limit": 12,
+      "jina_detail_daily_limit": 6,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
@@ -3095,7 +3140,7 @@
       "country": "Global",
       "category": "Telecommunications, AI, 6G, quantum, space and international standards",
       "feed_url": "https://www.itu.int/hub/news/",
-      "fetch_mode": "site_scan",
+      "fetch_mode": "jina_listing",
       "listing_url": "https://www.itu.int/hub/news/",
       "include_link_patterns": [
         "/hub/20"
@@ -3114,7 +3159,13 @@
       "native_feed": false,
       "historical_backfill": false,
       "site_scan_daily_limit": 4,
-      "notes": "Official ITU news with strict monitored-topic filtering."
+      "notes": "Official ITU news with strict monitored-topic filtering. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "proxy_listing_url": "https://r.jina.ai/http://www.itu.int/hub/news/",
+      "publisher_domain": "itu.int",
+      "daily_item_limit": 4,
+      "backfill_item_limit": 12,
+      "jina_detail_daily_limit": 4,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": false,
@@ -3194,10 +3245,23 @@
         "Quantum"
       ],
       "strict_relevance": true,
-      "native_feed": true,
+      "native_feed": false,
       "historical_backfill": false,
       "daily_item_limit": 4,
-      "notes": "Established electronics and semiconductor trade publication."
+      "notes": "Established electronics and semiconductor trade publication. GitHub automation reads the official listing through Jina transport; only first-party article URLs are accepted.",
+      "fetch_mode": "jina_listing",
+      "proxy_listing_url": "https://r.jina.ai/http://www.eetimes.com/",
+      "publisher_domain": "eetimes.com",
+      "exclude_link_patterns": [
+        "/category/",
+        "/author/",
+        "/about-us/",
+        "/contact-us/",
+        "/webinars/"
+      ],
+      "backfill_item_limit": 12,
+      "jina_detail_daily_limit": 4,
+      "jina_detail_backfill_limit": 12
     },
     {
       "active": true,
