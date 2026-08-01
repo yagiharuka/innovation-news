@@ -107,7 +107,7 @@ class WorkflowTests(unittest.TestCase):
         )
         self.assertIn("scripts/audit_urls.py", workflow)
         self.assertIn("docs/data/url_audit.json", workflow)
-        self.assertIn('(\"feed_url\", \"listing_url\", \"homepage\", \"api_url\")', script)
+        self.assertIn('\"proxy_sitemap_url\"', script)
         self.assertIn('"kind": "article"', script)
 
 

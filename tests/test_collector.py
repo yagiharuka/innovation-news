@@ -3531,8 +3531,12 @@ class CollectorTests(unittest.TestCase):
                 self.assertTrue(active_sources[name]["browser_user_agent"])
 
         oecd = active_sources["OECD Newsroom"]
-        self.assertEqual(oecd["fetch_mode"], "gdelt_domain")
-        self.assertEqual(oecd["gdelt_domain"], "oecd.org")
+        self.assertEqual(oecd["fetch_mode"], "jina_sitemap")
+        self.assertEqual(oecd["publisher_domain"], "oecd.org")
+        self.assertIn(
+            "https://r.jina.ai/http://www.oecd.org/en-about-sitemap.xml",
+            oecd["proxy_sitemap_urls"],
+        )
         self.assertEqual(
             oecd["homepage"], "https://www.oecd.org/en/about/newsroom.html"
         )
@@ -3594,6 +3598,50 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["source"], "OECD Newsroom")
         self.assertTrue(items[0]["url"].startswith("https://www.oecd.org/"))
         self.assertIn("GDELT domain index", items[0]["discovery_method"])
+
+    def test_jina_sitemap_source_keeps_only_recent_original_urls(self):
+        class Response:
+            status_code = 200
+            text = """
+[https://www.oecd.org/en/about/news/announcements/2026/07/new-innovation-policy-expands-research-funding.html](https://www.oecd.org/en/about/news/announcements/2026/07/new-innovation-policy-expands-research-funding.html)
+
+2026-08-01T00:01:00Z
+[https://example.com/copied-story.html](https://example.com/copied-story.html)
+
+2026-08-01T00:02:00Z
+[https://www.oecd.org/en/about/news/announcements/2025/01/old-innovation-policy.html](https://www.oecd.org/en/about/news/announcements/2025/01/old-innovation-policy.html)
+
+2025-01-01T00:01:00Z
+"""
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, *_args, **_kwargs):
+                return Response()
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Economic, science and innovation policy",
+            "proxy_sitemap_url": "https://r.jina.ai/http://www.oecd.org/en-about-sitemap.xml",
+            "publisher_domain": "oecd.org",
+            "include_link_patterns": ["/en/about/news/"],
+        }
+        now = datetime(2026, 8, 1, 2, tzinfo=timezone.utc)
+
+        items, result = collector.fetch_jina_sitemap_source(
+            Session(), source, now - timedelta(days=2), now
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertTrue(items[0]["url"].startswith("https://www.oecd.org/"))
+        self.assertIn("Official publisher sitemap", items[0]["discovery_method"])
 
     def test_fusion_topic_requires_explicit_nuclear_fusion_evidence(self):
         self.assertEqual(
