@@ -593,7 +593,7 @@
       "proxy_sitemap_urls": [
         "https://r.jina.ai/http://www.oecd.org/en-about-sitemap.xml",
         "https://r.jina.ai/http://www.oecd.org/en-data-sitemap.xml",
-        "https://r.jina.ai/http://www.oecd.org/content/oecd.sitemap.en-publications-2026-sitemap.xml",
+        "https://r.jina.ai/http://www.oecd.org/content/oecd.sitemap.en-publications-{year}-sitemap.xml",
         "https://r.jina.ai/http://www.oecd.org/en-blogs-sitemap.xml"
       ],
       "publisher_domain": "oecd.org",

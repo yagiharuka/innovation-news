@@ -3097,6 +3097,14 @@ def fetch_jina_sitemap_source(
         proxy_url = normalize_space(str(source.get("proxy_sitemap_url", "")))
         if proxy_url:
             proxy_urls = [proxy_url]
+    expanded_proxy_urls: list[str] = []
+    for proxy_url in proxy_urls:
+        if "{year}" not in proxy_url:
+            expanded_proxy_urls.append(proxy_url)
+            continue
+        for year in range(cutoff.year, collected_at.year + 1):
+            expanded_proxy_urls.append(proxy_url.replace("{year}", str(year)))
+    proxy_urls = list(dict.fromkeys(expanded_proxy_urls))
     publisher_domain = normalize_space(str(source.get("publisher_domain", "")))
     publisher_domain = publisher_domain.casefold().removeprefix("www.")
     if not proxy_urls or not publisher_domain:
@@ -3337,12 +3345,15 @@ def fetch_jina_listing_source(
         r"\[([^\]\n]{3,500})\]\((https?://[^)\s]+)\)"
     )
     unknown_date = datetime(1970, 1, 1, tzinfo=timezone.utc)
-    candidates: list[tuple[str, str, str, datetime, bool]] = []
+    candidate_groups: list[
+        list[tuple[str, str, str, datetime, bool]]
+    ] = []
     seen_urls: set[str] = set()
     entries_seen = 0
     proxy_errors: list[str] = []
 
     for proxy_url in proxy_urls:
+        page_candidates: list[tuple[str, str, str, datetime, bool]] = []
         try:
             response = session.get(
                 proxy_url,
@@ -3396,7 +3407,19 @@ def fetch_jina_listing_source(
                 published = parse_listing_date(context, unknown_date)
             date_known = published != unknown_date
             seen_urls.add(canonical)
-            candidates.append((title, link, context, published, date_known))
+            page_candidates.append((title, link, context, published, date_known))
+        page_candidates.sort(
+            key=lambda row: (not row[4], row[3]),
+            reverse=True,
+        )
+        candidate_groups.append(page_candidates)
+
+    candidates: list[tuple[str, str, str, datetime, bool]] = []
+    max_group_size = max((len(group) for group in candidate_groups), default=0)
+    for item_index in range(max_group_size):
+        for group in candidate_groups:
+            if item_index < len(group):
+                candidates.append(group[item_index])
 
     if not candidates and proxy_errors:
         return [], FeedResult(

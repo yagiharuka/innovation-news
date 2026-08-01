@@ -12,17 +12,6 @@ on:
         required: false
         default: false
         type: boolean
-  push:
-    branches:
-      - main
-    paths:
-      - ".github/workflows/daily.yml"
-      - "assets/**"
-      - "config/**"
-      - "requirements.txt"
-      - "scripts/**"
-      - "tests/**"
-
 permissions:
   contents: write
 
@@ -32,10 +21,6 @@ concurrency:
 
 jobs:
   collect:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'schedule' &&
-      github.event.schedule == '0 19 * * *')
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:

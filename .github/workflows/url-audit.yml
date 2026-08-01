@@ -19,7 +19,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: innovation-news-collection
+  group: innovation-news-url-audit
   cancel-in-progress: false
 
 jobs:
@@ -80,5 +80,6 @@ jobs:
             echo "No URL audit changes to commit."
           else
             git commit -m "data: audit source and article URLs"
+            git pull --rebase origin main
             git push
           fi

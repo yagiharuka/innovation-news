@@ -3898,6 +3898,102 @@ class CollectorTests(unittest.TestCase):
 
         self.assertEqual([row["url"] for row in items], [newer, older])
 
+    def test_jina_sitemap_expands_year_placeholder_across_cutoff(self):
+        requested = []
+
+        class Response:
+            text = ""
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, url, **_kwargs):
+                requested.append(url)
+                return Response()
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Science and innovation policy",
+            "proxy_sitemap_url": (
+                "https://r.jina.ai/http://www.oecd.org/"
+                "content/oecd.sitemap.en-publications-{year}-sitemap.xml"
+            ),
+            "publisher_domain": "oecd.org",
+        }
+
+        _, result = collector.fetch_jina_sitemap_source(
+            Session(),
+            source,
+            datetime(2026, 12, 1, tzinfo=timezone.utc),
+            datetime(2027, 1, 5, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertTrue(any("publications-2026" in url for url in requested))
+        self.assertTrue(any("publications-2027" in url for url in requested))
+
+    def test_jina_listing_round_robins_detail_budget_across_hubs(self):
+        hub_one = "https://r.jina.ai/http://www.oecd.org/hub-one"
+        hub_two = "https://r.jina.ai/http://www.oecd.org/hub-two"
+        first = "https://www.oecd.org/en/publications/alpha.html"
+        first_extra = "https://www.oecd.org/en/publications/beta.html"
+        second = "https://www.oecd.org/en/publications/gamma.html"
+        second_extra = "https://www.oecd.org/en/publications/delta.html"
+
+        class Response:
+            def __init__(self, text):
+                self.text = text
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, url, **_kwargs):
+                if url == hub_one:
+                    return Response(
+                        f"[Alpha policy]({first})\n[Beta policy]({first_extra})\n"
+                    )
+                if url == hub_two:
+                    return Response(
+                        f"[Gamma policy]({second})\n[Delta policy]({second_extra})\n"
+                    )
+                original = url.replace("https://r.jina.ai/http://", "https://")
+                return Response(
+                    "Title: OECD research and development innovation policy\n"
+                    f"URL Source: {original}\n"
+                    "Published Time: 2026-07-31T00:00:00Z\n"
+                    "Markdown Content: Government R&D funding and industrial policy.\n"
+                )
+
+        source = {
+            "name": "OECD STI Topic Hubs",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Science and innovation policy",
+            "proxy_listing_urls": [hub_one, hub_two],
+            "publisher_domain": "oecd.org",
+            "include_link_patterns": ["/en/publications/"],
+            "strict_relevance": True,
+            "daily_item_limit": 10,
+            "jina_detail_daily_limit": 2,
+        }
+        now = datetime(2026, 8, 1, tzinfo=timezone.utc)
+
+        items, result = collector.fetch_jina_listing_source(
+            Session(), source, now - timedelta(days=3), now
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual({row["url"] for row in items}, {first, second})
+        self.assertIn("detail_pages=2", result.detail)
+
     def test_source_count_breakdown_is_internally_consistent(self):
         sources = [
             {"active": True, "cadence": "daily", "coverage_tier": "S"},

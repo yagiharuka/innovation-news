@@ -148,5 +148,6 @@ jobs:
             echo "No OECD data changes to commit."
           else
             git commit -m "data: recover OECD policy coverage"
+            git pull --rebase origin main
             git push
           fi

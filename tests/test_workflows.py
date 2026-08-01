@@ -124,14 +124,23 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("OECD strict review is incomplete", workflow)
         self.assertIn('row.get("last_checked_at") == checked_at', workflow)
         self.assertIn('hostname or "").lower() == "oecd.org"', workflow)
+        self.assertIn("git pull --rebase origin main", workflow)
 
-    def test_url_audit_serializes_writes_and_always_uploads_diagnostics(self):
+    def test_url_audit_rebases_writes_and_always_uploads_diagnostics(self):
         workflow = (
             ROOT / ".github" / "workflows" / "url-audit.yml"
         ).read_text(encoding="utf-8")
 
-        self.assertIn("group: innovation-news-collection", workflow)
+        self.assertIn("group: innovation-news-url-audit", workflow)
         self.assertIn("- name: Upload full audit report\n        if: always()", workflow)
+        self.assertIn("git pull --rebase origin main", workflow)
+
+    def test_daily_workflow_does_not_create_noop_push_runs(self):
+        workflow = (
+            ROOT / ".github" / "workflows" / "daily.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertNotIn("\n  push:\n", workflow)
 
 
 if __name__ == "__main__":
