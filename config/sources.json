@@ -162,6 +162,7 @@
       "feed_url": "https://www.science.org/news/latest-news",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.science.org/news/latest-news",
+      "browser_user_agent": true,
       "homepage": "https://www.science.org/news/latest-news",
       "priority": 4,
       "native_feed": false,
@@ -398,7 +399,10 @@
       "region": "EU & Europe",
       "country": "Belgium",
       "category": "Economic and innovation policy",
-      "feed_url": "https://www.bruegel.org/feed/analysis",
+      "feed_url": "https://www.bruegel.org/publications/analyses",
+      "fetch_mode": "site_scan",
+      "listing_url": "https://www.bruegel.org/publications/analyses",
+      "browser_user_agent": true,
       "homepage": "https://www.bruegel.org/publications/analyses",
       "priority": 4,
       "topic_tags": [
@@ -411,8 +415,8 @@
         "Healthcare",
         "Space"
       ],
-      "native_feed": true,
-      "notes": "European economic-policy institute; official analysis RSS."
+      "native_feed": false,
+      "notes": "European economic-policy institute; scans the official analyses page."
     },
     {
       "active": true,
@@ -539,6 +543,7 @@
       "feed_url": "https://www.meti.go.jp/english/press/index.html",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.meti.go.jp/english/press/index.html",
+      "browser_user_agent": true,
       "homepage": "https://www.meti.go.jp/english/press/index.html",
       "priority": 5,
       "native_feed": false,
@@ -569,6 +574,7 @@
       "feed_url": "https://www.iea.org/news",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.iea.org/news",
+      "browser_user_agent": true,
       "homepage": "https://www.iea.org/news",
       "priority": 4,
       "native_feed": false,
@@ -582,9 +588,10 @@
       "region": "Global",
       "country": "Global",
       "category": "Economic, science and innovation policy",
-      "feed_url": "https://www.oecd.org/en/about/newsroom.html",
+      "feed_url": "https://www.oecd-ilibrary.org/en/about/newsroom.html",
       "fetch_mode": "site_scan",
-      "listing_url": "https://www.oecd.org/en/about/newsroom.html",
+      "listing_url": "https://www.oecd-ilibrary.org/en/about/newsroom.html",
+      "browser_user_agent": true,
       "homepage": "https://www.oecd.org/en/about/newsroom.html",
       "priority": 4,
       "native_feed": false,
@@ -786,9 +793,10 @@
       "region": "United States",
       "country": "United States",
       "category": "Robotics, autonomous systems and physical AI",
-      "feed_url": "https://bostondynamics.com/blog-sitemap.xml",
+      "feed_url": "https://bostondynamics.com/blog/",
       "fetch_mode": "site_scan",
-      "listing_url": "https://bostondynamics.com/blog-sitemap.xml",
+      "listing_url": "https://bostondynamics.com/blog/",
+      "browser_user_agent": true,
       "sitemap_urls": [
         "https://bostondynamics.com/blog-sitemap.xml"
       ],
@@ -814,6 +822,7 @@
       "feed_url": "https://www.tri.global/news",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.tri.global/news",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/news/"
       ],
@@ -828,6 +837,7 @@
     {
       "active": true,
       "name": "ABB Robotics News",
+      "browser_user_agent": true,
       "organization": "ABB Robotics",
       "source_type": "Official Company",
       "region": "EU & Europe",
@@ -1000,14 +1010,17 @@
       "region": "EU & Europe",
       "country": "Finland",
       "category": "Telecommunications, 5G, 6G, optical networking and quantum-safe networks",
-      "feed_url": "https://www.nokia.com/newsroom/tagfeed/en-us/tags/press__releases",
+      "feed_url": "https://www.nokia.com/newsroom/",
+      "fetch_mode": "site_scan",
+      "listing_url": "https://www.nokia.com/newsroom/",
+      "browser_user_agent": true,
       "homepage": "https://www.nokia.com/newsroom/",
       "priority": 4,
-      "native_feed": true,
+      "native_feed": false,
       "historical_backfill": false,
       "daily_item_limit": 6,
       "backfill_item_limit": 12,
-      "notes": "Official telecommunications press-release RSS."
+      "notes": "Official telecommunications newsroom listing."
     },
     {
       "active": true,
@@ -1146,10 +1159,13 @@
       "region": "EU & Europe",
       "country": "United Kingdom",
       "category": "Fusion energy, spherical tokamaks and high-temperature superconducting magnets",
-      "feed_url": "https://tokamakenergy.com/feed/",
+      "feed_url": "https://tokamakenergy.com/latest-news/",
+      "fetch_mode": "site_scan",
+      "listing_url": "https://tokamakenergy.com/latest-news/",
+      "browser_user_agent": true,
       "homepage": "https://tokamakenergy.com/latest-news/",
       "priority": 4,
-      "native_feed": true,
+      "native_feed": false,
       "historical_backfill": false,
       "notes": "Official fusion-energy company newsroom."
     },
@@ -1259,6 +1275,7 @@
       "feed_url": "https://www.astrazeneca.com/media-centre/press-releases.html",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.astrazeneca.com/media-centre/press-releases.html",
+      "browser_user_agent": true,
       "homepage": "https://www.astrazeneca.com/media-centre/press-releases.html",
       "priority": 4,
       "native_feed": false,
@@ -1320,6 +1337,7 @@
       "feed_url": "https://www.blueorigin.com/news",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.blueorigin.com/news",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/news/"
       ],
@@ -2676,6 +2694,7 @@
       "feed_url": "https://www.arc.gov.au/news-and-publications/media/media-releases",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.arc.gov.au/news-and-publications/media/media-releases",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/news-and-publications/media/"
       ],
@@ -4005,6 +4024,8 @@
       "feed_url": "https://investors.micron.com/latest-news",
       "fetch_mode": "link_list",
       "listing_url": "https://investors.micron.com/latest-news",
+      "browser_user_agent": true,
+      "read_timeout_seconds": 60,
       "include_link_patterns": [
         "/news-releases/news-release-details/"
       ],
@@ -4782,13 +4803,11 @@
       "region": "United States",
       "country": "United States",
       "category": "Technology assessment, science policy, emerging technology oversight and public investment",
-      "feed_url": "https://www.gao.gov/topics/science-and-technology",
-      "fetch_mode": "site_scan",
-      "listing_url": "https://www.gao.gov/topics/science-and-technology",
+      "feed_url": "https://www.gao.gov/rss/topic/Science_and_Technology",
       "include_link_patterns": [
         "/products/"
       ],
-      "homepage": "https://www.gao.gov/topics/science-and-technology",
+      "homepage": "https://www.gao.gov/science-technology",
       "priority": 5,
       "coverage_tier": "S",
       "cadence": "daily",
@@ -4803,10 +4822,10 @@
         "Space"
       ],
       "strict_relevance": true,
-      "native_feed": false,
+      "native_feed": true,
       "historical_backfill": false,
       "site_scan_daily_limit": 5,
-      "notes": "Official GAO science and technology assessments and reports."
+      "notes": "Official GAO Science and Technology topic RSS."
     },
     {
       "active": true,
@@ -4852,6 +4871,7 @@
       "feed_url": "https://www.congress.gov/crs-products",
       "fetch_mode": "link_list",
       "listing_url": "https://www.congress.gov/crs-products",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/crs-product/"
       ],
@@ -5508,6 +5528,7 @@
       "feed_url": "https://www.nec.com/en/global/rd/index.html",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.nec.com/en/global/rd/index.html",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/en/press/"
       ],
@@ -5828,7 +5849,10 @@
       "region": "Asia",
       "country": "Japan",
       "category": "AI, robotics, semiconductors, quantum and mobility technology",
-      "feed_url": "https://www.denso.com/global/en/news/newsroom/RSSNews",
+      "feed_url": "https://www.denso.com/global/en/news/newsroom/",
+      "fetch_mode": "site_scan",
+      "listing_url": "https://www.denso.com/global/en/news/newsroom/",
+      "browser_user_agent": true,
       "homepage": "https://www.denso.com/global/en/news/newsroom/",
       "priority": 4,
       "coverage_tier": "A",
@@ -5840,10 +5864,10 @@
         "Quantum"
       ],
       "strict_relevance": true,
-      "native_feed": true,
+      "native_feed": false,
       "historical_backfill": false,
       "daily_item_limit": 4,
-      "notes": "Official DENSO newsroom RSS with strict R&D and implementation filtering."
+      "notes": "Official DENSO newsroom listing with strict R&D and implementation filtering."
     },
     {
       "active": true,
@@ -5883,6 +5907,7 @@
       "feed_url": "https://www.renesas.com/en/about/newsroom",
       "fetch_mode": "site_scan",
       "listing_url": "https://www.renesas.com/en/about/newsroom",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/en/about/newsroom/"
       ],
@@ -6872,6 +6897,7 @@
       "feed_url": "https://www.jpo.go.jp/news/shinchaku/koshin/index.html",
       "fetch_mode": "link_list",
       "listing_url": "https://www.jpo.go.jp/news/shinchaku/koshin/index.html",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/news/"
       ],
@@ -8116,6 +8142,7 @@
       "category": "Biotechnology, drug discovery and healthcare",
       "feed_url": "https://www.eisai.com/news/index.html",
       "listing_url": "https://www.eisai.com/news/index.html",
+      "browser_user_agent": true,
       "include_link_patterns": [
         "/news/20"
       ],
