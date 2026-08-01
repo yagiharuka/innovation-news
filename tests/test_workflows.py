@@ -117,7 +117,7 @@ class WorkflowTests(unittest.TestCase):
 
         self.assertIn('".github/manual-oecd-collection-trigger"', workflow)
         self.assertIn('--source "OECD Newsroom"', workflow)
-        self.assertIn('--source "OECD STI Topic Hubs"', workflow)
+        self.assertIn('--source "OECD STI Publications & Indicators"', workflow)
         self.assertIn("--backfill", workflow)
         self.assertIn("Strict review published no OECD item", workflow)
         self.assertIn("OPENAI_API_KEY", workflow)
