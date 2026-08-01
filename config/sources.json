@@ -629,6 +629,9 @@
       "include_link_patterns": [
         "/en/publications/"
       ],
+      "exclude_link_patterns": [
+        "/full-report/"
+      ],
       "homepage": "https://www.oecd.org/en/topics/science-technology-and-innovation.html",
       "priority": 5,
       "coverage_tier": "S",
@@ -638,7 +641,7 @@
       "jina_detail_daily_limit": 24,
       "jina_detail_backfill_limit": 100,
       "native_feed": false,
-      "notes": "Independent first-party monitoring of official OECD publications, including STI, technology policy, R&D support, AI, semiconductors, industrial policy and indicators. The yearly official sitemap is expanded at runtime for every year in the collection window; only original OECD URLs are retained."
+      "notes": "Independent first-party monitoring of top-level official OECD publications, including STI, technology policy, R&D support, AI, semiconductors, industrial policy and indicators. Full-report chapter URLs are excluded to prevent one report from appearing as many articles. The yearly official sitemap is expanded at runtime for every year in the collection window; only original OECD URLs are retained."
     },
     {
       "active": true,

@@ -3554,6 +3554,7 @@ class CollectorTests(unittest.TestCase):
             "{year}",
             oecd_publications["proxy_sitemap_urls"][0],
         )
+        self.assertIn("/full-report/", oecd_publications["exclude_link_patterns"])
 
     def test_gdelt_domain_source_keeps_only_original_publisher_urls(self):
         class Response:
