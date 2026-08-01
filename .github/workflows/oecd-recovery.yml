@@ -49,7 +49,7 @@ jobs:
             python -u scripts/collect.py \
               --backfill \
               --source "OECD Newsroom" \
-              --source "OECD STI Topic Hubs"
+              --source "OECD STI Publications & Indicators"
             result=$?
             set -e
             if [ "$result" -eq 0 ]; then
@@ -85,7 +85,10 @@ jobs:
           sys.path.insert(0, "scripts")
           import collect
 
-          expected_sources = {"OECD Newsroom", "OECD STI Topic Hubs"}
+          expected_sources = {
+              "OECD Newsroom",
+              "OECD STI Publications & Indicators",
+          }
           status = json.load(open("data/source_status.json", encoding="utf-8"))
           checked_at = status.get("updated_at", "")
           oecd_status = {
@@ -123,7 +126,7 @@ jobs:
           public = json.load(open("docs/data/news.json", encoding="utf-8"))
           items = [
               row for row in public.get("items", [])
-              if row.get("source") in {"OECD Newsroom", "OECD STI Topic Hubs"}
+              if row.get("source") in expected_sources
           ]
           if not items:
               raise SystemExit("Strict review published no OECD item")

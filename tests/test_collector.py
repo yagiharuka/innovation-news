@@ -3547,10 +3547,13 @@ class CollectorTests(unittest.TestCase):
         )
         self.assertEqual(oecd["coverage_tier"], "S")
         self.assertTrue(oecd["strict_relevance"])
-        oecd_hubs = active_sources["OECD STI Topic Hubs"]
-        self.assertEqual(oecd_hubs["fetch_mode"], "jina_listing")
-        self.assertEqual(oecd_hubs["publisher_domain"], "oecd.org")
-        self.assertGreaterEqual(len(oecd_hubs["proxy_listing_urls"]), 8)
+        oecd_publications = active_sources["OECD STI Publications & Indicators"]
+        self.assertEqual(oecd_publications["fetch_mode"], "jina_sitemap")
+        self.assertEqual(oecd_publications["publisher_domain"], "oecd.org")
+        self.assertIn(
+            "{year}",
+            oecd_publications["proxy_sitemap_urls"][0],
+        )
 
     def test_gdelt_domain_source_keeps_only_original_publisher_urls(self):
         class Response:

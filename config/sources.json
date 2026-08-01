@@ -593,14 +593,12 @@
       "proxy_sitemap_urls": [
         "https://r.jina.ai/http://www.oecd.org/en-about-sitemap.xml",
         "https://r.jina.ai/http://www.oecd.org/en-data-sitemap.xml",
-        "https://r.jina.ai/http://www.oecd.org/content/oecd.sitemap.en-publications-{year}-sitemap.xml",
         "https://r.jina.ai/http://www.oecd.org/en-blogs-sitemap.xml"
       ],
       "publisher_domain": "oecd.org",
       "include_link_patterns": [
         "/en/about/news/",
         "/en/data/insights/statistical-releases/",
-        "/en/publications/",
         "/en/blogs/"
       ],
       "homepage": "https://www.oecd.org/en/about/newsroom.html",
@@ -612,46 +610,35 @@
       "jina_detail_daily_limit": 24,
       "jina_detail_backfill_limit": 50,
       "native_feed": false,
-      "notes": "Critical official OECD source covering newsroom releases, statistical releases, publications and policy blogs. Jina is transport for official OECD sitemaps and detail pages because OECD blocks GitHub automation; only original oecd.org URLs are accepted and strict relevance filtering remains mandatory."
+      "notes": "Critical official OECD source covering newsroom releases, statistical releases and policy blogs. Jina is transport for official OECD sitemaps and detail pages because OECD blocks GitHub automation; only original oecd.org URLs are accepted and strict relevance filtering remains mandatory."
     },
     {
       "active": true,
-      "name": "OECD STI Topic Hubs",
+      "name": "OECD STI Publications & Indicators",
       "organization": "OECD",
       "source_type": "Intergovernmental",
       "region": "Global",
       "country": "Global",
       "category": "Science, technology, R&D tax, AI, semiconductor and industrial policy",
-      "feed_url": "https://www.oecd.org/en/topics/science-technology-and-innovation.html",
-      "fetch_mode": "jina_listing",
-      "proxy_listing_urls": [
-        "https://r.jina.ai/http://www.oecd.org/en/topics/science-technology-and-innovation.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/technology-policy.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/r%26d-tax-incentives.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/public-support-to-r%26d-and-innovation.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/artificial-intelligence.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/semiconductors.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/industrial-policy.html",
-        "https://r.jina.ai/http://www.oecd.org/en/topics/science-technology-and-innovation-indicators.html"
+      "feed_url": "https://www.oecd.org/en/publications.html",
+      "fetch_mode": "jina_sitemap",
+      "proxy_sitemap_urls": [
+        "https://r.jina.ai/http://www.oecd.org/content/oecd.sitemap.en-publications-{year}-sitemap.xml"
       ],
       "publisher_domain": "oecd.org",
       "include_link_patterns": [
-        "/en/about/news/",
-        "/en/data/insights/statistical-releases/",
-        "/en/publications/",
-        "/en/blogs/"
+        "/en/publications/"
       ],
       "homepage": "https://www.oecd.org/en/topics/science-technology-and-innovation.html",
       "priority": 5,
       "coverage_tier": "S",
       "cadence": "daily",
       "strict_relevance": true,
-      "daily_item_limit": 24,
-      "backfill_item_limit": 24,
+      "max_items": 50,
       "jina_detail_daily_limit": 24,
-      "jina_detail_backfill_limit": 24,
+      "jina_detail_backfill_limit": 100,
       "native_feed": false,
-      "notes": "Redundant first-party monitoring of OECD STI, technology policy, R&D tax and support, AI, semiconductors, industrial policy and indicator topic hubs. Original OECD URLs are retained; canonical URL deduplication prevents overlap with OECD Newsroom."
+      "notes": "Independent first-party monitoring of official OECD publications, including STI, technology policy, R&D support, AI, semiconductors, industrial policy and indicators. The yearly official sitemap is expanded at runtime for every year in the collection window; only original OECD URLs are retained."
     },
     {
       "active": true,

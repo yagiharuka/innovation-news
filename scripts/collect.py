@@ -3148,7 +3148,7 @@ def fetch_jina_sitemap_source(
             for value in source.get("exclude_link_patterns", [])
             if normalize_space(str(value))
         ]
-        candidates: list[tuple[datetime, str, str]] = []
+        candidates: list[tuple[int, datetime, str, str]] = []
         seen_urls: set[str] = set()
         max_items = max(1, min(50, int(source.get("max_items", 30))))
         for visible_url, linked_url, raw_date in matches:
@@ -3178,20 +3178,24 @@ def fetch_jina_sitemap_source(
             title = normalize_space(slug.removesuffix(".html").replace("-", " "))
             if not title:
                 continue
-            candidates.append((published, link, title))
+            title_is_relevant = bool(
+                source_text_filter_allows(source, title)
+                and (classify_policy_areas(title) or classify_topics(title))
+            )
+            candidates.append((int(title_is_relevant), published, link, title))
 
-        candidates.sort(key=lambda row: row[0], reverse=True)
+        candidates.sort(key=lambda row: (row[0], row[1]), reverse=True)
         detail_limit_key = (
             "jina_detail_backfill_limit" if backfill else "jina_detail_daily_limit"
         )
         detail_limit = max(
             0,
-            min(50, int(source.get(detail_limit_key, min(10, max_items)))),
+            min(100, int(source.get(detail_limit_key, min(10, max_items)))),
         )
         items: list[dict[str, Any]] = []
         detail_pages = 0
         detail_fallbacks = 0
-        for published, link, fallback_title in candidates:
+        for _title_priority, published, link, fallback_title in candidates:
             title = fallback_title
             summary = ""
             if detail_pages < detail_limit:

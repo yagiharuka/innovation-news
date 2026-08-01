@@ -50,7 +50,7 @@ jobs:
           set -euo pipefail
           mkdir -p data/source_probes
           python -u scripts/probe_source.py --source "OECD Newsroom" --days 14 --min-seen 1 --min-kept 1 --output data/oecd_source_probe.json
-          python -u scripts/probe_source.py --source "OECD STI Topic Hubs" --days 40 --min-seen 1 --min-kept 1 --output data/source_probes/oecd-sti-topic-hubs.json
+          python -u scripts/probe_source.py --source "OECD STI Publications & Indicators" --days 40 --min-seen 1 --min-kept 1 --output data/source_probes/oecd-sti-publications.json
           python -u scripts/probe_source.py --source "Australian Research Council" --days 40 --output data/source_probes/australian-research-council.json
           python -u scripts/probe_source.py --source "EE Times" --days 40 --output data/source_probes/ee-times.json
           python -u scripts/probe_source.py --source "ITU News" --days 40 --output data/source_probes/itu-news.json
