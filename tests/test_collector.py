@@ -3505,14 +3505,11 @@ class CollectorTests(unittest.TestCase):
 
         native_feeds = {
             "Google DeepMind Blog": "https://deepmind.google/blog/rss.xml",
-            "Nokia Newsroom": (
-                "https://www.nokia.com/newsroom/tagfeed/en-us/"
-                "tags/press__releases"
-            ),
             "日本人工知能学会": "https://www.ai-gakkai.or.jp/feed/",
             "EE Times Japan": "https://rss.itmedia.co.jp/rss/2.0/eetimes.xml",
-            "Bruegel": "https://www.bruegel.org/feed/analysis",
-            "Tokamak Energy News": "https://tokamakenergy.com/feed/",
+            "GAO Science & Technology": (
+                "https://www.gao.gov/rss/topic/Science_and_Technology"
+            ),
             "WIPO News": "https://www.wipo.int/pressroom/en/rss.xml",
             "European Research Council": "https://erc.europa.eu/rss.xml",
         }
@@ -3520,6 +3517,69 @@ class CollectorTests(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertEqual(active_sources[name]["feed_url"], feed_url)
                 self.assertTrue(active_sources[name]["native_feed"])
+
+        official_listing_fallbacks = {
+            "OECD Newsroom": (
+                "https://www.oecd-ilibrary.org/en/about/newsroom.html"
+            ),
+            "Bruegel": "https://www.bruegel.org/publications/analyses",
+            "Nokia Newsroom": "https://www.nokia.com/newsroom/",
+            "Tokamak Energy News": "https://tokamakenergy.com/latest-news/",
+            "DENSO": "https://www.denso.com/global/en/news/newsroom/",
+        }
+        for name, listing_url in official_listing_fallbacks.items():
+            with self.subTest(name=name):
+                self.assertEqual(active_sources[name]["fetch_mode"], "site_scan")
+                self.assertEqual(active_sources[name]["listing_url"], listing_url)
+                self.assertTrue(active_sources[name]["browser_user_agent"])
+
+    def test_fusion_topic_requires_explicit_nuclear_fusion_evidence(self):
+        self.assertEqual(
+            collector.remove_unsupported_fusion_topic(
+                ["Fusion Energy"],
+                "Wheat native endophytic bacteria",
+                "Plant growth enhancement and seedling bioassays",
+            ),
+            [],
+        )
+        self.assertEqual(
+            collector.remove_unsupported_fusion_topic(
+                ["Fusion Energy"],
+                "New tokamak plasma confinement result",
+                "A fusion-energy experiment",
+            ),
+            ["Fusion Energy"],
+        )
+
+    def test_targeted_quality_repairs_reopen_nedo_and_remove_false_fusion(self):
+        items = [
+            {
+                "canonical_id": "4bcc15ece640c70597d9bf68",
+                "status": "Excluded",
+                "scope_reason": "複数ニュースのまとめとして除外",
+                "scope_review_version": collector.TECH_SCOPE_REVIEW_VERSION,
+            },
+            {
+                "canonical_id": "672b54e20597d1f8397a163a",
+                "status": "New",
+                "topic": "Fusion Energy",
+                "topics": ["Fusion Energy"],
+                "article_frame": "Technology Innovation",
+                "article_frames": ["Technology Innovation"],
+            },
+        ]
+
+        self.assertEqual(collector.apply_targeted_quality_repairs(items), 2)
+        self.assertEqual(items[0]["scope_review_version"], "")
+        self.assertIn("グリーンイノベーション基金", items[0]["summary"])
+        self.assertEqual(items[1]["status"], "Excluded")
+        self.assertEqual(items[1]["topics"], [])
+
+        active_sources = {
+            source["name"]: source
+            for source in collector.load_config()["sources"]
+            if source.get("active")
+        }
 
         self.assertEqual(
             active_sources["Japan IP Strategy Headquarters"]["listing_url"],

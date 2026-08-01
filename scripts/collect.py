@@ -789,6 +789,29 @@ def classify_topics(text: str, source_category: str = "") -> list[str]:
     return [topic for topic, _ in matches]
 
 
+def remove_unsupported_fusion_topic(
+    topics: list[str],
+    title: str,
+    summary: str,
+) -> list[str]:
+    """Reject the common false positive where ordinary 'fusion' means mixing.
+
+    Fusion Energy is deliberately narrower than the other technology tags.  A
+    model-selected tag must be backed by an explicit nuclear-fusion term in the
+    source title or summary; source-level candidate tags are not evidence.
+    """
+    if "Fusion Energy" not in topics:
+        return topics
+    evidence = normalized_text(f"{title} {summary}")
+    supported = any(
+        contains_keyword(evidence, keyword)
+        for keyword in TOPIC_KEYWORDS["Fusion Energy"]
+    )
+    if supported:
+        return topics
+    return [topic for topic in topics if topic != "Fusion Energy"]
+
+
 def classify_policy_areas(text: str, source_category: str = "") -> list[str]:
     combined = f" {normalized_text(text)} {normalized_text(source_category)} "
     matches: list[tuple[str, int]] = []
@@ -2256,6 +2279,10 @@ def page_metadata(
                 if normalize_space(str(candidate)):
                     title = normalize_space(str(candidate))
                     break
+        # The surrounding listing-card text is only a fallback.  Some official
+        # listings (notably NEDO) put many unrelated releases in one container;
+        # keeping that longer text over the article's own metadata can make a
+        # single press release look like a roundup and cause a false exclusion.
         description = plain_text(fallback_summary, limit=900)
         for selector in (
             'meta[name="description"]',
@@ -2268,7 +2295,7 @@ def page_metadata(
                     str(node.get("content", "")),
                     limit=900,
                 )
-                if len(candidate_description) > len(description):
+                if len(candidate_description) >= 45:
                     description = candidate_description
                 break
         if len(description) < 220:
@@ -3212,7 +3239,16 @@ def fetch_site_scan_source(
     detail_parts: list[str] = []
 
     try:
-        response = session.get(listing_url, timeout=(6, 15))
+        response = session.get(
+            listing_url,
+            timeout=(6, 15),
+            headers={
+                "Accept": (
+                    "text/html,application/xhtml+xml,"
+                    "application/xml;q=0.8,*/*;q=0.5"
+                )
+            },
+        )
         response.raise_for_status()
         body = decoded_response_text(response)
         if (
@@ -3659,9 +3695,18 @@ def fetch_source(
             10,
             min(60, int(source.get("read_timeout_seconds", 30))),
         )
+        request_headers: dict[str, str] | None = None
+        if fetch_mode in {"html", "link_list"}:
+            request_headers = {
+                "Accept": (
+                    "text/html,application/xhtml+xml,"
+                    "application/xml;q=0.8,*/*;q=0.5"
+                )
+            }
         response = session.get(
             fetch_url or source["feed_url"],
             timeout=(connect_timeout, read_timeout),
+            headers=request_headers,
         )
         response.raise_for_status()
         if fetch_mode == "link_list":
@@ -3993,6 +4038,55 @@ def needs_taxonomy_repair(item: dict[str, Any]) -> bool:
         ("Technology Innovation" in article_frames and not topics)
         or ("Innovation Policy" in article_frames and not policy_areas)
     )
+
+
+def apply_targeted_quality_repairs(items: list[dict[str, Any]]) -> int:
+    """Repair confirmed review errors without reopening the full backlog."""
+    repaired = 0
+    for item in items:
+        item_id = str(item.get("canonical_id") or item.get("id") or "")
+        if (
+            item_id == "4bcc15ece640c70597d9bf68"
+            and item.get("status") == "Excluded"
+            and "まとめ" in str(item.get("scope_reason") or "")
+        ):
+            verified_summary = (
+                "NEDOのグリーンイノベーション基金事業「製鉄プロセスにおける"
+                "水素活用」において、日本で初めてグリーン水素を用いた還元鉄の"
+                "試作に成功した。水素製造設備と直接水素還元の試験設備を連携し、"
+                "社会実装と鉄鋼分野のCO2排出削減を目指す。"
+            )
+            item["summary"] = verified_summary
+            item["summary_ja"] = verified_summary
+            item["_review_summary"] = verified_summary
+            item["status"] = "New"
+            item["scope_review_version"] = ""
+            item["scope_reason"] = ""
+            item["scope_content_type"] = ""
+            item["scope_focus"] = ""
+            item["scope_evidence"] = ""
+            repaired += 1
+        elif item_id == "672b54e20597d1f8397a163a":
+            if item.get("status") != "Excluded" or item.get("topic"):
+                item["status"] = "Excluded"
+                item["topic"] = ""
+                item["topics"] = []
+                item["article_frame"] = ""
+                item["article_frames"] = []
+                item["innovation_policy"] = False
+                item["policy_area"] = ""
+                item["policy_areas"] = []
+                item["policy_relevance"] = 0
+                item["scope_review_version"] = TECH_SCOPE_REVIEW_VERSION
+                item["scope_reason"] = (
+                    "コムギ内生細菌の農業研究であり、核融合を含む対象8技術分野"
+                    "またはイノベーション政策には該当しないため。"
+                )
+                item["scope_content_type"] = ""
+                item["scope_focus"] = ""
+                item["scope_evidence"] = ""
+                repaired += 1
+    return repaired
 
 
 def needs_scope_review(item: dict[str, Any]) -> bool:
@@ -4556,6 +4650,9 @@ def japanese_summary_request(
         "除外します。概要が短いことだけを理由に除外してはいけません。見出しから"
         "正式な政策措置、研究成果、試作品、実証、臨床試験、R&D施設、量産化などが"
         "明確な場合は、入力から確認できる範囲に限定して掲載してください。"
+        "公式機関の単一プレスリリースを、入力概要に同じ一覧ページの別記事が混在"
+        "していることだけを理由に『複数ニュースのまとめ』と判定してはいけません。"
+        "その場合は見出しと当該リリース固有の記述を優先してください。"
         "判定例：自動車の価格競争、金融センター構想、映画の変化、Trip.comへの"
         "一般的な独占禁止罰金、省庁の人員統計、一般的なワクチン接種率はfalse。"
         "CRISPR酵素の新作用、ガラス基板による先進半導体パッケージング、"
@@ -4878,8 +4975,23 @@ def enrich_japanese_summaries(
                 excluded_ids.append(item_id)
                 continue
             item["status"] = "New"
-            item["topics"] = translated["topics"]
-            item["topic"] = " | ".join(translated["topics"])
+            topics = remove_unsupported_fusion_topic(
+                translated["topics"],
+                str(item.get("title", "")),
+                str(item.get("_review_summary") or item.get("summary", "")),
+            )
+            if not topics and not translated["is_innovation_policy"]:
+                item["status"] = "Excluded"
+                item["scope_reason"] = (
+                    "モデルが選んだ技術タグを入力本文で確認できなかったため。"
+                )
+                item["scope_content_type"] = ""
+                item["scope_focus"] = ""
+                item["scope_evidence"] = ""
+                excluded_ids.append(item_id)
+                continue
+            item["topics"] = topics
+            item["topic"] = " | ".join(topics)
             item["innovation_policy"] = translated["is_innovation_policy"]
             item["policy_areas"] = translated["policy_areas"]
             item["policy_area"] = " | ".join(translated["policy_areas"])
@@ -5903,6 +6015,9 @@ def run(
     candidates = exclude_retired_sources(candidates)
     new_items, duplicates = deduplicate(candidates, existing)
     merged = exclude_retired_sources(new_items + existing)
+    repaired = apply_targeted_quality_repairs(merged)
+    if repaired:
+        print(f"[QUALITY] targeted_repairs={repaired}")
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
     academic_refresh = refresh_academic_review_summaries(session, merged)
     if academic_refresh["targets"]:
@@ -6151,6 +6266,9 @@ def review_backlog(
         source for source in config["sources"] if source.get("active")
     ]
     merged = exclude_retired_sources(load_master())
+    repaired = apply_targeted_quality_repairs(merged)
+    if repaired:
+        print(f"[QUALITY] targeted_repairs={repaired}")
     previous_public_payload = load_public_payload()
     prior_state = load_review_state()
     collected_at = now_utc()

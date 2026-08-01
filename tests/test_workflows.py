@@ -98,6 +98,18 @@ class WorkflowTests(unittest.TestCase):
                 script = (ROOT / relative_path).read_text(encoding="utf-8")
                 self.assertIn("priority_pending_count", script)
 
+    def test_url_audit_covers_sources_and_published_articles(self):
+        workflow = (
+            ROOT / ".github" / "workflows" / "url-audit.yml"
+        ).read_text(encoding="utf-8")
+        script = (ROOT / "scripts" / "audit_urls.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("scripts/audit_urls.py", workflow)
+        self.assertIn("docs/data/url_audit.json", workflow)
+        self.assertIn('(\"feed_url\", \"listing_url\", \"homepage\", \"api_url\")', script)
+        self.assertIn('"kind": "article"', script)
+
 
 if __name__ == "__main__":
     unittest.main()

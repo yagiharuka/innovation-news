@@ -1,0 +1,62 @@
+name: Audit source and article URLs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "config/sources.json"
+      - "scripts/audit_urls.py"
+      - ".github/workflows/url-audit.yml"
+  schedule:
+    # Sunday 05:40 JST.  This finishes before the Monday weekend digest.
+    - cron: "40 20 * * 6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: innovation-news-url-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Audit every active source endpoint and published article URL
+        run: python -u scripts/audit_urls.py --workers 16 --timeout 15
+
+      - name: Upload full audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: innovation-news-url-audit
+          path: data/url_audit.json
+          retention-days: 30
+
+      - name: Commit audit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/url_audit.json docs/data/url_audit.json
+          if git diff --cached --quiet; then
+            echo "No URL audit changes to commit."
+          else
+            git commit -m "data: audit source and article URLs"
+            git push
+          fi
