@@ -7,6 +7,8 @@ on:
     paths:
       - "config/sources.json"
       - "scripts/audit_urls.py"
+      - "scripts/collect.py"
+      - "scripts/probe_source.py"
       - ".github/workflows/url-audit.yml"
   schedule:
     # Sunday 05:40 JST.  This finishes before the Monday weekend digest.
@@ -42,18 +44,27 @@ jobs:
       - name: Audit every active source endpoint and published article URL
         run: python -u scripts/audit_urls.py --workers 16 --timeout 15
 
+      - name: Exercise the real OECD collector path
+        run: >-
+          python -u scripts/probe_source.py
+          --source "OECD Newsroom"
+          --days 14
+          --output data/oecd_source_probe.json
+
       - name: Upload full audit report
         uses: actions/upload-artifact@v4
         with:
           name: innovation-news-url-audit
-          path: data/url_audit.json
+          path: |
+            data/url_audit.json
+            data/oecd_source_probe.json
           retention-days: 30
 
       - name: Commit audit report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/url_audit.json docs/data/url_audit.json
+          git add data/url_audit.json docs/data/url_audit.json data/oecd_source_probe.json
           if git diff --cached --quiet; then
             echo "No URL audit changes to commit."
           else

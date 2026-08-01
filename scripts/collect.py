@@ -2883,11 +2883,17 @@ def fetch_gdelt_domain_source(
             detail="Could not resolve GDELT source domain",
             elapsed_seconds=round(time.monotonic() - started, 2),
         )
-    query = (
-        f"domain:{domain} ("
-        f"{GDELT_BACKFILL_QUERIES['policy']} OR "
-        f"{GDELT_BACKFILL_QUERIES['technology']})"
+    terms = normalize_space(
+        str(
+            source.get(
+                "gdelt_query",
+                'innovation OR technology OR "research funding" OR patent OR '
+                '"artificial intelligence" OR semiconductor OR quantum OR '
+                'biotechnology OR space',
+            )
+        )
     )
+    query = f"domain:{domain} ({terms})"
     params = {
         "query": query,
         "mode": "artlist",
@@ -2898,7 +2904,16 @@ def fetch_gdelt_domain_source(
         "enddatetime": collected_at.strftime("%Y%m%d%H%M%S"),
     }
     try:
-        response = session.get(GDELT_DOC_ENDPOINT, params=params, timeout=(8, 45))
+        response = None
+        for attempt in range(3):
+            response = session.get(
+                GDELT_DOC_ENDPOINT, params=params, timeout=(8, 45)
+            )
+            if response.status_code not in {429, 500, 502, 503, 504}:
+                break
+            if attempt < 2:
+                time.sleep(8.0 * (attempt + 1))
+        assert response is not None
         response.raise_for_status()
         payload = response.json()
         articles = payload.get("articles", []) if isinstance(payload, dict) else []

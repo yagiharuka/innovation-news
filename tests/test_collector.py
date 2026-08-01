@@ -3539,6 +3539,8 @@ class CollectorTests(unittest.TestCase):
 
     def test_gdelt_domain_source_keeps_only_original_publisher_urls(self):
         class Response:
+            status_code = 200
+
             def raise_for_status(self):
                 return None
 
