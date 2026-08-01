@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-31T20:29:55Z",
-  "updated_at_jst": "2026-08-01T05:29:55+09:00",
+  "updated_at": "2026-08-01T13:34:58Z",
+  "updated_at_jst": "2026-08-01T22:34:58+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1262,
-  "source_count": 304,
+  "article_count": 1277,
+  "source_count": 305,
   "source_counts": {
-    "daily": 297,
+    "daily": 298,
     "weekly": 7,
-    "tier_s": 161,
-    "tier_a": 136,
+    "tier_s": 163,
+    "tier_a": 135,
     "tier_b": 7
   },
   "items": [
@@ -5247,6 +5247,43 @@
       "status": "New"
     },
     {
+      "id": "3d1b1d6ff33e27a8034a0cda",
+      "published_at": "2026-07-29T06:15:01Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance",
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Daily",
+      "title": "パナマの半導体エコシステム વિકાસを促進",
+      "title_original": "Promoting the Development of the Semiconductor Ecosystem in Panama",
+      "summary": "OECD報告書は、国際貿易・物流の拠点であるパナマが半導体バリューチェーンへの参入を目指す中で、投資を促す規制枠組みとインセンティブを分析する。",
+      "summary_original": "Promoting the Development of the Semiconductor Ecosystem in Panama Report More info 29 July 2026 Summary Full report Support materials Download PDF Cite this publication Abstract Executive summary Related publications Related topics Share Facebook Twitter LinkedIn Abstract Panama is an open and services-oriented economy and a cornerstone of international trade, reflecting its privileged geographic position, excellence in transportation logistics and strong air and seaborne transportation infrastructure. As Panama seeks to position itself within the global semiconductor value chain, its regulatory framework provides important incentives for prospective foreign investors and it has been activ…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/promoting-the-development-of-the-semiconductor-ecosystem-in-panama_50f1e10d-en.html",
+      "first_seen": "2026-08-01T22:34:58+09:00",
+      "status": "New"
+    },
+    {
       "id": "b391aade913745863b4ef80d",
       "published_at": "2026-07-29T05:45:21Z",
       "collected_at_jst": "2026-07-30T06:44:24+09:00",
@@ -6593,6 +6630,40 @@
       "summary_language": "ja",
       "url": "https://www.scmp.com/plus/tech/tech-war/article/3362124/china-chip-dreams-still-face-long-road-even-after-breakthrough?utm_source=rss_feed",
       "first_seen": "2026-07-28T19:55:02+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9037fb2fc20424b17f16bf14",
+      "published_at": "2026-07-28T08:48:40Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 2,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "医療システムの相互運用性を分析",
+      "title_original": "Interoperability in healthcare",
+      "summary": "OECDのワーキングペーパーは、医療システムや関係者がデータを安全に交換・利用する相互運用性について、各国の実践を調査し、データ共有の課題を分析する。",
+      "summary_original": "Interoperability in healthcare Towards an interconnected future Working paper More info OECD Health Working Papers 24 July 2026 Summary Support materials Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract Interoperability in healthcare – the ability of health systems and stakeholders to securely exchange and use data – remains a longstanding yet underachieved goal in the digitalisation of health systems. This paper analyses international practices across OECD countries to support efficient, equitable, and impactful data use and sharing. Drawing on interviews, a survey, desk research, and expert consultations, the report h…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/interoperability-in-healthcare_eb71b7be-en.html",
+      "first_seen": "2026-07-28T17:48:40+09:00",
       "status": "New"
     },
     {
@@ -14448,6 +14519,42 @@
       "status": "New"
     },
     {
+      "id": "36209d7641ce21d57ad74ab2",
+      "published_at": "2026-07-24T09:20:29Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "政府における生成AI実験とガバナンスを検討",
+      "title_original": "Generative AI experimentation in government",
+      "summary": "OECDのワーキングペーパーは、政府機関で進む生成AIの分散的な導入を対象に、本格展開前の能力構築、リスク管理、責任ある利用に向けた実験と指針を検討する。",
+      "summary_original": "Generative AI experimentation in government Learning from emerging guidelines Working paper More info OECD Working Papers on Public Governance 20 July 2026 Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract Public servants are increasingly adopting generative artificial intelligence (GenAI), often without formal oversight. This paper addresses the widening gap between rapid, decentralised GenAI uptake and lagging public governance mechanisms. It focuses on structured experimentation as a critical pathway for governments to build capabilities, manage risks, and ensure responsible technology adoption before full-scale deplo…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/generative-ai-experimentation-in-government_42815683-en.html",
+      "first_seen": "2026-07-24T18:20:29+09:00",
+      "status": "New"
+    },
+    {
       "id": "dab38e769de0ea36828045d0",
       "published_at": "2026-07-24T09:15:04Z",
       "collected_at_jst": "2026-07-28T09:58:31+09:00",
@@ -15732,6 +15839,42 @@
       "summary_language": "ja",
       "url": "https://www.eetimes.com/the-story-behind-fuse-eda-ai-system/",
       "first_seen": "2026-07-27T11:51:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2ca9db7610fa4ef0e934cbb1",
+      "published_at": "2026-07-23T19:15:32Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "AIの労働市場に関する各国の政策動向を整理",
+      "title_original": "​Recent policy developments on AI in the labour market",
+      "summary": "OECDのワーキングペーパーは、G7、EU、ラテンアメリカ諸国などを対象に、AIによる自動化や生産性、技能、包摂、プライバシー・データ保護に関する政策措置をレビューする。",
+      "summary_original": "​Recent policy developments on AI in the labour market Working paper More info OECD Artificial Intelligence Papers 24 July 2026 Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract Artificial intelligence (AI) is increasingly shaping labour markets, bringing both significant opportunities and risks for workers, firms and societies, and making it a growing policy priority. This publication reviews recent policy measures related to AI in the labour market in G7 countries, the European Union and selected Latin American economies across six policy areas: automation, productivity, skills and inclusiveness; privacy and data prote…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/recent-policy-developments-on-ai-in-the-labour-market_c0ffced7-en.html",
+      "first_seen": "2026-07-24T04:15:32+09:00",
       "status": "New"
     },
     {
@@ -25215,6 +25358,40 @@
       "status": "New"
     },
     {
+      "id": "4d9926255ecf416c31c368e5",
+      "published_at": "2026-07-10T17:17:27Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "OECD、職業のAI曝露度を測定する新指標を開発",
+      "title_original": "The OECD AI exposure measure",
+      "summary": "OECDは、AI能力指標を職業に対応付け、AIが今後5〜10年に仕事や技能、教育へ及ぼす可能性を測定する透明で更新可能な指標を開発した。",
+      "summary_original": "The OECD AI exposure measure Mapping the OECD AI Capability Indicators to occupations Working paper More info OECD Artificial Intelligence Papers 26 May 2026 Available in: English français Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract This paper develops a new OECD measure of occupational AI exposure based on the OECD AI Capability Indicators. The measure addresses the need for a forward-looking, transparent and updateable approach to assessing how AI may affect work, skills and education over the next 5 to 10 years. It does so by mapping AI capabilities across nine cognitive, social and physical domains to occupatio…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/the-oecd-ai-exposure-measure_f3da0f0a-en.html",
+      "first_seen": "2026-07-11T02:17:27+09:00",
+      "status": "New"
+    },
+    {
       "id": "0176027d6deb539b9660f51e",
       "published_at": "2026-07-10T16:00:04Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -30736,6 +30913,320 @@
       "status": "New"
     },
     {
+      "id": "1daee4f88cce65d2ef33797c",
+      "published_at": "2026-06-22T11:48:49Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "デジタル規制枠組みをマッピングするツール",
+      "title_original": "a mapping tool for digital regulatory frameworks_1cdad902 en",
+      "summary": "デジタル分野の規制枠組みを整理・可視化するマッピングツールを扱う。技術に関わる規制の把握と比較に関係する政策分析である。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/a-mapping-tool-for-digital-regulatory-frameworks_1cdad902-en.html",
+      "first_seen": "2026-06-22T20:48:49+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2a6668b0a35b016cc613f98c",
+      "published_at": "2026-06-22T11:48:40Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance",
+        "Standards & Safety"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "デジタル医療機器の評価に向けた優良事例の特定",
+      "title_original": "towards identifying good practices in the assessment of digital medical devices_b485ee1f en",
+      "summary": "デジタル医療機器の評価における優良事例の特定を扱う。医療技術の評価手法と規制・安全面の運用に関係する政策分析である。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/towards-identifying-good-practices-in-the-assessment-of-digital-medical-devices_b485ee1f-en.html",
+      "first_seen": "2026-06-22T20:48:40+09:00",
+      "status": "New"
+    },
+    {
+      "id": "8aafc49761b52e72e5c6b9ef",
+      "published_at": "2026-06-22T11:48:24Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "ミッション志向型イノベーション政策におけるポートフォリオ管理",
+      "title_original": "proactive portfolio management in mission oriented innovation policy_1ee956a5 en",
+      "summary": "ミッション志向型イノベーション政策における研究開発ポートフォリオの先行的な管理を扱う。政策目標に沿った研究開発の構成・運用に関する分析である。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/proactive-portfolio-management-in-mission-oriented-innovation-policy_1ee956a5-en.html",
+      "first_seen": "2026-06-22T20:48:24+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ac3459d969ccc3edcac3e2b8",
+      "published_at": "2026-06-22T11:48:04Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Research System & Talent"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "市民科学を研究政策に組み込む",
+      "title_original": "embedding citizen science into research policy_a1cfb1a8 en",
+      "summary": "市民科学を研究政策に組み込む際の課題と方法を扱う。研究活動への市民参加を研究システムの政策設計に位置付ける内容である。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/embedding-citizen-science-into-research-policy_a1cfb1a8-en.html",
+      "first_seen": "2026-06-22T20:48:04+09:00",
+      "status": "New"
+    },
+    {
+      "id": "c0395203a33108dd66533f95",
+      "published_at": "2026-06-22T11:48:04Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "韓国のミッション志向型イノベーション政策の課題と機会",
+      "title_original": "challenges and opportunities of mission oriented innovation policy in korea_d725304c en",
+      "summary": "韓国におけるミッション志向型イノベーション政策の課題と機会を分析する。国家的な研究開発・イノベーション政策の設計に関する内容である。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/challenges-and-opportunities-of-mission-oriented-innovation-policy-in-korea_d725304c-en.html",
+      "first_seen": "2026-06-22T20:48:04+09:00",
+      "status": "New"
+    },
+    {
+      "id": "288b5a0ae166c2b36df00aa4",
+      "published_at": "2026-06-22T11:19:18Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "ポルトガル、公共調達監督にデジタル技術を活用",
+      "title_original": "Using digital technology to strengthen oversight of public procurement in Portugal",
+      "summary": "ポルトガルの公共調達監督で、データ分析と機械学習を活用する取り組みを分析する。電子調達にとどまらず、公共財務管理システムなどとの統合を含むデジタル化の可能性を扱う。",
+      "summary_original": "Using digital technology to strengthen oversight of public procurement in Portugal The use of data analytics and machine learning by the Tribunal de Contas Working paper More info OECD Working Papers on Public Governance 30 June 2025 Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract The digital transformation of public procurement systems has opened new avenues for enhancing oversight activities. This transformation extends beyond traditional e-procurement systems, embracing a more comprehensive approach that integrates public financial management systems and aligns with broader digital government strategies. By leveragi…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/using-digital-technology-to-strengthen-oversight-of-public-procurement-in-portugal_43add03b-en.html",
+      "first_seen": "2026-06-22T20:19:18+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5da2b875106234a2bb39b278",
+      "published_at": "2026-06-22T11:19:01Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "イノベーション政策は変わったのか、自然言語処理で24か国を分析",
+      "title_original": "Innovation policy transformed?",
+      "summary": "24のOECD諸国の科学技術・イノベーション戦略を自然言語処理で分析し、政策目標の変化を検証する。成長・競争力に加え、グリーン移行、デジタル化、社会的包摂への対応を扱う。",
+      "summary_original": "Innovation policy transformed? Unveiling a new paradigm through natural language processing Working paper More info OECD Science, Technology and Industry Working Papers 30 June 2025 Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract Innovation policy is changing. No longer focused solely on growth and competitiveness, today’s strategies increasingly address societal challenges such as the green transition, digitalisation, and social inclusion. This paper provides the quantitative evidence of this shift, analysing STI strategies from 24 OECD countries using natural language processing techniques. It finds that goals linked…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/innovation-policy-transformed_5ee60cb5-en.html",
+      "first_seen": "2026-06-22T20:19:01+09:00",
+      "status": "New"
+    },
+    {
+      "id": "0416925a9f42879949e4396e",
+      "published_at": "2026-06-22T11:18:54Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "半導体バリューチェーンを可視化、依存関係と脆弱性を分析",
+      "title_original": "Mapping the semiconductor value chain",
+      "summary": "半導体の世界分散型バリューチェーンについて、主要工程、関係主体、投入要素、関連データを整理する。国境を越えた連関を分析し、ボトルネックと供給上の脆弱性を検討する。",
+      "summary_original": "Mapping the semiconductor value chain Working towards identifying dependencies and vulnerabilities Policy paper More info OECD Science, Technology and Industry Policy Papers 24 June 2025 Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract The semiconductor value chain is highly complex, with globally distributed production processes and tightly interconnected segments. This paper identifies the key segments, its actors, inputs, and datasets, offering a comprehensive view of the semiconductor ecosystem. It examines each segment to identify bottlenecks and vulnerabilities. The analysis of cross-country linkages within the se…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/mapping-the-semiconductor-value-chain_4154cdbf-en.html",
+      "first_seen": "2026-06-22T20:18:54+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ccc69208cfb9eb0f8b23ca18",
+      "published_at": "2026-06-22T11:18:21Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Intergovernmental",
+      "source": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "AIによる災害被害額の測定",
+      "title_original": "Using AI to measure disaster damage costs",
+      "summary": "災害リスク低減へのAI活用として、クラウドソーシング、IoT、航空画像、UAV映像、航空・地上LiDARなどを用いて被害額を測定する手法を論じる。2018年スラウェシ地震を事例として扱う。",
+      "summary_original": "Using AI to measure disaster damage costs Methodology and the example of the 2018 Sulawesi earthquake Working paper More info OECD Development Centre Working Papers 27 June 2025 Download PDF Cite this publication Abstract Related publications Related topics Share Facebook Twitter LinkedIn Abstract As disasters grow in frequency and intensity, the opportunities to apply Artificial Intelligence (AI) to disaster risk reduction are becoming increasingly prominent. This paper discusses various AI-based approaches including crowdsourcing, Internet of Things, aerial imagery, videos from unmanned aerial vehicles (UAVs), as well as airborne and terrestrial Light Detection and Ranging (LiDAR). It foc…",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/publications/using-ai-to-measure-disaster-damage-costs_b1fe3967-en.html",
+      "first_seen": "2026-06-22T20:18:21+09:00",
+      "status": "New"
+    },
+    {
       "id": "b5c4f6a9edf01fc26d3fe492",
       "published_at": "2026-06-22T08:00:42Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -34360,6 +34851,42 @@
       "summary_language": "ja",
       "url": "https://www.inpit.go.jp/j-platpat_info/lecture/patent_intermediate.html",
       "first_seen": "2026-05-29T09:00:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "be4cc660a546561d2086eca7",
+      "published_at": "2026-05-28T17:55:51Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD Newsroom",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "OECD、中小企業の参加を促す広島AIプロセス報告フレームワークを開始",
+      "title_original": "oecd launches streamlined hiroshima ai process reporting framework to help small and medium sized enterprises participate",
+      "summary": "OECDは、中小企業が参加しやすくなるよう、広島AIプロセスに関する報告フレームワークを簡素化して立ち上げる。AIに関する報告・ガバナンスの枠組みを整備する取り組み。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/about/news/press-releases/2026/05/oecd-launches-streamlined-hiroshima-ai-process-reporting-framework-to-help-small-and-medium-sized-enterprises-participate.html",
+      "first_seen": "2026-05-29T02:55:51+09:00",
       "status": "New"
     },
     {
@@ -39537,6 +40064,78 @@
       "status": "New"
     },
     {
+      "id": "f60c4e9b095075eee7aa4762",
+      "published_at": "2026-03-17T10:50:13Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD Newsroom",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "量子技術の「第2の革命」を始動させる政府と政策の役割",
+      "title_original": "quantum technologies and the role of governments and policy in kickstarting the second revolution",
+      "summary": "量子技術の発展を促すうえで、政府と政策が果たす役割を論じる。具体的な制度内容や政策措置は入力情報から確認できない。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/blogs/2026/01/quantum-technologies-and-the-role-of-governments-and-policy-in-kickstarting-the-second-revolution.html",
+      "first_seen": "2026-03-17T19:50:13+09:00",
+      "status": "New"
+    },
+    {
+      "id": "04f7e926d59aaeaef0002203",
+      "published_at": "2026-03-17T10:49:42Z",
+      "collected_at_jst": "2026-08-01T22:34:58+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Intergovernmental",
+      "source": "OECD Newsroom",
+      "organization": "OECD",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official publisher sitemap via Jina reader; original URL retained",
+      "collection_mode": "Historical Backfill",
+      "title": "衛星地球観測データへのアクセス拡大がプライバシー・安全保障・信頼に及ぼす影響",
+      "title_original": "expanding access to satellite earth observation data what it means for privacy security and trust",
+      "summary": "衛星地球観測データへのアクセスを拡大した場合の、プライバシー、安全保障、信頼への意味を扱う。具体的な制度や規制内容は入力情報から確認できない。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.oecd.org/en/blogs/2026/02/expanding-access-to-satellite-earth-observation-data-what-it-means-for-privacy-security-and-trust.html",
+      "first_seen": "2026-03-17T19:49:42+09:00",
+      "status": "New"
+    },
+    {
       "id": "e1652868b00b3d1b3ade9afe",
       "published_at": "2026-03-17T00:00:00Z",
       "collected_at_jst": "2026-07-28T01:39:30+09:00",
@@ -43010,76 +43609,6 @@
       "summary_language": "ja",
       "url": "https://doi.org/10.64898/2026.01.28.701962",
       "first_seen": "2026-01-31T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "8ef56dd4b5b959ec5be3808b",
-      "published_at": "2026-01-30T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Healthcare",
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Critical Reviews in Oncology/Hematology",
-      "organization": "Critical Reviews in Oncology/Hematology",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Critical Reviews in Oncology/Hematology",
-      "doi": "https://doi.org/10.1016/j.critrevonc.2026.105171",
-      "citation_count": 23,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "がん治療におけるデジタルツインの応用",
-      "title_original": "Digital twins in oncology: From predictive modelling to personalised treatment strategies",
-      "summary": "がん治療におけるデジタルツイン技術の応用とその課題についてレビューします。",
-      "summary_original": "OpenAlex research topics: Digital Transformation in Industry; Radiomics and Machine Learning in Medical Imaging; Mathematical Biology Tumor Growth; Transformative learning; Narrative review; Precision medicine; Metadata; Health care; Cancer survivorship; Grey literature; Digital health; Radiation oncology",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1016/j.critrevonc.2026.105171",
-      "first_seen": "2026-01-30T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "be6116d7c2ad2c14b56203d1",
-      "published_at": "2026-01-29T22:02:00Z",
-      "collected_at_jst": "2026-07-27T11:51:54+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Biotechnology",
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Official Company",
-      "source": "Moderna Media Center",
-      "organization": "Moderna Media Center",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "Moderna、プロピオン酸血症向けmRNA治療薬の最終臨床開発でRecordatiと協力",
-      "title_original": "IR Insights: Recapping our Collaboration with Recordati to Globally Commercialize our Investigational Propionic Acidemia Therapy",
-      "summary": "Modernaは、プロピオン酸血症向け治験薬mRNA-3927について、Recordatiと最終段階の臨床開発を進める戦略的協力を発表した。承認後の世界販売も協力対象となる。",
-      "summary_original": "Earlier today, Moderna announced a strategic collaboration with Recordati to advance Moderna’s investigational propionic acidemia (PA) therapy, mRNA-3927, through the final stages of clinical development and, upon approval, global commercialization. Stéphane Bancel, CEO, sat down for an episode of IR Insights to give an overview of the partnership. Watch the episode here: Stay tuned for more updates and follow us on LinkedIn and X to learn more about Moderna and how we’re changing the future of medicine. This post and accompanying video contain forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, as amended, including statements regarding: M…",
-      "summary_language": "ja",
-      "url": "https://www.modernatx.com/media-center/all-media/blogs/recordati-collaboration-globally-commercialize-investigational-propionic-acidemia-therapy",
-      "first_seen": "2026-01-30T07:02:00+09:00",
       "status": "New"
     },
     {

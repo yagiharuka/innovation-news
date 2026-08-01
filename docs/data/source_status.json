@@ -1,23 +1,23 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-07-31T20:22:15Z",
+  "updated_at": "2026-08-01T13:34:58Z",
   "summary": {
-    "checked": 304,
-    "succeeded": 282,
-    "failed": 22,
-    "entries_seen": 101776,
-    "entries_kept": 966
+    "checked": 305,
+    "succeeded": 284,
+    "failed": 21,
+    "entries_seen": 114654,
+    "entries_kept": 1047
   },
   "current_run": {
-    "checked": 297,
-    "succeeded": 275,
-    "failed": 22,
-    "entries_seen": 101269,
-    "entries_kept": 849
+    "checked": 5,
+    "succeeded": 2,
+    "failed": 3,
+    "entries_seen": 12878,
+    "entries_kept": 81
   },
   "coverage_summary": {
-    "registered": 304,
-    "checked_once": 304,
+    "registered": 305,
+    "checked_once": 305,
     "waiting_first_check": 0
   },
   "sources": [
@@ -378,7 +378,7 @@
       "source_type": "Policy Institute",
       "region": "EU & Europe",
       "homepage": "https://www.bruegel.org/publications/analyses",
-      "feed_url": "https://www.bruegel.org/feed/analysis",
+      "feed_url": "https://www.bruegel.org/publications/analyses",
       "coverage_tier": "A",
       "cadence": "daily",
       "topic_tags": [
@@ -591,15 +591,35 @@
       "region": "Global",
       "homepage": "https://www.oecd.org/en/about/newsroom.html",
       "feed_url": "https://www.oecd.org/en/about/newsroom.html",
-      "coverage_tier": "A",
+      "coverage_tier": "S",
       "cadence": "daily",
       "topic_tags": [],
-      "status": "error",
-      "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/en/about/newsroom.html; sitemap: https://www.oecd.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.oecd.org/sitemap.xml",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.5,
-      "last_checked_at": "2026-07-31T20:22:15Z"
+      "status": "ok",
+      "detail": "official sitemap through Jina; original publisher URLs retained; detail_pages=50; detail_fallbacks=40",
+      "entries_seen": 3306,
+      "entries_kept": 31,
+      "elapsed_seconds": 28.46,
+      "last_checked_at": "2026-08-01T13:34:58Z"
+    },
+    {
+      "name": "OECD STI Publications & Indicators",
+      "organization": "OECD",
+      "source_type": "Intergovernmental",
+      "region": "Global",
+      "homepage": "https://www.oecd.org/en/topics/science-technology-and-innovation.html",
+      "feed_url": "https://www.oecd.org/en/publications.html",
+      "coverage_tier": "S",
+      "cadence": "daily",
+      "topic_tags": [
+        "Artificial Intelligence",
+        "Semiconductors & Telecom"
+      ],
+      "status": "ok",
+      "detail": "official sitemap through Jina; original publisher URLs retained; detail_pages=50; detail_fallbacks=26",
+      "entries_seen": 9572,
+      "entries_kept": 50,
+      "elapsed_seconds": 130.45,
+      "last_checked_at": "2026-08-01T13:34:58Z"
     },
     {
       "name": "Google AI",
@@ -824,7 +844,7 @@
       "source_type": "Official Company",
       "region": "United States",
       "homepage": "https://bostondynamics.com/blog/",
-      "feed_url": "https://bostondynamics.com/blog-sitemap.xml",
+      "feed_url": "https://bostondynamics.com/blog/",
       "coverage_tier": "A",
       "cadence": "daily",
       "topic_tags": [
@@ -1021,7 +1041,7 @@
       "source_type": "Official Company",
       "region": "EU & Europe",
       "homepage": "https://www.nokia.com/newsroom/",
-      "feed_url": "https://www.nokia.com/newsroom/tagfeed/en-us/tags/press__releases",
+      "feed_url": "https://www.nokia.com/newsroom/",
       "coverage_tier": "A",
       "cadence": "daily",
       "topic_tags": [
@@ -1157,7 +1177,7 @@
       "source_type": "Official Company",
       "region": "EU & Europe",
       "homepage": "https://tokamakenergy.com/latest-news/",
-      "feed_url": "https://tokamakenergy.com/feed/",
+      "feed_url": "https://tokamakenergy.com/latest-news/",
       "coverage_tier": "A",
       "cadence": "daily",
       "topic_tags": [
@@ -1758,7 +1778,7 @@
       "organization": "Electronics and Telecommunications Research Institute",
       "source_type": "Government",
       "region": "Asia",
-      "homepage": "https://www.etri.re.kr/eng/",
+      "homepage": "https://www.etri.re.kr/eng/main/main.etri",
       "feed_url": "https://www.etri.re.kr/eng/bbs/list.etri?b_board_id=ENG02",
       "coverage_tier": "A",
       "cadence": "daily",
@@ -3603,8 +3623,8 @@
       "organization": "U.S. Government Accountability Office",
       "source_type": "Government",
       "region": "United States",
-      "homepage": "https://www.gao.gov/topics/science-and-technology",
-      "feed_url": "https://www.gao.gov/topics/science-and-technology",
+      "homepage": "https://www.gao.gov/science-technology",
+      "feed_url": "https://www.gao.gov/rss/topic/Science_and_Technology",
       "coverage_tier": "S",
       "cadence": "daily",
       "topic_tags": [
@@ -4361,7 +4381,7 @@
       "source_type": "Official Company",
       "region": "Asia",
       "homepage": "https://www.denso.com/global/en/news/newsroom/",
-      "feed_url": "https://www.denso.com/global/en/news/newsroom/RSSNews",
+      "feed_url": "https://www.denso.com/global/en/news/newsroom/",
       "coverage_tier": "A",
       "cadence": "daily",
       "topic_tags": [
@@ -5793,7 +5813,7 @@
       "organization": "ITmedia",
       "source_type": "Major Media",
       "region": "Asia",
-      "homepage": "https://www.itmedia.co.jp/news/subtop/science/",
+      "homepage": "https://www.itmedia.co.jp/news/",
       "feed_url": "https://rss.itmedia.co.jp/rss/2.0/news_technology.xml",
       "coverage_tier": "A",
       "cadence": "daily",
@@ -6171,7 +6191,7 @@
       "organization": "Fuji Electric",
       "source_type": "Official Company",
       "region": "Asia",
-      "homepage": "https://www.fujielectric.com/about/research/",
+      "homepage": "https://www.fujielectric.com/about/technology/index.html",
       "feed_url": "https://www.fujielectric.com/about/news/index.html",
       "coverage_tier": "A",
       "cadence": "daily",
@@ -6235,7 +6255,7 @@
       "organization": "Sumitomo Electric Industries",
       "source_type": "Official Company",
       "region": "Asia",
-      "homepage": "https://sumitomoelectric.com/technology",
+      "homepage": "https://sumitomoelectric.com/rd",
       "feed_url": "https://sumitomoelectric.com/pr-news-articles",
       "coverage_tier": "A",
       "cadence": "daily",
@@ -6280,7 +6300,7 @@
       "organization": "FUJIFILM Holdings",
       "source_type": "Official Company",
       "region": "Asia",
-      "homepage": "https://holdings.fujifilm.com/en/about/technology",
+      "homepage": "https://holdings.fujifilm.com/en/about/rd",
       "feed_url": "https://holdings.fujifilm.com/en/news",
       "coverage_tier": "S",
       "cadence": "daily",
