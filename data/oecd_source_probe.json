@@ -1,0 +1,60 @@
+{
+  "updated_at": "2026-08-01T00:43:09.202144+00:00",
+  "source": "OECD Newsroom",
+  "status": "ok",
+  "detail": "official sitemap through Jina; original publisher URLs retained",
+  "entries_seen": 6452,
+  "entries_kept": 17,
+  "sample": [
+    {
+      "title": "five industrial policy principles for small open economies",
+      "url": "https://www.oecd.org/en/blogs/2026/07/five-industrial-policy-principles-for-small-open-economies.html",
+      "published_at": "2026-07-21T14:15:51Z"
+    },
+    {
+      "title": "protecting data quality in the ai era of official statistics",
+      "url": "https://www.oecd.org/en/blogs/2026/07/protecting-data-quality-in-the-ai-era-of-official-statistics.html",
+      "published_at": "2026-07-21T08:34:29Z"
+    },
+    {
+      "title": "an ai enhanced granular analysis of thailand s mathematics performance_e26ed12c en",
+      "url": "https://www.oecd.org/en/publications/an-ai-enhanced-granular-analysis-of-thailand-s-mathematics-performance_e26ed12c-en.html",
+      "published_at": "2026-07-29T19:14:58Z"
+    },
+    {
+      "title": "distinguishing data purposes and needs informing research policy design and coordination needs_b8b6ab4a",
+      "url": "https://www.oecd.org/en/publications/a-conceptual-foundation-for-the-development-of-a-lifelong-learning-measurement-framework_27e5a619-en/full-report/distinguishing-data-purposes-and-needs-informing-research-policy-design-and-coordination-needs_b8b6ab4a.html",
+      "published_at": "2026-07-27T22:00:05Z"
+    },
+    {
+      "title": "interoperability in healthcare_eb71b7be en",
+      "url": "https://www.oecd.org/en/publications/interoperability-in-healthcare_eb71b7be-en.html",
+      "published_at": "2026-07-28T08:48:40Z"
+    },
+    {
+      "title": "recent policy developments on ai in the labour market_c0ffced7 en",
+      "url": "https://www.oecd.org/en/publications/recent-policy-developments-on-ai-in-the-labour-market_c0ffced7-en.html",
+      "published_at": "2026-07-23T19:15:32Z"
+    },
+    {
+      "title": "artificial intelligence and personal finance_2858fdf4 en",
+      "url": "https://www.oecd.org/en/publications/artificial-intelligence-and-personal-finance_2858fdf4-en.html",
+      "published_at": "2026-07-20T19:14:48Z"
+    },
+    {
+      "title": "tax incentives for research and development_01cf85d0",
+      "url": "https://www.oecd.org/en/publications/corporate-tax-statistics-2026_73af6222-en/full-report/tax-incentives-for-research-and-development_01cf85d0.html",
+      "published_at": "2026-07-21T09:00:05Z"
+    },
+    {
+      "title": "generative ai experimentation in government_42815683 en",
+      "url": "https://www.oecd.org/en/publications/generative-ai-experimentation-in-government_42815683-en.html",
+      "published_at": "2026-07-24T09:20:29Z"
+    },
+    {
+      "title": "artificial intelligence and open finance_eb511c3c en",
+      "url": "https://www.oecd.org/en/publications/artificial-intelligence-and-open-finance_eb511c3c-en.html",
+      "published_at": "2026-07-21T09:20:43Z"
+    }
+  ]
+}
