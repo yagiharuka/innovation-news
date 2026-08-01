@@ -3269,7 +3269,7 @@ class CollectorTests(unittest.TestCase):
         names = [source["name"] for source in sources]
         self.assertEqual(len(names), len(set(names)))
         active_sources = [source for source in sources if source.get("active")]
-        self.assertEqual(config["expected_active_source_count"], 304)
+        self.assertEqual(config["expected_active_source_count"], 305)
         self.assertEqual(
             len(active_sources),
             config["expected_active_source_count"],
@@ -3482,10 +3482,6 @@ class CollectorTests(unittest.TestCase):
                 "spacex_updates_api",
                 "https://content.spacex.com/api/spacex-website/updates",
             ),
-            "Moderna Media Center": (
-                "moderna_press_api",
-                "https://www.accesswire.com/qm/data/getHeadlines.json",
-            ),
             "ABB Robotics News": (
                 "abb_newsbank_api",
                 "https://www.abb.com/conf/abbcommon/services/newsbank.json",
@@ -3502,6 +3498,15 @@ class CollectorTests(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertEqual(active_sources[name]["fetch_mode"], fetch_mode)
                 self.assertEqual(active_sources[name]["api_url"], api_url)
+
+        self.assertEqual(
+            active_sources["Moderna Media Center"]["fetch_mode"],
+            "jina_listing",
+        )
+        self.assertEqual(
+            active_sources["Moderna Media Center"]["publisher_domain"],
+            "modernatx.com",
+        )
 
         native_feeds = {
             "Google DeepMind Blog": "https://deepmind.google/blog/rss.xml",
@@ -3540,6 +3545,12 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(
             oecd["homepage"], "https://www.oecd.org/en/about/newsroom.html"
         )
+        self.assertEqual(oecd["coverage_tier"], "S")
+        self.assertTrue(oecd["strict_relevance"])
+        oecd_hubs = active_sources["OECD STI Topic Hubs"]
+        self.assertEqual(oecd_hubs["fetch_mode"], "jina_listing")
+        self.assertEqual(oecd_hubs["publisher_domain"], "oecd.org")
+        self.assertGreaterEqual(len(oecd_hubs["proxy_listing_urls"]), 8)
 
     def test_gdelt_domain_source_keeps_only_original_publisher_urls(self):
         class Response:
@@ -3642,6 +3653,169 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertTrue(items[0]["url"].startswith("https://www.oecd.org/"))
         self.assertIn("Official publisher sitemap", items[0]["discovery_method"])
+
+    def test_jina_sitemap_enriches_official_title_summary_and_date(self):
+        article_url = (
+            "https://www.oecd.org/en/publications/2026/07/"
+            "new-research-and-development-tax-incentives.html"
+        )
+
+        class Response:
+            status_code = 200
+
+            def __init__(self, text):
+                self.text = text
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, url, **_kwargs):
+                if "sitemap" in url:
+                    return Response(
+                        f"[{article_url}]({article_url})\n\n"
+                        "2026-08-01T00:01:00Z\n"
+                    )
+                return Response(
+                    "Title: Government support for business R&D reaches a record high\n"
+                    f"URL Source: {article_url}\n"
+                    "Published Time: 2026-07-31T09:30:00Z\n"
+                    "Markdown Content:\n"
+                    "# Government support for business R&D reaches a record high\n"
+                    "OECD data show expanded R&D tax incentives and direct public "
+                    "support for business research and development.\n"
+                )
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Economic, science and innovation policy",
+            "proxy_sitemap_url": "https://r.jina.ai/http://www.oecd.org/sitemap.xml",
+            "publisher_domain": "oecd.org",
+            "include_link_patterns": ["/en/publications/"],
+            "strict_relevance": True,
+            "jina_detail_daily_limit": 5,
+        }
+        now = datetime(2026, 8, 1, 12, tzinfo=timezone.utc)
+
+        items, result = collector.fetch_jina_sitemap_source(
+            Session(), source, now - timedelta(days=3), now
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(
+            items[0]["title"],
+            "Government support for business R&D reaches a record high",
+        )
+        self.assertIn("expanded R&D tax incentives", items[0]["summary"])
+        self.assertEqual(items[0]["url"], article_url)
+        self.assertTrue(items[0]["published_at"].startswith("2026-07-31"))
+        self.assertIn("detail_pages=1", result.detail)
+        self.assertIn("detail_fallbacks=0", result.detail)
+
+    def test_jina_sitemap_rejects_mismatched_detail_identity(self):
+        article_url = (
+            "https://www.oecd.org/en/publications/2026/07/"
+            "new-research-and-development-tax-incentives.html"
+        )
+
+        class Response:
+            status_code = 200
+
+            def __init__(self, text):
+                self.text = text
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, url, **_kwargs):
+                if "sitemap" in url:
+                    return Response(
+                        f"[{article_url}]({article_url})\n\n"
+                        "2026-08-01T00:01:00Z\n"
+                    )
+                return Response(
+                    "Title: Untrusted replacement title\n"
+                    "URL Source: https://example.com/copied-story\n"
+                    "Published Time: 2026-08-01T00:00:00Z\n"
+                    "Markdown Content: fabricated text\n"
+                )
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Economic, science and innovation policy",
+            "proxy_sitemap_url": "https://r.jina.ai/http://www.oecd.org/sitemap.xml",
+            "publisher_domain": "oecd.org",
+            "include_link_patterns": ["/en/publications/"],
+            "strict_relevance": True,
+            "jina_detail_daily_limit": 5,
+        }
+        now = datetime(2026, 8, 1, 12, tzinfo=timezone.utc)
+
+        items, result = collector.fetch_jina_sitemap_source(
+            Session(), source, now - timedelta(days=3), now
+        )
+
+        self.assertEqual(len(items), 1)
+        self.assertEqual(
+            items[0]["title"],
+            "new research and development tax incentives",
+        )
+        self.assertEqual(items[0]["summary"], "")
+        self.assertEqual(items[0]["url"], article_url)
+        self.assertIn("detail_fallbacks=1", result.detail)
+
+    def test_jina_sitemap_sorts_candidates_by_parsed_date(self):
+        older = (
+            "https://www.oecd.org/en/publications/2026/07/"
+            "older-research-and-development-policy.html"
+        )
+        newer = (
+            "https://www.oecd.org/en/publications/2026/07/"
+            "newer-research-and-development-policy.html"
+        )
+
+        class Response:
+            text = (
+                f"[{older}]({older})\n2026-07-30T00:00:00Z\n"
+                f"[{newer}]({newer})\n2026-08-01T00:00:00Z\n"
+            )
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, *_args, **_kwargs):
+                return Response()
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Economic, science and innovation policy",
+            "proxy_sitemap_url": "https://r.jina.ai/http://www.oecd.org/sitemap.xml",
+            "publisher_domain": "oecd.org",
+            "include_link_patterns": ["/en/publications/"],
+            "jina_detail_daily_limit": 0,
+        }
+        now = datetime(2026, 8, 1, 12, tzinfo=timezone.utc)
+
+        items, _ = collector.fetch_jina_sitemap_source(
+            Session(), source, now - timedelta(days=3), now
+        )
+
+        self.assertEqual([row["url"] for row in items], [newer, older])
 
     def test_fusion_topic_requires_explicit_nuclear_fusion_evidence(self):
         self.assertEqual(

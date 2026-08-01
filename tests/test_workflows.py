@@ -110,6 +110,18 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn('\"proxy_sitemap_url\"', script)
         self.assertIn('"kind": "article"', script)
 
+    def test_oecd_recovery_is_targeted_and_requires_public_coverage(self):
+        workflow = (
+            ROOT / ".github" / "workflows" / "oecd-recovery.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn('".github/manual-oecd-collection-trigger"', workflow)
+        self.assertIn('--source "OECD Newsroom"', workflow)
+        self.assertIn('--source "OECD STI Topic Hubs"', workflow)
+        self.assertIn("--backfill", workflow)
+        self.assertIn("Strict review published no OECD item", workflow)
+        self.assertIn("OPENAI_API_KEY", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

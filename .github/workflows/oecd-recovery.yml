@@ -1,0 +1,101 @@
+name: Recover OECD policy coverage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/manual-oecd-collection-trigger"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: innovation-news-collection
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Test OECD collector and health gates
+        run: |
+          python -m unittest tests.test_collector tests.test_probe_source
+
+      - name: Backfill and strictly review OECD only
+        run: |
+          python -u scripts/collect.py \
+            --backfill \
+            --source "OECD Newsroom" \
+            --source "OECD STI Topic Hubs"
+          python -u scripts/validate_outputs.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SOURCE_FETCH_WORKERS: "2"
+          JAPANESE_SUMMARY_MODEL: gpt-5.6-luna
+          JAPANESE_SUMMARY_BATCH_SIZE: "6"
+          JAPANESE_SUMMARY_MAX_TOKENS: "4000"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: "200"
+          JAPANESE_SUMMARY_REQUEST_BUDGET: "60"
+          JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
+
+      - name: Require live OECD coverage
+        run: |
+          python - <<'PY'
+          import json
+          from urllib.parse import urlsplit
+
+          status = json.load(open("data/source_status.json", encoding="utf-8"))
+          oecd_status = [
+              row for row in status.get("sources", [])
+              if row.get("organization") == "OECD"
+          ]
+          if not any(
+              row.get("status") == "ok" and int(row.get("entries_seen") or 0) > 0
+              for row in oecd_status
+          ):
+              raise SystemExit("OECD discovery is not healthy")
+
+          public = json.load(open("docs/data/news.json", encoding="utf-8"))
+          items = [
+              row for row in public.get("items", [])
+              if row.get("source") in {"OECD Newsroom", "OECD STI Topic Hubs"}
+          ]
+          if not items:
+              raise SystemExit("Strict review published no OECD item")
+          invalid = [
+              row.get("url", "") for row in items
+              if not (urlsplit(row.get("url", "")).hostname or "").lower().endswith("oecd.org")
+          ]
+          if invalid:
+              raise SystemExit(f"Non-OECD canonical URLs found: {invalid[:3]}")
+          print(f"OECD public items: {len(items)}")
+          PY
+
+      - name: Commit recovered OECD data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs/data docs/innovation_news_ledger.xlsx
+          if git diff --cached --quiet; then
+            echo "No OECD data changes to commit."
+          else
+            git commit -m "data: recover OECD policy coverage"
+            git push
+          fi
