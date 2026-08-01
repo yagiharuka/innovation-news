@@ -121,6 +121,17 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("--backfill", workflow)
         self.assertIn("Strict review published no OECD item", workflow)
         self.assertIn("OPENAI_API_KEY", workflow)
+        self.assertIn("OECD strict review is incomplete", workflow)
+        self.assertIn('row.get("last_checked_at") == checked_at', workflow)
+        self.assertIn('hostname or "").lower() == "oecd.org"', workflow)
+
+    def test_url_audit_serializes_writes_and_always_uploads_diagnostics(self):
+        workflow = (
+            ROOT / ".github" / "workflows" / "url-audit.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertIn("group: innovation-news-collection", workflow)
+        self.assertIn("- name: Upload full audit report\n        if: always()", workflow)
 
 
 if __name__ == "__main__":

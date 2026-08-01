@@ -39,11 +39,31 @@ jobs:
           python -m unittest tests.test_collector tests.test_probe_source
 
       - name: Backfill and strictly review OECD only
+        shell: bash
         run: |
-          python -u scripts/collect.py \
-            --backfill \
-            --source "OECD Newsroom" \
-            --source "OECD STI Topic Hubs"
+          set -euo pipefail
+          result=2
+          for attempt in 1 2 3; do
+            echo "OECD recovery attempt ${attempt}/3"
+            set +e
+            python -u scripts/collect.py \
+              --backfill \
+              --source "OECD Newsroom" \
+              --source "OECD STI Topic Hubs"
+            result=$?
+            set -e
+            if [ "$result" -eq 0 ]; then
+              break
+            fi
+            if [ "$result" -ne 2 ]; then
+              exit "$result"
+            fi
+            sleep 5
+          done
+          if [ "$result" -ne 0 ]; then
+            echo "OECD strict review did not finish after three attempts" >&2
+            exit "$result"
+          fi
           python -u scripts/validate_outputs.py
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -51,9 +71,9 @@ jobs:
           JAPANESE_SUMMARY_MODEL: gpt-5.6-luna
           JAPANESE_SUMMARY_BATCH_SIZE: "6"
           JAPANESE_SUMMARY_MAX_TOKENS: "4000"
-          JAPANESE_SUMMARY_BACKFILL_LIMIT: "200"
-          JAPANESE_SUMMARY_REQUEST_BUDGET: "60"
-          JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
+          JAPANESE_SUMMARY_BACKFILL_LIMIT: "1000"
+          JAPANESE_SUMMARY_REQUEST_BUDGET: "120"
+          JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "2.1"
 
       - name: Require live OECD coverage
         run: |
@@ -61,16 +81,44 @@ jobs:
           import json
           from urllib.parse import urlsplit
 
+          import sys
+          sys.path.insert(0, "scripts")
+          import collect
+
+          expected_sources = {"OECD Newsroom", "OECD STI Topic Hubs"}
           status = json.load(open("data/source_status.json", encoding="utf-8"))
-          oecd_status = [
-              row for row in status.get("sources", [])
-              if row.get("organization") == "OECD"
+          checked_at = status.get("updated_at", "")
+          oecd_status = {
+              row.get("name"): row
+              for row in status.get("sources", [])
+              if row.get("name") in expected_sources
+          }
+          missing = expected_sources - set(oecd_status)
+          if missing:
+              raise SystemExit(f"OECD status rows are missing: {sorted(missing)}")
+          unhealthy = [
+              name for name, row in oecd_status.items()
+              if not (
+                  row.get("status") == "ok"
+                  and int(row.get("entries_seen") or 0) > 0
+                  and int(row.get("entries_kept") or 0) > 0
+                  and row.get("last_checked_at") == checked_at
+              )
           ]
-          if not any(
-              row.get("status") == "ok" and int(row.get("entries_seen") or 0) > 0
-              for row in oecd_status
-          ):
-              raise SystemExit("OECD discovery is not healthy")
+          if unhealthy:
+              raise SystemExit(f"OECD discovery is not healthy: {unhealthy}")
+
+          target_items = [
+              row for row in collect.load_master()
+              if row.get("source") in expected_sources
+          ]
+          pending = [
+              row for row in target_items if collect.needs_scope_review(row)
+          ]
+          if pending:
+              raise SystemExit(
+                  f"OECD strict review is incomplete: {len(pending)} pending"
+              )
 
           public = json.load(open("docs/data/news.json", encoding="utf-8"))
           items = [
@@ -81,7 +129,10 @@ jobs:
               raise SystemExit("Strict review published no OECD item")
           invalid = [
               row.get("url", "") for row in items
-              if not (urlsplit(row.get("url", "")).hostname or "").lower().endswith("oecd.org")
+              if not (
+                  ((urlsplit(row.get("url", "")).hostname or "").lower() == "oecd.org")
+                  or ((urlsplit(row.get("url", "")).hostname or "").lower().endswith(".oecd.org"))
+              )
           ]
           if invalid:
               raise SystemExit(f"Non-OECD canonical URLs found: {invalid[:3]}")

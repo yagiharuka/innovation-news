@@ -19,7 +19,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: innovation-news-url-audit
+  group: innovation-news-collection
   cancel-in-progress: false
 
 jobs:
@@ -61,6 +61,7 @@ jobs:
           python -u scripts/probe_source.py --source "ITER News" --days 40 --output data/source_probes/iter-news.json
 
       - name: Upload full audit report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: innovation-news-url-audit

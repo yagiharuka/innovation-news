@@ -3774,6 +3774,87 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["url"], article_url)
         self.assertIn("detail_fallbacks=1", result.detail)
 
+    def test_jina_metadata_requires_an_explicit_first_party_source(self):
+        article_url = "https://www.oecd.org/en/publications/example.html"
+
+        class Response:
+            text = (
+                "Title: Government support for research and development\n"
+                "Published Time: 2026-07-31T09:30:00Z\n"
+                "Markdown Content: OECD policy evidence\n"
+            )
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, *_args, **_kwargs):
+                return Response()
+
+        fallback_date = datetime(2026, 7, 30, tzinfo=timezone.utc)
+        title, summary, published, enriched = collector.fetch_jina_page_metadata(
+            Session(),
+            article_url,
+            "oecd.org",
+            "fallback title",
+            "fallback summary",
+            fallback_date,
+        )
+
+        self.assertEqual(title, "fallback title")
+        self.assertEqual(summary, "fallback summary")
+        self.assertEqual(published, fallback_date)
+        self.assertFalse(enriched)
+
+    def test_jina_sitemap_checks_formal_metadata_before_relevance(self):
+        article_url = "https://www.oecd.org/en/publications/2026/07/outlook.html"
+
+        class Response:
+            def __init__(self, text):
+                self.text = text
+
+            def raise_for_status(self):
+                return None
+
+        class Session:
+            def get(self, url, **_kwargs):
+                if "sitemap" in url:
+                    return Response(
+                        f"[{article_url}]({article_url})\n"
+                        "2026-07-31T00:00:00Z\n"
+                    )
+                return Response(
+                    "Title: OECD science technology and innovation policy outlook\n"
+                    f"URL Source: {article_url}\n"
+                    "Published Time: 2026-07-31T00:00:00Z\n"
+                    "Markdown Content: Government research and development "
+                    "funding, industrial policy and innovation strategy.\n"
+                )
+
+        source = {
+            "name": "OECD Newsroom",
+            "organization": "OECD",
+            "source_type": "Intergovernmental",
+            "region": "Global",
+            "country": "Global",
+            "category": "Science and innovation policy",
+            "proxy_sitemap_url": "https://r.jina.ai/http://www.oecd.org/sitemap.xml",
+            "publisher_domain": "oecd.org",
+            "include_link_patterns": ["/en/publications/"],
+            "strict_relevance": True,
+            "jina_detail_daily_limit": 5,
+        }
+        now = datetime(2026, 8, 1, 12, tzinfo=timezone.utc)
+
+        items, result = collector.fetch_jina_sitemap_source(
+            Session(), source, now - timedelta(days=3), now
+        )
+
+        self.assertEqual(result.status, "ok")
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["url"], article_url)
+        self.assertIn("innovation policy outlook", items[0]["title"])
+
     def test_jina_sitemap_sorts_candidates_by_parsed_date(self):
         older = (
             "https://www.oecd.org/en/publications/2026/07/"
@@ -3816,6 +3897,18 @@ class CollectorTests(unittest.TestCase):
         )
 
         self.assertEqual([row["url"] for row in items], [newer, older])
+
+    def test_source_count_breakdown_is_internally_consistent(self):
+        sources = [
+            {"active": True, "cadence": "daily", "coverage_tier": "S"},
+            {"active": True, "cadence": "weekly", "coverage_tier": "A"},
+            {"active": False, "cadence": "daily", "coverage_tier": "B"},
+        ]
+
+        self.assertEqual(
+            collector.source_count_breakdown(sources),
+            {"daily": 1, "weekly": 1, "tier_s": 1, "tier_a": 1, "tier_b": 0},
+        )
 
     def test_fusion_topic_requires_explicit_nuclear_fusion_evidence(self):
         self.assertEqual(

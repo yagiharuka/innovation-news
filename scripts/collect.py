@@ -3042,7 +3042,9 @@ def fetch_jina_page_metadata(
         response.raise_for_status()
         detail_text = response.text
         source_match = re.search(r"(?im)^URL Source:\s*(\S+)", detail_text)
-        if source_match and not publisher_url_matches_domain(
+        if not source_match:
+            raise ValueError("Jina response did not identify its source URL")
+        if not publisher_url_matches_domain(
             source_match.group(1), publisher_domain
         ):
             raise ValueError("Jina source identity does not match publisher")
@@ -3166,9 +3168,7 @@ def fetch_jina_sitemap_source(
             seen_urls.add(canonical_url)
             slug = unquote(urlsplit(link).path.rstrip("/").rsplit("/", 1)[-1])
             title = normalize_space(slug.removesuffix(".html").replace("-", " "))
-            if not title or not source_text_filter_allows(source, title):
-                continue
-            if not (classify_policy_areas(title) or classify_topics(title)):
+            if not title:
                 continue
             candidates.append((published, link, title))
 
@@ -3322,7 +3322,7 @@ def fetch_jina_listing_source(
     detail_limit = max(
         0,
         min(
-            12,
+            50,
             int(
                 source.get(
                     "jina_detail_backfill_limit"
@@ -3391,8 +3391,6 @@ def fetch_jina_listing_source(
             context = normalize_space(
                 body[max(0, match.start() - 260): match.end() + 360]
             )
-            if not source_text_filter_allows(source, title, context):
-                continue
             published = infer_date_from_url(link)
             if published is None:
                 published = parse_listing_date(context, unknown_date)
@@ -3414,39 +3412,30 @@ def fetch_jina_listing_source(
     detail_fetches = 0
     for title, link, context, published, date_known in candidates:
         summary = context
-        if not date_known and detail_fetches < detail_limit:
+        if detail_fetches < detail_limit:
             detail_fetches += 1
-            try:
-                detail = session.get(
-                    jina_reader_url(link),
-                    headers={"Accept": "text/plain,*/*;q=0.1"},
-                    timeout=(10, 60),
-                )
-                detail.raise_for_status()
-                detail_text = detail.text
-                title_match = re.search(
-                    r"(?im)^Title:\s*(.+)$", detail_text
-                )
-                if title_match:
-                    detail_title = normalize_space(title_match.group(1))
-                    if len(detail_title) >= 8:
-                        title = detail_title
-                date_match = re.search(
-                    r"(?im)^(?:Published Time|Publication Date|Date):\s*(.+)$",
-                    detail_text,
-                )
-                if date_match:
-                    parsed_date = parse_archive_date(date_match.group(1))
-                    if parsed_date is not None:
-                        published = parsed_date
-                        date_known = True
-                content_marker = detail_text.find("Markdown Content:")
-                if content_marker >= 0:
-                    summary = normalize_space(
-                        detail_text[content_marker + 17: content_marker + 1117]
-                    )
-            except requests.RequestException:
-                pass
+            hostname = (
+                (urlsplit(link).hostname or "")
+                .casefold()
+                .removeprefix("www.")
+            )
+            matching_domain = next(
+                (
+                    domain
+                    for domain in publisher_domains
+                    if hostname == domain or hostname.endswith(f".{domain}")
+                ),
+                "",
+            )
+            title, summary, published, _enriched = fetch_jina_page_metadata(
+                session,
+                link,
+                matching_domain,
+                title,
+                context,
+                published,
+            )
+            date_known = published != unknown_date
         if not date_known:
             continue
         if not (cutoff <= published <= collected_at + timedelta(days=2)):
@@ -5863,6 +5852,28 @@ def item_within_public_window(
     return False
 
 
+def source_count_breakdown(sources: Iterable[dict[str, Any]]) -> dict[str, int]:
+    """Return one internally consistent source-registry count snapshot."""
+    active_sources = [source for source in sources if source.get("active")]
+    return {
+        "daily": sum(
+            1 for source in active_sources if source_cadence(source) == "daily"
+        ),
+        "weekly": sum(
+            1 for source in active_sources if source_cadence(source) == "weekly"
+        ),
+        "tier_s": sum(
+            1 for source in active_sources if source_coverage_tier(source) == "S"
+        ),
+        "tier_a": sum(
+            1 for source in active_sources if source_coverage_tier(source) == "A"
+        ),
+        "tier_b": sum(
+            1 for source in active_sources if source_coverage_tier(source) == "B"
+        ),
+    }
+
+
 def save_json_outputs(
     items: list[dict[str, Any]],
     sources: list[dict[str, Any]],
@@ -5893,33 +5904,7 @@ def save_json_outputs(
         },
         "article_count": len(public_items),
         "source_count": sum(1 for source in sources if source.get("active")),
-        "source_counts": {
-            "daily": sum(
-                1
-                for source in sources
-                if source.get("active") and source_cadence(source) == "daily"
-            ),
-            "weekly": sum(
-                1
-                for source in sources
-                if source.get("active") and source_cadence(source) == "weekly"
-            ),
-            "tier_s": sum(
-                1
-                for source in sources
-                if source.get("active") and source_coverage_tier(source) == "S"
-            ),
-            "tier_a": sum(
-                1
-                for source in sources
-                if source.get("active") and source_coverage_tier(source) == "A"
-            ),
-            "tier_b": sum(
-                1
-                for source in sources
-                if source.get("active") and source_coverage_tier(source) == "B"
-            ),
-        },
+        "source_counts": source_count_breakdown(sources),
         "items": public_items,
     }
     write_public_payload(payload)
@@ -6131,6 +6116,7 @@ def preserve_previous_publication(previous_path: Path) -> int:
         source for source in config["sources"] if source.get("active")
     ]
     payload["source_count"] = len(active_sources)
+    payload["source_counts"] = source_count_breakdown(active_sources)
     write_public_payload(payload)
     ledger_items = hydrate_preserved_ledger_items(
         payload["items"],
@@ -6698,11 +6684,16 @@ def run(
     candidates = exclude_retired_sources(candidates)
     new_items, duplicates = deduplicate(candidates, existing)
     merged = exclude_retired_sources(new_items + existing)
-    repaired = apply_targeted_quality_repairs(merged)
+    targeted_items = (
+        [item for item in merged if item.get("source") in requested_sources]
+        if requested_sources
+        else merged
+    )
+    repaired = apply_targeted_quality_repairs(targeted_items)
     if repaired:
         print(f"[QUALITY] targeted_repairs={repaired}")
     merged.sort(key=lambda item: item.get("published_at", ""), reverse=True)
-    academic_refresh = refresh_academic_review_summaries(session, merged)
+    academic_refresh = refresh_academic_review_summaries(session, targeted_items)
     if academic_refresh["targets"]:
         print(
             "[ACADEMIC] "
@@ -6712,17 +6703,29 @@ def run(
             f"errors={academic_refresh['errors']}"
         )
     priority_items = (
-        fresh_priority_review_items(merged, collected_at)
-        if not backfill
-        else None
+        [item for item in targeted_items if needs_scope_review(item)]
+        if requested_sources
+        else (
+            fresh_priority_review_items(merged, collected_at)
+            if not backfill
+            else None
+        )
+    )
+    targeted_new_items = (
+        [item for item in new_items if item.get("source") in requested_sources]
+        if requested_sources
+        else new_items
     )
     summary_result = enrich_japanese_summaries(
-        merged,
-        new_items,
+        targeted_items,
+        targeted_new_items,
         selected_items=priority_items,
     )
-    normalize_reviewed_topics(merged)
-    normalize_reviewed_policy_axis(merged)
+    normalize_reviewed_topics(targeted_items)
+    normalize_reviewed_policy_axis(targeted_items)
+    targeted_pending = sum(
+        1 for item in targeted_items if needs_scope_review(item)
+    )
     excluded_ids = set(summary_result["excluded_ids"])
     publishable_items = [item for item in merged if is_publishable(item)]
     publishable_new_items = [item for item in new_items if is_publishable(item)]
@@ -6795,6 +6798,9 @@ def run(
             "rate_limited_at",
             "",
         ),
+        "targeted_sources": sorted(requested_sources),
+        "targeted_items": len(targeted_items) if requested_sources else 0,
+        "targeted_pending": targeted_pending if requested_sources else 0,
         "duration_seconds": round(time.monotonic() - started, 2),
         "note": (
             (
@@ -6827,6 +6833,8 @@ def run(
                 "items_excluded": len(excluded_ids),
                 "summaries_pending": summary_result["pending"],
                 "summary_errors": summary_result["errors"],
+                "targeted_sources": sorted(requested_sources),
+                "targeted_pending": targeted_pending if requested_sources else 0,
                 "ledger_items": len(public_payload.get("items", [])),
                 "mode": "historical_backfill" if backfill else cadence,
                 "archive_items": len(archive_items),
@@ -6836,6 +6844,20 @@ def run(
             ensure_ascii=False,
         )
     )
+    if requested_sources and (
+        targeted_pending
+        or summary_result.get("rate_limited")
+        or summary_result.get("request_budget_reached")
+    ):
+        print(
+            "[TARGETED] incomplete: "
+            f"pending={targeted_pending} "
+            f"rate_limited={summary_result.get('rate_limited', False)} "
+            "request_budget_reached="
+            f"{summary_result.get('request_budget_reached', False)}",
+            file=sys.stderr,
+        )
+        return 2
     return 0
 
 
