@@ -402,31 +402,44 @@ function bindControls() {
   });
 }
 
-const DATA_SOURCES = ["./data/news-lite.json", "./data/news.json"];
 const RETRY_DELAYS_MS = [0, 800, 2000];
 
 function wait(milliseconds) {
   return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
-async function fetchNewsPayload() {
+async function fetchJson(source, retryDelays = RETRY_DELAYS_MS) {
   let lastError = new Error("記事データを取得できませんでした");
-  for (const source of DATA_SOURCES) {
-    for (let attempt = 0; attempt < RETRY_DELAYS_MS.length; attempt += 1) {
-      if (RETRY_DELAYS_MS[attempt]) await wait(RETRY_DELAYS_MS[attempt]);
-      try {
-        const separator = source.includes("?") ? "&" : "?";
-        const response = await fetch(`${source}${separator}attempt=${attempt}`, {
-          cache: "no-store",
-        });
-        if (!response.ok) throw new Error(`${source}: HTTP ${response.status}`);
-        return await response.json();
-      } catch (error) {
-        lastError = error;
-      }
+  for (let attempt = 0; attempt < retryDelays.length; attempt += 1) {
+    if (retryDelays[attempt]) await wait(retryDelays[attempt]);
+    try {
+      const separator = source.includes("?") ? "&" : "?";
+      const response = await fetch(`${source}${separator}attempt=${attempt}`, {
+        cache: "no-store",
+      });
+      if (!response.ok) throw new Error(`${source}: HTTP ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      lastError = error;
     }
   }
   throw lastError;
+}
+
+async function fetchNewsPayload() {
+  try {
+    const manifest = await fetchJson("./data/news-lite.json");
+    if (!Array.isArray(manifest.chunks)) throw new Error("Invalid site manifest");
+    const chunkPayloads = await Promise.all(
+      manifest.chunks.map((name) => fetchJson(`./data/${name}`)),
+    );
+    return {
+      ...manifest,
+      items: chunkPayloads.flatMap((payload) => payload.items || []),
+    };
+  } catch (error) {
+    return fetchJson("./data/news.json");
+  }
 }
 
 async function loadData() {
