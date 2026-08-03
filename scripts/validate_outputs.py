@@ -25,6 +25,7 @@ def main() -> int:
     public_news = load_json(ROOT / "docs" / "data" / "news.json")
     if data_news != public_news:
         raise ValueError("data/news.json and docs/data/news.json differ")
+    site_news = load_json(ROOT / "docs" / "data" / "news-lite.json")
 
     items = public_news.get("items", [])
     if public_news.get("article_count") != len(items):
@@ -34,6 +35,14 @@ def main() -> int:
         raise ValueError("public article IDs are empty or duplicated")
     if any(item.get("source") == "OpenAI News" for item in items):
         raise ValueError("retired OpenAI News records remain public")
+    site_items = site_news.get("items", [])
+    site_item_ids = [str(item.get("id") or "") for item in site_items]
+    if site_news.get("article_count") != len(site_items):
+        raise ValueError("site article_count does not match the JSON item count")
+    if site_item_ids != item_ids:
+        raise ValueError("site JSON article IDs/order do not match public JSON")
+    if any("summary_original" in item for item in site_items):
+        raise ValueError("site JSON contains oversized original summaries")
 
     config = load_json(ROOT / "config" / "sources.json")
     active_sources = [
@@ -64,18 +73,28 @@ def main() -> int:
     )
     ledger = workbook["News Ledger"]
     ledger_ids = [
-        str(ledger.cell(row=row, column=12).value or "")
-        for row in range(4, ledger.max_row + 1)
-        if ledger.cell(row=row, column=12).value
+        str(row[0] or "")
+        for row in ledger.iter_rows(
+            min_row=4,
+            min_col=12,
+            max_col=12,
+            values_only=True,
+        )
+        if row[0]
     ]
     if ledger_ids != item_ids:
         raise ValueError("Excel article IDs/order do not match public JSON")
 
     registry = workbook["Source Registry"]
     registry_names = [
-        str(registry.cell(row=row, column=5).value or "")
-        for row in range(4, registry.max_row + 1)
-        if registry.cell(row=row, column=5).value
+        str(row[0] or "")
+        for row in registry.iter_rows(
+            min_row=4,
+            min_col=5,
+            max_col=5,
+            values_only=True,
+        )
+        if row[0]
     ]
     if registry_names != source_names:
         raise ValueError("Excel source registry does not match config order")

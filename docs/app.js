@@ -402,11 +402,38 @@ function bindControls() {
   });
 }
 
+const DATA_SOURCES = ["./data/news-lite.json", "./data/news.json"];
+const RETRY_DELAYS_MS = [0, 800, 2000];
+
+function wait(milliseconds) {
+  return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
+async function fetchNewsPayload() {
+  let lastError = new Error("記事データを取得できませんでした");
+  for (const source of DATA_SOURCES) {
+    for (let attempt = 0; attempt < RETRY_DELAYS_MS.length; attempt += 1) {
+      if (RETRY_DELAYS_MS[attempt]) await wait(RETRY_DELAYS_MS[attempt]);
+      try {
+        const separator = source.includes("?") ? "&" : "?";
+        const response = await fetch(`${source}${separator}attempt=${attempt}`, {
+          cache: "no-store",
+        });
+        if (!response.ok) throw new Error(`${source}: HTTP ${response.status}`);
+        return await response.json();
+      } catch (error) {
+        lastError = error;
+      }
+    }
+  }
+  throw lastError;
+}
+
 async function loadData() {
   try {
-    const response = await fetch("./data/news.json", { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const payload = await response.json();
+    elements.updatedAt.textContent = "記事データを読み込んでいます";
+    elements.feedNote.textContent = "通信状況により数秒かかる場合があります";
+    const payload = await fetchNewsPayload();
     const items = Array.isArray(payload.items) ? payload.items : [];
     state.items = items.filter((item) => !RETIRED_SOURCE_NAMES.has(item.source));
     elements.articleCount.textContent = state.items.length.toLocaleString("ja-JP");

@@ -2,6 +2,7 @@ import importlib.util
 import json
 import os
 import sys
+import tempfile
 import threading
 import time
 import unittest
@@ -19,6 +20,44 @@ SPEC.loader.exec_module(collector)
 
 
 class CollectorTests(unittest.TestCase):
+    def test_write_public_payload_creates_matching_lightweight_site_feed(self):
+        payload = {
+            "article_count": 1,
+            "source_count": 1,
+            "items": [
+                {
+                    "id": "article-1",
+                    "title": "Test article",
+                    "summary": "Short Japanese summary",
+                    "summary_original": "Large source text that the site does not need",
+                    "source": "Test Source",
+                    "url": "https://example.com/article-1",
+                }
+            ],
+        }
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            master_path = tmp_path / "data" / "news.json"
+            public_path = tmp_path / "docs" / "data" / "news.json"
+            site_path = tmp_path / "docs" / "data" / "news-lite.json"
+            master_path.parent.mkdir(parents=True)
+            public_path.parent.mkdir(parents=True)
+            with (
+                mock.patch.object(collector, "MASTER_JSON", master_path),
+                mock.patch.object(collector, "PUBLIC_JSON", public_path),
+                mock.patch.object(collector, "PUBLIC_SITE_JSON", site_path),
+            ):
+                collector.write_public_payload(payload)
+
+            full_payload = json.loads(public_path.read_text(encoding="utf-8"))
+            site_payload = json.loads(site_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(full_payload, payload)
+        self.assertEqual(site_payload["article_count"], 1)
+        self.assertEqual(site_payload["items"][0]["id"], "article-1")
+        self.assertNotIn("summary_original", site_payload["items"][0])
+
     def test_exclude_retired_sources_removes_openai_news_only(self):
         items = [
             {"source": "OpenAI News", "title": "retired"},
