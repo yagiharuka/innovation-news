@@ -58,6 +58,7 @@ SOURCE_STATUS_JSON = DATA_DIR / "source_status.json"
 BACKFILL_STATE_JSON = DATA_DIR / "backfill_state.json"
 REVIEW_STATE_JSON = DATA_DIR / "review_state.json"
 PUBLIC_JSON = DOCS_DATA_DIR / "news.json"
+PUBLIC_SITE_JSON = DOCS_DATA_DIR / "news-lite.json"
 PUBLIC_SOURCE_STATUS = DOCS_DATA_DIR / "source_status.json"
 TEMPLATE_XLSX = ROOT / "assets" / "innovation_news_ledger_template.xlsx"
 PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
@@ -5943,6 +5944,35 @@ def write_public_payload(payload: dict[str, Any]) -> None:
         with path.open("w", encoding="utf-8") as handle:
             json.dump(payload, handle, ensure_ascii=False, indent=2)
             handle.write("\n")
+
+    site_fields = {
+        "id",
+        "published_at",
+        "region",
+        "country",
+        "topics",
+        "article_frames",
+        "policy_areas",
+        "policy_relevance",
+        "source_type",
+        "source",
+        "organization",
+        "academic_kind",
+        "review_status",
+        "venue",
+        "title",
+        "title_original",
+        "summary",
+        "url",
+    }
+    site_payload = dict(payload)
+    site_payload["items"] = [
+        {key: value for key, value in item.items() if key in site_fields}
+        for item in payload.get("items", [])
+    ]
+    with PUBLIC_SITE_JSON.open("w", encoding="utf-8") as handle:
+        json.dump(site_payload, handle, ensure_ascii=False, separators=(",", ":"))
+        handle.write("\n")
 
 
 def load_public_payload(path: Path = PUBLIC_JSON) -> dict[str, Any]:
