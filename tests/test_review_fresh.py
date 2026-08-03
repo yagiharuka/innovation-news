@@ -1,6 +1,7 @@
 import importlib.util
 import sys
 import unittest
+from unittest import mock
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -50,6 +51,32 @@ class FreshReviewTests(unittest.TestCase):
             [item["canonical_id"] for item in selected],
             ["oldest-36h", "old-30h"],
         )
+
+    def test_completed_empty_queue_refreshes_checkpoint(self):
+        checked_at = datetime(2026, 8, 3, 0, 5, tzinfo=timezone.utc)
+        state = {
+            "status": "completed",
+            "review_version": collect.TECH_SCOPE_REVIEW_VERSION,
+            "updated_at": "2026-08-01T00:00:00Z",
+            "pending_in_window": 0,
+            "pending_priority_36h": 0,
+        }
+        with (
+            mock.patch.object(collect, "load_review_state", return_value=state),
+            mock.patch.object(collect, "now_utc", return_value=checked_at),
+            mock.patch.object(
+                collect,
+                "load_public_payload",
+                return_value={"items": [{"id": "published"}]},
+            ),
+            mock.patch.object(collect, "save_review_state") as save_state,
+        ):
+            review_fresh.refresh_completed_checkpoint()
+
+        saved = save_state.call_args.args[0]
+        self.assertEqual(saved["updated_at"], "2026-08-03T00:05:00Z")
+        self.assertEqual(saved["pending_priority_36h"], 0)
+        self.assertEqual(saved["public_items"], 1)
 
 
 if __name__ == "__main__":
