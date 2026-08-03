@@ -51,12 +51,19 @@ class CollectorTests(unittest.TestCase):
                 collector.write_public_payload(payload)
 
             full_payload = json.loads(public_path.read_text(encoding="utf-8"))
-            site_payload = json.loads(site_path.read_text(encoding="utf-8"))
+            site_manifest = json.loads(site_path.read_text(encoding="utf-8"))
+            site_items = [
+                item
+                for chunk_name in site_manifest["chunks"]
+                for item in json.loads(
+                    (site_path.parent / chunk_name).read_text(encoding="utf-8")
+                )["items"]
+            ]
 
         self.assertEqual(full_payload, payload)
-        self.assertEqual(site_payload["article_count"], 1)
-        self.assertEqual(site_payload["items"][0]["id"], "article-1")
-        self.assertNotIn("summary_original", site_payload["items"][0])
+        self.assertEqual(site_manifest["article_count"], 1)
+        self.assertEqual(site_items[0]["id"], "article-1")
+        self.assertNotIn("summary_original", site_items[0])
 
     def test_exclude_retired_sources_removes_openai_news_only(self):
         items = [

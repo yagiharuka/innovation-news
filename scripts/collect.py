@@ -59,6 +59,7 @@ BACKFILL_STATE_JSON = DATA_DIR / "backfill_state.json"
 REVIEW_STATE_JSON = DATA_DIR / "review_state.json"
 PUBLIC_JSON = DOCS_DATA_DIR / "news.json"
 PUBLIC_SITE_JSON = DOCS_DATA_DIR / "news-lite.json"
+PUBLIC_SITE_CHUNK_SIZE = 500
 PUBLIC_SOURCE_STATUS = DOCS_DATA_DIR / "source_status.json"
 TEMPLATE_XLSX = ROOT / "assets" / "innovation_news_ledger_template.xlsx"
 PUBLIC_XLSX = DOCS_DIR / "innovation_news_ledger.xlsx"
@@ -5965,11 +5966,33 @@ def write_public_payload(payload: dict[str, Any]) -> None:
         "summary",
         "url",
     }
-    site_payload = dict(payload)
-    site_payload["items"] = [
+    site_items = [
         {key: value for key, value in item.items() if key in site_fields}
         for item in payload.get("items", [])
     ]
+    chunk_names: list[str] = []
+    for index, offset in enumerate(
+        range(0, len(site_items), PUBLIC_SITE_CHUNK_SIZE),
+        start=1,
+    ):
+        chunk_name = f"news-lite-{index}.json"
+        chunk_names.append(chunk_name)
+        chunk_path = PUBLIC_SITE_JSON.parent / chunk_name
+        with chunk_path.open("w", encoding="utf-8") as handle:
+            json.dump(
+                {"items": site_items[offset : offset + PUBLIC_SITE_CHUNK_SIZE]},
+                handle,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
+            handle.write("\n")
+
+    for stale_path in PUBLIC_SITE_JSON.parent.glob("news-lite-*.json"):
+        if stale_path.name not in chunk_names:
+            stale_path.unlink()
+
+    site_payload = {key: value for key, value in payload.items() if key != "items"}
+    site_payload["chunks"] = chunk_names
     with PUBLIC_SITE_JSON.open("w", encoding="utf-8") as handle:
         json.dump(site_payload, handle, ensure_ascii=False, separators=(",", ":"))
         handle.write("\n")

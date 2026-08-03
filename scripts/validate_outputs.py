@@ -35,7 +35,17 @@ def main() -> int:
         raise ValueError("public article IDs are empty or duplicated")
     if any(item.get("source") == "OpenAI News" for item in items):
         raise ValueError("retired OpenAI News records remain public")
-    site_items = site_news.get("items", [])
+    chunk_names = site_news.get("chunks", [])
+    if not isinstance(chunk_names, list) or not all(
+        isinstance(name, str) and name.startswith("news-lite-")
+        for name in chunk_names
+    ):
+        raise ValueError("site JSON chunk manifest is invalid")
+    site_items = [
+        item
+        for chunk_name in chunk_names
+        for item in load_json(ROOT / "docs" / "data" / chunk_name).get("items", [])
+    ]
     site_item_ids = [str(item.get("id") or "") for item in site_items]
     if site_news.get("article_count") != len(site_items):
         raise ValueError("site article_count does not match the JSON item count")
