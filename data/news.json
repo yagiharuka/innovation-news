@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-03T20:35:32Z",
-  "updated_at_jst": "2026-08-04T05:35:32+09:00",
+  "updated_at": "2026-08-04T05:25:06Z",
+  "updated_at_jst": "2026-08-04T14:25:06+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1401,
+  "article_count": 1398,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -47793,109 +47793,6 @@
       "summary_original": "Innovate UK announce an investment of over £21.5 million as part of Defra’s Farming Innovation Programme (FIP). Delivered in partnership with Innovate UK, FIP supports innovative projects that strengthen farm profitability, creates new market opportunities and drives productivity and sustainable growth of the agricultural sector. The programme plays a key role in the UK’s Modern Industrial Strategy, advancing agri-tech as part of the Advanced Manufacturing Sector Plan. The eight low emissions farming projects aim to develop ambitious new solutions that accelerate UK agriculture’s transition to low emission practices. Projects from this portfolio span low emission dairy farming, healthier li…",
       "summary_language": "ja",
       "url": "https://www.ukri.org/news/driving-growth-through-precision%e2%80%91bred-crops-and-low-emissions-farming/",
-      "first_seen": "2026-02-02T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "486377f04158da089865fdb8",
-      "published_at": "2026-02-02T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "EU & Europe",
-      "country": "International / France",
-      "topics": [
-        "Robotics",
-        "Fusion Energy"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Intergovernmental",
-      "source": "ITER News",
-      "organization": "ITER News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "ITER組立に向け、ロボットと専用工具を開発",
-      "title_original": "Robots, outils et opérateurs au diapason",
-      "summary": "ITERは、真空容器内壁に設置する約2万個の部品の組立に向け、ロボットや専用工具の開発を進めている。部品の多くは個別仕様で製作される。",
-      "summary_original": "Un important « programme dans le programme » prend forme dans un des bâtiments d’ITER initialement réservé au béryllium et désormais dédié aux préparatifs de l’assemblage, ainsi que dans les usines d’Inde et du Japon. Son objectif ? Développer les robots et les outils qui permettront d’installer sur la paroi interne de la chambre à vide près de 20 000 composants de différentes tailles, dont la plupart auront été réalisés « sur mesure ». Le défi est immense : depuis les bobines, tubulures et modules de couverture qui tapisseront la paroi interne de la chambre à vide jusqu’aux panneaux de première paroi positionnés directement face au plasma, pas moins d’une demi-douzaine de « couches » compr…",
-      "summary_language": "ja",
-      "url": "https://iter.org/fr/actualites-iter/robots-outils-operateurs-au-diapason",
-      "first_seen": "2026-02-02T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "52757c141928d1828d474452",
-      "published_at": "2026-02-02T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Asia",
-      "country": "International / France",
-      "topics": [
-        "Robotics"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Intergovernmental",
-      "source": "ITER News",
-      "organization": "ITER News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "ITER、約2万個の炉内部品を設置するロボットと工具を開発",
-      "title_original": "Robots, tools and teams playing in unison",
-      "summary": "ITERでは、プラズマ chamber の内壁に約2万個の個別設計部品を取り付けるため、ロボットと工具の開発が進んでいる。真空容器内面には複数のシステム層が重ねて設置される。",
-      "summary_original": "In an on-site building originally designed for beryllium-related activities and now dedicated to assembly preparation, as well as in factories in India and Japan, a major “project within the project” is taking shape. Its objective is to develop the robots and tooling that will enable the installation of nearly 20,000 components—large and small, and for the most part individually customized—on the inner wall of the plasma chamber. The challenge is immense: from coils, manifolds, or blanket modules attached to the vacuum vessel’s inner surface, to first-wall panels directly facing the plasma, no fewer than half a dozen “system layers,” each comprising thousands of components, are superimposed…",
-      "summary_language": "ja",
-      "url": "https://iter.org/node/20687/robots-tools-and-teams-playing-unison",
-      "first_seen": "2026-02-02T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "f2a687c36430dd0e04ebda19",
-      "published_at": "2026-02-02T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Quantum"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Astronomy and Astrophysics",
-      "organization": "Astronomy and Astrophysics",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Astronomy and Astrophysics",
-      "doi": "https://doi.org/10.1051/0004-6361/202557993",
-      "citation_count": 20,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "ハッブル定数の測定に関するコミュニティ合意報告",
-      "title_original": "The Local Distance Network: A community consensus report on the measurement of the Hubble constant at ∼1% precision",
-      "summary": "ハッブル定数の測定に関するコミュニティ合意報告を提供し、精度向上のためのアプローチを示します。",
-      "summary_original": "OpenAlex research topics: Stellar, planetary, and galactic studies; Gamma-ray bursts and supernovae; Astronomy and Astrophysical Research; Estimator; Hubble's law; Cepheid variable; Brightness; Robustness (evolution); Weighting; Local Group",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1051/0004-6361/202557993",
       "first_seen": "2026-02-02T09:00:00+09:00",
       "status": "New"
     },
