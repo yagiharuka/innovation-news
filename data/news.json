@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-04T20:34:30Z",
-  "updated_at_jst": "2026-08-05T05:34:30+09:00",
+  "updated_at": "2026-08-05T05:24:54Z",
+  "updated_at_jst": "2026-08-05T14:24:54+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1478,
+  "article_count": 1476,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -50502,40 +50502,6 @@
       "status": "New"
     },
     {
-      "id": "b691ff635beb44d27f6c0367",
-      "published_at": "2026-02-02T21:30:24Z",
-      "collected_at_jst": "2026-07-27T11:51:54+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Official Company",
-      "source": "Intel Newsroom",
-      "organization": "Intel Newsroom",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "インテル、新型Xeon 600ワークステーション向けプロセッサを発表",
-      "title_original": "Intel Launches new Intel® Xeon® 600 Processors for Workstation",
-      "summary": "インテルは、W890チップセット対応のXeon 600ワークステーション向けプロセッサを発表した。従来世代に比べ、コア数やPCIe、AI演算機能などを強化した。",
-      "summary_original": "What’s New: Intel today announced its new Intel® Xeon® 600 processors for Client Workstation, a full stack update for Intel’s high-end workstation platform (Intel® W890 Chipset). The newest generation of Intel workstation processors provides a wide range of improvements on its prior generation portfolio, including a significant increase in core count, PCIe… “The need for high-performance compute capabilities is increasing daily across a wide range of industries, and with Intel® Xeon® 600 Processors for Workstation we’re delivering the platform professionals need in their daily workflows. Incredible performance efficiency, expanded AI compute features, a host of Intel vPro® technologies and…",
-      "summary_language": "ja",
-      "url": "https://newsroom.intel.com/intel-products/intel-launches-new-intel-xeon-600-processors-for-workstation",
-      "first_seen": "2026-02-03T06:30:24+09:00",
-      "status": "New"
-    },
-    {
       "id": "a5e4c58649ced246e9928a90",
       "published_at": "2026-02-02T00:00:00Z",
       "collected_at_jst": "2026-07-27T11:51:54+09:00",
@@ -51142,45 +51108,6 @@
       "summary_language": "ja",
       "url": "https://cset.georgetown.edu/publication/the-nihs-impact-on-research-and-innovation",
       "first_seen": "2025-08-07T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "f5dc59710a410021bae58dc4",
-      "published_at": "2025-08-05T00:00:00Z",
-      "collected_at_jst": "2026-07-26T22:54:37+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence",
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "R&D Funding & Tax Incentives",
-        "National Programs & Strategy",
-        "Research System & Talent"
-      ],
-      "policy_relevance": 5,
-      "source_type": "Government",
-      "source": "NSF Policy Benchmarks",
-      "organization": "NSF Policy Benchmarks",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Curated primary-source policy benchmark",
-      "collection_mode": "Historical Backfill",
-      "title": "NSF、AIプログラム可能なクラウドラボの新しい国家ネットワークに投資",
-      "title_original": "NSF to invest in new national network of AI-programmable cloud laboratories",
-      "summary": "NSFがバイオテクノロジーと材料科学に焦点を当てたAIプログラム可能なラボに投資する。",
-      "summary_original": "NSF will invest in remotely accessible, AI-programmable laboratories, initially focused on biotechnology and materials science, to accelerate experiments and technology translation.",
-      "summary_language": "ja",
-      "url": "https://www.nsf.gov/news/nsf-invest-new-national-network-ai-programmable-cloud",
-      "first_seen": "2025-08-05T09:00:00+09:00",
       "status": "New"
     }
   ]
