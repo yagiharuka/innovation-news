@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-06T23:29:11Z",
-  "updated_at_jst": "2026-08-07T08:29:11+09:00",
+  "updated_at": "2026-08-07T00:45:43Z",
+  "updated_at_jst": "2026-08-07T09:45:43+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1664,
+  "article_count": 1672,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -49,6 +49,108 @@
       "summary_language": "ja",
       "url": "https://www.itmedia.co.jp/news/article/2608/07/2000000435/",
       "first_seen": "2026-08-07T08:21:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4989ca3431533300a0a795b1",
+      "published_at": "2026-08-07T00:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "制御性T細胞を人為的に増やし大腸炎治療に応用へ",
+      "title_original": "Artificially increasing regulatory T cells offers hope for treating colitis",
+      "summary": "理化学研究所などの国際研究グループは、末梢誘導性制御性T細胞の分化を制御する仕組みを解明した。免疫寛容に関わる細胞を人為的に増やすことで、大腸炎治療への応用が期待される。",
+      "summary_original": "An international collaborative research group, led by Team Director Ichiro Taniuchi of the Laboratory for Transcriptional Regulation at RIKEN Center for Integrative Medical Sciences and Professor Masahiko Kuroda of the Department of Molecular Pathology at Tokyo Medical University, has elucidated the differentiation control mechanism of antigen-presenting ce… Regulatory T cells can be classified into two groups: those that differentiate in the thymus, and those that differentiate from naive CD4 cells in peripheral tissues. Peripherally induced regulatory T cells are essential for immune tolerance. Since controlling their differentiation would have significant clinical implications, research…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202608/n0807-01k.html",
+      "first_seen": "2026-08-07T09:42:27+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3d1caa2a9ef617ab695859e8",
+      "published_at": "2026-08-07T00:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Scientific Publication",
+      "source": "Science Japan",
+      "organization": "Science Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "銀ナノ粒子でDNA切断・連結を従来法の2～5倍効率化",
+      "title_original": "Silver nanoparticles enable site-specific DNA cleavage and ligation 2 to 5 times more efficiently than conventional methods",
+      "summary": "名古屋大学と岐阜大学の研究者らは、銀ナノ粒子を利用してDNAを部位特異的に切断・連結する技術を確立した。従来法と比べて効率を2～5倍高めたとしている。",
+      "summary_original": "A research group led by Professor Hiroshi Abe of the Graduate School of Science and Assistant Professor Masahito Inagaki of the Graduate School of Engineering at Nagoya University, in collaboration with Professor Natsuhisa Oka of the Graduate School of Engineering at Gifu University, has established a technique that uses silver nanoparticles to cleave DNA a… Genome synthesis is a technology for constructing specific DNA sequences for specific purposes. Unlike gene editing, which modifies existing sequences, genome synthesis allows completely new sequences to be designed, but it was difficult to construct long sequences with existing techniques. In existing methods, PCR-amplified DNAs are cu…",
+      "summary_language": "ja",
+      "url": "https://sj.jst.go.jp/news/202608/n0807-03k.html",
+      "first_seen": "2026-08-07T09:42:27+09:00",
+      "status": "New"
+    },
+    {
+      "id": "5c3f14e749661a5c558d4f0d",
+      "published_at": "2026-08-07T00:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "日経クロステック",
+      "organization": "日経クロステック",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "擬似攻撃で企業AIの弱点を検証する「AIレッドチーミング」",
+      "title_original": "企業AIの「闇落ち」を防げ、擬似的な攻撃でシステムの弱点をあぶり出す",
+      "summary": "企業がAIを安全に利用するため、攻撃者の視点で擬似的な攻撃を仕掛け、システムの脆弱性や誤動作を洗い出す「AIレッドチーミング」の手法を解説する。",
+      "summary_original": "このカバーストーリーでは、AI（人工知能）が抱えるダークサイドと対策を解説してきた。だが、いくら対策を施しても、AI自体が攻撃されたり誤動作したりすれば安全に利用できない。そこで最終回となる今回は、企業などがダークサイドを避けてAIを安全に利用するための対策を解説する。そうした対策の中で特に注目を集めているのが、攻撃者目線でシステムの問題点を洗い出す「AIレッドチーミング」という手法だ。",
+      "summary_language": "ja",
+      "url": "https://xtech.nikkei.com/atcl/nxt/column/18/03673/072700006/?ST=singleview&i_cid=nbpnxt_ranking_com_allp_c_04",
+      "first_seen": "2026-08-07T09:42:27+09:00",
       "status": "New"
     },
     {
@@ -638,6 +740,40 @@
       "status": "New"
     },
     {
+      "id": "7854d8adbeb0ed9dcf8ff0ca",
+      "published_at": "2026-08-06T17:56:12Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "NASA",
+      "organization": "NASA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "NASA、SkyFall火星航空機のアンテナ電磁干渉試験を実施",
+      "title_original": "Antenna Testing for NASA’s SkyFall Mission - NASA Science",
+      "summary": "NASAは、SkyFall火星航空機に搭載する地中探査レーダーのアンテナについて、ジェット推進研究所の電磁干渉試験室で測定を行った。3機の航空機には各4台の観測機器が搭載される予定だ。",
+      "summary_original": "SkyFall ground-penetrating radar engineer Maya Román connects a coaxial cable to a test antenna in the Environmental Test Lab’s electromagnetic interference testing chamber at NASA’s Jet Propulsion Laboratory in Southern California. The antenna was pointed up during test to minimize reflections and interferences with the antenna pattern during the measurement. Equipped with four instruments each, the three SkyFall aircraft will follow in the footsteps of the agency’s Ingenuity Mars Helicopter, which flew 72 times over nearly three years , proving that powered, controlled flight is possible in the rarefied Martian atmosphere. It also demonstrated how an aerial perspective can generate valuab…",
+      "summary_language": "ja",
+      "url": "https://science.nasa.gov/photojournal/antenna-testing-for-nasas-skyfall-mission/",
+      "first_seen": "2026-08-07T09:42:27+09:00",
+      "status": "New"
+    },
+    {
       "id": "99e0537787a941fdd60560bd",
       "published_at": "2026-08-06T17:42:49Z",
       "collected_at_jst": "2026-08-07T08:21:31+09:00",
@@ -844,6 +980,40 @@
       "status": "New"
     },
     {
+      "id": "ec2a24d5465fe977e0ea77ab",
+      "published_at": "2026-08-06T15:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "理化学研究所",
+      "organization": "理化学研究所",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "原子を連続供給する光格子時計の分光方式を開発",
+      "title_original": "原子を流しながら「休まず時を測る」光格子時計へ",
+      "summary": "東京大学、理化学研究所、日本電子の共同研究グループは、移動光格子を用いて極低温ストロンチウム原子を連続供給しながら分光する方法を開発した。1.2ヘルツ幅のスペクトルを実現し、光格子時計のゼロデッドタイム動作に向けた基盤となる。",
+      "summary_original": "当サイトは、Javascriptを使用しています。Javascriptを無効にして閲覧した場合、コンテンツが正常に動作しないおそれやページが表示されない場合があります。当サイトをご利用の際には、Javascriptを有効にして閲覧下さい。 東京大学 大学院工学系研究科の西田 光輝 大学院生、竹内 亮人 大学院生（研究当時）、香取 秀俊 教授（兼：理化学研究所 光量子工学研究センター チームディレクター）らと、日本電子株式会社の共同研究グループは、光格子時計の測定の空白時間（デッドタイム）をなくすために、極低温ストロンチウム原子を絶えず供給して分光する方法を開発しました。移動光格子を「原子のベルトコンベヤー」として用い、原子流に沿って時計レーザーを照射する縦励起を行いました。原子の準備、時計遷移の励起、状態検出を流路上の異なる場所で同時に進め、原子を供給し続けながら、フーリエ限界に近い1.2ヘルツ幅のスペクトルを得ました。本成果は、測定のデッドタイムをなくす「ゼロデッドタイム動作」への基盤となります。この動作が実現すれば、原子が時計レーザーの周波…",
+      "summary_language": "ja",
+      "url": "https://www.riken.jp/press/2026/20260807_1/index.html",
+      "first_seen": "2026-08-07T09:42:27+09:00",
+      "status": "New"
+    },
+    {
       "id": "e33b0e9a8cf5a4a7be421ae2",
       "published_at": "2026-08-06T15:00:00Z",
       "collected_at_jst": "2026-08-07T08:21:31+09:00",
@@ -1015,6 +1185,40 @@
       "summary_language": "ja",
       "url": "https://www.therobotreport.com/how-robin-robotic-companion-keeps-patients-calm-during-hospital-visits/",
       "first_seen": "2026-08-07T08:21:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bccad1f543e7e4e8d2d211e9",
+      "published_at": "2026-08-06T14:06:50Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "NASA",
+      "organization": "NASA",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "NASAのLucy探査機、2027年の小惑星接近に向けカメラ試験",
+      "title_original": "NASA’s Lucy Begins Camera Tests Ahead of 2027 Trojan Flybys - NASA Science",
+      "summary": "NASAのLucy探査機は、2027年に予定されるトロヤ群小惑星との接近に向け、搭載カメラで目標天体の試験観測を開始した。数億マイル離れた小惑星の初期画像を、今後のカメラ選定や観測計画に活用する。",
+      "summary_original": "Four of NASA’s Lucy mission Trojan asteroid targets as seen by the spacecraft in late-March/early-April 2026 moving relative to background stars (circles added to guide the eye). Behind Polymele (upper right) are several background galaxies including one that’s visible as an elongated disc near the left edge of the image. The bright streaks and oval artefac… Preparing for the NASA Lucy spacecraft’s first Trojan asteroid encounters, mission scientists have begun instructing the spacecraft to turn its cameras toward its future targets. From hundreds of millions of miles away, the asteroids appear as pinpricks of light. Yet, these early observations will help the team select the best camera se…",
+      "summary_language": "ja",
+      "url": "https://science.nasa.gov/blogs/lucy/2026/08/06/nasas-lucy-begins-camera-tests-ahead-of-2027-trojan-flybys/",
+      "first_seen": "2026-08-07T09:42:27+09:00",
       "status": "New"
     },
     {
@@ -1777,6 +1981,74 @@
       "summary_language": "ja",
       "url": "https://arpa-h.gov/news-and-events/arpa-h-funded-teams-transform-life-saving-stroke-interventions-autonomous-robotic",
       "first_seen": "2026-08-07T08:21:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "cd8d5bf1b91a70f3f20af0a2",
+      "published_at": "2026-08-06T09:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "JST プレスリリース",
+      "organization": "JST プレスリリース",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "連続する原子の流れで測定する光格子時計を開発",
+      "title_original": "共同発表：原子を流しながら「休まず時を測る」光格子時計へ～連続する原子の流れから1.2ヘルツ幅の分光を実証～",
+      "summary": "東京大学、理化学研究所、日本電子の共同研究グループは、移動光格子を原子のベルトコンベヤーとして使い、極低温ストロンチウム原子を連続供給する光格子時計方式を開発した。1.2ヘルツ幅の分光を実証し、測定の空白時間をなくす基盤を示した。",
+      "summary_original": "東京大学 大学院工学系研究科の西田 光輝 大学院生、竹内 亮人 大学院生（研究当時）、香取 秀俊 教授（兼：理化学研究所 光量子工学研究センター チームディレクター）らと、日本電子株式会社の共同研究グループは、光格子時計の測定の空白時間（デッドタイム）をなくすために、極低温ストロンチウム原子を絶えず供給して分光する方法を開発しました。移動光格子を「原子のベルトコンベヤー」として用い、原子流に沿って時計レーザーを照射する縦励起を行いました。原子の準備、時計遷移の励起、状態検出を流路上の異なる場所で同時に進め、原子を供給し続けながら、フーリエ限界に近い1.2ヘルツ幅のスペクトルを得ました。本成果は、測定のデッドタイムをなくす「ゼロデッドタイム動作」への基盤となります。この動作が実現すれば、原子が時計レーザーの周波… 本研究成果は、2026年8月6日（英国夏時間）付で国際科学雑誌「Nature Communications」のオンライン版に掲載されました。 本研究は、科学技術振興機構（JST） 未来社会創造事業 大規模プロジェクト型「クラウド光格子時計による時空間情報基盤の構築」（研究開発代表者：香取 秀俊、グラント番号：JPMJMI18A1）の支援により実施されました。 科学技術振興機構 未来創造研究開発推進部 〒102-0076 東京都千代田区五番町7 K's五番町 Tel：03-6272-4004 Fax：03-6268-9412 E-mail：kaikaku_mirai jst.go.jp Tel：03-5841-0235 E-mail：kouhou pr.t.u-toky…",
+      "summary_language": "ja",
+      "url": "https://www.jst.go.jp/pr/announce/20260806-3/index.html",
+      "first_seen": "2026-08-07T09:42:27+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2c58e551f8317eb5076bf257",
+      "published_at": "2026-08-06T09:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Biotechnology"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "JST プレスリリース",
+      "organization": "JST プレスリリース",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "海洋性光合成細菌由来の環境配慮型窒素肥料を実証",
+      "title_original": "共同発表：環境フレンドリーな微生物由来窒素肥料を開発～海洋性紅色光合成細菌の窒素肥料効果と環境負荷の解明～",
+      "summary": "理研と京都大学などの共同研究グループは、海洋性紅色光合成細菌Rhodovulum sulfidophilum由来の微生物バイオマスが、有機質窒素肥料として機能することを実証した。緩やかな無機化により、無機肥料より亜酸化窒素排出を抑えられるという。",
+      "summary_original": "理化学研究所（理研） 環境資源科学研究センター バイオ高分子研究チームの沼田 圭司 チームディレクター（京都大学 大学院工学研究科／地球環境学堂 教授）、京都大学 成長戦略本部の中﨑 鉄也 特任教授、京都大学 大学院農学研究科 附属農場の中野 龍平 教授らの共同研究グループは、海洋性の紅色光合成細菌由来の微生物バイオマスが、既存の農業生産システムの中で環境フレンドリーな有機質窒素肥料として有効に機能することを実証しました。 本研究成果は、農業生産現場で生じる温室効果ガスの削減や窒素肥料の国産化に貢献すると期待されます。 世界の農業は、ますます増大する食料需要を満たすという大きな圧力に直面しています。食料供給は窒素肥料に依存していますが、従来の無機肥料は自然環境への流出、温室効果ガスの排出、土壌劣化などを大きく引き起こしています。有機肥料は環境面での利点があり、ゆっくりと安定的に窒素を放出しますが、従来の動物性および植物性肥料は窒素含有量が低い（C/N比が高い）ため無機化が遅く、特定の条件下では温室効果ガス（二酸化炭素、メタン、亜酸化窒素）を多量に生成します。このため十分な施肥効果を有し、環境負荷の小さな代替肥料が早急に必要とされています。 本研究では、海洋性紅色光合成細菌の1つ、 Rhodovulum sulfidophilum （ R. sulfidophilum ）に由来する微生物バイオマスに酵素反応速度論的解析を行い、ゆっくりと安定的に窒素を放出することを実証しました。この緩やかな無機化により、無機肥料と比較して亜酸化窒素の排出量が大幅に削減されます。ブロッコリーほ場で…",
+      "summary_language": "ja",
+      "url": "https://www.jst.go.jp/pr/announce/20260806-4/index.html",
+      "first_seen": "2026-08-07T09:42:27+09:00",
       "status": "New"
     },
     {
@@ -5012,6 +5284,40 @@
       "summary_language": "ja",
       "url": "https://www.bbc.co.uk/news/articles/c1w1lvn7d9go?at_medium=RSS&at_campaign=rss",
       "first_seen": "2026-08-06T05:35:00+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2c7d8ee0d7110f802fb6fa12",
+      "published_at": "2026-08-05T00:00:00Z",
+      "collected_at_jst": "2026-08-07T09:42:27+09:00",
+      "region": "Asia",
+      "country": "Australia",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Government",
+      "source": "CSIRO",
+      "organization": "CSIRO",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site sitemap and page metadata",
+      "collection_mode": "Daily",
+      "title": "超強磁場を持つ中性子星で真空複屈折の初検出か",
+      "title_original": "Rare ultra-magnetic star the key to solving a quantum cold case",
+      "summary": "天文学者らは、宇宙最強の磁場を持つマグネターの観測から、量子電磁力学が予測する真空複屈折の初検出とみられる現象を捉えた。量子真空の性質を検証する新たな観測手法となる可能性がある。",
+      "summary_original": "This phenomenon, called ‘vacuum birefringence’, was first predicted nearly 90 years ago by Werner Heisenberg, one of the founding fathers of quantum mechanics. He suggested that even a perfect vacuum should be teeming with 'virtual particles’ that rapidly pop in and out of existence. The astronomers, including Dr Marcus Lower from Swinburne University of Technology, used the properties of a magnetar – a rare type of neutron star with the strongest magnetic fields in the universe – to study this quantum cold case. Their observations uncovered what could be the first detection of vacuum birefringence taking place in the magnetar’s ultra-strong magnetic field and could open new pathways to exp…",
+      "summary_language": "ja",
+      "url": "https://www.csiro.au/en/news/All/News/2026/August/Rare-ultra-magnetic-star-the-key-to-solving-a-quantum-cold-case",
+      "first_seen": "2026-08-07T09:42:27+09:00",
       "status": "New"
     },
     {
@@ -57549,42 +57855,6 @@
       "summary_language": "ja",
       "url": "https://english.www.gov.cn/policies/latestreleases/202508/27/content_WS68ae7976c6d0868f4e8f51a0.html",
       "first_seen": "2025-08-27T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "fd47a7c63ec9c02ee41b8ca6",
-      "published_at": "2025-08-07T00:00:00Z",
-      "collected_at_jst": "2026-07-27T11:51:54+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "R&D Funding & Tax Incentives"
-      ],
-      "policy_relevance": 3,
-      "source_type": "Policy Institute",
-      "source": "CSET",
-      "organization": "CSET",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Original-site sitemap and page metadata",
-      "collection_mode": "Historical Backfill",
-      "title": "NIHの公的研究資金が生物医学イノベーションに与える影響",
-      "title_original": "The NIH's Impact on Research and Innovation | Center for Security and Emerging Technology",
-      "summary": "CSETの分析は、世界最大の生物医学研究の公的資金提供者である米国国立衛生研究所（NIH）の研究・イノベーションへの影響を整理する。人工心臓弁やがん関連遺伝子変異の研究など、医療への波及例も示している。",
-      "summary_original": "Data Snapshots are informative descriptions and quick analyses that dig into CSET’s unique data resources. This three-part series introduces CSET’s patent clusters, which connect related patents through citations and text similarity. This is the second installment of a three-part data snapshot series. Read the first part, Introducing CSET’s Patent Clusters . The National Institutes of Health (NIH) is the largest worldwide public funder of biomedical research . NIH-supported research has impacted a wide-ranging array of human health issues, from its role in developing the first artificial heart valves to identifying and screening for cancer-associated genetic mutations . Direct research fund…",
-      "summary_language": "ja",
-      "url": "https://cset.georgetown.edu/publication/the-nihs-impact-on-research-and-innovation",
-      "first_seen": "2025-08-07T09:00:00+09:00",
       "status": "New"
     }
   ]
