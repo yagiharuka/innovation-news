@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-09T03:43:08Z",
-  "updated_at_jst": "2026-08-09T12:43:08+09:00",
+  "updated_at": "2026-08-09T03:53:04Z",
+  "updated_at_jst": "2026-08-09T12:53:04+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1771,
+  "article_count": 1788,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -49,6 +49,40 @@
       "summary_language": "ja",
       "url": "https://spacenews.com/northrop-grumman-canadian-space-agency-repurpose-their-gateway-projects/",
       "first_seen": "2026-08-09T04:33:28+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7d464ada04d9de60a441ce74",
+      "published_at": "2026-08-08T17:00:41Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "OpenAI、自律的なサイバー攻撃能力を理由にAIモデル開発の一部を停止",
+      "title_original": "OpenAI to pause some work on AI model Astra due to security concerns",
+      "summary": "OpenAIは、AIモデル「Astra」が人間の介入なしに脆弱性を発見・悪用し、高水準の目標だけでサイバー攻撃を実行できる能力を示したとして、一部開発を停止すると表明した。",
+      "summary_original": "Agent found to be able to find and exploit vulnerabilities without human intervention, and to carry out cyber-attacks OpenAI will pause some work on an artificial intelligence model because of security concerns, the company stated on Friday, following a series of incidents in which AI agents have escaped containment. The company had evaluated the agent, Astra, and found “significant advancements in agentic coding and cybersecurity”, which had moved to a “critical” threshold where it can find and exploit vulnerabilities without human intervention, or devise and execute cyber-attacks when given only a “high level desired goal”. Continue reading...",
+      "summary_language": "ja",
+      "url": "https://www.theguardian.com/technology/2026/aug/08/openai-astra-security-concerns",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -1749,6 +1783,42 @@
       "status": "New"
     },
     {
+      "id": "b6e6256a5ca53f0a3931d1c0",
+      "published_at": "2026-08-07T13:00:18Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "米ホワイトハウス、危険なAIモデルを審査する枠組みを最終決定",
+      "title_original": "The White House’s plan to vet potentially dangerous AI is cloaked in secrecy",
+      "summary": "米政権は、新しいAIモデルの安全性とサイバーセキュリティリスクを試験する枠組みを最終決定した。詳細は非公開で、OpenAIやAnthropicなどの企業が協議に参加した。",
+      "summary_original": "A Trump administration framework on AI testing leaves a lack of transparency – and plenty of open questions After months of talking with tech industry leaders, the Trump administration finalized a framework this week for how it will test new artificial intelligence models for safety and cybersecurity risks. So far, the White House is keeping details of the framework private, in a blow to transparency and potential boon for secretive AI companies. On Tuesday, staff from OpenAI, Anthropic, Meta, Google, Nvidia and Microsoft attended a private meeting with White House officials to review the AI framework. Multiple outlets have since reported that although the volunteer vetting process for new…",
+      "summary_language": "ja",
+      "url": "https://www.theguardian.com/technology/2026/aug/07/white-house-ai",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
       "id": "f178390f22b737644199a052",
       "published_at": "2026-08-07T13:00:01Z",
       "collected_at_jst": "2026-08-08T04:53:32+09:00",
@@ -1989,6 +2059,42 @@
       "summary_language": "ja",
       "url": "https://www.esa.int/Applications/Connectivity_and_Secure_Communications/IRIS2_reinforced_and_accelerated_as_implementation_advances",
       "first_seen": "2026-08-08T04:53:32+09:00",
+      "status": "New"
+    },
+    {
+      "id": "adfa31b3b83d6ae51edb5a0f",
+      "published_at": "2026-08-07T09:11:36Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "United States",
+      "country": "United Kingdom",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Public Procurement & Industrial Policy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "The Guardian Technology",
+      "organization": "The Guardian Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "米国、半導体材料ポリシリコンに15％関税",
+      "title_original": "Trump orders new 15% tariff on key material for solar panels and microchips",
+      "summary": "トランプ大統領は、主に中国で生産されるポリシリコン製品に15％の輸入関税を課す措置を命じた。米国の半導体および太陽光パネルの供給網を支援する狙いで、12月4日に発効する。",
+      "summary_original": "Move to raise levy on goods made with polysilicon aims to protect domestic US supply chains from China, the major producer Donald Trump has ordered a new 15% tariff on imported products made of polysilicon, an important ingredient in microchip manufacturing that is primarily produced by China. The new tariff, which will take effect on 4 December, is aimed at supporting US chip and solar panel supply chains to compete with Beijing on artificial intelligence and energy. The executive order signed by the president on Thursday evening said: “The plan of action in ⁠this proclamation will, among other things, help ensure the commercial viability of United States production of polysilicon and its…",
+      "summary_language": "ja",
+      "url": "https://www.theguardian.com/us-news/2026/aug/07/trump-orders-tariff-solar-panels-microchips-manufacturing-ingredient",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -2470,6 +2576,109 @@
       "summary_language": "ja",
       "url": "https://monoist.itmedia.co.jp/mn/articles/2608/07/news024.html",
       "first_seen": "2026-08-08T04:53:32+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2b779dd6c237ef55c4139239",
+      "published_at": "2026-08-07T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "OpenAlex Preprints",
+      "organization": "OpenAlex Preprints",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "https://doi.org/10.5194/egusphere-2026-1735",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "機械学習による気象放射計算エミュレーション、計算速度を約8倍に",
+      "title_original": "Machine learning based radiation emulation: development and performance evaluation in operational reforecast experiments",
+      "summary": "残差畳み込みニューラルネットワークで大気放射モデルを近似し、物理モデルとの結合安定性を検証した。中国気象局の運用再予報では、従来手法と同等の精度を保ちながら計算を約8倍高速化した。",
+      "summary_original": "OpenAlex research topics: Meteorological Phenomena and Simulations; Atmospheric aerosols and clouds; Solar Radiation and Photovoltaics; Artificial neural network; Process (computing); Residual; Stability (learning theory); Computation; Convolutional neural network",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.5194/egusphere-2026-1735",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "800bc3476b6d4c78f013d833",
+      "published_at": "2026-08-07T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Research Square",
+      "organization": "Research Square",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Research Square",
+      "doi": "https://doi.org/10.21203/rs.3.rs-10541555/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "自由エネルギーのキュムラント展開で量子非調和フォノン熱力学を解析",
+      "title_original": "Quantum Anharmonic Phonon Thermodynamics from the Free Energy Cumulant Expansion",
+      "summary": "自由エネルギーのキュムラント展開を用いて、量子系における非調和フォノンの熱力学を扱う研究を示した。概要では、高圧地球物理学や物質相互作用、非平衡熱力学との関連が示されている。",
+      "summary_original": "OpenAlex research topics: High-pressure geophysics and materials; Quantum, superfluid, helium dynamics; Advanced Physical and Chemical Molecular Interactions; Anharmonicity; Quantum; Helmholtz free energy; Quartic function; Cumulant; Phonon; Internal energy; Non-equilibrium thermodynamics",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.21203/rs.3.rs-10541555/v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "3e68e95240ec1b78fa95081f",
+      "published_at": "2026-08-07T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Research Square",
+      "organization": "Research Square",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Research Square",
+      "doi": "https://doi.org/10.21203/rs.3.rs-9958073/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "リンパ節標的ナノワクチンで膵がんの腫瘍微小環境を改変",
+      "title_original": "Lymph node-targeted Nanovaccine Reshapes the Tumor Microenvironment to Suppress PDAC Progression and Metastasis",
+      "summary": "リンパ節を標的とするナノワクチンにより腫瘍微小環境を改変し、膵管腺がん（PDAC）の進展と転移を抑制する研究を報告した。免疫療法やCAR-T細胞療法、がん免疫バイオマーカーとの関連も示されている。",
+      "summary_original": "OpenAlex research topics: Immunotherapy and Immune Responses; CAR-T cell therapy research; Cancer Immunotherapy and Biomarkers; Tumor microenvironment; Immune system; Immunotherapy; Metastasis; Pancreatic cancer; Tumor progression; Primary tumor; KRAS; Cancer",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.21203/rs.3.rs-9958073/v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -3577,6 +3786,278 @@
       "status": "New"
     },
     {
+      "id": "9cbd57e54bf502d10646ba1f",
+      "published_at": "2026-08-06T17:59:58Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "言語モデルの外部情報への選択的信頼を測る新ベンチマーク",
+      "title_original": "Learning When to Trust via Selective Context Preference Optimization",
+      "summary": "言語モデルが外部情報を無条件に無視・信頼する問題を扱い、4種類の文脈を比較するMISTベンチマークを提案した。誤誘導情報による回答変化を測定するSC2W指標を導入し、モデルの信頼性を評価する。",
+      "summary_original": "Language models increasingly condition their answers on external signals, and a single misleading one can turn a correct answer wrong. The obvious remedy, training models to resist such signals, hides a failure mode: a model that ignores all context looks robust yet is useless when the context is worth trusting. We recast the problem as selective trust and introduce MIST, a human-annotated benchmark that renders each reasoning item under four matched conditions (clean, misleading, correct-context, and irrelevant-context), together with SC2W, a paired metric counting how often a misleading signal flips a clean-correct answer to wrong. Across a comprehensive benchmark study, we observe that s…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06377v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d827be18151f4e349d62980e",
+      "published_at": "2026-08-06T17:59:31Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "ヒューマノイドの移動・操作を統合する全身動作モデルを開発",
+      "title_original": "$ω$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation",
+      "summary": "言語指示、視覚観測、ロボットの固有受容状態から、実機で実行可能な全身動作潜在表現を直接予測するモデル「ω-0」を提案した。移動と物体操作を分離せず、同時に扱うことを目指す。",
+      "summary_original": "Humanoid household tasks often require concurrent loco-manipulation, where the robot must move, adjust posture, maintain balance, and manipulate objects as a single coordinated behavior. Yet existing humanoid policies typically decompose locomotion and manipulation, while recent world-action models remain either arm-centric or video-centered. We present $ω$-0, a latent predictive whole-body world-action model for real-world humanoid concurrent loco-manipulation. Given a language instruction, current visual observation, and robot proprioceptive state, $ω$-0 directly predicts controller-compatible whole-body action latents for real-robot execution. Rather than reconstructing future videos, $ω…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06375v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "007dfb335e852bcee026a5f0",
+      "published_at": "2026-08-06T17:59:20Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "DyPES-VLA：共有動力学と身体固有制御によるロボット間操作転移",
+      "title_original": "DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation",
+      "summary": "異なるロボット身体に対応する単一の操作方策を目指し、共有される動力学の事前分布と身体固有の制御を学習するVLAモデルを提案する。身体別アクションの手作業による共通化を減らす手法である。",
+      "summary_original": "Vision-Language-Action (VLA) models have become a powerful paradigm for robot manipulation, but training a single generalist policy for heterogeneous robot embodiments remains an open problem. Existing methods have two main limitations. First, they underuse dynamics priors shared across diverse visual and interaction data, limiting cross-embodiment transfer. Second, they require extensive manual preprocessing to convert embodiment-specific actions into a common format. To overcome these limitations, we propose DyPES-VLA, a cross-embodiment VLA that learns shared Dynamics Priors and Embodiment-Specific control. First, we learn shared dynamics priors by training the vision-language model (VLM…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06374v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "13c3fc26b72c4640bab2955b",
+      "published_at": "2026-08-06T17:57:37Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "心不全研究のEHR特徴量設計を自動化する根拠連携AIパイプライン",
+      "title_original": "Tracing the Heart: An Evidence-Linked Pipeline for Heart-Failure Feature Engineering",
+      "summary": "心不全の電子健康記録に対し、臨床ガイドラインと根拠をリンクしたマルチエージェントシステムで特徴量設計を自動化する手法を開発し、500人のダミー患者記録で評価した。",
+      "summary_original": "Electronic health record (EHR) feature engineering is a major bottleneck in clinical research and AI, accounting for 39-45% of data scientists' workload. This is especially pronounced in heart failure, which affects an estimated 6.7 million U.S. adults and requires integrating fragmented EHR data with disease-specific, guideline-based clinical reasoning. Existing rule-based and large language model (LLM)-based approaches offer only partial automation with limited maintainability and evidence traceability. We developed the Nimblemind Multi-Agent System (nMAS), an evidence-linked, rubric-grounded pipeline for automated heart-failure feature engineering, and evaluated it on 500 dummy patient r…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06366v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "bab7b4b7c1d3387817d96ff2",
+      "published_at": "2026-08-06T17:57:28Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "ナイジェリアのモバイル通販アプリにおけるAIとデジタル主権を調査",
+      "title_original": "Investigating Artificial Intelligence Digital Sovereignty in Mobile Shopping Apps: A Case Study of Nigeria",
+      "summary": "ナイジェリアのモバイルショッピングアプリを対象に、実装されたAI機能と利用者への開示状況を分析し、透明性をデジタル主権の指標として評価した。",
+      "summary_original": "The use of e-commerce mobile applications is expanding in Nigeria, creating both opportunities and risks, including fraud and reduced user control over digital technologies, raising concerns about digital sovereignty. This research examines how Artificial Intelligence (AI) in Nigerian mobile applications affects digital sovereignty, examined through platform transparency as a key indicator of user awareness and control. Using an interpretive approach, the research combines the forensic analysis of selected Android applications with contextual document analysis to identify AI features and evaluate disclosure practices. The findings show that AI is widely implemented in the applications, yet…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06364v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "648b17a45e8f404e43335bcd",
+      "published_at": "2026-08-06T17:57:25Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "最適なagnostic PAC学習アルゴリズムを構成",
+      "title_original": "An Optimal Agnostic PAC Algorithm",
+      "summary": "有限VC次元の仮説クラスに対し、agnostic PAC学習で統計的に最適なリスク上界を達成する学習器を構成した。固定された最適リスクにおいて既知の下限と一致する。",
+      "summary_original": "Let $H\\subseteq\\{-1,+1\\}^X$ be a class of finite VC dimension $d\\ge1$. Writing $L$ for the binary risk and $L^*=\\min_{h\\in H}L(h)$, we construct a learner achieving the statistically optimal risk bound: from an i.i.d.\\ sample of size $n$, for every $0<δ\\le 1/2$, with probability at least $1-δ$, \\[ L(\\widehat h) \\le L^*+ 7\\cdot10^8\\left( \\sqrt{\\frac{L^*(d+\\log(1/δ))}{n}} +\\frac{d+\\log(1/δ)}{n} \\right). \\] This settles the sample complexity of agnostic PAC learning up to universal constants at every fixed $L^*$, matching the lower bounds of Devroye, Györfi, and Lugosi [A Probabilistic Theory of Pattern Recognition, Springer, 1996].",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06363v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d40e3db04b98d4ca8baa45d9",
+      "published_at": "2026-08-06T17:57:11Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "LLMエージェント評価のコストを74分の1にする手法を提案",
+      "title_original": "AV-AIVAT: 74x Cheaper Agent Evaluation with Certified Anytime-Valid Stopping in Imperfect-Information Games",
+      "summary": "不完全情報ゲームにおけるLLMエージェント比較で、AIVATによる分散削減と、保証を維持したまま証拠が十分になれば停止する手法を組み合わせた。評価コストの大幅削減を報告する。",
+      "summary_original": "Deciding which of two agents is stronger means playing games until skill outweighs luck, and every game costs money, model inference, or expert time. Since the number of games needed is unknown, fixed-budget evaluations either keep paying after the result is settled or stop before the agents can be told apart, while naive optional stopping with an ordinary confidence interval invalidates the stated level. We make such an evaluation stop as soon as its evidence suffices, with the guarantee intact. The Action-Informed Value Assessment Tool (AIVAT) reduces variance in imperfect-information games through conditional mean-zero corrections, by a median $54\\times$ across 15 LLM agent configuration…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06362v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7b16ffe70ac1c0968e4b62c3",
+      "published_at": "2026-08-06T17:57:06Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "動画言語モデルは単純なイベント計数に失敗する",
+      "title_original": "The Low Frequency Trap: Video Language Models Fail at Simple Event Bookkeeping",
+      "summary": "動画中の接触、点滅、状態遷移を対象に、イベント数と頻度を制御した2,190本の動画でモデルを評価するベンチマークを開発した。回答を実行可能なイベント軌跡と照合する。",
+      "summary_original": "Real-world video benchmarks provide broad coverage, but their fixed clips entangle event count, rate, duration, and visual complexity, making failure modes hard to isolate. While existing programmatic benchmarks offer better control, they score only the final answer rather than auditing reported events against executable ground truth. To bridge this gap, we introduce trace-grounded parametric profiling for event counting in three controlled video tasks: bouncing-ball wall contacts, visual blinks, and categorical state transitions. Across 2,190 videos, we vary event count N and frequency F while holding rendering fixed. Each video includes an executable event trace for capability-surface est…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2608.06361v1",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
       "id": "7854d8adbeb0ed9dcf8ff0ca",
       "published_at": "2026-08-06T17:56:12Z",
       "collected_at_jst": "2026-08-07T09:42:27+09:00",
@@ -4230,6 +4711,40 @@
       "summary_language": "ja",
       "url": "https://www.scientificamerican.com/article/can-quantum-computers-solve-maths-hardest-problem/",
       "first_seen": "2026-08-07T08:21:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "54aa867376bd130c3ff0a058",
+      "published_at": "2026-08-06T13:57:41Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "Type One Energy、ORNLから核融合燃料供給技術4件をライセンス取得",
+      "title_original": "New ORNL-Type One agreement marks step toward fusion in Tennessee",
+      "summary": "Type One Energyは、Oak Ridge National Laboratoryと4つの燃料供給技術に関するライセンス契約を締結した。これらの技術は、同社のステラレーター型核融合計画で商業化に向けて活用される。",
+      "summary_original": "Type One Energy signed a licensing agreement with Oak Ridge National Laboratory for four fueling technologies. The tech will support the company's stellarator program on its way to commercialization. The post New ORNL-Type One agreement marks step toward fusion in Tennessee appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://interestingengineering.com/energy/four-cryogenic-reactor-fueling-technologies-to-unlock-continuous-fusion-power-in-us?mc_cid=41bcdbbad5&mc_eid=156f84a18f#new_tab&utm_source=rss&utm_medium=rss&utm_campaign=new-ornl-type-one-agreement-marks-step-toward-fusion-in-tennessee",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -5441,6 +5956,40 @@
       "summary_language": "ja",
       "url": "https://www.nytimes.com/2026/08/05/health/mrna-flu-vaccine-moderna.html",
       "first_seen": "2026-08-07T08:21:31+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9bf43cd6a538e9fa3a271ee5",
+      "published_at": "2026-08-06T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "eLife",
+      "organization": "eLife",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "eLife",
+      "doi": "https://doi.org/10.7554/elife.110251.2",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "土壌中の細胞外DNA分解速度と影響因子を解明",
+      "title_original": "The overall and sequence-specific degradation of soil extracellular DNA fragments: rates and influential factors",
+      "summary": "プライマー標識DNAとマイクロコズム培養を組み合わせ、土壌中の細胞外DNA断片の全体的・配列特異的な分解速度を測定した。分解速度は水分量や微生物量、pH、窒素含量などと関連し、環境DNA研究の最適化に知見を示した。",
+      "summary_original": "OpenAlex research topics: Environmental DNA in Biodiversity Studies; Microbial Community Ecology and Physiology; Polar Research and Ecology; Microcosm; Extracellular; Amplicon; Degradation (telecommunications); Microbial population biology; DNA; Temperature gradient gel electrophoresis; Soil microbiology",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.7554/elife.110251.2",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -9745,6 +10294,40 @@
       "status": "New"
     },
     {
+      "id": "11d2abd23cd7cde2f08e041c",
+      "published_at": "2026-08-04T19:47:10Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "米政府、FY2028研究開発予算の優先分野に核融合を明記",
+      "title_original": "White House Highlights Fusion in FY2028 Research & Development Priorities",
+      "summary": "米国の科学技術政策局（OSTP）と行政管理予算局（OMB）は、FY2028研究開発予算優先事項の覚書を公表した。文書では、核融合を国の科学技術上の優先分野の一つとして位置付けている。",
+      "summary_original": "On July 21, the White House Office of Science and Technology Policy (OSTP) and Office of Management and Budget (OMB) released the Fiscal Year 2028 Research & Development Budget Priorities Memorandum, identifying fusion as one of the nation's science and technology priority areas. The post White House Highlights Fusion in FY2028 Research & Development Priorities appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.fusionindustryassociation.org/white-house-highlights-fusion-in-fy2028-research-development-priorities/?utm_source=rss&utm_medium=rss&utm_campaign=white-house-highlights-fusion-in-fy2028-research-development-priorities",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
       "id": "026bf91075591251ab2b0e87",
       "published_at": "2026-08-04T19:40:40Z",
       "collected_at_jst": "2026-08-05T05:27:15+09:00",
@@ -11360,7 +11943,7 @@
       "policy_relevance": 0,
       "source_type": "Preprint",
       "source": "Zenodo (CERN European Organization for Nuclear Research)",
-      "organization": "European Organization for Nuclear Research",
+      "organization": "Zenodo (CERN European Organization for Nuclear Research)",
       "academic_kind": "Preprint",
       "review_status": "Not peer reviewed",
       "venue": "Zenodo (CERN European Organization for Nuclear Research)",
@@ -11394,7 +11977,7 @@
       "policy_relevance": 0,
       "source_type": "Preprint",
       "source": "arXiv (Cornell University)",
-      "organization": "Cornell University",
+      "organization": "arXiv (Cornell University)",
       "academic_kind": "Preprint",
       "review_status": "Not peer reviewed",
       "venue": "arXiv (Cornell University)",
@@ -14274,7 +14857,7 @@
       "policy_relevance": 0,
       "source_type": "Preprint",
       "source": "arXiv (Cornell University)",
-      "organization": "Cornell University",
+      "organization": "arXiv (Cornell University)",
       "academic_kind": "Preprint",
       "review_status": "Not peer reviewed",
       "venue": "arXiv (Cornell University)",
@@ -14308,7 +14891,7 @@
       "policy_relevance": 0,
       "source_type": "Preprint",
       "source": "arXiv (Cornell University)",
-      "organization": "Cornell University",
+      "organization": "arXiv (Cornell University)",
       "academic_kind": "Preprint",
       "review_status": "Not peer reviewed",
       "venue": "arXiv (Cornell University)",
