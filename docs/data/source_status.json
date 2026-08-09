@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-08T19:33:28Z",
+  "updated_at": "2026-08-09T03:43:08Z",
   "summary": {
     "checked": 305,
-    "succeeded": 288,
-    "failed": 17,
-    "entries_seen": 140577,
-    "entries_kept": 874
+    "succeeded": 289,
+    "failed": 16,
+    "entries_seen": 140594,
+    "entries_kept": 882
   },
   "current_run": {
-    "checked": 298,
-    "succeeded": 282,
-    "failed": 16,
-    "entries_seen": 139933,
-    "entries_kept": 851
+    "checked": 7,
+    "succeeded": 7,
+    "failed": 0,
+    "entries_seen": 661,
+    "entries_kept": 31
   },
   "coverage_summary": {
     "registered": 305,
@@ -137,8 +137,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.65,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "elapsed_seconds": 0.77,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "MIT Technology Review",
@@ -1436,12 +1436,12 @@
       "topic_tags": [
         "Fusion Energy"
       ],
-      "status": "error",
-      "detail": "HTTPError: 415 Client Error: Unsupported Media Type for url: https://www.fusionindustryassociation.org/feed/",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.26,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 10,
+      "entries_kept": 6,
+      "elapsed_seconds": 1.91,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2215,8 +2215,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 8,
-      "elapsed_seconds": 1.29,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "elapsed_seconds": 1.52,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "AAAI Proceedings",
@@ -2235,8 +2235,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
       "entries_seen": 278,
       "entries_kept": 0,
-      "elapsed_seconds": 23.02,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "elapsed_seconds": 21.37,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "日本人工知能学会",
@@ -2255,8 +2255,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 3.82,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "elapsed_seconds": 3.85,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "3GPP",
@@ -2548,10 +2548,10 @@
       ],
       "status": "ok",
       "detail": "official frontend JSON API",
-      "entries_seen": 221,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.08,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "entries_seen": 222,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.54,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "TAE Technologies",
@@ -5454,10 +5454,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 59,
-      "entries_kept": 7,
-      "elapsed_seconds": 3.26,
-      "last_checked_at": "2026-08-02T05:28:54Z"
+      "entries_seen": 65,
+      "entries_kept": 8,
+      "elapsed_seconds": 3.77,
+      "last_checked_at": "2026-08-09T03:43:08Z"
     },
     {
       "name": "Reuters Technology & Science",

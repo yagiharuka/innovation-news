@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-08T19:40:52Z",
-  "updated_at_jst": "2026-08-09T04:40:52+09:00",
+  "updated_at": "2026-08-09T03:43:08Z",
+  "updated_at_jst": "2026-08-09T12:43:08+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1767,
+  "article_count": 1771,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -10514,6 +10514,40 @@
       "status": "New"
     },
     {
+      "id": "dd39f005b75b2118a8cd0d2e",
+      "published_at": "2026-08-04T13:44:09Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Asia",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "中国、BESTトカマク向け582トン超伝導磁石の試験を完了",
+      "title_original": "China Finished A 582-Ton Magnet Ready To Cage Its Artificial Sun",
+      "summary": "中国科学院プラズマ物理研究所は、建設中のBESTトカマク向け582トン超伝導磁石の試験を完了した。超伝導線材から構造用鋼材まで中国製で、BESTは2027年の完成を予定している。",
+      "summary_original": "China's Institute of Plasma Physics completed testing of a 582-ton superconducting magnet for its \"BEST\" tokamak - currently under construction and scheduled to be completed in 2027. Every part of the magnet, from the superconducting wire to the structural steel, was made in China. The post China Finished A 582-Ton Magnet Ready To Cage Its Artificial Sun appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.forbes.com/sites/jonmarkman/2026/08/04/china-finished-a-582-ton-magnet-ready-to-cage-its-artificial-sun/?mc_cid=41bcdbbad5&mc_eid=156f84a18f#new_tab&utm_source=rss&utm_medium=rss&utm_campaign=china-finished-a-582-ton-magnet-ready-to-cage-its-artificial-sun",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
       "id": "f2fd2516f26ac23135c7bbda",
       "published_at": "2026-08-04T13:00:47Z",
       "collected_at_jst": "2026-08-05T05:27:15+09:00",
@@ -11307,6 +11341,74 @@
       "summary_language": "ja",
       "url": "https://www.wsj.com/business/logistics/anduril-weighs-baltimore-shipyard-investment-to-build-drone-boats-d7ae923d?mod=rss_Technology",
       "first_seen": "2026-08-05T05:27:15+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e261dd63deac7c5d6ba8c308",
+      "published_at": "2026-08-04T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Zenodo (CERN European Organization for Nuclear Research)",
+      "organization": "European Organization for Nuclear Research",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "doi": "https://doi.org/10.5281/zenodo.21786725",
+      "citation_count": 2,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "送電網点検用ヒューマノイドの制御・セキュリティ基盤を設計",
+      "title_original": "A Cyber-Physical Sovereign Architecture for Autonomous Grid-Inspection Humanoids: Real-Time Kinematic Optimization, LMI-Synthesized H∞ Control, and Immutable Zero-Trust Sandboxing (Phase II)",
+      "summary": "高圧送電網を点検する自律ヒューマノイド向けに、7自由度マニピュレーターの逆運動学、風や振動へのH∞制御、偽データ注入攻撃の検知を組み合わせたアーキテクチャを提示した。TPM 2.0を用いるサンドボックスも含む。",
+      "summary_original": "OpenAlex research topics: Smart Grid Security and Resilience; Adversarial Robustness in Machine Learning; Security and Verification in Computing; Control theory (sociology); Inverse kinematics; Controller (irrigation); Robotics; Teleoperation; Software; Actuator",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.5281/zenodo.21786725",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6c0836b974f74e8b8b5d765a",
+      "published_at": "2026-08-04T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv (Cornell University)",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "arXiv (Cornell University)",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "月近傍軌道の自律ランデブー向け安全誘導手法を開発",
+      "title_original": "Passively Safe Convex Guidance for Cislunar Rendezvous and Proximity Operations",
+      "summary": "月近傍軌道でのランデブーと近接運用に向け、接近・到着・中止マヌーバを凸最適化で設計する手法を示した。実行誤差と航法不確実性を考慮したシミュレーションで性能を検証し、CAPSTONE 02での利用を想定する。",
+      "summary_original": "OpenAlex research topics: Spacecraft Dynamics and Control; Space Satellite Systems and Control; Aerospace Engineering and Control Systems; Rendezvous; Context (archaeology); Proportional navigation; Suite; Payload (computing); Autopilot; Terminal guidance; Motion planning; Trajectory",
+      "summary_language": "ja",
+      "url": "https://openalex.org/W7197053598",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -14153,6 +14255,74 @@
       "summary_language": "ja",
       "url": "https://eetimes.itmedia.co.jp/ee/articles/2607/31/news016.html",
       "first_seen": "2026-08-04T05:28:15+09:00",
+      "status": "New"
+    },
+    {
+      "id": "4289fdbdfa03052a454372b1",
+      "published_at": "2026-08-03T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv (Cornell University)",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "arXiv (Cornell University)",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "Habitable Worlds Observatory向けCMOS単一光子計数検出器を評価",
+      "title_original": "Single-Photon Counting CMOS Detectors for the Habitable Worlds Observatory",
+      "summary": "Habitable Worlds Observatory向けに、9.4メガピクセルCMOS単一光子計数検出器を評価した。暗電流や読み出しノイズなどで複数の要求を満たした一方、紫外線量子効率とミッション認定には追加開発が必要とした。",
+      "summary_original": "OpenAlex research topics: CCD and CMOS Imaging Sensors; Photocathodes and Microchannel Plates; Particle Detector Development and Performance; Observatory; Detector; CMOS; Crosstalk; Noise (video); Key (lock); Measure (data warehouse)",
+      "summary_language": "ja",
+      "url": "https://openalex.org/W7197053617",
+      "first_seen": "2026-08-09T12:43:08+09:00",
+      "status": "New"
+    },
+    {
+      "id": "ed6fb8a07dbe5f6662beb4b3",
+      "published_at": "2026-08-03T00:00:00Z",
+      "collected_at_jst": "2026-08-09T12:43:08+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv (Cornell University)",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "arXiv (Cornell University)",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "核融合装置のMHD安定性を最適化する自動微分ソルバーを開発",
+      "title_original": "AGNI: A differentiable MHD stability solver & optimizer for magnetic confinement fusion devices",
+      "summary": "磁場閉じ込め核融合装置向けに、有限トロイダルモード数の不安定性を扱うGPU加速・自動微分ソルバーAGNIを開発した。トカマクやステラレータなどの形状・プロファイル最適化への利用を示した。",
+      "summary_original": "OpenAlex research topics: Magnetic confinement fusion research; Superconducting Materials and Applications; Laser-Plasma Interactions and Diagnostics; Magnetohydrodynamics; Solver; Ideal (ethics); Eigenvalues and eigenvectors; Differentiable function; Eigenfunction; Magnetohydrodynamic drive; Stability (learning theory)",
+      "summary_language": "ja",
+      "url": "https://openalex.org/W7172558764",
+      "first_seen": "2026-08-09T12:43:08+09:00",
       "status": "New"
     },
     {
@@ -60500,40 +60670,6 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/02/space-final-frontier-standards",
       "first_seen": "2026-02-09T21:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "6301e00576bd99d1eec6c414",
-      "published_at": "2026-02-07T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Robotics"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Advanced Materials",
-      "organization": "Advanced Materials",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Advanced Materials",
-      "doi": "https://doi.org/10.1002/adma.202521409",
-      "citation_count": 6,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "デュアルモード電子皮膚を備えたロボットハンド、物体の形状・材質認識を実現",
-      "title_original": "Electrostatic Enhanced Dual‐Mode Electronic Skin for Multifunctional Robotic Hands Capable of Object Shape and Material Recognition",
-      "summary": "分極したETFEエレクトレットをEcoflexに埋め込んだ電子皮膚を開発し、静電界による非接触検知と摩擦帯電による接触検知を実現した。ロボットハンドは物体形状を100%、材質を97.35%の精度で認識した。",
-      "summary_original": "OpenAlex research topics: Advanced Sensor and Energy Harvesting Materials; Dielectric materials and actuators; Soft Robotics and Applications; Triboelectric effect; Electret; Robot; Electronic skin; Robotic arm; Interface (matter); Contact electrification; Artificial skin; Object (grammar)",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1002/adma.202521409",
-      "first_seen": "2026-02-07T09:00:00+09:00",
       "status": "New"
     },
     {
