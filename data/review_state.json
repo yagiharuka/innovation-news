@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "review_version": "tech-innovation-v6",
-  "updated_at": "2026-08-09T03:53:04Z",
-  "updated_at_jst": "2026-08-09T12:53:04+09:00",
+  "updated_at": "2026-08-09T19:41:05Z",
+  "updated_at_jst": "2026-08-10T04:41:05+09:00",
   "status": "completed",
   "selected": 26,
   "reviewed": 26,
@@ -23,7 +23,7 @@
   "pending_priority_36h": 0,
   "priority_window_hours": 36,
   "pending_expired": 0,
-  "public_items": 1788,
+  "public_items": 1798,
   "academic_refresh": {
     "targets": 12,
     "attempted": 4,
