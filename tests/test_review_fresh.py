@@ -78,6 +78,43 @@ class FreshReviewTests(unittest.TestCase):
         self.assertEqual(saved["pending_priority_36h"], 0)
         self.assertEqual(saved["public_items"], 1)
 
+    def test_completed_priority_queue_ignores_historical_pending_items(self):
+        checked_at = datetime(2026, 8, 12, 0, 5, tzinfo=timezone.utc)
+        state = {
+            "status": "in_progress",
+            "review_version": collect.TECH_SCOPE_REVIEW_VERSION,
+            "updated_at": "2026-08-12T00:00:00Z",
+            "pending_in_window": 2,
+            "pending_priority_36h": 0,
+        }
+        with (
+            mock.patch.object(collect, "load_review_state", return_value=state),
+            mock.patch.object(collect, "now_utc", return_value=checked_at),
+            mock.patch.object(
+                collect,
+                "load_public_payload",
+                return_value={"items": []},
+            ),
+            mock.patch.object(collect, "save_review_state") as save_state,
+        ):
+            review_fresh.refresh_completed_checkpoint()
+
+        saved = save_state.call_args.args[0]
+        self.assertEqual(saved["status"], "completed")
+        self.assertEqual(saved["backlog_status"], "in_progress")
+        self.assertEqual(saved["pending_in_window"], 2)
+        self.assertEqual(saved["pending_priority_36h"], 0)
+
+    def test_review_statuses_separate_priority_and_backlog(self):
+        priority_status, backlog_status = collect.review_state_statuses(
+            2,
+            0,
+            {"rate_limited": False, "request_budget_reached": False},
+        )
+
+        self.assertEqual(priority_status, "completed")
+        self.assertEqual(backlog_status, "in_progress")
+
 
 if __name__ == "__main__":
     unittest.main()
