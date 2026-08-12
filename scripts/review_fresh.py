@@ -34,13 +34,17 @@ def refresh_completed_checkpoint() -> None:
     """Timestamp a verified empty queue even when review_backlog exits early."""
     state = collect.load_review_state()
     if not (
-        state.get("status") == "completed"
-        and state.get("review_version") == collect.TECH_SCOPE_REVIEW_VERSION
-        and int(state.get("pending_in_window") or 0) == 0
+        state.get("review_version") == collect.TECH_SCOPE_REVIEW_VERSION
         and int(state.get("pending_priority_36h") or 0) == 0
     ):
         return
     checked_at = collect.now_utc()
+    state["status"] = "completed"
+    state["backlog_status"] = (
+        "completed"
+        if int(state.get("pending_in_window") or 0) == 0
+        else state.get("backlog_status") or "in_progress"
+    )
     state["updated_at"] = collect.iso_z(checked_at)
     state["updated_at_jst"] = collect.iso_jst(checked_at)
     state["public_items"] = len(collect.load_public_payload().get("items", []))

@@ -4787,6 +4787,32 @@ def needs_scope_review(item: dict[str, Any]) -> bool:
     )
 
 
+def review_state_statuses(
+    pending_in_window: int,
+    pending_priority: int,
+    summary_result: dict[str, Any],
+) -> tuple[str, str]:
+    """Separate morning-queue completion from historical backlog progress."""
+    backlog_status = "completed" if pending_in_window == 0 else "in_progress"
+    if summary_result.get("rate_limited"):
+        backlog_status = "rate_limited"
+    elif summary_result.get("request_budget_reached"):
+        backlog_status = "request_budget_reached"
+
+    # Morning delivery is protected by the non-backfill 36-hour queue.  An
+    # older Historical Backfill candidate must not make a fully reviewed
+    # morning edition appear incomplete.
+    if pending_priority == 0:
+        priority_status = "completed"
+    elif summary_result.get("rate_limited"):
+        priority_status = "rate_limited"
+    elif summary_result.get("request_budget_reached"):
+        priority_status = "request_budget_reached"
+    else:
+        priority_status = "in_progress"
+    return priority_status, backlog_status
+
+
 def seed_japanese_fields(items: Iterable[dict[str, Any]]) -> None:
     """Reuse Japanese source text without spending a model request."""
     for item in items:
@@ -7262,17 +7288,18 @@ def review_backlog(
     runs = append_run_log(run_record)
     update_workbook(ledger_items, active_sources, runs)
 
-    state_status = "completed" if pending_after == 0 else "in_progress"
-    if summary_result.get("rate_limited"):
-        state_status = "rate_limited"
-    elif summary_result.get("request_budget_reached"):
-        state_status = "request_budget_reached"
+    state_status, backlog_status = review_state_statuses(
+        pending_after,
+        pending_priority_after,
+        summary_result,
+    )
     review_state = {
         "schema_version": 1,
         "review_version": TECH_SCOPE_REVIEW_VERSION,
         "updated_at": iso_z(collected_at),
         "updated_at_jst": iso_jst(collected_at),
         "status": state_status,
+        "backlog_status": backlog_status,
         "selected": summary_result.get("selected", len(selected)),
         "reviewed": summary_result["reviewed"],
         "excluded": len(summary_result["excluded_ids"]),
