@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-11T20:10:14Z",
-  "updated_at_jst": "2026-08-12T05:10:14+09:00",
+  "updated_at": "2026-08-12T00:13:47Z",
+  "updated_at_jst": "2026-08-12T09:13:47+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 1934,
+  "article_count": 1933,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -66230,40 +66230,6 @@
       "summary_language": "ja",
       "url": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
       "first_seen": "2026-02-10T21:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "5ea3740d74871d0c0ef5e23d",
-      "published_at": "2026-02-10T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Fusion Energy"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Energies",
-      "organization": "Energies",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Energies",
-      "doi": "https://doi.org/10.3390/en19040918",
-      "citation_count": 1,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "商業核融合発電に向けた新しい診断システムの設計",
-      "title_original": "GEM3k: Architecture and Design of a Novel 3rd Generation High Channel Density Soft X-Ray Diagnostic System Towards Commercial Fusion Power Plants",
-      "summary": "核融合発電所向けの新しいソフトX線診断システムの設計と開発について説明します。",
-      "summary_original": "OpenAlex research topics: Particle Detector Development and Performance; Magnetic confinement fusion research; Laser-Plasma Interactions and Diagnostics; Implosion; Fusion power; Electricity generation; Temporal resolution; Gas electron multiplier; Image resolution; Data acquisition; Electricity; Radiation",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.3390/en19040918",
-      "first_seen": "2026-02-10T09:00:00+09:00",
       "status": "New"
     },
     {
