@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-13T20:05:28Z",
-  "updated_at_jst": "2026-08-14T05:05:28+09:00",
+  "updated_at": "2026-08-14T04:18:03Z",
+  "updated_at_jst": "2026-08-14T13:18:03+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 2077,
+  "article_count": 2074,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -71045,108 +71045,6 @@
       "summary_original": "Korea will replace its uniform preliminary feasibility approach with R&D-specific investment governance. The threshold rises from KRW 50 billion to KRW 100 billion, while research projects receive planning reviews and infrastructure projects receive full lifecycle reviews.",
       "summary_language": "ja",
       "url": "https://www.msit.go.kr/eng/bbs/view.do?bbsSeqNo=42&mId=4&nttSeqNo=1227&sCode=eng",
-      "first_seen": "2026-02-12T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "5e2e9c400b74b4fcc4a1d61f",
-      "published_at": "2026-02-12T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Foods",
-      "organization": "Foods",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Foods",
-      "doi": "https://doi.org/10.3390/foods15040664",
-      "citation_count": 11,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "持続可能な未来における発酵の役割",
-      "title_original": "From Waste to Worth: The Role of Fermentation in a Sustainable Future",
-      "summary": "発酵が持続可能なバイオテクノロジーにおいて重要な役割を果たすことを解説します。",
-      "summary_original": "OpenAlex research topics: Probiotics and Fermented Foods; Nutrition, Genetics, and Disease; Agriculture Sustainability and Environmental Impact; Food waste; Sustainability; Fermentation; Agriculture; Sustainable agriculture; Sustainable development; Circular economy; Resource (disambiguation); Limiting",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.3390/foods15040664",
-      "first_seen": "2026-02-12T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "a6256ade4074048d38e65697",
-      "published_at": "2026-02-12T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Asia",
-      "country": "Global",
-      "topics": [
-        "Robotics"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Advanced Materials",
-      "organization": "Advanced Materials",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Advanced Materials",
-      "doi": "https://doi.org/10.1002/adma.202519665",
-      "citation_count": 4,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "水中での高精度把持のための生物模倣型機械知能",
-      "title_original": "Bioinspired Cross‐Modal Self‐Adaptive Machine Intelligence for Event‐Driven and Ultrahigh‐Precision Underwater Grasping",
-      "summary": "生物模倣型の触覚インターフェースを用いて、水中での高精度な把持を実現する技術を紹介します。",
-      "summary_original": "OpenAlex research topics: Advanced Sensor and Energy Harvesting Materials; Advanced Materials and Mechanics; Micro and Nano Robotics; Interface (matter); Tactile sensor; Underwater; Biomimetics; Perception; Adaptation (eye); Tactile perception; Object (grammar); Embodied cognition",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1002/adma.202519665",
-      "first_seen": "2026-02-12T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "9a620b53ec8eae21b841cb1c",
-      "published_at": "2026-02-12T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Advanced Materials",
-      "organization": "Advanced Materials",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Advanced Materials",
-      "doi": "https://doi.org/10.1002/adma.202520433",
-      "citation_count": 3,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "宇宙におけるペロブスカイト太陽電池の耐久性",
-      "title_original": "Beyond Earth: Resilience of Quasi‐2D Perovskite Solar Cells in Space",
-      "summary": "ペロブスカイト太陽電池が宇宙環境でのエネルギー収集において優れた性能を示すことが確認されました。",
-      "summary_original": "OpenAlex research topics: Perovskite Materials and Applications; solar cell performance optimization; TiO2 Photocatalysis and Solar Cells; Perovskite (structure); Payload (computing); Solar sail; Resilience (materials science); Proton; Geocentric orbit; Space environment; Degradation (telecommunications); Low earth orbit",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1002/adma.202520433",
       "first_seen": "2026-02-12T09:00:00+09:00",
       "status": "New"
     },
