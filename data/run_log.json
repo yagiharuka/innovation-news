@@ -3555,6 +3555,32 @@
       "summary_rate_limited_at": "",
       "duration_seconds": 42.22,
       "note": "Review fresh candidates"
+    },
+    {
+      "run_at": "2026-08-15T19:24:09Z",
+      "run_at_jst": "2026-08-16T04:24:09+09:00",
+      "feeds_checked": 298,
+      "feeds_succeeded": 283,
+      "new_items": 19,
+      "duplicates_skipped": 653,
+      "feed_errors": 15,
+      "summaries_generated": 19,
+      "items_reviewed": 53,
+      "items_excluded": 34,
+      "summaries_pending": 0,
+      "summary_errors": 0,
+      "summary_requests": 9,
+      "summary_rate_limited": false,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "499",
+      "summary_rate_limit_reset": "120ms",
+      "summary_retry_after": "",
+      "summary_rate_limited_at": "",
+      "targeted_sources": [],
+      "targeted_items": 0,
+      "targeted_pending": 0,
+      "duration_seconds": 247.25,
+      "note": "Daily update"
     }
   ]
 }
