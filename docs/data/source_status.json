@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-15T19:24:09Z",
+  "updated_at": "2026-08-16T03:00:30Z",
   "summary": {
     "checked": 305,
-    "succeeded": 290,
-    "failed": 15,
-    "entries_seen": 129848,
-    "entries_kept": 737
+    "succeeded": 289,
+    "failed": 16,
+    "entries_seen": 129829,
+    "entries_kept": 736
   },
   "current_run": {
-    "checked": 298,
-    "succeeded": 283,
-    "failed": 15,
-    "entries_seen": 129187,
-    "entries_kept": 706
+    "checked": 7,
+    "succeeded": 6,
+    "failed": 1,
+    "entries_seen": 642,
+    "entries_kept": 30
   },
   "coverage_summary": {
     "registered": 305,
@@ -137,8 +137,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.77,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "elapsed_seconds": 0.61,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "MIT Technology Review",
@@ -1439,9 +1439,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 6,
-      "elapsed_seconds": 1.91,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "entries_kept": 7,
+      "elapsed_seconds": 0.99,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2215,8 +2215,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 8,
-      "elapsed_seconds": 1.52,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "elapsed_seconds": 1.12,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "AAAI Proceedings",
@@ -2235,8 +2235,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
       "entries_seen": 278,
       "entries_kept": 0,
-      "elapsed_seconds": 21.37,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "elapsed_seconds": 27.08,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "日本人工知能学会",
@@ -2251,12 +2251,12 @@
         "Artificial Intelligence",
         "Robotics"
       ],
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 10,
+      "status": "error",
+      "detail": "ConnectTimeout: HTTPSConnectionPool(host='www.ai-gakkai.or.jp', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.ai-gakkai.or.jp', port=443) at 0x7fedb770d100>, 'Connection to www.ai-gakkai.or.jp timed out. (connect timeout=8)'))",
+      "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 3.85,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "elapsed_seconds": 8.36,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "3GPP",
@@ -2549,9 +2549,9 @@
       "status": "ok",
       "detail": "official frontend JSON API",
       "entries_seen": 222,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.54,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.43,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "TAE Technologies",
@@ -5454,10 +5454,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 65,
-      "entries_kept": 8,
-      "elapsed_seconds": 3.77,
-      "last_checked_at": "2026-08-09T03:43:08Z"
+      "entries_seen": 56,
+      "entries_kept": 7,
+      "elapsed_seconds": 1.75,
+      "last_checked_at": "2026-08-16T03:00:30Z"
     },
     {
       "name": "Reuters Technology & Science",
