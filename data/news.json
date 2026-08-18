@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-17T19:38:58Z",
-  "updated_at_jst": "2026-08-18T04:38:58+09:00",
+  "updated_at": "2026-08-18T03:08:14Z",
+  "updated_at_jst": "2026-08-18T12:08:14+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 2236,
+  "article_count": 2234,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -76528,74 +76528,6 @@
       "summary_language": "ja",
       "url": "https://www.eurohpc-ju.europa.eu/eurohpc-ju-collaborate-european-commission-launch-second-competition-advance-european-ai-2026-02-16_en",
       "first_seen": "2026-02-16T20:45:56+09:00",
-      "status": "New"
-    },
-    {
-      "id": "9e0782fd62b428190b379a80",
-      "published_at": "2026-02-16T00:00:00Z",
-      "collected_at_jst": "2026-07-27T11:51:54+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Robotics"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Official Company",
-      "source": "CyberAgent AI Lab",
-      "organization": "CyberAgent AI Lab",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "link_list",
-      "collection_mode": "Historical Backfill",
-      "title": "15体のアバターロボットを1人で遠隔運用する施設案内を実証",
-      "title_original": "2026.2.16 Release 15体のアバターロボットを1人で遠隔運用する施設案内の実証実験を実施",
-      "summary": "CyberAgent AI Labは、15体のアバターロボットを1人のオペレーターが遠隔運用する施設案内の実証実験を実施した。複数ロボットの運用方式を検証する具体的な実装事例である。",
-      "summary_original": "2026.2.16 Release 15体のアバターロボットを1人で遠隔運用する施設案内の実証実験を実施",
-      "summary_language": "ja",
-      "url": "https://research.cyberagent.ai/news/5719",
-      "first_seen": "2026-02-16T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "8a2aee7996544148d28db2dd",
-      "published_at": "2026-02-16T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Conference Paper",
-      "source": "OpenAlex Conference Papers",
-      "organization": "OpenAlex Conference Papers",
-      "academic_kind": "Conference Paper",
-      "review_status": "Conference proceedings — review status varies",
-      "venue": "",
-      "doi": "https://doi.org/10.1145/3773966.3778007",
-      "citation_count": 25,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "TimeMAE：分離型マスクオートエンコーダによる時系列の自己教師あり表現学習",
-      "title_original": "TimeMAE: Self-Supervised Representations of Time Series with Decoupled Masked Autoencoders",
-      "summary": "時系列を意味的なサブ系列単位に分割し、可視・マスク領域を分離して学習するTimeMAEを提案した。5つのデータセットで既存手法を上回り、ラベルが少ない分類や転移学習で高い性能を示した。",
-      "summary_original": "OpenAlex research topics: Time Series Analysis and Forecasting; Anomaly Detection Techniques and Applications; Computer science; Series (stratigraphy); Artificial intelligence; Autoencoder; Encoding (memory); Encoder; Transformer; Deep learning; Machine learning",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1145/3773966.3778007",
-      "first_seen": "2026-02-16T09:00:00+09:00",
       "status": "New"
     },
     {
