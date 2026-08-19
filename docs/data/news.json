@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-18T19:38:53Z",
-  "updated_at_jst": "2026-08-19T04:38:53+09:00",
+  "updated_at": "2026-08-19T03:10:44Z",
+  "updated_at_jst": "2026-08-19T12:10:44+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 2315,
+  "article_count": 2314,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -79245,40 +79245,6 @@
       "summary_original": "WIPO identifies technology traits, information flows, absorptive capacity, and supportive policy and IP frameworks as four factors determining how quickly and widely technologies diffuse.",
       "summary_language": "ja",
       "url": "https://www.wipo.int/web-publications/world-intellectual-property-report-2026/en/index.html",
-      "first_seen": "2026-02-17T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "4bf7c127389b58184bfcb0e0",
-      "published_at": "2026-02-17T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Preprint",
-      "source": "medRxiv",
-      "organization": "medRxiv",
-      "academic_kind": "Preprint",
-      "review_status": "Not peer reviewed",
-      "venue": "medRxiv",
-      "doi": "https://doi.org/10.64898/2026.02.10.26345969",
-      "citation_count": 2,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "AIと動的バイオマーカーで生体レジリエンスを評価するN=1研究「DELTA」",
-      "title_original": "DELTA: Fortifying Human Biological Resilience with an N=1 Digital Health and Dynamic Biomarker Protocol",
-      "summary": "健康な1人を対象に、食事・運動介入とAI、ウェアラブル、マイクロバイオーム評価を組み合わせ、生体レジリエンスを示す動的バイオマーカーを分析するDELTA研究を紹介した。査読前のプレプリントである。",
-      "summary_original": "OpenAlex research topics: Dietary Effects on Health; Nutrition, Genetics, and Disease; Health, Environment, Cognitive Aging; Biomarker; Protocol (science); Population; Precision medicine; Digital health; Psychological resilience; Psychological intervention; mHealth; Microbiome",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.64898/2026.02.10.26345969",
       "first_seen": "2026-02-17T09:00:00+09:00",
       "status": "New"
     },
