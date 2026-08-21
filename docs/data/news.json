@@ -1,13 +1,13 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-20T19:43:23Z",
-  "updated_at_jst": "2026-08-21T04:43:23+09:00",
+  "updated_at": "2026-08-21T03:15:39Z",
+  "updated_at_jst": "2026-08-21T12:15:39+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
     "technology_innovation_days": 183
   },
-  "article_count": 2498,
+  "article_count": 2496,
   "source_count": 305,
   "source_counts": {
     "daily": 298,
@@ -85431,76 +85431,6 @@
       "summary_language": "ja",
       "url": "https://merics.org/en/merics-briefs/digitalization-chinas-auto-industry-concentrated-solar-power-innovation-points-system",
       "first_seen": "2026-02-19T21:08:01+09:00",
-      "status": "New"
-    },
-    {
-      "id": "ed8c759eb2eb643f3b6d3547",
-      "published_at": "2026-02-19T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Healthcare",
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "International Journal of Medical Informatics",
-      "organization": "International Journal of Medical Informatics",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "International Journal of Medical Informatics",
-      "doi": "https://doi.org/10.1016/j.ijmedinf.2026.106362",
-      "citation_count": 22,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "医療における人間とAIの協働：応用、成果、実装課題",
-      "title_original": "Human in the loop artificial intelligence in healthcare: applications, outcomes, and implementation challenges",
-      "summary": "医療におけるAIの統合とその実装に関する課題をレビューした研究。",
-      "summary_original": "OpenAlex research topics: Artificial Intelligence in Healthcare and Education; Healthcare Technology and Patient Monitoring; Electronic Health Records Systems; Scalability; Field (mathematics); Human-in-the-loop; Loop (graph theory); Cryptography",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1016/j.ijmedinf.2026.106362",
-      "first_seen": "2026-02-19T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "f192e5b00e8fcb177f44b967",
-      "published_at": "2026-02-19T00:00:00Z",
-      "collected_at_jst": "2026-07-26T21:02:36+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Quantum",
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "PRX Quantum",
-      "organization": "PRX Quantum",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "PRX Quantum",
-      "doi": "https://doi.org/10.1103/8qt9-72ts",
-      "citation_count": 17,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Historical Backfill",
-      "title": "量子畳み込みニューラルネットワークは古典的にシミュレーション可能である",
-      "title_original": "Quantum Convolutional Neural Networks are Effectively Classically Simulable",
-      "summary": "量子畳み込みニューラルネットワーク（QCNN）の古典的シミュレーション可能性について分析し、シンプルな問題における成功の理由を探ります。",
-      "summary_original": "OpenAlex research topics: Quantum Computing Algorithms and Architecture; Neural Networks and Applications; Convolutional neural network; Quantum; Computer science; Artificial intelligence; Physics; Quantum mechanics",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.1103/8qt9-72ts",
-      "first_seen": "2026-02-19T09:00:00+09:00",
       "status": "New"
     },
     {
