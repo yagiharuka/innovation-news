@@ -4032,6 +4032,32 @@
       "targeted_pending": 0,
       "duration_seconds": 334.06,
       "note": "Daily update"
+    },
+    {
+      "run_at": "2026-08-23T03:02:44Z",
+      "run_at_jst": "2026-08-23T12:02:44+09:00",
+      "feeds_checked": 7,
+      "feeds_succeeded": 7,
+      "new_items": 2,
+      "duplicates_skipped": 1,
+      "feed_errors": 0,
+      "summaries_generated": 2,
+      "items_reviewed": 6,
+      "items_excluded": 4,
+      "summaries_pending": 21,
+      "summary_errors": 0,
+      "summary_requests": 1,
+      "summary_rate_limited": false,
+      "summary_request_budget_reached": false,
+      "summary_rate_limit_remaining": "499",
+      "summary_rate_limit_reset": "120ms",
+      "summary_retry_after": "",
+      "summary_rate_limited_at": "",
+      "targeted_sources": [],
+      "targeted_items": 0,
+      "targeted_pending": 0,
+      "duration_seconds": 35.5,
+      "note": "Weekly update"
     }
   ]
 }
