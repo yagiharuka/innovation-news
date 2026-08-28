@@ -2,9 +2,9 @@ name: Daily innovation brief
 
 on:
   schedule:
-    # Start at 04:00 JST so fresh candidates can complete strict review
-    # before the 08:00 JST morning brief.
-    - cron: "0 19 * * *"
+    # Start at 04:17 JST to avoid top-of-hour scheduler congestion while
+    # leaving enough time for strict review before the 08:00 JST brief.
+    - cron: "17 19 * * *"
   workflow_dispatch:
     inputs:
       backfill:
