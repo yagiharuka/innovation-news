@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-08-29T02:24:25Z",
-  "updated_at_jst": "2026-08-29T11:24:25+09:00",
+  "updated_at": "2026-08-29T09:02:34Z",
+  "updated_at_jst": "2026-08-29T18:02:34+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -79406,6 +79406,43 @@
       "status": "New"
     },
     {
+      "id": "b4eb902d956474de5f2022a8",
+      "published_at": "2026-07-23T00:00:00Z",
+      "collected_at_jst": "2026-08-29T11:16:36+09:00",
+      "region": "Asia",
+      "country": "South Korea",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation",
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Government",
+      "source": "Korea MSIT Press Releases",
+      "organization": "Korea MSIT Press Releases",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official MSIT scripted listing and article page",
+      "collection_mode": "Historical Backfill",
+      "title": "韓国MSITとAMD、オープンなAI計算基盤エコシステム構築で協力",
+      "title_original": "MSIT and AMD Join Forces to Build an Open AI Computing Infrastructure Ecosystem",
+      "summary": "韓国科学技術情報通信部（MSIT）とAMDが、オープンなAI計算基盤インフラのエコシステム構築に向けて協力する。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://www.msit.go.kr/eng/bbs/view.do?mId=4&mPid=2&sCode=eng&bbsSeqNo=42&nttSeqNo=1299",
+      "first_seen": "2026-07-23T09:00:00+09:00",
+      "status": "New"
+    },
+    {
       "id": "488a89231290f85fc5c2d191",
       "published_at": "2026-07-23T00:00:00Z",
       "collected_at_jst": "2026-07-30T06:44:24+09:00",
@@ -86221,41 +86258,6 @@
       "summary_original": "2026-07-16 Taiwanese Research Team Pioneers \"Operando Microscopic Semiconductor Characterization\" Directly Revealing the Key to Next-Generation Transistor Scaling 2026-06-24 Driving the Innovative Power of Future Satellites In-House Developed Microsatellite Plasma Propulsion System 2026-06-10 Creating New Opportunities for Semiconductor Wastewater Reuse Electrically Driven Separation and Concentration Technology Advances Fluoride Wastewater Resource Recovery 2026-06-03 A Key to Solving Infertility! Cellular “Antennas” Determine the Success or Failure of Embryo Implantation 2026-05-22 Protecting and Coexisting: Observing the Social Behavior and Urban Adaptation of Masked Palm Civets 2026-05-…",
       "summary_language": "ja",
       "url": "https://www.nstc.gov.tw/folksonomy/detail/ce7b0ac1-dee4-44ef-9605-1378b8bf3905?l=en",
-      "first_seen": "2026-07-16T09:00:00+09:00",
-      "status": "New"
-    },
-    {
-      "id": "bc3d35e3f05a621ee2c38429",
-      "published_at": "2026-07-16T00:00:00Z",
-      "collected_at_jst": "2026-07-27T11:51:54+09:00",
-      "region": "Asia",
-      "country": "Taiwan",
-      "topics": [
-        "Semiconductors & Telecom",
-        "Space"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Government",
-      "source": "Taiwan NSTC",
-      "organization": "Taiwan NSTC",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "link_list",
-      "collection_mode": "Historical Backfill",
-      "title": "併用免疫療法のバイオマーカーとなる腸内細菌叢由来代謝物を特定",
-      "title_original": "2026-01-28 Identification of gut microbiome-derived metabolites as biomarkers for combination immunotherapy",
-      "summary": "研究チームが、腸内細菌叢に由来する代謝物を併用免疫療法のバイオマーカーとして特定した。",
-      "summary_original": "2026-07-16 Taiwanese Research Team Pioneers \"Operando Microscopic Semiconductor Characterization\" Directly Revealing the Key to Next-Generation Transistor Scaling 2026-06-24 Driving the Innovative Power of Future Satellites In-House Developed Microsatellite Plasma Propulsion System 2026-06-10 Creating New Opportunities for Semiconductor Wastewater Reuse Electrically Driven Separation and Concentration Technology Advances Fluoride Wastewater Resource Recovery 2026-06-03 A Key to Solving Infertility! Cellular “Antennas” Determine the Success or Failure of Embryo Implantation 2026-05-22 Protecting and Coexisting: Observing the Social Behavior and Urban Adaptation of Masked Palm Civets 2026-05-…",
-      "summary_language": "ja",
-      "url": "https://www.nstc.gov.tw/folksonomy/detail/c2c28793-8c48-4e65-8939-5090147f2c32?l=en",
       "first_seen": "2026-07-16T09:00:00+09:00",
       "status": "New"
     }
