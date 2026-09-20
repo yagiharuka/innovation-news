@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-09-19T21:29:01Z",
+  "updated_at": "2026-09-20T07:30:41Z",
   "summary": {
     "checked": 305,
-    "succeeded": 283,
-    "failed": 22,
-    "entries_seen": 137392,
-    "entries_kept": 808
+    "succeeded": 285,
+    "failed": 20,
+    "entries_seen": 137722,
+    "entries_kept": 814
   },
   "current_run": {
-    "checked": 298,
-    "succeeded": 278,
-    "failed": 20,
-    "entries_seen": 137068,
-    "entries_kept": 786
+    "checked": 7,
+    "succeeded": 7,
+    "failed": 0,
+    "entries_seen": 654,
+    "entries_kept": 28
   },
   "coverage_summary": {
     "registered": 305,
@@ -137,8 +137,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.7,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "elapsed_seconds": 0.59,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "MIT Technology Review",
@@ -1439,9 +1439,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 7,
-      "elapsed_seconds": 0.97,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "entries_kept": 5,
+      "elapsed_seconds": 0.64,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2211,12 +2211,12 @@
         "Healthcare",
         "Space"
       ],
-      "status": "error",
-      "detail": "ReadTimeout: HTTPSConnectionPool(host='export.arxiv.org', port=443): Read timed out. (read timeout=30)",
-      "entries_seen": 0,
-      "entries_kept": 0,
-      "elapsed_seconds": 30.13,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "status": "ok",
+      "detail": "",
+      "entries_seen": 40,
+      "entries_kept": 8,
+      "elapsed_seconds": 0.96,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "AAAI Proceedings",
@@ -2231,12 +2231,12 @@
         "Artificial Intelligence",
         "Robotics"
       ],
-      "status": "error",
-      "detail": "https://r.jina.ai/http://ojs.aaai.org/index.php/AAAI/issue/current: HTTPError: 422 Client Error: Unprocessable Entity for url: https://r.jina.ai/http://ojs.aaai.org/index.php/AAAI/issue/current",
-      "entries_seen": 0,
+      "status": "ok",
+      "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
+      "entries_seen": 278,
       "entries_kept": 0,
-      "elapsed_seconds": 1.42,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "elapsed_seconds": 30.7,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "日本人工知能学会",
@@ -2255,8 +2255,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 3.95,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "elapsed_seconds": 3.98,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "3GPP",
@@ -2550,8 +2550,8 @@
       "detail": "official frontend JSON API",
       "entries_seen": 223,
       "entries_kept": 0,
-      "elapsed_seconds": 0.91,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "elapsed_seconds": 0.86,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "TAE Technologies",
@@ -5454,10 +5454,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 45,
+      "entries_seen": 57,
       "entries_kept": 7,
-      "elapsed_seconds": 2.89,
-      "last_checked_at": "2026-09-13T07:14:20Z"
+      "elapsed_seconds": 1.81,
+      "last_checked_at": "2026-09-20T07:30:41Z"
     },
     {
       "name": "Reuters Technology & Science",
