@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-09-26T21:59:10Z",
+  "updated_at": "2026-09-27T07:40:37Z",
   "summary": {
     "checked": 305,
-    "succeeded": 283,
-    "failed": 22,
-    "entries_seen": 139088,
-    "entries_kept": 772
+    "succeeded": 281,
+    "failed": 24,
+    "entries_seen": 139022,
+    "entries_kept": 761
   },
   "current_run": {
-    "checked": 298,
-    "succeeded": 276,
-    "failed": 22,
-    "entries_seen": 138434,
-    "entries_kept": 744
+    "checked": 7,
+    "succeeded": 5,
+    "failed": 2,
+    "entries_seen": 588,
+    "entries_kept": 17
   },
   "coverage_summary": {
     "registered": 305,
@@ -137,8 +137,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.59,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "elapsed_seconds": 0.57,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "MIT Technology Review",
@@ -1436,12 +1436,12 @@
       "topic_tags": [
         "Fusion Energy"
       ],
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 10,
-      "entries_kept": 5,
-      "elapsed_seconds": 0.64,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "status": "error",
+      "detail": "HTTPError: 415 Client Error: Unsupported Media Type for url: https://www.fusionindustryassociation.org/feed/",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.24,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2215,8 +2215,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 8,
-      "elapsed_seconds": 0.96,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "elapsed_seconds": 1.2,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "AAAI Proceedings",
@@ -2235,8 +2235,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
       "entries_seen": 278,
       "entries_kept": 0,
-      "elapsed_seconds": 30.7,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "elapsed_seconds": 32.59,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "日本人工知能学会",
@@ -2255,8 +2255,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 3.98,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "elapsed_seconds": 3.99,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "3GPP",
@@ -2548,10 +2548,10 @@
       ],
       "status": "ok",
       "detail": "official frontend JSON API",
-      "entries_seen": 223,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.86,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "entries_seen": 224,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.48,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "TAE Technologies",
@@ -5452,12 +5452,12 @@
       "coverage_tier": "B",
       "cadence": "weekly",
       "topic_tags": [],
-      "status": "ok",
-      "detail": "",
-      "entries_seen": 57,
-      "entries_kept": 7,
-      "elapsed_seconds": 1.81,
-      "last_checked_at": "2026-09-20T07:30:41Z"
+      "status": "error",
+      "detail": "Artificial Intelligence: HTTPError: 503 Server Error: Service Unavailable for url: https://api.openalex.org/works?search=artificial+intelligence+machine+learning+foundation+model&filter=from_publication_date%3A2026-09-18%2Cto_publication_date%3A2026-09-27%2Cis_retracted%3Afalse%2Ctype%3Apreprint&sort=publication_date%3Adesc&per-page=10&select=id%2Cdoi%2Cdisplay_name%2Cpublication_date%2Ctype%2Ccited_by_count%2Cprimary_location%2Cauthorships%2Ctopics%2Ckeywords%2Clanguage%2Cabstract_inverted_index; Robotics: HTTPError: 503 Server Error: Service Unavailable for url: https://api.openalex.org/works?search=robotics+autonomous+systems+humanoid+robot&filter=from_publication_date%3A2026-09-18%2Cto_publication_date%3A2026-09-27%2Cis_retracted%3Afalse%2Ctype%3Apreprint&sort=publication_date%3Adesc&per-page=10&select=id%2Cdoi%2Cdisplay_name%2Cpublication_date%2Ctype%2Ccited_by_count%2Cprimary_location%2Cauthorships%2Ctopics%2Ckeywords%2Clanguage%2Cabstract_inverted_index; Semiconductors & Telecom: HTTPError: 503 Server Error: Service Unavailable for url: https://api.openalex.org/works?search=semiconductor+telecommunications+photonics+advanced+packaging&filter=from_publication_date%3A2026-09-18%2Cto_publication_date%3A2026-09-27%2Cis_retracted%3Afalse%2Ctype%3Apreprint&sort=publication_date%3Adesc&per-page=10&select=id%2Cdoi%2Cdisplay_name%2Cpublication_date%2Ctype%2Ccited_by_count%2Cprimary_location%2Cauthorships%2Ctopics%2Ckeywords%2Clanguage%2Cabstract_inverted_index",
+      "entries_seen": 0,
+      "entries_kept": 0,
+      "elapsed_seconds": 0.31,
+      "last_checked_at": "2026-09-27T07:40:37Z"
     },
     {
       "name": "Reuters Technology & Science",
