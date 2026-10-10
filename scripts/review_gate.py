@@ -100,6 +100,7 @@ def evaluate_review_gate(
     global_request_budget: int = 146,
     next_request_budget: int = 2,
     cooldown_safety_seconds: int = 60,
+    unknown_rate_limit_cooldown_seconds: int = 2 * 60 * 60,
 ) -> dict[str, Any]:
     now = now.astimezone(timezone.utc)
     details: list[str] = []
@@ -155,8 +156,15 @@ def evaluate_review_gate(
             run.get("summary_retry_after", ""),
             run.get("summary_rate_limit_reset", ""),
         )
-        if retry_at is not None:
-            rate_limit_events.append((event_at, retry_at))
+        if retry_at is None:
+            retry_at = event_at + timedelta(
+                seconds=max(60, unknown_rate_limit_cooldown_seconds)
+            )
+            details.append(
+                "rate-limit response had no reset hint; "
+                "applying conservative cooldown"
+            )
+        rate_limit_events.append((event_at, retry_at))
 
     if review_state.get("rate_limited"):
         try:
@@ -169,8 +177,15 @@ def evaluate_review_gate(
                 review_state.get("retry_after", ""),
                 review_state.get("rate_limit_reset", ""),
             )
-            if retry_at is not None:
-                rate_limit_events.append((event_at, retry_at))
+            if retry_at is None:
+                retry_at = event_at + timedelta(
+                    seconds=max(60, unknown_rate_limit_cooldown_seconds)
+                )
+                details.append(
+                    "rate-limit state had no reset hint; "
+                    "applying conservative cooldown"
+                )
+            rate_limit_events.append((event_at, retry_at))
         except (KeyError, TypeError, ValueError):
             pass
 
@@ -376,3 +391,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
