@@ -94,6 +94,38 @@ class ReviewGateTests(unittest.TestCase):
         )
         self.assertFalse(result["should_run"])
 
+    def test_unknown_rate_limit_uses_conservative_cooldown(self):
+        state = {
+            "updated_at": "2026-07-28T11:00:00Z",
+            "pending_in_window": 100,
+            "rate_limited": True,
+            "rate_limited_at": "2026-07-28T11:30:00Z",
+            "retry_after": "",
+            "rate_limit_reset": "",
+        }
+        blocked = review_gate.evaluate_review_gate(
+            {"runs": []},
+            state,
+            now=self.NOW,
+            force=True,
+        )
+
+        self.assertFalse(blocked["cooldown_complete"])
+        self.assertEqual(
+            blocked["retry_blocked_until"],
+            "2026-07-28T13:31:00+00:00",
+        )
+        self.assertFalse(blocked["should_run"])
+
+        recovered = review_gate.evaluate_review_gate(
+            {"runs": []},
+            state,
+            now=datetime(2026, 7, 28, 13, 32, tzinfo=timezone.utc),
+            force=True,
+        )
+        self.assertTrue(recovered["cooldown_complete"])
+        self.assertTrue(recovered["should_run"])
+
     def test_legacy_runs_before_request_logging_do_not_block_forever(self):
         result = review_gate.evaluate_review_gate(
             {
@@ -260,3 +292,4 @@ class ReviewGateTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
