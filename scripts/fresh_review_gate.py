@@ -27,9 +27,9 @@ def main() -> int:
         now=datetime.now(timezone.utc),
         force=args.force,
         next_request_budget=args.request_budget,
-        # The legacy gate reserves 50 requests for schedules that are now
-        # paused or already included in the morning run.
-        global_request_budget=196,
+        # Keep the rolling 24-hour ceiling below the 150-request low-tier
+        # allowance, including the daily and weekly reservations.
+        global_request_budget=146,
     )
     output_path = os.getenv("GITHUB_OUTPUT", "").strip()
     if output_path:
@@ -46,3 +46,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
