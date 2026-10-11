@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T09:30:46Z",
-  "updated_at_jst": "2026-10-11T18:30:46+09:00",
+  "updated_at": "2026-10-11T10:00:45Z",
+  "updated_at_jst": "2026-10-11T19:00:45+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,74 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "61a2eb904f25ff4a8803d0e0",
+      "published_at": "2026-10-09T09:58:00Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "EE Times Japan",
+      "organization": "EE Times Japan",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "GlobalFoundries、TSMCのCoWoS向けSiインターポーザーを米国生産",
+      "title_original": "GFがTSMCの「CoWoS」用Siインターポーザー米国生産",
+      "summary": "GlobalFoundriesはTSMCと20億米ドル規模の製造契約を締結し、先端パッケージング技術CoWoS向けのシリコンインターポーザーを米国で製造する。",
+      "summary_original": "GlobalFoundriesが、TSMCと20億米ドル規模の製造契約を締結したと発表した。TSMCの先端パッケージング技術「CoWoS（Chip on Wafer on Substrate）」向けに、シリコンインターポーザーを米国で製造する。",
+      "summary_language": "ja",
+      "url": "https://eetimes.itmedia.co.jp/ee/articles/2610/09/news081.html",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
+    {
+      "id": "b5db086abc50a5dfe8e32f0c",
+      "published_at": "2026-10-09T09:03:46Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The New York Times Technology",
+      "organization": "The New York Times Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Meta、AIエージェントアプリ「Muse」の公開を決断",
+      "title_original": "Inside Mark Zuckerberg’s Decision to Pull the Trigger on Meta’s A.I. Agent",
+      "summary": "Metaは安全性への懸念からAIエージェントアプリ「Muse」の公開を数カ月延期していたが、競争の激化を受けてリリースを決断した。",
+      "summary_original": "Meta had delayed releasing Muse, its A.I. agent app, for months over safety concerns. Then new competition forced Mr. Zuckerberg’s hand.",
+      "summary_language": "ja",
+      "url": "https://www.nytimes.com/2026/10/09/technology/inside-mark-zuckerbergs-decision-to-pull-the-trigger-on-metas-ai-agent.html",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
     {
       "id": "e2d35915d62a87a744332215",
       "published_at": "2026-10-09T09:00:00Z",
@@ -86030,74 +86098,6 @@
       "summary_original": "OpenAlex research topics: Advanced Sensor and Energy Harvesting Materials; Nanomaterials and Printing Technologies; Surface Modification and Superhydrophobicity; Stretchable electronics; Electronics; Liquid metal; Printed electronics; Flexible electronics; Current (fluid)",
       "summary_language": "ja",
       "url": "https://doi.org/10.1038/s41528-026-00638-1",
-      "first_seen": "2026-09-05T06:33:22+09:00",
-      "status": "New"
-    },
-    {
-      "id": "c94a12fd27f48b8a2a961381",
-      "published_at": "2026-09-03T00:00:00Z",
-      "collected_at_jst": "2026-09-05T06:33:22+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Frontiers in Marine Science",
-      "organization": "Frontiers in Marine Science",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Frontiers in Marine Science",
-      "doi": "https://doi.org/10.3389/fmars.2026.1895985",
-      "citation_count": 0,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Daily",
-      "title": "養殖における天然生殖調節物質の作用機序と持続可能性",
-      "title_original": "Natural reproductive modulators in aquaculture: endocrine mechanisms, microalgal and plant-derived bioactives, and sustainability perspectives",
-      "summary": "微細藻類や植物由来の脂肪酸、カロテノイド、植物性化合物が養殖魚の生殖に及ぼす作用を整理。従来のホルモン誘導の代替ではなく、親魚管理や配偶子支援の補完手段として評価した。",
-      "summary_original": "OpenAlex research topics: Reproductive biology and impacts on aquatic species; Aquaculture Nutrition and Growth; Aquaculture disease management and microbiota; Gamete; Broodstock; Reproductive system; Reproductive biology; Reproductive success; Endocrine system; Reproduction",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.3389/fmars.2026.1895985",
-      "first_seen": "2026-09-05T06:33:22+09:00",
-      "status": "New"
-    },
-    {
-      "id": "27d4be32c22039f25a886441",
-      "published_at": "2026-09-03T00:00:00Z",
-      "collected_at_jst": "2026-09-05T06:33:22+09:00",
-      "region": "Asia",
-      "country": "Global",
-      "topics": [
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Journal Article",
-      "source": "Frontiers in Oncology",
-      "organization": "Frontiers in Oncology",
-      "academic_kind": "Journal Article",
-      "review_status": "Journal record — confirm peer review on publisher page",
-      "venue": "Frontiers in Oncology",
-      "doi": "https://doi.org/10.3389/fonc.2026.1926389",
-      "citation_count": 0,
-      "discovery_method": "OpenAlex",
-      "collection_mode": "Daily",
-      "title": "非小細胞肺がんに対する漢方薬と免疫療法併用の臨床試験プロトコル",
-      "title_original": "Exploring traditional Chinese medicine to enhance the efficacy and reduce toxicity of immunotherapy for non-small cell lung cancer from the perspective of “spleen deficiency”: a trial protocol for mechanism and clinical evidence",
-      "summary": "漢方薬JPGCと免疫チェックポイント阻害薬を併用し、非小細胞肺がん患者56人を対象に有効性と安全性を評価する無作為化二重盲検試験の設計を示す。腸管バリアや腸内細菌叢、免疫指標なども解析する。",
-      "summary_original": "OpenAlex research topics: Cancer Research and Treatments; Cancer, Stress, Anesthesia, and Immune Response; Cancer Immunotherapy and Biomarkers; Traditional Chinese medicine; Lung cancer; Clinical trial; Immunotherapy; Adverse effect; Immune system; Randomized controlled trial; Precision medicine",
-      "summary_language": "ja",
-      "url": "https://doi.org/10.3389/fonc.2026.1926389",
       "first_seen": "2026-09-05T06:33:22+09:00",
       "status": "New"
     }
