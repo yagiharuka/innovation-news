@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T12:31:20Z",
-  "updated_at_jst": "2026-10-11T21:31:20+09:00",
+  "updated_at": "2026-10-11T13:01:24Z",
+  "updated_at_jst": "2026-10-11T22:01:24+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,74 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "56d76fb0a2419d4c47a8ea9e",
+      "published_at": "2026-10-09T23:18:52Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "総務省",
+      "organization": "総務省",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "link_list",
+      "collection_mode": "Daily",
+      "title": "総務省、電波法施行規則改正案への意見募集結果を公表",
+      "title_original": "電波法施行規則の一部を改正する省令案等に係る意見募集の結果",
+      "summary": "総務省は、電波法施行規則の一部改正案などに関する意見募集の結果を公表した。電波利用に関わる通信規制の見直しに関する正式な手続きである。",
+      "summary_original": "電波法施行規則の一部を改正する省令案等に係る意見募集の結果",
+      "summary_language": "ja",
+      "url": "https://www.soumu.go.jp/menu_news/s-news/01kiban13_02000138.html",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2b56f73783870c6802cb75cc",
+      "published_at": "2026-10-09T23:18:52Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "United States",
+      "country": "Japan",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "Nikkei Asia Technology",
+      "organization": "Nikkei Asia Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "富士通、米ニューメキシコ州に量子コンピューティング研究センターを設立へ",
+      "title_original": "Fujitsu to set up US quantum computing research center in New Mexico",
+      "summary": "富士通が米ニューメキシコ州に量子コンピューティングの研究センターを設立する計画を示した。量子技術に関する企業の研究開発拠点整備にあたる。",
+      "summary_original": "",
+      "summary_language": "ja",
+      "url": "https://asia.nikkei.com/business/technology/fujitsu-to-set-up-us-quantum-computing-research-center-in-new-mexico",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
     {
       "id": "ea02901981a53d68be55bf79",
       "published_at": "2026-10-09T20:26:29Z",
@@ -4156,6 +4224,108 @@
       "status": "New"
     },
     {
+      "id": "042167b22b20ae535df4bc08",
+      "published_at": "2026-10-08T00:00:00Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Journal Article",
+      "source": "Ömer Halisdemir Üniversitesi Mühendislik Bilimleri Dergisi",
+      "organization": "Ömer Halisdemir Üniversitesi Mühendislik Bilimleri Dergisi",
+      "academic_kind": "Journal Article",
+      "review_status": "Journal record — confirm peer review on publisher page",
+      "venue": "Ömer Halisdemir Üniversitesi Mühendislik Bilimleri Dergisi",
+      "doi": "https://doi.org/10.28948/ngumuh.1914106",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "次世代車両通信に向けたテラヘルツ技術を包括的にレビュー",
+      "title_original": "A comprehensive review of terahertz technologies for next-generation vehicular communications",
+      "summary": "テラヘルツ帯を用いる車両通信について、既存研究の成果を比較評価し、テラビット毎秒級の通信容量、低遅延化、分子吸収損失、マルチパスフェージングに関する課題を整理した。",
+      "summary_original": "OpenAlex research topics: Millimeter-Wave Propagation and Modeling; Terahertz technology and applications; Vehicular Ad Hoc Networks (VANETs); terahertz communication; vehicular communication; terahertz channel modeling; multipath fading; high-speed data transmission; low latency; next-generation wireless networks",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.28948/ngumuh.1914106",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
+    {
+      "id": "2ad4c8d991168d7bbb4e899c",
+      "published_at": "2026-10-08T00:00:00Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Conference Paper",
+      "source": "OpenAlex Conference Papers",
+      "organization": "OpenAlex Conference Papers",
+      "academic_kind": "Conference Paper",
+      "review_status": "Conference proceedings — review status varies",
+      "venue": "",
+      "doi": "https://doi.org/10.1145/3820756.3844910",
+      "citation_count": 1,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "LLM推論コスト試験はモデルや構成を越えて一般化するか",
+      "title_original": "When Do Inference-Cost Stress Tests Generalize? A Cross-Model and Cross-Configuration Measurement Study",
+      "summary": "大規模言語モデルに異常に長い出力を生成させ、計算量や遅延を増大させる推論コスト・ストレッサーを対象に、異なるモデルと展開構成でテスト効果が一般化する条件を測定する。",
+      "summary_original": "OpenAlex research topics: Adversarial Robustness in Machine Learning; Topic Modeling; Natural Language Processing Techniques; cross-model generalization; text generation models; transfer learning; benchmarking; ablation study; large language models; adversarial stress testing",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1145/3820756.3844910",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d91ddbc50b19bab74ed0afd2",
+      "published_at": "2026-10-08T00:00:00Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Conference Paper",
+      "source": "OpenAlex Conference Papers",
+      "organization": "OpenAlex Conference Papers",
+      "academic_kind": "Conference Paper",
+      "review_status": "Conference proceedings — review status varies",
+      "venue": "",
+      "doi": "https://doi.org/10.1145/3843777.3844533",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "自律型リアルタイムシステムのデジタルツインを正しく進化させる手法",
+      "title_original": "Correct-by-Construction Evolution of Digital Twins for Real-Time Autonomous Systems",
+      "summary": "安全性が重要な自律型サイバーフィジカルシステム向けに、デジタルツイン更新の正しさを精密化で保証する手法を提案した。RWTBSに基づき、時間オートマトンをFreeRTOSおよびROS 2コードへ変換する。",
+      "summary_original": "OpenAlex research topics: Formal Methods in Verification; Safety Systems Engineering in Autonomy; Advanced Software Engineering Methodologies; digital twin; correct-by-construction; real-time systems; autonomous systems; model-based design; formal verification",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.1145/3843777.3844533",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
+    {
       "id": "500fd23a3cb826facde36d48",
       "published_at": "2026-10-08T00:00:00Z",
       "collected_at_jst": "2026-10-10T08:18:52+09:00",
@@ -7309,6 +7479,41 @@
       "summary_language": "ja",
       "url": "https://eetimes.itmedia.co.jp/ee/articles/2610/07/news036.html",
       "first_seen": "2026-10-08T08:36:56+09:00",
+      "status": "New"
+    },
+    {
+      "id": "f8f161580fcd366d3f067644",
+      "published_at": "2026-10-07T00:00:00Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Conference Paper",
+      "source": "Zenodo (CERN European Organization for Nuclear Research)",
+      "organization": "Zenodo (CERN European Organization for Nuclear Research)",
+      "academic_kind": "Conference Paper",
+      "review_status": "Conference proceedings — review status varies",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "doi": "https://doi.org/10.5281/zenodo.23110569",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Daily",
+      "title": "製造現場への身体性AI導入に必要なデータ・組織・安全ガバナンスを分析",
+      "title_original": "Bringing AI and Physical AI to Manufacturing: Data, Processes and People as the Real Bottleneck on the Shop Floor",
+      "summary": "オーストリアの錠前メーカーを対象とした事例研究で、製造業に身体性AIを導入するための技術基盤、データ主権、業務プロセス、組織、能力、ガバナンスの相互依存性を分析した。",
+      "summary_original": "OpenAlex research topics: Impact of AI and Big Data on Business and Society; Digital Transformation in Industry; Flexible and Reconfigurable Manufacturing Systems; physical AI; artificial intelligence in manufacturing; humanoid robots; AI adoption barriers; AI governance; data sovereignty; AI platforms; AI risk management; EU AI Act",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.5281/zenodo.23110569",
+      "first_seen": "2026-10-11T07:38:44+09:00",
       "status": "New"
     },
     {
@@ -85895,213 +86100,6 @@
       "summary_original": "As agentic AI moves from experimentation toward enterprise deployment, the challenge is figuring out how agents can work together, connect to the systems and data they need, and operate safely across the workflows that run a business. Although agentic AI has been adopted by some 80% of Fortune 500 companies, progress toward meaningful scale remains…",
       "summary_language": "ja",
       "url": "https://www.technologyreview.com/2026/09/03/1142868/scaling-agentic-ai-pilots-across-the-enterprise/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "7c7e0f459a7d4fc942f2ce45",
-      "published_at": "2026-09-03T09:30:07Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Regulation & Governance"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Major Media",
-      "source": "Axios Technology",
-      "organization": "Axios Technology",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "AIの高度化を受け、アルトマン氏が政府審査への対応を強調",
-      "title_original": "Altman raises stakes on government scrutiny as AI advances",
-      "summary": "OpenAIの新モデル「Astra」をめぐり、米政権は高度なサイバー能力を持つAIを対象とする公開前の自主的審査枠組みを設けている。政府当局が最大30日間モデルにアクセスする仕組みも含まれる。",
-      "summary_original": "CHAPEL HILL, N.C. — OpenAI CEO Sam Altman called the Trump administration's voluntary review of the company's forthcoming Astra model a \"productive process\" and said that closer engagement with government officials around the world will matter more as AI capabilities advance. Why it matters: OpenAI is close to releasing Astra, the first model designated at its \"critical\" cyber capability level that the company says requires stronger safeguards during development and before release. The Trump administration has developed a voluntary framework for reviewing some advanced AI models before release, including potentially giving government officials access for up to 30 days. The White House does…",
-      "summary_language": "ja",
-      "url": "https://www.axios.com/2026/09/03/altman-government-scrutiny-ai-g20",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "144b8e8def029fb1d467ecb8",
-      "published_at": "2026-09-03T09:30:07Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Asia",
-      "country": "United States",
-      "topics": [
-        "Biotechnology",
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "Axios Technology",
-      "organization": "Axios Technology",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "脳インプラント開発が米中バイオサイエンス競争の焦点に",
-      "title_original": "Brain implants fuel U.S.-China bioscience rivalry",
-      "summary": "脳インプラントは脳とコンピューターを接続し、脳卒中やパーキンソン病などの患者への応用が期待されている。記事は、米中間で製造、データ、商業化をめぐる開発競争が激化していると報じる。",
-      "summary_original": "Brain implants like those being developed by Elon Musk's Neuralink are becoming the latest friction point in the intensifying U.S.-China rivalry in the life sciences. Why it matters: The devices are bringing new hope to patients with strokes, Parkinson's disease and other neurological conditions. And tech billionaires have fueled advances by pouring billions into biotech startups focused on linking the brain with computers. But a new national security analysis says U.S. development efforts are being overtaken by Beijing's full-court press around manufacturing, data and commercialization. The consequences could extend beyond health care, affecting U.S. military capabilities and the ability t…",
-      "summary_language": "ja",
-      "url": "https://www.axios.com/2026/09/03/brain-implants-elon-musk-neuralink-china-us",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "4b8271e5c9a27777b4708856",
-      "published_at": "2026-09-03T08:15:00Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Policy Institute",
-      "source": "RAND Corporation",
-      "organization": "RAND Corporation",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "AI能力の導入・拡散を分析する形式モデル",
-      "title_original": "Buying Time Against AI Proliferation",
-      "summary": "RANDの報告は、AI能力への需要に焦点を当て、人工知能の導入と拡散を分析する形式的モデルを示している。",
-      "summary_original": "The author describes a formal model of artificial intelligence (AI) adoption and proliferation that focuses on the demand for AI capability.",
-      "summary_language": "ja",
-      "url": "https://www.rand.org/pubs/research_reports/RRA4996-1.html",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "efa692c7ad17e94b3ff23a93",
-      "published_at": "2026-09-03T07:26:37Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "ITmedia AI+",
-      "organization": "ITmedia AI+",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "AWS、AIバーチャル顧客と対話できる学習ゲーム新版を提供",
-      "title_original": "AWSをゲームで学べる“AWSクエスト”にまさかの新バージョン AIバーチャル顧客と対話可能に",
-      "summary": "Amazon Web Servicesは、3DオープンワールドでAWSを学ぶオンラインゲーム「AWS Cloud Quest 2.0」の提供を開始した。新バージョンではAIバーチャル顧客との対話が可能になった。",
-      "summary_original": "米Amazon Web Services（AWS）は、3DオープンワールドでAWSを学べるオンラインゲーム「AWS Cloud Quest」の新バージョン「AWS Cloud Quest 2.0」の提供を開始しました。",
-      "summary_language": "ja",
-      "url": "https://www.itmedia.co.jp/news/article/2609/03/2000001124/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "e081ac8775b84a509474263c",
-      "published_at": "2026-09-03T07:20:23Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "United Kingdom",
-      "topics": [
-        "Robotics"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "BBC Technology",
-      "organization": "BBC Technology",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "ロンドンで自動運転Uberのロボタクシー運行開始",
-      "title_original": "Watch: BBC travels in self-driving Uber around London",
-      "summary": "Uberはロンドンで自動運転ミニキャブの運行を開始した。初期運行台数は15台で、緊急時に操作を引き継ぐ安全運転手が同乗する。",
-      "summary_original": "Customers in London can now travel in the UK's first robotaxis as Uber launches its self-driving minicab on Thursday - the company is the first to launch the service. Initially, it only has 15 autonomous vehicles with a licence to operate in the city, and each one must have a human safety driver behind the wheel ready to take control if anything goes wrong. At the moment, the UK fare for a robotaxi ride will be the same fare as a standard UberX, Uber Electric, or Uber Comfort journey, with upfront fares shown in the app. The BBC's Zoe Kleinman was the first British journalist to hail a self-driving Uber in London - here's how the ride went. Read more on what it's like to ride in a robotaxi…",
-      "summary_language": "ja",
-      "url": "https://www.bbc.co.uk/news/videos/cwyzeyd7peeo?at_medium=RSS&at_campaign=rss",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "8ca118dfdb47b7ae5a0f3faf",
-      "published_at": "2026-09-03T07:07:47Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "Semiconductor Engineering",
-      "organization": "Semiconductor Engineering",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "SoC外部メモリの暗号化に完全性保護を組み込む重要性",
-      "title_original": "Protecting Mission-Critical Data Beyond The SoC: Why Inline Memory Encryption Needs Integrity",
-      "summary": "航空宇宙・政府システムのオフチップメモリを保護するため、インラインメモリ暗号化に機密性だけでなく認証と完全性を組み込む必要性を論じる。",
-      "summary_original": "Aerospace and government systems need confidentiality, authentication, and implementation resilience for off-chip memory. The post Protecting Mission-Critical Data Beyond The SoC: Why Inline Memory Encryption Needs Integrity appeared first on Semiconductor Engineering .",
-      "summary_language": "ja",
-      "url": "https://semiengineering.com/protecting-mission-critical-data-beyond-the-soc-why-inline-memory-encryption-needs-integrity/",
       "first_seen": "2026-09-04T06:44:40+09:00",
       "status": "New"
     }
