@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-10T22:38:44Z",
+  "updated_at": "2026-10-11T08:22:13Z",
   "summary": {
     "checked": 305,
     "succeeded": 277,
     "failed": 28,
-    "entries_seen": 129191,
-    "entries_kept": 754
+    "entries_seen": 129196,
+    "entries_kept": 752
   },
   "current_run": {
-    "checked": 298,
-    "succeeded": 270,
-    "failed": 28,
-    "entries_seen": 128543,
-    "entries_kept": 729
+    "checked": 7,
+    "succeeded": 7,
+    "failed": 0,
+    "entries_seen": 653,
+    "entries_kept": 23
   },
   "coverage_summary": {
     "registered": 305,
@@ -137,8 +137,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.66,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "elapsed_seconds": 0.46,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "MIT Technology Review",
@@ -1439,9 +1439,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 1,
-      "elapsed_seconds": 2.01,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "entries_kept": 2,
+      "elapsed_seconds": 0.48,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2215,8 +2215,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 8,
-      "elapsed_seconds": 1.39,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "elapsed_seconds": 1.21,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "AAAI Proceedings",
@@ -2235,8 +2235,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
       "entries_seen": 278,
       "entries_kept": 0,
-      "elapsed_seconds": 28.57,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "elapsed_seconds": 32.06,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "日本人工知能学会",
@@ -2255,8 +2255,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 3.97,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "elapsed_seconds": 4.26,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "3GPP",
@@ -2549,9 +2549,9 @@
       "status": "ok",
       "detail": "official frontend JSON API",
       "entries_seen": 224,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.42,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.5,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "TAE Technologies",
@@ -5454,10 +5454,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 50,
-      "entries_kept": 7,
-      "elapsed_seconds": 1.39,
-      "last_checked_at": "2026-10-04T07:50:52Z"
+      "entries_seen": 55,
+      "entries_kept": 5,
+      "elapsed_seconds": 1.36,
+      "last_checked_at": "2026-10-11T08:22:13Z"
     },
     {
       "name": "Reuters Technology & Science",
