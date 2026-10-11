@@ -41,7 +41,8 @@ def main() -> int:
         f"Fresh candidate review due={result['should_run']}; "
         f"{result['detail']}"
     )
-    return 0
+    # Quiet deferral is safe only when the persisted safety history is valid.
+    return 0 if result["data_valid"] else 1
 
 
 if __name__ == "__main__":

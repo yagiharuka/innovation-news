@@ -16,6 +16,7 @@ BLOCKED_STATUSES = {
     "rate_limited", "quota_blocked", "authentication_failed", "access_denied",
     "review_failed",
 }
+ACCOUNT_BLOCKS = {"quota_blocked", "authentication_failed", "access_denied"}
 
 
 def review_outcome(state: dict, *, scope: str, attempted: bool) -> tuple[str, int, int]:
@@ -26,11 +27,17 @@ def review_outcome(state: dict, *, scope: str, attempted: bool) -> tuple[str, in
     if pending == 0:
         return "completed", pending, 0
     status = state.get("status" if scope == "fresh" else "backlog_status", "")
+    # An unchanged checkpoint is not a new failed API attempt. Keep the queue
+    # visibly incomplete without sending a failure notification every time the
+    # safety gate defers another scheduled batch.
+    if not attempted:
+        account_blocked = (
+            status in ACCOUNT_BLOCKS or state.get("api_error_kind") in ACCOUNT_BLOCKS
+        )
+        return "blocked" if account_blocked else "waiting", pending, 0
     if (status in BLOCKED_STATUSES or state.get("rate_limited")
             or state.get("api_error_kind") in BLOCKED_STATUSES | {"api_error", "unknown_rate_limit"}):
         return "blocked", pending, 1
-    if not attempted:
-        return "skipped", pending, 0
     if int(state.get("reviewed") or 0) <= 0:
         return "no_progress", pending, 1
     return "in_progress", pending, 0
@@ -58,12 +65,14 @@ def main() -> int:
     if args.attempted == "true":
         lines.extend((f"Reviewed in saved batch: {state.get('reviewed', 0)}",
                       f"API calls in saved batch: {state.get('model_requests', 0)}"))
-    if state.get("api_error_kind") in {"quota_blocked", "authentication_failed", "access_denied"}:
+    if state.get("api_error_kind") in ACCOUNT_BLOCKS:
         lines.append("Account/configuration action is required before another API attempt.")
     elif outcome == "blocked":
         lines.append("Review has not recovered; a cooldown or API error remains.")
-    elif outcome != "completed":
+    if outcome != "completed":
         lines.append("The queue is incomplete; batch progress is not delivery readiness.")
+    if args.attempted == "false" and pending > 0:
+        lines.append("No new API attempt was made. This deferred run does not indicate recovery.")
     message = "\n".join(lines) + "\n"
     print(message, end="")
     if os.getenv("GITHUB_STEP_SUMMARY"):

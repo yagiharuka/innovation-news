@@ -494,7 +494,8 @@ def main() -> int:
     print(
         f"Backlog review due={result['should_run']}; {result['detail']}"
     )
-    return 0
+    # Invalid safety history is an actionable failure, not expected waiting.
+    return 0 if result["data_valid"] else 1
 
 
 if __name__ == "__main__":

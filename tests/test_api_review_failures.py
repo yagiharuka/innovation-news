@@ -258,17 +258,18 @@ class ReviewOutcomeTests(unittest.TestCase):
         return {"pending_priority_36h": 12, "pending_in_window": 24,
                 "status": "in_progress", "reviewed": 6, **extra}
 
-    def test_rate_limited_actual_and_cooldown_skipped_runs_are_not_success(self):
-        for attempted in (True, False):
+    def test_rate_limited_attempt_fails_but_unchanged_cooldown_waits(self):
+        for attempted, expected in ((True, ("blocked", 12, 1)),
+                                    (False, ("waiting", 12, 0))):
             result = report_review_outcome.review_outcome(
                 self.state(status="rate_limited", rate_limited=True, reviewed=0),
                 scope="fresh", attempted=attempted,
             )
-            self.assertEqual(result, ("blocked", 12, 1))
+            self.assertEqual(result, expected)
 
     def test_progress_completion_and_skips_are_distinguished(self):
         self.assertEqual(report_review_outcome.review_outcome(self.state(), scope="fresh", attempted=True), ("in_progress", 12, 0))
-        self.assertEqual(report_review_outcome.review_outcome(self.state(), scope="fresh", attempted=False), ("skipped", 12, 0))
+        self.assertEqual(report_review_outcome.review_outcome(self.state(), scope="fresh", attempted=False), ("waiting", 12, 0))
         self.assertEqual(report_review_outcome.review_outcome(self.state(pending_priority_36h=0), scope="fresh", attempted=False), ("completed", 0, 0))
         self.assertEqual(report_review_outcome.review_outcome(self.state(reviewed=0), scope="fresh", attempted=True), ("no_progress", 12, 1))
 
