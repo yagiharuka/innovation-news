@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T14:01:54Z",
-  "updated_at_jst": "2026-10-11T23:01:54+09:00",
+  "updated_at": "2026-10-11T14:31:33Z",
+  "updated_at_jst": "2026-10-11T23:31:33+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,74 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "8802781ec959d242b86b1573",
+      "published_at": "2026-10-10T12:45:15Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Robot Report",
+      "organization": "The Robot Report",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ロボットの真の課題は器用さの信頼性",
+      "title_original": "Why dexterity is physical AI's real bottleneck - The Robot Report",
+      "summary": "ロボットの器用さは、単発の動作成功ではなく、物体や環境の変化、部品の摩耗、予期せぬ失敗に対応しながら、感知・把持・移動・調整・回復を繰り返し安定して実行できるかで評価すべきだと論じる。",
+      "summary_original": "Nicolas Sauvage, founder and president of TDK Ventures, with ANYbotics’ quadruped robot. | Source: TDK Ventures A robot picks up an object, moves it, and puts it down successfully. Is it dexterous? Perhaps. But now ask it to do that successfully hundreds of times, while objects move slightly, its grip changes, components wear, and unexpected failures occur. That is a much harder test of dexterity, and a much better measure of whether a robot is dexterous enough for t… We are making rapid progress in what robots can manipulate. However, useful dexterity isn’t simply the ability to complete an individual action once. It is the ability to sense, grasp, move, adjust and recover reliably enough…",
+      "summary_language": "ja",
+      "url": "https://www.therobotreport.com/why-dexterity-is-physical-ai-real-bottleneck/",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
+    {
+      "id": "126b23fa4c6000e1ce65abcf",
+      "published_at": "2026-10-10T05:11:18Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Asia",
+      "country": "India",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Hindu Sci-Tech",
+      "organization": "The Hindu Sci-Tech",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Meta、AIでInstagramとFacebook上の児童性的搾取コンテンツを検出",
+      "title_original": "Meta says it is using AI to detect child sexual abuse content on Instagram and Facebook",
+      "summary": "Metaは、InstagramとFacebook上の児童性的搾取コンテンツの検出にAIを利用していると説明した。2026年1〜6月には、インドで530万件を処理したという。",
+      "summary_original": "Meta said that between January and June 2026, it actioned 5.3 million pieces of child sexual exploitation content on Facebook and Instagram in India",
+      "summary_language": "ja",
+      "url": "https://www.thehindu.com/sci-tech/technology/meta-says-it-is-using-ai-to-detect-child-sexual-abuse-content-on-instagram-and-facebook/article71558704.ece",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
     {
       "id": "4a7ce1525b291e7b24f88753",
       "published_at": "2026-10-10T04:00:07Z",
@@ -86025,76 +86093,6 @@
       "summary_language": "ja",
       "url": "https://www.esa.int/ESA_Multimedia/Videos/2026/09/BepiColombo_s_Mercury_arrival_begins_-_full_replay",
       "first_seen": "2026-09-05T06:33:22+09:00",
-      "status": "New"
-    },
-    {
-      "id": "e5a7e10db615029f6f74c63f",
-      "published_at": "2026-09-03T15:00:00Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "TechCrunch Artificial Intelligence",
-      "organization": "TechCrunch Artificial Intelligence",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "Google、新AI気象モデル「WeatherNext 3」を検索などに導入へ",
-      "title_original": "Google’s latest AI weather model gives you no excuse to forget your umbrella",
-      "summary": "Googleは、深層学習を用いた気象モデル「WeatherNext 3」を発表した。検索、Google Maps、Geminiで利用者向けの気象情報に活用する計画だ。",
-      "summary_original": "WeatherNext 3 is the latest wave of a sea change in meteorology brought out by deep learning techniques. Google says it will start feeding into weather information users see in search, Google Maps, and Gemini.",
-      "summary_language": "ja",
-      "url": "https://techcrunch.com/2026/09/03/googles-latest-ai-weather-model-gives-you-no-excuse-to-forget-your-umbrella/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "1d3a59733ff5c8fc114bb707",
-      "published_at": "2026-09-03T14:39:15Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Artificial Intelligence",
-        "Quantum",
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Quantum Insider",
-      "organization": "The Quantum Insider",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "Andhra大学、量子・AI・半導体の研究拠点設置を計画",
-      "title_original": "Andhra University Plans Centres of Excellence for Quantum, AI and Semiconductors",
-      "summary": "インドのAndhra大学は、量子技術、AIシステム、半導体を扱うセンター・オブ・エクセレンスの設置を計画している。国際会議の開会時に副学長が明らかにした。",
-      "summary_original": "Insider Brief Andhra University intends to set up Centres of Excellence covering quantum technology, AI systems, and semiconductors, Vice-Chancellor G.P. Raja Sekhar said Tuesday, The Hindu reported. Raja Sekhar made the announcement while opening a three-day international conference on Quantum-Enhanced Sustainable Technologies for AI Systems (QUEST-AI), hosted by the cluster departments of Andhra University College […]",
-      "summary_language": "ja",
-      "url": "https://thequantuminsider.com/2026/09/03/andhra-university-quantum-ai-semiconductor-research-centres/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
       "status": "New"
     }
   ]
