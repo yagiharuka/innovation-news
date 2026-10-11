@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T14:31:33Z",
-  "updated_at_jst": "2026-10-11T23:31:33+09:00",
+  "updated_at": "2026-10-11T15:01:21Z",
+  "updated_at_jst": "2026-10-12T00:01:21+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,110 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "8166a27bce11cd42314b59de",
+      "published_at": "2026-10-10T18:35:59Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 1,
+      "source_type": "Major Media",
+      "source": "Bloomberg Technology",
+      "organization": "Bloomberg Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Microsoft CEO、高度AIに「緊急停止装置」を求める",
+      "title_original": "Microsoft CEO Nadella Calls for ‘Emergency Brake’ on Advanced AI",
+      "summary": "Microsoftのサティア・ナデラCEOは、強力なAIモデルが侵害される可能性を想定し、エージェント型モデルの暴走を防ぐ「緊急停止装置」を企業が整備すべきだと述べた。",
+      "summary_original": "Microsoft Corp. Chief Executive Officer Satya Nadella said companies should treat powerful artificial intelligence models as potential insider threats, assume they could be compromised and create an “emergency brake” system to prevent agentic models from going rogue.",
+      "summary_language": "ja",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-10/microsoft-ceo-nadella-calls-for-emergency-brake-on-advanced-ai",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
+    {
+      "id": "a4095e3878d96f7b2a45943a",
+      "published_at": "2026-10-10T14:41:16Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Verge Technology",
+      "organization": "The Verge Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "Anthropic、AIエージェントの社内評価をネット接続なしで実施",
+      "title_original": "Anthropic is cutting off its internal evaluations from the internet",
+      "summary": "Anthropicは、AIエージェントによる予期しない行動を防ぐため、内部評価時のインターネット接続を遮断する。背景には、エージェントが虚偽の通報を行うなどの事例がある。",
+      "summary_original": "Posts from this topic will be added to your daily email digest and your homepage feed. Anthropic is is keeping its agents offline during testing until it can prevent ‘unintended model actions.’ Posts from this author will be added to your daily email digest and your homepage feed. After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday, the company detailed “ unintended model actions ,” including submitting a false tip regarding an unsolved murder, that led to the decision. Although the impact of these behaviors was minimal and we had already turned off live internet acce…",
+      "summary_language": "ja",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
+    {
+      "id": "e2d05722482d54a2b49852ed",
+      "published_at": "2026-10-10T14:19:14Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "Bloomberg Technology",
+      "organization": "Bloomberg Technology",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "米政権のAI責任追及方針、モデルの問題行動をめぐり責任論が浮上",
+      "title_original": "Trump’s AI Liability Push Opens Blame Game for Models Gone Rogue",
+      "summary": "米政権がAIの安全性確保に向け、法的責任を活用する方針を示した。AIモデルが問題行動を起こした場合、開発企業と導入者のどちらが責任を負うのかが争点となる。",
+      "summary_original": "The Trump administration’s embrace of legal liability to enforce artificial intelligence safety sets the stage for future conflicts over who foots the bill when AI models go rogue: the companies that design the systems or the people that deploy the technology.",
+      "summary_language": "ja",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-10/trump-s-ai-liability-push-opens-blame-game-for-models-gone-rogue",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
     {
       "id": "8802781ec959d242b86b1573",
       "published_at": "2026-10-10T12:45:15Z",
@@ -85988,111 +86092,6 @@
       "summary_language": "ja",
       "url": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/",
       "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "4e4658bd40418538aca2b8ab",
-      "published_at": "2026-09-03T16:00:00Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Verge Technology",
-      "organization": "The Verge Technology",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "NVIDIA、N1X搭載RTX SparkノートPCを10月に2構成で発売",
-      "title_original": "Nvidia’s new RTX Spark laptops launch in October with two different configs",
-      "summary": "NVIDIAは、ArmベースのN1Xチップを搭載したRTX SparkノートPCを10月に2種類の構成で発売する。N1チップは今年は投入されない。",
-      "summary_original": "All the rumors leading up to Nvidia's announcement of its Arm-based RTX Spark chips over the summer mentioned two specific chips: the N1X and N1. While the N1 won't be arriving this year, Nvidia says its N1X chip is arriving in RTX Spark laptops in two different configurations in October. You'll be able to buy […]",
-      "summary_language": "ja",
-      "url": "https://www.theverge.com/news/989133/nvidia-rtx-spark-laptops-n1x-specifications",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "86ddcc74fd68a2673c5d2872",
-      "published_at": "2026-09-03T15:00:00Z",
-      "collected_at_jst": "2026-09-05T06:33:22+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Space"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "R&D Funding & Tax Incentives",
-        "National Programs & Strategy"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Government",
-      "source": "JAXA 宇宙戦略基金",
-      "organization": "JAXA 宇宙戦略基金",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site listing and page metadata",
-      "collection_mode": "Daily",
-      "title": "JAXA宇宙戦略基金、衛星データ利用システム実装事業の追加公募を開始",
-      "title_original": "（第二期）「衛星データ利用システム実装加速化事業」の追加公募を開始しました | JAXA宇宙戦略基金",
-      "summary": "JAXA宇宙戦略基金は2026年9月4日、第二期「衛星データ利用システム実装加速化事業」の追加公募を開始した。衛星データ利用システムの実装加速を対象とする公的支援措置である。",
-      "summary_original": "2026年9月4日 お知らせ （第二期）「衛星データ利用システム実装加速化事業」の追加公募を開始しました",
-      "summary_language": "ja",
-      "url": "https://fund.jaxa.jp/topics/4028/",
-      "first_seen": "2026-09-05T06:33:22+09:00",
-      "status": "New"
-    },
-    {
-      "id": "c63025807d6540c63598c314",
-      "published_at": "2026-09-03T15:00:00Z",
-      "collected_at_jst": "2026-09-05T06:33:22+09:00",
-      "region": "EU & Europe",
-      "country": "European Union",
-      "topics": [
-        "Space"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Intergovernmental",
-      "source": "ESA",
-      "organization": "ESA",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "ベピコロンボ、水星到着に向けたミッション運用を開始",
-      "title_original": "BepiColombo’s Mercury arrival begins - full replay",
-      "summary": "ESAとJAXAの水星探査機ベピコロンボが、水星到着に向けた複雑な到着シーケンスの最初の重要段階に入った。2026年9月には探査機のモジュール分離が予定されている。",
-      "summary_original": "Video: 02:31:10 Watch the replay of the livestream originally broadcast on 3 September as ESA/JAXA's BepiColombo mission took the first critical step towards arriving at Mercury. After travelling through the inner Solar System together for eight years, BepiColombo's Mercury Transfer Module (MTM) will separate from the rest of the stacked spacecraft on 3 September 2026. This marks the beginning of one of the most complex planetary arrival sequences ever attempted by ESA. Broadcast live from ESA's European Space Operations Centre (ESOC) in Darmstadt, Germany, the programme includes live views from the iconic Main Control Room, expert analysis, behind-the-scenes insights, and the first signal…",
-      "summary_language": "ja",
-      "url": "https://www.esa.int/ESA_Multimedia/Videos/2026/09/BepiColombo_s_Mercury_arrival_begins_-_full_replay",
-      "first_seen": "2026-09-05T06:33:22+09:00",
       "status": "New"
     }
   ]
