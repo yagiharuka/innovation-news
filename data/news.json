@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T15:01:21Z",
-  "updated_at_jst": "2026-10-12T00:01:21+09:00",
+  "updated_at": "2026-10-11T15:31:33Z",
+  "updated_at_jst": "2026-10-12T00:31:33+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,42 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "e3bc9d282678416b41b4e8eb",
+      "published_at": "2026-10-12T00:00:00Z",
+      "collected_at_jst": "2026-10-11T07:38:44+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 3,
+      "source_type": "Policy Institute",
+      "source": "ITIF Publications",
+      "organization": "ITIF Publications",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "AI時代の脆弱性データベース近代化に関するNISTへの提言",
+      "title_original": "Comments to NIST Regarding Modernizing the National Vulnerability Database in the Age of AI",
+      "summary": "ITIFは、AIによる脆弱性発見の加速で従来型の管理基盤に課題が生じているとして、NISTのNational Vulnerability Database近代化に向けた情報配布、修正開発・導入・監視について提言した。",
+      "summary_original": "(2) Vulnerability Information Dissemination . 3 (4) Remediation Development, Deployment, and Monitoring . 7 The Information Technology and Innovation Foundation (ITIF) is pleased to submit these comments in response to the National Institute of Standards and Technology’s (NIST) request for information on “Modernizing the National Vulnerability Database in the Age of Artificial Intelligence.” [1] ITIF is a nonprofit, non ‑ partisan public policy think tank based i… The rapid acceleration of AI ‑ enabled vulnerability discovery has exposed structural weaknesses in the current vulnerability ‑ management ecosystem. The National Vulnerability Database (NVD), built for human ‑ speed discovery and…",
+      "summary_language": "ja",
+      "url": "https://itif.org/publications/2026/10/12/comments-to-nist-modernizing-nvd-age-of-ai/",
+      "first_seen": "2026-10-11T07:38:44+09:00",
+      "status": "New"
+    },
     {
       "id": "8166a27bce11cd42314b59de",
       "published_at": "2026-10-10T18:35:59Z",
@@ -3138,6 +3174,40 @@
       "status": "New"
     },
     {
+      "id": "91df2430da9852847fc4d36b",
+      "published_at": "2026-10-08T17:59:09Z",
+      "collected_at_jst": "2026-10-11T17:22:13+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "arXiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "PPTチャネル下の量子エンタングルメント蒸留を解析",
+      "title_original": "On PPT entanglement distillation",
+      "summary": "本プレプリントは、部分転置共役に対して完全正値性を保つPPTチャネルでのエンタングルメント蒸留を研究した。蒸留可能量の正則化公式と2種類の単一文字上界を導き、正則化Rains boundより厳密に小さくなり得ることを示した。",
+      "summary_original": "We study entanglement distillation under operations that remain completely positive under partial-transpose conjugation, a.k.a. PPT channels, in the standard quantum Shannon theory regime of asymptotically vanishing but non-zero error. Our main results are: (a) a regularised formula for the PPT distillable entanglement in terms of a measured-relative-entropy-like quantity; and (b) two different single-letter converses, one based on operator quadratic forms and the other on Hirschman's strengthening of the Hadamard three-line theorem. As an immediate application of (b), we show that the PPT distillable entanglement can be strictly smaller than the regularised Rains bound, thereby resolving a…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2610.12454v1",
+      "first_seen": "2026-10-11T17:22:13+09:00",
+      "status": "New"
+    },
+    {
       "id": "dfbb989a472f530f2a05f240",
       "published_at": "2026-10-08T17:15:03Z",
       "collected_at_jst": "2026-10-09T08:46:40+09:00",
@@ -4874,6 +4944,41 @@
       "status": "New"
     },
     {
+      "id": "0e98c4980c93949ffab08afc",
+      "published_at": "2026-10-08T00:00:00Z",
+      "collected_at_jst": "2026-10-11T17:22:13+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "ChemRxiv",
+      "organization": "ChemRxiv",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "ChemRxiv",
+      "doi": "https://doi.org/10.26434/chemrxiv.15010085/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "治療用細菌を機能設計する統合フレームワークを提示",
+      "title_original": "Engineering Bacteria and Their Vesicles for Therapy: Integrating Native Functions, Genetic Control, and Chemical Biology",
+      "summary": "本プレプリントは、治療用細菌を宿主シャーシの特性、工学的改変、臨床場面の組み合わせで設計する枠組みを示した。遺伝子工学や化学生物学による機能付加に加え、複製・拡散リスク、製造、安全性、規制、非複製膜小胞との比較を整理している。",
+      "summary_original": "OpenAlex research topics: Cancer Research and Treatments; Microbial Metabolic Engineering and Bioproduction; Bacterial Genetics and Biotechnology; bacterial therapeutics; outer membrane vesicles; genetic engineering of bacteria; chemical biology; attenuated bacteria; controlled release; biomineralization; cancer therapy; intestinal inflammation",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.26434/chemrxiv.15010085/v1",
+      "first_seen": "2026-10-11T17:22:13+09:00",
+      "status": "New"
+    },
+    {
       "id": "042167b22b20ae535df4bc08",
       "published_at": "2026-10-08T00:00:00Z",
       "collected_at_jst": "2026-10-11T07:38:44+09:00",
@@ -6424,6 +6529,40 @@
       "summary_language": "ja",
       "url": "https://semiengineering.com/hyper-na-euv-the-next-extension-beyond-high-na-lithography-carl-zeiss-asml/",
       "first_seen": "2026-10-08T08:36:56+09:00",
+      "status": "New"
+    },
+    {
+      "id": "b360f3c8f10fb27c6f2a0ef2",
+      "published_at": "2026-10-07T19:42:04Z",
+      "collected_at_jst": "2026-10-11T17:22:13+09:00",
+      "region": "EU & Europe",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "ドイツ、核融合商業化に向けた成果連動型公的資金プログラムを開始",
+      "title_original": "Germany Launches Fusion Milestone Program",
+      "summary": "ドイツ連邦画期的イノベーション庁（SPRIND）は10月7日、連邦研究・技術・宇宙省（BMFTR）に代わり、民間核融合の商業化を加速するマイルストーン連動型プログラムを開始した。",
+      "summary_original": "On 7 October, Germany’s Federal Agency for Breakthrough Innovation (SPRIND) launched a milestone-based fusion program on behalf of the Federal Ministry of Research, Technology and Space (BMFTR), creating a new public funding pathway to accelerate private-sector fusion commercialization. The post Germany Launches Fusion Milestone Program appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.fusionindustryassociation.org/germany-launches-fusion-milestone-program/?utm_source=rss&utm_medium=rss&utm_campaign=germany-launches-fusion-milestone-program",
+      "first_seen": "2026-10-11T17:22:13+09:00",
       "status": "New"
     },
     {
@@ -8197,6 +8336,41 @@
       "summary_language": "ja",
       "url": "https://eetimes.itmedia.co.jp/ee/articles/2610/07/news036.html",
       "first_seen": "2026-10-08T08:36:56+09:00",
+      "status": "New"
+    },
+    {
+      "id": "04298b01f176053ddcf4fa2c",
+      "published_at": "2026-10-07T00:00:00Z",
+      "collected_at_jst": "2026-10-11T17:22:13+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Robotics",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Research Square",
+      "organization": "Research Square",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Research Square",
+      "doi": "https://doi.org/10.21203/rs.3.rs-10847346/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "関係性を扱う物体中心グラフ型ワールドモデルによるロボット操作",
+      "title_original": "From Slots to Relations: Object-Centric Graph World-Action Models for Relational Robot Manipulation",
+      "summary": "本プレプリントは、物体中心表現とグラフトランスフォーマーを組み合わせ、物体間の関係を考慮してロボットの操作方策や将来状態を予測するワールド・アクションモデルを提案する。",
+      "summary_original": "OpenAlex research topics: Robot Manipulation and Learning; Reinforcement Learning in Robotics; AI-based Problem Solving and Planning; world action models; object-centric representation; robotic manipulation; object relations; graph transformer; policy prediction; future state prediction; relational composition; world models",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.21203/rs.3.rs-10847346/v1",
+      "first_seen": "2026-10-11T17:22:13+09:00",
       "status": "New"
     },
     {
@@ -13308,6 +13482,40 @@
       "summary_language": "ja",
       "url": "https://www.bbc.co.uk/news/articles/c5j9x9pr0240o?at_medium=RSS&at_campaign=rss",
       "first_seen": "2026-10-06T09:51:48+09:00",
+      "status": "New"
+    },
+    {
+      "id": "16b0825f5429080e2b7c9d92",
+      "published_at": "2026-10-05T16:11:46Z",
+      "collected_at_jst": "2026-10-11T17:22:13+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "Regulation & Governance"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "米上院議員、核融合発電設備を含む許認可改革法案を提出",
+      "title_original": "Senators Introduce Bipartisan Permitting Act, Including Fusion",
+      "summary": "米上院議員は9月30日、連邦環境審査・許認可手続きの改革を目指す超党派法案を提出した。法案は、発電用核融合装置を対象技術に含め、公平な扱いを求めている。",
+      "summary_original": "On September 30, U.S. Senators introduced the Bipartisan American Affordability and Jobs Act of 2026 to reform the federal environmental review and permitting process. The Act aims to deliver cheaper energy, more jobs, and economic growth across the United States. Alongside other technologies, fusion machines that produce electricity are included within the Act as projects that should receive fair treatment. The post Senators Introduce Bipartisan Permitting Act, Including Fusion appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.fusionindustryassociation.org/senators-introduce-bipartisan-permitting-act-including-fusion/?utm_source=rss&utm_medium=rss&utm_campaign=senators-introduce-bipartisan-permitting-act-including-fusion",
+      "first_seen": "2026-10-11T17:22:13+09:00",
       "status": "New"
     },
     {
@@ -85884,214 +86092,6 @@
       "summary_language": "ja",
       "url": "https://arxiv.org/abs/2609.04191v1",
       "first_seen": "2026-09-06T15:54:44+09:00",
-      "status": "New"
-    },
-    {
-      "id": "010050f0915caae7a8ed88d4",
-      "published_at": "2026-09-03T17:59:01Z",
-      "collected_at_jst": "2026-09-06T15:54:44+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Preprint",
-      "source": "arXiv",
-      "organization": "arXiv",
-      "academic_kind": "Preprint",
-      "review_status": "Not peer reviewed",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Weekly",
-      "title": "多様な動画編集に対応する学習不要の統合フレームワーク",
-      "title_original": "One Editor, Many Edits: A Unified Training-Free Framework for Diverse Video Editing",
-      "summary": "EditVidは、疎な因果メモリや長距離の同一性保持、潜在表現ブレンディングを組み合わせ、指示・参照ベースの動画編集を単一枠組みで実現する。FiVEで78.16の性能を示した。",
-      "summary_original": "Video editing spans diverse editing paradigms, yet achieving high-quality instruction-guided and subject-guided editing within a single unified framework remains challenging. We introduce EditVid, a training-free framework combining sparse causal memory for local coherence, correspondence-based post-attention token injection for long-range identity preservation, and soft latent blending for edit locality. The same framework supports instruction-guided and reference-guided edits, including style transfer, attribute modification, object insertion, part-level editing, and subject replacement. On FiVE, EditVid achieves 78.16 FiVE-Acc, compared with 58.95 for the strongest evaluated training-fre…",
-      "summary_language": "ja",
-      "url": "https://arxiv.org/abs/2609.04190v1",
-      "first_seen": "2026-09-06T15:54:44+09:00",
-      "status": "New"
-    },
-    {
-      "id": "3174f2df044fa863d8af479b",
-      "published_at": "2026-09-03T17:58:33Z",
-      "collected_at_jst": "2026-09-06T15:54:44+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Quantum"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Preprint",
-      "source": "arXiv",
-      "organization": "arXiv",
-      "academic_kind": "Preprint",
-      "review_status": "Not peer reviewed",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Weekly",
-      "title": "エニオン超伝導の波動関数を構成する体系的手法を提案",
-      "title_original": "Wavefunctions for Anyon Superconductors",
-      "summary": "研究者は、トポロジカル秩序を基礎とするエニオン超伝導について、階層波動関数の構成法を開発した。複数のアーベル型・非アーベル型状態で、長距離秩序や凝縮体電荷などの性質を特定した。",
-      "summary_original": "Anyon superconductivity arises from the condensation of mobile anyons rather than from a conventional Cooper instability, yet a systematic wavefunction description remains lacking. We develop a hierarchy-wavefunction construction for superconducting states derived from parent topological orders and identify their off-diagonal long-range order, condensate charge, chiral central charge, and residual topological order through the plasma analogy and topological field theories. We construct Abelian and non-Abelian examples descending from the semion state, a $ν=2/3$ hierarchy state, the $ν=1/3$ Laughlin state, $ν=1$ integer quantum Hall state, and Pfaffian state. Remarkably, for the semion case,…",
-      "summary_language": "ja",
-      "url": "https://arxiv.org/abs/2609.04187v1",
-      "first_seen": "2026-09-06T15:54:44+09:00",
-      "status": "New"
-    },
-    {
-      "id": "f5196bc1c441c2572da6b6ee",
-      "published_at": "2026-09-03T17:43:19Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "Canada",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Regulation & Governance",
-        "Standards & Safety",
-        "Public Procurement & Industrial Policy"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Government",
-      "source": "ISED Canada",
-      "organization": "ISED Canada",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "カナダ政府、責任あるデータセンター開発原則を開始",
-      "title_original": "Government of Canada launches Canada’s Responsible Data Centre Development Principles",
-      "summary": "カナダ政府は、AIや科学研究などを支えるデータセンターについて、電力料金への配慮、水使用の抑制、国内計算・クラウド・データ保管能力の整備を掲げる開発原則を開始した。",
-      "summary_original": "From: Innovation, Science and Economic Development Canada New framework commits data centres to protecting electricity ratepayers, limiting water use and delivering lasting benefits for Canadians Data centres are critical infrastructure for Canada. They support the health care system, financial services, scientific research and secure government systems that Canadians rely on, and they power the digital economy and artificial intelligence (AI). Canada currently relies significantly on infrastructure and services based outside the country for the compute, cloud and data storage that power AI. Building more capacity here at home will give Canada greater resilience and choice, while helping Ca…",
-      "summary_language": "ja",
-      "url": "https://www.canada.ca/en/innovation-science-economic-development/news/2026/09/government-of-canada-launches-canadas-responsible-data-centre-development-principles.html",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "6e39f38fe6c5e3be2c878eeb",
-      "published_at": "2026-09-03T16:15:56Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The New York Times Science",
-      "organization": "The New York Times Science",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "100万超のゲノム解析で性格特性に関連するDNA変異を特定",
-      "title_original": "Scientists Find More Than 1,000 DNA Variants Linked to Personality Traits",
-      "summary": "研究者らは100万超のゲノムを解析し、外向性、協調性、神経症傾向などの性格特性に関連する1,000超のDNA変異を特定した。",
-      "summary_original": "More than one million genomes helped identify DNA variants linked to extroversion, agreeableness, neuroticism and more. Researchers measured how those traits influenced how people lived.",
-      "summary_language": "ja",
-      "url": "https://www.nytimes.com/2026/09/03/science/genes-personality-traits.html",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "556bd3162ae75317d68c26ce",
-      "published_at": "2026-09-03T16:03:50Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Quantum"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Quantum Insider",
-      "organization": "The Quantum Insider",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "QuantinuumとAramco、産業向け量子コンピューティングを検討",
-      "title_original": "Quantinuum and Aramco Sign MOU to Explore Industrial Quantum Computing",
-      "summary": "QuantinuumとAramcoは、産業分野の量子コンピューティング用途や計算能力の強化、耐故障量子コンピューティングに関する研究協力の可能性を探るMOUを締結した。",
-      "summary_original": "Insider Brief PRESS RELEASE — Quantinuum, a leading quantum computing company, today announced the signing of a non-binding MOU with Aramco, one of the world’s leading integrated energy and chemicals companies, to explore a series of industrial use cases, enhance quantum computing capabilities, and prepare for a potential research collaboration focused on fault-tolerant quantum computing. […]",
-      "summary_language": "ja",
-      "url": "https://thequantuminsider.com/2026/09/03/quantinuum-aramco-mou-industrial-quantum-computing/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "c5fea2be4f2543bc4a7e77b1",
-      "published_at": "2026-09-03T16:00:59Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Official Company",
-      "source": "NVIDIA Blog",
-      "organization": "NVIDIA Blog",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "NVIDIA、RTX・DGX向けローカルAI推論とエージェント設定を簡素化",
-      "title_original": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
-      "summary": "NVIDIAは、Microsoftなどと連携し、RTXおよびDGXシステムでのローカルAI推論を高速化し、エージェントの導入を容易にする新ツールを提供する。RTX Spark Windows PCも10月に登場する。",
-      "summary_original": "Frontier intelligence is going local. At IFA 2026, NVIDIA, Microsoft and its partners are teaming up to provide faster inference and new tools that make agents easier to set up and run locally on NVIDIA hardware. New compact NVIDIA RTX Spark Windows PCs are also coming in October to give AI enthusiasts, developers and creators more ways to run capable agent… Getting a local agent up and running with local models required some effort — choosing a model, finding a compatible inference server, dialing in quantization settings and keeping everything updated. That friction is disappearing on RTX and DGX systems. Three of the most widely used agent apps will offer simplified local model setup on…",
-      "summary_language": "ja",
-      "url": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
       "status": "New"
     }
   ]
