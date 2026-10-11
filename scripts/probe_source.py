@@ -60,6 +60,7 @@ def main() -> int:
         "source": args.source,
         "status": result.status,
         "detail": result.detail,
+        **({"diagnostics": result.diagnostics} if result.diagnostics is not None else {}),
         "entries_seen": result.entries_seen,
         "entries_kept": result.entries_kept,
         "minimums": {

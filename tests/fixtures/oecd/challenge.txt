@@ -1,0 +1,14 @@
+Title: Just a moment...
+
+URL Source: http://www.oecd.org/en/blogs/2026/09/how-economic-security-is-shaping-science-technology-and-industrial-policy.html
+
+Warning: This page maybe requiring CAPTCHA, please make sure you are authorized to access this page.
+
+Markdown Content:
+![Image 1: Icon for www.oecd.org](https://www.oecd.org/favicon.ico)
+
+## www.oecd.org
+
+## Performing security verification
+
+This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.

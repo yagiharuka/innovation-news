@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+"""Report saved review results after the checkpoint has been committed."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+from pathlib import Path
+
+import review_gate
+
+
+ROOT = Path(__file__).resolve().parents[1]
+BLOCKED_STATUSES = {
+    "rate_limited", "quota_blocked", "authentication_failed", "access_denied",
+    "review_failed",
+}
+
+
+def review_outcome(state: dict, *, scope: str, attempted: bool) -> tuple[str, int, int]:
+    pending = (review_gate.priority_pending_count(state) if scope == "fresh"
+               else int(state["pending_in_window"]))
+    if pending < 0:
+        raise ValueError("Pending count cannot be negative")
+    if pending == 0:
+        return "completed", pending, 0
+    status = state.get("status" if scope == "fresh" else "backlog_status", "")
+    if (status in BLOCKED_STATUSES or state.get("rate_limited")
+            or state.get("api_error_kind") in BLOCKED_STATUSES | {"api_error", "unknown_rate_limit"}):
+        return "blocked", pending, 1
+    if not attempted:
+        return "skipped", pending, 0
+    if int(state.get("reviewed") or 0) <= 0:
+        return "no_progress", pending, 1
+    return "in_progress", pending, 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--scope", choices=("fresh", "backlog"), default="fresh")
+    parser.add_argument("--attempted", choices=("true", "false"), required=True)
+    parser.add_argument("--state", type=Path, default=ROOT / "data" / "review_state.json")
+    args = parser.parse_args()
+    try:
+        state = json.loads(args.state.read_text(encoding="utf-8"))
+        outcome, pending, exit_code = review_outcome(
+            state, scope=args.scope, attempted=args.attempted == "true",
+        )
+    except (OSError, KeyError, TypeError, ValueError) as exc:
+        print(f"Review outcome unavailable: {type(exc).__name__}")
+        return 1
+    lines = [
+        f"Review outcome: {outcome}", f"Pending {args.scope} candidates: {pending}",
+        f"Saved checkpoint: {state.get('updated_at', 'unknown')}",
+        f"This job attempted review: {args.attempted}",
+    ]
+    if args.attempted == "true":
+        lines.extend((f"Reviewed in saved batch: {state.get('reviewed', 0)}",
+                      f"API calls in saved batch: {state.get('model_requests', 0)}"))
+    if state.get("api_error_kind") in {"quota_blocked", "authentication_failed", "access_denied"}:
+        lines.append("Account/configuration action is required before another API attempt.")
+    elif outcome == "blocked":
+        lines.append("Review has not recovered; a cooldown or API error remains.")
+    elif outcome != "completed":
+        lines.append("The queue is incomplete; batch progress is not delivery readiness.")
+    message = "\n".join(lines) + "\n"
+    print(message, end="")
+    if os.getenv("GITHUB_STEP_SUMMARY"):
+        with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as handle:
+            handle.write(message + "\n")
+    return exit_code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

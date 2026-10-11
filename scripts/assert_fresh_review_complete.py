@@ -24,8 +24,12 @@ def main() -> int:
     if pending:
         print(
             f"Fresh review is incomplete: {pending} candidate(s) remain. "
-            "The 30-minute catch-up will continue before email delivery."
+            "Email delivery must wait for a completed review checkpoint."
         )
+        if state.get("api_error_kind") in {
+            "quota_blocked", "authentication_failed", "access_denied",
+        }:
+            print("API account/configuration action is required; automatic retry cannot resolve it.")
         return 1
 
     print("Fresh review is complete: 0 candidates remain.")

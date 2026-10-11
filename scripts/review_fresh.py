@@ -47,6 +47,10 @@ def refresh_completed_checkpoint() -> None:
     )
     state["updated_at"] = collect.iso_z(checked_at)
     state["updated_at_jst"] = collect.iso_jst(checked_at)
+    # A queue scan is not a new API observation. Retaining an old positive count
+    # would make the new timestamp falsely supersede a later rate-limit event.
+    state["model_requests"] = 0
+    state["reviewed"] = 0
     state["public_items"] = len(collect.load_public_payload().get("items", []))
     collect.save_review_state(state)
 

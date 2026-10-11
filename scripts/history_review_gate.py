@@ -27,9 +27,8 @@ def main() -> int:
         now=datetime.now(timezone.utc),
         next_request_budget=args.request_budget,
         backlog_request_budget=20,
-        # The legacy gate reserves 50 requests. Increasing the nominal ceiling
-        # by the same amount preserves the real 146-request safety ceiling.
-        global_request_budget=196,
+        # Reservations and actual calls share the same conservative ceiling.
+        global_request_budget=146,
     )
     output_path = os.getenv("GITHUB_OUTPUT", "").strip()
     if output_path:

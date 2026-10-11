@@ -60,7 +60,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("if: github.event_name == 'push'", daily)
         self.assertIn("python -m unittest discover -s tests", daily)
         self.assertNotIn("github.event_name != 'schedule'", daily)
-        self.assertIn('cron: "0 19 * * *"', daily)
+        self.assertIn('cron: "17 19 * * *"', daily)
         self.assertIn("scripts/review_fresh.py", daily)
         self.assertIn("scripts/assert_fresh_review_complete.py", daily)
         self.assertIn("JAPANESE_SUMMARY_REQUEST_BUDGET=25", daily)

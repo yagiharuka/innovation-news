@@ -42,23 +42,41 @@ jobs:
         run: python -m pip install --requirement requirements.txt
 
       - name: Audit every active source endpoint and published article URL
+        id: url_audit
+        continue-on-error: true
         run: python -u scripts/audit_urls.py --workers 16 --timeout 15
 
       - name: Exercise OECD and stabilized collector paths
+        id: source_probes
+        continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p data/source_probes
-          python -u scripts/probe_source.py --source "OECD Newsroom" --days 14 --min-seen 1 --min-kept 1 --output data/oecd_source_probe.json
-          python -u scripts/probe_source.py --source "OECD STI Publications & Indicators" --days 40 --min-seen 1 --min-kept 1 --output data/source_probes/oecd-sti-publications.json
-          python -u scripts/probe_source.py --source "Australian Research Council" --days 40 --output data/source_probes/australian-research-council.json
-          python -u scripts/probe_source.py --source "EE Times" --days 40 --output data/source_probes/ee-times.json
-          python -u scripts/probe_source.py --source "ITU News" --days 40 --output data/source_probes/itu-news.json
-          python -u scripts/probe_source.py --source "Moderna Media Center" --days 40 --output data/source_probes/moderna-media-center.json
-          python -u scripts/probe_source.py --source "UAE Advanced Technology Research Council" --days 40 --output data/source_probes/uae-atrc.json
-          python -u scripts/probe_source.py --source "AAAI Proceedings" --days 120 --output data/source_probes/aaai-proceedings.json
-          python -u scripts/probe_source.py --source "Samsung Global Newsroom" --days 40 --output data/source_probes/samsung-global-newsroom.json
-          python -u scripts/probe_source.py --source "ITER News" --days 40 --output data/source_probes/iter-news.json
+          # Do not upload a committed old success report if a probe crashes.
+          rm -f data/oecd_source_probe.json data/source_probes/*.json
+          failed=0
+          run_probe() {
+            if python -u scripts/probe_source.py "$@"; then
+              return 0
+            else
+              code=$?
+              echo "::error::Source probe failed (exit ${code}): $*"
+              failed=$((failed + 1))
+            fi
+          }
+          run_probe --source "OECD Newsroom" --days 14 --min-seen 1 --min-kept 1 --output data/oecd_source_probe.json
+          run_probe --source "OECD STI Publications & Indicators" --days 40 --min-seen 1 --min-kept 1 --output data/source_probes/oecd-sti-publications.json
+          run_probe --source "Australian Research Council" --days 40 --output data/source_probes/australian-research-council.json
+          run_probe --source "EE Times" --days 40 --output data/source_probes/ee-times.json
+          run_probe --source "ITU News" --days 40 --output data/source_probes/itu-news.json
+          run_probe --source "Moderna Media Center" --days 40 --output data/source_probes/moderna-media-center.json
+          run_probe --source "UAE Advanced Technology Research Council" --days 40 --output data/source_probes/uae-atrc.json
+          run_probe --source "AAAI Proceedings" --days 120 --output data/source_probes/aaai-proceedings.json
+          run_probe --source "Samsung Global Newsroom" --days 40 --output data/source_probes/samsung-global-newsroom.json
+          run_probe --source "ITER News" --days 40 --output data/source_probes/iter-news.json
+          echo "Failed source probes: ${failed}"
+          test "$failed" -eq 0
 
       - name: Upload full audit report
         if: always()
@@ -70,6 +88,14 @@ jobs:
             data/oecd_source_probe.json
             data/source_probes/*.json
           retention-days: 30
+
+      - name: Require healthy audit and all source probes
+        if: always()
+        env:
+          AUDIT_OUTCOME: ${{ steps.url_audit.outcome }}
+          PROBE_OUTCOME: ${{ steps.source_probes.outcome }}
+        run: |
+          test "$AUDIT_OUTCOME" = success && test "$PROBE_OUTCOME" = success
 
       - name: Commit audit report
         run: |

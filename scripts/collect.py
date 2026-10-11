@@ -582,6 +582,7 @@ class FeedResult:
     status: str
     detail: str
     elapsed_seconds: float
+    diagnostics: dict[str, Any] | None = None
 
 
 class SummaryRateLimitError(RuntimeError):
@@ -603,6 +604,72 @@ class SummaryRateLimitError(RuntimeError):
 
 class SummaryRequestBudgetError(RuntimeError):
     """Stop before a review pass exceeds its configured request budget."""
+
+
+class SummaryAPIError(RuntimeError):
+    """Stop this pass on an API failure that retrying articles cannot repair."""
+
+
+API_ERROR_FIELDS = (
+    "api_error_kind", "api_error_code", "api_error_type", "api_error_message",
+    "api_request_id", "api_error_at", "rate_limit_reset_tokens",
+    "api_call_skipped",
+)
+API_ACTION_REQUIRED = {"quota_blocked", "authentication_failed", "access_denied"}
+
+
+def api_error_observation(response: requests.Response) -> dict[str, Any]:
+    """Keep diagnostic codes, never raw bodies that may contain credentials."""
+    try:
+        body = response.json()
+        error = body.get("error", {}) if isinstance(body, dict) else {}
+        error = error if isinstance(error, dict) else {}
+    except (ValueError, TypeError):
+        error = {}
+
+    def identifier(value: Any) -> str:
+        value = str(value or "")
+        # Error identifiers are tokens, not arbitrary provider/user prose.
+        return value if (re.fullmatch(r"[A-Za-z0-9_.-]{1,120}", value)
+                         and not value.casefold().startswith(("sk-", "bearer"))) else ""
+
+    code = identifier(error.get("code"))
+    error_type = identifier(error.get("type"))
+    quota_codes = {
+        "insufficient_quota", "credit_balance_exhausted",
+        "organization_spend_limit_exceeded", "project_spend_limit_exceeded",
+        "organization_usage_limit_exceeded", "usage_limit_exceeded",
+        "billing_hard_limit_reached",
+    }
+    if response.status_code == 429 and (
+        code in quota_codes or error_type == "insufficient_quota"
+    ):
+        kind = "quota_blocked"
+        message = "OpenAI API credits or usage/spend limit requires account action"
+    elif response.status_code == 429:
+        known = code in {"rate_limit_exceeded", "slow_down"} or error_type == "rate_limit_error"
+        kind = "rate_limited" if known else "unknown_rate_limit"
+        message = (
+            "OpenAI API temporary rate limit"
+            if known else "OpenAI API returned 429; cause was not identified"
+        )
+    elif response.status_code == 401:
+        kind, message = "authentication_failed", "OpenAI API authentication failed"
+    elif response.status_code == 403:
+        kind, message = "access_denied", "OpenAI API access denied"
+    else:
+        kind, message = "api_error", f"OpenAI API HTTP {response.status_code}"
+    return {
+        "api_error_kind": kind, "api_error_code": code,
+        "api_error_type": error_type, "api_error_message": message,
+        "api_request_id": identifier(response.headers.get("x-request-id")),
+        "api_error_at": iso_z(now_utc()),
+    }
+
+
+def summary_api_fields(result: dict[str, Any], prefix: str = "") -> dict[str, Any]:
+    return {prefix + key: result.get(key, False if key == "api_call_skipped" else "")
+            for key in API_ERROR_FIELDS}
 
 
 def now_utc() -> datetime:
@@ -3022,6 +3089,53 @@ def jina_markdown_excerpt(
     return plain_text(raw_markdown, limit=max(200, min(1600, limit)))
 
 
+def jina_response_error_reason(text: str) -> str:
+    """Identify transport-successful challenge/error pages, never solve them."""
+    title_match = re.search(r"(?im)^Title:[ \t]*(.*)$", text)
+    title = normalize_space(title_match.group(1)).casefold() if title_match else ""
+    if title in {
+        "just a moment...", "just a moment", "access denied", "attention required!",
+        "403 forbidden", "404 not found", "page not found", "error 404",
+    }:
+        return "challenge_or_error_page"
+    if re.search(
+        r"(?im)^Warning:.*(?:requiring CAPTCHA|target URL returned error|"
+        r"target URL returned (?:4|5)\d\d)", text[:12000]
+    ):
+        return "challenge_or_error_page"
+    return ""
+
+
+def parse_jina_sitemap(text: str) -> tuple[list[tuple[str, str, str]], str]:
+    """Accept both Jina's markdown table and its unmodified XML representation."""
+    error = jina_response_error_reason(text)
+    if error:
+        raise ValueError(error)
+    xml_match = re.search(r"<urlset\b(?:[^>]*?/\s*>|[^>]*>[\s\S]*?</urlset>)", text)
+    if xml_match:
+        try:
+            root = ET.fromstring(xml_match.group(0))
+        except ET.ParseError as exc:
+            raise ValueError("invalid_sitemap_xml") from exc
+        rows = []
+        for node in root:
+            if node.tag.rsplit("}", 1)[-1] != "url":
+                continue
+            fields = {child.tag.rsplit("}", 1)[-1]: child.text or "" for child in node}
+            link = normalize_space(fields.get("loc", ""))
+            if link:
+                rows.append((link, link, normalize_space(fields.get("lastmod", ""))))
+        return rows, "xml"
+    pattern = re.compile(
+        r"\[(https?://[^\]]+)\]\((https?://[^)]+)\)\s+"
+        r"(20\d{2}-\d{2}-\d{2}(?:T[^\s]+)?)"
+    )
+    rows = pattern.findall(text)
+    if not rows:
+        raise ValueError("unrecognized_sitemap_format")
+    return rows, "markdown"
+
+
 def fetch_jina_page_metadata(
     session: requests.Session,
     original_url: str,
@@ -3029,12 +3143,14 @@ def fetch_jina_page_metadata(
     fallback_title: str,
     fallback_summary: str,
     fallback_date: datetime,
+    diagnostics: dict[str, Any] | None = None,
 ) -> tuple[str, str, datetime, bool]:
     """Read official-page metadata through Jina without changing source identity.
 
     Any transport, parse, or source-identity failure returns the verified sitemap
     values.  The Jina URL and error body are never written to an article record.
     """
+    reason = "transport_error"
     try:
         response = session.get(
             jina_reader_url(original_url),
@@ -3043,16 +3159,29 @@ def fetch_jina_page_metadata(
         )
         response.raise_for_status()
         detail_text = response.text
-        source_match = re.search(r"(?im)^URL Source:\s*(\S+)", detail_text)
+        reason = jina_response_error_reason(detail_text)
+        if reason:
+            raise ValueError(reason)
+        reason = "missing_source_identity"
+        source_match = re.search(r"(?im)^URL Source:[ \t]*(\S+)", detail_text)
         if not source_match:
             raise ValueError("Jina response did not identify its source URL")
-        if not publisher_url_matches_domain(
-            source_match.group(1), publisher_domain
+        reason = "source_identity_mismatch"
+        reported_url = source_match.group(1)
+        # Jina uses HTTP for transport; only that and canonical URL normalization
+        # may differ. Another article on the same publisher is not this article.
+        reported = urlsplit(canonicalize_url(reported_url))
+        requested = urlsplit(canonicalize_url(original_url))
+        if (
+            not publisher_url_matches_domain(reported_url, publisher_domain)
+            or reported.scheme not in {"http", "https"}
+            or reported._replace(scheme="https") != requested._replace(scheme="https")
         ):
-            raise ValueError("Jina source identity does not match publisher")
+            raise ValueError(reason)
 
+        reason = "invalid_metadata"
         title = fallback_title
-        title_match = re.search(r"(?im)^Title:\s*(.+)$", detail_text)
+        title_match = re.search(r"(?im)^Title:[ \t]*([^\r\n]+)$", detail_text)
         if title_match:
             candidate_title = normalize_space(title_match.group(1))
             if len(candidate_title) >= 8:
@@ -3060,7 +3189,7 @@ def fetch_jina_page_metadata(
 
         published = fallback_date
         date_match = re.search(
-            r"(?im)^(?:Published Time|Publication Date|Date):\s*(.+)$",
+            r"(?im)^(?:Published Time|Publication Date|Date):[ \t]*([^\r\n]+)$",
             detail_text,
         )
         if date_match:
@@ -3076,8 +3205,12 @@ def fetch_jina_page_metadata(
             or summary != fallback_summary
             or published != fallback_date
         )
+        if diagnostics is not None:
+            diagnostics["metadata"] = "enriched" if enriched else "unchanged"
         return title, summary, published, enriched
     except (requests.RequestException, ValueError, TypeError):
+        if diagnostics is not None:
+            diagnostics["metadata"] = reason or "invalid_metadata"
         return fallback_title, fallback_summary, fallback_date, False
 
 
@@ -3118,14 +3251,25 @@ def fetch_jina_sitemap_source(
             detail="Missing proxy_sitemap_url or publisher_domain",
             elapsed_seconds=round(time.monotonic() - started, 2),
         )
+    diagnostics: dict[str, Any] = {
+        "sitemaps": [], "rejections": {}, "rejection_samples": {},
+        "candidates": [], "candidates_total": 0, "candidates_evaluated": 0,
+        "sample_limits": {"sitemaps": 20, "candidates": 20, "urls_per_rejection": 3},
+    }
+    rejections: Counter[str] = Counter()
+    metadata_outcomes: Counter[str] = Counter()
+
+    def reject(reason: str, link: str) -> None:
+        rejections[reason] += 1
+        samples = diagnostics["rejection_samples"].setdefault(reason, [])
+        if len(samples) < 3:
+            samples.append(link[:500])
+
     try:
-        pattern = re.compile(
-            r"\[(https?://[^\]]+)\]\((https?://[^)]+)\)\s+"
-            r"(20\d{2}-\d{2}-\d{2}T[^\s]+)"
-        )
         matches: list[tuple[str, str, str]] = []
         proxy_errors: list[str] = []
         for proxy_url in proxy_urls:
+            sitemap_diagnostic: dict[str, Any] = {"url": proxy_url[:500]}
             try:
                 response = session.get(
                     proxy_url,
@@ -3133,13 +3277,19 @@ def fetch_jina_sitemap_source(
                     timeout=(10, 60),
                 )
                 response.raise_for_status()
-                matches.extend(pattern.findall(response.text))
-            except requests.RequestException as exc:
-                proxy_errors.append(
-                    normalize_space(f"{proxy_url}: {type(exc).__name__}: {exc}")
+                rows, representation = parse_jina_sitemap(response.text)
+                matches.extend(rows)
+                sitemap_diagnostic.update(
+                    status="ok", format=representation, entries_seen=len(rows)
                 )
-        if not matches and proxy_errors:
-            raise RuntimeError("; ".join(proxy_errors))
+            except (requests.RequestException, ValueError) as exc:
+                reason = str(exc) if isinstance(exc, ValueError) else "transport_error"
+                sitemap_diagnostic.update(status="error", reason=reason[:100], entries_seen=0)
+                proxy_errors.append(reason)
+            if len(diagnostics["sitemaps"]) < 20:
+                diagnostics["sitemaps"].append(sitemap_diagnostic)
+        diagnostics["sitemaps_total"] = len(proxy_urls)
+        diagnostics["sitemap_errors"] = len(proxy_errors)
         include_patterns = [
             str(value).casefold()
             for value in source.get("include_link_patterns", [])
@@ -3150,43 +3300,51 @@ def fetch_jina_sitemap_source(
             for value in source.get("exclude_link_patterns", [])
             if normalize_space(str(value))
         ]
-        candidates: list[tuple[int, datetime, str, str]] = []
+        candidates: list[tuple[int, datetime, str, str, str]] = []
         seen_urls: set[str] = set()
         max_items = max(1, min(50, int(source.get("max_items", 30))))
         for visible_url, linked_url, raw_date in matches:
             link = linked_url if linked_url == visible_url else visible_url
             if not publisher_url_matches_domain(link, publisher_domain):
+                reject("publisher_domain", link)
                 continue
             lowered_link = link.casefold()
             if include_patterns and not any(
                 pattern in lowered_link for pattern in include_patterns
             ):
+                reject("include_link_pattern", link)
                 continue
             if any(pattern in lowered_link for pattern in exclude_patterns):
+                reject("exclude_link_pattern", link)
                 continue
             path_month = re.search(r"/(20\d{2})/(\d{1,2})/", urlsplit(link).path)
             if path_month and (
                 int(path_month.group(1)), int(path_month.group(2))
             ) < (cutoff.year, cutoff.month):
+                reject("url_month_before_cutoff", link)
                 continue
             published = infer_date_from_url(link) or parse_archive_date(raw_date)
             if published is None or published < cutoff:
+                reject("sitemap_date_missing" if published is None else "sitemap_date_before_cutoff", link)
                 continue
             canonical_url = canonicalize_url(link)
             if not canonical_url or canonical_url in seen_urls:
+                reject("invalid_or_duplicate_url", link)
                 continue
             seen_urls.add(canonical_url)
             slug = unquote(urlsplit(link).path.rstrip("/").rsplit("/", 1)[-1])
             title = normalize_space(slug.removesuffix(".html").replace("-", " "))
             if not title:
+                reject("missing_title", link)
                 continue
             title_is_relevant = bool(
                 source_text_filter_allows(source, title)
                 and (classify_policy_areas(title) or classify_topics(title))
             )
-            candidates.append((int(title_is_relevant), published, link, title))
+            candidates.append((int(title_is_relevant), published, link, title, raw_date))
 
         candidates.sort(key=lambda row: (row[0], row[1]), reverse=True)
+        diagnostics["candidates_total"] = len(candidates)
         detail_limit_key = (
             "jina_detail_backfill_limit" if backfill else "jina_detail_daily_limit"
         )
@@ -3197,7 +3355,15 @@ def fetch_jina_sitemap_source(
         items: list[dict[str, Any]] = []
         detail_pages = 0
         detail_fallbacks = 0
-        for _title_priority, published, link, fallback_title in candidates:
+        for _title_priority, published, link, fallback_title, raw_date in candidates:
+            candidate_diagnostic: dict[str, Any] = {
+                "url": link[:500], "discovery_date": published.isoformat(),
+                "sitemap_lastmod": raw_date[:100],
+                "metadata": "detail_limit_reached", "decision": "kept",
+            }
+            diagnostics["candidates_evaluated"] += 1
+            if len(diagnostics["candidates"]) < 20:
+                diagnostics["candidates"].append(candidate_diagnostic)
             title = fallback_title
             summary = ""
             if detail_pages < detail_limit:
@@ -3209,17 +3375,27 @@ def fetch_jina_sitemap_source(
                     fallback_title,
                     "",
                     published,
+                    diagnostics=candidate_diagnostic,
                 )
                 if detail_published <= collected_at + timedelta(days=2):
                     published = detail_published
                 if not enriched:
                     detail_fallbacks += 1
+            metadata_outcomes[candidate_diagnostic["metadata"]] += 1
+            candidate_diagnostic["published_at"] = published.isoformat()
+            candidate_diagnostic["final_title"] = title[:200]
             if not (cutoff <= published <= collected_at + timedelta(days=2)):
+                candidate_diagnostic["decision"] = "detail_date_outside_window"
+                reject("detail_date_outside_window", link)
                 continue
             if not source_text_filter_allows(source, title, summary):
+                candidate_diagnostic["decision"] = "source_text_filter"
+                reject("source_text_filter", link)
                 continue
             evidence = normalize_space(f"{title} {summary}")
             if not (classify_policy_areas(evidence) or classify_topics(evidence)):
+                candidate_diagnostic["decision"] = "no_scope_evidence"
+                reject("no_scope_evidence", link)
                 continue
             item = build_item(
                 source=source,
@@ -3230,6 +3406,8 @@ def fetch_jina_sitemap_source(
                 collected_at=collected_at,
             )
             if not item:
+                candidate_diagnostic["decision"] = "item_validation"
+                reject("item_validation", link)
                 continue
             item["discovery_method"] = (
                 "Official publisher sitemap via Jina reader; original URL retained"
@@ -3241,6 +3419,11 @@ def fetch_jina_sitemap_source(
             items.append(item)
             if len(items) >= max_items:
                 break
+        diagnostics["rejections"] = dict(rejections)
+        diagnostics["metadata_outcomes"] = dict(metadata_outcomes)
+        diagnostics["detail_limit"] = detail_limit
+        diagnostics["detail_pages"] = detail_pages
+        diagnostics["detail_fallbacks"] = detail_fallbacks
         detail = (
             "official sitemap through Jina; original publisher URLs retained; "
             f"detail_pages={detail_pages}; detail_fallbacks={detail_fallbacks}"
@@ -3251,9 +3434,10 @@ def fetch_jina_sitemap_source(
             source=source,
             entries_seen=len(matches),
             entries_kept=len(items),
-            status="ok",
+            status="error" if proxy_errors else "ok",
             detail=detail,
             elapsed_seconds=round(time.monotonic() - started, 2),
+            diagnostics=diagnostics,
         )
     except Exception as exc:
         return [], FeedResult(
@@ -3263,6 +3447,7 @@ def fetch_jina_sitemap_source(
             status="error",
             detail=normalize_space(f"{type(exc).__name__}: {exc}")[:300],
             elapsed_seconds=round(time.monotonic() - started, 2),
+            diagnostics=diagnostics,
         )
 
 
@@ -4793,24 +4978,23 @@ def review_state_statuses(
     summary_result: dict[str, Any],
 ) -> tuple[str, str]:
     """Separate morning-queue completion from historical backlog progress."""
-    backlog_status = "completed" if pending_in_window == 0 else "in_progress"
-    if summary_result.get("rate_limited"):
-        backlog_status = "rate_limited"
-    elif summary_result.get("request_budget_reached"):
-        backlog_status = "request_budget_reached"
+    def status(pending: int) -> str:
+        if pending == 0:
+            return "completed"
+        kind = summary_result.get("api_error_kind", "")
+        if kind in API_ACTION_REQUIRED:
+            return str(kind)
+        if summary_result.get("rate_limited"):
+            return "rate_limited"
+        if kind and kind not in {"rate_limited", "unknown_rate_limit"}:
+            return "review_failed"
+        if summary_result.get("request_budget_reached"):
+            return "request_budget_reached"
+        if summary_result.get("errors") and not summary_result.get("reviewed"):
+            return "review_failed"
+        return "in_progress"
 
-    # Morning delivery is protected by the non-backfill 36-hour queue.  An
-    # older Historical Backfill candidate must not make a fully reviewed
-    # morning edition appear incomplete.
-    if pending_priority == 0:
-        priority_status = "completed"
-    elif summary_result.get("rate_limited"):
-        priority_status = "rate_limited"
-    elif summary_result.get("request_budget_reached"):
-        priority_status = "request_budget_reached"
-    else:
-        priority_status = "in_progress"
-    return priority_status, backlog_status
+    return status(pending_priority), status(pending_in_window)
 
 
 def seed_japanese_fields(items: Iterable[dict[str, Any]]) -> None:
@@ -5515,6 +5699,7 @@ def japanese_summary_request(
             )
         except ValueError:
             request_budget = 25
+        request_budget = min(request_budget, int(request_stats.get("request_budget", request_budget)))
         if int(request_stats.get("requests", 0)) >= request_budget:
             raise SummaryRequestBudgetError(
                 f"OpenAI API request budget reached ({request_budget})"
@@ -5536,18 +5721,27 @@ def japanese_summary_request(
             "x-ratelimit-reset-requests",
             "",
         )
+        request_stats["rate_limit_reset_tokens"] = response.headers.get(
+            "x-ratelimit-reset-tokens", ""
+        )
         if response.ok:
+            for key in API_ERROR_FIELDS:
+                if key.startswith("api_"):
+                    request_stats.pop(key, None)
             break
+        request_stats.update(api_error_observation(response))
         if response.status_code == 429:
+            if request_stats["api_error_kind"] == "quota_blocked":
+                raise SummaryAPIError(request_stats["api_error_message"])
             request_stats["rate_limited_at"] = iso_z(now_utc())
             raise SummaryRateLimitError(
-                "OpenAI API rate limit reached",
+                request_stats["api_error_message"],
                 retry_after=str(request_stats["retry_after"]),
                 remaining=str(request_stats["remaining"]),
                 reset_at=str(request_stats["reset_at"]),
             )
         if response.status_code not in {408, 500, 502, 503, 504}:
-            response.raise_for_status()
+            raise SummaryAPIError(request_stats["api_error_message"])
         retry_after = response.headers.get("Retry-After", "")
         try:
             delay = max(1.0, float(retry_after))
@@ -5556,7 +5750,8 @@ def japanese_summary_request(
         time.sleep(min(delay, 30.0))
     if response is None:
         raise RuntimeError("OpenAI API returned no response")
-    response.raise_for_status()
+    if not response.ok:
+        raise SummaryAPIError(request_stats["api_error_message"])
     body = response.json()
     content = body.get("output_text", "")
     if not content:
@@ -5570,6 +5765,101 @@ def japanese_summary_request(
     if not content:
         raise ValueError("OpenAI API response did not contain output text")
     return parse_japanese_summary_response(content, allowed_ids)
+
+
+def review_api_blocker(
+    run_log_payload: dict[str, Any] | None = None,
+    state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Respect preceding-stage failures before daily, weekly or manual calls."""
+    try:
+        import review_gate
+    except ModuleNotFoundError:
+        from scripts import review_gate
+
+    checked_at = now_utc()
+    if run_log_payload is None:
+        run_log_payload = review_gate.load_json(RUN_LOG_JSON)
+    if state is None:
+        state = review_gate.load_json(REVIEW_STATE_JSON)
+    if (not isinstance(run_log_payload, dict) or not isinstance(run_log_payload.get("runs"), list)
+            or not isinstance(state, dict) or not state.get("updated_at")):
+        return {
+            "api_call_skipped": True, "api_error_kind": "api_error",
+            "api_error_message": "Local API safety history or checkpoint is unavailable",
+            "detail": "API review blocked because safety history or checkpoint is unavailable",
+        }
+    runs = run_log_payload["runs"]
+    observation = dict(state)
+    minimum_time = datetime.min.replace(tzinfo=timezone.utc)
+    try:
+        actual_state_requests = int(state.get("model_requests") or 0)
+    except (TypeError, ValueError):
+        actual_state_requests = 0
+    # An empty/no-request checkpoint is not evidence that API access recovered.
+    state_event = (
+        state.get("api_error_at") or state.get("rate_limited_at")
+        if state.get("api_error_kind") or state.get("rate_limited")
+        else state.get("updated_at") if actual_state_requests > 0 else ""
+    )
+    observed_at = parse_iso(str(state_event or ""), minimum_time)
+    for run in runs:
+        if not isinstance(run, dict):
+            continue
+        run_at = parse_iso(str(run.get("run_at", "")), datetime.min.replace(tzinfo=timezone.utc))
+        try:
+            recorded_requests = int(run.get("summary_requests") or 0)
+        except (TypeError, ValueError):
+            continue  # The safety gate below fails closed on invalid counters.
+        if run_at >= observed_at and recorded_requests > 0:
+            observation = {key.removeprefix("summary_"): value for key, value in run.items()
+                           if key.startswith("summary_")}
+            observation["model_requests"] = run.get("summary_requests", 0)
+            observation["updated_at"] = run.get("run_at", "")
+            observed_at = run_at
+    # This is an explicit account-remedy acknowledgment, not a fake API success.
+    if state.get("api_remedy_acknowledged_at"):
+        observation["api_remedy_acknowledged_at"] = state["api_remedy_acknowledged_at"]
+
+    # Job gates handle reservations; adding those again here would double-reserve
+    # the daily job's own budget. Actual rolling usage still bounds every pass.
+    gate_state = {**observation, "pending_in_window": 1}
+    gate = review_gate.evaluate_review_gate(
+        {"runs": runs}, gate_state, now=checked_at, force=True,
+        next_request_budget=1,
+    )
+    if not gate["data_valid"]:
+        return {
+            "api_call_skipped": True, "api_error_kind": "api_error",
+            "api_error_message": "Local API safety state is invalid",
+            "detail": "API review blocked because local safety state is invalid",
+        }
+    if gate.get("api_available", True) and gate["cooldown_complete"]:
+        available = max(0, 146 - gate["all_requests_used"])
+        if available:
+            return {"request_budget_available": available}
+        return {
+            "api_call_skipped": True, "request_budget_reached": True,
+            "detail": "Local rolling 24-hour request cap reached (146)",
+        }
+
+    if not gate["cooldown_complete"] and not observation.get("rate_limited"):
+        rate_events = [run for run in runs if isinstance(run, dict) and run.get("summary_rate_limited")]
+        if rate_events:
+            latest = max(rate_events, key=lambda run: str(run.get("summary_rate_limited_at") or run.get("run_at", "")))
+            observation = {key.removeprefix("summary_"): value for key, value in latest.items()
+                           if key.startswith("summary_")}
+    blocked = {key: observation.get(key, "") for key in (
+        *API_ERROR_FIELDS, "retry_after", "rate_limited_at", "rate_limit_reset",
+        "rate_limit_remaining",
+    )}
+    blocked.update(
+        api_call_skipped=True,
+        rate_limited=bool(observation.get("rate_limited")) or not gate["cooldown_complete"],
+        detail=("API review blocked pending account action" if not gate.get("api_available", True)
+                else f"API review skipped during cooldown until {gate['retry_blocked_until']}"),
+    )
+    return blocked
 
 
 def enrich_japanese_summaries(
@@ -5612,7 +5902,10 @@ def enrich_japanese_summaries(
         "JAPANESE_SUMMARY_MODEL",
         DEFAULT_JAPANESE_SUMMARY_MODEL,
     ).strip()
-    if not selected or not token:
+    # Even an empty selection must carry forward an unresolved account block.
+    blocker = review_api_blocker()
+    available_request_budget = blocker.pop("request_budget_available", None)
+    if not selected or not token or blocker:
         return {
             "generated": 0,
             "reviewed": 0,
@@ -5627,11 +5920,16 @@ def enrich_japanese_summaries(
             "rate_limited_at": "",
             "rate_limit_remaining": "",
             "rate_limit_reset": "",
+            **summary_api_fields({}),
+            "api_error_kind": "authentication_failed" if selected and not token else "",
+            "api_error_code": "missing_api_key" if selected and not token else "",
+            "api_error_message": "OPENAI_API_KEY is not set" if selected and not token else "",
             "detail": (
                 "No pending summaries"
                 if not selected
                 else "OPENAI_API_KEY is not set"
             ),
+            **blocker,
         }
 
     generated = 0
@@ -5655,6 +5953,9 @@ def enrich_japanese_summaries(
         )
     except ValueError:
         request_budget = 25
+    if available_request_budget is not None:
+        request_budget = min(request_budget, available_request_budget)
+    request_stats["request_budget"] = request_budget
 
     def apply_summaries(
         batch: list[dict[str, Any]],
@@ -5764,8 +6065,17 @@ def enrich_japanese_summaries(
                 f"SummaryRequestBudgetError: {exc}"
             )
             break
+        except SummaryAPIError as exc:
+            errors.append(f"batch {batch_number}: SummaryAPIError: {exc}")
+            break
         except (requests.RequestException, ValueError, TypeError, json.JSONDecodeError) as exc:
             errors.append(f"batch {batch_number}: {type(exc).__name__}: {exc}")
+            request_stats.update(
+                api_error_kind=("transport_error" if isinstance(exc, requests.RequestException)
+                                else "response_error"),
+                api_error_message="Review request or response could not be completed",
+                api_error_at=iso_z(now_utc()),
+            )
 
         for item in batch:
             item_id = item.get("canonical_id") or item.get("id", "")
@@ -5814,6 +6124,7 @@ def enrich_japanese_summaries(
         "rate_limit_remaining": str(request_stats.get("remaining", "")),
         "rate_limit_reset": str(request_stats.get("reset_at", "")),
         "detail": "; ".join(errors[:3]),
+        **summary_api_fields(request_stats),
     }
 
 
@@ -6264,6 +6575,7 @@ def source_status_payload(
             "topic_tags": source_topic_tags(result.source),
             "status": result.status,
             "detail": result.detail,
+            **({"diagnostics": result.diagnostics} if result.diagnostics is not None else {}),
             "entries_seen": result.entries_seen,
             "entries_kept": result.entries_kept,
             "elapsed_seconds": result.elapsed_seconds,
@@ -6886,7 +7198,9 @@ def run(
         "summaries_pending": summary_result["pending"],
         "summary_errors": summary_result["errors"],
         "summary_requests": summary_result.get("requests", 0),
+        "summary_usage_recorded_at": iso_z(now_utc()),
         "summary_rate_limited": summary_result.get("rate_limited", False),
+        **summary_api_fields(summary_result, "summary_"),
         "summary_request_budget_reached": summary_result.get(
             "request_budget_reached",
             False,
@@ -6988,88 +7302,10 @@ def quota_window_reset_checkpoint(
     summary_result: dict[str, Any],
     collected_at: datetime,
 ) -> str:
-    candidates: list[datetime] = []
-
-    def strict_datetime(value: Any) -> datetime:
-        parsed = (
-            value
-            if isinstance(value, datetime)
-            else date_parser.parse(str(value))
-        )
-        if parsed.tzinfo is None:
-            parsed = parsed.replace(tzinfo=timezone.utc)
-        return parsed.astimezone(timezone.utc)
-
-    explicit_reset = str(prior_state.get("quota_window_reset_at", "")).strip()
-    if explicit_reset:
-        try:
-            candidates.append(strict_datetime(explicit_reset))
-        except (TypeError, ValueError, OverflowError):
-            pass
-
-    for payload, fallback_time in (
-        (prior_state, prior_state.get("updated_at", "")),
-        (summary_result, collected_at),
-    ):
-        if not payload.get("rate_limited"):
-            continue
-        try:
-            event_at = strict_datetime(
-                payload.get("rate_limited_at") or fallback_time
-            )
-        except (TypeError, ValueError, OverflowError):
-            continue
-
-        retry_at: datetime | None = None
-        reset_text = str(payload.get("rate_limit_reset", "")).strip()
-        if reset_text:
-            try:
-                retry_at = datetime.fromtimestamp(
-                    float(reset_text),
-                    tz=timezone.utc,
-                )
-            except (OverflowError, TypeError, ValueError):
-                try:
-                    retry_at = date_parser.parse(reset_text)
-                    if retry_at.tzinfo is None:
-                        retry_at = retry_at.replace(tzinfo=timezone.utc)
-                    retry_at = retry_at.astimezone(timezone.utc)
-                except (TypeError, ValueError, OverflowError):
-                    retry_at = None
-
-        retry_text = str(payload.get("retry_after", "")).strip()
-        if retry_text:
-            try:
-                retry_candidate = event_at + timedelta(
-                    seconds=max(0.0, float(retry_text))
-                )
-            except (TypeError, ValueError):
-                try:
-                    retry_candidate = date_parser.parse(retry_text)
-                    if retry_candidate.tzinfo is None:
-                        retry_candidate = retry_candidate.replace(
-                            tzinfo=timezone.utc
-                        )
-                    retry_candidate = retry_candidate.astimezone(timezone.utc)
-                except (TypeError, ValueError, OverflowError):
-                    retry_candidate = None
-            if retry_candidate is not None and (
-                retry_at is None or retry_candidate > retry_at
-            ):
-                retry_at = retry_candidate
-
-        if (
-            retry_at is not None
-            and retry_at - event_at >= timedelta(minutes=5)
-        ):
-            candidates.append(retry_at)
-
-    valid_candidates = [
-        candidate
-        for candidate in candidates
-        if candidate >= collected_at - timedelta(hours=24)
-    ]
-    return iso_z(max(valid_candidates)) if valid_candidates else ""
+    # Compatibility field only. Retry/cooldown timestamps are not proof that
+    # a rolling request or spending allowance reset.
+    del prior_state, summary_result, collected_at
+    return ""
 
 
 def review_backlog(
@@ -7264,7 +7500,9 @@ def review_backlog(
         "summaries_pending_expired": pending_expired_after,
         "summary_errors": summary_result["errors"],
         "summary_requests": summary_result.get("requests", 0),
+        "summary_usage_recorded_at": iso_z(now_utc()),
         "summary_rate_limited": summary_result.get("rate_limited", False),
+        **summary_api_fields(summary_result, "summary_"),
         "summary_request_budget_reached": summary_result.get(
             "request_budget_reached",
             False,
@@ -7305,6 +7543,7 @@ def review_backlog(
         "excluded": len(summary_result["excluded_ids"]),
         "model_requests": summary_result.get("requests", 0),
         "rate_limited": summary_result.get("rate_limited", False),
+        **summary_api_fields(summary_result),
         "request_budget_reached": summary_result.get(
             "request_budget_reached",
             False,

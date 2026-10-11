@@ -27,8 +27,8 @@ def main() -> int:
         now=datetime.now(timezone.utc),
         force=args.force,
         next_request_budget=args.request_budget,
-        # Keep the rolling 24-hour ceiling below the 150-request low-tier
-        # allowance, including the daily and weekly reservations.
+        # Keep the local rolling request ceiling unchanged. This does not
+        # represent the OpenAI account quota, credits or spend limit.
         global_request_budget=146,
     )
     output_path = os.getenv("GITHUB_OUTPUT", "").strip()

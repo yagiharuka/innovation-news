@@ -20,6 +20,13 @@ SPEC.loader.exec_module(collector)
 
 
 class CollectorTests(unittest.TestCase):
+    def setUp(self):
+        # Collector unit tests isolate article behavior from persisted API safety
+        # history. Dedicated API tests exercise the real fail-closed guard.
+        patcher = mock.patch.object(collector, "review_api_blocker", return_value={"request_budget_available": 146})
+        patcher.start()
+        self.addCleanup(patcher.stop)
+
     def test_write_public_payload_creates_matching_lightweight_site_feed(self):
         payload = {
             "article_count": 1,
@@ -1766,7 +1773,7 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("article-1", parsed)
         self.assertFalse(parsed["article-1"]["in_scope"])
 
-    def test_successful_review_carries_forward_the_quota_reset_checkpoint(self):
+    def test_retry_checkpoint_never_creates_a_quota_accounting_reset(self):
         checkpoint = collector.quota_window_reset_checkpoint(
             {
                 "updated_at": "2026-07-28T09:09:15Z",
@@ -1786,7 +1793,7 @@ class CollectorTests(unittest.TestCase):
             datetime(2026, 7, 28, 11, 40, tzinfo=timezone.utc),
         )
 
-        self.assertEqual(checkpoint, "2026-07-28T11:06:31Z")
+        self.assertEqual(checkpoint, "")
         self.assertEqual(carried, checkpoint)
 
     def test_review_only_does_not_fetch_or_update_source_collection_state(self):
@@ -3952,7 +3959,7 @@ class CollectorTests(unittest.TestCase):
         requested = []
 
         class Response:
-            text = ""
+            text = "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'></urlset>"
 
             def raise_for_status(self):
                 return None

@@ -11,6 +11,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 import collect  # noqa: E402
+import review_gate  # noqa: E402
 
 
 MODULE_PATH = SCRIPTS / "review_fresh.py"
@@ -22,6 +23,25 @@ SPEC.loader.exec_module(review_fresh)
 
 
 class FreshReviewTests(unittest.TestCase):
+    def test_empty_checkpoint_refresh_does_not_fabricate_api_success(self):
+        checked_at = datetime(2026, 10, 11, 3, tzinfo=timezone.utc)
+        state = {"review_version": collect.TECH_SCOPE_REVIEW_VERSION,
+                 "updated_at": "2026-10-11T00:00:00Z", "model_requests": 10,
+                 "pending_priority_36h": 0, "pending_in_window": 0}
+        with mock.patch.object(collect, "load_review_state", return_value=state), \
+             mock.patch.object(collect, "now_utc", return_value=checked_at), \
+             mock.patch.object(collect, "load_public_payload", return_value={"items": []}), \
+             mock.patch.object(collect, "save_review_state") as save:
+            review_fresh.refresh_completed_checkpoint()
+        saved = save.call_args.args[0]
+        self.assertEqual(saved["model_requests"], 0)
+        result = review_gate.evaluate_review_gate(
+            {"runs": [{"run_at": "2026-10-11T02:59:00Z", "summary_requests": 1,
+                       "summary_rate_limited": True, "summary_retry_after": "3600"}]},
+            saved, now=checked_at,
+        )
+        self.assertFalse(result["cooldown_complete"])
+
     def test_selector_keeps_strict_oldest_first_order(self):
         now = datetime(2026, 7, 31, tzinfo=timezone.utc)
 

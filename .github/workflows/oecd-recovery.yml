@@ -39,6 +39,7 @@ jobs:
           python -m unittest tests.test_collector tests.test_probe_source
 
       - name: Backfill and strictly review OECD only
+        id: api_batch
         shell: bash
         run: |
           set -euo pipefail
@@ -76,6 +77,7 @@ jobs:
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "2.1"
 
       - name: Require live OECD coverage
+        id: coverage
         run: |
           python - <<'PY'
           import json
@@ -141,6 +143,10 @@ jobs:
               raise SystemExit(f"Non-OECD canonical URLs found: {invalid[:3]}")
           print(f"OECD public items: {len(items)}")
           PY
+
+      - name: Preserve API safety checkpoint after failure
+        if: always() && (steps.api_batch.outcome == 'failure' || steps.coverage.outcome == 'failure')
+        run: bash scripts/persist_api_safety.sh
 
       - name: Commit recovered OECD data
         run: |

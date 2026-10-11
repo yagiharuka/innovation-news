@@ -40,6 +40,7 @@ jobs:
         run: python -m pip install --requirement requirements.txt
 
       - name: Collect weekly sources and build outputs
+        id: api_batch
         run: |
           args=(--cadence weekly --max-age-hours 216)
           if [[ "${FORCE_BACKFILL}" == "true" ]]; then
@@ -57,6 +58,10 @@ jobs:
           JAPANESE_SUMMARY_REQUEST_BUDGET: "1"
           JAPANESE_SUMMARY_REQUEST_INTERVAL_SECONDS: "4.1"
           FORCE_BACKFILL: ${{ github.event_name == 'workflow_dispatch' && inputs.backfill || false }}
+
+      - name: Preserve API safety checkpoint after failure
+        if: always() && steps.api_batch.outcome == 'failure'
+        run: bash scripts/persist_api_safety.sh
 
       - name: Commit refreshed data
         run: |
