@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T11:30:43Z",
-  "updated_at_jst": "2026-10-11T20:30:43+09:00",
+  "updated_at": "2026-10-11T12:00:48Z",
+  "updated_at_jst": "2026-10-11T21:00:48+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,109 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "3a1ec1b19b358789614656c1",
+      "published_at": "2026-10-09T19:38:56Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Government",
+      "source": "ARPA-H",
+      "organization": "ARPA-H",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "Official-site listing and page metadata",
+      "collection_mode": "Daily",
+      "title": "ARPA-H、タンパク質機能不全の早期発見・修復を目指すBIOGAMI研究を開始",
+      "title_original": "ARPA-H BIOGAMI program starts work to find and fix protein dysfunction at earliest stages",
+      "summary": "米ARPA-Hは、タンパク質の凝集や機能不全を導く「生体分子文法」を解読し、アルツハイマー病などの神経変性疾患を早期段階で抑止・介入するBIOGAMIプログラムの採択チームを発表した。",
+      "summary_original": "ARPA-H BIOGAMI program starts work to find and fix protein dysfunction at earliest stages Program-funded teams aim to stop neurodegenerative disease, like Alzheimer’s, by decoding proteins’ “biomolecular grammar” The Advanced Research Projects Agency for Health (ARPA-H), an agency within the U.S. Department of Health and Human Services (HHS), today announced the teams receiving awards for the BIOmolecular Grammar for protein Aggregation Modulation and Intervention ( BIOGAMI ) program. BIOGAMI teams will decode the “grammar” that guides how intrinsically disordered p… “Proteins in our cells need to fold correctly to work,“ said BIOGAMI Program Manager Shannon Greene, Ph.D . “Some proteins ha…",
+      "summary_language": "ja",
+      "url": "https://arpa-h.gov/news-and-events/arpa-h-biogami-program-starts-work-find-and-fix-protein-dysfunction-earliest-stages",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
+    {
+      "id": "db3908eee0159d17a6ffa05c",
+      "published_at": "2026-10-09T19:28:41Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Artificial Intelligence",
+        "Robotics"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "The Robot Report",
+      "organization": "The Robot Report",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ヒューマノイドロボットのデモが汎化性能を示せない理由",
+      "title_original": "Why humanoid robot demos still fail the generalization test",
+      "summary": "ヒューマノイドロボットの印象的な実演だけでは、未知の状況に対応する行動の汎化性能を証明できない。記事では、人間を介した訓練、強化学習環境、データセット設計など、ロボットとAIモデルの学習上の課題を扱う。",
+      "summary_original": "Jeanine Sinanan-Singh, director of GenAI research at Appen. In Episode 265 of The Robot Report Podcast, our guest is Jeanine Sinanan-Singh, director of generative AI Research at Appen. She discusses the continuing importance of humans in the loop for training robots. Sinanan-Singh works on agentic evals, RL environments, and dataset design for post-training frontier AI models. She also explains why impressive demonstrations don’t necessarily prove that robotic behavior can be generalized. Sinanan-Singh previously founded a pharmacy automation startup built on a 3D-printing platform to manufacture personalized medications. A Harvard graduate with prior experience at Microsoft and Surge, she…",
+      "summary_language": "ja",
+      "url": "https://www.therobotreport.com/why-humanoid-robot-demos-still-fail-the-generalization-test/",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6e2d7dd6c2eb4bdcbf2b06f2",
+      "published_at": "2026-10-09T18:30:00Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "Global",
+      "country": "United States",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "WIRED Science",
+      "organization": "WIRED Science",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "NASA、Artemis IIの月探査データ約800GBを一般公開",
+      "title_original": "NASA Just Made Nearly 1 TB of Artemis II Data Available to the Public",
+      "summary": "NASAはArtemis IIミッションで取得した約800GBの科学データを公開した。アーカイブには高解像度画像・動画約1万1000点、宇宙飛行士の観察記録やメモ、音声、書き起こしなどが含まれる。",
+      "summary_original": "NASA has just released about 800 gigabytes of scientific data generated by the Artemis II mission . The archive documenting the astronauts’ return to the far side of the moon includes 11,000 full-resolution images and videos, 8.5 hours of spoken observations, notes taken by the astronauts, transcripts, and photographs from the cameras aboard the Orion capsu… The space agency describes this effort as the first set of planetary science data obtained outside Earth and—for the most part—directly by humans in more than half a century. The closest comparable precedent dates back to the Apollo era and its missions to the lunar surface. In addition to the public database, NASA released three report…",
+      "summary_language": "ja",
+      "url": "https://www.wired.com/story/nasa-just-made-nearly-1-tb-of-artemis-ii-data-available-to-the-public/",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
     {
       "id": "27928c7621bdedf5b7e12bf4",
       "published_at": "2026-10-09T16:59:57Z",
@@ -85998,111 +86101,6 @@
       "summary_original": "“The Indiana fab will become a gateway to deliver the first ‘Made in USA’ HBM products,” SK hynix CEO Kwak Noh-jung said at the groundbreaking ceremony on Aug. 26. Those products, however, will begin in South Korea. SK hynix will make the DRAM wafers at its Korean fabs, ship them across the Pacific and then stack, package and test them in West Lafayette, Indiana. The $4 billion-plus facility, the company's first HBM production base in the US, is due to begin mass production in the second half of",
       "summary_language": "ja",
       "url": "https://m.koreaherald.com/article/10861726",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "df2d8cd39987c9ae4d371270",
-      "published_at": "2026-09-03T05:00:00Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Technology Innovation",
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "R&D Funding & Tax Incentives"
-      ],
-      "policy_relevance": 2,
-      "source_type": "Government",
-      "source": "JST プレスリリース",
-      "organization": "JST プレスリリース",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "微小液滴でエビの疾病を抑える細菌候補を迅速探索",
-      "title_original": "共同発表：エビの疾病を防ぐ細菌を飼育環境から迅速に見つけ出す技術を開発～微小液滴技術による高効率スクリーニングで、薬剤に頼らない魚病対策へ～",
-      "summary": "東京海洋大学とオンチップ・バイオテクノロジーズなどの研究グループは、微小液滴技術を用い、クルマエビ類の疾病原因菌Vibrio harveyiの増殖を抑える細菌候補を環境中から効率的に探索する技術を開発した。",
-      "summary_original": "東京海洋大学 大学院海洋科学技術研究科 博士後期課程の湯浅 壱 氏、同大学 学術研究院（水圏生物生産工学研究所）の小祝 敬一郎 准教授、およびオンチップ・バイオテクノロジーズの片山 悠里 氏らの研究グループは、科学技術振興機構（JST）の戦略的創造研究推進事業 ACT-Xの支援を受け、微小液滴技術を活用し、クルマエビ類養殖で問題となる魚病細菌であるVibrio harveyi（以下、V. harveyi）の増殖を抑える細菌候補を、環境中から効率的に探索する技術を開発しました。",
-      "summary_language": "ja",
-      "url": "https://www.jst.go.jp/pr/announce/20260903/index.html",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "5ca6376e8082283868e15fe3",
-      "published_at": "2026-09-03T05:00:00Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Quantum"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Government",
-      "source": "JST プレスリリース",
-      "organization": "JST プレスリリース",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "光子が生む磁束量子を直接観測、光子数識別の新原理を実証",
-      "title_original": "共同発表：光子が生み出す磁束量子を直接観測し、光子数を識別する“新原理”を実証 大規模演算で正しい解を導く光量子コンピューター実現に向けた次世代の光子数識別器へ",
-      "summary": "産業技術総合研究所などの研究グループは、光子吸収で超伝導体中に生じる磁束量子を直接観測し、その数から光子数を識別する新しい検出原理を実証した。光量子コンピューター向け次世代検出器への応用が見込まれる。",
-      "summary_original": "産業技術総合研究所 量子・AI融合技術ビジネス開発グローバル研究センター（G-QuAT）／物理計測標準研究部門の福田 大治 首席研究員、量子・AI融合技術ビジネス開発グローバル研究センター（G-QuAT）量子フォトニクスハードウェア研究チーム／物理計測標準研究部門 量子センサー計測研究グループ 鶴田 哲也 主任研究員らは、光子吸収によって超伝導体中に生じる磁束量子を直接観測し、その数から光子数を識別する新しい光子検出原理の実証に成功しました。",
-      "summary_language": "ja",
-      "url": "https://www.jst.go.jp/pr/announce/20260903-2/index.html",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "837de271f69d6196c374add4",
-      "published_at": "2026-09-03T05:00:00Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Robotics"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "MONOist",
-      "organization": "MONOist",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "ルネサス、北京にフィジカルAI・ロボティクス開発ラボを開設",
-      "title_original": "ルネサスが北京に次世代ロボティクスの開発を支援するラボを開設",
-      "summary": "ルネサス エレクトロニクスは北京に「フィジカルAI＆ロボティクスラボ」を開設した。次世代ロボティクスシステムの実証・検証や共同開発を支援し、同社のフィジカルAI戦略の拠点とする。",
-      "summary_original": "ルネサス エレクトロニクスは、次世代ロボティクスシステムの実証や検証、共同開発を支援する「フィジカルAI＆ロボティクスラボ」を中国の北京に開設した。同社のフィジカルAI戦略を推進するハブとして機能する。",
-      "summary_language": "ja",
-      "url": "https://monoist.itmedia.co.jp/mn/articles/2609/03/news059.html",
       "first_seen": "2026-09-04T06:44:40+09:00",
       "status": "New"
     }
