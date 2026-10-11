@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-11T12:00:48Z",
-  "updated_at_jst": "2026-10-11T21:00:48+09:00",
+  "updated_at": "2026-10-11T12:31:20Z",
+  "updated_at_jst": "2026-10-11T21:31:20+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -17,6 +17,77 @@
     "tier_b": 7
   },
   "items": [
+    {
+      "id": "ea02901981a53d68be55bf79",
+      "published_at": "2026-10-09T20:26:29Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "United States",
+      "country": "United States",
+      "topics": [
+        "Healthcare"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy",
+        "R&D Funding & Tax Incentives"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Major Media",
+      "source": "The New York Times Science",
+      "organization": "The New York Times Science",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "NIH、がんワクチン開発の迅速化を新たな重点施策に",
+      "title_original": "Cancer Vaccines Are the N.I.H.’s Next ‘Big Bet’",
+      "summary": "米国立衛生研究所（NIH）は、成功した新型コロナワクチン開発の取り組みにならい、がんワクチンの開発を迅速化する新たな施策を12月に開始する。",
+      "summary_original": "New details have emerged about an initiative that starts in December to fast-track the vaccines, similar to the successful push for the Covid-19 vaccine.",
+      "summary_language": "ja",
+      "url": "https://www.nytimes.com/2026/10/09/science/cancer-vaccines-nih-big-bet.html",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
+    {
+      "id": "7aa85ac245c97f1156737753",
+      "published_at": "2026-10-09T19:44:36Z",
+      "collected_at_jst": "2026-10-10T08:18:52+09:00",
+      "region": "Asia",
+      "country": "Japan",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Major Media",
+      "source": "ITmedia AI+",
+      "organization": "ITmedia AI+",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Daily",
+      "title": "ChatGPTが音声ファイルに対応、文字起こしや要約が可能に",
+      "title_original": "ChatGPT、ついに音声ファイルに対応 文字起こしや要約などが可能に 有料ユーザー向け",
+      "summary": "OpenAIはChatGPTで音声ファイルのアップロードに対応した。文字起こしや要約、内容に関する質問が可能だが、話者識別や認識精度には誤りが生じる場合がある。",
+      "summary_original": "米OpenAIは10月9日（日本時間）までに、「ChatGPT」が音声ファイルのアップロードに対応したと発表した。文字起こしや要約、内容に関する質問などができる。有料ユーザーが対象。 対応するファイル形式は、WAV、MP3／MPEG、OGG／OGA、PCM、FLAC、AAC、M4A、音声のみのWebMおよびMP4。ファイル容量の上限は512MB。ただし、長時間の録音データは分割処理されたり、タイムアウトしたりする場合がある。 なお、文字起こしは内容・話者識別に誤りが含まれる場合があるという。また、音声の理解や文字起こしの精度は言語によって異なる可能性があるとしている。 Copyright © ITmedia, Inc. All Rights Reserved. ITmedia AI＋に関連する情報をお探しであれば、こちらのメディアもお役に立てるかもしれません。 国内外の業界動向、AIやクラウドなどの最新技術、キャリア情報など今知りたい情報をまとめてお届けします。 Google「Gemini」新サービスで「Claude」利用可能に 他モデルも今後追加予定 履歴書100通に1通「AIだけが読める文字」 20万件調査でわかった“就活ハック”の手口 米研究 ChatGPT、無料版を含む全ユーザーに「GPT-6」 回答内に“操作できる画面”を生成する「Intelligent UI」搭載 富士通では「Copilot」10万ライセンスの利用率が“9割超え” 「導入したけど使われない」をどう防いだ？ Amazon、「Fire」に代わる新タブレット「Amazon Alexa Tablet」発表…",
+      "summary_language": "ja",
+      "url": "https://www.itmedia.co.jp/aiplus/article/2610/09/2000002182/",
+      "first_seen": "2026-10-10T08:18:52+09:00",
+      "status": "New"
+    },
     {
       "id": "3a1ec1b19b358789614656c1",
       "published_at": "2026-10-09T19:38:56Z",
@@ -86031,76 +86102,6 @@
       "summary_original": "Aerospace and government systems need confidentiality, authentication, and implementation resilience for off-chip memory. The post Protecting Mission-Critical Data Beyond The SoC: Why Inline Memory Encryption Needs Integrity appeared first on Semiconductor Engineering .",
       "summary_language": "ja",
       "url": "https://semiengineering.com/protecting-mission-critical-data-beyond-the-soc-why-inline-memory-encryption-needs-integrity/",
-      "first_seen": "2026-09-04T06:44:40+09:00",
-      "status": "New"
-    },
-    {
-      "id": "39c8f7fabc6a4b1be7cbb144",
-      "published_at": "2026-09-03T05:47:34Z",
-      "collected_at_jst": "2026-09-05T06:33:22+09:00",
-      "region": "United States",
-      "country": "South Korea",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Public Procurement & Industrial Policy"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Major Media",
-      "source": "The Korea Herald Technology",
-      "organization": "The Korea Herald Technology",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "米国製造か関税か、トランプ政権が半導体関税案を再浮上",
-      "title_original": "Build in US or pay: Trump revives chip tariff threat",
-      "summary": "トランプ政権が、海外で製造した半導体への対象関税と、米国内で生産する企業への関税軽減を組み合わせる方針を再び示した。Samsung ElectronicsやSK hynixなどに米国生産の拡大を促す内容となっている。",
-      "summary_original": "Build chips in America or pay to sell them there. US President Donald Trump's administration has revived its push for targeted semiconductor tariffs, raising pressure on Samsung Electronics and SK hynix to expand US production or face duties on chips made overseas. Commerce Secretary Howard Lutnick said companies manufacturing in the US would receive tariff relief, while those relying on foreign production should expect to pay. “What you’re going to see is targeted, thoughtful tariff policy that",
-      "summary_language": "ja",
-      "url": "https://m.koreaherald.com/article/10861765",
-      "first_seen": "2026-09-05T06:33:22+09:00",
-      "status": "New"
-    },
-    {
-      "id": "4a7bb394c70e5a061f704bdb",
-      "published_at": "2026-09-03T05:26:56Z",
-      "collected_at_jst": "2026-09-04T06:44:40+09:00",
-      "region": "Asia",
-      "country": "South Korea",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Korea Herald Technology",
-      "organization": "The Korea Herald Technology",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "SK hynixの米国製HBM、韓国製DRAMをインディアナで積層・試験",
-      "title_original": "Why SK hynix’s ‘Made in USA’ HBM starts in Korea",
-      "summary": "SK hynixは、韓国のファブで製造したDRAMウエハーを米国へ輸送し、インディアナ州ウェストラファイエットで積層、パッケージング、試験を行う。40億ドル超の米国初のHBM生産拠点は2020年代後半の量産開始を予定する。",
-      "summary_original": "“The Indiana fab will become a gateway to deliver the first ‘Made in USA’ HBM products,” SK hynix CEO Kwak Noh-jung said at the groundbreaking ceremony on Aug. 26. Those products, however, will begin in South Korea. SK hynix will make the DRAM wafers at its Korean fabs, ship them across the Pacific and then stack, package and test them in West Lafayette, Indiana. The $4 billion-plus facility, the company's first HBM production base in the US, is due to begin mass production in the second half of",
-      "summary_language": "ja",
-      "url": "https://m.koreaherald.com/article/10861726",
       "first_seen": "2026-09-04T06:44:40+09:00",
       "status": "New"
     }
