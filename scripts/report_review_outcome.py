@@ -54,11 +54,22 @@ def main() -> int:
         outcome, pending, exit_code = review_outcome(
             state, scope=args.scope, attempted=args.attempted == "true",
         )
+        queue_counts = [
+            (label, int(state[key]))
+            for key, label in (
+                ("pending_priority_36h", "Pending within 36 hours"),
+                ("pending_recovery_cohort", "Pending retained recovery cohort"),
+            )
+            if key in state
+        ]
+        if any(count < 0 for _, count in queue_counts):
+            raise ValueError("Pending queue counts cannot be negative")
     except (OSError, KeyError, TypeError, ValueError) as exc:
         print(f"Review outcome unavailable: {type(exc).__name__}")
         return 1
     lines = [
         f"Review outcome: {outcome}", f"Pending {args.scope} candidates: {pending}",
+        *(f"{label}: {count}" for label, count in queue_counts),
         f"Saved checkpoint: {state.get('updated_at', 'unknown')}",
         f"This job attempted review: {args.attempted}",
     ]

@@ -45,6 +45,11 @@ from dateutil import parser as date_parser
 from openpyxl import load_workbook
 from openpyxl.workbook.properties import CalcProperties
 
+try:
+    import review_cohort
+except ModuleNotFoundError:
+    from scripts import review_cohort
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config" / "sources.json"
@@ -57,6 +62,7 @@ RUN_LOG_JSON = DATA_DIR / "run_log.json"
 SOURCE_STATUS_JSON = DATA_DIR / "source_status.json"
 BACKFILL_STATE_JSON = DATA_DIR / "backfill_state.json"
 REVIEW_STATE_JSON = DATA_DIR / "review_state.json"
+REVIEW_COHORT_JSON = DATA_DIR / "review_cohort.json"
 PUBLIC_JSON = DOCS_DATA_DIR / "news.json"
 PUBLIC_SITE_JSON = DOCS_DATA_DIR / "news-lite.json"
 PUBLIC_SITE_CHUNK_SIZE = 500
@@ -5038,25 +5044,31 @@ def fresh_priority_review_items(
     collected_at: datetime,
     *,
     window_hours: int = FRESH_PRIORITY_WINDOW_HOURS,
+    cohort_ids: set[str] | None = None,
 ) -> list[dict[str, Any]]:
-    """Return unresolved non-backfill candidates in the protected morning queue."""
+    """Return the normal fresh queue plus explicitly retained recovery IDs."""
     cutoff = collected_at.astimezone(timezone.utc) - timedelta(
         hours=max(1, window_hours)
     )
     fallback = datetime(1970, 1, 1, tzinfo=timezone.utc)
     pending: list[dict[str, Any]] = []
+    seen: set[str | int] = set()
+    cohort_ids = cohort_ids or set()
     for item in items:
-        if (
-            not needs_scope_review(item)
-            or item.get("collection_mode", "Daily") == "Historical Backfill"
-        ):
+        if not needs_scope_review(item):
+            continue
+        key = review_item_id(item)
+        identity = key or id(item)
+        pinned = key in cohort_ids
+        if not pinned and item.get("collection_mode", "Daily") == "Historical Backfill":
             continue
         raw_first_seen = str(item.get("first_seen", "")).strip()
         first_seen = parse_iso(raw_first_seen, fallback)
         # Missing or malformed first_seen must fail closed instead of silently
         # declaring the morning queue complete.
-        if not raw_first_seen or first_seen == fallback or first_seen >= cutoff:
+        if (pinned or not raw_first_seen or first_seen == fallback or first_seen >= cutoff) and identity not in seen:
             pending.append(item)
+            seen.add(identity)
     return sorted(pending, key=fresh_priority_sort_key)
 
 
@@ -7120,11 +7132,19 @@ def run(
             f"abstracts={academic_refresh['restored']} "
             f"errors={academic_refresh['errors']}"
         )
+    cohort_manifest = review_cohort.load(
+        REVIEW_COHORT_JSON, TECH_SCOPE_REVIEW_VERSION,
+        required=int(load_review_state().get("pending_recovery_cohort", 0)) > 0,
+    )
+    retained = review_cohort.retained_items(merged, cohort_manifest, needs_scope_review)
     priority_items = (
         [item for item in targeted_items if needs_scope_review(item)]
         if requested_sources
         else (
-            fresh_priority_review_items(merged, collected_at)
+            fresh_priority_review_items(
+                merged, collected_at,
+                cohort_ids={review_item_id(item) for item in retained},
+            )
             if not backfill
             else None
         )
@@ -7161,6 +7181,11 @@ def run(
         print(f"[SUMMARY] {summary_result['detail']}")
 
     save_master(merged)
+    if cohort_manifest is not None:
+        review_cohort.reconcile(
+            REVIEW_COHORT_JSON, merged, collected_at,
+            TECH_SCOPE_REVIEW_VERSION, needs_scope_review,
+        )
     public_payload, ledger_items = publish_outputs(
         publishable_items,
         merged,
@@ -7328,6 +7353,13 @@ def review_backlog(
     collected_at = now_utc()
     seed_japanese_fields(merged)
 
+    cohort_manifest = review_cohort.load(
+        REVIEW_COHORT_JSON, TECH_SCOPE_REVIEW_VERSION,
+        required=int(prior_state.get("pending_recovery_cohort", 0)) > 0,
+    )
+    retained = review_cohort.retained_items(merged, cohort_manifest, needs_scope_review)
+    retained_ids = {review_item_id(item) for item in retained}
+
     in_window = [
         item
         for item in merged
@@ -7339,10 +7371,12 @@ def review_backlog(
         )
     ]
     in_window_object_ids = {id(item) for item in in_window}
+    # Only the explicitly retained cohort may outlive normal queue windows.
+    retained_outside_window = [item for item in retained if id(item) not in in_window_object_ids]
     include_expired = os.getenv(
         "JAPANESE_SUMMARY_INCLUDE_EXPIRED", ""
     ).strip().lower() in {"1", "true", "yes", "on"}
-    review_queue = list(merged) if include_expired else in_window
+    review_queue = list(merged) if include_expired else in_window + retained_outside_window
     pending_before = sum(
         1 for item in review_queue if needs_scope_review(item)
     )
@@ -7360,9 +7394,14 @@ def review_backlog(
             >= fresh_cutoff
         )
     ]
-    priority_pending = fresh_priority_review_items(
+    priority_36h_pending = fresh_priority_review_items(
         in_window,
         collected_at,
+    )
+    priority_pending = fresh_priority_review_items(
+        in_window + retained_outside_window,
+        collected_at,
+        cohort_ids=retained_ids,
     )
     pending_expired_before = sum(
         1
@@ -7390,6 +7429,14 @@ def review_backlog(
     )
 
     if pending_before == 0:
+        if cohort_manifest is not None:
+            # Seeding/quality repairs above can resolve a retained record in
+            # memory; persist that evidence before retiring the manifest ID.
+            save_master(merged)
+            review_cohort.reconcile(
+                REVIEW_COHORT_JSON, merged, collected_at,
+                TECH_SCOPE_REVIEW_VERSION, needs_scope_review,
+            )
         if (
             prior_state.get("status") == "completed"
             and prior_state.get("review_version") == TECH_SCOPE_REVIEW_VERSION
@@ -7454,6 +7501,8 @@ def review_backlog(
         for item in priority_pending
         if needs_scope_review(item)
     )
+    pending_priority_36h_after = sum(1 for item in priority_36h_pending if needs_scope_review(item))
+    pending_recovery_after = sum(1 for item in retained if needs_scope_review(item))
     pending_expired_after = sum(
         1
         for item in merged
@@ -7461,6 +7510,11 @@ def review_backlog(
     )
     publishable_items = [item for item in merged if is_publishable(item)]
     save_master(merged)
+    if cohort_manifest is not None:
+        review_cohort.reconcile(
+            REVIEW_COHORT_JSON, merged, collected_at,
+            TECH_SCOPE_REVIEW_VERSION, needs_scope_review,
+        )
     carry_payload = previous_public_payload if pending_after else {}
     public_payload, ledger_items = publish_outputs(
         publishable_items,
@@ -7496,7 +7550,9 @@ def review_backlog(
         "items_excluded": len(summary_result["excluded_ids"]),
         "summaries_pending": pending_after,
         "summaries_pending_fresh_24h": pending_fresh_after,
-        "summaries_pending_priority_36h": pending_priority_after,
+        "summaries_pending_priority_36h": pending_priority_36h_after,
+        "summaries_pending_priority_total": pending_priority_after,
+        "summaries_pending_recovery_cohort": pending_recovery_after,
         "summaries_pending_expired": pending_expired_after,
         "summary_errors": summary_result["errors"],
         "summary_requests": summary_result.get("requests", 0),
@@ -7565,7 +7621,9 @@ def review_backlog(
         "pending_priority_before": len(priority_pending),
         "pending_in_window": pending_after,
         "pending_fresh_24h": pending_fresh_after,
-        "pending_priority_36h": pending_priority_after,
+        "pending_priority_36h": pending_priority_36h_after,
+        "pending_priority_total": pending_priority_after,
+        "pending_recovery_cohort": pending_recovery_after,
         "priority_window_hours": FRESH_PRIORITY_WINDOW_HOURS,
         "pending_expired": pending_expired_after,
         "public_items": len(public_payload.get("items", [])),

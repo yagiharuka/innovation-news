@@ -27,9 +27,9 @@
   "pending_before": 252,
   "pending_fresh_before": 76,
   "pending_priority_before": 252,
-  "pending_in_window": 236,
-  "pending_fresh_24h": 76,
-  "pending_priority_36h": 236,
+  "pending_in_window": 253,
+  "pending_fresh_24h": 99,
+  "pending_priority_36h": 253,
   "priority_window_hours": 36,
   "pending_expired": 0,
   "public_items": 2500,
@@ -38,5 +38,8 @@
     "attempted": 4,
     "restored": 4,
     "errors": 0
-  }
+  },
+  "pending_priority_total": 253,
+  "pending_recovery_cohort": 230,
+  "queue_counts_checked_at": "2026-10-11T08:25:28Z"
 }

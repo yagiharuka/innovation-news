@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import collect
+import review_gate
 
 
 original_append_run_log = collect.append_run_log
@@ -35,7 +36,7 @@ def refresh_completed_checkpoint() -> None:
     state = collect.load_review_state()
     if not (
         state.get("review_version") == collect.TECH_SCOPE_REVIEW_VERSION
-        and int(state.get("pending_priority_36h") or 0) == 0
+        and review_gate.priority_pending_count(state) == 0
     ):
         return
     checked_at = collect.now_utc()

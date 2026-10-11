@@ -3,6 +3,11 @@
 # Public outputs remain uncommitted until their existing health gates pass.
 set -euo pipefail
 
+# The article ledger and recovery manifest are not committed on validation
+# failure. Preserve their durable queue counts, not uncommitted completion.
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+python3 "${script_dir}/prepare_api_safety_checkpoint.py"
+
 paths=()
 for path in data/run_log.json data/review_state.json; do
   if [[ -f "$path" ]]; then

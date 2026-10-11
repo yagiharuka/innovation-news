@@ -26,6 +26,19 @@ class CollectorTests(unittest.TestCase):
         patcher = mock.patch.object(collector, "review_api_blocker", return_value={"request_budget_available": 146})
         patcher.start()
         self.addCleanup(patcher.stop)
+        # Article fixtures must not consume the live fixed recovery manifest.
+        cohort_dir = tempfile.TemporaryDirectory()
+        self.addCleanup(cohort_dir.cleanup)
+        cohort_path = mock.patch.object(
+            collector, "REVIEW_COHORT_JSON", Path(cohort_dir.name) / "review_cohort.json",
+        )
+        cohort_path.start()
+        self.addCleanup(cohort_path.stop)
+        state_path = mock.patch.object(
+            collector, "REVIEW_STATE_JSON", Path(cohort_dir.name) / "review_state.json",
+        )
+        state_path.start()
+        self.addCleanup(state_path.stop)
 
     def test_write_public_payload_creates_matching_lightweight_site_feed(self):
         payload = {

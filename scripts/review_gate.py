@@ -34,15 +34,32 @@ RESET_DURATION_ORDER = {unit: index for index, unit in enumerate(RESET_DURATION_
 
 
 def priority_pending_count(review_state: dict[str, Any]) -> int:
-    """Read the protected queue count, falling back to legacy 24-hour state."""
-    key = (
-        "pending_priority_36h"
-        if "pending_priority_36h" in review_state
-        else "pending_fresh_24h"
+    """Read the effective protected queue, with legacy freshness fallbacks."""
+    key = next(
+        (key for key in ("pending_priority_total", "pending_priority_36h")
+         if key in review_state),
+        "pending_fresh_24h",
     )
-    count = int(review_state[key])
+    value = review_state[key]
+    # A malformed total must not fall back to a smaller freshness count or
+    # truncate a fractional value to zero and declare retained work complete.
+    if key == "pending_priority_total" and (
+        isinstance(value, bool) or not isinstance(value, (int, str))
+    ):
+        raise ValueError(f"{key} must be a nonnegative integer")
+    count = int(value)
     if count < 0:
         raise ValueError(f"{key} cannot be negative")
+    if key == "pending_priority_total":
+        for subset_key in ("pending_priority_36h", "pending_recovery_cohort"):
+            if subset_key not in review_state:
+                continue
+            subset_value = review_state[subset_key]
+            if isinstance(subset_value, bool) or not isinstance(subset_value, (int, str)):
+                raise ValueError(f"{subset_key} must be a nonnegative integer")
+            subset_count = int(subset_value)
+            if subset_count < 0 or subset_count > count:
+                raise ValueError(f"{subset_key} must be between zero and {key}")
     return count
 
 
