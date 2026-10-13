@@ -22,7 +22,7 @@ def timestamp(value):
     return value
 
 
-def evaluate(run_log, source_status, attempt, now):
+def evaluate(run_log, source_status, attempt, now, manual_retry=False):
     local = now.astimezone(JST)
     due_at = local.replace(hour=3, minute=17, second=0, microsecond=0)
     if local < due_at:
@@ -35,7 +35,7 @@ def evaluate(run_log, source_status, attempt, now):
         raise ValueError('Future collection timestamp')
     if daily and max(daily) >= due_at and source_at >= due_at:
         return False, 'Daily collection already persisted for this JST date'
-    if attempt.get('started_at'):
+    if not manual_retry and attempt.get('started_at'):
         started = timestamp(attempt['started_at'])
         if started > now + timedelta(minutes=5):
             raise ValueError('Future attempt timestamp')
@@ -51,6 +51,7 @@ def read(path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mark-attempt', action='store_true')
+    parser.add_argument('--manual-retry', action='store_true', help='User-requested retry; bypass only local attempt interval, never API guards or date deduplication')
     parser.add_argument('--force', action='store_true', help='Explicit historical backfill only')
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
@@ -59,7 +60,7 @@ def main():
         return
     attempt = read(ATTEMPT) if ATTEMPT.exists() else {}
     due, reason = evaluate(read(ROOT / 'data/run_log.json'),
-                           read(ROOT / 'data/source_status.json'), attempt, now)
+                           read(ROOT / 'data/source_status.json'), attempt, now, manual_retry=args.manual_retry)
     if args.force:
         due, reason = True, 'Explicit historical backfill requested'
     print(f'Collection due={due}: {reason}')
