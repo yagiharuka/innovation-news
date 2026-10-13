@@ -45,7 +45,12 @@ jobs:
 
       - name: Check whether daily collection is missing
         id: collection_due
-        run: python3 scripts/collection_due.py
+        env:
+          MANUAL_RETRY: ${{ github.event_name == 'push' }}
+        run: |
+          args=()
+          if [[ "$MANUAL_RETRY" == "true" ]]; then args+=(--manual-retry); fi
+          python3 scripts/collection_due.py "${args[@]}"
 
       - name: Check whether fresh review is due
         id: review_due
