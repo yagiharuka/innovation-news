@@ -36,6 +36,13 @@ class CollectionDueTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.check_due(source='2026-10-14T03:17:00+09:00')
 
+    def test_manual_retry_keeps_date_deduplication(self):
+        now=datetime.fromisoformat('2026-10-13T09:00:00+09:00')
+        attempt={'started_at':'2026-10-13T08:00:00+09:00'}
+        for stamp, expected in [('2026-10-12T05:00:00+09:00',True),('2026-10-13T05:00:00+09:00',False)]:
+            result=evaluate({'runs':[{'note':'Daily update','run_at':stamp}]}, {'updated_at':stamp},attempt,now,manual_retry=True)
+            self.assertEqual(result[0],expected)
+
     def test_weekend_collection_continues(self):
         self.assertTrue(self.check_due(now='2026-10-17T04:00:00+09:00'))
 
