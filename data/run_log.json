@@ -805,7 +805,7 @@
       "summary_rate_limit_reset": "",
       "summary_retry_after": "",
       "summary_rate_limited_at": "",
-      "duration_seconds": 37.0,
+      "duration_seconds": 37,
       "note": "Review backlog"
     },
     {
@@ -2889,7 +2889,7 @@
       "summary_rate_limit_reset": "120ms",
       "summary_retry_after": "",
       "summary_rate_limited_at": "",
-      "duration_seconds": 5.0,
+      "duration_seconds": 5,
       "note": "Review backlog"
     },
     {
@@ -7770,6 +7770,17 @@
       "targeted_pending": 0,
       "duration_seconds": 264.06,
       "note": "Daily update"
+    },
+    {
+      "run_at": "2026-10-13T10:19:47Z",
+      "duration_seconds": 631,
+      "summary_usage_recorded_at": "2026-10-13T10:30:18Z",
+      "summary_requests": 36,
+      "summary_rate_limited": false,
+      "summary_api_error_kind": "",
+      "note": "Unpublished recovery API usage (save failed)",
+      "workflow_run_id": 38382574034,
+      "accounting_evidence": "Job 115246370558 logs: collection 25 requests; strict review 11 requests; validation passed; git push rejected. No publication claimed."
     }
   ]
 }
