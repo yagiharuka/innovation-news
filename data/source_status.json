@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-10-24T19:26:45Z",
+  "updated_at": "2026-10-25T07:19:53Z",
   "summary": {
     "checked": 305,
     "succeeded": 270,
     "failed": 35,
-    "entries_seen": 117892,
-    "entries_kept": 775
+    "entries_seen": 117894,
+    "entries_kept": 776
   },
   "current_run": {
-    "checked": 298,
-    "succeeded": 263,
-    "failed": 35,
-    "entries_seen": 117237,
-    "entries_kept": 747
+    "checked": 7,
+    "succeeded": 7,
+    "failed": 0,
+    "entries_seen": 657,
+    "entries_kept": 29
   },
   "coverage_summary": {
     "registered": 305,
@@ -137,8 +137,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 8,
-      "elapsed_seconds": 0.4,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "elapsed_seconds": 0.81,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "MIT Technology Review",
@@ -1503,9 +1503,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 4,
-      "elapsed_seconds": 0.51,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "entries_kept": 6,
+      "elapsed_seconds": 1.17,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "Japan Cabinet Office STI Strategy",
@@ -2279,8 +2279,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 8,
-      "elapsed_seconds": 1.59,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "elapsed_seconds": 1.47,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "AAAI Proceedings",
@@ -2299,8 +2299,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
       "entries_seen": 278,
       "entries_kept": 0,
-      "elapsed_seconds": 44.35,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "elapsed_seconds": 21.36,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "日本人工知能学会",
@@ -2318,9 +2318,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 1,
-      "elapsed_seconds": 4.01,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 3.91,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "3GPP",
@@ -2614,8 +2614,8 @@
       "detail": "official frontend JSON API",
       "entries_seen": 225,
       "entries_kept": 1,
-      "elapsed_seconds": 0.61,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "elapsed_seconds": 0.43,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "TAE Technologies",
@@ -5517,11 +5517,11 @@
       "cadence": "weekly",
       "topic_tags": [],
       "status": "ok",
-      "detail": "Fusion Energy: HTTPError: 429 Client Error: Too Many Requests for url: https://api.openalex.org/works?search=nuclear+fusion+plasma+tokamak+stellarator&filter=from_publication_date%3A2026-10-09%2Cto_publication_date%3A2026-10-18%2Cis_retracted%3Afalse%2Ctype%3Apreprint&sort=publication_date%3Adesc&per-page=10&select=id%2Cdoi%2Cdisplay_name%2Cpublication_date%2Ctype%2Ccited_by_count%2Cprimary_location%2Cauthorships%2Ctopics%2Ckeywords%2Clanguage%2Cabstract_inverted_index",
-      "entries_seen": 56,
+      "detail": "",
+      "entries_seen": 58,
       "entries_kept": 6,
-      "elapsed_seconds": 1.63,
-      "last_checked_at": "2026-10-18T07:00:52Z"
+      "elapsed_seconds": 2.06,
+      "last_checked_at": "2026-10-25T07:19:53Z"
     },
     {
       "name": "Reuters Technology & Science",
