@@ -5348,7 +5348,14 @@ def normalize_reviewed_policy_axis(items: list[dict[str, Any]]) -> None:
 def parse_japanese_summary_response(
     raw: str,
     allowed_ids: set[str],
+    diagnostics: dict[str, int] | None = None,
 ) -> dict[str, dict[str, Any]]:
+    # Fixed reason codes and integer counts only; never log model text or IDs.
+    counts: Counter[str] = Counter()
+
+    def count(code: str) -> None:
+        counts[code] += 1
+
     cleaned = (raw or "").strip()
     if cleaned.startswith("```"):
         cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned, flags=re.IGNORECASE)
@@ -5359,11 +5366,15 @@ def parse_japanese_summary_response(
     allowed_topics = set(TOPIC_KEYWORDS)
     allowed_policy_areas = set(POLICY_AREA_KEYWORDS)
     for row in rows:
+        count("rows_seen")
         if not isinstance(row, dict):
+            count("row_not_object")
             continue
         item_id = normalize_space(str(row.get("id", "")))
         if item_id not in allowed_ids:
+            count("id_not_requested")
             continue
+        count("rows_matching_id")
         raw_scope = row.get("in_scope", False)
         in_scope = (
             raw_scope
@@ -5405,6 +5416,7 @@ def parse_japanese_summary_response(
         title_ja = plain_text(str(row.get("title_ja", "")), limit=180)
         summary_ja = plain_text(str(row.get("summary_ja", "")), limit=360)
         if not reason:
+            count("missing_reason")
             continue
         if in_scope and (
             not title_ja
@@ -5413,17 +5425,31 @@ def parse_japanese_summary_response(
             or not technical_focus
             or not scope_evidence
         ):
+            count("invalid_required_fields")
+            for code, missing in (
+                ("missing_title_ja", not title_ja),
+                ("missing_summary_ja", not summary_ja),
+                ("invalid_content_type", content_type not in TECH_SCOPE_CONTENT_TYPES),
+                ("missing_technical_focus", not technical_focus),
+                ("missing_scope_evidence", not scope_evidence),
+            ):
+                if missing:
+                    count(code)
             continue
         if in_scope and content_type == "technology_policy" and (
             not is_innovation_policy or not policy_areas
         ):
+            count("technology_policy_inconsistent")
             continue
         if in_scope and content_type != "technology_policy" and not topics:
+            count("missing_allowed_topics")
             continue
         if in_scope and is_innovation_policy and not policy_areas:
+            count("missing_allowed_policy_areas")
             continue
         if not topics and not is_innovation_policy:
             in_scope = False
+        count("rows_accepted")
         parsed[item_id] = {
             "in_scope": in_scope,
             "topics": topics,
@@ -5437,6 +5463,12 @@ def parse_japanese_summary_response(
             "title_ja": title_ja,
             "summary_ja": summary_ja,
         }
+    if diagnostics is not None:
+        diagnostics.update(counts)
+        diagnostics["requested_ids"] = len(allowed_ids)
+        diagnostics["accepted_ids"] = len(parsed)
+        diagnostics["unresolved_ids"] = len(allowed_ids - parsed.keys())
+        diagnostics["rows_seen"] = counts["rows_seen"]
     return parsed
 
 
@@ -5776,7 +5808,10 @@ def japanese_summary_request(
         )
     if not content:
         raise ValueError("OpenAI API response did not contain output text")
-    return parse_japanese_summary_response(content, allowed_ids)
+    diagnostics: dict[str, int] = {}
+    parsed = parse_japanese_summary_response(content, allowed_ids, diagnostics)
+    print("[REVIEW_PARSE] " + json.dumps(diagnostics, sort_keys=True), flush=True)
+    return parsed
 
 
 def review_api_blocker(
