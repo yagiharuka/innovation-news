@@ -107,19 +107,43 @@ class QuietReviewOutcomeTests(unittest.TestCase):
                             ("completed", 0, 0),
                         )
 
-    def run_report(self, state, *, scope, attempted):
+    def run_report(self, state, *, scope, attempted, allow_pending=False):
         with tempfile.TemporaryDirectory() as directory:
             state_path = Path(directory) / "state.json"
             summary_path = Path(directory) / "summary.txt"
             state_path.write_text(json.dumps(state), encoding="utf-8")
             stdout = io.StringIO()
-            with mock.patch.object(sys, "argv", [
+            argv = [
                 "report_review_outcome.py", "--scope", scope,
                 "--attempted", str(attempted).lower(), "--state", str(state_path),
-            ]), mock.patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(summary_path)}), \
+            ]
+            if allow_pending:
+                argv.append("--allow-pending")
+            with mock.patch.object(sys, "argv", argv), \
+                    mock.patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(summary_path)}), \
                     contextlib.redirect_stdout(stdout):
                 code = report_review_outcome.main()
             return code, stdout.getvalue(), summary_path.read_text(encoding="utf-8")
+
+    def test_fresh_delivery_mode_defers_pending_without_masking_real_blocks(self):
+        deferred = self.state(reviewed=0, status="request_budget_reached")
+        code, stdout, summary = self.run_report(
+            deferred, scope="fresh", attempted=True, allow_pending=True,
+        )
+        self.assertEqual(code, 0)
+        self.assertIn("Review outcome: deferred", stdout)
+        self.assertIn("Unreviewed candidates remain excluded from delivery", summary)
+
+        blocked = self.state(
+            reviewed=0, status="authentication_failed",
+            api_error_kind="authentication_failed",
+        )
+        code, stdout, summary = self.run_report(
+            blocked, scope="fresh", attempted=True, allow_pending=True,
+        )
+        self.assertEqual(code, 1)
+        self.assertIn("Review outcome: blocked", stdout)
+        self.assertIn("Account/configuration action is required", summary)
 
     def test_pending_summaries_explicitly_remain_incomplete(self):
         cases = (

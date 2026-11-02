@@ -47,6 +47,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--scope", choices=("fresh", "backlog"), default="fresh")
     parser.add_argument("--attempted", choices=("true", "false"), required=True)
+    parser.add_argument(
+        "--allow-pending",
+        action="store_true",
+        help=(
+            "Treat a non-blocked pending queue as a successful deferred run. "
+            "Account, access, rate-limit, and data failures still fail."
+        ),
+    )
     parser.add_argument("--state", type=Path, default=ROOT / "data" / "review_state.json")
     args = parser.parse_args()
     try:
@@ -54,6 +62,9 @@ def main() -> int:
         outcome, pending, exit_code = review_outcome(
             state, scope=args.scope, attempted=args.attempted == "true",
         )
+        if args.allow_pending and outcome == "no_progress":
+            outcome = "deferred"
+            exit_code = 0
         queue_counts = [
             (label, int(state[key]))
             for key, label in (
@@ -80,7 +91,12 @@ def main() -> int:
         lines.append("Account/configuration action is required before another API attempt.")
     elif outcome == "blocked":
         lines.append("Review has not recovered; a cooldown or API error remains.")
-    if outcome != "completed":
+    if args.allow_pending and outcome in {"waiting", "in_progress", "deferred"}:
+        lines.append(
+            "Unreviewed candidates remain excluded from delivery; "
+            "scheduled review retries will continue."
+        )
+    elif outcome != "completed":
         lines.append("The queue is incomplete; batch progress is not delivery readiness.")
     if args.attempted == "false" and pending > 0:
         lines.append("No new API attempt was made. This deferred run does not indicate recovery.")

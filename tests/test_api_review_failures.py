@@ -274,10 +274,19 @@ class ReviewOutcomeTests(unittest.TestCase):
         self.assertEqual(report_review_outcome.review_outcome(self.state(reviewed=0), scope="fresh", attempted=True), ("no_progress", 12, 1))
 
     def test_outcome_step_runs_after_checkpoint_even_when_review_skipped(self):
-        for workflow in ("review-backlog.yml", "review-history.yml"):
+        for workflow, gate_step in (
+            ("review-backlog.yml", "final_review_due"),
+            ("review-history.yml", "review_due"),
+        ):
             content = (ROOT / ".github" / "workflows" / workflow).read_text()
             self.assertGreater(content.index("Report actual review outcome"), content.index("git push"))
-            self.assertIn("if: always() && steps.review_due.outcome == 'success'", content)
+            self.assertIn(
+                f"if: always() && steps.{gate_step}.outcome == 'success'", content,
+            )
+        fresh = (ROOT / ".github" / "workflows" / "review-backlog.yml").read_text()
+        history = (ROOT / ".github" / "workflows" / "review-history.yml").read_text()
+        self.assertIn("--scope fresh --allow-pending", fresh)
+        self.assertNotIn("--allow-pending", history)
 
 
 if __name__ == "__main__":
