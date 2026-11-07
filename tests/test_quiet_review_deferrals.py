@@ -125,25 +125,30 @@ class QuietReviewOutcomeTests(unittest.TestCase):
                 code = report_review_outcome.main()
             return code, stdout.getvalue(), summary_path.read_text(encoding="utf-8")
 
-    def test_fresh_delivery_mode_defers_pending_without_masking_real_blocks(self):
-        deferred = self.state(reviewed=0, status="request_budget_reached")
-        code, stdout, summary = self.run_report(
-            deferred, scope="fresh", attempted=True, allow_pending=True,
-        )
-        self.assertEqual(code, 0)
-        self.assertIn("Review outcome: deferred", stdout)
-        self.assertIn("Unreviewed candidates remain excluded from delivery", summary)
+    def test_delivery_modes_defer_pending_without_masking_real_blocks(self):
+        for scope, status_field in (
+            ("fresh", "status"), ("backlog", "backlog_status"),
+        ):
+            with self.subTest(scope=scope, outcome="deferred"):
+                deferred = self.state(reviewed=0, **{status_field: "request_budget_reached"})
+                code, stdout, summary = self.run_report(
+                    deferred, scope=scope, attempted=True, allow_pending=True,
+                )
+                self.assertEqual(code, 0)
+                self.assertIn("Review outcome: deferred", stdout)
+                self.assertIn("Unreviewed candidates remain excluded from delivery", summary)
 
-        blocked = self.state(
-            reviewed=0, status="authentication_failed",
-            api_error_kind="authentication_failed",
-        )
-        code, stdout, summary = self.run_report(
-            blocked, scope="fresh", attempted=True, allow_pending=True,
-        )
-        self.assertEqual(code, 1)
-        self.assertIn("Review outcome: blocked", stdout)
-        self.assertIn("Account/configuration action is required", summary)
+            with self.subTest(scope=scope, outcome="blocked"):
+                blocked = self.state(
+                    reviewed=0, api_error_kind="authentication_failed",
+                    **{status_field: "authentication_failed"},
+                )
+                code, stdout, summary = self.run_report(
+                    blocked, scope=scope, attempted=True, allow_pending=True,
+                )
+                self.assertEqual(code, 1)
+                self.assertIn("Review outcome: blocked", stdout)
+                self.assertIn("Account/configuration action is required", summary)
 
     def test_pending_summaries_explicitly_remain_incomplete(self):
         cases = (
