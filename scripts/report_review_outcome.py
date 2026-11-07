@@ -55,6 +55,15 @@ def main() -> int:
             "Account, access, rate-limit, and data failures still fail."
         ),
     )
+    parser.add_argument(
+        "--quiet-retryable",
+        action="store_true",
+        help=(
+            "Treat retryable rate-limit, API, and model-output failures as a "
+            "successful deferred run. Account/configuration blocks and invalid "
+            "state still fail."
+        ),
+    )
     parser.add_argument("--state", type=Path, default=ROOT / "data" / "review_state.json")
     args = parser.parse_args()
     try:
@@ -65,6 +74,22 @@ def main() -> int:
         if args.allow_pending and outcome == "no_progress":
             outcome = "deferred"
             exit_code = 0
+        if args.quiet_retryable and outcome == "blocked":
+            status = state.get(
+                "status" if args.scope == "fresh" else "backlog_status", ""
+            )
+            api_error_kind = state.get("api_error_kind", "")
+            hard_block = status in ACCOUNT_BLOCKS or api_error_kind in ACCOUNT_BLOCKS
+            retryable_block = (
+                status in {"rate_limited", "review_failed"}
+                or bool(state.get("rate_limited"))
+                or api_error_kind in {
+                    "rate_limited", "unknown_rate_limit", "api_error",
+                }
+            )
+            if retryable_block and not hard_block:
+                outcome = "deferred"
+                exit_code = 0
         queue_counts = [
             (label, int(state[key]))
             for key, label in (
