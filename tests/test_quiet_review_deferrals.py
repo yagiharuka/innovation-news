@@ -107,7 +107,8 @@ class QuietReviewOutcomeTests(unittest.TestCase):
                             ("completed", 0, 0),
                         )
 
-    def run_report(self, state, *, scope, attempted, allow_pending=False):
+    def run_report(self, state, *, scope, attempted, allow_pending=False,
+                   quiet_retryable=False):
         with tempfile.TemporaryDirectory() as directory:
             state_path = Path(directory) / "state.json"
             summary_path = Path(directory) / "summary.txt"
@@ -119,6 +120,8 @@ class QuietReviewOutcomeTests(unittest.TestCase):
             ]
             if allow_pending:
                 argv.append("--allow-pending")
+            if quiet_retryable:
+                argv.append("--quiet-retryable")
             with mock.patch.object(sys, "argv", argv), \
                     mock.patch.dict(os.environ, {"GITHUB_STEP_SUMMARY": str(summary_path)}), \
                     contextlib.redirect_stdout(stdout):
@@ -129,10 +132,23 @@ class QuietReviewOutcomeTests(unittest.TestCase):
         for scope, status_field in (
             ("fresh", "status"), ("backlog", "backlog_status"),
         ):
-            with self.subTest(scope=scope, outcome="deferred"):
+            with self.subTest(scope=scope, outcome="deferred_no_progress"):
                 deferred = self.state(reviewed=0, **{status_field: "request_budget_reached"})
                 code, stdout, summary = self.run_report(
                     deferred, scope=scope, attempted=True, allow_pending=True,
+                )
+                self.assertEqual(code, 0)
+                self.assertIn("Review outcome: deferred", stdout)
+                self.assertIn("Unreviewed candidates remain excluded from delivery", summary)
+
+            with self.subTest(scope=scope, outcome="deferred_retryable"):
+                retryable = self.state(
+                    reviewed=0, api_error_kind="api_error",
+                    **{status_field: "review_failed"},
+                )
+                code, stdout, summary = self.run_report(
+                    retryable, scope=scope, attempted=True, allow_pending=True,
+                    quiet_retryable=True,
                 )
                 self.assertEqual(code, 0)
                 self.assertIn("Review outcome: deferred", stdout)
@@ -145,6 +161,7 @@ class QuietReviewOutcomeTests(unittest.TestCase):
                 )
                 code, stdout, summary = self.run_report(
                     blocked, scope=scope, attempted=True, allow_pending=True,
+                    quiet_retryable=True,
                 )
                 self.assertEqual(code, 1)
                 self.assertIn("Review outcome: blocked", stdout)
