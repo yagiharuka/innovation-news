@@ -286,7 +286,9 @@ class ReviewOutcomeTests(unittest.TestCase):
         fresh = (ROOT / ".github" / "workflows" / "review-backlog.yml").read_text()
         history = (ROOT / ".github" / "workflows" / "review-history.yml").read_text()
         self.assertIn("--scope fresh --allow-pending", fresh)
-        self.assertIn("--scope backlog --allow-pending", history)
+        self.assertIn(
+            "--scope backlog --allow-pending --quiet-retryable", history,
+        )
 
 
 if __name__ == "__main__":
