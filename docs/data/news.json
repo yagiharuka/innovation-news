@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-07T20:15:16Z",
-  "updated_at_jst": "2026-11-08T05:15:16+09:00",
+  "updated_at": "2026-11-08T08:40:22Z",
+  "updated_at_jst": "2026-11-08T17:40:22+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -10188,6 +10188,40 @@
       "status": "New"
     },
     {
+      "id": "d3af4b7ec9074c5c584bde5c",
+      "published_at": "2026-11-03T00:00:00Z",
+      "collected_at_jst": "2026-11-08T17:40:22+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "OpenAlex Preprints",
+      "organization": "OpenAlex",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "https://doi.org/10.31224/8690",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "物理AIのセキュリティを5層で体系化",
+      "title_original": "Physical AI Security: A Unified Five-Layer Taxonomy for a Systematic Survey from Silicon to Semantics",
+      "summary": "協働ロボットや自律移動ロボットが物理アクチュエーターを制御する環境を対象に、ハードウェア信頼性から知識フィードバックまでの5層分類を提案した。312本の論文などを分析し、モデル来歴、学習制御器の検証、人間・ロボット間相互作用の安全性を主要な研究課題として示した。",
+      "summary_original": "OpenAlex research topics: Physical Unclonable Functions (PUFs) and Hardware Security; Security and Verification in Computing; Adversarial Robustness in Machine Learning; AI security; hardware security; systematic survey",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.31224/8690",
+      "first_seen": "2026-11-08T17:40:22+09:00",
+      "status": "New"
+    },
+    {
       "id": "64e7dd7f3aace42e68017a5f",
       "published_at": "2026-11-03T00:00:00Z",
       "collected_at_jst": "2026-11-06T06:56:41+09:00",
@@ -12395,6 +12429,40 @@
       "summary_language": "ja",
       "url": "https://monoist.itmedia.co.jp/mn/articles/2611/02/news041.html",
       "first_seen": "2026-11-03T04:44:50+09:00",
+      "status": "New"
+    },
+    {
+      "id": "296a090dfd7be9510eaef2d6",
+      "published_at": "2026-11-02T00:00:00Z",
+      "collected_at_jst": "2026-11-08T17:40:22+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv (Cornell University)",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "arXiv (Cornell University)",
+      "doi": "https://doi.org/10.48550/arxiv.2611.03144",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "近接場レーザー加工で原子スケールの材料改質を目指す",
+      "title_original": "Writing with Near-Field: towards Atomic Resolution in Material Processing",
+      "summary": "超短パルスレーザー加工で、材料内部に形成される一時的なナノスケール吸収体の近接場を利用し、波長の回折限界を超える局在化を検討した。10〜20nmの加工例や透明結晶の高アスペクト比加工を示し、単一欠陥・単一結合の改質を将来目標としている。",
+      "summary_original": "OpenAlex research topics: Laser Material Processing Techniques; Nonlinear Optical Materials Studies; Near-Field Optical Microscopy; direct laser writing; ultrafast laser processing; near-field confinement; point dipole",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.48550/arxiv.2611.03144",
+      "first_seen": "2026-11-08T17:40:22+09:00",
       "status": "New"
     },
     {
@@ -86096,74 +86164,6 @@
       "summary_original": "Save now on essential digital access to trusted FT journalism on any device. Savings based on annualised monthly price. Then $75 per month. Complete digital access with exclusive insights and industry deep dives on any device. Cancel anytime during your trial. Complete digital access with exclusive insights and industry deep dives on any device. Save now on our curated print edition delivered Monday - Saturday* plus our digitised print replica. Savings based on annual price. Check whether you already have free access via your university or organisation. *Hand delivery availability confirmed when you enter your address. Discover all the plans currently available in your country Digital acces…",
       "summary_language": "ja",
       "url": "https://www.ft.com/content/46194a0b-a0e4-42cc-ad40-0df753492768?syn-25a6b1a6=1",
-      "first_seen": "2026-10-01T08:03:46+09:00",
-      "status": "New"
-    },
-    {
-      "id": "08b682b84f846f5e8b13e3f2",
-      "published_at": "2026-09-30T21:19:33Z",
-      "collected_at_jst": "2026-10-01T08:03:46+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Space"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Government",
-      "source": "NASA",
-      "organization": "NASA",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site listing and page metadata",
-      "collection_mode": "Daily",
-      "title": "重なって見える銀河から宇宙塵を探る",
-      "title_original": "Help Overlap Zoo Reveal Cosmic Dust - NASA Science",
-      "summary": "NASAは、視線上で重なって見える銀河を利用し、背景銀河の光を通して手前の銀河内にある宇宙塵の分布や、星明かりの遮蔽・散乱を調べる手法を紹介した。",
-      "summary_original": "Galaxies, vast collections of billions of stars, gas, and dust held together by gravity, are scattered across the immensity of space. But every so often, a coincidence occurs: Two galaxies line up from our point of view on Earth (or from a space telescope) and appear to overlap in the sky. These rare overlapping galaxies give astronomers a chance to study s… Picture the background galaxy acting like a cosmic flashlight, shining through the nearer galaxy. The backlit dust creates dark silhouettes, like shadows on a screen. By studying these silhouettes, astronomers can map how dust is distributed throughout galaxies and learn how it blocks, scatters, and dims starlight traveling through spac…",
-      "summary_language": "ja",
-      "url": "https://science.nasa.gov/get-involved/citizen-science/help-overlap-zoo-reveal-cosmic-dust/",
-      "first_seen": "2026-10-01T08:03:46+09:00",
-      "status": "New"
-    },
-    {
-      "id": "a2de1f1933fb76867c1cdd21",
-      "published_at": "2026-09-30T21:07:40Z",
-      "collected_at_jst": "2026-10-01T08:03:46+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "TechCrunch Artificial Intelligence",
-      "organization": "TechCrunch Artificial Intelligence",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "AIスタートアップFlow Engineering、ハードウェア設計自動化で5,000万ドルを調達",
-      "title_original": "Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation | TechCrunch",
-      "summary": "ハードウェア設計向けAIツールを開発するFlow Engineeringが、5,000万ドルのシリーズB資金を調達した。AIエージェントによる設計自動化を手掛ける。",
-      "summary_original": "Flow Engineering , a startup that offers AI tools for hardware design, has raised a $50 million Series B round at a $750 million valuation from some big-name investors, the company announced on Wednesday. The round was co-led by Antonio Gracias of Valar Equity Partners ( best known for its investments in Elon Musk’s companies, particularly SpaceX) and Gavin Baker of Atreides Management (a hedge fund that has also backed Musk’s companies and others like AI chipmaker Cerebras). Sequoia Capital, which led Flow’s Series A round last October, also participated, a… Three-year-old, San Francisco-based Flow is tackling the difficulties of hardware design by offering AI agents that automatically ali…",
-      "summary_language": "ja",
-      "url": "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/",
       "first_seen": "2026-10-01T08:03:46+09:00",
       "status": "New"
     }
