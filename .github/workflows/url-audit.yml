@@ -111,7 +111,7 @@ jobs:
             git add data/oecd_source_probe.json data/source_probes/*.json
           else
             echo "Keeping the last successful committed source-probe reports."
-            git restore --worktree -- data/oecd_source_probe.json data/source_probes || true
+            git restore --worktree -- data/oecd_source_probe.json
             git clean -f -- data/oecd_source_probe.json data/source_probes/
           fi
           if git diff --cached --quiet; then
