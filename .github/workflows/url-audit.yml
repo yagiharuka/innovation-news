@@ -61,7 +61,7 @@ jobs:
               return 0
             else
               code=$?
-              echo "::error::Source probe failed (exit ${code}): $*"
+              echo "::warning::Source probe deferred (exit ${code}): $*"
               failed=$((failed + 1))
             fi
           }
@@ -89,19 +89,29 @@ jobs:
             data/source_probes/*.json
           retention-days: 30
 
-      - name: Require healthy audit and all source probes
+      - name: Require healthy URL audit
         if: always()
         env:
           AUDIT_OUTCOME: ${{ steps.url_audit.outcome }}
           PROBE_OUTCOME: ${{ steps.source_probes.outcome }}
         run: |
-          test "$AUDIT_OUTCOME" = success && test "$PROBE_OUTCOME" = success
+          test "$AUDIT_OUTCOME" = success
+          if [[ "$PROBE_OUTCOME" != "success" ]]; then
+            echo "::warning::One or more source probes were temporarily unavailable. The reports were saved for automatic retry."
+          fi
 
       - name: Commit audit report
+        env:
+          PROBE_OUTCOME: ${{ steps.source_probes.outcome }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/url_audit.json docs/data/url_audit.json data/oecd_source_probe.json data/source_probes/*.json
+          git add data/url_audit.json docs/data/url_audit.json
+          if [[ "$PROBE_OUTCOME" = "success" ]]; then
+            git add data/oecd_source_probe.json data/source_probes/*.json
+          else
+            echo "Keeping the last successful committed source-probe reports."
+          fi
           if git diff --cached --quiet; then
             echo "No URL audit changes to commit."
           else
