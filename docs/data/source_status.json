@@ -1,19 +1,19 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-08T18:28:39Z",
+  "updated_at": "2026-11-09T20:39:42Z",
   "summary": {
     "checked": 305,
-    "succeeded": 278,
-    "failed": 27,
-    "entries_seen": 128742,
-    "entries_kept": 700
+    "succeeded": 277,
+    "failed": 28,
+    "entries_seen": 120328,
+    "entries_kept": 686
   },
   "current_run": {
     "checked": 298,
-    "succeeded": 271,
-    "failed": 27,
-    "entries_seen": 128357,
-    "entries_kept": 668
+    "succeeded": 270,
+    "failed": 28,
+    "entries_seen": 119943,
+    "entries_kept": 654
   },
   "coverage_summary": {
     "registered": 305,
@@ -33,10 +33,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 7,
-      "entries_kept": 6,
-      "elapsed_seconds": 1.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 20,
+      "entries_kept": 8,
+      "elapsed_seconds": 0.91,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "BBC Science & Environment",
@@ -50,10 +50,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 40,
+      "entries_seen": 41,
       "entries_kept": 0,
-      "elapsed_seconds": 1.45,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.9,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "BBC Technology",
@@ -68,9 +68,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 21,
-      "entries_kept": 3,
-      "elapsed_seconds": 1.52,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 6,
+      "elapsed_seconds": 0.9,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The New York Times Technology",
@@ -84,10 +84,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 23,
+      "entries_seen": 25,
       "entries_kept": 8,
-      "elapsed_seconds": 0.97,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.81,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The New York Times Science",
@@ -101,10 +101,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 27,
+      "entries_seen": 28,
       "entries_kept": 8,
-      "elapsed_seconds": 1.13,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.73,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NISTEP Updates",
@@ -120,8 +120,8 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 0,
-      "elapsed_seconds": 2.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.2,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Guardian Technology",
@@ -153,9 +153,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 5,
-      "elapsed_seconds": 1.09,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 7,
+      "elapsed_seconds": 0.8,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IEEE Spectrum",
@@ -171,8 +171,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 1,
-      "elapsed_seconds": 0.6,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.32,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Nature",
@@ -187,9 +187,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 75,
-      "entries_kept": 4,
-      "elapsed_seconds": 0.44,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 5,
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Science",
@@ -205,8 +205,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/news/latest-news; sitemap: https://www.science.org/sitemap_index.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.science.org/sitemap_index.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.89,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.03,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "South China Morning Post Technology",
@@ -222,8 +222,8 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 1.43,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.39,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The National Technology",
@@ -237,10 +237,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 1,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.53,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 3,
+      "entries_kept": 3,
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Brookings TechTank",
@@ -265,8 +265,8 @@
       "detail": "",
       "entries_seen": 4,
       "entries_kept": 0,
-      "elapsed_seconds": 0.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CSIS Analysis",
@@ -291,8 +291,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.17,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "RAND Corporation",
@@ -316,9 +316,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 2,
-      "elapsed_seconds": 0.26,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 3,
+      "elapsed_seconds": 0.34,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ITIF Publications",
@@ -342,9 +342,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 81,
-      "entries_kept": 2,
-      "elapsed_seconds": 1.07,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 4,
+      "elapsed_seconds": 1.14,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CSET",
@@ -368,9 +368,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.19,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 1,
+      "elapsed_seconds": 0.39,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Bruegel",
@@ -396,7 +396,7 @@
       "entries_seen": 0,
       "entries_kept": 0,
       "elapsed_seconds": 0.46,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "MERICS",
@@ -419,10 +419,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 95,
-      "entries_kept": 3,
-      "elapsed_seconds": 1.88,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 96,
+      "entries_kept": 1,
+      "elapsed_seconds": 1.69,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "National Science Foundation News",
@@ -438,8 +438,8 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 0,
-      "elapsed_seconds": 0.16,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.12,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NIST News",
@@ -455,8 +455,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 0,
-      "elapsed_seconds": 0.11,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.09,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NIH News Releases",
@@ -474,9 +474,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 115,
-      "entries_kept": 2,
-      "elapsed_seconds": 0.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.63,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "DOE Office of Science News",
@@ -494,8 +494,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.08,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.16,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "European Commission Research & Innovation",
@@ -510,9 +510,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 60,
-      "entries_kept": 8,
-      "elapsed_seconds": 4.75,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 6,
+      "elapsed_seconds": 4.2,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "UK DSIT",
@@ -528,8 +528,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 1,
-      "elapsed_seconds": 0.53,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.11,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "METI Press Releases",
@@ -543,10 +543,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 935,
+      "entries_seen": 937,
       "entries_kept": 0,
-      "elapsed_seconds": 10.74,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 8.47,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "WHO News",
@@ -564,8 +564,8 @@
       "detail": "",
       "entries_seen": 83,
       "entries_kept": 0,
-      "elapsed_seconds": 0.65,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.45,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IEA News",
@@ -581,8 +581,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/news; sitemap: https://www.iea.org/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.iea.org/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.88,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.92,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "OECD Newsroom",
@@ -594,79 +594,62 @@
       "coverage_tier": "S",
       "cadence": "daily",
       "topic_tags": [],
-      "status": "ok",
-      "detail": "official sitemap through Jina; original publisher URLs retained; detail_pages=8; detail_fallbacks=2",
+      "status": "error",
+      "detail": "official sitemap through Jina; original publisher URLs retained; detail_pages=2; detail_fallbacks=2; sitemap_errors=2",
       "diagnostics": {
         "sitemaps": [
           {
             "url": "https://r.jina.ai/http://www.oecd.org/en-about-sitemap.xml",
-            "status": "ok",
-            "format": "xml",
-            "entries_seen": 2038
+            "status": "error",
+            "reason": "challenge_or_error_page",
+            "entries_seen": 0
           },
           {
             "url": "https://r.jina.ai/http://www.oecd.org/en-data-sitemap.xml",
-            "status": "ok",
-            "format": "xml",
-            "entries_seen": 723
+            "status": "error",
+            "reason": "challenge_or_error_page",
+            "entries_seen": 0
           },
           {
             "url": "https://r.jina.ai/http://www.oecd.org/en-blogs-sitemap.xml",
             "status": "ok",
-            "format": "xml",
-            "entries_seen": 754
+            "format": "markdown",
+            "entries_seen": 755
           }
         ],
         "rejections": {
-          "include_link_pattern": 1451,
-          "url_month_before_cutoff": 2047,
-          "sitemap_date_before_cutoff": 9,
-          "no_scope_evidence": 6,
-          "detail_date_outside_window": 1
+          "include_link_pattern": 1,
+          "url_month_before_cutoff": 750,
+          "sitemap_date_before_cutoff": 2,
+          "no_scope_evidence": 2
         },
         "rejection_samples": {
           "include_link_pattern": [
-            "https://www.oecd.org/en/about.html",
-            "https://www.oecd.org/en/about/how-we-work.html",
-            "https://www.oecd.org/en/about/how-we-work/independent-external-evaluation-of-oecd.html"
+            "https://www.oecd.org/en/blogs.html"
           ],
           "url_month_before_cutoff": [
-            "https://www.oecd.org/en/about/news/press-releases/2021/06/croatia-take-action-improve-corporate-governance-state-owned-entreprise-sector.html",
-            "https://www.oecd.org/en/about/news/press-releases/2021/06/oecd-and-global-executives-engage-with-the-blue-dot-network-to-develop-certification-for-quality-infrastructure-investment.html",
-            "https://www.oecd.org/en/about/news/press-releases/2021/06/addressing-complex-housing-policy-challenges-should-be-a-central-priority-for-governments.html"
+            "https://www.oecd.org/en/blogs/2023/01/Paid-parental-leave--Big-differences-for-mothers-and-fathers.html",
+            "https://www.oecd.org/en/blogs/2023/01/mooc-governance-of-state-owned-enterprises.html",
+            "https://www.oecd.org/en/blogs/2023/01/introducing-the-oecd-short-term-indicators-dashboard.html"
           ],
           "sitemap_date_before_cutoff": [
-            "https://www.oecd.org/en/about/news/press-releases/2026/11/reforms-can-strengthen-belgium-s-competitiveness-unlock-its-growth-potential-and-support-sustainable-public-finances.html",
-            "https://www.oecd.org/en/about/news/press-releases/2026/11/governments-need-to-make-greater-use-of-asset-backed-pensions-to-support-retirement-incomes-oecd-says.html",
-            "https://www.oecd.org/en/about/news/media-advisories/2023/06.html"
+            "https://www.oecd.org/en/blogs/2026/11/experts-of-the-eu-oecd-project-on-women-entrepreneurs-access-to-finance.html",
+            "https://www.oecd.org/en/blogs/2026/11/has-global-co-operation-helped-curb-emissions-insights-from-trends-and-expert-views.html"
           ],
           "no_scope_evidence": [
-            "https://www.oecd.org/en/data/insights/statistical-releases/2026/11/consumer-prices-updated-6-november-2026.html",
-            "https://www.oecd.org/en/blogs/2026/11/video-economic-survey-of-belgium-2026.html",
-            "https://www.oecd.org/en/about/news/announcements/2026/11/Latin-america-and-the-caribbean-can-unlock-growth-through-deeper-integration.html"
-          ],
-          "detail_date_outside_window": [
-            "https://www.oecd.org/en/about/news/announcements/2026/11/tax-certainty-oecd-statistics-show-faster-resolution-of-tax-disputes-and-record-map-closures-in-2025.html"
+            "https://www.oecd.org/en/blogs/2026/11/what-to-watch-for-at-cop31-key-negotiation-items-that-will-shape-future-global-co-operation-on-climate.html",
+            "https://www.oecd.org/en/blogs/2026/11/video-economic-survey-of-belgium-2026.html"
           ]
         },
         "candidates": [
           {
-            "url": "https://www.oecd.org/en/about/news/announcements/2026/11/oecd-presents-roadmap-for-measuring-connectivity-along-the-india-middle-east-europe-corridor-imec.html",
-            "discovery_date": "2026-11-05T08:27:14.241000+00:00",
-            "sitemap_lastmod": "2026-11-05T08:27:14.241Z",
-            "metadata": "enriched",
-            "decision": "kept",
-            "published_at": "2026-11-05T08:00:00+00:00",
-            "final_title": "OECD sets out roadmap for measuring connectivity across the India–Middle East–Europe Corridor (IMEC)"
-          },
-          {
-            "url": "https://www.oecd.org/en/data/insights/statistical-releases/2026/11/consumer-prices-updated-6-november-2026.html",
-            "discovery_date": "2026-11-06T11:38:43.698000+00:00",
-            "sitemap_lastmod": "2026-11-06T11:38:43.698Z",
-            "metadata": "enriched",
+            "url": "https://www.oecd.org/en/blogs/2026/11/what-to-watch-for-at-cop31-key-negotiation-items-that-will-shape-future-global-co-operation-on-climate.html",
+            "discovery_date": "2026-11-09T10:39:32.277000+00:00",
+            "sitemap_lastmod": "2026-11-09T10:39:32.277Z",
+            "metadata": "challenge_or_error_page",
             "decision": "no_scope_evidence",
-            "published_at": "2026-11-06T11:00:00+00:00",
-            "final_title": "Surging energy inflation pushed OECD headline inflation to 4.5% in September 2026"
+            "published_at": "2026-11-09T10:39:32.277000+00:00",
+            "final_title": "what to watch for at cop31 key negotiation items that will shape future global co operation on climate"
           },
           {
             "url": "https://www.oecd.org/en/blogs/2026/11/video-economic-survey-of-belgium-2026.html",
@@ -676,74 +659,28 @@
             "decision": "no_scope_evidence",
             "published_at": "2026-11-06T09:07:10.560000+00:00",
             "final_title": "video economic survey of belgium 2026"
-          },
-          {
-            "url": "https://www.oecd.org/en/about/news/announcements/2026/11/tax-certainty-oecd-statistics-show-faster-resolution-of-tax-disputes-and-record-map-closures-in-2025.html",
-            "discovery_date": "2026-11-06T08:51:01.106000+00:00",
-            "sitemap_lastmod": "2026-11-06T08:51:01.106Z",
-            "metadata": "enriched",
-            "decision": "detail_date_outside_window",
-            "published_at": "2026-11-04T10:00:00+00:00",
-            "final_title": "Tax certainty: OECD statistics show faster resolution of tax disputes and record MAP closures in 2025"
-          },
-          {
-            "url": "https://www.oecd.org/en/about/news/announcements/2026/11/Latin-america-and-the-caribbean-can-unlock-growth-through-deeper-integration.html",
-            "discovery_date": "2026-11-05T16:44:31.345000+00:00",
-            "sitemap_lastmod": "2026-11-05T16:44:31.345Z",
-            "metadata": "enriched",
-            "decision": "no_scope_evidence",
-            "published_at": "2026-11-05T10:00:00+00:00",
-            "final_title": "Latin America and the Caribbean can unlock growth through deeper integration, says new OECD report"
-          },
-          {
-            "url": "https://www.oecd.org/en/about/news/media-advisories/2026/11/oecd-international-migration-outlook-2026-to-be-published-thursday-12-november.html",
-            "discovery_date": "2026-11-05T14:00:26.493000+00:00",
-            "sitemap_lastmod": "2026-11-05T14:00:26.493Z",
-            "metadata": "enriched",
-            "decision": "no_scope_evidence",
-            "published_at": "2026-11-05T14:00:00+00:00",
-            "final_title": "OECD International Migration Outlook 2026 to be published Thursday 12 November"
-          },
-          {
-            "url": "https://www.oecd.org/en/about/news/press-releases/2026/11/rising-exposure-to-extreme-heat-and-droughts-poses-growing-risks-to-economies-oecd-finds.html",
-            "discovery_date": "2026-11-05T09:59:25.589000+00:00",
-            "sitemap_lastmod": "2026-11-05T09:59:25.589Z",
-            "metadata": "enriched",
-            "decision": "no_scope_evidence",
-            "published_at": "2026-11-05T10:00:00+00:00",
-            "final_title": "Rising exposure to extreme heat and droughts poses growing risks to economies, OECD finds"
-          },
-          {
-            "url": "https://www.oecd.org/en/about/news/press-releases/2026/11/oecd-digital-economy-and-society-outlook-2026.html",
-            "discovery_date": "2026-11-05T09:34:08.733000+00:00",
-            "sitemap_lastmod": "2026-11-05T09:34:08.733Z",
-            "metadata": "challenge_or_error_page",
-            "decision": "no_scope_evidence",
-            "published_at": "2026-11-05T09:34:08.733000+00:00",
-            "final_title": "oecd digital economy and society outlook 2026"
           }
         ],
-        "candidates_total": 8,
-        "candidates_evaluated": 8,
+        "candidates_total": 2,
+        "candidates_evaluated": 2,
         "sample_limits": {
           "sitemaps": 20,
           "candidates": 20,
           "urls_per_rejection": 3
         },
         "sitemaps_total": 3,
-        "sitemap_errors": 0,
+        "sitemap_errors": 2,
         "metadata_outcomes": {
-          "enriched": 6,
           "challenge_or_error_page": 2
         },
         "detail_limit": 24,
-        "detail_pages": 8,
+        "detail_pages": 2,
         "detail_fallbacks": 2
       },
-      "entries_seen": 3515,
-      "entries_kept": 1,
-      "elapsed_seconds": 86.11,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 755,
+      "entries_kept": 0,
+      "elapsed_seconds": 12.08,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "OECD STI Publications & Indicators",
@@ -765,7 +702,7 @@
           {
             "url": "https://r.jina.ai/http://www.oecd.org/content/oecd.sitemap.en-publications-2026-sitemap.xml",
             "status": "error",
-            "reason": "transport_error",
+            "reason": "challenge_or_error_page",
             "entries_seen": 0
           }
         ],
@@ -788,8 +725,8 @@
       },
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 26.84,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.67,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Google AI",
@@ -806,9 +743,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.87,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.47,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NVIDIA Blog",
@@ -826,9 +763,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 18,
-      "entries_kept": 6,
-      "elapsed_seconds": 2.41,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 7,
+      "elapsed_seconds": 2.16,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Intel Newsroom",
@@ -846,8 +783,8 @@
       "detail": "ValueError: <unknown>:2:0: syntax error",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 3.25,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.2,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IBM Research",
@@ -864,10 +801,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 50,
-      "entries_kept": 2,
-      "elapsed_seconds": 7.98,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 48,
+      "entries_kept": 7,
+      "elapsed_seconds": 3.48,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Microsoft Research",
@@ -885,9 +822,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.87,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.55,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Samsung Global Newsroom",
@@ -905,9 +842,9 @@
       "status": "ok",
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=6",
       "entries_seen": 158,
-      "entries_kept": 2,
-      "elapsed_seconds": 28.89,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 22.5,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Anthropic News",
@@ -925,8 +862,8 @@
       "detail": "",
       "entries_seen": 190,
       "entries_kept": 1,
-      "elapsed_seconds": 2.54,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.29,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Google DeepMind Blog",
@@ -945,9 +882,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 100,
-      "entries_kept": 1,
-      "elapsed_seconds": 2.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.54,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Meta AI Blog",
@@ -963,10 +900,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 88,
+      "entries_seen": 86,
       "entries_kept": 0,
-      "elapsed_seconds": 3.65,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Amazon Science",
@@ -986,8 +923,8 @@
       "detail": "",
       "entries_seen": 274,
       "entries_kept": 0,
-      "elapsed_seconds": 0.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.92,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Mistral AI News",
@@ -1004,9 +941,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 163,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Boston Dynamics Blog",
@@ -1025,8 +962,8 @@
       "detail": "",
       "entries_seen": 207,
       "entries_kept": 0,
-      "elapsed_seconds": 1.34,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.55,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Toyota Research Institute News",
@@ -1045,8 +982,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.tri.global/news; sitemap: https://www.tri.global/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.tri.global/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.36,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.13,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ABB Robotics News",
@@ -1064,9 +1001,9 @@
       "status": "ok",
       "detail": "official ABB Robotics NewsBank JSON API",
       "entries_seen": 12,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.16,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.09,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "FANUC America Press Releases",
@@ -1085,8 +1022,8 @@
       "detail": "",
       "entries_seen": 272,
       "entries_kept": 0,
-      "elapsed_seconds": 1.71,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 24.02,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "TSMC News",
@@ -1104,8 +1041,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://pr.tsmc.com/english/latest-news; sitemap: https://pr.tsmc.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://pr.tsmc.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 3.39,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.59,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ASML News",
@@ -1121,10 +1058,10 @@
       ],
       "status": "ok",
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://investor.asml.com/news/press-releases-and-announcements; official sitemap fallback: 4",
-      "entries_seen": 1149,
+      "entries_seen": 1160,
       "entries_kept": 0,
-      "elapsed_seconds": 3.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.44,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SK hynix Newsroom",
@@ -1141,10 +1078,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 208,
+      "entries_seen": 209,
       "entries_kept": 0,
-      "elapsed_seconds": 2.7,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.98,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Arm Newsroom",
@@ -1163,8 +1100,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 565,
       "entries_kept": 0,
-      "elapsed_seconds": 2.75,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Qualcomm News",
@@ -1180,11 +1117,11 @@
         "Semiconductors & Telecom"
       ],
       "status": "ok",
-      "detail": "official sitemap fallback: 1",
-      "entries_seen": 10652,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.91,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
+      "entries_seen": 10653,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.12,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Ericsson Press Releases",
@@ -1202,8 +1139,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.ericsson.com/en/newsroom; sitemap: https://www.ericsson.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.ericsson.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.3,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.33,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Nokia Newsroom",
@@ -1222,8 +1159,8 @@
       "detail": "",
       "entries_seen": 216,
       "entries_kept": 0,
-      "elapsed_seconds": 4.3,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.57,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NTT R&D News",
@@ -1241,10 +1178,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 509,
+      "entries_seen": 705,
       "entries_kept": 0,
-      "elapsed_seconds": 3.95,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 7.17,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Rapidus News",
@@ -1262,8 +1199,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 215,
       "entries_kept": 0,
-      "elapsed_seconds": 6.5,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.91,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Quantinuum News",
@@ -1280,9 +1217,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 109,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.45,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.2,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IonQ News",
@@ -1300,8 +1237,8 @@
       "detail": "",
       "entries_seen": 79,
       "entries_kept": 1,
-      "elapsed_seconds": 0.44,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.23,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Commonwealth Fusion Systems News",
@@ -1319,8 +1256,8 @@
       "detail": "",
       "entries_seen": 58,
       "entries_kept": 1,
-      "elapsed_seconds": 0.99,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.1,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Helion Energy News",
@@ -1338,8 +1275,8 @@
       "detail": "",
       "entries_seen": 78,
       "entries_kept": 0,
-      "elapsed_seconds": 1.02,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Tokamak Energy News",
@@ -1355,10 +1292,10 @@
       ],
       "status": "ok",
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
-      "entries_seen": 467,
+      "entries_seen": 399,
       "entries_kept": 0,
-      "elapsed_seconds": 3.08,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.02,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Kyoto Fusioneering News",
@@ -1375,9 +1312,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 124,
-      "entries_kept": 2,
-      "elapsed_seconds": 2.34,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 1,
+      "elapsed_seconds": 1.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Moderna Media Center",
@@ -1396,8 +1333,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=0",
       "entries_seen": 28,
       "entries_kept": 0,
-      "elapsed_seconds": 0.63,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.69,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "BioNTech Press Releases",
@@ -1416,8 +1353,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 2080,
       "entries_kept": 0,
-      "elapsed_seconds": 1.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.93,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Roche Media Releases",
@@ -1436,8 +1373,8 @@
       "detail": "official sitemap fallback: 2",
       "entries_seen": 1873,
       "entries_kept": 0,
-      "elapsed_seconds": 11.5,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 16.43,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "AstraZeneca Press Releases",
@@ -1456,8 +1393,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.astrazeneca.com/media-centre/press-releases.html; sitemap: https://www.astrazeneca.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.astrazeneca.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.18,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.16,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Illumina News Center",
@@ -1476,8 +1413,8 @@
       "detail": "",
       "entries_seen": 532,
       "entries_kept": 0,
-      "elapsed_seconds": 3.59,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.93,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SpaceX Updates",
@@ -1496,8 +1433,8 @@
       "detail": "official CMS JSON API",
       "entries_seen": 32,
       "entries_kept": 1,
-      "elapsed_seconds": 0.14,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.16,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Blue Origin News",
@@ -1515,8 +1452,8 @@
       "detail": "listing: HTTPError: 429 Client Error: Too Many Requests for url: https://www.blueorigin.com/news; sitemap: https://www.blueorigin.com/sitemap.xml: HTTPError: 429 Client Error: Too Many Requests for url: https://www.blueorigin.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.14,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.29,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Rocket Lab Updates",
@@ -1534,8 +1471,8 @@
       "detail": "official sitemap fallback: 3; Listing reachable; no collectable article links found",
       "entries_seen": 1333,
       "entries_kept": 0,
-      "elapsed_seconds": 0.97,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.8,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Astroscale News",
@@ -1553,8 +1490,8 @@
       "detail": "official sitemap fallback: 2; Listing reachable; no collectable article links found",
       "entries_seen": 3610,
       "entries_kept": 0,
-      "elapsed_seconds": 2.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.73,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ispace News",
@@ -1569,11 +1506,11 @@
         "Space"
       ],
       "status": "ok",
-      "detail": "official sitemap fallback: 4",
-      "entries_seen": 698,
-      "entries_kept": 2,
-      "elapsed_seconds": 8.93,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
+      "entries_seen": 154,
+      "entries_kept": 0,
+      "elapsed_seconds": 6.76,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ITER News",
@@ -1591,8 +1528,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=0",
       "entries_seen": 194,
       "entries_kept": 0,
-      "elapsed_seconds": 6.24,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 7.62,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Fusion Industry Association",
@@ -1627,8 +1564,8 @@
       "detail": "",
       "entries_seen": 18,
       "entries_kept": 1,
-      "elapsed_seconds": 1.07,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.11,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Japan IP Strategy Headquarters",
@@ -1644,8 +1581,8 @@
       "detail": "",
       "entries_seen": 400,
       "entries_kept": 7,
-      "elapsed_seconds": 0.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.61,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "JST CRDS STI Policy Reports",
@@ -1670,8 +1607,8 @@
       "detail": "",
       "entries_seen": 514,
       "entries_kept": 8,
-      "elapsed_seconds": 1.51,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.45,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "White House OSTP News",
@@ -1687,8 +1624,8 @@
       "detail": "",
       "entries_seen": 196,
       "entries_kept": 8,
-      "elapsed_seconds": 0.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.32,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "WIPO News",
@@ -1704,8 +1641,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 8,
-      "elapsed_seconds": 2.22,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.77,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "European Patent Office News",
@@ -1721,8 +1658,8 @@
       "detail": "",
       "entries_seen": 1005,
       "entries_kept": 8,
-      "elapsed_seconds": 3.71,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.76,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "U.S. Treasury R&D Tax Policy",
@@ -1738,8 +1675,8 @@
       "detail": "",
       "entries_seen": 325,
       "entries_kept": 8,
-      "elapsed_seconds": 123.93,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 120.21,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "China State Council Innovation Policies",
@@ -1755,8 +1692,8 @@
       "detail": "",
       "entries_seen": 60,
       "entries_kept": 8,
-      "elapsed_seconds": 4.17,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 6.4,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Korea MSIT Press Releases",
@@ -1774,8 +1711,8 @@
       "detail": "official scripted listing",
       "entries_seen": 10,
       "entries_kept": 8,
-      "elapsed_seconds": 12.94,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 9.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "European Innovation Council News",
@@ -1791,8 +1728,8 @@
       "detail": "",
       "entries_seen": 86,
       "entries_kept": 8,
-      "elapsed_seconds": 8.06,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.1,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "UAE Advanced Technology Research Council",
@@ -1812,8 +1749,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=8",
       "entries_seen": 41,
       "entries_kept": 10,
-      "elapsed_seconds": 69.03,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 81.41,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Saudi Research, Development and Innovation Authority",
@@ -1829,8 +1766,8 @@
       "detail": "",
       "entries_seen": 67,
       "entries_kept": 0,
-      "elapsed_seconds": 5.39,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.35,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Israel Innovation Authority",
@@ -1846,8 +1783,8 @@
       "detail": "",
       "entries_seen": 85,
       "entries_kept": 0,
-      "elapsed_seconds": 6.68,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.0,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "UAE Ministry of Industry and Advanced Technology",
@@ -1863,8 +1800,8 @@
       "detail": "",
       "entries_seen": 209,
       "entries_kept": 6,
-      "elapsed_seconds": 31.13,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 21.84,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "KISTEP",
@@ -1889,8 +1826,8 @@
       "detail": "",
       "entries_seen": 95,
       "entries_kept": 0,
-      "elapsed_seconds": 1.7,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.4,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "STEPI",
@@ -1915,8 +1852,8 @@
       "detail": "",
       "entries_seen": 77,
       "entries_kept": 5,
-      "elapsed_seconds": 5.99,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.57,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "KIST",
@@ -1940,8 +1877,8 @@
       "detail": "",
       "entries_seen": 408,
       "entries_kept": 0,
-      "elapsed_seconds": 1.53,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.15,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ETRI",
@@ -1962,8 +1899,8 @@
       "detail": "",
       "entries_seen": 151,
       "entries_kept": 4,
-      "elapsed_seconds": 1.49,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.1,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "KEIT",
@@ -1987,8 +1924,8 @@
       "detail": "",
       "entries_seen": 224,
       "entries_kept": 0,
-      "elapsed_seconds": 1.96,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.59,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ITRI",
@@ -2011,8 +1948,8 @@
       "detail": "",
       "entries_seen": 103,
       "entries_kept": 0,
-      "elapsed_seconds": 1.12,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.89,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Taiwan NSTC",
@@ -2037,8 +1974,8 @@
       "detail": "",
       "entries_seen": 175,
       "entries_kept": 3,
-      "elapsed_seconds": 2.74,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.09,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NRF Singapore",
@@ -2062,8 +1999,8 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.nrf.gov.sg/resources/press-releases/",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 1.85,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.58,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "China MOST",
@@ -2088,8 +2025,8 @@
       "detail": "",
       "entries_seen": 22,
       "entries_kept": 0,
-      "elapsed_seconds": 1.8,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.53,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Chinese Academy of Sciences",
@@ -2114,8 +2051,8 @@
       "detail": "",
       "entries_seen": 115,
       "entries_kept": 5,
-      "elapsed_seconds": 3.32,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.86,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NSFC",
@@ -2140,8 +2077,8 @@
       "detail": "",
       "entries_seen": 75,
       "entries_kept": 0,
-      "elapsed_seconds": 2.6,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.05,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ISRO",
@@ -2162,8 +2099,8 @@
       "detail": "",
       "entries_seen": 307,
       "entries_kept": 5,
-      "elapsed_seconds": 0.59,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.31,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CSIRO",
@@ -2186,10 +2123,10 @@
       ],
       "status": "ok",
       "detail": "official sitemap fallback: 2",
-      "entries_seen": 14080,
-      "entries_kept": 1,
-      "elapsed_seconds": 23.89,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 14086,
+      "entries_kept": 3,
+      "elapsed_seconds": 20.87,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Australian Research Council",
@@ -2214,8 +2151,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=0",
       "entries_seen": 12,
       "entries_kept": 0,
-      "elapsed_seconds": 0.93,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.92,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NRC Canada",
@@ -2239,8 +2176,8 @@
       "detail": "",
       "entries_seen": 57,
       "entries_kept": 0,
-      "elapsed_seconds": 0.32,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.6,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ISED Canada",
@@ -2263,8 +2200,8 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 3,
-      "elapsed_seconds": 7.54,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 7.07,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "KAUST",
@@ -2287,10 +2224,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 196,
+      "entries_seen": 197,
       "entries_kept": 5,
-      "elapsed_seconds": 1.24,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.43,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Qatar QRDI Council",
@@ -2314,8 +2251,8 @@
       "detail": "",
       "entries_seen": 89,
       "entries_kept": 0,
-      "elapsed_seconds": 0.95,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.53,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "MBZUAI",
@@ -2336,8 +2273,8 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://mbzuai.ac.ae/",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.19,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.25,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Technology Innovation Institute",
@@ -2359,8 +2296,8 @@
       "detail": "",
       "entries_seen": 81,
       "entries_kept": 5,
-      "elapsed_seconds": 1.0,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.16,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "arXiv",
@@ -2446,8 +2383,8 @@
       "detail": "sitemap: https://www.3gpp.org/sitemap.xml: ParseError: syntax error: line 2, column 0; Listing reachable; no collectable article links found",
       "entries_seen": 283,
       "entries_kept": 0,
-      "elapsed_seconds": 2.89,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 10.55,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ETSI",
@@ -2465,11 +2402,11 @@
         "Space"
       ],
       "status": "ok",
-      "detail": "",
-      "entries_seen": 108,
-      "entries_kept": 1,
-      "elapsed_seconds": 2.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
+      "entries_seen": 816,
+      "entries_kept": 0,
+      "elapsed_seconds": 6.72,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "O-RAN Alliance",
@@ -2488,8 +2425,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 503,
       "entries_kept": 0,
-      "elapsed_seconds": 0.61,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ITU News",
@@ -2509,9 +2446,9 @@
       "status": "ok",
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=4",
       "entries_seen": 64,
-      "entries_kept": 1,
-      "elapsed_seconds": 33.96,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 39.71,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Semiconductor Engineering",
@@ -2530,9 +2467,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 4,
-      "elapsed_seconds": 5.71,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 3,
+      "elapsed_seconds": 4.26,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "EE Times",
@@ -2553,8 +2490,8 @@
       "detail": "official listing through Jina; original publisher URLs retained; detail_pages=4",
       "entries_seen": 402,
       "entries_kept": 1,
-      "elapsed_seconds": 25.31,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 35.02,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "EE Times Japan",
@@ -2575,8 +2512,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 4,
-      "elapsed_seconds": 2.33,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.83,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Robot Report",
@@ -2596,8 +2533,8 @@
       "detail": "",
       "entries_seen": 15,
       "entries_kept": 4,
-      "elapsed_seconds": 1.58,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.28,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "STAT Biotech",
@@ -2617,8 +2554,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 4,
-      "elapsed_seconds": 0.49,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Fierce Biotech",
@@ -2638,8 +2575,8 @@
       "detail": "",
       "entries_seen": 25,
       "entries_kept": 4,
-      "elapsed_seconds": 0.52,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.84,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SpaceNews",
@@ -2658,9 +2595,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 13,
-      "entries_kept": 3,
-      "elapsed_seconds": 0.41,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 2,
+      "elapsed_seconds": 0.22,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Payload",
@@ -2680,8 +2617,8 @@
       "detail": "",
       "entries_seen": 13,
       "entries_kept": 4,
-      "elapsed_seconds": 0.7,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Quantum Insider",
@@ -2701,8 +2638,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 4,
-      "elapsed_seconds": 0.95,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.62,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Fusion Energy Insights",
@@ -2741,8 +2678,8 @@
       "detail": "",
       "entries_seen": 62,
       "entries_kept": 4,
-      "elapsed_seconds": 0.14,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.22,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Zap Energy",
@@ -2761,8 +2698,8 @@
       "detail": "",
       "entries_seen": 73,
       "entries_kept": 0,
-      "elapsed_seconds": 0.31,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.65,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "General Fusion",
@@ -2780,8 +2717,8 @@
       "detail": "",
       "entries_seen": 75,
       "entries_kept": 0,
-      "elapsed_seconds": 0.18,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.36,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Type One Energy",
@@ -2801,8 +2738,8 @@
       "detail": "",
       "entries_seen": 111,
       "entries_kept": 4,
-      "elapsed_seconds": 1.53,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Proxima Fusion",
@@ -2822,8 +2759,8 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.proximafusion.com/press-news",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.17,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.34,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Beam Therapeutics",
@@ -2842,8 +2779,8 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://investors.beamtx.com/press-releases",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.18,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Intellia Therapeutics",
@@ -2862,8 +2799,8 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://ir.intelliatx.com/news-releases",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.21,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.17,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Recursion",
@@ -2883,8 +2820,8 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://ir.recursion.com/news-events/press-releases",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.14,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.15,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Isomorphic Labs",
@@ -2904,8 +2841,8 @@
       "detail": "",
       "entries_seen": 79,
       "entries_kept": 4,
-      "elapsed_seconds": 0.12,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Intuitive Surgical",
@@ -2925,8 +2862,8 @@
       "detail": "",
       "entries_seen": 283,
       "entries_kept": 0,
-      "elapsed_seconds": 2.26,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.77,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Axiom Space",
@@ -2947,8 +2884,8 @@
       "detail": "",
       "entries_seen": 139,
       "entries_kept": 4,
-      "elapsed_seconds": 0.17,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ICEYE",
@@ -2968,8 +2905,8 @@
       "detail": "",
       "entries_seen": 193,
       "entries_kept": 4,
-      "elapsed_seconds": 0.15,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.43,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Sierra Space",
@@ -2990,8 +2927,8 @@
       "detail": "",
       "entries_seen": 211,
       "entries_kept": 4,
-      "elapsed_seconds": 1.68,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.14,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Planet",
@@ -3011,8 +2948,8 @@
       "detail": "",
       "entries_seen": 94,
       "entries_kept": 4,
-      "elapsed_seconds": 0.39,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Spire Global",
@@ -3033,7 +2970,7 @@
       "entries_seen": 10,
       "entries_kept": 0,
       "elapsed_seconds": 0.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Apple Machine Learning Research",
@@ -3054,8 +2991,8 @@
       "detail": "",
       "entries_seen": 221,
       "entries_kept": 4,
-      "elapsed_seconds": 0.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.36,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Cohere",
@@ -3073,8 +3010,8 @@
       "detail": "",
       "entries_seen": 403,
       "entries_kept": 4,
-      "elapsed_seconds": 0.81,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.79,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "xAI",
@@ -3094,8 +3031,8 @@
       "detail": "",
       "entries_seen": 168,
       "entries_kept": 0,
-      "elapsed_seconds": 0.4,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.52,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Figure",
@@ -3115,8 +3052,8 @@
       "detail": "",
       "entries_seen": 43,
       "entries_kept": 0,
-      "elapsed_seconds": 0.15,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.26,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Physical Intelligence",
@@ -3135,8 +3072,8 @@
       "detail": "",
       "entries_seen": 19,
       "entries_kept": 0,
-      "elapsed_seconds": 0.18,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "AMD",
@@ -3157,8 +3094,8 @@
       "detail": "",
       "entries_seen": 89,
       "entries_kept": 3,
-      "elapsed_seconds": 0.24,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.22,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Lam Research",
@@ -3177,8 +3114,8 @@
       "detail": "",
       "entries_seen": 326,
       "entries_kept": 0,
-      "elapsed_seconds": 0.21,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Micron",
@@ -3197,8 +3134,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 0,
-      "elapsed_seconds": 0.51,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.93,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "MediaTek",
@@ -3219,8 +3156,8 @@
       "detail": "",
       "entries_seen": 353,
       "entries_kept": 4,
-      "elapsed_seconds": 0.38,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.73,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Huawei",
@@ -3241,8 +3178,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 497,
       "entries_kept": 0,
-      "elapsed_seconds": 0.8,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.05,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "PsiQuantum",
@@ -3261,8 +3198,8 @@
       "detail": "",
       "entries_seen": 147,
       "entries_kept": 4,
-      "elapsed_seconds": 0.4,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.59,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Rigetti",
@@ -3281,8 +3218,8 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://investors.rigetti.com/news-events/news-releases/",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.33,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.18,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "D-Wave",
@@ -3301,8 +3238,8 @@
       "detail": "",
       "entries_seen": 116,
       "entries_kept": 4,
-      "elapsed_seconds": 0.44,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.55,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Pasqal",
@@ -3323,8 +3260,8 @@
       "detail": "",
       "entries_seen": 116,
       "entries_kept": 4,
-      "elapsed_seconds": 0.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.3,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "QuEra",
@@ -3344,8 +3281,8 @@
       "detail": "",
       "entries_seen": 157,
       "entries_kept": 0,
-      "elapsed_seconds": 0.17,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.29,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "UKRI",
@@ -3369,9 +3306,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 3,
-      "elapsed_seconds": 1.9,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 4,
+      "elapsed_seconds": 2.59,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Innovate UK",
@@ -3396,8 +3333,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 0.66,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.72,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ARIA",
@@ -3419,10 +3356,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 46,
-      "entries_kept": 3,
-      "elapsed_seconds": 1.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 45,
+      "entries_kept": 0,
+      "elapsed_seconds": 1.69,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CORDIS",
@@ -3446,9 +3383,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 2,
-      "elapsed_seconds": 1.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.81,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "EuroHPC JU",
@@ -3468,8 +3405,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 0,
-      "elapsed_seconds": 0.59,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Chips Joint Undertaking",
@@ -3489,8 +3426,8 @@
       "detail": "",
       "entries_seen": 61,
       "entries_kept": 0,
-      "elapsed_seconds": 1.14,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.05,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "European Quantum Flagship",
@@ -3509,8 +3446,8 @@
       "detail": "",
       "entries_seen": 171,
       "entries_kept": 0,
-      "elapsed_seconds": 2.62,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.65,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "EUROfusion",
@@ -3530,8 +3467,8 @@
       "detail": "listing: SSLError: HTTPSConnectionPool(host='euro-fusion.org', port=443): Max retries exceeded with url: /news/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable t; sitemap: https://euro-fusion.org/sitemap.xml: SSLError: HTTPSConnectionPool(host='euro-fusion.org', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 2.5,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.41,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ESA",
@@ -3554,8 +3491,8 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.esa.int/rssfeed/Our_Activities/Space_News",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.97,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.08,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "European Research Council",
@@ -3580,8 +3517,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 0.25,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.26,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "EU Joint Research Centre",
@@ -3605,9 +3542,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 30,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 1,
+      "elapsed_seconds": 1.02,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "DARPA",
@@ -3630,9 +3567,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.41,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.25,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ARPA-E",
@@ -3653,8 +3590,8 @@
       "detail": "sitemap: https://arpa-e.energy.gov/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://arpa-e.energy.gov/sitemap.xml; Listing reachable; no collectable article links found",
       "entries_seen": 1,
       "entries_kept": 0,
-      "elapsed_seconds": 0.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.84,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IARPA",
@@ -3675,8 +3612,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 1076,
       "entries_kept": 0,
-      "elapsed_seconds": 1.61,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ARPA-H",
@@ -3696,9 +3633,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 83,
-      "entries_kept": 1,
+      "entries_kept": 0,
       "elapsed_seconds": 0.43,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Defense Innovation Unit",
@@ -3721,8 +3658,8 @@
       "detail": "sitemap: https://www.diu.mil/sitemap.xml: ParseError: mismatched tag: line 46, column 2; Listing reachable; no collectable article links found",
       "entries_seen": 28,
       "entries_kept": 0,
-      "elapsed_seconds": 3.98,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.48,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NASA",
@@ -3744,9 +3681,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 311,
-      "entries_kept": 5,
-      "elapsed_seconds": 0.97,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 4,
+      "elapsed_seconds": 1.25,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CHIPS for America",
@@ -3766,8 +3703,8 @@
       "detail": "",
       "entries_seen": 185,
       "entries_kept": 0,
-      "elapsed_seconds": 0.67,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.49,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "USPTO",
@@ -3785,8 +3722,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 26600,
       "entries_kept": 0,
-      "elapsed_seconds": 1.32,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.96,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "GAO Science & Technology",
@@ -3811,8 +3748,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 0,
-      "elapsed_seconds": 0.43,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.84,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SBIR.gov",
@@ -3836,8 +3773,8 @@
       "detail": "",
       "entries_seen": 48,
       "entries_kept": 0,
-      "elapsed_seconds": 0.33,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.13,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Congressional Research Service",
@@ -3863,7 +3800,7 @@
       "entries_seen": 0,
       "entries_kept": 0,
       "elapsed_seconds": 0.06,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "National Academies STEP",
@@ -3886,8 +3823,8 @@
       "detail": "",
       "entries_seen": 133,
       "entries_kept": 0,
-      "elapsed_seconds": 1.32,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.76,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Federal Register Science & Technology",
@@ -3910,10 +3847,10 @@
       ],
       "status": "ok",
       "detail": "official JSON API",
-      "entries_seen": 93,
+      "entries_seen": 100,
       "entries_kept": 4,
-      "elapsed_seconds": 0.16,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.69,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "QunaSys",
@@ -3932,8 +3869,8 @@
       "detail": "",
       "entries_seen": 99,
       "entries_kept": 4,
-      "elapsed_seconds": 1.04,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.8,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Helical Fusion",
@@ -3951,8 +3888,8 @@
       "detail": "",
       "entries_seen": 272,
       "entries_kept": 0,
-      "elapsed_seconds": 8.43,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.89,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "LINEA Innovations",
@@ -3970,8 +3907,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 4,
-      "elapsed_seconds": 0.97,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.68,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "EX-Fusion",
@@ -3990,8 +3927,8 @@
       "detail": "",
       "entries_seen": 79,
       "entries_kept": 4,
-      "elapsed_seconds": 0.82,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.7,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Takeda",
@@ -4011,8 +3948,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 356,
       "entries_kept": 0,
-      "elapsed_seconds": 0.63,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.66,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Chugai",
@@ -4032,8 +3969,8 @@
       "detail": "",
       "entries_seen": 7,
       "entries_kept": 0,
-      "elapsed_seconds": 0.78,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.8,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Daiichi Sankyo",
@@ -4053,8 +3990,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 1885,
       "entries_kept": 0,
-      "elapsed_seconds": 1.9,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.06,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Astellas",
@@ -4074,8 +4011,8 @@
       "detail": "",
       "entries_seen": 187,
       "entries_kept": 4,
-      "elapsed_seconds": 0.16,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.27,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Sysmex R&D",
@@ -4096,8 +4033,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 2052,
       "entries_kept": 0,
-      "elapsed_seconds": 2.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.97,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Olympus",
@@ -4117,8 +4054,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 505,
       "entries_kept": 0,
-      "elapsed_seconds": 0.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.63,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Terumo",
@@ -4138,8 +4075,8 @@
       "detail": "HTTPError: 403 Client Error: Forbidden for url: https://www.terumo.com/newsrelease",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.43,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.27,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Interstellar Technologies",
@@ -4158,8 +4095,8 @@
       "detail": "",
       "entries_seen": 51,
       "entries_kept": 1,
-      "elapsed_seconds": 2.71,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.5,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Synspective",
@@ -4179,8 +4116,8 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.synspective.com:443/news/press-release/",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 1.88,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.14,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Axelspace",
@@ -4200,8 +4137,8 @@
       "detail": "",
       "entries_seen": 193,
       "entries_kept": 4,
-      "elapsed_seconds": 1.09,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.01,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "iQPS",
@@ -4221,8 +4158,8 @@
       "detail": "",
       "entries_seen": 57,
       "entries_kept": 4,
-      "elapsed_seconds": 1.46,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IHI",
@@ -4241,10 +4178,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 239,
+      "entries_seen": 241,
       "entries_kept": 4,
-      "elapsed_seconds": 4.64,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.5,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ArkEdge Space",
@@ -4264,8 +4201,8 @@
       "detail": "",
       "entries_seen": 367,
       "entries_kept": 4,
-      "elapsed_seconds": 13.41,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 11.6,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "GITAI",
@@ -4285,8 +4222,8 @@
       "detail": "",
       "entries_seen": 66,
       "entries_kept": 4,
-      "elapsed_seconds": 0.68,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.67,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Fujitsu Research",
@@ -4307,8 +4244,8 @@
       "detail": "HTTPError: 429 Client Error: Too Many Requests for url: https://global.fujitsu/en-global/pr",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.07,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.15,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NEC R&D",
@@ -4330,8 +4267,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 4947,
       "entries_kept": 0,
-      "elapsed_seconds": 2.46,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.78,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Preferred Networks",
@@ -4351,8 +4288,8 @@
       "detail": "",
       "entries_seen": 280,
       "entries_kept": 4,
-      "elapsed_seconds": 0.61,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.64,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Sony AI",
@@ -4372,8 +4309,8 @@
       "detail": "",
       "entries_seen": 65,
       "entries_kept": 0,
-      "elapsed_seconds": 0.24,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.21,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Hitachi R&D",
@@ -4392,10 +4329,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 228,
+      "entries_seen": 226,
       "entries_kept": 4,
-      "elapsed_seconds": 1.11,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.95,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "三菱電機 R&D",
@@ -4417,8 +4354,8 @@
       "detail": "",
       "entries_seen": 127,
       "entries_kept": 0,
-      "elapsed_seconds": 1.25,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.95,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SoftBank R&D",
@@ -4439,8 +4376,8 @@
       "detail": "",
       "entries_seen": 12,
       "entries_kept": 0,
-      "elapsed_seconds": 0.33,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.58,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CyberAgent AI Lab",
@@ -4458,8 +4395,8 @@
       "detail": "",
       "entries_seen": 61,
       "entries_kept": 4,
-      "elapsed_seconds": 0.15,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.14,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "TIER IV",
@@ -4479,8 +4416,8 @@
       "detail": "",
       "entries_seen": 117,
       "entries_kept": 0,
-      "elapsed_seconds": 1.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.3,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "安川電機",
@@ -4500,8 +4437,8 @@
       "detail": "",
       "entries_seen": 349,
       "entries_kept": 4,
-      "elapsed_seconds": 0.7,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.98,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "川崎重工",
@@ -4522,8 +4459,8 @@
       "detail": "",
       "entries_seen": 132,
       "entries_kept": 4,
-      "elapsed_seconds": 0.92,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.59,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Mujin",
@@ -4542,8 +4479,8 @@
       "detail": "",
       "entries_seen": 154,
       "entries_kept": 4,
-      "elapsed_seconds": 0.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.26,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "DENSO",
@@ -4564,8 +4501,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://www.denso.com/global/en/news/newsroom/; sitemap: https://www.denso.com/sitemap.xml: HTTPError: 403 Client Error: Forbidden for url: https://www.denso.com/sitemap.xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.19,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "東京エレクトロン",
@@ -4583,8 +4520,8 @@
       "detail": "",
       "entries_seen": 110,
       "entries_kept": 2,
-      "elapsed_seconds": 0.58,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.4,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Renesas",
@@ -4603,9 +4540,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 79,
-      "entries_kept": 3,
-      "elapsed_seconds": 0.76,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.23,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Kioxia",
@@ -4624,8 +4561,8 @@
       "detail": "official sitemap fallback: 3; Listing reachable; no collectable article links found",
       "entries_seen": 1168,
       "entries_kept": 0,
-      "elapsed_seconds": 2.88,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 7.76,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Sony Semiconductor Solutions",
@@ -4646,8 +4583,8 @@
       "detail": "",
       "entries_seen": 417,
       "entries_kept": 4,
-      "elapsed_seconds": 2.12,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.15,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Advantest",
@@ -4666,8 +4603,8 @@
       "detail": "",
       "entries_seen": 312,
       "entries_kept": 4,
-      "elapsed_seconds": 1.26,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.52,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SCREEN",
@@ -4684,10 +4621,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 167,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 168,
+      "entries_kept": 1,
+      "elapsed_seconds": 0.46,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "KDDI総合研究所",
@@ -4708,8 +4645,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 0,
-      "elapsed_seconds": 1.46,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.8,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NEDO ニュース",
@@ -4731,11 +4668,11 @@
         "Space"
       ],
       "status": "ok",
-      "detail": "official sitemap fallback: 1",
-      "entries_seen": 5721,
-      "entries_kept": 0,
-      "elapsed_seconds": 3.38,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "detail": "",
+      "entries_seen": 52,
+      "entries_kept": 5,
+      "elapsed_seconds": 1.75,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NEDO 公募",
@@ -4760,8 +4697,8 @@
       "detail": "",
       "entries_seen": 54,
       "entries_kept": 6,
-      "elapsed_seconds": 0.9,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NEDO グリーンイノベーション基金",
@@ -4780,8 +4717,8 @@
       "detail": "",
       "entries_seen": 52,
       "entries_kept": 1,
-      "elapsed_seconds": 1.0,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.72,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "産総研 お知らせ",
@@ -4806,8 +4743,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 1,
-      "elapsed_seconds": 1.77,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.94,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "産総研 研究成果",
@@ -4831,9 +4768,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 3,
-      "elapsed_seconds": 2.24,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 2,
+      "elapsed_seconds": 1.35,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "理化学研究所",
@@ -4854,9 +4791,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 50,
-      "entries_kept": 3,
-      "elapsed_seconds": 1.47,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 1,
+      "elapsed_seconds": 0.57,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NICT",
@@ -4877,8 +4814,8 @@
       "detail": "sitemap: https://www.nict.go.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nict.go.jp/sitemap.xml; Listing reachable; no collectable article links found",
       "entries_seen": 167,
       "entries_kept": 0,
-      "elapsed_seconds": 2.19,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.54,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "JAXA",
@@ -4898,8 +4835,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 0,
-      "elapsed_seconds": 0.15,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.26,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "JAXA 宇宙戦略基金",
@@ -4916,11 +4853,11 @@
         "Semiconductors & Telecom"
       ],
       "status": "ok",
-      "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
-      "entries_seen": 1048,
-      "entries_kept": 0,
-      "elapsed_seconds": 11.54,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "detail": "",
+      "entries_seen": 711,
+      "entries_kept": 3,
+      "elapsed_seconds": 6.02,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "JST プレスリリース",
@@ -4944,9 +4881,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 9,
-      "entries_kept": 5,
-      "elapsed_seconds": 1.15,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 6,
+      "elapsed_seconds": 1.4,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Science Japan",
@@ -4971,8 +4908,8 @@
       "detail": "",
       "entries_seen": 78,
       "entries_kept": 2,
-      "elapsed_seconds": 0.87,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.06,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "QST",
@@ -4994,7 +4931,7 @@
       "entries_seen": 100,
       "entries_kept": 1,
       "elapsed_seconds": 1.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "NIMS",
@@ -5017,8 +4954,8 @@
       "detail": "sitemap: https://www.nims.go.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nims.go.jp/sitemap.xml; Listing reachable; no collectable article links found",
       "entries_seen": 222,
       "entries_kept": 0,
-      "elapsed_seconds": 2.76,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.08,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "KEK",
@@ -5037,8 +4974,8 @@
       "detail": "",
       "entries_seen": 175,
       "entries_kept": 5,
-      "elapsed_seconds": 7.18,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "核融合科学研究所",
@@ -5056,8 +4993,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 172,
       "entries_kept": 0,
-      "elapsed_seconds": 2.02,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.63,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "JAEA",
@@ -5074,11 +5011,11 @@
         "Robotics"
       ],
       "status": "ok",
-      "detail": "",
+      "detail": "sitemap: https://www.jaea.go.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.jaea.go.jp/sitemap.xml; Listing reachable; no collectable article links found",
       "entries_seen": 63,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.86,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.3,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "農研機構",
@@ -5098,9 +5035,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 221,
-      "entries_kept": 5,
-      "elapsed_seconds": 2.54,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.42,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "医薬基盤・健康・栄養研究所",
@@ -5120,8 +5057,8 @@
       "detail": "sitemap: https://www.nibn.go.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.nibn.go.jp/sitemap.xml; Listing reachable; no collectable article links found",
       "entries_seen": 266,
       "entries_kept": 0,
-      "elapsed_seconds": 3.06,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.4,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "国立情報学研究所",
@@ -5139,10 +5076,10 @@
       ],
       "status": "ok",
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
-      "entries_seen": 700,
+      "entries_seen": 698,
       "entries_kept": 0,
-      "elapsed_seconds": 4.47,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.4,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "文部科学省",
@@ -5165,8 +5102,8 @@
       "detail": "",
       "entries_seen": 285,
       "entries_kept": 6,
-      "elapsed_seconds": 2.14,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.96,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "総務省",
@@ -5185,10 +5122,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 204,
+      "entries_seen": 206,
       "entries_kept": 6,
-      "elapsed_seconds": 1.12,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.0,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "IPA",
@@ -5208,8 +5145,8 @@
       "detail": "",
       "entries_seen": 162,
       "entries_kept": 5,
-      "elapsed_seconds": 0.87,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.99,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "PMDA",
@@ -5229,8 +5166,8 @@
       "detail": "",
       "entries_seen": 571,
       "entries_kept": 0,
-      "elapsed_seconds": 2.99,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.43,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "防衛装備庁",
@@ -5252,8 +5189,8 @@
       "detail": "",
       "entries_seen": 1312,
       "entries_kept": 5,
-      "elapsed_seconds": 2.22,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SIP",
@@ -5277,8 +5214,8 @@
       "detail": "",
       "entries_seen": 36,
       "entries_kept": 5,
-      "elapsed_seconds": 1.33,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.24,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ムーンショット型研究開発",
@@ -5301,8 +5238,8 @@
       "detail": "",
       "entries_seen": 32,
       "entries_kept": 5,
-      "elapsed_seconds": 1.25,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.98,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "K Program",
@@ -5325,8 +5262,8 @@
       "detail": "",
       "entries_seen": 9,
       "entries_kept": 3,
-      "elapsed_seconds": 0.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "特許庁",
@@ -5340,10 +5277,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 594,
+      "entries_seen": 601,
       "entries_kept": 5,
-      "elapsed_seconds": 1.66,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.37,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "INPIT",
@@ -5357,10 +5294,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 1795,
+      "entries_seen": 1797,
       "entries_kept": 0,
-      "elapsed_seconds": 5.78,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.1,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "J-Fusion",
@@ -5378,8 +5315,8 @@
       "detail": "sitemap: https://jfusion.jp/sitemap.xml: ParseError: no element found: line 1, column 1; Listing reachable; no collectable article links found",
       "entries_seen": 55,
       "entries_kept": 0,
-      "elapsed_seconds": 8.05,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.42,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Q-STAR",
@@ -5397,8 +5334,8 @@
       "detail": "listing: HTTPError: 404 Client Error: Not Found for url: https://qstar.jp/archives/about_news; official sitemap fallback: 1",
       "entries_seen": 320,
       "entries_kept": 0,
-      "elapsed_seconds": 1.1,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.41,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "JEITA",
@@ -5415,10 +5352,10 @@
       ],
       "status": "ok",
       "detail": "sitemap: https://www.jeita.or.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.jeita.or.jp/sitemap.xml; Listing reachable; no collectable article links found",
-      "entries_seen": 229,
+      "entries_seen": 230,
       "entries_kept": 0,
-      "elapsed_seconds": 2.81,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.37,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本ロボット工業会",
@@ -5437,8 +5374,8 @@
       "detail": "",
       "entries_seen": 82,
       "entries_kept": 0,
-      "elapsed_seconds": 3.1,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本バイオ産業人会議",
@@ -5456,8 +5393,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 103,
       "entries_kept": 0,
-      "elapsed_seconds": 6.19,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.5,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "バイオインダストリー協会",
@@ -5476,8 +5413,8 @@
       "detail": "sitemap: https://www.jba.or.jp/sitemap.xml: HTTPError: 404 Client Error: Not Found for url: https://www.jba.or.jp/sitemap.xml; Listing reachable; no collectable article links found",
       "entries_seen": 39,
       "entries_kept": 0,
-      "elapsed_seconds": 2.11,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.66,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本製薬工業協会",
@@ -5496,8 +5433,8 @@
       "detail": "",
       "entries_seen": 390,
       "entries_kept": 0,
-      "elapsed_seconds": 2.06,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.78,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本医療機器産業連合会",
@@ -5517,8 +5454,8 @@
       "detail": "sitemap: https://www.jfmda.gr.jp/sitemap.xml: ParseError: junk after document element: line 2, column 0; Listing reachable; no collectable article links found",
       "entries_seen": 16,
       "entries_kept": 0,
-      "elapsed_seconds": 2.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.87,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本航空宇宙工業会",
@@ -5536,8 +5473,8 @@
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
       "entries_seen": 38,
       "entries_kept": 0,
-      "elapsed_seconds": 5.47,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.71,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Japan Space Systems",
@@ -5556,8 +5493,8 @@
       "detail": "official sitemap fallback: 4",
       "entries_seen": 117,
       "entries_kept": 0,
-      "elapsed_seconds": 4.92,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.22,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本ディープラーニング協会",
@@ -5574,9 +5511,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 140,
-      "entries_kept": 1,
-      "elapsed_seconds": 2.29,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 1.66,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "OpenAlex Journal Articles",
@@ -5590,10 +5527,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 63,
-      "entries_kept": 14,
-      "elapsed_seconds": 2.48,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 60,
+      "entries_kept": 12,
+      "elapsed_seconds": 3.43,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "OpenAlex Conference Papers",
@@ -5607,10 +5544,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 22,
+      "entries_seen": 21,
       "entries_kept": 3,
-      "elapsed_seconds": 2.21,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.71,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "OpenAlex Preprints",
@@ -5643,8 +5580,8 @@
       "detail": "listing: HTTPError: 401 Client Error: HTTP Forbidden for url: https://www.reuters.com/technology/; sitemap: https://www.reuters.com/arc/outboundfeeds/news-sitemap/?outputType=xml: HTTPError: 401 Client Error: HTTP Forbidden for url: https://www.reuters.com/arc/outboundfeeds/news-sitemap/?outputType=xml",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.23,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.44,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Financial Times Technology",
@@ -5660,8 +5597,8 @@
       "detail": "",
       "entries_seen": 25,
       "entries_kept": 12,
-      "elapsed_seconds": 0.88,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.96,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Wall Street Journal Technology",
@@ -5677,8 +5614,8 @@
       "detail": "",
       "entries_seen": 40,
       "entries_kept": 12,
-      "elapsed_seconds": 0.46,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.74,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Associated Press Technology",
@@ -5694,8 +5631,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://apnews.com/technology; official sitemap fallback: 2",
       "entries_seen": 623,
       "entries_kept": 0,
-      "elapsed_seconds": 0.89,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.0,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Associated Press Science",
@@ -5711,8 +5648,8 @@
       "detail": "listing: HTTPError: 403 Client Error: Forbidden for url: https://apnews.com/science; official sitemap fallback: 2",
       "entries_seen": 623,
       "entries_kept": 0,
-      "elapsed_seconds": 0.81,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.88,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "CNBC Technology",
@@ -5728,8 +5665,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 10,
-      "elapsed_seconds": 2.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.35,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "WIRED Artificial Intelligence",
@@ -5747,8 +5684,8 @@
       "detail": "",
       "entries_seen": 10,
       "entries_kept": 8,
-      "elapsed_seconds": 0.94,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.83,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "WIRED Science",
@@ -5763,9 +5700,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 4,
-      "elapsed_seconds": 2.5,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 2,
+      "elapsed_seconds": 0.85,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Ars Technica Technology Lab",
@@ -5781,8 +5718,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 1,
-      "elapsed_seconds": 1.21,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.94,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Ars Technica Science",
@@ -5797,9 +5734,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 1,
-      "elapsed_seconds": 1.27,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 2,
+      "elapsed_seconds": 1.64,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Ars Technica Tech Policy",
@@ -5814,9 +5751,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 20,
-      "entries_kept": 5,
-      "elapsed_seconds": 1.32,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 4,
+      "elapsed_seconds": 1.2,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Verge Technology",
@@ -5831,9 +5768,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 4,
-      "elapsed_seconds": 1.75,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 8,
+      "elapsed_seconds": 0.68,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Verge Policy",
@@ -5848,9 +5785,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 10,
-      "entries_kept": 5,
-      "elapsed_seconds": 1.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 3,
+      "elapsed_seconds": 0.81,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "TechCrunch Artificial Intelligence",
@@ -5868,8 +5805,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 8,
-      "elapsed_seconds": 1.2,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.1,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Axios Technology",
@@ -5886,9 +5823,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 100,
-      "entries_kept": 6,
-      "elapsed_seconds": 1.46,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 8,
+      "elapsed_seconds": 1.14,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Scientific American",
@@ -5904,8 +5841,8 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 3,
-      "elapsed_seconds": 0.92,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.12,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日本経済新聞 テック",
@@ -5919,10 +5856,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "official sitemap fallback: 4; Listing reachable; no collectable article links found",
-      "entries_seen": 2162,
+      "entries_seen": 2163,
       "entries_kept": 0,
-      "elapsed_seconds": 7.5,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 6.7,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Nikkei Asia Technology",
@@ -5938,8 +5875,8 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 0,
-      "elapsed_seconds": 0.21,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.28,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日経クロステック",
@@ -5953,10 +5890,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 438,
-      "entries_kept": 7,
-      "elapsed_seconds": 6.84,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 431,
+      "entries_kept": 4,
+      "elapsed_seconds": 5.68,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "日経バイオテク",
@@ -5973,10 +5910,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 216,
+      "entries_seen": 220,
       "entries_kept": 7,
-      "elapsed_seconds": 4.94,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 5.08,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ITmedia NEWS 科学・テクノロジー",
@@ -5992,8 +5929,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 0,
-      "elapsed_seconds": 0.73,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "ITmedia AI+",
@@ -6011,8 +5948,8 @@
       "detail": "",
       "entries_seen": 20,
       "entries_kept": 8,
-      "elapsed_seconds": 4.42,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.67,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "MONOist",
@@ -6028,8 +5965,8 @@
       "detail": "",
       "entries_seen": 30,
       "entries_kept": 10,
-      "elapsed_seconds": 2.9,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.16,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Focus Taiwan Sci-Tech",
@@ -6043,10 +5980,10 @@
       "topic_tags": [],
       "status": "ok",
       "detail": "",
-      "entries_seen": 24,
-      "entries_kept": 0,
-      "elapsed_seconds": 1.49,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_seen": 33,
+      "entries_kept": 1,
+      "elapsed_seconds": 3.61,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Hindu Sci-Tech",
@@ -6062,8 +5999,8 @@
       "detail": "",
       "entries_seen": 60,
       "entries_kept": 8,
-      "elapsed_seconds": 1.67,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.12,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Korea Herald Technology",
@@ -6079,8 +6016,8 @@
       "detail": "",
       "entries_seen": 50,
       "entries_kept": 8,
-      "elapsed_seconds": 4.24,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.72,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "The Straits Times Technology",
@@ -6096,8 +6033,8 @@
       "detail": "",
       "entries_seen": 52,
       "entries_kept": 3,
-      "elapsed_seconds": 4.04,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 4.35,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Toshiba R&D News",
@@ -6119,8 +6056,8 @@
       "detail": "",
       "entries_seen": 179,
       "entries_kept": 0,
-      "elapsed_seconds": 3.67,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.01,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Canon News",
@@ -6140,8 +6077,8 @@
       "detail": "",
       "entries_seen": 305,
       "entries_kept": 8,
-      "elapsed_seconds": 1.13,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Eisai News",
@@ -6162,7 +6099,7 @@
       "entries_seen": 0,
       "entries_kept": 0,
       "elapsed_seconds": 0.11,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Otsuka Pharmaceutical News",
@@ -6182,8 +6119,8 @@
       "detail": "",
       "entries_seen": 286,
       "entries_kept": 2,
-      "elapsed_seconds": 0.92,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.71,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Shionogi News",
@@ -6201,10 +6138,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 263,
+      "entries_seen": 264,
       "entries_kept": 0,
-      "elapsed_seconds": 4.91,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 3.43,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Kyowa Kirin News",
@@ -6222,9 +6159,9 @@
       "status": "ok",
       "detail": "official newsroom JSON feed",
       "entries_seen": 750,
-      "entries_kept": 1,
-      "elapsed_seconds": 0.59,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 0,
+      "elapsed_seconds": 0.13,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Mitsubishi Heavy Industries News",
@@ -6244,10 +6181,10 @@
       ],
       "status": "ok",
       "detail": "",
-      "entries_seen": 431,
+      "entries_seen": 432,
       "entries_kept": 8,
-      "elapsed_seconds": 0.81,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.83,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Toyota Global Newsroom",
@@ -6267,9 +6204,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 50,
-      "entries_kept": 4,
-      "elapsed_seconds": 2.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 1,
+      "elapsed_seconds": 3.63,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Honda Global Newsroom",
@@ -6290,8 +6227,8 @@
       "detail": "",
       "entries_seen": 54,
       "entries_kept": 8,
-      "elapsed_seconds": 0.93,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.82,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "SUBARU News",
@@ -6311,8 +6248,8 @@
       "detail": "HTTPError: 404 Client Error: Not Found for url: https://www.subaru.co.jp/en/news/car.html",
       "entries_seen": 0,
       "entries_kept": 0,
-      "elapsed_seconds": 0.54,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.63,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Nissan Technology News",
@@ -6331,9 +6268,9 @@
       "status": "ok",
       "detail": "",
       "entries_seen": 26,
-      "entries_kept": 0,
-      "elapsed_seconds": 0.19,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "entries_kept": 2,
+      "elapsed_seconds": 0.39,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Aisin News",
@@ -6353,8 +6290,8 @@
       "detail": "",
       "entries_seen": 414,
       "entries_kept": 0,
-      "elapsed_seconds": 1.41,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.99,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Fuji Electric News",
@@ -6375,8 +6312,8 @@
       "detail": "",
       "entries_seen": 102,
       "entries_kept": 0,
-      "elapsed_seconds": 2.61,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.81,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Kaneka News",
@@ -6396,8 +6333,8 @@
       "detail": "",
       "entries_seen": 4,
       "entries_kept": 1,
-      "elapsed_seconds": 1.66,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.77,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Oji Holdings R&D News",
@@ -6417,8 +6354,8 @@
       "detail": "",
       "entries_seen": 579,
       "entries_kept": 8,
-      "elapsed_seconds": 1.43,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 1.01,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Sumitomo Electric Technology News",
@@ -6439,8 +6376,8 @@
       "detail": "official sitemap fallback: 1; Listing reachable; no collectable article links found",
       "entries_seen": 3338,
       "entries_kept": 0,
-      "elapsed_seconds": 2.85,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 2.92,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Panasonic Technology News",
@@ -6462,8 +6399,8 @@
       "detail": "",
       "entries_seen": 198,
       "entries_kept": 8,
-      "elapsed_seconds": 0.54,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.62,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "FUJIFILM Holdings News",
@@ -6484,8 +6421,8 @@
       "detail": "",
       "entries_seen": 49,
       "entries_kept": 1,
-      "elapsed_seconds": 0.69,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.68,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     },
     {
       "name": "Ajinomoto Innovation News",
@@ -6504,8 +6441,8 @@
       "detail": "",
       "entries_seen": 91,
       "entries_kept": 4,
-      "elapsed_seconds": 0.31,
-      "last_checked_at": "2026-11-08T18:28:39Z"
+      "elapsed_seconds": 0.48,
+      "last_checked_at": "2026-11-09T20:39:42Z"
     }
   ]
 }
