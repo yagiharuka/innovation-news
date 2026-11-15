@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-14T21:30:26Z",
-  "updated_at_jst": "2026-11-15T06:30:26+09:00",
+  "updated_at": "2026-11-15T08:53:04Z",
+  "updated_at_jst": "2026-11-15T17:53:04+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -4294,6 +4294,40 @@
       "summary_language": "ja",
       "url": "https://www.itmedia.co.jp/news/article/2611/12/2000003126/",
       "first_seen": "2026-11-13T04:50:37+09:00",
+      "status": "New"
+    },
+    {
+      "id": "269bbdc798ce023b8bff4674",
+      "published_at": "2026-11-12T00:00:00Z",
+      "collected_at_jst": "2026-11-15T17:53:04+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Research Square",
+      "organization": "None",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Research Square",
+      "doi": "https://doi.org/10.21203/rs.3.rs-11444119/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "LLMエージェント設計に現実適合性の検証を導入する課題を整理",
+      "title_original": "Introducing Grounding into the Agentic Design Loop: An Exploratory Review of an Unclaimed Problem",
+      "summary": "大規模言語モデル（LLM）エージェントが生成する設計を、製造・実装前に現実の制約と照合する「Design Grounding」の課題を検討した。約3,000本の論文を調査し、関連研究20本を4つの構造的課題に整理している。",
+      "summary_original": "OpenAlex research topics: Design Education and Practice; Artificial Intelligence Applications; AI-based Problem Solving and Planning; LLM agents",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.21203/rs.3.rs-11444119/v1",
+      "first_seen": "2026-11-15T17:53:04+09:00",
       "status": "New"
     },
     {
@@ -13550,6 +13584,41 @@
       "summary_language": "ja",
       "url": "https://www.itmedia.co.jp/aiplus/article/2611/09/2000002916/",
       "first_seen": "2026-11-10T05:39:42+09:00",
+      "status": "New"
+    },
+    {
+      "id": "6fafc356a4819dc99db77405",
+      "published_at": "2026-11-09T00:00:00Z",
+      "collected_at_jst": "2026-11-15T17:53:04+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy",
+        "Artificial Intelligence"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv (Cornell University)",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "arXiv (Cornell University)",
+      "doi": "https://doi.org/10.48550/arxiv.2611.12689",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "核融合ステラレータのコイル設計向けデータセットと機械学習ベンチマークを開発",
+      "title_original": "CoilStellaration: A Dataset and Benchmark for Engineering-Aware Stellarator Coilset Generation",
+      "summary": "ステラレータの目標磁場と工学要件からコイル形状を生成する177,000件のデータセットとベンチマークを公開した。学習モデル単独では全要件の同時達成が難しい一方、従来のコイル最適化の初期解として用いることで初期探索を加速できる。",
+      "summary_original": "OpenAlex research topics: Magnetic confinement fusion research; Fusion and Plasma Physics Studies; Superconducting Materials and Applications; inverse design; plasma magnetic field; engineering constraints; magnetic field errors; machine learning benchmark; fusion device design",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.48550/arxiv.2611.12689",
+      "first_seen": "2026-11-15T17:53:04+09:00",
       "status": "New"
     },
     {
@@ -86049,77 +86118,6 @@
       "summary_original": "Biohub said the investment aims to help provide datasets that allow researchers to use AI models to find new ways of preventing and treating diseases.",
       "summary_language": "ja",
       "url": "https://www.wsj.com/tech/ai/zuckerbergs-biohub-partners-with-doe-nih-to-invest-1-8-billion-in-biological-data-for-ai-models-f8d5f799?mod=rss_Technology",
-      "first_seen": "2026-10-08T08:36:56+09:00",
-      "status": "New"
-    },
-    {
-      "id": "1b21d73837b974214e474cbc",
-      "published_at": "2026-10-07T15:42:10Z",
-      "collected_at_jst": "2026-10-08T08:36:56+09:00",
-      "region": "Global",
-      "country": "Global",
-      "topics": [
-        "Artificial Intelligence",
-        "Quantum"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "The Quantum Insider",
-      "organization": "The Quantum Insider",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "Haiqu、量子研究を計画・検証するAI基盤「AgenticOS」を発表",
-      "title_original": "Haiqu Releases AgenticOS to Plan and Check Quantum Research",
-      "summary": "Haiquは、量子研究の計画と検証を支援するAIエージェント基盤AgenticOSを発表した。AIが生成した数学やコードによって科学的内容が変わる可能性を踏まえ、研究結果の確認を支援する。",
-      "summary_original": "Insider Brief PRESS RELEASE — Existing AI models have advanced to the point that they can contribute to real science, but they have their limits. An AI agent can produce convincing math and working code, but it might alter the underlying science while doing so, leaving researchers with results that look right but aren’t. Today, Haiqu is […]",
-      "summary_language": "ja",
-      "url": "https://thequantuminsider.com/2026/10/07/haiqu-releases-agenticos-to-plan-and-check-quantum-research/",
-      "first_seen": "2026-10-08T08:36:56+09:00",
-      "status": "New"
-    },
-    {
-      "id": "af0398167d9560da2b41f083",
-      "published_at": "2026-10-07T15:34:33Z",
-      "collected_at_jst": "2026-10-08T08:36:56+09:00",
-      "region": "United States",
-      "country": "United States",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Innovation Policy"
-      ],
-      "innovation_policy": true,
-      "policy_areas": [
-        "Public Procurement & Industrial Policy"
-      ],
-      "policy_relevance": 4,
-      "source_type": "Major Media",
-      "source": "WIRED Artificial Intelligence",
-      "organization": "WIRED Artificial Intelligence",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "feed",
-      "collection_mode": "Daily",
-      "title": "米国防総省、5分動画でAI製品の調達を迅速化",
-      "title_original": "The Pentagon Hopes to Speed Up ‘Kill Chain’ AI Buys With 5-Minute Videos",
-      "summary": "米国防総省のTradewindsは、企業が5分以内の動画でAI製品を提案し、政府調達を迅速化する制度を運用している。CDAOが管理し、複数の戦略的重点分野を対象とする。",
-      "summary_original": "An under-the-radar procurement program led by the Department of Defense has been granting special statuses to would-be defense contractors that make it easier for the government to quickly purchase their AI offerings, based on product videos that must be no longer than five minutes. It’s part of the Pentagon’s desperate bid to inject competition in a market the United States military itself destroyed. The initiative, known as Tradewinds , is managed by DOD’s Chief Digital and Artificial Intelligence Office (CDAO.) Companies can submit videos describing how their AI products address one of several different “strategic focus areas” that the government periodically updates. At least once a mon…",
-      "summary_language": "ja",
-      "url": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
       "first_seen": "2026-10-08T08:36:56+09:00",
       "status": "New"
     }
