@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-21T21:09:49Z",
-  "updated_at_jst": "2026-11-22T06:09:49+09:00",
+  "updated_at": "2026-11-22T09:26:32Z",
+  "updated_at_jst": "2026-11-22T18:26:32+09:00",
   "source_policy": "Government, official company, established policy institute, major or specialist media, leading scientific publications, and clearly labeled scholarly records from OpenAlex, arXiv, and official scholarly endpoints.",
   "history_windows": {
     "innovation_policy_days": 365,
@@ -2530,6 +2530,74 @@
       "summary_language": "ja",
       "url": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/",
       "first_seen": "2026-11-21T08:56:58+09:00",
+      "status": "New"
+    },
+    {
+      "id": "d0f3da7f7b4620528538dffe",
+      "published_at": "2026-11-19T18:56:37Z",
+      "collected_at_jst": "2026-11-22T18:26:32+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "原子超流動体の局所速度計測で量子化渦を可視化",
+      "title_original": "Local velocimetry for atomic superfluids: from Riemann rarefaction waves to quantized vortices",
+      "summary": "物質波干渉計を用い、原子超流動体の波動関数の位相勾配から2次元速度場を再構成する手法を実証した。リーマン希薄流と量子化渦周辺の速度場を観測し、循環の量子化を示した。",
+      "summary_original": "We demonstrate local velocimetry for atomic superfluids in two dimensions (2D). Using matter-wave interferometry based on Raman--Bragg beam splitters, we map the local gradient of the phase of the superfluid's wavefunction onto displacement of the interference fringes and reconstruct the 2D velocity field. We illustrate the capabilities of this technique by applying it to two canonical problems. First, we directly observe the self-similar evolution of the velocity field in 1D Riemann rarefaction flows. Second, we map out the full 2D velocity field around quantized vortices, explicitly demonstrating the quantization of velocity circulation.",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2611.26608v1",
+      "first_seen": "2026-11-22T18:26:32+09:00",
+      "status": "New"
+    },
+    {
+      "id": "fa38bf57ec78f01cf591077f",
+      "published_at": "2026-11-19T18:55:55Z",
+      "collected_at_jst": "2026-11-22T18:26:32+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Quantum"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "arXiv",
+      "organization": "Cornell University",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "数値推定器からの量子最小値探索をクエリ最適化",
+      "title_original": "Query-Optimal Quantum Minimum Finding from Numerical Estimators",
+      "summary": "数値推定器を通じて評価する目的関数に対し、推定精度の信頼度増幅に伴う対数クエリ負荷を避ける量子最小値探索アルゴリズムを提案した。O(√N)のクエリ計算量を示す。",
+      "summary_original": "We propose a quantum minimum-finding algorithm for objectives accessed via numerical estimators that avoids the logarithmic query overhead of amplifying the confidence of estimates before the search. A coherent estimator that is $\\varepsilon$-accurate with probability at least $2/3$ on each of $N$ labels suffices to find a $2\\varepsilon$-optimal label using $O(\\sqrt N)$ base-estimator queries at constant confidence. The query bound and the additive-error constant are separately worst-case optimal. More generally, suppose a preparation assigns probability mass at least a known $p$ to objective values at most $a$. Without knowing $a$ or the prepared distribution, our algorithm returns a candi…",
+      "summary_language": "ja",
+      "url": "https://arxiv.org/abs/2611.26606v1",
+      "first_seen": "2026-11-22T18:26:32+09:00",
       "status": "New"
     },
     {
@@ -5630,6 +5698,42 @@
       "status": "New"
     },
     {
+      "id": "59ef484c5abf1fd0268fc2f6",
+      "published_at": "2026-11-18T16:49:37Z",
+      "collected_at_jst": "2026-11-22T18:26:32+09:00",
+      "region": "United States",
+      "country": "Global",
+      "topics": [
+        "Fusion Energy"
+      ],
+      "article_frames": [
+        "Innovation Policy"
+      ],
+      "innovation_policy": true,
+      "policy_areas": [
+        "National Programs & Strategy"
+      ],
+      "policy_relevance": 4,
+      "source_type": "Industry Association",
+      "source": "Fusion Industry Association",
+      "organization": "Fusion Industry Association",
+      "academic_kind": "News & Official Release",
+      "review_status": "",
+      "venue": "",
+      "doi": "",
+      "citation_count": 0,
+      "discovery_method": "feed",
+      "collection_mode": "Weekly",
+      "title": "フランス、2026～2035年の国家核融合エネルギー戦略を発表",
+      "title_original": "France Announces National Fusion Energy Strategy",
+      "summary": "フランスのフィリップ・バティスト高等教育・研究・イノベーション相が、2026～2035年を対象とする国家核融合エネルギー戦略を発表した。核融合を産業として優先する方針を示すものとされる。",
+      "summary_original": "On November 16, Philippe Baptiste, France's Minister of Higher Education, Research and Innovation, presented the country's National Fusion Energy Strategy for 2026 to 2035, marking an important step in recognizing and prioritizing fusion as an industry. The post France Announces National Fusion Energy Strategy appeared first on Fusion Industry Association .",
+      "summary_language": "ja",
+      "url": "https://www.fusionindustryassociation.org/france-announces-national-fusion-energy-strategy/?utm_source=rss&utm_medium=rss&utm_campaign=france-announces-national-fusion-energy-strategy",
+      "first_seen": "2026-11-22T18:26:32+09:00",
+      "status": "New"
+    },
+    {
       "id": "4a488760e6c75cfc100b3fc0",
       "published_at": "2026-11-18T16:37:15Z",
       "collected_at_jst": "2026-11-19T04:22:06+09:00",
@@ -6723,6 +6827,40 @@
       "summary_language": "ja",
       "url": "https://www.scmp.com/tech/big-tech/article/3374791/chinas-token-export-ambitions-take-shape-new-huawei-powered-data-centre",
       "first_seen": "2026-11-19T04:22:06+09:00",
+      "status": "New"
+    },
+    {
+      "id": "9c462d0aaa2d1036ca154862",
+      "published_at": "2026-11-18T00:00:00Z",
+      "collected_at_jst": "2026-11-22T18:26:32+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Space"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Research Square",
+      "organization": "None",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Research Square",
+      "doi": "https://doi.org/10.21203/rs.3.rs-11644514/v1",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "低軌道は自律的なデブリ衝突カスケードの直下に位置",
+      "title_original": "Low Earth orbit sits just below a self-sustaining debris cascade",
+      "summary": "低軌道のデブリ衝突カスケードを高度別に評価し、1,000 km未満の再生産数は0.67で臨界値を下回ると報告した。一方、物体の衝突断面積増加や衛星数の増加で臨界化する可能性を示した。",
+      "summary_original": "OpenAlex research topics: Space Satellite Systems and Control; Space exploration and regulation; Spacecraft Dynamics and Control; Kessler syndrome; space debris; low Earth orbit; displacement cascades; reproduction number; orbital decay; collision cross sections",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.21203/rs.3.rs-11644514/v1",
+      "first_seen": "2026-11-22T18:26:32+09:00",
       "status": "New"
     },
     {
@@ -9688,6 +9826,40 @@
       "summary_language": "ja",
       "url": "https://www.nytimes.com/2026/11/16/science/1998-ky26-asteroid-comet.html",
       "first_seen": "2026-11-18T04:46:16+09:00",
+      "status": "New"
+    },
+    {
+      "id": "084952a36f6aadd32be3c4c7",
+      "published_at": "2026-11-17T00:00:00Z",
+      "collected_at_jst": "2026-11-22T18:26:32+09:00",
+      "region": "Global",
+      "country": "Global",
+      "topics": [
+        "Semiconductors & Telecom"
+      ],
+      "article_frames": [
+        "Technology Innovation"
+      ],
+      "innovation_policy": false,
+      "policy_areas": [],
+      "policy_relevance": 0,
+      "source_type": "Preprint",
+      "source": "Engineering Archive (engrXiv)",
+      "organization": "None",
+      "academic_kind": "Preprint",
+      "review_status": "Not peer reviewed",
+      "venue": "Engineering Archive (engrXiv)",
+      "doi": "https://doi.org/10.31224/8830",
+      "citation_count": 0,
+      "discovery_method": "OpenAlex",
+      "collection_mode": "Weekly",
+      "title": "光Kerrマイクロコムによる再構成可能なマイクロ波フォトニック・フィルター",
+      "title_original": "Reconfigurable Microwave Photonic All-Pass Filters using Optical Kerr Microcombs",
+      "summary": "光Kerrマイクロコムを用いたマイクロ波フォトニック・オールパスフィルターを提案・実験実証した。ハードウェアを変更せずタップ係数を программингすることで、次数や群遅延などを柔軟に調整できる。",
+      "summary_original": "OpenAlex research topics: Advanced Photonic Communication Systems; Advanced Fiber Laser Technologies; Neural Networks and Reservoir Computing; reconfigurable filter; transversal filters; phase engineering; group delay; microwave signal processing",
+      "summary_language": "ja",
+      "url": "https://doi.org/10.31224/8830",
+      "first_seen": "2026-11-22T18:26:32+09:00",
       "status": "New"
     },
     {
@@ -85958,176 +86130,6 @@
       "summary_original": "onQ and the University of Cambridge launch the first IonQ Quantum Innovation Centre at the Cavendish Laboratory to advance quantum computing and networking.",
       "summary_language": "ja",
       "url": "https://www.ionq.com/news/ionq-and-the-university-of-cambridge-open-the-ionq-quantum-innovation-centre-at-cavendish-laboratorys-ray-dolby-centre",
-      "first_seen": "2026-10-16T03:31:13+09:00",
-      "status": "New"
-    },
-    {
-      "id": "69abb70d8fef52a4163e6371",
-      "published_at": "2026-10-15T00:00:00Z",
-      "collected_at_jst": "2026-10-16T03:31:13+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Biotechnology"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Scientific Publication",
-      "source": "Science Japan",
-      "organization": "Science Japan",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site listing and page metadata",
-      "collection_mode": "Daily",
-      "title": "黒ショウガ由来化合物、GPR97受容体を介して筋肥大を促進",
-      "title_original": "Black ginger-derived compound promotes muscle growth via GPR97 receptor",
-      "summary": "大阪公立大学の研究者らは、黒ショウガ由来化合物HMFがGPR97受容体を介して骨格筋の肥大を誘導する分子機構を明らかにした。筋量低下への応用につながる基礎的知見となる。",
-      "summary_original": "Professor Ryoichi Yamaji, Graduate Student Shuhei Fujita, Associate Professor Naoki Harada, and Assistant Professor Tomoya Kitakaze of the Graduate School of Agriculture, Osaka Metropolitan University, have elucidated the molecular mechanism by which the natural black ginger-derived compound HMF (5-hydroxy-7-methoxyflavone) induces hypertrophy of skeletal m… Skeletal muscle is the largest tissue in the human body, accounting for approximately 40% of body weight, and plays important roles not only in movement but also in sugar and lipid metabolism. On the other hand, decreases in skeletal muscle mass caused by aging, lack of exercise, prolonged bed rest, and other factors lead to declines in…",
-      "summary_language": "ja",
-      "url": "https://sj.jst.go.jp/news/202610/n1015-02k.html",
-      "first_seen": "2026-10-16T03:31:13+09:00",
-      "status": "New"
-    },
-    {
-      "id": "b4756a4a585cc52f13f00ae9",
-      "published_at": "2026-10-15T00:00:00Z",
-      "collected_at_jst": "2026-10-16T03:31:13+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Scientific Publication",
-      "source": "Science Japan",
-      "organization": "Science Japan",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site listing and page metadata",
-      "collection_mode": "Daily",
-      "title": "理研、体細胞変異から細胞系譜を再構成する解析法を開発",
-      "title_original": "Analyzing cells' evolutionary records: RIKEN develops method to directly reconstruct cell lineages from somatic mutations",
-      "summary": "理研を含む国際共同研究グループは、単一細胞RNAシーケンスから推定した体細胞変異を手掛かりに、正常組織内の細胞系譜と細胞多様性を直接再構成する解析手法を開発した。",
-      "summary_original": "An international joint research group including Special Temporary Research Scientist Satoshi Oota and Team Director Hideo Yokota of the RIKEN Center for Advanced Photonics developed a new analytical method that reconstructs cell lineages and cellular diversity within normal tissues, using somatic mutations estimated from single-cell RNA sequencing (scRNA-se… When cells divide, small mutations occur during DNA replication, and these accumulate in cells as somatic mutations. Somatic mutations that arise in a particular cell are inherited by its descendant cells, making them useful markers that record the history of cell divisions. Therefore, by comparing somatic mutations among cells, it is p…",
-      "summary_language": "ja",
-      "url": "https://sj.jst.go.jp/news/202610/n1015-04k.html",
-      "first_seen": "2026-10-16T03:31:13+09:00",
-      "status": "New"
-    },
-    {
-      "id": "66e6fa3ef638569822e0197b",
-      "published_at": "2026-10-15T00:00:00Z",
-      "collected_at_jst": "2026-10-16T03:31:13+09:00",
-      "region": "Asia",
-      "country": "Japan",
-      "topics": [
-        "Healthcare"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "日経バイオテク",
-      "organization": "日経バイオテク",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site listing and page metadata",
-      "collection_mode": "Daily",
-      "title": "Gate BioscienceとLilly、病因蛋白質の輸送を阻止する経口低分子薬の標的を追加",
-      "title_original": "米GateBio社とLilly社が契約拡大、病因蛋白質の細胞外輸送を阻止する経口低分子薬の標的追加へ",
-      "summary": "Gate BioscienceとEli Lillyは、経口低分子創薬プラットフォームを用いる共同開発・ライセンス契約を拡大した。GateBioが追加標的の創薬を担い、Lillyが後期前臨床開発以降を主導する。",
-      "summary_original": "Molecular Gate（分子ゲート）と呼ぶ経口低分子薬の創薬プラットフォーム「Molecular Gate Discovery Platform」を保有している米Gate Bioscience社は2026年10月5日、2025年7月に締結した米Eli Lilly and Company社との共同開発およびライセンス契約を拡大したと発表した。GateBio社は追加された標的に対する創薬を担い、さらに2つ目の標的が選定された場合には追加報酬を受け取る。Lilly社は後期前臨床開発以降を主導する。",
-      "summary_language": "ja",
-      "url": "https://bio.nikkeibp.co.jp/atcl/news/p1/26/10/12/15102/",
-      "first_seen": "2026-10-16T03:31:13+09:00",
-      "status": "New"
-    },
-    {
-      "id": "370d8453b070a7bffccc481b",
-      "published_at": "2026-10-15T00:00:00Z",
-      "collected_at_jst": "2026-10-16T03:31:13+09:00",
-      "region": "EU & Europe",
-      "country": "France",
-      "topics": [
-        "Artificial Intelligence"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Official Company",
-      "source": "Mistral AI News",
-      "organization": "Mistral AI News",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official-site listing and page metadata",
-      "collection_mode": "Daily",
-      "title": "Mistral、時系列予測向け基盤モデル「Timestral」を発表",
-      "title_original": "Timestral: Mistral's time-series foundation models | Mistral",
-      "summary": "Mistralは、5M〜209Mパラメータの時系列基盤モデル群「Timestral」を発表した。最大モデルは過去・将来の共変量に対応し、主要3ベンチマークで従来の最高性能を上回った。",
-      "summary_original": "Timestral, Mistral’s first family of time-series foundation models, delivers state-of-the-art probabilistic, multivariate forecasts with just 209M parameters, outperforming larger models on key benchmarks while supporting past and future covariates. Available in four sizes (5M to 209M parameters), it balances accuracy and efficiency, running efficiently on… Today, we’re releasing Timestral, our first family of time-series foundation models. Our largest model, at just 209M parameters, ranks first on all three of the field's main public benchmarks, GIFT-Eval, TIME, and fev-bench, outperforming the previous state of the art with only two-thirds of the model parameters. Timestral delivers proba…",
-      "summary_language": "ja",
-      "url": "https://mistral.ai/news/timestral/",
-      "first_seen": "2026-10-16T03:31:13+09:00",
-      "status": "New"
-    },
-    {
-      "id": "0fc318f76fbe518f96b488b2",
-      "published_at": "2026-10-15T00:00:00Z",
-      "collected_at_jst": "2026-10-16T03:31:13+09:00",
-      "region": "Global",
-      "country": "United States",
-      "topics": [
-        "Semiconductors & Telecom"
-      ],
-      "article_frames": [
-        "Technology Innovation"
-      ],
-      "innovation_policy": false,
-      "policy_areas": [],
-      "policy_relevance": 0,
-      "source_type": "Major Media",
-      "source": "EE Times",
-      "organization": "EE Times",
-      "academic_kind": "News & Official Release",
-      "review_status": "",
-      "venue": "",
-      "doi": "",
-      "citation_count": 0,
-      "discovery_method": "Official publisher listing via Jina reader; original URL retained",
-      "collection_mode": "Daily",
-      "title": "コパッケージド・オプティクス、生産計画段階へ移行",
-      "title_original": "![Image 90: Co-Packaged Optics Moves from Promise to Production Planning",
-      "summary": "コパッケージド・オプティクス（CPO）が実用化の構想段階から生産計画の段階へ移行している。半導体と光通信の統合実装に関する技術動向を扱う。",
-      "summary_original": "assives\") [HUSB237: The Cost-Effective PD Sink with Just 2 Passives](https://www.eetimes.com/husb237-the-cost-effective-pd-sink-with-just-2-passives/ \"HUSB237: The Cost-Effective PD Sink with Just 2 Passives\") By Hynetek Semiconductor Co., Ltd. 10.15.2026 [![Image 90: Co-Packaged Optics Moves from Promise to Production Planning](https://www.eetimes.com/wp-content/uploads/AyarLabs_CPO_Summit_Option1_600x340.jpg?fit=600%2C340?w=62)](https://www.eetimes.com/co-packaged-optics-moves-from-promise-to-production-planning/ \"Co-Packaged Optics Moves from Promise to Production Planning\") [Co-Packaged Optics Moves from Promise to Production Planning](https://www.eetimes.com/co-packaged-optics-moves-fr…",
-      "summary_language": "ja",
-      "url": "https://www.eetimes.com/wp-content/uploads/AyarLabs_CPO_Summit_Option1_600x340.jpg?fit=600%2C340?w=62",
       "first_seen": "2026-10-16T03:31:13+09:00",
       "status": "New"
     }
